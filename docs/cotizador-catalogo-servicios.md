@@ -414,3 +414,141 @@ horas, semanas y fecha estimada  →  WhatsApp directo  |  Datos → PDF tiquete
 El tiquete dentado del mockup pasa a ser la identidad visual del resultado en móvil y
 del PDF: mismo borde, mismo orden (resumen, fecha estimada, líneas con horas, rango,
 IVA, anticipo, vigencia, número de cotización).
+
+---
+
+## 14. Paquetes comerciales actuales de DKODING, mapeados al catálogo
+
+Fuente: textos de propuesta comercial compartidos el 2026-10-06 ("Sitio web profesional +
+Dominio y Hosting" y "Desarrollo de marca"). Son lo que hoy se vende y lo que el cliente
+ya reconoce; el cotizador los toma como **base incluida**, no como opciones.
+
+### 14.1 "Sitio web profesional + Dominio y Hosting"
+
+| Componente del paquete actual | Cómo entra al cotizador | Horas | Nota |
+|---|---|---:|---|
+| Diseño y desarrollo del sitio que refleje la identidad | = Tipo de sitio (§3 Paso A) | según tipo | Es el núcleo variable |
+| Formulario de contacto + botón flotante WhatsApp + redes | Bloque Contacto (P5 + P6) + Redes (P1) | incluido en base | Ya está en "siempre" |
+| Formulario de captación de datos | P5 adicional (lead magnet / suscripción) | 6 | Pasa a **incluido** en todo sitio |
+| Montaje y optimización de información y recursos | Horas de contenido ya repartidas en P1–P4 | — | Si el cliente no entrega contenido → multiplicador "contenido DKODING" |
+| Registro en Google (Search Console, Business Profile, Analytics) | Setup técnico transversal | incluido (16 h) | Añadir GBP al setup: +2 h |
+| **Capacitación** (admin, módulos, buenas prácticas, correos, alcance futuro, grabada) | Nueva primitiva transversal **P10 Capacitación y entrega** | 6 | 2 sesiones de 1,5 h + edición de grabación + guía PDF |
+| Seguridad: antivirus, antispam, reCAPTCHA | En la arquitectura nueva es **nativa** (sitio estático en Cloudflare + Turnstile + Payload con roles) | 0 extra | Se mantiene como *beneficio* en el copy, no como horas |
+| Copia de seguridad entregada (Drive/USB/WeTransfer) | Export del repo + base de datos + medios, automatizable | 1 | Incluido en entrega |
+| **3 meses de soporte** (dudas, montaje de contenido, soporte hosting y correos) | Nueva primitiva transversal **P11 Soporte post-lanzamiento** | 12 | 4 h/mes × 3; después pasa a retainer de mantenimiento (§7) |
+| Historia de lanzamiento para redes | Pieza de redes | 1,5 | Incluido |
+| Foto de perfil para redes con el sitio | Pieza de redes | 1 | Incluido |
+| Tarjeta digital dkard.co | Nuevo producto **dkard** (ver §14.3) | 4 | Incluido 1 tarjeta; adicionales se cotizan |
+| Dominio + hosting | Extras fijos (§3.4) | — | Año 1 incluido en el precio del paquete |
+
+**Resultado:** el "Sitio web profesional" es el tipo **Corporativo** del cotizador con un
+**paquete de entrega** fijo de **~26 h** (formulario de captación 6 + capacitación 6 +
+soporte 3 meses 12 + lanzamiento en redes 2,5 + dkard 4, redondeado) que se suma una
+sola vez y aparece en el tiquete como "Incluido en todo sitio DKODING". Eso mantiene la
+promesa comercial actual y la hace visible como valor, no como costo oculto.
+
+**Ajuste de copy obligatorio:** el texto actual afirma que "WordPress es el mejor gestor…".
+Con la arquitectura decidida (Astro + Payload) el argumento cambia y mejora: *"Tu sitio
+tiene un administrador propio, sin plugins que actualizar ni riesgo de hackeo por
+terceros, y carga hasta 10 veces más rápido que un WordPress típico"*. El beneficio para
+el cliente (administrar fácil, seguro, posicionar) se conserva; cambia la tecnología que
+lo cumple. Ver `arquitectura-plataforma-agencia.md`.
+
+### 14.2 "Desarrollo de marca"
+
+El paquete actual es más amplio que el "Desarrollo de marca completo" de §4 (80 h).
+Re-estimación por componente:
+
+| Componente | Horas |
+|---|---:|
+| Investigación de mercado y colorimetría | 6 |
+| Exploración de concepto y filosofía de marca | 6 |
+| Estudio e inspiración de conceptos gráficos (moodboard) | 4 |
+| Creación y selección de ícono y tipografía (3 propuestas, 3 rondas) | 20 |
+| Fuente premium (licencia: extra fijo) | — |
+| Manual de identidad (filosofía, tipografías, colores y degradados, aplicaciones y POP) | 16 |
+| Publicidad integral: membrete, flyer, firma digital, pendón y volantes, tarjetas | 12 |
+| Plantilla de diapositivas (portada, contraportada, contenido) | 5 |
+| Aplicación en camisetas y lapiceros (mockups) | 3 |
+| Kit de redes: foto de perfil, portada FB, diseños de post, formato historia | 8 |
+| Logotipo en 500+ formatos (color, por color de marca, negro/blanco/gris, monocromático para bordado, miniatura, vertical, horizontal, con slogan, con web, con perfil, solo ícono) × JPG/PNG/SVG/PDF/AI | 10 |
+| Dirección y entrega | 6 |
+| **Total** | **96** |
+
+Encaja como el nivel superior de §4 con nombre comercial propio:
+
+| Producto (nombre comercial) | Horas | Posición en el cotizador |
+|---|---:|---|
+| Logo sencillo | 12 | Entrada |
+| Logo profesional | 32 | Medio |
+| **Desarrollo de marca** (paquete actual, 96 h) | 96 | **Recomendado**: es el ancla de valor de la familia Marca |
+| Rebranding | 70 + migración | Casos con marca existente |
+
+Añadibles que hoy no están en el paquete y conviene ofrecer: animación de logo (+8 h),
+naming (+16 h), manual extendido con fotografía e iconografía (+16 h), implementación de
+la firma de correo en Google Workspace/Outlook (+2 h; el texto actual la excluye
+explícitamente, es una venta fácil).
+
+### 14.3 Nuevo producto: tarjeta digital dkard.co
+
+| Versión | Incluye | Horas |
+|---|---|---:|
+| dkard básica (incluida en todo sitio) | Perfil, foto, enlaces, WhatsApp, vCard descargable, QR | 4 |
+| dkard equipo | 1 plantilla + N tarjetas de empleados | 6 + 0,5 por tarjeta |
+| dkard con marca | Diseño sobre el manual de identidad del cliente | +3 |
+
+Técnicamente es una colección más en Payload servida como subdominio/ruta de
+`dkard.co`: un `tenant` ligero por tarjeta. Encaja en la misma plataforma sin stack nuevo.
+
+### 14.4 Cambios a la semilla YAML (§11)
+
+```yaml
+primitivas:
+  P10: { nombre: Capacitación y entrega,      horas: 6,  split: { estrategia: .50, contenido: .30, qa: .20 } }
+  P11: { nombre: Soporte post-lanzamiento 3m,  horas: 12, split: { front: .50, contenido: .25, qa: .25 } }
+
+incluido_en_todo_sitio:         # se suma una vez y se muestra como "Incluido"
+  - { nombre: Formulario de captación de datos, primitiva: P5 }
+  - { nombre: Registro en Google (Search Console, Analytics, Business Profile), horas: 2 }
+  - { nombre: Capacitación grabada (2 sesiones), primitiva: P10 }
+  - { nombre: Seguridad nativa (Cloudflare, Turnstile, roles), horas: 0, beneficio: true }
+  - { nombre: Copia de seguridad entregada, horas: 1 }
+  - { nombre: Soporte 3 meses, primitiva: P11 }
+  - { nombre: Historia de lanzamiento + foto de perfil para redes, horas: 2.5 }
+  - { nombre: Tarjeta digital dkard.co, horas: 4 }
+  - { nombre: Dominio + hosting año 1, extra_fijo: 430000 }
+
+marca:
+  - { slug: logo_sencillo,     horas: 12 }
+  - { slug: logo_profesional,  horas: 32 }
+  - { slug: desarrollo_marca,  horas: 96, recomendado: true,
+      opciones: [ { nombre: Animación de logo, horas: 8 }, { nombre: Naming, horas: 16 },
+                  { nombre: Manual extendido, horas: 16 }, { nombre: Implementar firma de correo, horas: 2 } ],
+      extras_fijos: [ { nombre: Licencia de fuente premium, segun_caso: true } ] }
+  - { slug: rebranding,        horas: 70 }
+
+dkard:
+  - { slug: dkard_basica, horas: 4, incluida_en_sitio: true }
+  - { slug: dkard_equipo, horas: 6, por_unidad: 0.5 }
+  - { slug: dkard_marca,  horas_extra: 3 }
+```
+
+### 14.5 Efecto en el precio semilla del "Sitio web profesional"
+
+Con las tarifas de §3.1 de `cotizador-por-hora.md`, tipo Corporativo (110 h) + setup
+(16 h) + paquete de entrega (26 h) + dirección 12 % ≈ **170 h**, diseño semi-custom ×1,4,
+contenido del cliente, urgencia normal:
+
+| | Horas | Rango COP (antes de IVA) |
+|---|---:|---|
+| Corporativo + incluidos | ~170 | ~13,5 M – 17,2 M |
+| Landing + incluidos | ~100 | ~8,0 M – 10,2 M |
+| Tienda + incluidos | ~270 | ~21,5 M – 27,4 M |
+
+Comparado con los precios públicos actuales de dkoding.net (Catálogo 2,4 M · Tienda
+3,5 M · Tienda avanzada 6 M, ver `analisis-sitio-actual.md`), la semilla queda **3 a 5
+veces por encima**. Eso es una decisión de negocio, no un error del modelo: o se bajan
+tarifas/horas para el segmento actual, o se crea un tier "Esencial" sobre el design
+system de DKODING (multiplicador 1.0, menos bloques, 60–70 h) que aterrice cerca de los
+precios actuales y deje el Corporativo como escalón superior. Recomiendo lo segundo:
+conserva la puerta de entrada y abre el ticket alto que hoy no existe.
