@@ -1,7 +1,13 @@
 # Análisis del sitio actual — dkoding.net
 
 > Fecha: 2026-10-06
-> Estado: **PRELIMINAR**. Reconstruido desde índices de buscador porque el acceso
+> Estado: **SUSTITUIDO** por [`auditoria-sitio-actual.md`](./auditoria-sitio-actual.md),
+> hecha con acceso directo al dominio. Se conserva como registro del método.
+> **Cuatro de sus hallazgos no se sostienen** contra el sitio real (duplicación
+> `/tienda/*`, ausencia de portafolio, ausencia de escalón de entrada, ausencia
+> de verticales) — ver §1 de la auditoría.
+>
+> Estado original: **PRELIMINAR**. Reconstruido desde índices de buscador porque el acceso
 > directo al dominio está bloqueado por la política de red del entorno (ver §0).
 > Todo lo marcado 🔸 es inferencia, no dato verificado.
 

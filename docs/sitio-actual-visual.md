@@ -2,7 +2,10 @@
 
 > Fecha: 2026-10-06. Complementa `analisis-sitio-actual.md` (que se hizo sin acceso).
 > Capturas: `img/dkoding-home-desktop.png`, `img/dkoding-home-desktop-full.png`,
-> `img/dkoding-home-mobile.png`. Logo original: `img/dkoding-logo.svg` (blanco, 230×75).
+> `img/dkoding-home-mobile.png`. Logo original: `img/dkoding-logo.svg` (horizontal, 403×109, `dkoding-logo-02.svg` del sitio).
+> ⚠️ Corrección 2026-10-06: la primera versión de este archivo era en realidad
+> `logo-clientes-10.svg` (cliente Uniformes & Bordados), porque el sitio actual lo
+> publica como `og:image`. Se conserva como `img/cliente-uniformes-y-bordados.svg`.
 
 ## Identidad visual actual
 
@@ -42,7 +45,7 @@
 | Peso home (desktop, networkidle) | **12.829 KB, 202 peticiones** (bigseo: 5.760 KB / 90) |
 | Title | `DKODING: Empresa de desarrollo web ᐈ Sitios que venden` |
 | H1 | "Empresa de desarrollo web" |
-| `og:image` | logo SVG de 230×75 (no sirve como preview social) |
+| `og:image` | **`logo-clientes-10.svg`: el logo de un cliente (Uniformes & Bordados), 230×75**. Error grave: la previsualización social de dkoding.net muestra la marca de otro |
 | Schema | Yoast: WebPage, ImageObject, BreadcrumbList, WebSite, Organization. Sin Service/FAQ/Review |
 | Idioma | `es-CO` |
 | Contacto | +57 300 286 7104 · info@dkoding.net · Cali |
