@@ -1,7 +1,8 @@
 # Diseño de la landing DKODING 2026
 
 > Fecha: 2026-10-06
-> Estado: **PROPUESTA v1**, lista para revisión.
+> Estado: **PROPUESTA v3** (estructura del plan Web PRO del cliente, sin precios, hero en slider).
+> Detalle de la v3 y su correspondencia con el plan: `plan-web-pro-estructura.md`.
 > Lienzo de diseño (editable, con cotizador funcional): https://claude.ai/artifact/Goh45JaCPxbFcYUNcdaZmP
 > Insumos: `auditoria-sitio-actual.md`, `sitio-actual-visual.md`,
 > `benchmark-bigseo-seo-geo-diseno-2026.md`, `arquitectura-plataforma-agencia.md`.
