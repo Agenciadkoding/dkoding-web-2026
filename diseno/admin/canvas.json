@@ -1,0 +1,40 @@
+{
+  "v": 3,
+  "createdOnFiles": { "v": 1, "at": "2026-10-06T19:30:00Z" },
+  "title": "DKODING Admin",
+  "launch": { "view": "canvas" },
+  "pages": [],
+  "boards": {
+    "Main.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 1240, "expand": "fill", "is_interactive": true, "title": "INI-01 · Inicio de la agencia (CEO)" },
+    "Cliente.dc.html": { "x": 1520, "y": 0, "w": 1440, "h": 1320, "expand": "fill", "is_interactive": true, "title": "CLI-02 · Panel de un cliente (vista agencia y vista cliente)" },
+    "Movil.dc.html": { "x": 3040, "y": 0, "w": 390, "h": 844, "is_interactive": true, "title": "MOB-01 · Alerta crítica en el celular" },
+    "Sitios.dc.html": { "x": 0, "y": 1740, "w": 1440, "h": 1180, "expand": "fill", "is_interactive": true, "title": "MON-01 · Sitios monitoreados" },
+    "Sitio.dc.html": { "x": 1520, "y": 1740, "w": 1440, "h": 1560, "expand": "fill", "is_interactive": true, "title": "MON-02 · Ficha de sitio, copias y restauración" },
+    "ConectarCpanel.dc.html": { "x": 3040, "y": 1740, "w": 1440, "h": 1100, "expand": "fill", "is_interactive": true, "title": "MON-03 · Asistente: conectar cPanel" },
+    "Boveda.dc.html": { "x": 0, "y": 3720, "w": 1440, "h": 1300, "expand": "fill", "is_interactive": true, "title": "VLT-01 · Bóveda de accesos" },
+    "Editor.dc.html": { "x": 1520, "y": 3720, "w": 1440, "h": 1420, "expand": "fill", "is_interactive": true, "title": "WEB-02 · Editor de página con panel SEO y GEO" },
+    "Sistema.dc.html": { "x": 3040, "y": 3720, "w": 1240, "h": 1880, "title": "Sistema de interfaz del admin" },
+    "Cotizaciones.dc.html": { "x": 0, "y": 5960, "w": 1440, "h": 1160, "expand": "fill", "is_interactive": true, "title": "VEN-01 · Cotizaciones y leads" },
+    "Tarifas.dc.html": { "x": 1520, "y": 5960, "w": 1440, "h": 1420, "expand": "fill", "is_interactive": true, "title": "COT-02 · Versión de tarifas del cotizador" }
+  },
+  "order": [
+    "Main.dc.html",
+    "Cliente.dc.html",
+    "Movil.dc.html",
+    "Sitios.dc.html",
+    "Sitio.dc.html",
+    "ConectarCpanel.dc.html",
+    "Boveda.dc.html",
+    "Editor.dc.html",
+    "Sistema.dc.html",
+    "Cotizaciones.dc.html",
+    "Tarifas.dc.html"
+  ],
+  "notes": {
+    "row1": { "x": 0, "y": -300, "text": "Inicio: agencia, cliente y celular", "kind": "title1", "maxW": 3430 },
+    "row2": { "x": 0, "y": 1440, "text": "Salud: monitoreo, copias y cPanel", "kind": "title1", "maxW": 4480 },
+    "row3": { "x": 0, "y": 3420, "text": "Bóveda, contenido y SEO", "kind": "title1", "maxW": 2960 },
+    "row4": { "x": 0, "y": 5660, "text": "Ventas: cotizaciones y cotizador", "kind": "title1", "maxW": 2960 }
+  },
+  "designSystems": []
+}

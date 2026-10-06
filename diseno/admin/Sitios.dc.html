@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Sitios monitoreados</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Blinker:wght@300;600;700&amp;family=Barlow:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#0C0C0C}
+a{color:#D98BFF;text-decoration:none}a:hover{color:#F0D4FF}
+button,input{font:inherit}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid #D98BFF;outline-offset:2px}
+.dk-nav a:hover{background:#17161C;color:#F4F2F8}
+.dk-row:hover{background:#1D1B24}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; min-height: 100%; background: #0C0C0C; color: #F4F2F8; font-family: 'Barlow', system-ui, sans-serif; font-size: 14px; line-height: 1.5">
+
+  <header style="border-bottom: 1px solid rgba(255,255,255,0.08); background: #101013">
+    <div style="padding: 10px 20px; display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center">
+      <a href="Main.dc.html" aria-label="DKODING, inicio del admin" style="display: flex; align-items: center; min-height: 40px"><img src="/_blob/af8d4aea91012d3a301c737f7fa02819" alt="DKODING" style="height: 26px; width: auto"></a>
+      <button type="button" style="display: flex; align-items: center; gap: 10px; min-height: 40px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.18); border-radius: 6px; cursor: pointer"><span aria-hidden="true" style="width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; border-radius: 5px; background: #6D00C2; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 13px">»</span><span style="font-weight: 600">Todos los clientes</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B3B0BC" stroke-width="2" aria-hidden="true"><path d="M7 10l5 5 5-5"></path></svg></button>
+      <div style="flex: 1 1 260px; display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 12px; background: #0C0C0C; border: 1px solid rgba(255,255,255,0.14); border-radius: 6px; max-width: 520px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B3B0BC" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg><label for="g-search" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Buscar o ejecutar una acción</label><input id="g-search" type="text" placeholder="Buscar cliente, sitio, cotización o escribe una acción" style="flex: 1; min-width: 0; background: transparent; border: 0; color: #F4F2F8; outline: none"><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 2px 6px; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; color: #B3B0BC">Ctrl K</kbd></div>
+      <div style="display: flex; align-items: center; gap: 8px; margin-left: auto"><a href="Movil.dc.html" aria-label="Alertas: 1 crítica, 3 de atención" style="position: relative; display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 6px; color: #F4F2F8"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10 21h4"></path></svg><span aria-hidden="true" style="position: absolute; top: 4px; right: 3px; min-width: 16px; height: 16px; padding: 0 4px; box-sizing: border-box; border-radius: 999px; background: #FF6B7A; color: #0C0C0C; font-size: 11px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center">4</span></a><img src="/_blob/c1f4c9d27736f1652e876e2f660320ef" alt="Tu cuenta: Dirección general" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 2px solid #3D0A6E"></div>
+    </div>
+  </header>
+
+  <div style="display: flex; flex-wrap: wrap; align-items: flex-start">
+    <nav class="dk-nav" aria-label="Módulos" style="flex: 1 1 232px; max-width: 260px; box-sizing: border-box; padding: 14px 10px 24px; background: #101013; border-right: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; gap: 2px; font-size: 14px">
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Inicio</a>
+      <a href="Cliente.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Clientes</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Salud</span>
+      <a href="Sitios.dc.html" aria-current="page" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #F4F2F8; background: #1A0B2B; font-weight: 600"><span aria-hidden="true" style="width: 14px; color: #C755EF; font-family: 'Blinker', sans-serif; font-weight: 700">»</span>Monitoreo<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(255,107,122,0.16); color: #FF8F9B; font-size: 12px; font-weight: 600">1</span></a>
+      <a href="Sitio.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Copias de seguridad</a>
+      <a href="Cliente.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Métricas</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Sitios web</span>
+      <a href="Editor.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Contenido</a>
+      <a href="Editor.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>SEO y GEO</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Ventas</span>
+      <a href="Cotizaciones.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Cotizaciones<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(224,169,59,0.16); color: #E0A93B; font-size: 12px; font-weight: 600">3</span></a>
+      <a href="Cotizaciones.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Leads</a>
+      <a href="Tarifas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Cotizador</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Seguridad</span>
+      <a href="Boveda.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Bóveda de accesos</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Agencia</span>
+      <a href="#lista" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Soporte</a>
+      <a href="#lista" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Equipo y roles</a>
+      <a href="#lista" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Integraciones</a>
+      <a href="#lista" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Registro de actividad</a>
+    </nav>
+
+    <main id="lista" style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 24px 28px 48px; display: flex; flex-direction: column; gap: 18px">
+
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <nav aria-label="Ruta" style="font-size: 13px; color: #B3B0BC">Agencia » Salud » Monitoreo</nav>
+          <h1 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 30px; line-height: 1.1">Sitios monitoreados</h1>
+          <span style="color: #B3B0BC">38 sitios de 31 clientes · 29 en cPanel, 9 en la plataforma DKODING</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+          <a href="#lista" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; color: #F4F2F8; font-weight: 600">Exportar CSV</a>
+          <a href="ConectarCpanel.dc.html" style="display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 16px; background: #6D00C2; border-radius: 4px; color: #FFFFFF; font-weight: 600"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Conectar cPanel</a>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between">
+        <div role="group" aria-label="Filtrar por estado" style="display: flex; flex-wrap: wrap; gap: 8px">
+          <sc-for list="{{chips}}" as="c" hint-placeholder-count="4"><button type="button" onClick="{{c.pick}}" aria-pressed="{{c.on}}" style="{{c.style}}"><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><path d="{{c.shape}}" fill="{{c.color}}"></path></svg>{{c.label}}<span style="font-variant-numeric: tabular-nums; opacity: 0.75">{{c.count}}</span></button></sc-for>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+          <label for="f-text" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Filtrar sitios</label>
+          <input id="f-text" type="text" placeholder="Filtrar por dominio o cliente" style="min-height: 36px; width: 240px; max-width: 100%; padding: 0 10px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px">
+          <button type="button" style="min-height: 36px; padding: 0 12px; background: transparent; color: #D8D4E2; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; cursor: pointer">Tipo: todos</button>
+          <button type="button" style="min-height: 36px; padding: 0 12px; background: transparent; color: #D8D4E2; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; cursor: pointer">Vista: Todos los sitios</button>
+        </div>
+      </div>
+
+      <sc-if value="{{hasSel}}" hint-placeholder-val="{{false}}">
+        <div role="region" aria-label="Acciones masivas" style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 10px 14px; background: #1A0B2B; border: 1px solid rgba(199,85,239,0.45); border-radius: 8px">
+          <span style="font-weight: 600">{{selCount}} seleccionados</span>
+          <button type="button" style="min-height: 36px; padding: 0 12px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-weight: 600; cursor: pointer">Ejecutar copia ahora</button>
+          <button type="button" style="min-height: 36px; padding: 0 12px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; cursor: pointer">Pausar avisos 24 h</button>
+          <button type="button" style="min-height: 36px; padding: 0 12px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; cursor: pointer">Generar informe</button>
+          <button type="button" onClick="{{clearSel}}" style="margin-left: auto; min-height: 36px; padding: 0 12px; background: transparent; color: #D98BFF; border: 0; font-weight: 600; cursor: pointer">Quitar selección</button>
+        </div>
+      </sc-if>
+
+      <section aria-label="Tabla de sitios" style="background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden">
+        <div style="overflow-x: auto">
+          <table style="width: 100%; min-width: 1060px; border-collapse: collapse">
+            <thead>
+              <tr style="color: #B3B0BC; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; text-align: left">
+                <th scope="col" style="padding: 10px 8px 10px 16px; width: 28px"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Seleccionar</span></th>
+                <th scope="col" style="padding: 10px 8px; font-weight: 600">Sitio</th>
+                <th scope="col" style="padding: 10px 8px; font-weight: 600">Disponibilidad 30 d</th>
+                <th scope="col" style="padding: 10px 8px; font-weight: 600">Última copia</th>
+                <th scope="col" style="padding: 10px 8px; font-weight: 600">SSL</th>
+                <th scope="col" style="padding: 10px 8px; font-weight: 600">Software</th>
+                <th scope="col" style="padding: 10px 8px; font-weight: 600">LCP p75</th>
+                <th scope="col" style="padding: 10px 16px 10px 8px; font-weight: 600">Integridad</th>
+              </tr>
+            </thead>
+            <tbody>
+              <sc-for list="{{rows}}" as="r" hint-placeholder-count="10">
+                <tr class="dk-row" style="{{r.rowStyle}}">
+                  <td style="padding: 10px 8px 10px 16px"><button type="button" onClick="{{r.toggle}}" aria-pressed="{{r.sel}}" aria-label="Seleccionar {{r.domain}}" style="{{r.box}}"><sc-if value="{{r.sel}}" hint-placeholder-val="{{false}}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg></sc-if></button></td>
+                  <td style="padding: 10px 8px"><a href="Sitio.dc.html" style="display: flex; align-items: center; gap: 10px; color: #F4F2F8"><svg width="12" height="12" viewBox="0 0 16 16" aria-label="{{r.stateLabel}}" style="flex: none"><path d="{{r.shape}}" fill="{{r.color}}"></path></svg><span style="display: flex; flex-direction: column; min-width: 0"><span style="font-weight: 600; font-family: 'JetBrains Mono', monospace; font-size: 13px">{{r.domain}}</span><span style="font-size: 12px; color: #B3B0BC">{{r.client}} · {{r.stack}}</span></span></a></td>
+                  <td style="padding: 10px 8px"><span style="display: flex; flex-direction: column; gap: 4px"><span style="font-variant-numeric: tabular-nums">{{r.uptime}}</span><span aria-hidden="true" style="display: grid; grid-template-columns: repeat(30, minmax(0, 1fr)); gap: 1px; width: 120px"><sc-for list="{{r.bars}}" as="b" hint-placeholder-count="30"><span style="{{b}}"></span></sc-for></span></span></td>
+                  <td style="padding: 10px 8px"><span style="display: flex; flex-direction: column"><span>{{r.backup}}</span><span style="{{r.backupNoteStyle}}">{{r.backupNote}}</span></span></td>
+                  <td style="padding: 10px 8px"><span style="{{r.sslStyle}}">{{r.ssl}}</span></td>
+                  <td style="padding: 10px 8px"><span style="display: flex; flex-direction: column"><span>{{r.sw}}</span><span style="{{r.swNoteStyle}}">{{r.swNote}}</span></span></td>
+                  <td style="padding: 10px 8px"><span style="{{r.lcpStyle}}">{{r.lcp}}</span></td>
+                  <td style="padding: 10px 16px 10px 8px"><span style="{{r.intStyle}}">{{r.integrity}}</span></td>
+                </tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding: 12px 16px; border-top: 1px solid rgba(255,255,255,0.08); color: #B3B0BC; font-size: 13px"><span>Mostrando {{shown}} de 38 · datos de ejemplo</span><span>LCP: velocidad real de visitantes (CrUX). Los sitios pequeños no tienen datos; ahí medimos en laboratorio una vez al día.</span></div>
+      </section>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { filter: 'all', sel: {} }; }
+  renderVals() {
+    var self = this;
+    var SH = { ok: 'M8 2a6 6 0 1 1 0 12A6 6 0 0 1 8 2z', warn: 'M8 1.5L15 14H1z', crit: 'M8 1L15 8L8 15L1 8z', all: 'M3 3h10v10H3z' };
+    var CO = { ok: '#5BE49B', warn: '#E0A93B', crit: '#FF6B7A', all: '#B3B0BC' };
+    var LB = { ok: 'Correcto', warn: 'Atención', crit: 'Crítico' };
+    var mono = 'font-family: JetBrains Mono, monospace; font-size: 12px; ';
+    function tone(t) { return mono + 'color: ' + (t === 'warn' ? '#E0A93B' : t === 'crit' ? '#FF8F9B' : t === 'none' ? '#8E8A9B' : '#D8D4E2') + ';'; }
+    function bars(pattern) {
+      var out = [];
+      for (var i = 0; i < 30; i++) {
+        var c = pattern.indexOf(i) > -1 ? '#FF6B7A' : '#2F8F5F';
+        out.push('display: block; height: 10px; border-radius: 1px; background: ' + c + ';');
+      }
+      return out;
+    }
+    var data = [
+      { id: 1, s: 'crit', domain: 'luzmauniformes.com', client: 'LuzMa', stack: 'WooCommerce · cPanel', uptime: '99,41 %', down: [29], backup: 'hoy 02:58', backupNote: 'verificada · 1,4 GB', bn: 'ok', ssl: '81 días', sslT: 'ok', sw: 'WP 6.8.2 · PHP 7.4', swNote: '3 plugins por actualizar', swT: 'warn', lcp: '2,9 s', lcpT: 'warn', integrity: 'sin cambios', intT: 'ok' },
+      { id: 2, s: 'warn', domain: 'coloradohardwood.co', client: 'Colorado Hardwood', stack: 'WordPress · cPanel', uptime: '99,99 %', down: [], backup: 'hoy 03:10', backupNote: 'verificada · 820 MB', bn: 'ok', ssl: '12 días', sslT: 'warn', sw: 'WP 6.8.3 · PHP 8.2', swNote: 'al día', swT: 'ok', lcp: '1,9 s', lcpT: 'warn', integrity: 'sin cambios', intT: 'ok' },
+      { id: 3, s: 'warn', domain: 'jhoanaperez.com', client: 'Jhoana Pérez', stack: 'WordPress · cPanel', uptime: '100 %', down: [], backup: 'hoy 03:15', backupNote: 'verificada · 310 MB', bn: 'ok', ssl: '64 días', sslT: 'ok', sw: 'WP 6.8.3 · PHP 8.1', swNote: 'token cPanel vence en 30 d', swT: 'warn', lcp: 'sin datos', lcpT: 'none', integrity: 'sin cambios', intT: 'ok' },
+      { id: 4, s: 'warn', domain: 'uniformesybordados.com', client: 'Uniformes & Bordados', stack: 'WordPress · cPanel', uptime: '99,97 %', down: [], backup: 'hoy 03:22', backupNote: '3,1 veces más grande que ayer', bn: 'warn', ssl: '77 días', sslT: 'ok', sw: 'WP 6.8.3 · PHP 8.2', swNote: 'al día', swT: 'ok', lcp: 'sin datos', lcpT: 'none', integrity: '214 archivos nuevos', intT: 'warn' },
+      { id: 5, s: 'ok', domain: '4bellu.com', client: '4Bellú', stack: 'WooCommerce · cPanel', uptime: '99,98 %', down: [], backup: 'hoy 03:05', backupNote: 'verificada · 2,2 GB', bn: 'ok', ssl: '58 días', sslT: 'ok', sw: 'WP 6.8.3 · PHP 8.2', swNote: 'al día', swT: 'ok', lcp: '1,6 s', lcpT: 'ok', integrity: 'sin cambios', intT: 'ok' },
+      { id: 6, s: 'ok', domain: 'blog.4bellu.com', client: '4Bellú', stack: 'Astro · plataforma DKODING', uptime: '100 %', down: [], backup: 'continua', backupNote: 'Git + base de datos', bn: 'ok', ssl: 'Cloudflare', sslT: 'ok', sw: 'Astro 6.1', swNote: 'despliegue de hoy', swT: 'ok', lcp: '0,9 s', lcpT: 'ok', integrity: 'inmutable', intT: 'ok' },
+      { id: 7, s: 'ok', domain: 'okvet.co', client: 'OkVet', stack: 'WordPress · cPanel', uptime: '100 %', down: [], backup: 'hoy 03:20', backupNote: 'verificada · 540 MB', bn: 'ok', ssl: '43 días', sslT: 'ok', sw: 'WP 6.8.3 · PHP 8.3', swNote: 'al día', swT: 'ok', lcp: '1,7 s', lcpT: 'ok', integrity: 'sin cambios', intT: 'ok' },
+      { id: 8, s: 'ok', domain: 'seguriserver.com', client: 'SeguriServer', stack: 'WordPress · cPanel', uptime: '99,99 %', down: [], backup: 'hoy 03:30', backupNote: 'verificada · 690 MB', bn: 'ok', ssl: '88 días', sslT: 'ok', sw: 'WP 6.8.3 · PHP 8.2', swNote: 'al día', swT: 'ok', lcp: '1,4 s', lcpT: 'ok', integrity: 'sin cambios', intT: 'ok' },
+      { id: 9, s: 'ok', domain: 'dimark.com.co', client: 'Dimark', stack: 'HTML · cPanel', uptime: '100 %', down: [], backup: 'hoy 03:33', backupNote: 'verificada · 95 MB', bn: 'ok', ssl: '70 días', sslT: 'ok', sw: 'Estático', swNote: 'sin CMS', swT: 'ok', lcp: 'sin datos', lcpT: 'none', integrity: 'sin cambios', intT: 'ok' },
+      { id: 10, s: 'ok', domain: 'dkoding.net', client: 'DKODING', stack: 'Astro · plataforma DKODING', uptime: '100 %', down: [], backup: 'continua', backupNote: 'Git + base de datos', bn: 'ok', ssl: 'Cloudflare', sslT: 'ok', sw: 'Astro 6.1', swNote: 'despliegue de ayer', swT: 'ok', lcp: '1,1 s', lcpT: 'ok', integrity: 'inmutable', intT: 'ok' }
+    ];
+    var f = this.state.filter;
+    var counts = { all: 38, crit: 1, warn: 3, ok: 34 };
+    var chips = [{ id: 'all', label: 'Todos' }, { id: 'crit', label: 'Crítico' }, { id: 'warn', label: 'Atención' }, { id: 'ok', label: 'Correcto' }].map(function (c) {
+      var on = f === c.id;
+      return { label: c.label, count: counts[c.id], on: on, shape: SH[c.id], color: CO[c.id],
+        pick: function () { self.setState({ filter: c.id }); },
+        style: 'display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 12px; border-radius: 999px; cursor: pointer; font-weight: 600; ' + (on ? 'background: #1A0B2B; color: #F4F2F8; border: 1px solid rgba(199,85,239,0.55);' : 'background: transparent; color: #D8D4E2; border: 1px solid rgba(255,255,255,0.18);') };
+    });
+    var sel = this.state.sel;
+    var rows = data.filter(function (d) { return f === 'all' || d.s === f; }).map(function (d) {
+      var isSel = !!sel[d.id];
+      return {
+        domain: d.domain, client: d.client, stack: d.stack, uptime: d.uptime, backup: d.backup, backupNote: d.backupNote,
+        ssl: d.ssl, sw: d.sw, swNote: d.swNote, lcp: d.lcp, integrity: d.integrity,
+        shape: SH[d.s], color: CO[d.s], stateLabel: LB[d.s], bars: bars(d.down), sel: isSel,
+        rowStyle: 'border-top: 1px solid rgba(255,255,255,0.06); ' + (isSel ? 'background: #1A0B2B;' : ''),
+        backupNoteStyle: 'font-size: 12px; color: ' + (d.bn === 'warn' ? '#E0A93B' : '#B3B0BC') + ';',
+        sslStyle: tone(d.sslT), swNoteStyle: 'font-size: 12px; color: ' + (d.swT === 'warn' ? '#E0A93B' : '#B3B0BC') + ';',
+        lcpStyle: tone(d.lcpT), intStyle: tone(d.intT),
+        box: 'display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; padding: 0; border-radius: 4px; cursor: pointer; ' + (isSel ? 'background: #6D00C2; border: 1px solid #6D00C2;' : 'background: transparent; border: 1px solid rgba(255,255,255,0.3);'),
+        toggle: function () { var n = Object.assign({}, sel); n[d.id] = !n[d.id]; self.setState({ sel: n }); }
+      };
+    });
+    var selCount = Object.keys(sel).filter(function (k) { return sel[k]; }).length;
+    return { chips: chips, rows: rows, shown: rows.length, hasSel: selCount > 0, selCount: selCount,
+      clearSel: function () { self.setState({ sel: {} }); } };
+  }
+}
+</script>
+</body>
+</html>

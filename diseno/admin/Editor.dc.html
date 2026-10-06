@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Editor de página con SEO</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Blinker:wght@300;600;700&amp;family=Barlow:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#0C0C0C}
+a{color:#D98BFF;text-decoration:none}a:hover{color:#F0D4FF}
+button,input,textarea{font:inherit}
+button:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{outline:2px solid #D98BFF;outline-offset:2px}
+.dk-nav a:hover{background:#17161C;color:#F4F2F8}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; min-height: 100%; background: #0C0C0C; color: #F4F2F8; font-family: 'Barlow', system-ui, sans-serif; font-size: 14px; line-height: 1.5">
+
+  <header style="border-bottom: 1px solid rgba(255,255,255,0.08); background: #101013">
+    <div style="padding: 10px 20px; display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center">
+      <a href="Main.dc.html" aria-label="DKODING, inicio del admin" style="display: flex; align-items: center; min-height: 40px"><img src="/_blob/af8d4aea91012d3a301c737f7fa02819" alt="DKODING" style="height: 26px; width: auto"></a>
+      <button type="button" style="display: flex; align-items: center; gap: 10px; min-height: 40px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.18); border-radius: 6px; cursor: pointer"><span aria-hidden="true" style="width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; border-radius: 5px; background: #3D0A6E; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 12px">4B</span><span style="font-weight: 600">4Bellú</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B3B0BC" stroke-width="2" aria-hidden="true"><path d="M7 10l5 5 5-5"></path></svg></button>
+      <div style="flex: 1 1 260px; display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 12px; background: #0C0C0C; border: 1px solid rgba(255,255,255,0.14); border-radius: 6px; max-width: 520px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B3B0BC" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg><label for="g-search" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Buscar o ejecutar una acción</label><input id="g-search" type="text" placeholder="Buscar en 4Bellú o escribe una acción" style="flex: 1; min-width: 0; background: transparent; border: 0; color: #F4F2F8; outline: none"><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 2px 6px; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; color: #B3B0BC">Ctrl K</kbd></div>
+      <div style="display: flex; align-items: center; gap: 8px; margin-left: auto"><a href="Movil.dc.html" aria-label="Alertas" style="position: relative; display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 6px; color: #F4F2F8"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10 21h4"></path></svg></a><img src="/_blob/7d05721698c121ad0a91b66af851cd58" alt="Tu cuenta: Contenido" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 2px solid #3D0A6E"></div>
+    </div>
+  </header>
+
+  <div style="display: flex; flex-wrap: wrap; align-items: flex-start">
+    <nav class="dk-nav" aria-label="Módulos" style="flex: 1 1 232px; max-width: 260px; box-sizing: border-box; padding: 14px 10px 24px; background: #101013; border-right: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; gap: 2px; font-size: 14px">
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Inicio</a>
+      <a href="Cliente.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Clientes</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Salud</span>
+      <a href="Sitios.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Monitoreo</a>
+      <a href="Sitio.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Copias de seguridad</a>
+      <a href="Cliente.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Métricas</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Sitios web</span>
+      <a href="Editor.dc.html" aria-current="page" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #F4F2F8; background: #1A0B2B; font-weight: 600"><span aria-hidden="true" style="width: 14px; color: #C755EF; font-family: 'Blinker', sans-serif; font-weight: 700">»</span>Contenido<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(199,85,239,0.16); color: #D98BFF; font-size: 12px; font-weight: 600">2</span></a>
+      <a href="Editor.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>SEO y GEO</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Ventas</span>
+      <a href="Cotizaciones.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Cotizaciones</a>
+      <a href="Cotizaciones.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Leads</a>
+      <a href="Tarifas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Cotizador</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Seguridad</span>
+      <a href="Boveda.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Bóveda de accesos</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Agencia</span>
+      <a href="#editor" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Soporte</a>
+      <a href="#editor" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Equipo y roles</a>
+      <a href="#editor" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Integraciones</a>
+      <a href="#editor" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Registro de actividad</a>
+    </nav>
+
+    <main id="editor" style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 20px 28px 48px; display: flex; flex-direction: column; gap: 16px">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px">
+        <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0">
+          <nav aria-label="Ruta" style="font-size: 13px; color: #B3B0BC">4Bellú » 4bellu.com · Astro + Payload » Contenido » Servicios</nav>
+          <h1 style="margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 28px; line-height: 1.1">Fajas posquirúrgicas<span style="display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; background: rgba(224,169,59,0.14); color: #E0A93B; font-family: 'Barlow', sans-serif; font-size: 13px; font-weight: 600"><svg width="10" height="10" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2a6 6 0 1 1 0 12z" fill="#E0A93B"></path><path d="M8 2a6 6 0 1 0 0 12" fill="none" stroke="#E0A93B" stroke-width="1.5"></path></svg>Cambios sin publicar</span></h1>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+          <span style="font-size: 12px; color: #B3B0BC">Guardado hace 3 s · v14</span>
+          <a href="#editor" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; color: #F4F2F8; font-weight: 600">Vista previa</a>
+          <button type="button" style="min-height: 40px; padding: 0 14px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; cursor: pointer">Enviar a revisión</button>
+          <button type="button" disabled="{{blocked}}" style="{{publishStyle}}">{{publishLabel}}</button>
+        </div>
+      </div>
+
+      <div role="tablist" aria-label="Partes del documento" style="display: flex; flex-wrap: wrap; gap: 4px; border-bottom: 1px solid rgba(255,255,255,0.1)">
+        <sc-for list="{{tabs}}" as="t" hint-placeholder-count="5"><button type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}" style="{{t.style}}">{{t.label}}<span style="{{t.badgeStyle}}">{{t.badge}}</span></button></sc-for>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+        <div style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+
+          <sc-if value="{{isSeo}}" hint-placeholder-val="{{true}}">
+            <section aria-labelledby="h-serp" style="display: flex; flex-direction: column; gap: 14px; padding: 18px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px">
+              <h2 id="h-serp" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">Cómo se verá en Google</h2>
+              <div style="padding: 16px; background: #FFFFFF; color: #202124; border-radius: 8px; font-family: Arial, sans-serif; display: flex; flex-direction: column; gap: 4px; max-width: 600px">
+                <span style="font-size: 12px; color: #4D5156">4bellu.com › servicios › fajas-posquirurgicas</span>
+                <span style="font-size: 20px; line-height: 1.3; color: #1A0DAB">{{serpTitle}}</span>
+                <span style="font-size: 14px; line-height: 1.58; color: #4D5156">{{serpDesc}}</span>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px">
+                <div style="display: flex; justify-content: space-between; gap: 8px"><label for="seo-title" style="font-weight: 600">Título SEO</label><span style="{{titleMeterStyle}}">{{titleMeter}}</span></div>
+                <input id="seo-title" type="text" value="{{title}}" onChange="{{setTitle}}" style="min-height: 40px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px">
+                <span style="font-size: 12px; color: #B3B0BC">Plantilla «{título} · {marca}». Google no fija un límite de caracteres; la barra mide el ancho que suele verse completo.</span>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px">
+                <div style="display: flex; justify-content: space-between; gap: 8px"><label for="seo-desc" style="font-weight: 600">Descripción</label><button type="button" onClick="{{genDesc}}" style="min-height: 28px; padding: 0 8px; background: transparent; color: #D98BFF; border: 0; font-weight: 600; cursor: pointer">Generar desde el resumen del hero</button></div>
+                <textarea id="seo-desc" rows="3" value="{{desc}}" onChange="{{setDesc}}" style="padding: 10px 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; resize: vertical"></textarea>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 14px">
+                <div style="display: flex; flex-direction: column; gap: 6px"><label for="seo-slug" style="font-weight: 600">Slug</label><input id="seo-slug" type="text" value="fajas-posquirurgicas" style="min-height: 40px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 13px"><span style="font-size: 12px; color: #E0A93B">Página publicada: si lo cambias creamos una redirección 301 automática.</span></div>
+                <div style="display: flex; flex-direction: column; gap: 6px"><span style="font-weight: 600">Indexación</span><div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="padding: 6px 10px; border-radius: 999px; background: rgba(91,228,155,0.12); color: #5BE49B; font-weight: 600; font-size: 13px">index · follow</span><span style="padding: 6px 10px; border-radius: 999px; background: rgba(255,255,255,0.06); color: #D8D4E2; font-size: 13px">en el sitemap</span><span style="padding: 6px 10px; border-radius: 999px; background: rgba(255,255,255,0.06); color: #D8D4E2; font-size: 13px">canonical propio</span></div><span style="font-size: 12px; color: #B3B0BC">Es una página de dinero: poner noindex pide confirmación.</span></div>
+              </div>
+            </section>
+
+            <section aria-labelledby="h-gsc" style="display: flex; flex-direction: column; gap: 8px; padding: 18px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px">
+              <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: center"><h2 id="h-gsc" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">Lo que Google ya le asigna a esta URL</h2><span style="font-size: 12px; color: #B3B0BC">Search Console · últimos 28 días · posición media</span></div>
+              <div style="overflow-x: auto"><table style="width: 100%; min-width: 520px; border-collapse: collapse">
+                <thead><tr style="color: #B3B0BC; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; text-align: left"><th scope="col" style="padding: 6px 0; font-weight: 600">Consulta</th><th scope="col" style="padding: 6px 8px; font-weight: 600; text-align: right">Clics</th><th scope="col" style="padding: 6px 8px; font-weight: 600; text-align: right">Impresiones</th><th scope="col" style="padding: 6px 0 6px 8px; font-weight: 600; text-align: right">Posición</th></tr></thead>
+                <tbody><sc-for list="{{queries}}" as="q" hint-placeholder-count="5"><tr style="border-top: 1px solid rgba(255,255,255,0.06)"><td style="padding: 8px 0">{{q.q}}</td><td style="padding: 8px; text-align: right; font-variant-numeric: tabular-nums">{{q.c}}</td><td style="padding: 8px; text-align: right; font-variant-numeric: tabular-nums">{{q.i}}</td><td style="padding: 8px 0 8px 8px; text-align: right; font-variant-numeric: tabular-nums">{{q.p}}</td></tr></sc-for></tbody>
+              </table></div>
+              <span style="font-size: 13px; color: #E0A93B">«faja posquirúrgica cali» tiene 1.900 impresiones en posición 8,4 y no aparece en el título. Oportunidad.</span>
+            </section>
+          </sc-if>
+
+          <sc-if value="{{isContent}}" hint-placeholder-val="{{false}}">
+            <section aria-label="Bloques" style="display: flex; flex-direction: column; gap: 8px; padding: 18px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px">
+              <sc-for list="{{blocks}}" as="b" hint-placeholder-count="6">
+                <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; min-height: 52px; padding: 8px 12px; background: #0F0F11; border: 1px solid rgba(255,255,255,0.08); border-radius: 6px">
+                  <span aria-hidden="true" style="color: #8E8A9B; font-family: 'JetBrains Mono', monospace">⋮⋮</span>
+                  <span style="display: flex; flex-direction: column; flex: 1 1 240px; min-width: 0"><span style="font-weight: 600">{{b.type}}</span><span style="font-size: 12px; color: #B3B0BC">{{b.summary}}</span></span>
+                  <span style="{{b.warnStyle}}">{{b.warn}}</span>
+                </div>
+              </sc-for>
+              <button type="button" style="min-height: 44px; background: transparent; color: #D98BFF; border: 1px dashed rgba(217,139,255,0.45); border-radius: 6px; font-weight: 600; cursor: pointer">Añadir bloque · Hero, Contenido, Prueba social, Conversión, Tabla, FAQ, CTA cotizador</button>
+            </section>
+          </sc-if>
+
+          <sc-if value="{{isSchema}}" hint-placeholder-val="{{false}}">
+            <section aria-labelledby="h-sch" style="display: flex; flex-direction: column; gap: 10px; padding: 18px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px">
+              <h2 id="h-sch" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">Schema generado: Service + BreadcrumbList</h2>
+              <span style="color: #B3B0BC">Se arma solo desde los campos de la página. Nadie escribe JSON a mano; un error de tipo detiene la publicación.</span>
+              <div style="display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; background: rgba(224,169,59,0.08); border: 1px solid rgba(224,169,59,0.35); border-radius: 8px; font-size: 13px; color: #EAD3A2"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true" style="flex: none; margin-top: 3px"><path d="M8 1.5L15 14H1z" fill="#E0A93B"></path></svg>FAQPage: sin resultado enriquecido en Google desde el 7 de mayo de 2026. Lo dejamos opcional por si otros motores lo usan.</div>
+              <pre style="margin: 0; padding: 14px; background: #0C0C0C; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; overflow-x: auto; font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 1.6; color: #D8D4E2">{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://4bellu.com/servicios/fajas-posquirurgicas#service",
+  "name": "Fajas posquirúrgicas",
+  "provider": { "@id": "https://4bellu.com/#organization" },
+  "areaServed": "Cali, Colombia",
+  "serviceType": "Fajas y prendas de compresión"
+}</pre>
+            </section>
+          </sc-if>
+
+          <sc-if value="{{isOther}}" hint-placeholder-val="{{false}}">
+            <section style="display: flex; flex-direction: column; gap: 8px; padding: 24px; background: #151518; border: 1px dashed rgba(255,255,255,0.18); border-radius: 10px">
+              <span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">{{otherTitle}}</span>
+              <span style="color: #B3B0BC; max-width: 640px">{{otherDesc}}</span>
+            </section>
+          </sc-if>
+        </div>
+
+        <aside style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+          <section aria-labelledby="h-chk" style="display: flex; flex-direction: column; gap: 10px; padding: 16px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px">
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px"><h2 id="h-chk" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">Revisión SEO</h2><span style="{{verdictStyle}}">{{verdict}}</span></div>
+            <span style="font-size: 13px; color: #B3B0BC">{{passCount}} comprobaciones correctas. Sin puntaje de 0 a 100: lo que bloquea, bloquea.</span>
+            <sc-for list="{{checks}}" as="c" hint-placeholder-count="7">
+              <div style="display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; border-top: 1px solid rgba(255,255,255,0.06)">
+                <svg width="12" height="12" viewBox="0 0 16 16" aria-label="{{c.label}}" style="flex: none; margin-top: 4px"><path d="{{c.shape}}" fill="{{c.color}}"></path></svg>
+                <span style="display: flex; flex-direction: column; min-width: 0"><span style="font-weight: 600">{{c.title}}</span><span style="font-size: 12px; color: #B3B0BC">{{c.why}}</span></span>
+              </div>
+            </sc-for>
+          </section>
+          <section aria-labelledby="h-geo" style="display: flex; flex-direction: column; gap: 8px; padding: 16px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px">
+            <h2 id="h-geo" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">En motores de IA</h2>
+            <span style="font-size: 13px; color: #B3B0BC">8 prompts sobre fajas en Cali · corrida del 1 de octubre</span>
+            <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; text-align: center; font-size: 12px">
+              <span style="display: flex; flex-direction: column; gap: 2px; padding: 8px 4px; background: #0F0F11; border-radius: 6px"><span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 18px">3/8</span>ChatGPT</span>
+              <span style="display: flex; flex-direction: column; gap: 2px; padding: 8px 4px; background: #0F0F11; border-radius: 6px"><span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 18px">5/8</span>Perplexity</span>
+              <span style="display: flex; flex-direction: column; gap: 2px; padding: 8px 4px; background: #0F0F11; border-radius: 6px"><span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 18px">2/8</span>Gemini</span>
+              <span style="display: flex; flex-direction: column; gap: 2px; padding: 8px 4px; background: #0F0F11; border-radius: 6px"><span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 18px">1/8</span>Claude</span>
+            </div>
+            <span style="font-size: 13px; color: #D8D4E2">Esta URL es la más citada por Perplexity. Añadir una tabla de tallas con medidas reales suele aumentar las citas.</span>
+          </section>
+        </aside>
+      </div>
+      <p style="margin: 0; font-size: 12px; color: #8E8A9B">Datos de ejemplo: consultas, cifras y resultados de IA son ilustrativos.</p>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1420}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { tab: 'seo', title: 'Fajas posquirúrgicas · 4Bellú', desc: '' };
+  }
+  renderVals() {
+    var self = this, st = this.state;
+    var tabDefs = [
+      { id: 'content', label: 'Contenido', badge: '1' },
+      { id: 'seo', label: 'SEO', badge: '' },
+      { id: 'schema', label: 'Schema', badge: '' },
+      { id: 'links', label: 'Enlaces', badge: '3', t: 'Enlazado interno', d: '4 páginas enlazan aquí. 3 sugerencias explicables: textos de otras páginas que mencionan «faja posquirúrgica» sin enlazar. Insertar crea el enlace por referencia, así sobrevive a cambios de slug.' },
+      { id: 'history', label: 'Historial', badge: '', t: 'Historial de versiones', d: 'v14 autoguardado · v13 publicada por Contenido el 28/09 · v12 aprobada por el cliente. Restaurar siempre crea un borrador; nunca publica directamente.' }
+    ];
+    var tabs = tabDefs.map(function (t) {
+      var on = st.tab === t.id;
+      return { label: t.label, badge: t.badge, on: on, pick: function () { self.setState({ tab: t.id }); },
+        badgeStyle: t.badge ? 'margin-left: 6px; padding: 0 6px; border-radius: 999px; background: rgba(224,169,59,0.16); color: #E0A93B; font-size: 11px;' : 'display: none;',
+        style: 'display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; background: transparent; border: 0; border-bottom: 2px solid ' + (on ? '#C755EF' : 'transparent') + '; color: ' + (on ? '#F4F2F8' : '#B3B0BC') + '; font-weight: 600; cursor: pointer; margin-bottom: -1px;' };
+    });
+    var cur = tabDefs.filter(function (t) { return t.id === st.tab; })[0];
+    var len = st.title.length;
+    var descOk = st.desc.trim().length > 0;
+    var titleHasKw = /cali/i.test(st.title);
+    var OK = 'M8 2a6 6 0 1 1 0 12A6 6 0 0 1 8 2z', WARN = 'M8 1.5L15 14H1z', CRIT = 'M8 1L15 8L8 15L1 8z';
+    var checks = [
+      descOk ? { shape: OK, color: '#5BE49B', label: 'Correcto', title: 'Descripción escrita', why: 'Google puede usarla en el resultado.' }
+             : { shape: CRIT, color: '#FF6B7A', label: 'Bloqueante', title: 'Falta la descripción', why: 'Sin ella Google arma un fragmento con cualquier texto de la página.' },
+      { shape: CRIT, color: '#FF6B7A', label: 'Bloqueante', title: '1 imagen sin texto alternativo', why: 'Bloque Beneficios · faja-frontal.webp. Ve a Contenido.' },
+      titleHasKw ? { shape: OK, color: '#5BE49B', label: 'Correcto', title: 'El título incluye la ciudad', why: 'Coincide con la consulta que más impresiones trae.' }
+                 : { shape: WARN, color: '#E0A93B', label: 'Mejora', title: 'El título no menciona Cali', why: 'La consulta principal de esta URL incluye la ciudad.' },
+      { shape: OK, color: '#5BE49B', label: 'Correcto', title: 'Un solo H1', why: 'Lo pone el bloque Hero; no se puede duplicar.' },
+      { shape: OK, color: '#5BE49B', label: 'Correcto', title: 'Canonical a sí misma', why: 'Responde 200 y es indexable.' },
+      { shape: OK, color: '#5BE49B', label: 'Correcto', title: 'Schema Service válido', why: 'Campos requeridos completos.' },
+      { shape: WARN, color: '#E0A93B', label: 'Mejora', title: 'Revisión vencida hace 21 días', why: 'Servicios se revisan cada 6 meses.' }
+    ];
+    var blocking = checks.filter(function (c) { return c.label === 'Bloqueante'; }).length;
+    var warns = checks.filter(function (c) { return c.label === 'Mejora'; }).length;
+    var passes = checks.length - blocking - warns;
+    var verdict = blocking ? 'Bloqueado' : warns ? 'Mejorable' : 'Listo';
+    var vColor = blocking ? '#FF8F9B' : warns ? '#E0A93B' : '#5BE49B';
+    var vBg = blocking ? 'rgba(255,107,122,0.16)' : warns ? 'rgba(224,169,59,0.16)' : 'rgba(91,228,155,0.14)';
+    var blocks = [
+      { type: 'Hero · H1', summary: 'Fajas posquirúrgicas en Cali, a tu medida', warn: '' },
+      { type: 'Beneficios', summary: '4 tarjetas con imagen', warn: '1 imagen sin alt' },
+      { type: 'Tabla comparativa', summary: 'Compresión media frente a alta', warn: '' },
+      { type: 'Prueba social', summary: '3 testimonios con nombre', warn: '' },
+      { type: 'FAQ', summary: '6 preguntas', warn: '' },
+      { type: 'CTA cotizador', summary: 'WhatsApp con mensaje de talla', warn: '' }
+    ].map(function (b) { b.warnStyle = b.warn ? 'padding: 2px 8px; border-radius: 999px; background: rgba(255,107,122,0.16); color: #FF8F9B; font-size: 12px; font-weight: 600;' : 'display: none;'; return b; });
+    var queries = [
+      { q: 'faja posquirúrgica cali', c: '74', i: '1.900', p: '8,4' },
+      { q: 'fajas colombianas posquirúrgicas', c: '51', i: '2.430', p: '11,2' },
+      { q: '4bellu fajas', c: '48', i: '96', p: '1,0' },
+      { q: 'faja después de lipo', c: '22', i: '1.310', p: '14,7' },
+      { q: 'faja posparto cali', c: '9', i: '640', p: '17,9' }
+    ];
+    return {
+      tabs: tabs, isSeo: st.tab === 'seo', isContent: st.tab === 'content', isSchema: st.tab === 'schema', isOther: st.tab === 'links' || st.tab === 'history',
+      otherTitle: cur && cur.t ? cur.t : '', otherDesc: cur && cur.d ? cur.d : '',
+      title: st.title, desc: st.desc,
+      serpTitle: st.title || 'Fajas posquirúrgicas',
+      serpDesc: descOk ? st.desc : 'Fajas posquirúrgicas · Tallas · Envíos · 4Bellú · Fajas y moldeadoras colombianas · Escríbenos por WhatsApp…',
+      titleMeter: len + ' caracteres · ' + (len > 60 ? 'puede cortarse' : 'se ve completo'),
+      titleMeterStyle: 'font-size: 12px; font-weight: 600; color: ' + (len > 60 ? '#E0A93B' : '#5BE49B') + ';',
+      setTitle: function (ev) { self.setState({ title: ev.target.value }); },
+      setDesc: function (ev) { self.setState({ desc: ev.target.value }); },
+      genDesc: function () { self.setState({ desc: 'Fajas posquirúrgicas colombianas a tu medida en Cali: compresión médica, tallas reales y asesoría por WhatsApp. Envíos a todo el país.' }); },
+      checks: checks, verdict: verdict, passCount: passes + ' de ' + checks.length,
+      verdictStyle: 'padding: 3px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; background: ' + vBg + '; color: ' + vColor + ';',
+      blocked: blocking > 0,
+      publishLabel: blocking ? 'Publicar · ' + blocking + ' bloqueante' + (blocking > 1 ? 's' : '') : 'Publicar',
+      publishStyle: 'min-height: 40px; padding: 0 16px; border-radius: 4px; font-weight: 600; ' + (blocking ? 'background: transparent; color: #8E8A9B; border: 1px solid rgba(255,255,255,0.18); cursor: not-allowed;' : 'background: #6D00C2; color: #FFFFFF; border: 0; cursor: pointer;'),
+      blocks: blocks, queries: queries
+    };
+  }
+}
+</script>
+</body>
+</html>

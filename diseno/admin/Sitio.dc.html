@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Ficha de sitio y copias</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Blinker:wght@300;600;700&amp;family=Barlow:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#0C0C0C}
+a{color:#D98BFF;text-decoration:none}a:hover{color:#F0D4FF}
+button,input{font:inherit}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid #D98BFF;outline-offset:2px}
+.dk-nav a:hover{background:#17161C;color:#F4F2F8}
+.dk-row:hover{background:#1D1B24}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; min-height: 100%; background: #0C0C0C; color: #F4F2F8; font-family: 'Barlow', system-ui, sans-serif; font-size: 14px; line-height: 1.5">
+
+  <header style="border-bottom: 1px solid rgba(255,255,255,0.08); background: #101013">
+    <div style="padding: 10px 20px; display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center">
+      <a href="Main.dc.html" aria-label="DKODING, inicio del admin" style="display: flex; align-items: center; min-height: 40px"><img src="/_blob/af8d4aea91012d3a301c737f7fa02819" alt="DKODING" style="height: 26px; width: auto"></a>
+      <button type="button" style="display: flex; align-items: center; gap: 10px; min-height: 40px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.18); border-radius: 6px; cursor: pointer"><span aria-hidden="true" style="width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; border-radius: 5px; background: #3D0A6E; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 12px">LM</span><span style="font-weight: 600">LuzMa</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B3B0BC" stroke-width="2" aria-hidden="true"><path d="M7 10l5 5 5-5"></path></svg></button>
+      <div style="flex: 1 1 260px; display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 12px; background: #0C0C0C; border: 1px solid rgba(255,255,255,0.14); border-radius: 6px; max-width: 520px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B3B0BC" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg><label for="g-search" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Buscar o ejecutar una acción</label><input id="g-search" type="text" placeholder="Buscar en LuzMa o escribe una acción" style="flex: 1; min-width: 0; background: transparent; border: 0; color: #F4F2F8; outline: none"><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 2px 6px; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; color: #B3B0BC">Ctrl K</kbd></div>
+      <div style="display: flex; align-items: center; gap: 8px; margin-left: auto"><a href="Movil.dc.html" aria-label="Alertas: 1 crítica" style="position: relative; display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 6px; color: #F4F2F8"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10 21h4"></path></svg><span aria-hidden="true" style="position: absolute; top: 4px; right: 3px; min-width: 16px; height: 16px; padding: 0 4px; box-sizing: border-box; border-radius: 999px; background: #FF6B7A; color: #0C0C0C; font-size: 11px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center">1</span></a><img src="/_blob/71f25de0f1226aaf37f6bb2ad7e7231b" alt="Tu cuenta: Operaciones" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 2px solid #3D0A6E"></div>
+    </div>
+  </header>
+
+  <div style="display: flex; flex-wrap: wrap; align-items: flex-start">
+    <nav class="dk-nav" aria-label="Módulos" style="flex: 1 1 232px; max-width: 260px; box-sizing: border-box; padding: 14px 10px 24px; background: #101013; border-right: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; gap: 2px; font-size: 14px">
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Inicio</a>
+      <a href="Cliente.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Clientes</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Salud</span>
+      <a href="Sitios.dc.html" aria-current="page" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #F4F2F8; background: #1A0B2B; font-weight: 600"><span aria-hidden="true" style="width: 14px; color: #C755EF; font-family: 'Blinker', sans-serif; font-weight: 700">»</span>Monitoreo<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(255,107,122,0.16); color: #FF8F9B; font-size: 12px; font-weight: 600">1</span></a>
+      <a href="Sitio.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Copias de seguridad</a>
+      <a href="Cliente.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Métricas</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Sitios web</span>
+      <a href="Editor.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Contenido</a>
+      <a href="Editor.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>SEO y GEO</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Ventas</span>
+      <a href="Cotizaciones.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Cotizaciones</a>
+      <a href="Cotizaciones.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Leads</a>
+      <a href="Tarifas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Cotizador</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Seguridad</span>
+      <a href="Boveda.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Bóveda de accesos</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Agencia</span>
+      <a href="#ficha" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Soporte</a>
+      <a href="#ficha" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Equipo y roles</a>
+      <a href="#ficha" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Integraciones</a>
+      <a href="#ficha" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Registro de actividad</a>
+    </nav>
+
+    <main id="ficha" style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 24px 28px 48px; display: flex; flex-direction: column; gap: 18px">
+
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px">
+        <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0">
+          <nav aria-label="Ruta" style="font-size: 13px; color: #B3B0BC"><a href="Sitios.dc.html">Monitoreo</a> » LuzMa » luzmauniformes.com</nav>
+          <h1 style="margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 30px; line-height: 1.1"><span style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 24px">luzmauniformes.com</span><span style="display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; background: rgba(255,107,122,0.16); color: #FF8F9B; font-family: 'Barlow', sans-serif; font-size: 13px; font-weight: 600"><svg width="10" height="10" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1L15 8L8 15L1 8z" fill="#FF6B7A"></path></svg>Caído hace 6 min</span></h1>
+          <span style="color: #B3B0BC">WooCommerce 9.3 · WordPress 6.8.2 · PHP 7.4 · cPanel <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px">cpanel.luzmauniformes.com</span> · responsable: Operaciones</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+          <a href="Boveda.dc.html" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; color: #F4F2F8; font-weight: 600">Accesos del sitio</a>
+          <button type="button" onClick="{{runBackup}}" style="min-height: 40px; padding: 0 16px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-weight: 600; cursor: pointer">Copia manual ahora</button>
+        </div>
+      </div>
+
+      <section aria-labelledby="h-inc" style="display: flex; flex-wrap: wrap; gap: 16px; padding: 16px 18px; background: #1A1015; border: 1px solid rgba(255,107,122,0.45); border-radius: 10px">
+        <div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 6px">
+          <h2 id="h-inc" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">Incidente abierto · INC-0087</h2>
+          <p style="margin: 0; color: #E8DCDF">El servidor responde pero PHP no: <strong>disco del cPanel al 100 %</strong> (10 GB de 10 GB). Las copias del hosting ocupan 6,8 GB dentro de la misma cuenta.</p>
+          <p style="margin: 0; color: #B3B0BC; font-size: 13px">Sugerencia: liberar espacio moviendo las copias locales del hosting al almacenamiento externo. No hace falta restaurar.</p>
+        </div>
+        <div style="flex: 1 1 260px; display: flex; flex-direction: column; gap: 8px; justify-content: center">
+          <button type="button" style="min-height: 40px; padding: 0 14px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.3); border-radius: 4px; font-weight: 600; cursor: pointer">Mover copias locales a R2 (libera 6,8 GB)</button>
+          <a href="https://api.whatsapp.com/send/?text=Hola%2C%20tu%20tienda%20tuvo%20una%20ca%C3%ADda%20por%20espacio%20en%20disco.%20Ya%20la%20estamos%20resolviendo." style="display: inline-flex; align-items: center; justify-content: center; min-height: 40px; padding: 0 14px; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; color: #D8D4E2; font-weight: 600">Avisar al cliente por WhatsApp</a>
+        </div>
+      </section>
+
+      <div role="tablist" aria-label="Secciones del sitio" style="display: flex; flex-wrap: wrap; gap: 4px; border-bottom: 1px solid rgba(255,255,255,0.1)">
+        <sc-for list="{{tabs}}" as="t" hint-placeholder-count="6"><button type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}" style="{{t.style}}">{{t.label}}</button></sc-for>
+      </div>
+
+      <sc-if value="{{isCopias}}" hint-placeholder-val="{{true}}">
+        <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+          <section aria-labelledby="h-pts" style="flex: 999 1 560px; min-width: 0; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; padding: 14px 16px"><h2 id="h-pts" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">Puntos de restauración</h2><span style="font-size: 13px; color: #B3B0BC">30 diarios + 12 mensuales · externos e inmutables 30 días</span></div>
+            <sc-if value="{{manualRunning}}" hint-placeholder-val="{{false}}">
+              <div role="status" style="display: flex; flex-direction: column; gap: 6px; padding: 10px 16px; border-top: 1px solid rgba(255,255,255,0.06); background: #1A0B2B"><span style="font-weight: 600">Copia manual en curso · base de datos lista, archivos 38 %</span><span aria-hidden="true" style="height: 6px; border-radius: 999px; background: #0F0F11; overflow: hidden"><span style="display: block; height: 100%; width: 38%; background: linear-gradient(90deg, #6D00C2, #C755EF)"></span></span></div>
+            </sc-if>
+            <div style="overflow-x: auto">
+              <table style="width: 100%; min-width: 720px; border-collapse: collapse">
+                <thead><tr style="color: #B3B0BC; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; text-align: left"><th scope="col" style="padding: 8px 16px; font-weight: 600">Fecha</th><th scope="col" style="padding: 8px; font-weight: 600">Tipo</th><th scope="col" style="padding: 8px; font-weight: 600">Tamaño</th><th scope="col" style="padding: 8px; font-weight: 600">Verificación</th><th scope="col" style="padding: 8px; font-weight: 600">Destino</th><th scope="col" style="padding: 8px 16px 8px 8px; font-weight: 600"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Acción</span></th></tr></thead>
+                <tbody>
+                  <sc-for list="{{points}}" as="p" hint-placeholder-count="6">
+                    <tr class="dk-row" style="{{p.rowStyle}}">
+                      <td style="padding: 10px 16px; font-variant-numeric: tabular-nums"><span style="display: flex; flex-direction: column"><span style="font-weight: 600">{{p.date}}</span><span style="font-size: 12px; color: #B3B0BC">{{p.rel}}</span></span></td>
+                      <td style="padding: 10px 8px">{{p.kind}}</td>
+                      <td style="padding: 10px 8px; font-family: 'JetBrains Mono', monospace; font-size: 12px">{{p.size}}</td>
+                      <td style="padding: 10px 8px"><span style="display: inline-flex; align-items: center; gap: 6px"><svg width="10" height="10" viewBox="0 0 16 16" aria-hidden="true"><path d="{{p.vShape}}" fill="{{p.vColor}}"></path></svg>{{p.verify}}</span></td>
+                      <td style="padding: 10px 8px; color: #B3B0BC">{{p.dest}}</td>
+                      <td style="padding: 10px 16px 10px 8px"><button type="button" onClick="{{p.pick}}" style="min-height: 32px; padding: 0 10px; background: transparent; color: #D98BFF; border: 1px solid rgba(217,139,255,0.4); border-radius: 4px; font-weight: 600; cursor: pointer">Restaurar…</button></td>
+                    </tr>
+                  </sc-for>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <aside style="flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+            <sc-if value="{{restoreOpen}}" hint-placeholder-val="{{false}}">
+              <section aria-labelledby="h-rest" style="display: flex; flex-direction: column; gap: 12px; padding: 16px; background: #151518; border: 1px solid rgba(255,107,122,0.5); border-radius: 10px">
+                <div style="display: flex; justify-content: space-between; align-items: start; gap: 8px"><h2 id="h-rest" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px; line-height: 1.15">Restaurar desde {{pickedDate}}</h2><button type="button" onClick="{{closeRestore}}" aria-label="Cerrar" style="width: 32px; height: 32px; background: transparent; color: #B3B0BC; border: 0; cursor: pointer; font-size: 18px">×</button></div>
+                <span style="font-weight: 600">Qué restaurar</span>
+                <div style="display: flex; flex-wrap: wrap; gap: 6px"><sc-for list="{{scopes}}" as="s" hint-placeholder-count="3"><button type="button" onClick="{{s.pick}}" aria-pressed="{{s.on}}" style="{{s.style}}">{{s.label}}</button></sc-for></div>
+                <span style="font-size: 13px; color: #B3B0BC">{{scopeHint}}</span>
+                <div style="display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; background: #0F0F11; border-radius: 6px"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true" style="flex: none; margin-top: 3px"><circle cx="8" cy="8" r="6" fill="#5BE49B"></circle></svg><span style="font-size: 13px">Antes de sobrescribir guardamos una copia del estado actual. Si algo sale mal, se deshace en un clic.</span></div>
+                <div style="display: flex; flex-direction: column; gap: 6px"><label for="rs-confirm" style="font-weight: 600">Escribe el dominio para confirmar</label><input id="rs-confirm" type="text" value="{{typed}}" onChange="{{setTyped}}" placeholder="luzmauniformes.com" autocomplete="off" style="min-height: 40px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 13px"></div>
+                <div style="display: flex; flex-direction: column; gap: 6px"><label for="rs-otp" style="font-weight: 600">Código de tu app de autenticación</label><input id="rs-otp" type="text" inputmode="numeric" value="{{otp}}" onChange="{{setOtp}}" placeholder="6 dígitos" autocomplete="one-time-code" style="min-height: 40px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.2em"></div>
+                <button type="button" onClick="{{doRestore}}" disabled="{{cantRestore}}" style="{{restoreBtn}}">Restaurar {{scopeShort}}</button>
+                <span style="font-size: 12px; color: #B3B0BC">En producción hace falta tu código y la aprobación de un segundo responsable (Dirección u Operaciones). Todo queda en el registro de actividad y se avisa al cliente.</span>
+                <sc-if value="{{restored}}" hint-placeholder-val="{{false}}"><div role="status" style="padding: 10px 12px; background: rgba(91,228,155,0.1); border: 1px solid rgba(91,228,155,0.35); border-radius: 6px; font-size: 13px">Solicitud enviada a Dirección para aprobar. Al aprobarla guardamos el estado actual como «antes de restaurar» y empezamos.</div></sc-if>
+              </section>
+            </sc-if>
+            <section aria-labelledby="h-plan" style="display: flex; flex-direction: column; gap: 8px; padding: 16px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px">
+              <h2 id="h-plan" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">Programación</h2>
+              <dl style="margin: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px 12px; font-size: 13px">
+                <dt style="color: #B3B0BC">Frecuencia</dt><dd style="margin: 0">Sitio y base de datos cada noche 03:00 · cuenta completa los domingos</dd>
+                <dt style="color: #B3B0BC">Destino</dt><dd style="margin: 0">Cloudflare R2 · cuenta DKODING · cifrada</dd>
+                <dt style="color: #B3B0BC">Retención</dt><dd style="margin: 0">30 diarias · 12 mensuales</dd>
+                <dt style="color: #B3B0BC">Inmutable</dt><dd style="margin: 0">30 días con bloqueo de bucket en R2: nadie puede borrarlas antes, ni un atacante</dd>
+                <dt style="color: #B3B0BC">Prueba de restauración</dt><dd style="margin: 0">Semanal y automática en un contenedor aislado · última 05/10 ✓</dd>
+              </dl>
+              <a href="#ficha" style="font-weight: 600">Cambiar programación »</a>
+            </section>
+            <section aria-labelledby="h-ver" style="display: flex; flex-direction: column; gap: 8px; padding: 16px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px">
+              <h2 id="h-ver" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">Qué significa «verificada»</h2>
+              <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: #D8D4E2">
+                <li style="display: flex; gap: 8px"><span aria-hidden="true" style="color: #C755EF; font-family: 'Blinker', sans-serif; font-weight: 700">»</span>El archivo llegó completo al destino (suma de comprobación).</li>
+                <li style="display: flex; gap: 8px"><span aria-hidden="true" style="color: #C755EF; font-family: 'Blinker', sans-serif; font-weight: 700">»</span>La base de datos se abre y tiene las tablas esperadas.</li>
+                <li style="display: flex; gap: 8px"><span aria-hidden="true" style="color: #C755EF; font-family: 'Blinker', sans-serif; font-weight: 700">»</span>El tamaño no cambió más de un 50 % frente al día anterior.</li>
+              </ul>
+            </section>
+          </aside>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{isOther}}" hint-placeholder-val="{{false}}">
+        <section style="display: flex; flex-direction: column; gap: 8px; padding: 24px; background: #151518; border: 1px dashed rgba(255,255,255,0.18); border-radius: 10px">
+          <span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">{{otherTitle}}</span>
+          <span style="color: #B3B0BC; max-width: 640px">{{otherDesc}}</span>
+        </section>
+      </sc-if>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1560}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { tab: 'copias', restoreOpen: true, picked: 1, scope: 'files', typed: '', otp: '', restored: false, manual: false }; }
+  renderVals() {
+    var self = this, st = this.state;
+    var tabDefs = [
+      { id: 'resumen', label: 'Resumen', t: 'Resumen del sitio', d: 'Disponibilidad, velocidad, SSL, dominio, último despliegue e incidentes del mes en una sola vista.' },
+      { id: 'copias', label: 'Copias y restauración' },
+      { id: 'integridad', label: 'Integridad', t: 'Integridad del sitio', d: 'Dos capas. Por fuera: huella de la portada y de 3 URLs clave (scripts nuevos, título cambiado, palabras prohibidas). Por dentro: la copia de cada noche se compara con las sumas oficiales de WordPress para core y plugins. El antivirus del hosting no tiene API para cuentas de cPanel; si SeguriServer habilita un aviso por webhook, aparece aquí.' },
+      { id: 'software', label: 'Software', t: 'WordPress, plugins y PHP', d: 'Versiones, actualizaciones pendientes y vulnerabilidades conocidas por plugin, con enlace a la ficha del aviso.' },
+      { id: 'velocidad', label: 'Velocidad y SEO', t: 'Velocidad real y Search Console', d: 'LCP, INP y CLS de visitantes reales cuando hay datos; clics y posiciones de Google; visibilidad en motores de IA.' },
+      { id: 'ajustes', label: 'Ajustes', t: 'Ajustes del sitio', d: 'Token de cPanel (vence el 06/10/2027), contactos de aviso, ventana de mantenimiento y responsable.' }
+    ];
+    var tabs = tabDefs.map(function (t) {
+      var on = st.tab === t.id;
+      return { label: t.label, on: on, pick: function () { self.setState({ tab: t.id }); },
+        style: 'min-height: 40px; padding: 0 14px; background: transparent; border: 0; border-bottom: 2px solid ' + (on ? '#C755EF' : 'transparent') + '; color: ' + (on ? '#F4F2F8' : '#B3B0BC') + '; font-weight: 600; cursor: pointer; margin-bottom: -1px;' };
+    });
+    var cur = tabDefs.filter(function (t) { return t.id === st.tab; })[0];
+    var OK = 'M8 2a6 6 0 1 1 0 12A6 6 0 0 1 8 2z', WARN = 'M8 1.5L15 14H1z';
+    var pts = [
+      { id: 1, date: '06/10 · 02:58', rel: 'hace 18 min · antes de la caída', kind: 'Completa', size: '1,42 GB', verify: 'verificada', ok: true, dest: 'R2 · Bogotá' },
+      { id: 2, date: '05/10 · 03:01', rel: 'ayer', kind: 'Completa', size: '1,41 GB', verify: 'verificada', ok: true, dest: 'R2 · Bogotá' },
+      { id: 3, date: '04/10 · 03:00', rel: 'hace 2 días', kind: 'Completa', size: '1,41 GB', verify: 'verificada', ok: true, dest: 'R2 · Bogotá' },
+      { id: 4, date: '03/10 · 14:22', rel: 'manual · antes de actualizar plugins', kind: 'Completa', size: '1,40 GB', verify: 'verificada', ok: true, dest: 'R2 · Bogotá' },
+      { id: 5, date: '01/10 · 03:00', rel: 'mensual de octubre', kind: 'Completa', size: '1,39 GB', verify: 'restauración probada', ok: true, dest: 'R2 · Bogotá' },
+      { id: 6, date: '30/09 · 03:00', rel: 'hace 6 días', kind: 'Solo base de datos', size: '84 MB', verify: 'incompleta: se reintentó', ok: false, dest: 'R2 · Bogotá' }
+    ];
+    var points = pts.map(function (p) {
+      var on = st.restoreOpen && st.picked === p.id;
+      return { date: p.date, rel: p.rel, kind: p.kind, size: p.size, verify: p.verify, dest: p.dest,
+        vShape: p.ok ? OK : WARN, vColor: p.ok ? '#5BE49B' : '#E0A93B',
+        rowStyle: 'border-top: 1px solid rgba(255,255,255,0.06); ' + (on ? 'background: #1A0B2B;' : ''),
+        pick: function () { self.setState({ restoreOpen: true, picked: p.id, typed: '', otp: '', restored: false }); } };
+    });
+    var picked = pts.filter(function (p) { return p.id === st.picked; })[0] || pts[0];
+    var scopeDefs = [
+      { id: 'test', label: 'Probar en carpeta aislada', short: 'en carpeta de prueba', hint: 'Restaura en una carpeta aparte para revisar antes de tocar producción. La tienda sigue igual.' },
+      { id: 'files', label: 'Solo archivos', short: 'archivos', hint: 'Recupera temas, plugins y medios. Los pedidos de la tienda no se tocan.' },
+      { id: 'db', label: 'Solo base de datos', short: 'base de datos', hint: 'Cuidado: se pierden los pedidos y clientes creados después de esa fecha.' },
+      { id: 'all', label: 'Todo', short: 'todo el sitio', hint: 'Archivos y base de datos. Se pierden los pedidos posteriores a esa fecha.' }
+    ];
+    var scopes = scopeDefs.map(function (s) {
+      var on = st.scope === s.id;
+      return { label: s.label, on: on, pick: function () { self.setState({ scope: s.id }); },
+        style: 'min-height: 36px; padding: 0 12px; border-radius: 999px; cursor: pointer; font-weight: 600; ' + (on ? 'background: #6D00C2; color: #FFFFFF; border: 1px solid #6D00C2;' : 'background: transparent; color: #D8D4E2; border: 1px solid rgba(255,255,255,0.22);') };
+    });
+    var sc = scopeDefs.filter(function (s) { return s.id === st.scope; })[0];
+    var can = st.typed.trim() === 'luzmauniformes.com' && /^\d{6}$/.test(st.otp.trim());
+    return {
+      tabs: tabs, isCopias: st.tab === 'copias', isOther: st.tab !== 'copias',
+      otherTitle: cur && cur.t ? cur.t : '', otherDesc: cur && cur.d ? cur.d : '',
+      points: points, restoreOpen: st.restoreOpen, pickedDate: picked.date, scopes: scopes, scopeHint: sc.hint, scopeShort: sc.short,
+      typed: st.typed, otp: st.otp, cantRestore: !can, restored: st.restored, manualRunning: st.manual,
+      restoreBtn: 'min-height: 44px; padding: 0 16px; border-radius: 4px; font-weight: 600; ' + (can ? 'background: #FF6B7A; color: #0C0C0C; border: 0; cursor: pointer;' : 'background: transparent; color: #8E8A9B; border: 1px solid rgba(255,255,255,0.18); cursor: not-allowed;'),
+      setTyped: function (ev) { self.setState({ typed: ev.target.value }); },
+      setOtp: function (ev) { self.setState({ otp: ev.target.value }); },
+      closeRestore: function () { self.setState({ restoreOpen: false }); },
+      doRestore: function () { if (can) { self.setState({ restored: true }); } },
+      runBackup: function () { self.setState({ manual: true, tab: 'copias' }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

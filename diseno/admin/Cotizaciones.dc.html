@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Cotizaciones y leads</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Blinker:wght@300;600;700&amp;family=Barlow:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#0C0C0C}
+a{color:#D98BFF;text-decoration:none}a:hover{color:#F0D4FF}
+button,input{font:inherit}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid #D98BFF;outline-offset:2px}
+.dk-nav a:hover{background:#17161C;color:#F4F2F8}
+.dk-card:hover{border-color:rgba(199,85,239,0.45)}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; min-height: 100%; background: #0C0C0C; color: #F4F2F8; font-family: 'Barlow', system-ui, sans-serif; font-size: 14px; line-height: 1.5">
+
+  <header style="border-bottom: 1px solid rgba(255,255,255,0.08); background: #101013">
+    <div style="padding: 10px 20px; display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center">
+      <a href="Main.dc.html" aria-label="DKODING, inicio del admin" style="display: flex; align-items: center; min-height: 40px"><img src="/_blob/af8d4aea91012d3a301c737f7fa02819" alt="DKODING" style="height: 26px; width: auto"></a>
+      <button type="button" style="display: flex; align-items: center; gap: 10px; min-height: 40px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.18); border-radius: 6px; cursor: pointer"><span aria-hidden="true" style="width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; border-radius: 5px; background: #6D00C2; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 13px">»</span><span style="font-weight: 600">Todos los clientes</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B3B0BC" stroke-width="2" aria-hidden="true"><path d="M7 10l5 5 5-5"></path></svg></button>
+      <div style="flex: 1 1 260px; display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 12px; background: #0C0C0C; border: 1px solid rgba(255,255,255,0.14); border-radius: 6px; max-width: 520px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B3B0BC" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg><label for="g-search" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Buscar o ejecutar una acción</label><input id="g-search" type="text" placeholder="Buscar cotización, lead o cliente" style="flex: 1; min-width: 0; background: transparent; border: 0; color: #F4F2F8; outline: none"><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 2px 6px; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; color: #B3B0BC">Ctrl K</kbd></div>
+      <div style="display: flex; align-items: center; gap: 8px; margin-left: auto"><a href="Movil.dc.html" aria-label="Alertas: 1 crítica, 3 de atención" style="position: relative; display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 6px; color: #F4F2F8"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10 21h4"></path></svg><span aria-hidden="true" style="position: absolute; top: 4px; right: 3px; min-width: 16px; height: 16px; padding: 0 4px; box-sizing: border-box; border-radius: 999px; background: #FF6B7A; color: #0C0C0C; font-size: 11px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center">4</span></a><img src="/_blob/e14fa8a1ff09d0a5666ddfd382b76b9a" alt="Tu cuenta: Comercial" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 2px solid #3D0A6E"></div>
+    </div>
+  </header>
+
+  <div style="display: flex; flex-wrap: wrap; align-items: flex-start">
+    <nav class="dk-nav" aria-label="Módulos" style="flex: 1 1 232px; max-width: 260px; box-sizing: border-box; padding: 14px 10px 24px; background: #101013; border-right: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; gap: 2px; font-size: 14px">
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Inicio</a>
+      <a href="Cliente.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Clientes</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Salud</span>
+      <a href="Sitios.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Monitoreo<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(255,107,122,0.16); color: #FF8F9B; font-size: 12px; font-weight: 600">1</span></a>
+      <a href="Sitio.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Copias de seguridad</a>
+      <a href="Cliente.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Métricas</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Sitios web</span>
+      <a href="Editor.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Contenido</a>
+      <a href="Editor.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>SEO y GEO</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Ventas</span>
+      <a href="Cotizaciones.dc.html" aria-current="page" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #F4F2F8; background: #1A0B2B; font-weight: 600"><span aria-hidden="true" style="width: 14px; color: #C755EF; font-family: 'Blinker', sans-serif; font-weight: 700">»</span>Cotizaciones<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(224,169,59,0.16); color: #E0A93B; font-size: 12px; font-weight: 600">3</span></a>
+      <a href="Cotizaciones.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Leads</a>
+      <a href="Tarifas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Cotizador</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Seguridad</span>
+      <a href="Boveda.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Bóveda de accesos</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Agencia</span>
+      <a href="#ventas" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Soporte</a>
+      <a href="#ventas" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Equipo y roles</a>
+      <a href="#ventas" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Integraciones</a>
+      <a href="#ventas" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Registro de actividad</a>
+    </nav>
+
+    <main id="ventas" style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 24px 28px 48px; display: flex; flex-direction: column; gap: 18px">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <nav aria-label="Ruta" style="font-size: 13px; color: #B3B0BC">Agencia » Ventas</nav>
+          <h1 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 30px; line-height: 1.1">Cotizaciones</h1>
+          <span style="color: #B3B0BC">12 abiertas · $ 86,4 M en rango máximo sin IVA · tarifas vigentes: versión 2026-10</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+          <div role="group" aria-label="Vista" style="display: flex; border: 1px solid rgba(255,255,255,0.18); border-radius: 6px; overflow: hidden"><sc-for list="{{views}}" as="v" hint-placeholder-count="2"><button type="button" onClick="{{v.pick}}" aria-pressed="{{v.on}}" style="{{v.style}}">{{v.label}}</button></sc-for></div>
+          <a href="Tarifas.dc.html" style="display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 16px; background: #6D00C2; border-radius: 4px; color: #FFFFFF; font-weight: 600"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Cotización manual</a>
+        </div>
+      </div>
+
+      <section aria-labelledby="h-leads" style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; padding: 12px 16px; background: rgba(224,169,59,0.07); border: 1px solid rgba(224,169,59,0.35); border-radius: 10px">
+        <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5L15 14H1z" fill="#E0A93B"></path></svg>
+        <h2 id="h-leads" style="margin: 0; font-size: 15px; font-weight: 600">2 leads del cotizador web llevan más de 24 h sin contacto</h2>
+        <span style="color: #D8D4E2; flex: 1 1 260px">Tienda online · Restaurante (ejemplo) y Desarrollo de marca · Inmobiliaria (ejemplo)</span>
+        <button type="button" style="min-height: 36px; padding: 0 12px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.28); border-radius: 4px; font-weight: 600; cursor: pointer">Asignarme los dos</button>
+      </section>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+        <div style="flex: 999 1 560px; min-width: 0">
+          <sc-if value="{{isBoard}}" hint-placeholder-val="{{true}}">
+            <div style="overflow-x: auto; padding-bottom: 6px">
+              <div style="display: grid; grid-template-columns: repeat(5, minmax(200px, 1fr)); gap: 12px; min-width: 1060px">
+                <sc-for list="{{columns}}" as="col" hint-placeholder-count="5">
+                  <section aria-label="{{col.label}}" style="display: flex; flex-direction: column; gap: 8px; padding: 10px; background: #101013; border: 1px solid rgba(255,255,255,0.06); border-radius: 10px">
+                    <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 2px 4px"><span style="font-weight: 600">{{col.label}} <span style="color: #B3B0BC; font-weight: 400">{{col.count}}</span></span><span style="font-size: 12px; color: #B3B0BC; font-variant-numeric: tabular-nums">{{col.sum}}</span></div>
+                    <sc-for list="{{col.cards}}" as="c" hint-placeholder-count="2">
+                      <button type="button" class="dk-card" onClick="{{c.pick}}" aria-pressed="{{c.on}}" style="{{c.style}}">
+                        <span style="display: flex; justify-content: space-between; gap: 8px; font-size: 12px; color: #B3B0BC"><span style="font-family: 'JetBrains Mono', monospace">{{c.id}}</span><span style="{{c.originStyle}}">{{c.origin}}</span></span>
+                        <span style="font-weight: 600; text-align: left">{{c.who}}</span>
+                        <span style="font-size: 13px; color: #D8D4E2; text-align: left">{{c.what}}</span>
+                        <span style="display: flex; justify-content: space-between; align-items: end; gap: 8px"><span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 17px; font-variant-numeric: tabular-nums">{{c.range}}</span><span style="font-size: 12px; color: #B3B0BC">{{c.hours}}</span></span>
+                        <span style="{{c.signalStyle}}">{{c.signal}}</span>
+                      </button>
+                    </sc-for>
+                  </section>
+                </sc-for>
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{isList}}" hint-placeholder-val="{{false}}">
+            <div style="background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; overflow-x: auto">
+              <table style="width: 100%; min-width: 820px; border-collapse: collapse">
+                <thead><tr style="color: #B3B0BC; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; text-align: left"><th scope="col" style="padding: 10px 16px; font-weight: 600">Cotización</th><th scope="col" style="padding: 10px 8px; font-weight: 600">Prospecto</th><th scope="col" style="padding: 10px 8px; font-weight: 600">Etapa</th><th scope="col" style="padding: 10px 8px; font-weight: 600">Rango</th><th scope="col" style="padding: 10px 16px 10px 8px; font-weight: 600">Señal</th></tr></thead>
+                <tbody><sc-for list="{{flat}}" as="c" hint-placeholder-count="8"><tr style="border-top: 1px solid rgba(255,255,255,0.06)"><td style="padding: 10px 16px; font-family: 'JetBrains Mono', monospace; font-size: 13px">{{c.id}}</td><td style="padding: 10px 8px"><span style="display: flex; flex-direction: column"><span style="font-weight: 600">{{c.who}}</span><span style="font-size: 12px; color: #B3B0BC">{{c.what}}</span></span></td><td style="padding: 10px 8px">{{c.stage}}</td><td style="padding: 10px 8px; font-variant-numeric: tabular-nums">{{c.range}}</td><td style="padding: 10px 16px 10px 8px"><span style="{{c.signalStyle}}">{{c.signal}}</span></td></tr></sc-for></tbody>
+              </table>
+            </div>
+          </sc-if>
+        </div>
+
+        <aside aria-labelledby="h-det" style="flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 18px; background: #151518; border: 1px solid rgba(199,85,239,0.35); border-radius: 10px">
+          <div style="display: flex; justify-content: space-between; gap: 8px; align-items: start"><div style="display: flex; flex-direction: column"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #B3B0BC">{{d.id}} · v2 · tarifas 2026-10</span><h2 id="h-det" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 22px; line-height: 1.15">{{d.who}}</h2><span style="color: #D8D4E2">{{d.what}}</span></div><span style="padding: 3px 10px; border-radius: 999px; background: rgba(199,85,239,0.16); color: #D98BFF; font-size: 12px; font-weight: 600; white-space: nowrap">{{d.stage}}</span></div>
+          <div style="display: flex; flex-direction: column; gap: 2px; padding: 12px; background: #0F0F11; border-radius: 8px"><span style="font-size: 12px; color: #B3B0BC">Rango sin IVA · incluye 15 % de contingencia</span><span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 28px; line-height: 1.1; font-variant-numeric: tabular-nums">{{d.range}}</span><span style="font-size: 12px; color: #B3B0BC">{{d.hours}} · anticipo 50 % · vence {{d.expires}}</span></div>
+          <table style="width: 100%; border-collapse: collapse; font-size: 13px">
+            <thead><tr style="color: #B3B0BC; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; text-align: left"><th scope="col" style="padding: 4px 0; font-weight: 600">Línea</th><th scope="col" style="padding: 4px 0; font-weight: 600; text-align: right">Horas</th></tr></thead>
+            <tbody><sc-for list="{{d.lines}}" as="l" hint-placeholder-count="6"><tr style="border-top: 1px solid rgba(255,255,255,0.06)"><td style="padding: 6px 0">{{l.label}}</td><td style="padding: 6px 0; text-align: right; font-variant-numeric: tabular-nums; font-family: 'JetBrains Mono', monospace; font-size: 12px">{{l.h}}</td></tr></sc-for></tbody>
+          </table>
+          <div style="display: flex; flex-direction: column; gap: 6px; font-size: 13px">
+            <span style="font-weight: 600">Actividad</span>
+            <sc-for list="{{d.log}}" as="e" hint-placeholder-count="3"><span style="display: flex; gap: 10px; color: #D8D4E2"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #B3B0BC; white-space: nowrap">{{e.t}}</span>{{e.x}}</span></sc-for>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px">
+            <a href="https://api.whatsapp.com/send/?text=Hola%2C%20te%20comparto%20la%20cotizaci%C3%B3n%20actualizada." style="display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; background: #6D00C2; color: #FFFFFF; border-radius: 4px; font-weight: 600"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"></path></svg>Seguimiento por WhatsApp</a>
+            <button type="button" style="min-height: 40px; padding: 0 14px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; cursor: pointer">Editar líneas (nueva versión)</button>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px">
+            <button type="button" style="min-height: 36px; padding: 0 12px; background: rgba(91,228,155,0.1); color: #5BE49B; border: 1px solid rgba(91,228,155,0.4); border-radius: 4px; font-weight: 600; cursor: pointer">Marcar ganada</button>
+            <button type="button" style="min-height: 36px; padding: 0 12px; background: transparent; color: #D8D4E2; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; font-weight: 600; cursor: pointer">Perdida… (pide motivo)</button>
+          </div>
+        </aside>
+      </div>
+      <p style="margin: 0; font-size: 12px; color: #8E8A9B">Datos de ejemplo. Los prospectos se describen por tipo de negocio; ningún nombre de persona o empresa es real.</p>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1160}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { view: 'board', picked: 'COT-0142' }; }
+  renderVals() {
+    var self = this, st = this.state;
+    var views = [{ id: 'board', label: 'Tablero' }, { id: 'list', label: 'Lista' }].map(function (v) {
+      var on = st.view === v.id;
+      return { label: v.label, on: on, pick: function () { self.setState({ view: v.id }); },
+        style: 'min-height: 38px; padding: 0 14px; border: 0; cursor: pointer; font-weight: 600; ' + (on ? 'background: #1A0B2B; color: #F4F2F8;' : 'background: transparent; color: #B3B0BC;') };
+    });
+    var Q = [
+      { id: 'COT-0151', stage: 'Enviadas', who: 'Clínica dental (ejemplo)', what: 'Sitio corporativo · 7 páginas · 2 idiomas', range: '$ 13,6–17,4 M', hours: '172 h', origin: 'Cotizador web', signal: 'enviada hace 2 h', tone: 'muted', expires: '21/10' },
+      { id: 'COT-0149', stage: 'Enviadas', who: 'Restaurante (ejemplo)', what: 'Tienda online · domicilios', range: '$ 21,5–27,4 M', hours: '270 h', origin: 'Cotizador web', signal: 'lead sin contacto 26 h', tone: 'warn', expires: '19/10' },
+      { id: 'COT-0146', stage: 'Vistas', who: 'Hotel boutique (ejemplo)', what: 'Web hotelera + reservas', range: '$ 11,2–14,3 M', hours: '138 h', origin: 'Manual', signal: 'vista hoy 09:12', tone: 'ok', expires: '17/10' },
+      { id: 'COT-0142', stage: 'Vistas', who: 'Ferretería en Cali (ejemplo)', what: 'Corporativo + desarrollo de marca', range: '$ 18,4–23,1 M', hours: '228 h', origin: 'Cotizador web', signal: 'vista 3 veces sin respuesta', tone: 'warn', expires: '10/10' },
+      { id: 'COT-0139', stage: 'En conversación', who: 'Constructora (ejemplo)', what: 'Corporativo + SEO 6 meses', range: '$ 14,9–19,0 M', hours: '184 h + 8 h/mes', origin: 'Manual', signal: 'reunión mañana 10:00', tone: 'ok', expires: '14/10' },
+      { id: 'COT-0137', stage: 'En conversación', who: 'Colegio (ejemplo)', what: 'Portal con área de padres', range: 'desde $ 24 M', hours: '> 200 h · requiere alcance', origin: 'Cotizador web', signal: 'sesión de alcance agendada', tone: 'ok', expires: '—' },
+      { id: 'COT-0133', stage: 'Ajustadas', who: 'Inmobiliaria (ejemplo)', what: 'Catálogo + marca', range: '$ 8,9–10,7 M', hours: '112 h', origin: 'Cotizador web', signal: 'v3 · bajó urgencia', tone: 'muted', expires: '12/10' },
+      { id: 'COT-0128', stage: 'Aceptadas', who: 'Distribuidora (ejemplo)', what: 'Tienda + pasarela Wompi', range: '$ 22,0 M', hours: '262 h', origin: 'Manual', signal: 'anticipo recibido', tone: 'ok', expires: '—' }
+    ];
+    var stages = ['Enviadas', 'Vistas', 'En conversación', 'Ajustadas', 'Aceptadas'];
+    var sums = { 'Enviadas': '$ 49,0 M', 'Vistas': '$ 37,4 M', 'En conversación': '$ 43,0 M', 'Ajustadas': '$ 10,7 M', 'Aceptadas': '$ 22,0 M' };
+    function sigStyle(t) { return 'font-size: 12px; font-weight: 600; text-align: left; color: ' + (t === 'warn' ? '#E0A93B' : t === 'ok' ? '#5BE49B' : '#B3B0BC') + ';'; }
+    function card(q) {
+      var on = st.picked === q.id;
+      return { id: q.id, who: q.who, what: q.what, range: q.range, hours: q.hours, origin: q.origin, signal: q.signal, stage: q.stage, on: on,
+        signalStyle: sigStyle(q.tone),
+        originStyle: 'padding: 0 6px; border-radius: 999px; ' + (q.origin === 'Cotizador web' ? 'background: rgba(199,85,239,0.14); color: #D98BFF;' : 'background: rgba(255,255,255,0.08); color: #D8D4E2;'),
+        pick: function () { self.setState({ picked: q.id }); },
+        style: 'display: flex; flex-direction: column; gap: 6px; width: 100%; padding: 12px; border-radius: 8px; cursor: pointer; color: #F4F2F8; ' + (on ? 'background: #1A0B2B; border: 1px solid #C755EF;' : 'background: #151518; border: 1px solid rgba(255,255,255,0.08);') };
+    }
+    var columns = stages.map(function (s) {
+      var cs = Q.filter(function (q) { return q.stage === s; }).map(card);
+      return { label: s, count: cs.length, sum: sums[s], cards: cs };
+    });
+    var p = Q.filter(function (q) { return q.id === st.picked; })[0] || Q[3];
+    var lineSets = {
+      'COT-0142': [{ label: 'Sitio corporativo base (7 páginas)', h: '110' }, { label: 'Paquete de entrega DKODING', h: '26' }, { label: 'Blog (colección)', h: '18' }, { label: 'Desarrollo de marca', h: '96 × 0,92' }, { label: 'Dirección de proyecto 12 %', h: '25' }, { label: 'Diseño semi-custom × 1,4', h: 'aplicado' }],
+      'default': [{ label: 'Tipo de sitio y bloques', h: String(parseInt(p.hours, 10) - 40) }, { label: 'Paquete de entrega DKODING', h: '26' }, { label: 'Dirección de proyecto 12 %', h: '14' }]
+    };
+    var d = { id: p.id, who: p.who, what: p.what, range: p.range, hours: p.hours, stage: p.stage, expires: p.expires,
+      lines: lineSets[p.id] || lineSets['default'],
+      log: p.id === 'COT-0142'
+        ? [{ t: '01/10 16:40', x: 'Creada desde el cotizador web' }, { t: '01/10 17:05', x: 'v2: comercial ajustó blog y marca' }, { t: '03/10 · 05/10', x: 'Abierta 3 veces en el enlace del PDF' }, { t: 'mañana', x: 'Seguimiento automático del día 7' }]
+        : [{ t: 'hoy', x: p.signal }] };
+    var flat = Q.map(card);
+    return { views: views, isBoard: st.view === 'board', isList: st.view === 'list', columns: columns, flat: flat, d: d };
+  }
+}
+</script>
+</body>
+</html>

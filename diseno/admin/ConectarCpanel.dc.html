@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Conectar cPanel</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Blinker:wght@300;600;700&amp;family=Barlow:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#0C0C0C}
+a{color:#D98BFF;text-decoration:none}a:hover{color:#F0D4FF}
+button,input,select{font:inherit}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid #D98BFF;outline-offset:2px}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; min-height: 100%; background: #0C0C0C; color: #F4F2F8; font-family: 'Barlow', system-ui, sans-serif; font-size: 14px; line-height: 1.5">
+
+  <header style="border-bottom: 1px solid rgba(255,255,255,0.08); background: #101013">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 12px 24px; display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; align-items: center">
+      <div style="display: flex; align-items: center; gap: 16px; min-width: 0">
+        <img src="/_blob/af8d4aea91012d3a301c737f7fa02819" alt="DKODING" style="height: 28px; width: auto">
+        <span aria-hidden="true" style="width: 1px; height: 24px; background: rgba(255,255,255,0.14)"></span>
+        <span style="font-weight: 600">Conectar cPanel</span>
+        <span style="padding: 2px 10px; border-radius: 999px; background: rgba(199,85,239,0.16); color: #D98BFF; font-size: 12px; font-weight: 600">Asistente · MON-03</span>
+      </div>
+      <a href="Sitios.dc.html" style="display: inline-flex; align-items: center; gap: 8px; min-height: 40px; color: #D8D4E2; font-weight: 600">Guardar y salir</a>
+    </div>
+  </header>
+
+  <div style="max-width: 1180px; margin: 0 auto; padding: 32px 24px 56px; display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start">
+
+    <nav aria-label="Pasos" style="flex: 1 1 240px; max-width: 300px; display: flex; flex-direction: column; gap: 4px">
+      <sc-for list="{{steps}}" as="s" hint-placeholder-count="5">
+        <button type="button" onClick="{{s.go}}" aria-current="{{s.current}}" style="{{s.style}}">
+          <span aria-hidden="true" style="{{s.dot}}">{{s.mark}}</span>
+          <span style="display: flex; flex-direction: column; text-align: left"><span style="font-weight: 600">{{s.title}}</span><span style="font-size: 12px; color: #B3B0BC">{{s.hint}}</span></span>
+        </button>
+      </sc-for>
+      <div style="margin-top: 16px; padding: 14px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: #B3B0BC">
+        <span style="color: #F4F2F8; font-weight: 600">Puedes salir cuando quieras</span>
+        <span>Guardamos el borrador. El token no se guarda hasta que la conexión se prueba con éxito.</span>
+      </div>
+    </nav>
+
+    <main style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+
+      <sc-if value="{{isStep1}}" hint-placeholder-val="{{true}}">
+        <section aria-labelledby="h-s1" style="display: flex; flex-direction: column; gap: 20px; padding: 28px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px">
+          <div style="display: flex; flex-direction: column; gap: 6px"><span style="color: #C755EF; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 12px">Paso 1 de 5</span><h1 id="h-s1" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 28px; line-height: 1.1">¿De qué cliente es este sitio?</h1><p style="margin: 0; color: #B3B0BC">El sitio queda dentro de la ficha del cliente. Él lo verá en su panel; los accesos nunca.</p></div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 10px">
+            <sc-for list="{{clients}}" as="c" hint-placeholder-count="4">
+              <button type="button" onClick="{{c.pick}}" aria-pressed="{{c.selected}}" style="{{c.style}}">
+                <span aria-hidden="true" style="width: 32px; height: 32px; flex: none; display: inline-flex; align-items: center; justify-content: center; border-radius: 6px; background: #3D0A6E; font-family: 'Blinker', sans-serif; font-weight: 700">{{c.ini}}</span>
+                <span style="display: flex; flex-direction: column; text-align: left; min-width: 0"><span style="font-weight: 600">{{c.name}}</span><span style="font-size: 12px; color: #B3B0BC">{{c.meta}}</span></span>
+              </button>
+            </sc-for>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 16px">
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="cp-domain" style="font-weight: 600">Dominio principal</label><input id="cp-domain" type="text" value="{{domain}}" onChange="{{setDomain}}" style="min-height: 40px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 13px"></div>
+            <div style="display: flex; flex-direction: column; gap: 6px"><span style="font-weight: 600">Tipo de sitio</span><div style="display: flex; flex-wrap: wrap; gap: 8px"><sc-for list="{{kinds}}" as="k" hint-placeholder-count="3"><button type="button" onClick="{{k.pick}}" aria-pressed="{{k.selected}}" style="{{k.style}}">{{k.label}}</button></sc-for></div></div>
+          </div>
+        </section>
+      </sc-if>
+
+      <sc-if value="{{isStep2}}" hint-placeholder-val="{{false}}">
+        <section aria-labelledby="h-s2" style="display: flex; flex-direction: column; gap: 20px; padding: 28px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px">
+          <div style="display: flex; flex-direction: column; gap: 6px"><span style="color: #C755EF; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 12px">Paso 2 de 5</span><h1 id="h-s2" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 28px; line-height: 1.1">Acceso con token de API, no con contraseña</h1><p style="margin: 0; color: #B3B0BC">Un token se puede revocar sin cambiar la contraseña del cliente y deja rastro en el cPanel de cada llamada.</p></div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 16px">
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="cp-host" style="font-weight: 600">Servidor</label><input id="cp-host" type="text" value="{{host}}" onChange="{{setHost}}" style="min-height: 40px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 13px"><span style="font-size: 12px; color: #B3B0BC">Sin https:// ni puerto. Usamos el 2083 con TLS.</span></div>
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="cp-user" style="font-weight: 600">Usuario de cPanel</label><input id="cp-user" type="text" value="{{user}}" onChange="{{setUser}}" style="min-height: 40px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 13px"></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px"><label for="cp-token" style="font-weight: 600">Token de API</label><input id="cp-token" type="password" value="U7HMR63FHY282DQZ4H5BIH16JLYSO01M" autocomplete="off" style="min-height: 40px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 13px"><span style="font-size: 12px; color: #B3B0BC">Lo cifra el servidor y solo lo usa el sistema de monitoreo. Después de guardarlo nadie del equipo lo vuelve a ver.</span></div>
+          <details style="padding: 14px 16px; background: #0F0F11; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px">
+            <summary style="cursor: pointer; font-weight: 600; min-height: 28px">Cómo crear el token en el cPanel del cliente</summary>
+            <ol style="margin: 12px 0 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #D8D4E2">
+              <li>Entra al cPanel y abre Seguridad » Administrar tokens de API » Crear.</li>
+              <li>Nombre: <code style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #D98BFF">dkoding-monitor</code>. Así se distingue de cualquier otro.</li>
+              <li>Vencimiento: deja el de un año. No se puede cambiar después; te avisamos 30 días antes.</li>
+              <li>Copia el token: cPanel solo lo muestra una vez.</li>
+            </ol>
+          </details>
+          <div style="display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; background: rgba(224,169,59,0.08); border: 1px solid rgba(224,169,59,0.35); border-radius: 8px; color: #EAD3A2">
+            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" style="flex: none; margin-top: 3px"><path d="M8 1.5L15 14H1z" fill="#E0A93B"></path></svg>
+            <span>El token tiene el mismo alcance que la cuenta de cPanel. Úsalo solo aquí y revócalo si el cliente deja de trabajar con DKODING.</span>
+          </div>
+          <div style="display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; background: #0F0F11; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: #D8D4E2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D98BFF" stroke-width="2" aria-hidden="true" style="flex: none; margin-top: 2px"><rect x="4" y="10" width="16" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg>
+            <span>Todas las llamadas salen de la IP fija del servidor de copias de DKODING <code style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #D98BFF">[IP del relay]</code>. Si el hosting tiene firewall, pide que la permitan. Nunca se conecta desde tu navegador.</span>
+          </div>
+        </section>
+      </sc-if>
+
+      <sc-if value="{{isStep3}}" hint-placeholder-val="{{false}}">
+        <section aria-labelledby="h-s3" style="display: flex; flex-direction: column; gap: 18px; padding: 28px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: end"><div style="display: flex; flex-direction: column; gap: 6px"><span style="color: #C755EF; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 12px">Paso 3 de 5</span><h1 id="h-s3" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 28px; line-height: 1.1">Prueba de conexión</h1></div><span style="padding: 4px 12px; border-radius: 999px; background: rgba(91,228,155,0.14); color: #5BE49B; font-size: 13px; font-weight: 600">7 de 8 correctas</span></div>
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px">
+            <sc-for list="{{checks}}" as="k" hint-placeholder-count="8">
+              <li style="display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; min-height: 44px; padding: 8px 14px; background: #0F0F11; border: 1px solid rgba(255,255,255,0.06); border-radius: 6px">
+                <sc-if value="{{k.ok}}" hint-placeholder-val="{{true}}"><svg width="14" height="14" viewBox="0 0 16 16" aria-label="Correcto"><circle cx="8" cy="8" r="6" fill="#5BE49B"></circle></svg></sc-if>
+                <sc-if value="{{k.warn}}" hint-placeholder-val="{{false}}"><svg width="14" height="14" viewBox="0 0 16 16" aria-label="Atención"><path d="M8 1.5L15 14H1z" fill="#E0A93B"></path></svg></sc-if>
+                <span style="flex: 1 1 220px; font-weight: 600">{{k.label}}</span>
+                <span style="flex: 1 1 220px; color: #B3B0BC; font-family: 'JetBrains Mono', monospace; font-size: 12px">{{k.detail}}</span>
+              </li>
+            </sc-for>
+          </ul>
+          <p style="margin: 0; color: #B3B0BC; font-size: 13px">La prueba usa solo lecturas de UAPI. No cambia nada en el servidor del cliente.</p>
+        </section>
+      </sc-if>
+
+      <sc-if value="{{isStep4}}" hint-placeholder-val="{{false}}">
+        <section aria-labelledby="h-s4" style="display: flex; flex-direction: column; gap: 18px; padding: 28px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px">
+          <div style="display: flex; flex-direction: column; gap: 6px"><span style="color: #C755EF; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 12px">Paso 4 de 5</span><h1 id="h-s4" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 28px; line-height: 1.1">Qué vigilamos y cada cuánto</h1><p style="margin: 0; color: #B3B0BC">Valores recomendados para un sitio comercial. Puedes cambiarlos luego en la ficha del sitio.</p></div>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <sc-for list="{{watch}}" as="w" hint-placeholder-count="6">
+              <button type="button" onClick="{{w.toggle}}" aria-pressed="{{w.on}}" style="{{w.style}}">
+                <span aria-hidden="true" style="{{w.box}}"><sc-if value="{{w.on}}" hint-placeholder-val="{{true}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg></sc-if></span>
+                <span style="display: flex; flex-direction: column; text-align: left; flex: 1; min-width: 0"><span style="font-weight: 600">{{w.title}}</span><span style="font-size: 12px; color: #B3B0BC">{{w.desc}}</span></span>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #D98BFF; white-space: nowrap">{{w.freq}}</span>
+              </button>
+            </sc-for>
+          </div>
+        </section>
+      </sc-if>
+
+      <sc-if value="{{isStep5}}" hint-placeholder-val="{{false}}">
+        <section aria-labelledby="h-s5" style="display: flex; flex-direction: column; gap: 18px; padding: 28px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px">
+          <div style="display: flex; flex-direction: column; gap: 6px"><span style="color: #C755EF; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 12px">Paso 5 de 5</span><h1 id="h-s5" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 28px; line-height: 1.1">Revisa y conecta</h1></div>
+          <dl style="margin: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 10px 20px">
+            <dt style="color: #B3B0BC">Cliente</dt><dd style="margin: 0; font-weight: 600">{{clientName}}</dd>
+            <dt style="color: #B3B0BC">Sitio</dt><dd style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 13px">{{domain}} · {{kindLabel}}</dd>
+            <dt style="color: #B3B0BC">Servidor</dt><dd style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 13px">{{host}}:2083 · {{user}}</dd>
+            <dt style="color: #B3B0BC">Vigilancia</dt><dd style="margin: 0">{{watchSummary}}</dd>
+            <dt style="color: #B3B0BC">Primera copia</dt><dd style="margin: 0">Al conectar · destino Cloudflare R2 (cuenta DKODING) · cifrada</dd>
+          </dl>
+          <sc-if value="{{done}}" hint-placeholder-val="{{false}}">
+            <div role="status" style="display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: rgba(91,228,155,0.08); border: 1px solid rgba(91,228,155,0.35); border-radius: 8px">
+              <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" style="flex: none; margin-top: 3px"><circle cx="8" cy="8" r="6" fill="#5BE49B"></circle></svg>
+              <span style="display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 600">{{domain}} quedó conectado</span><span style="color: #B3B0BC">La primera copia está en curso y tarda entre 5 y 20 minutos según el tamaño. Te avisamos al terminar.</span><a href="Sitio.dc.html" style="font-weight: 600">Ver la ficha del sitio »</a></span>
+            </div>
+          </sc-if>
+        </section>
+      </sc-if>
+
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: center">
+        <button type="button" onClick="{{back}}" disabled="{{isFirst}}" style="min-height: 44px; padding: 0 18px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; cursor: pointer">Atrás</button>
+        <button type="button" onClick="{{next}}" style="min-height: 44px; padding: 0 22px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-weight: 600; cursor: pointer">{{nextLabel}}</button>
+      </div>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1100}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { step: 1, client: 'luzma', kind: 'woo', domain: 'luzmauniformes.com', host: 'cpanel.luzmauniformes.com', user: 'luzmauni', done: false,
+      watch: { up: true, ssl: true, backup: true, integrity: true, wp: true, crux: true } };
+  }
+  renderVals() {
+    var self = this;
+    var st = this.state;
+    var stepDefs = [
+      { n: 1, title: 'Cliente y sitio', hint: 'A quién pertenece' },
+      { n: 2, title: 'Acceso', hint: 'Servidor, usuario y token' },
+      { n: 3, title: 'Prueba de conexión', hint: 'Solo lecturas' },
+      { n: 4, title: 'Vigilancia', hint: 'Qué y cada cuánto' },
+      { n: 5, title: 'Revisar y conectar', hint: 'Primera copia' }
+    ];
+    var steps = stepDefs.map(function (s) {
+      var cur = s.n === st.step, past = s.n < st.step;
+      return {
+        title: s.title, hint: s.hint, current: cur ? 'step' : 'false', mark: past ? '✓' : String(s.n),
+        style: 'display: flex; align-items: center; gap: 12px; width: 100%; min-height: 52px; padding: 8px 12px; border-radius: 6px; cursor: pointer; color: #F4F2F8; border: 1px solid ' + (cur ? 'rgba(199,85,239,0.45)' : 'transparent') + '; background: ' + (cur ? '#1A0B2B' : 'transparent') + ';',
+        dot: 'width: 28px; height: 28px; flex: none; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-family: Blinker, sans-serif; font-weight: 700; font-size: 14px; ' + (past ? 'background: #5BE49B; color: #0C0C0C;' : cur ? 'background: #6D00C2; color: #FFFFFF;' : 'background: transparent; color: #B3B0BC; border: 1px solid rgba(255,255,255,0.25);'),
+        go: function () { self.setState({ step: s.n }); }
+      };
+    });
+    var clientDefs = [
+      { id: 'luzma', name: 'LuzMa', ini: 'LM', meta: 'Uniformes y dotaciones · 1 sitio' },
+      { id: '4bellu', name: '4Bellú', ini: '4B', meta: 'Body shapers · 2 sitios' },
+      { id: 'colorado', name: 'Colorado Hardwood', ini: 'CH', meta: 'Pisos de madera · 1 sitio' },
+      { id: 'jhoana', name: 'Jhoana Pérez', ini: 'JP', meta: 'Psicóloga · 1 sitio' }
+    ];
+    var clients = clientDefs.map(function (c) {
+      var sel = st.client === c.id;
+      return { name: c.name, ini: c.ini, meta: c.meta, selected: sel,
+        style: 'display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 8px 12px; border-radius: 6px; cursor: pointer; color: #F4F2F8; ' + (sel ? 'background: #1A0B2B; border: 2px solid #C755EF;' : 'background: #0F0F11; border: 1px solid rgba(255,255,255,0.14);'),
+        pick: function () { self.setState({ client: c.id }); } };
+    });
+    var kindDefs = [{ id: 'wp', label: 'WordPress' }, { id: 'woo', label: 'WooCommerce' }, { id: 'other', label: 'Otro / HTML' }];
+    var kinds = kindDefs.map(function (k) {
+      var sel = st.kind === k.id;
+      return { label: k.label, selected: sel,
+        style: 'min-height: 40px; padding: 0 14px; border-radius: 999px; cursor: pointer; font-weight: 600; ' + (sel ? 'background: #6D00C2; color: #FFFFFF; border: 1px solid #6D00C2;' : 'background: transparent; color: #D8D4E2; border: 1px solid rgba(255,255,255,0.22);'),
+        pick: function () { self.setState({ kind: k.id }); } };
+    });
+    var checks = [
+      { ok: true, warn: false, label: 'Puerto 2083 con TLS', detail: 'certificado válido · 142 ms' },
+      { ok: true, warn: false, label: 'Token aceptado', detail: 'Tokens::list · vence 06/10/2027' },
+      { ok: true, warn: false, label: 'Dominios de la cuenta', detail: '1 principal · 2 subdominios' },
+      { ok: true, warn: false, label: 'Espacio en disco', detail: '3,2 GB de 10 GB' },
+      { ok: true, warn: false, label: 'Copia de cuenta por cPanel', detail: 'Backup::fullbackup_to_scp_with_key disponible' },
+      { ok: true, warn: false, label: 'SSL automático', detail: 'AutoSSL activo · vence en 81 días' },
+      { ok: true, warn: false, label: 'WordPress encontrado', detail: '6.8.2 · 14 plugins · /public_html' },
+      { ok: false, warn: true, label: 'PHP desactualizado', detail: '7.4 · recomendado 8.2 o superior' }
+    ];
+    var watchDefs = [
+      { id: 'up', title: 'Disponibilidad', desc: 'HTTPS desde 3 regiones y una palabra clave de la página. Alerta si fallan 2 de 3.', freq: 'cada 1 min · tienda' },
+      { id: 'backup', title: 'Copia externa cifrada', desc: 'Sitio y base de datos cada noche; cuenta completa los domingos. Cloudflare R2 con bloqueo de borrado: 30 diarias + 12 mensuales.', freq: 'diaria 03:00' },
+      { id: 'integrity', title: 'Integridad', desc: 'Compara la copia con las sumas oficiales de WordPress y vigila la portada: scripts nuevos o títulos cambiados.', freq: 'diaria' },
+      { id: 'ssl', title: 'SSL y dominio', desc: 'Avisa 30, 14 y 3 días antes de vencer.', freq: 'diaria' },
+      { id: 'wp', title: 'WordPress y plugins', desc: 'Versiones y vulnerabilidades conocidas.', freq: 'diaria' },
+      { id: 'crux', title: 'Velocidad real (CrUX)', desc: 'LCP, INP y CLS de visitantes reales, si el sitio tiene tráfico suficiente.', freq: 'semanal' }
+    ];
+    var onCount = 0;
+    var watch = watchDefs.map(function (w) {
+      var on = !!st.watch[w.id];
+      if (on) { onCount++; }
+      return { title: w.title, desc: w.desc, freq: w.freq, on: on,
+        style: 'display: flex; align-items: center; gap: 14px; width: 100%; min-height: 60px; padding: 10px 14px; border-radius: 6px; cursor: pointer; color: #F4F2F8; ' + (on ? 'background: #1A0B2B; border: 1px solid rgba(199,85,239,0.45);' : 'background: #0F0F11; border: 1px solid rgba(255,255,255,0.12);'),
+        box: 'display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; flex: none; border-radius: 4px; ' + (on ? 'background: #6D00C2; border: 1px solid #6D00C2;' : 'background: transparent; border: 1px solid rgba(255,255,255,0.3);'),
+        toggle: function () { var n = Object.assign({}, st.watch); n[w.id] = !n[w.id]; self.setState({ watch: n }); } };
+    });
+    var clientName = (clientDefs.filter(function (c) { return c.id === st.client; })[0] || clientDefs[0]).name;
+    var kindLabel = (kindDefs.filter(function (k) { return k.id === st.kind; })[0] || kindDefs[0]).label;
+    return {
+      steps: steps, clients: clients, kinds: kinds, checks: checks, watch: watch,
+      isStep1: st.step === 1, isStep2: st.step === 2, isStep3: st.step === 3, isStep4: st.step === 4, isStep5: st.step === 5,
+      isFirst: st.step === 1, done: st.done,
+      domain: st.domain, host: st.host, user: st.user, clientName: clientName, kindLabel: kindLabel,
+      watchSummary: onCount + ' de 6 controles activos',
+      nextLabel: st.step === 3 ? 'Continuar con la advertencia' : st.step === 5 ? (st.done ? 'Conectado' : 'Conectar y hacer la primera copia') : 'Continuar',
+      setDomain: function (ev) { self.setState({ domain: ev.target.value }); },
+      setHost: function (ev) { self.setState({ host: ev.target.value }); },
+      setUser: function (ev) { self.setState({ user: ev.target.value }); },
+      back: function () { if (st.step > 1) { self.setState({ step: st.step - 1, done: false }); } },
+      next: function () { if (st.step < 5) { self.setState({ step: st.step + 1 }); } else { self.setState({ done: true }); } }
+    };
+  }
+}
+</script>
+</body>
+</html>
