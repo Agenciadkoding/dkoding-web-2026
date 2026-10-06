@@ -535,20 +535,35 @@ dkard:
 
 ### 14.5 Efecto en el precio semilla del "Sitio web profesional"
 
-Con las tarifas de §3.1 de `cotizador-por-hora.md`, tipo Corporativo (110 h) + setup
-(16 h) + paquete de entrega (26 h) + dirección 12 % ≈ **170 h**, diseño semi-custom ×1,4,
-contenido del cliente, urgencia normal:
+> **Corrección 2026-10-06.** La primera versión de esta tabla tenía un error de cálculo
+> y subestimaba los precios a menos de la mitad (decía ~13,5–17,2 M para el
+> corporativo). Las cifras de abajo están recalculadas con la fórmula de
+> `cotizador-por-hora.md` §2 y coinciden con el simulador del tablero «Tarifas del
+> cotizador» del lienzo del admin.
 
-| | Horas | Rango COP (antes de IVA) |
-|---|---:|---|
-| Corporativo + incluidos | ~170 | ~13,5 M – 17,2 M |
-| Landing + incluidos | ~100 | ~8,0 M – 10,2 M |
-| Tienda + incluidos | ~270 | ~21,5 M – 27,4 M |
+Tarifas de §3.1 de `cotizador-por-hora.md` (promedio ponderado ~143.000 COP/h),
+contenido del cliente, urgencia normal, extras fijos de 430.000, redondeo a 50.000:
 
-Comparado con los precios públicos actuales de dkoding.net (Catálogo 2,4 M · Tienda
-3,5 M · Tienda avanzada 6 M, ver `analisis-sitio-actual.md`), la semilla queda **3 a 5
-veces por encima**. Eso es una decisión de negocio, no un error del modelo: o se bajan
-tarifas/horas para el segmento actual, o se crea un tier "Esencial" sobre el design
-system de DKODING (multiplicador 1.0, menos bloques, 60–70 h) que aterrice cerca de los
-precios actuales y deje el Corporativo como escalón superior. Recomiendo lo segundo:
-conserva la puerta de entrada y abre el ticket alto que hoy no existe.
+| Proyecto | Horas | Nivel de diseño | Rango COP antes de IVA | Precio público actual | Veces |
+|---|---:|---|---|---|---:|
+| Esencial (sistema DKODING, menos bloques) | 64 | × 1,0 | 8,6 M – 10,9 M | Página comercial 1,8 M | 4,8–6,0 |
+| Landing + incluidos | ~100 | × 1,4 | 17,9 M – 22,8 M | Página personal 1,3 M | 14–18 |
+| Corporativo + incluidos | ~170 | × 1,4 | 31,2 M – 39,8 M | Página corporativa 6,0 M | 5,2–6,6 |
+| Tienda + incluidos | ~270 | × 1,4 | 50,5 M – 64,4 M | Tienda avanzada 6,0 M | 8,4–10,7 |
+
+**Lectura corregida.** La distancia no es de 3 a 5 veces sino de 5 a 18 veces. Eso dice
+más del modelo de horas que del precio: los precios actuales implican una tarifa
+efectiva de ~28.000 COP/h si un sitio comercial tomara 64 h, muy por debajo de la
+mediana de agencias en Colombia (~USD 37/h, ver `cotizador-por-hora.md` §3.1). Lo más
+probable es que los paquetes actuales se construyan en bastantes menos horas (plantillas,
+tema de WordPress, contenido del cliente), así que:
+
+1. **No publicar el cotizador con las horas semilla.** Antes hay que calibrar P1–P11 con
+   las horas reales de 5 proyectos recientes (tablero «Tarifas», sección Calibración).
+2. **El tier Esencial debe ser de plantilla real**: unas 20–30 h de trabajo sobre el
+   sistema de diseño, para aterrizar en 1,8–3 M con una tarifa efectiva de 90–100 mil/h.
+3. **El ×1,4 y el ×1,9 son para trabajo a medida** y solo deben aparecer cuando el cliente
+   elige ese nivel; el cotizador público debería abrir con el nivel «Sistema DKODING»
+   seleccionado.
+4. Con esos ajustes el Corporativo semi-custom queda como el escalón alto que hoy no
+   existe, sin espantar a quien busca la página de 1,8 M.

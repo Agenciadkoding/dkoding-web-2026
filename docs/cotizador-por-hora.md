@@ -307,17 +307,18 @@ flowchart LR
 │                                                                      │
 │  Sitio corporativo · 7 páginas · diseño semi-custom · 2 idiomas      │
 │                                                                      │
-│  COP 9.800.000 – 11.300.000        ≈ 112 horas · 5–6 semanas         │
+│  COP 14.750.000 – 18.750.000       ≈ 112 horas · 5–6 semanas         │
 │  + IVA 19 %  ·  Anticipo 50 %  ·  Vigente 15 días                    │
 │                                                                      │
 │  Desglose por fase          Horas    Inversión                       │
 │  Estrategia y dirección       11     COP 1.980.000                   │
 │  Diseño UX/UI                 28     COP 3.920.000                   │
-│  Desarrollo                   50     COP 7.600.000                   │
+│  Desarrollo (front + back)    50     COP 7.600.000                   │
 │  Contenido y SEO on-page      11     COP 1.210.000                   │
 │  Pruebas y lanzamiento        12     COP 1.200.000                   │
 │  Dominio + hosting (1 año)     —     COP   430.000                   │
-│  Incluye 15 % de contingencia para cambios de alcance.               │
+│  Horas ya ajustadas por diseño e idiomas. Mín. = líneas × 0,90;      │
+│  máx. = líneas × 1,15 (contingencia). Extras sin ajuste.             │
 │                                                                      │
 │  No incluye: fotografía, redacción si eliges «contenido propio».     │
 │                                                                      │
@@ -325,6 +326,13 @@ flowchart LR
 │  Estimación orientativa. Precio cerrado tras una llamada de 20 min.  │
 └──────────────────────────────────────────────────────────────────────┘
 ```
+
+---
+
+> **Corrección 2026-10-06.** La primera versión de este wireframe mostraba
+> COP 9.800.000 – 11.300.000, que no coincide con sus propias líneas: las horas por
+> fase suman COP 15.910.000 antes de contingencia. Con la fórmula de §2 el rango
+> correcto es COP 14.750.000 – 18.750.000 (redondeado a 50.000, extras incluidos).
 
 ---
 
