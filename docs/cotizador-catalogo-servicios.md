@@ -489,16 +489,20 @@ naming (+16 h), manual extendido con fotografía e iconografía (+16 h), impleme
 la firma de correo en Google Workspace/Outlook (+2 h; el texto actual la excluye
 explícitamente, es una venta fácil).
 
-### 14.3 Nuevo producto: tarjeta digital dkard.co
+### 14.3 Producto: tarjeta digital dkard.co
+
+> **Corrección 2026-10-06.** La versión anterior proponía reconstruir dkard.co como una
+> colección de Payload. La investigación del admin verificó que dkard.co ya funciona como
+> servicio con su propio panel y cobro (`docs/ux-admin.md` §0.1). Se integra, no se
+> reconstruye: en el admin solo hay un enlace por cliente y, si existe API, sus visitas.
+
+Las horas siguen siendo las de configurar la tarjeta para el cliente dentro de dkard.co:
 
 | Versión | Incluye | Horas |
 |---|---|---:|
 | dkard básica (incluida en todo sitio) | Perfil, foto, enlaces, WhatsApp, vCard descargable, QR | 4 |
 | dkard equipo | 1 plantilla + N tarjetas de empleados | 6 + 0,5 por tarjeta |
 | dkard con marca | Diseño sobre el manual de identidad del cliente | +3 |
-
-Técnicamente es una colección más en Payload servida como subdominio/ruta de
-`dkard.co`: un `tenant` ligero por tarjeta. Encaja en la misma plataforma sin stack nuevo.
 
 ### 14.4 Cambios a la semilla YAML (§11)
 

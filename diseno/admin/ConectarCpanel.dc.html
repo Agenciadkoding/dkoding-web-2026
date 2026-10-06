@@ -24,7 +24,7 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid #D98B
         <img src="/_blob/af8d4aea91012d3a301c737f7fa02819" alt="DKODING" style="height: 28px; width: auto">
         <span aria-hidden="true" style="width: 1px; height: 24px; background: rgba(255,255,255,0.14)"></span>
         <span style="font-weight: 600">Conectar cPanel</span>
-        <span style="padding: 2px 10px; border-radius: 999px; background: rgba(199,85,239,0.16); color: #D98BFF; font-size: 12px; font-weight: 600">Asistente · MON-03</span>
+        <span style="padding: 2px 10px; border-radius: 999px; background: rgba(199,85,239,0.16); color: #D98BFF; font-size: 12px; font-weight: 600">Asistente · MON-03 · fase 2</span>
       </div>
       <a href="Sitios.dc.html" style="display: inline-flex; align-items: center; gap: 8px; min-height: 40px; color: #D8D4E2; font-weight: 600">Guardar y salir</a>
     </div>
@@ -68,11 +68,12 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid #D98B
       <sc-if value="{{isStep2}}" hint-placeholder-val="{{false}}">
         <section aria-labelledby="h-s2" style="display: flex; flex-direction: column; gap: 20px; padding: 28px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px">
           <div style="display: flex; flex-direction: column; gap: 6px"><span style="color: #C755EF; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 12px">Paso 2 de 5</span><h1 id="h-s2" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 28px; line-height: 1.1">Acceso con token de API, no con contraseña</h1><p style="margin: 0; color: #B3B0BC">Un token se puede revocar sin cambiar la contraseña del cliente y deja rastro en el cPanel de cada llamada.</p></div>
+          <div role="group" aria-label="Tipo de acceso" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 10px"><sc-for list="{{modes}}" as="m" hint-placeholder-count="2"><button type="button" onClick="{{m.pick}}" aria-pressed="{{m.on}}" style="{{m.style}}"><span style="font-weight: 600">{{m.title}}</span><span style="font-size: 12px; color: #B3B0BC">{{m.desc}}</span></button></sc-for></div>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 16px">
             <div style="display: flex; flex-direction: column; gap: 6px"><label for="cp-host" style="font-weight: 600">Servidor</label><input id="cp-host" type="text" value="{{host}}" onChange="{{setHost}}" style="min-height: 40px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 13px"><span style="font-size: 12px; color: #B3B0BC">Sin https:// ni puerto. Usamos el 2083 con TLS.</span></div>
             <div style="display: flex; flex-direction: column; gap: 6px"><label for="cp-user" style="font-weight: 600">Usuario de cPanel</label><input id="cp-user" type="text" value="{{user}}" onChange="{{setUser}}" style="min-height: 40px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 13px"></div>
           </div>
-          <div style="display: flex; flex-direction: column; gap: 6px"><label for="cp-token" style="font-weight: 600">Token de API</label><input id="cp-token" type="password" value="U7HMR63FHY282DQZ4H5BIH16JLYSO01M" autocomplete="off" style="min-height: 40px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 13px"><span style="font-size: 12px; color: #B3B0BC">Lo cifra el servidor y solo lo usa el sistema de monitoreo. Después de guardarlo nadie del equipo lo vuelve a ver.</span></div>
+          <div style="display: flex; flex-direction: column; gap: 6px"><label for="cp-token" style="font-weight: 600">Token de API</label><input id="cp-token" type="password" value="U7HMR63FHY282DQZ4H5BIH16JLYSO01M" autocomplete="off" style="min-height: 40px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 13px"><span style="font-size: 12px; color: #B3B0BC">Se sella en tu navegador con la llave pública del servidor de copias, junto con el servidor y el usuario. El panel lo guarda sin poder leerlo ni redirigirlo a otro destino.</span></div>
           <details style="padding: 14px 16px; background: #0F0F11; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px">
             <summary style="cursor: pointer; font-weight: 600; min-height: 28px">Cómo crear el token en el cPanel del cliente</summary>
             <ol style="margin: 12px 0 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #D8D4E2">
@@ -133,7 +134,7 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid #D98B
             <dt style="color: #B3B0BC">Sitio</dt><dd style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 13px">{{domain}} · {{kindLabel}}</dd>
             <dt style="color: #B3B0BC">Servidor</dt><dd style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 13px">{{host}}:2083 · {{user}}</dd>
             <dt style="color: #B3B0BC">Vigilancia</dt><dd style="margin: 0">{{watchSummary}}</dd>
-            <dt style="color: #B3B0BC">Primera copia</dt><dd style="margin: 0">Al conectar · destino Cloudflare R2 (cuenta DKODING) · cifrada</dd>
+            <dt style="color: #B3B0BC">Primera copia</dt><dd style="margin: 0">Al conectar · cifrada · R2 + copia secundaria inmutable</dd>
           </dl>
           <sc-if value="{{done}}" hint-placeholder-val="{{false}}">
             <div role="status" style="display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: rgba(91,228,155,0.08); border: 1px solid rgba(91,228,155,0.35); border-radius: 8px">
@@ -156,7 +157,7 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid #D98B
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { step: 1, client: 'luzma', kind: 'woo', domain: 'luzmauniformes.com', host: 'cpanel.luzmauniformes.com', user: 'luzmauni', done: false,
+    this.state = { step: 1, mode: 'cpanel', client: 'luzma', kind: 'woo', domain: 'luzmauniformes.com', host: 'cpanel.luzmauniformes.com', user: 'luzmauni', done: false,
       watch: { up: true, ssl: true, backup: true, integrity: true, wp: true, crux: true } };
   }
   renderVals() {
@@ -209,7 +210,7 @@ class Component extends DCLogic {
     ];
     var watchDefs = [
       { id: 'up', title: 'Disponibilidad', desc: 'HTTPS desde 3 regiones y una palabra clave de la página. Alerta si fallan 2 de 3.', freq: 'cada 1 min · tienda' },
-      { id: 'backup', title: 'Copia externa cifrada', desc: 'Sitio y base de datos cada noche; cuenta completa los domingos. Cloudflare R2 con bloqueo de borrado: 30 diarias + 12 mensuales.', freq: 'diaria 03:00' },
+      { id: 'backup', title: 'Copia externa cifrada', desc: 'Sitio y base de datos cada noche; cuenta completa los domingos. A Cloudflare R2 y a una copia secundaria inmutable en otra cuenta: 30 diarias + 12 mensuales.', freq: 'diaria 03:00' },
       { id: 'integrity', title: 'Integridad', desc: 'Compara la copia con las sumas oficiales de WordPress y vigila la portada: scripts nuevos o títulos cambiados.', freq: 'diaria' },
       { id: 'ssl', title: 'SSL y dominio', desc: 'Avisa 30, 14 y 3 días antes de vencer.', freq: 'diaria' },
       { id: 'wp', title: 'WordPress y plugins', desc: 'Versiones y vulnerabilidades conocidas.', freq: 'diaria' },
@@ -224,10 +225,18 @@ class Component extends DCLogic {
         box: 'display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; flex: none; border-radius: 4px; ' + (on ? 'background: #6D00C2; border: 1px solid #6D00C2;' : 'background: transparent; border: 1px solid rgba(255,255,255,0.3);'),
         toggle: function () { var n = Object.assign({}, st.watch); n[w.id] = !n[w.id]; self.setState({ watch: n }); } };
     });
+    var modes = [
+      { id: 'whm', title: 'Servidor del revendedor (WHM)', desc: 'Recomendado si SeguriServer lo habilita: un token por servidor, con permisos mínimos y limitado a la IP del relay. Sirve para todas las cuentas de ese servidor.' },
+      { id: 'cpanel', title: 'Token de la cuenta cPanel', desc: 'Cuando no hay WHM. Hereda todo el acceso de la cuenta y vence: hay que pedir uno nuevo al cliente cada 90 a 180 días.' }
+    ].map(function (m) {
+      var on = st.mode === m.id;
+      return { title: m.title, desc: m.desc, on: on, pick: function () { self.setState({ mode: m.id }); },
+        style: 'display: flex; flex-direction: column; align-items: flex-start; gap: 4px; padding: 12px 14px; border-radius: 8px; cursor: pointer; color: #F4F2F8; text-align: left; ' + (on ? 'background: #1A0B2B; border: 2px solid #C755EF;' : 'background: #0F0F11; border: 1px solid rgba(255,255,255,0.14);') };
+    });
     var clientName = (clientDefs.filter(function (c) { return c.id === st.client; })[0] || clientDefs[0]).name;
     var kindLabel = (kindDefs.filter(function (k) { return k.id === st.kind; })[0] || kindDefs[0]).label;
     return {
-      steps: steps, clients: clients, kinds: kinds, checks: checks, watch: watch,
+      modes: modes, steps: steps, clients: clients, kinds: kinds, checks: checks, watch: watch,
       isStep1: st.step === 1, isStep2: st.step === 2, isStep3: st.step === 3, isStep4: st.step === 4, isStep5: st.step === 5,
       isFirst: st.step === 1, done: st.done,
       domain: st.domain, host: st.host, user: st.user, clientName: clientName, kindLabel: kindLabel,

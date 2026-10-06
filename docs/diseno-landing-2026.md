@@ -28,8 +28,8 @@ Nombre del look: **Noche violeta**.
 | `--dk-surface` | `#151518` | tarjetas | — |
 | `--dk-deep` | `#1A0B2B` | franjas, barra superior | — |
 | `--dk-violet` | `#6D00C2` | **fondo de botón primario** | blanco encima 8,6:1 ✔ |
-| `--dk-lila` | `#C755EF` | eyebrows, marcas `»`, bordes destacados · **solo sobre oscuro** | 7,0:1 sobre `#0C0C0C` ✔ |
-| `--dk-lila-link` | `#D98BFF` | enlaces, hover | 9,8:1 ✔ |
+| `--dk-lila` | `#C755EF` | eyebrows, marcas `»`, bordes destacados · **solo sobre oscuro** | 5,57:1 sobre `#0C0C0C` ✔ (corregido; antes decía 7,0:1) |
+| `--dk-lila-link` | `#D98BFF` | enlaces, hover | 8,46:1 ✔ (corregido; antes decía 9,8:1) |
 | `--dk-text` | `#F4F2F8` | texto | 18,4:1 ✔ |
 | `--dk-muted` | `#B3B0BC` | texto secundario | 9,0:1 ✔ |
 | `--dk-ok` | `#5BE49B` | estados correctos | |

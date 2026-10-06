@@ -20,14 +20,14 @@ button:focus-visible,a:focus-visible{outline:2px solid #D98BFF;outline-offset:2p
 
   <header style="padding: 20px 16px 12px; display: flex; justify-content: space-between; align-items: center; gap: 12px; border-bottom: 1px solid rgba(255,255,255,0.08)">
     <div style="display: flex; flex-direction: column"><span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 26px; line-height: 1">Alertas</span><span style="font-size: 13px; color: #B3B0BC">Todos los clientes · 38 sitios</span></div>
-    <span style="padding: 4px 10px; border-radius: 999px; background: rgba(255,107,122,0.16); color: #FF8F9B; font-size: 13px; font-weight: 600">1 crítica</span>
+    <span style="padding: 4px 10px; border-radius: 999px; background: rgba(255,107,107,0.16); color: #FF8F9B; font-size: 13px; font-weight: 600">1 crítica</span>
   </header>
 
   <main style="flex: 1; overflow-y: auto; padding: 14px 16px; display: flex; flex-direction: column; gap: 14px">
 
-    <article aria-labelledby="m-crit" style="display: flex; flex-direction: column; gap: 12px; padding: 16px; background: #1A1015; border: 1px solid rgba(255,107,122,0.45); border-radius: 10px">
+    <article aria-labelledby="m-crit" style="display: flex; flex-direction: column; gap: 12px; padding: 16px; background: #1A1015; border: 1px solid rgba(255,107,107,0.45); border-radius: 10px">
       <div style="display: flex; gap: 10px; align-items: flex-start">
-        <svg width="18" height="18" viewBox="0 0 16 16" aria-label="Crítico" style="flex: none; margin-top: 3px"><rect x="2.5" y="2.5" width="11" height="11" transform="rotate(45 8 8)" fill="#FF6B7A"></rect></svg>
+        <svg width="18" height="18" viewBox="0 0 16 16" aria-label="Crítico" style="flex: none; margin-top: 3px"><rect x="2.5" y="2.5" width="11" height="11" transform="rotate(45 8 8)" fill="#FF6B6B"></rect></svg>
         <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0">
           <h1 id="m-crit" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px; line-height: 1.15">luzmauniformes.com no responde</h1>
           <span style="font-size: 13px; color: #D8C2C6">LuzMa · tienda WooCommerce · desde 03:07 · {{downFor}}</span>
@@ -40,7 +40,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #D98BFF;outline-offset:2p
       </dl>
       <p style="margin: 0; font-size: 14px; color: #E8DCDF">Diagnóstico automático: el servidor responde, PHP no. El uso de disco del cPanel está al 100 %.</p>
       <sc-if value="{{acked}}" hint-placeholder-val="{{false}}">
-        <div role="status" style="display: flex; gap: 8px; align-items: center; padding: 8px 10px; background: rgba(91,228,155,0.1); border-radius: 6px; font-size: 13px; color: #BFF2D6"><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="#5BE49B"></circle></svg>Reconocida por ti a las 03:14. El resto del equipo ya no recibe avisos.</div>
+        <div role="status" style="display: flex; gap: 8px; align-items: center; padding: 8px 10px; background: rgba(91,228,155,0.1); border-radius: 6px; font-size: 13px; color: #BFF2D6"><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="#5BE49B"></circle></svg>Reconocida por ti a las 03:14. Si en 30 min no publicas una actualización, se reabre y vuelve a avisar.</div>
       </sc-if>
       <div style="display: flex; flex-direction: column; gap: 8px">
         <sc-if value="{{notAcked}}" hint-placeholder-val="{{true}}">
@@ -50,7 +50,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #D98BFF;outline-offset:2p
           <a href="Sitio.dc.html" style="display: inline-flex; align-items: center; justify-content: center; min-height: 48px; border: 1px solid rgba(255,255,255,0.22); border-radius: 6px; color: #F4F2F8; font-weight: 600">Ver diagnóstico</a>
           <a href="https://api.whatsapp.com/send/?text=Hola%2C%20detectamos%20una%20ca%C3%ADda%20en%20tu%20tienda%20y%20ya%20la%20estamos%20atendiendo." style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; border: 1px solid rgba(255,255,255,0.22); border-radius: 6px; color: #F4F2F8; font-weight: 600"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"></path></svg>Avisar al cliente</a>
         </div>
-        <span style="font-size: 12px; color: #B3B0BC">Restaurar una copia exige computador y segundo factor. Desde el celular solo se diagnostica y se avisa.</span>
+        <span style="font-size: 12px; color: #B3B0BC">Desde el celular se diagnostica, se avisa y se aprueba con passkey. Restaurar se ejecuta siempre desde un computador.</span>
       </div>
       <ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: #D8D4E2; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 10px">
         <li style="display: flex; gap: 10px"><span style="font-family: 'JetBrains Mono', monospace; color: #B3B0BC">03:07</span>Primer fallo desde Bogotá</li>
@@ -58,6 +58,16 @@ button:focus-visible,a:focus-visible{outline:2px solid #D98BFF;outline-offset:2p
         <li style="display: flex; gap: 10px"><span style="font-family: 'JetBrains Mono', monospace; color: #B3B0BC">03:12</span>WhatsApp y llamada a la guardia de la semana</li>
       </ol>
     </article>
+
+    <section aria-labelledby="m-apr" style="display: flex; flex-direction: column; gap: 8px">
+      <h2 id="m-apr" style="margin: 0; font-size: 13px; color: #B3B0BC; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600">Esperan tu aprobación</h2>
+      <div style="display: flex; flex-direction: column; gap: 8px; padding: 12px; background: #1A0B2B; border: 1px solid rgba(199,85,239,0.45); border-radius: 8px">
+        <span style="font-weight: 600">Extraer la copia de las 02:58 a carpeta de prueba</span>
+        <span style="font-size: 13px; color: #D8CFE6">Pide Operaciones · no toca la tienda ni los pedidos</span>
+        <sc-if value="{{notApproved}}" hint-placeholder-val="{{true}}"><button type="button" onClick="{{approve}}" style="width: 100%; min-height: 44px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; font-weight: 600; cursor: pointer">Aprobar con passkey</button></sc-if>
+        <sc-if value="{{approved}}" hint-placeholder-val="{{false}}"><span role="status" style="font-size: 13px; color: #5BE49B; font-weight: 600">Aprobado. Operaciones la ejecuta desde su computador.</span></sc-if>
+      </div>
+    </section>
 
     <section aria-labelledby="m-more" style="display: flex; flex-direction: column; gap: 8px">
       <h2 id="m-more" style="margin: 0; font-size: 13px; color: #B3B0BC; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600">También pendiente</h2>
@@ -78,22 +88,24 @@ button:focus-visible,a:focus-visible{outline:2px solid #D98BFF;outline-offset:2p
   </main>
 
   <nav aria-label="Secciones" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid rgba(255,255,255,0.1); background: #101013">
-    <a href="Movil.dc.html" aria-current="page" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 60px; color: #F4F2F8; font-size: 12px; font-weight: 600"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C755EF" stroke-width="2" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10 21h4"></path></svg>Alertas</a>
-    <a href="Sitios.dc.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 60px; color: #B3B0BC; font-size: 12px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M3 9h18"></path></svg>Sitios</a>
     <a href="Main.dc.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 60px; color: #B3B0BC; font-size: 12px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg>Inicio</a>
-    <a href="Main.dc.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 60px; color: #B3B0BC; font-size: 12px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="5" cy="12" r="1.5"></circle><circle cx="12" cy="12" r="1.5"></circle><circle cx="19" cy="12" r="1.5"></circle></svg>Más</a>
+    <a href="Movil.dc.html" aria-current="page" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 60px; color: #F4F2F8; font-size: 12px; font-weight: 600"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C755EF" stroke-width="2" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10 21h4"></path></svg>Alertas</a>
+    <a href="#m-apr" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 60px; color: #B3B0BC; font-size: 12px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 12l2 2 4-4"></path><rect x="3" y="4" width="18" height="16" rx="2"></rect></svg>Aprobaciones</a>
+    <a href="Main.dc.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 60px; color: #B3B0BC; font-size: 12px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>Buscar</a>
   </nav>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
 class Component extends DCLogic {
-  constructor(props) { super(props); this.state = { acked: false }; }
+  constructor(props) { super(props); this.state = { acked: false, approved: false }; }
   renderVals() {
     var self = this;
     return {
       acked: this.state.acked, notAcked: !this.state.acked,
       downFor: this.state.acked ? '7 min caído' : '6 min caído',
-      ack: function () { self.setState({ acked: true }); }
+      ack: function () { self.setState({ acked: true }); },
+      approved: this.state.approved, notApproved: !this.state.approved,
+      approve: function () { self.setState({ approved: true }); }
     };
   }
 }
