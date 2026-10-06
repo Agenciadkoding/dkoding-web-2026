@@ -17,5 +17,7 @@ mkdir media && cd media && xargs -P 8 -n 1 curl -sSO < ../inventario-medios-dkod
 | `clientes/logos/` | 10 logos de clientes en SVG blanco: Dimark, Colorado Hardwood, Jhoana Pérez, OkVet, Shaddai, Abab, Hosroom, SeguriServer, Alternativas Verticales, Uniformes & Bordados |
 | `equipo/` | 5 fotos reales (CEO, COO, 3 comerciales). Los demás `dk-equipo-*` del sitio son avatares ilustrados; no se usan |
 
+**Nota:** el archivo `docs/img/dkoding-logo.svg` de la primera investigación era `logo-clientes-10.svg` (cliente); ya está corregido.
+
 **Pendiente del cliente:** logo en formatos de origen (AI / EPS / PDF / PNG en alta)
 desde la carpeta local `Recursos Dkoding 2024`; no están publicados en el sitio.

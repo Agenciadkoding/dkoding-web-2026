@@ -153,7 +153,15 @@ En `/servicios/tienda-avanzada/` los tipos JSON-LD presentes son:
 precio ni disponibilidad en el resultado de búsqueda para ninguno de los 17
 productos.
 
-### 4.4 Encabezados y metadatos — estado por página
+### 4.4 🚩 `og:image` de la home es el logo de un cliente
+
+`<meta property="og:image" content=".../2024/05/logo-clientes-10.svg">`. Ese archivo es el
+logo de **Uniformes & Bordados**, un cliente. Cada vez que alguien comparte dkoding.net
+en WhatsApp, LinkedIn o Facebook, la previsualización muestra la marca de otro. Además
+es SVG de 230×75: las redes esperan 1200×630 en JPG/PNG. Corregir con una imagen propia
+por página.
+
+### 4.5 Encabezados y metadatos — estado por página
 
 | Ruta | H1 | H2 | `<title>` (chars) | meta desc |
 |---|---:|---:|---:|---|
@@ -179,7 +187,7 @@ productos.
   canibalización entre las dos páginas más importantes.
 - `/blog/` tiene como H1 literalmente `Archivos` (default de WordPress).
 
-### 4.5 Taxonomía del blog
+### 4.6 Taxonomía del blog
 
 Los **5 posts cuelgan de la raíz**, no de `/blog/`:
 `/importancia-de-un-buen-logo-profesional-para-tu-negocio/`,
@@ -378,11 +386,12 @@ empresa.
 2. **Reescribir `robots.txt`.** Quitar el bloqueo de `/wp-content/uploads/`,
    `/themes/`, `/plugins/`, `/*.js$`, `/*.css$` y `/*?*`. Añadir
    `Sitemap: https://dkoding.net/sitemap_index.xml`.
-3. **Resolver `/home-dani/`**: despublicar, o `noindex` + canonical a `/`, y
+3. **Reemplazar el `og:image`** (hoy es el logo de un cliente) por una imagen propia 1200×630.
+4. **Resolver `/home-dani/`**: despublicar, o `noindex` + canonical a `/`, y
    sacarla del sitemap.
-4. **Alinear la promoción.** "15 %OFF" vs 9.1% real. Riesgo legal (Ley 1480).
-5. **Emitir schema `Product` + `Offer`** en las 17 fichas. Hoy no hay ninguno.
-6. **Corregir el mapeo del formulario** (`form_fields[email]` = teléfono) y
+5. **Alinear la promoción.** "15 %OFF" vs 9.1% real. Riesgo legal (Ley 1480).
+6. **Emitir schema `Product` + `Offer`** en las 17 fichas. Hoy no hay ninguno.
+7. **Corregir el mapeo del formulario** (`form_fields[email]` = teléfono) y
    revisar los leads históricos.
 
 ### Altos
