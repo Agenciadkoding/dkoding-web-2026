@@ -363,3 +363,54 @@ reglas:
    publicado. Recomiendo horas internas, fee fijo hacia afuera.
 3. Umbral de "desde + agenda" (propuesto 200 h).
 4. Qué bloques se ofrecen con herramienta externa por defecto (foro, soporte, cursos).
+
+---
+
+## 13. Lectura del mockup original de DKODING (diagrama compartido el 2026-10-06)
+
+El mockup previo del cotizador mostraba: cabecera con pestañas por familia (Sitio web ·
+SEO · Anuncios · Diseño gráfico), titular "Cotiza con precisión el costo del servicio que
+necesitas", un bloque "Módulos Sitio Web" dividido en **Módulos seleccionados** y
+**Módulos disponibles** (grid de tarjetas con icono, badge "+5 horas", nombre y "ver
+detalles"), un **panel morado fijo** con "45 horas de desarrollo · $1.000.000 · Cotizar
+por WA · Descargar PDF · Vaciar cotización", y una versión **tipo tiquete/recibo** con
+borde dentado, "Posible fecha de entrega: 15 Febrero 2025" y la lista de módulos con
+icono de eliminar. (La imagen llegó pegada en el chat, no como archivo; no se pudo
+guardar en `img/`.)
+
+### Qué conservar (ya está alineado con la investigación)
+
+| Idea del mockup | Por qué funciona | Dónde queda en el diseño final |
+|---|---|---|
+| Badge de **horas por módulo** en cada tarjeta | Hace tangible el "cotizador por hora": el cliente entiende de dónde sale el total | Se mantiene en cada bloque de §3 Paso B; se añade el precio del módulo al pasar el cursor |
+| **Seleccionados arriba, disponibles abajo** | Refuerza el compromiso progresivo: lo elegido se ve crecer | Se mantiene; en móvil, los seleccionados van al tiquete inferior |
+| **Panel fijo** con horas, total y dos CTAs (WhatsApp + PDF) | Es el precio en vivo que recomienda la literatura de configuradores | Se mantiene en desktop (lateral) y como barra inferior expandible en móvil |
+| **Tiquete con borde dentado** | Metáfora de recibo: concreta, memorable, muy de marca | Es la versión móvil del resumen y la plantilla del PDF |
+| **Fecha posible de entrega** | Convierte horas en algo que el cliente sí entiende | Se calcula: `semanas = ceil(horas_total / capacidad_semanal)`, con capacidad semilla de 20 h/semana por proyecto; se muestra como rango de semanas y fecha estimada |
+| **Pestañas por familia de servicio** | Es exactamente la entrada condensada de §9 | Se mantiene como primer paso; permite marcar varias familias |
+| **Vaciar cotización** e icono de eliminar por línea | Control total sobre la selección | Se mantiene; "vaciar" pide confirmación en la propia página |
+
+### Qué cambiar (lo que la investigación corrige)
+
+| En el mockup | Problema | Cambio |
+|---|---|---|
+| Un solo grid con ~24 tarjetas iguales | Sobrecarga de decisión; el usuario no sabe por dónde empezar | Primero **Tipo de sitio** (5 opciones, §3 Paso A) que ya marca los bloques base; luego bloques añadibles en **5 pestañas** (Presencia, Contenido, Conversión, Comercio, Plataforma) |
+| Total único "$1.000.000" | Un número exacto generado por la web pierde credibilidad y ata a la agencia | **Rango mín–máx** + "incluye 15 % de contingencia" |
+| Sin IVA ni condiciones | Sorpresa posterior; en Colombia el IVA debe ir discriminado | Línea "+ IVA 19 %", anticipo 50 %, vigencia 15 días en panel y PDF |
+| "Horas de desarrollo" | Oculta diseño, contenido, QA y dirección; parece solo programación | "Horas de proyecto" con desglose por fase al desplegar el panel |
+| PDF descargable sin dejar datos | Se pierde el lead justo cuando más interesado está | El rango se ve libre; **PDF y desglose completo a cambio de nombre + WhatsApp + correo** |
+| Sin nivel de diseño ni urgencia | Dos de los tres multiplicadores que más mueven el precio no existen | Paso C (sistema / semi-custom / custom · normal / prioritario / exprés) |
+| Tarjetas con el mismo texto de ejemplo | Hay que escribir el nombre en idioma cliente y una línea de ayuda por bloque | Nombres y ayudas de §2; "ver detalles" abre qué incluye y qué no |
+| Dependencias no visibles | El usuario puede elegir Productos y Tienda y pagar doble | Reglas de §2 aplicadas en vivo con aviso "incluido en Tienda" |
+
+### Flujo final resultante (mockup + investigación)
+
+```
+Pestañas de familia  →  Tipo de sitio (cards)  →  Bloques añadibles en 5 grupos
+(badge horas, seleccionados arriba)  →  Nivel y tiempos  →  Panel fijo con rango,
+horas, semanas y fecha estimada  →  WhatsApp directo  |  Datos → PDF tiquete + lead
+```
+
+El tiquete dentado del mockup pasa a ser la identidad visual del resultado en móvil y
+del PDF: mismo borde, mismo orden (resumen, fecha estimada, líneas con horas, rango,
+IVA, anticipo, vigencia, número de cotización).
