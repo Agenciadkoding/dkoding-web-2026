@@ -1,6 +1,6 @@
 # Tableros del admin DKODING · MVP simple
 
-Fuente del lienzo publicado en https://claude.ai/artifact/3gfSHhiYsQGuhm9qXYbX8X (versión 22,
+Fuente del lienzo publicado en https://claude.ai/artifact/3gfSHhiYsQGuhm9qXYbX8X (versión 23,
 7 de octubre de 2026). Especificación: `docs/admin-mvp.md`.
 
 Cada archivo `.dc.html` es un tablero del lienzo de diseño. `canvas.json` es el índice con su
