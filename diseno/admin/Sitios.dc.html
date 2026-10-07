@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Salud de sitios</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Blinker:wght@300;600;700&amp;family=Barlow:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#0C0C0C}
+a{color:#D98BFF;text-decoration:none}a:hover{color:#F0D4FF}
+button,input{font:inherit}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid #D98BFF;outline-offset:2px}
+.dk-nav a:hover{background:#17161C;color:#F4F2F8}
+.dk-row:hover{background:#1D1B24}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; min-height: 100%; background: #0C0C0C; color: #F4F2F8; font-family: 'Barlow', system-ui, sans-serif; font-size: 14px; line-height: 1.5">
+
+  <header style="border-bottom: 1px solid rgba(255,255,255,0.08); background: #101013">
+    <div style="padding: 10px 20px; display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center">
+      <a href="Main.dc.html" aria-label="DKODING, inicio del admin" style="display: flex; align-items: center; min-height: 40px"><img src="/_blob/af8d4aea91012d3a301c737f7fa02819" alt="DKODING" style="height: 26px; width: auto"></a>
+      <span style="padding: 3px 10px; border-radius: 999px; background: rgba(199,85,239,0.14); color: #D98BFF; font-size: 12px; font-weight: 600">Admin</span>
+      <div style="flex: 1 1 260px; display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 12px; background: #0C0C0C; border: 1px solid rgba(255,255,255,0.14); border-radius: 6px; max-width: 560px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B3B0BC" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg><label for="g-search" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Buscar en el admin</label><input id="g-search" type="text" placeholder="Buscar sitio, cliente o acceso" style="flex: 1; min-width: 0; background: transparent; border: 0; color: #F4F2F8; outline: none"><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 2px 6px; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; color: #B3B0BC">Ctrl K</kbd></div>
+      <div style="display: flex; align-items: center; gap: 8px; margin-left: auto"><a href="Main.dc.html" aria-label="Avisos: 1 sitio caído, 3 de atención" style="position: relative; display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 6px; color: #F4F2F8"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10 21h4"></path></svg><span aria-hidden="true" style="position: absolute; top: 4px; right: 3px; min-width: 16px; height: 16px; padding: 0 4px; box-sizing: border-box; border-radius: 999px; background: #FF6B6B; color: #0C0C0C; font-size: 11px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center">4</span></a><img src="/_blob/c1f4c9d27736f1652e876e2f660320ef" alt="Tu cuenta: Dirección" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 2px solid #3D0A6E"></div>
+    </div>
+  </header>
+
+  <div style="display: flex; flex-wrap: wrap; align-items: flex-start">
+    <nav class="dk-nav" aria-label="Módulos" style="flex: 1 1 232px; max-width: 260px; box-sizing: border-box; padding: 14px 10px 24px; background: #101013; border-right: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; gap: 2px; font-size: 14px">
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Inicio</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Sitio dkoding.net</span>
+      <a href="Paginas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Páginas</a>
+      <a href="Paginas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Redirecciones</a>
+      <a href="Paginas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Palabras clave</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">CRM</span>
+      <a href="Cliente.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Clientes</a>
+      <a href="Cotizaciones.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Leads<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(224,169,59,0.16); color: #E0A93B; font-size: 12px; font-weight: 600">2</span></a>
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Renovaciones</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Accesos</span>
+      <a href="Boveda.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Personales</a>
+      <a href="Boveda.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Agencia</a>
+      <a href="Boveda.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Clientes</a>
+      <a href="ImportarAccesos.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Importar Excel</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Ventas</span>
+      <a href="Cotizaciones.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Cotizaciones</a>
+      <a href="Tarifas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Tarifas</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Salud</span>
+      <a href="Sitios.dc.html" aria-current="page" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #F4F2F8; background: #1A0B2B; font-weight: 600"><span aria-hidden="true" style="width: 14px; color: #C755EF; font-family: 'Blinker', sans-serif; font-weight: 700">»</span>Sitios<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(255,107,107,0.16); color: #FF8F9B; font-size: 12px; font-weight: 600">1</span></a>
+      <a href="Sitios.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Copias<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(224,169,59,0.16); color: #E0A93B; font-size: 12px; font-weight: 600">1</span></a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Ajustes</span>
+      <a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Usuarios y roles</a>
+      <a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Conexiones</a>
+      <a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Registro</a>
+      <span style="font-size: 12px; color: #8E8A9B; padding: 16px 10px 0">MVP simple. Lo que no se usa todavía no aparece en el menú.</span>
+    </nav>
+
+    <main id="salud" style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 24px 28px 48px; display: flex; flex-direction: column; gap: 18px">
+
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <nav aria-label="Ruta" style="font-size: 13px; color: #B3B0BC">Salud</nav>
+          <h1 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 30px; line-height: 1.1">Sitios de clientes</h1>
+          <span style="color: #B3B0BC">38 sitios de 31 clientes · estado de UptimeRobot cada 5 min · copias solo con soporte de agencia activo (19 sitios)</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+          <span style="padding: 3px 10px; border-radius: 999px; background: rgba(199,85,239,0.14); color: #D98BFF; font-size: 12px; font-weight: 600">Datos de ejemplo</span>
+          <a href="#salud" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; color: #F4F2F8; font-weight: 600">Abrir UptimeRobot</a>
+          <a href="#salud" style="display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 16px; background: #6D00C2; border-radius: 4px; color: #FFFFFF; font-weight: 600"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Nuevo sitio</a>
+        </div>
+      </div>
+
+      <div role="tablist" aria-label="Secciones de salud" style="display: flex; gap: 4px; border-bottom: 1px solid rgba(255,255,255,0.08)">
+        <sc-for list="{{tabs}}" as="t" hint-placeholder-count="2"><button type="button" role="tab" onClick="{{t.pick}}" aria-selected="{{t.on}}" style="{{t.style}}">{{t.label}}<span style="{{t.badgeStyle}}">{{t.badge}}</span></button></sc-for>
+      </div>
+
+      <!-- PESTAÑA SITIOS -->
+      <sc-if value="{{isSitios}}" hint-placeholder-val="{{true}}">
+        <div style="display: flex; flex-direction: column; gap: 14px">
+          <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between">
+            <div role="group" aria-label="Filtrar por estado" style="display: flex; flex-wrap: wrap; gap: 8px">
+              <sc-for list="{{chips}}" as="c" hint-placeholder-count="4"><button type="button" onClick="{{c.pick}}" aria-pressed="{{c.on}}" style="{{c.style}}"><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><path d="{{c.shape}}" fill="{{c.color}}"></path></svg>{{c.label}}<span style="font-variant-numeric: tabular-nums; opacity: 0.75">{{c.count}}</span></button></sc-for>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+              <label for="f-text" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Filtrar sitios</label>
+              <input id="f-text" type="text" placeholder="Filtrar por dominio o cliente" style="min-height: 36px; width: 240px; max-width: 100%; padding: 0 10px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px">
+              <button type="button" onClick="{{toggleSupport}}" aria-pressed="{{onlySupport}}" style="{{supportStyle}}">Solo con soporte</button>
+            </div>
+          </div>
+
+          <section aria-label="Tabla de sitios" style="background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden">
+            <div style="overflow-x: auto">
+              <table style="width: 100%; min-width: 1080px; border-collapse: collapse">
+                <thead>
+                  <tr style="color: #B3B0BC; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; text-align: left">
+                    <th scope="col" style="padding: 10px 8px 10px 16px; font-weight: 600">Sitio</th>
+                    <th scope="col" style="padding: 10px 8px; font-weight: 600">Estado</th>
+                    <th scope="col" style="padding: 10px 8px; font-weight: 600">Disponibilidad 30 d</th>
+                    <th scope="col" style="padding: 10px 8px; font-weight: 600">SSL</th>
+                    <th scope="col" style="padding: 10px 8px; font-weight: 600">Dominio</th>
+                    <th scope="col" style="padding: 10px 8px; font-weight: 600">Soporte y copia</th>
+                    <th scope="col" style="padding: 10px 16px 10px 8px; font-weight: 600">Acceder</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <sc-for list="{{rows}}" as="r" hint-placeholder-count="10">
+                    <tr class="dk-row" style="border-top: 1px solid rgba(255,255,255,0.06)">
+                      <td style="padding: 10px 8px 10px 16px"><span style="display: flex; align-items: center; gap: 10px"><svg width="12" height="12" viewBox="0 0 16 16" aria-label="{{r.stateLabel}}" style="flex: none"><path d="{{r.shape}}" fill="{{r.color}}"></path></svg><span style="display: flex; flex-direction: column; min-width: 0"><span style="font-weight: 600; font-family: 'JetBrains Mono', monospace; font-size: 13px">{{r.domain}}</span><a href="Cliente.dc.html" style="font-size: 12px; color: #B3B0BC">{{r.client}} · {{r.stack}}</a></span></span></td>
+                      <td style="padding: 10px 8px"><span style="display: flex; flex-direction: column"><span style="{{r.statusStyle}}">{{r.status}}</span><span style="font-size: 12px; color: #B3B0BC">{{r.statusNote}}</span></span></td>
+                      <td style="padding: 10px 8px"><span style="display: flex; flex-direction: column; gap: 4px"><span style="font-variant-numeric: tabular-nums">{{r.uptime}}</span><span aria-hidden="true" style="display: grid; grid-template-columns: repeat(30, minmax(0, 1fr)); gap: 1px; width: 120px"><sc-for list="{{r.bars}}" as="b" hint-placeholder-count="30"><span style="{{b}}"></span></sc-for></span></span></td>
+                      <td style="padding: 10px 8px"><span style="{{r.sslStyle}}">{{r.ssl}}</span></td>
+                      <td style="padding: 10px 8px"><span style="display: flex; flex-direction: column"><span style="{{r.domStyle}}">{{r.dom}}</span><span style="font-size: 12px; color: #8E8A9B">{{r.domNote}}</span></span></td>
+                      <td style="padding: 10px 8px"><span style="display: flex; flex-direction: column"><span style="{{r.supStyle}}">{{r.sup}}</span><span style="{{r.copyStyle}}">{{r.copy}}</span></span></td>
+                      <td style="padding: 10px 16px 10px 8px">
+                        <sc-if value="{{r.hasAccess}}" hint-placeholder-val="{{true}}">
+                          <span style="display: flex; gap: 6px"><button type="button" onClick="{{r.openWp}}" aria-label="Acceder a WordPress de {{r.domain}}" style="min-height: 36px; padding: 0 12px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; cursor: pointer">WP</button><button type="button" onClick="{{r.openCp}}" aria-label="Acceder a cPanel de {{r.domain}}" style="min-height: 36px; padding: 0 12px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; cursor: pointer">cPanel</button></span>
+                        </sc-if>
+                        <sc-if value="{{r.noAccess}}" hint-placeholder-val="{{false}}"><span style="font-size: 12px; color: #8E8A9B">Cloudflare · código en Git</span></sc-if>
+                      </td>
+                    </tr>
+                  </sc-for>
+                </tbody>
+              </table>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding: 12px 16px; border-top: 1px solid rgba(255,255,255,0.08); color: #B3B0BC; font-size: 13px"><span>Mostrando 1 a {{shown}} de 38</span><span>El vencimiento de dominios .co no se consulta solo (no tienen RDAP): esa fecha se escribe a mano.</span></div>
+          </section>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 12px; padding: 14px 16px; background: #0F0F11; border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; color: #B3B0BC; font-size: 13px">
+            <span style="flex: 1 1 420px"><strong style="color: #F4F2F8">Cómo funciona «Acceder».</strong> Pide tu código si no lo diste en los últimos 5 minutos, y desde tu navegador envía usuario y contraseña al inicio de sesión del sitio. Si el sitio tiene captcha, 2FA o el login escondido, te muestra los datos para copiarlos. Cada acceso queda registrado.</span>
+            <span style="flex: 1 1 300px"><strong style="color: #F4F2F8">Más adelante.</strong> En WordPress, inicio de sesión firmado sin enviar la contraseña. En cPanel, un enlace de un solo uso si SeguriServer da WHM de revendedor.</span>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- PESTAÑA COPIAS -->
+      <sc-if value="{{isCopias}}" hint-placeholder-val="{{false}}">
+        <div style="display: flex; flex-direction: column; gap: 14px">
+          <section aria-label="Resumen de copias" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr)); gap: 12px">
+            <sc-for list="{{cards}}" as="k" hint-placeholder-count="4">
+              <div style="display: flex; flex-direction: column; gap: 6px; padding: 16px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px">
+                <span style="display: flex; justify-content: space-between; gap: 8px; color: #B3B0BC; font-size: 13px">{{k.label}}<svg width="12" height="12" viewBox="0 0 16 16" aria-label="{{k.stateLabel}}"><path d="{{k.shape}}" fill="{{k.color}}"></path></svg></span>
+                <span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 28px; line-height: 1; font-variant-numeric: tabular-nums">{{k.value}}</span>
+                <span style="font-size: 12px; color: #B3B0BC">{{k.note}}</span>
+              </div>
+            </sc-for>
+          </section>
+
+          <div style="padding: 12px 16px; background: rgba(199,85,239,0.06); border: 1px solid rgba(199,85,239,0.3); border-radius: 8px; font-size: 13px; color: #D8D4E2">Las copias las hace <strong style="color: #F4F2F8">UpdraftPlus</strong> en cada WordPress: cada 15 días, a un bucket de Cloudflare R2 propio del cliente, y conserva las 6 últimas (unos 3 meses). El admin no ejecuta copias: revisa cada bucket una vez al día y avisa si la última tiene más de 16 días o pesa mucho menos que la anterior.</div>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+            <section aria-label="Copias por sitio" style="flex: 999 1 560px; min-width: 0; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden">
+              <div style="overflow-x: auto">
+                <table style="width: 100%; min-width: 760px; border-collapse: collapse">
+                  <thead>
+                    <tr style="color: #B3B0BC; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; text-align: left">
+                      <th scope="col" style="padding: 10px 8px 10px 16px; font-weight: 600">Sitio</th>
+                      <th scope="col" style="padding: 10px 8px; font-weight: 600">Última copia</th>
+                      <th scope="col" style="padding: 10px 8px; font-weight: 600">Tamaño</th>
+                      <th scope="col" style="padding: 10px 8px; font-weight: 600">Guardadas</th>
+                      <th scope="col" style="padding: 10px 16px 10px 8px; font-weight: 600"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Acciones</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <sc-for list="{{copyRows}}" as="c" hint-placeholder-count="7">
+                      <tr class="dk-row" style="{{c.rowStyle}}">
+                        <td style="padding: 10px 8px 10px 16px"><span style="display: flex; align-items: center; gap: 10px"><svg width="12" height="12" viewBox="0 0 16 16" aria-label="{{c.stateLabel}}" style="flex: none"><path d="{{c.shape}}" fill="{{c.color}}"></path></svg><span style="display: flex; flex-direction: column"><span style="font-weight: 600; font-family: 'JetBrains Mono', monospace; font-size: 13px">{{c.domain}}</span><span style="font-size: 12px; color: #B3B0BC">{{c.client}} · {{c.bucket}}</span></span></span></td>
+                        <td style="padding: 10px 8px"><span style="display: flex; flex-direction: column"><span>{{c.last}}</span><span style="{{c.ageStyle}}">{{c.age}}</span></span></td>
+                        <td style="padding: 10px 8px"><span style="display: flex; flex-direction: column"><span style="font-variant-numeric: tabular-nums">{{c.size}}</span><span style="{{c.deltaStyle}}">{{c.delta}}</span></span></td>
+                        <td style="padding: 10px 8px; font-variant-numeric: tabular-nums">{{c.kept}}</td>
+                        <td style="padding: 10px 16px 10px 8px; text-align: right"><button type="button" onClick="{{c.pick}}" aria-pressed="{{c.on}}" style="white-space: nowrap; min-height: 36px; padding: 0 12px; background: transparent; color: #D98BFF; border: 1px solid rgba(217,139,255,0.35); border-radius: 4px; font-weight: 600; cursor: pointer">Ver copias</button></td>
+                      </tr>
+                    </sc-for>
+                  </tbody>
+                </table>
+              </div>
+              <div style="padding: 12px 16px; border-top: 1px solid rgba(255,255,255,0.08); color: #B3B0BC; font-size: 13px">Mostrando 1 a 7 de 19 sitios con soporte · los sitios sin soporte no tienen copias de la agencia</div>
+            </section>
+
+            <aside aria-labelledby="h-det" style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 16px 18px; background: #151518; border: 1px solid rgba(199,85,239,0.4); border-radius: 10px">
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #B3B0BC">{{det.bucket}}</span>
+              <h2 id="h-det" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">{{det.domain}}</h2>
+              <span style="{{det.noteStyle}}">{{det.note}}</span>
+              <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column">
+                <sc-for list="{{det.copies}}" as="p" hint-placeholder-count="6">
+                  <li style="display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 44px; border-top: 1px solid rgba(255,255,255,0.06)">
+                    <span style="display: flex; flex-direction: column"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px">{{p.date}}</span><span style="font-size: 12px; color: #B3B0BC">{{p.what}}</span></span>
+                    <span style="display: flex; align-items: center; gap: 10px"><span style="font-variant-numeric: tabular-nums; font-size: 13px; color: #D8D4E2">{{p.size}}</span><button type="button" onClick="{{p.download}}" style="min-height: 32px; padding: 0 10px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-size: 13px; font-weight: 600; cursor: pointer">Descargar</button></span>
+                  </li>
+                </sc-for>
+              </ul>
+              <div style="padding: 10px 12px; background: #0F0F11; border-radius: 6px; font-size: 13px; color: #B3B0BC"><strong style="color: #F4F2F8">Restaurar</strong> en el MVP se hace desde UpdraftPlus del sitio o desde cPanel. Descargar una copia pide tu código y queda registrado.</div>
+              <span style="font-size: 12px; color: #8E8A9B">Último simulacro de restauración: 02/10 · okvet.co en una carpeta de prueba · correcto</span>
+            </aside>
+          </div>
+        </div>
+      </sc-if>
+    </main>
+  </div>
+
+  <!-- MODAL DE ACCESO -->
+  <sc-if value="{{modalOpen}}" hint-placeholder-val="{{false}}">
+    <div style="position: fixed; inset: 0; z-index: 20; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(0,0,0,0.6)">
+      <div role="dialog" aria-modal="true" aria-labelledby="h-modal" style="width: 100%; max-width: 460px; box-sizing: border-box; display: flex; flex-direction: column; gap: 14px; padding: 22px; background: #151518; border: 1px solid rgba(255,255,255,0.14); border-radius: 12px; box-shadow: 0 30px 80px rgba(0,0,0,0.6)">
+        <div style="display: flex; justify-content: space-between; align-items: start; gap: 12px">
+          <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #B3B0BC">{{m.kindLabel}}</span><h2 id="h-modal" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 22px">{{m.title}}</h2></div>
+          <button type="button" onClick="{{closeModal}}" aria-label="Cerrar" style="width: 36px; height: 36px; background: transparent; color: #B3B0BC; border: 0; border-radius: 4px; cursor: pointer; font-size: 20px">×</button>
+        </div>
+        <sc-if value="{{m.needsCode}}" hint-placeholder-val="{{true}}">
+          <div style="display: flex; flex-direction: column; gap: 10px">
+            <span style="color: #D8D4E2">Confirma que eres tú con el código de 6 dígitos de tu app autenticadora.</span>
+            <label for="otp" style="font-size: 13px; color: #B3B0BC">Código</label>
+            <input id="otp" type="text" inputmode="numeric" placeholder="000 000" style="min-height: 44px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 18px; letter-spacing: 0.2em">
+            <span style="font-size: 12px; color: #8E8A9B">No te lo pedimos otra vez durante 5 minutos. <a href="#salud">Usar mi contraseña</a></span>
+            <div style="display: flex; justify-content: flex-end; gap: 8px"><button type="button" onClick="{{closeModal}}" style="min-height: 40px; padding: 0 14px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; cursor: pointer">Cancelar</button><button type="button" onClick="{{confirmCode}}" style="min-height: 40px; padding: 0 16px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-weight: 600; cursor: pointer">Confirmar y entrar</button></div>
+          </div>
+        </sc-if>
+        <sc-if value="{{m.opened}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; flex-direction: column; gap: 12px">
+            <div style="display: flex; gap: 10px; align-items: start; padding: 10px 12px; background: rgba(91,228,155,0.08); border: 1px solid rgba(91,228,155,0.3); border-radius: 6px"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true" style="flex: none; margin-top: 3px"><path d="M8 2a6 6 0 1 1 0 12A6 6 0 0 1 8 2z" fill="#5BE49B"></path></svg><span>{{m.openedText}}</span></div>
+            <dl style="margin: 0; display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 8px 12px; font-size: 14px">
+              <dt style="color: #B3B0BC">Inicio de sesión</dt><dd style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 13px; overflow-wrap: anywhere">{{m.url}}</dd>
+              <dt style="color: #B3B0BC">Usuario</dt><dd style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 13px">admin_ejemplo</dd>
+              <dt style="color: #B3B0BC">Contraseña</dt><dd style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 13px">{{m.secret}}</dd>
+            </dl>
+            <sc-if value="{{m.hasWarn}}" hint-placeholder-val="{{false}}"><span style="padding: 10px 12px; background: rgba(224,169,59,0.08); border: 1px solid rgba(224,169,59,0.35); border-radius: 6px; font-size: 13px; color: #E8C27A">{{m.warn}}</span></sc-if>
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px"><span style="font-size: 12px; color: #8E8A9B">Registrado: tú · 07/10 10:42 · 181.xx.xx.xx</span><span style="display: flex; gap: 8px"><button type="button" onClick="{{reveal}}" style="min-height: 40px; padding: 0 14px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; cursor: pointer">{{m.revealLabel}}</button><button type="button" onClick="{{closeModal}}" style="min-height: 40px; padding: 0 16px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-weight: 600; cursor: pointer">Listo</button></span></div>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1240}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { tab: 'sitios', filter: 'all', onlySupport: false, modal: null, verified: false, shown: false, det: 'coloradohardwood.co' }; }
+  renderVals() {
+    var self = this, st = this.state;
+    var SH = { ok: 'M8 2a6 6 0 1 1 0 12A6 6 0 0 1 8 2z', warn: 'M8 1.5L15 14H1z', crit: 'M8 1L15 8L8 15L1 8z', all: 'M3 3h10v10H3z', none: 'M3 3h10v10H3z' };
+    var CO = { ok: '#5BE49B', warn: '#E0A93B', crit: '#FF6B6B', all: '#B3B0BC', none: '#8E8A9B' };
+    var LB = { ok: 'Correcto', warn: 'Atención', crit: 'Crítico', none: 'Sin datos' };
+    var TX = { ok: '#D8D4E2', warn: '#E0A93B', crit: '#FF8F9B', none: '#8E8A9B' };
+    var mono = 'font-family: JetBrains Mono, monospace; font-size: 12px; ';
+    function bars(down, slow) {
+      var out = [];
+      for (var i = 0; i < 30; i++) {
+        var c = down.indexOf(i) > -1 ? '#FF6B6B' : slow.indexOf(i) > -1 ? '#E0A93B' : '#2F8F5F';
+        out.push('display: block; height: 10px; border-radius: 1px; background: ' + c + ';');
+      }
+      return out;
+    }
+    var sites = [
+      { id: 'luzma', s: 'crit', domain: 'luzmauniformes.com', client: 'LuzMa', stack: 'WooCommerce', status: 'Caído', statusNote: 'desde 10:36 · HTTP 503', uptime: '99,41 %', down: [29], slow: [], ssl: '81 días', sslT: 'ok', dom: '14/03/2027', domT: 'ok', domNote: '.com · automático', sup: true, copy: 'copia 01/10 · hace 6 d', copyT: 'ok', wpUrl: 'https://luzmauniformes.com/wp-login.php', cpUrl: 'https://srv12.seguriserver.com:2083', warn: 'El sitio está caído: el inicio de sesión de WordPress no va a responder. cPanel sí está disponible.' },
+      { id: 'tienda4b', s: 'warn', domain: 'tienda.4bellu.com', client: '4Bellú', stack: 'WooCommerce', status: 'Lento', statusNote: 'responde en 3,4 s', uptime: '99,96 %', down: [], slow: [24, 27, 28, 29], ssl: '58 días', sslT: 'ok', dom: '02/08/2027', domT: 'ok', domNote: '.com · automático', sup: true, copy: 'copia 01/10 · pesa 58 % menos', copyT: 'warn', wpUrl: 'https://tienda.4bellu.com/wp-login.php', cpUrl: 'https://srv12.seguriserver.com:2083', warn: '' },
+      { id: 'jhoana', s: 'warn', domain: 'jhoanaperez.com', client: 'Jhoana Pérez', stack: 'WordPress', status: 'Arriba', statusNote: 'SSL vence en 9 días', uptime: '100 %', down: [], slow: [], ssl: '9 días', sslT: 'warn', dom: '21/01/2027', domT: 'ok', domNote: '.com · automático', sup: true, copy: 'copia 01/10 · hace 6 d', copyT: 'ok', wpUrl: 'https://jhoanaperez.com/acceso-dk/', cpUrl: 'https://srv07.seguriserver.com:2083', warn: 'Este sitio tiene el login escondido (WPS Hide Login): se usa la URL guardada en el sitio.' },
+      { id: 'colorado', s: 'ok', domain: 'coloradohardwood.co', client: 'Colorado Hardwood Design', stack: 'WordPress', status: 'Arriba', statusNote: '0,8 s', uptime: '99,99 %', down: [], slow: [], ssl: '64 días', sslT: 'ok', dom: 'sin fecha', domT: 'warn', domNote: '.co · escribir a mano', sup: true, copy: 'copia 18/09 · atrasada 19 d', copyT: 'warn', wpUrl: 'https://coloradohardwood.co/wp-login.php', cpUrl: 'https://srv07.seguriserver.com:2083', warn: 'Este sitio tiene reCAPTCHA en el inicio de sesión: si no entra solo, copia los datos.' },
+      { id: '4bellu', s: 'ok', domain: '4bellu.com', client: '4Bellú', stack: 'WordPress', status: 'Arriba', statusNote: '0,9 s', uptime: '99,98 %', down: [], slow: [], ssl: '58 días', sslT: 'ok', dom: '02/08/2027', domT: 'ok', domNote: '.com · automático', sup: true, copy: 'copia 01/10 · hace 6 d', copyT: 'ok', wpUrl: 'https://4bellu.com/wp-login.php', cpUrl: 'https://srv12.seguriserver.com:2083', warn: '' },
+      { id: 'clinica', s: 'ok', domain: 'clinicadental-ejemplo.com', client: 'Clínica dental (ejemplo)', stack: 'WordPress', status: 'Arriba', statusNote: '1,1 s', uptime: '100 %', down: [], slow: [], ssl: '77 días', sslT: 'ok', dom: '09/05/2027', domT: 'ok', domNote: '.com · automático', sup: true, copy: 'copia 01/10 · hace 6 d', copyT: 'ok', wpUrl: 'https://clinicadental-ejemplo.com/wp-login.php', cpUrl: 'https://srv07.seguriserver.com:2083', warn: '' },
+      { id: 'hotel', s: 'ok', domain: 'hotel-ejemplo.com', client: 'Hotel boutique (ejemplo)', stack: 'WordPress', status: 'Arriba', statusNote: '1,3 s', uptime: '99,97 %', down: [], slow: [11], ssl: '43 días', sslT: 'ok', dom: '30/11/2026', domT: 'warn', domNote: 'vence en 54 días', sup: true, copy: 'copia 01/10 · hace 6 d', copyT: 'ok', wpUrl: 'https://hotel-ejemplo.com/wp-login.php', cpUrl: 'https://srv12.seguriserver.com:2083', warn: '' },
+      { id: 'resto', s: 'ok', domain: 'restaurante-ejemplo.co', client: 'Restaurante (ejemplo)', stack: 'WordPress', status: 'Arriba', statusNote: '1,0 s', uptime: '100 %', down: [], slow: [], ssl: '70 días', sslT: 'ok', dom: 'sin fecha', domT: 'warn', domNote: '.co · escribir a mano', sup: false, copy: 'sin copias de la agencia', copyT: 'none', wpUrl: 'https://restaurante-ejemplo.co/wp-login.php', cpUrl: 'https://srv07.seguriserver.com:2083', warn: '' },
+      { id: 'ferre', s: 'ok', domain: 'ferreteria-ejemplo.co', client: 'Ferretería (ejemplo)', stack: 'WordPress', status: 'Arriba', statusNote: '1,2 s', uptime: '99,99 %', down: [], slow: [], ssl: '88 días', sslT: 'ok', dom: '12/06/2027', domT: 'ok', domNote: 'fecha escrita a mano', sup: false, copy: 'sin copias de la agencia', copyT: 'none', wpUrl: 'https://ferreteria-ejemplo.co/wp-login.php', cpUrl: 'https://srv12.seguriserver.com:2083', warn: '' },
+      { id: 'dk', s: 'ok', domain: 'dkoding.net', client: 'DKODING', stack: 'Astro', status: 'Arriba', statusNote: '0,4 s', uptime: '100 %', down: [], slow: [], ssl: 'Cloudflare', sslT: 'ok', dom: '19/02/2027', domT: 'ok', domNote: '.net · automático', sup: null, copy: 'código y contenido en Git', copyT: 'none', wpUrl: '', cpUrl: '', warn: '' }
+    ];
+    var f = st.filter;
+    var counts = { all: 38, crit: 1, warn: 2, ok: 35 };
+    var chips = [{ id: 'all', label: 'Todos' }, { id: 'crit', label: 'Caído' }, { id: 'warn', label: 'Atención' }, { id: 'ok', label: 'Correcto' }].map(function (c) {
+      var on = f === c.id;
+      return { label: c.label, count: counts[c.id], on: on, shape: SH[c.id], color: CO[c.id],
+        pick: function () { self.setState({ filter: c.id }); },
+        style: 'display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 12px; border-radius: 999px; cursor: pointer; font-weight: 600; ' + (on ? 'background: #1A0B2B; color: #F4F2F8; border: 1px solid rgba(199,85,239,0.55);' : 'background: transparent; color: #D8D4E2; border: 1px solid rgba(255,255,255,0.18);') };
+    });
+    function openModal(site, kind) { return function () { self.setState({ modal: { id: site.id, kind: kind }, shown: false }); }; }
+    var rows = sites.filter(function (d) { return (f === 'all' || d.s === f) && (!st.onlySupport || d.sup === true); }).map(function (d) {
+      return {
+        domain: d.domain, client: d.client, stack: d.stack, status: d.status, statusNote: d.statusNote, uptime: d.uptime,
+        ssl: d.ssl, dom: d.dom, domNote: d.domNote, copy: d.copy,
+        sup: d.sup === null ? 'Sitio propio' : d.sup ? 'Soporte activo' : 'Sin soporte',
+        shape: SH[d.s], color: CO[d.s], stateLabel: LB[d.s], bars: bars(d.down, d.slow),
+        statusStyle: 'font-weight: 600; color: ' + (d.s === 'crit' ? '#FF8F9B' : d.status === 'Lento' ? '#E0A93B' : '#F4F2F8') + ';',
+        sslStyle: mono + 'color: ' + TX[d.sslT] + ';',
+        domStyle: mono + 'color: ' + TX[d.domT] + ';',
+        supStyle: 'font-weight: 600; font-size: 13px; color: ' + (d.sup ? '#5BE49B' : '#B3B0BC') + ';',
+        copyStyle: 'font-size: 12px; color: ' + TX[d.copyT] + ';',
+        hasAccess: !!d.wpUrl, noAccess: !d.wpUrl,
+        openWp: openModal(d, 'wp'), openCp: openModal(d, 'cp')
+      };
+    });
+    var m = { needsCode: false, opened: false };
+    if (st.modal) {
+      var site = sites.filter(function (x) { return x.id === st.modal.id; })[0];
+      var wp = st.modal.kind === 'wp';
+      m = {
+        kindLabel: (wp ? 'Acceder a WordPress' : 'Acceder a cPanel') + ' · ' + site.client,
+        title: site.domain,
+        needsCode: !st.verified, opened: !!st.verified,
+        openedText: wp ? 'Se abrió el inicio de sesión de WordPress en una pestaña nueva y se enviaron tus datos.' : 'Se abrió cPanel en una pestaña nueva y se enviaron tus datos.',
+        url: wp ? site.wpUrl : site.cpUrl,
+        secret: st.shown ? 'Ej3mplo-no-real-26 · se oculta en 30 s' : '••••••••••••',
+        revealLabel: st.shown ? 'Ocultar' : 'Ver contraseña',
+        hasWarn: !!site.warn && (wp || site.id !== 'luzma'), warn: site.warn
+      };
+    }
+    var tabs = [{ id: 'sitios', label: 'Sitios', badge: '1 caído', t: 'crit' }, { id: 'copias', label: 'Copias', badge: '1 atrasada', t: 'warn' }].map(function (t) {
+      var on = st.tab === t.id;
+      return { label: t.label, badge: t.badge, on: on, pick: function () { self.setState({ tab: t.id }); },
+        style: 'display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 0 14px; background: ' + (on ? '#1A0B2B' : 'transparent') + '; color: ' + (on ? '#F4F2F8' : '#B3B0BC') + '; border: 0; border-bottom: 2px solid ' + (on ? '#C755EF' : 'transparent') + '; border-radius: 6px 6px 0 0; font-weight: 600; cursor: pointer;',
+        badgeStyle: 'padding: 0 8px; border-radius: 999px; font-size: 12px; ' + (t.t === 'crit' ? 'background: rgba(255,107,107,0.16); color: #FF8F9B;' : 'background: rgba(224,169,59,0.16); color: #E0A93B;') };
+    });
+    var cards = [
+      { label: 'Copias al día', value: '18 de 19', note: '1 atrasada: coloradohardwood.co', s: 'warn' },
+      { label: 'Próxima ronda', value: '16/10', note: 'cada 15 días · días 1 y 16 de cada mes', s: 'ok' },
+      { label: 'Espacio en R2', value: '412 GB', note: '19 buckets · unos 6 USD al mes', s: 'ok' },
+      { label: 'Último simulacro', value: '02/10', note: 'okvet.co restaurado en carpeta de prueba · correcto', s: 'ok' }
+    ].map(function (k) { return Object.assign(k, { shape: SH[k.s], color: CO[k.s], stateLabel: LB[k.s] }); });
+    var copyData = [
+      { id: 'coloradohardwood.co', client: 'Colorado Hardwood Design', bucket: 'dk-copias-colorado', last: '18/09 03:10', age: 'hace 19 días · debió correr el 01/10', ageT: 'warn', size: '820 MB', delta: 'igual que la anterior', deltaT: 'ok', kept: '6 de 6', s: 'warn', note: 'La ronda del 01/10 no llegó. Revisar UpdraftPlus en el sitio: suele ser la clave de R2 vencida o el plugin desactivado.' },
+      { id: 'tienda.4bellu.com', client: '4Bellú', bucket: 'dk-copias-4bellu', last: '01/10 03:05', age: 'hace 6 días', ageT: 'ok', size: '0,9 GB', delta: '58 % menos que la anterior', deltaT: 'warn', kept: '6 de 6', s: 'warn', note: 'Pesa 58 % menos que la copia anterior: puede faltar la carpeta de imágenes. Abrir una copia y revisar.' },
+      { id: 'luzmauniformes.com', client: 'LuzMa', bucket: 'dk-copias-luzma', last: '01/10 02:58', age: 'hace 6 días', ageT: 'ok', size: '1,4 GB', delta: '+2 %', deltaT: 'ok', kept: '6 de 6', s: 'ok', note: 'Al día. Si el sitio sigue caído, esta es la copia más reciente para restaurar.' },
+      { id: '4bellu.com', client: '4Bellú', bucket: 'dk-copias-4bellu', last: '01/10 03:00', age: 'hace 6 días', ageT: 'ok', size: '640 MB', delta: '+1 %', deltaT: 'ok', kept: '6 de 6', s: 'ok', note: 'Al día.' },
+      { id: 'jhoanaperez.com', client: 'Jhoana Pérez', bucket: 'dk-copias-jhoana', last: '01/10 03:15', age: 'hace 6 días', ageT: 'ok', size: '310 MB', delta: '0 %', deltaT: 'ok', kept: '6 de 6', s: 'ok', note: 'Al día.' },
+      { id: 'clinicadental-ejemplo.com', client: 'Clínica dental (ejemplo)', bucket: 'dk-copias-clinica', last: '01/10 03:20', age: 'hace 6 días', ageT: 'ok', size: '540 MB', delta: '+3 %', deltaT: 'ok', kept: '4 de 6', s: 'ok', note: 'Al día. Soporte activo desde agosto: todavía no completa 6 copias.' },
+      { id: 'hotel-ejemplo.com', client: 'Hotel boutique (ejemplo)', bucket: 'dk-copias-hotel', last: '01/10 03:22', age: 'hace 6 días', ageT: 'ok', size: '1,1 GB', delta: '+1 %', deltaT: 'ok', kept: '6 de 6', s: 'ok', note: 'Al día.' }
+    ];
+    var copyRows = copyData.map(function (c) {
+      var on = st.det === c.id;
+      return Object.assign({}, c, { domain: c.id, on: on, shape: SH[c.s], color: CO[c.s], stateLabel: LB[c.s],
+        ageStyle: 'font-size: 12px; color: ' + TX[c.ageT] + ';', deltaStyle: 'font-size: 12px; color: ' + (c.deltaT === 'warn' ? '#E0A93B' : '#B3B0BC') + ';',
+        rowStyle: 'border-top: 1px solid rgba(255,255,255,0.06); ' + (on ? 'background: #1A0B2B;' : ''),
+        pick: function () { self.setState({ det: c.id }); } });
+    });
+    var d0 = copyData.filter(function (c) { return c.id === st.det; })[0] || copyData[0];
+    var dates = d0.id === 'coloradohardwood.co' ? ['18/09', '01/09', '16/08', '01/08', '16/07', '01/07'] : ['01/10', '16/09', '01/09', '16/08', '01/08', '16/07'];
+    var nCopies = d0.kept.charAt(0) === '4' ? 4 : 6;
+    var det = { domain: d0.id, bucket: d0.bucket, note: d0.note,
+      noteStyle: 'font-size: 13px; color: ' + (d0.s === 'warn' ? '#E0A93B' : '#B3B0BC') + ';',
+      copies: dates.slice(0, nCopies).map(function (dt, i) {
+        return { date: dt + '/2026 · 03:00', what: 'archivos + base de datos', size: i === 0 ? d0.size : d0.size.replace(/^[\d,]+/, function (n) { return n; }), download: function () { self.setState({ modal: null }); } };
+      }) };
+    return {
+      tabs: tabs, isSitios: st.tab === 'sitios', isCopias: st.tab === 'copias',
+      chips: chips, rows: rows, shown: rows.length,
+      onlySupport: !!st.onlySupport,
+      supportStyle: 'min-height: 36px; padding: 0 12px; border-radius: 4px; cursor: pointer; font-weight: 600; ' + (st.onlySupport ? 'background: #1A0B2B; color: #F4F2F8; border: 1px solid rgba(199,85,239,0.55);' : 'background: transparent; color: #D8D4E2; border: 1px solid rgba(255,255,255,0.18);'),
+      toggleSupport: function () { self.setState({ onlySupport: !st.onlySupport }); },
+      cards: cards, copyRows: copyRows, det: det,
+      modalOpen: !!st.modal, m: m,
+      closeModal: function () { self.setState({ modal: null, shown: false }); },
+      confirmCode: function () { self.setState({ verified: true }); },
+      reveal: function () { self.setState({ shown: !st.shown }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

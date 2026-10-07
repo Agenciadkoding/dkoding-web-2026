@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Inicio del admin</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Blinker:wght@300;600;700&amp;family=Barlow:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#0C0C0C}
+a{color:#D98BFF;text-decoration:none}a:hover{color:#F0D4FF}
+button,input{font:inherit}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid #D98BFF;outline-offset:2px}
+.dk-nav a:hover{background:#17161C;color:#F4F2F8}
+.dk-row:hover{background:#1D1B24}
+.dk-spark span:hover{background:rgba(217,139,255,0.16)}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; min-height: 100%; background: #0C0C0C; color: #F4F2F8; font-family: 'Barlow', system-ui, sans-serif; font-size: 14px; line-height: 1.5">
+
+  <header style="border-bottom: 1px solid rgba(255,255,255,0.08); background: #101013">
+    <div style="padding: 10px 20px; display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center">
+      <a href="Main.dc.html" aria-label="DKODING, inicio del admin" style="display: flex; align-items: center; min-height: 40px"><img src="/_blob/af8d4aea91012d3a301c737f7fa02819" alt="DKODING" style="height: 26px; width: auto"></a>
+      <span style="padding: 3px 10px; border-radius: 999px; background: rgba(199,85,239,0.14); color: #D98BFF; font-size: 12px; font-weight: 600">Admin</span>
+      <div style="flex: 1 1 260px; display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 12px; background: #0C0C0C; border: 1px solid rgba(255,255,255,0.14); border-radius: 6px; max-width: 560px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B3B0BC" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg><label for="g-search" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Buscar en el admin</label><input id="g-search" type="text" placeholder="Buscar página, cliente, lead o cotización" style="flex: 1; min-width: 0; background: transparent; border: 0; color: #F4F2F8; outline: none"><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 2px 6px; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; color: #B3B0BC">Ctrl K</kbd></div>
+      <div style="display: flex; align-items: center; gap: 8px; margin-left: auto"><a href="Main.dc.html" aria-label="Avisos: 1 sitio caído, 3 de atención" style="position: relative; display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 6px; color: #F4F2F8"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10 21h4"></path></svg><span aria-hidden="true" style="position: absolute; top: 4px; right: 3px; min-width: 16px; height: 16px; padding: 0 4px; box-sizing: border-box; border-radius: 999px; background: #FF6B6B; color: #0C0C0C; font-size: 11px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center">4</span></a><img src="/_blob/c1f4c9d27736f1652e876e2f660320ef" alt="Tu cuenta: Dirección" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 2px solid #3D0A6E"></div>
+    </div>
+  </header>
+
+  <div style="display: flex; flex-wrap: wrap; align-items: flex-start">
+    <nav class="dk-nav" aria-label="Módulos" style="flex: 1 1 232px; max-width: 260px; box-sizing: border-box; padding: 14px 10px 24px; background: #101013; border-right: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; gap: 2px; font-size: 14px">
+      <a href="Main.dc.html" aria-current="page" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #F4F2F8; background: #1A0B2B; font-weight: 600"><span aria-hidden="true" style="width: 14px; color: #C755EF; font-family: 'Blinker', sans-serif; font-weight: 700">»</span>Inicio</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Sitio dkoding.net</span>
+      <a href="Paginas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Páginas</a>
+      <a href="Paginas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Redirecciones</a>
+      <a href="Paginas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Palabras clave</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">CRM</span>
+      <a href="Cliente.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Clientes</a>
+      <a href="Cotizaciones.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Leads<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(224,169,59,0.16); color: #E0A93B; font-size: 12px; font-weight: 600">2</span></a>
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Renovaciones</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Accesos</span>
+      <a href="Boveda.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Personales</a>
+      <a href="Boveda.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Agencia</a>
+      <a href="Boveda.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Clientes</a>
+      <a href="ImportarAccesos.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Importar Excel</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Ventas</span>
+      <a href="Cotizaciones.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Cotizaciones</a>
+      <a href="Tarifas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Tarifas</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Salud</span>
+      <a href="Sitios.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Sitios<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(255,107,107,0.16); color: #FF8F9B; font-size: 12px; font-weight: 600">1</span></a>
+      <a href="Sitios.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Copias<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(224,169,59,0.16); color: #E0A93B; font-size: 12px; font-weight: 600">1</span></a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Ajustes</span>
+      <a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Usuarios y roles</a>
+      <a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Conexiones</a>
+      <a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Registro</a>
+      <span style="font-size: 12px; color: #8E8A9B; padding: 16px 10px 0">MVP simple. Lo que no se usa todavía no aparece en el menú.</span>
+    </nav>
+
+    <main id="inicio" style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 24px 28px 48px; display: flex; flex-direction: column; gap: 20px">
+
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <h1 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 30px; line-height: 1.1">Inicio</h1>
+          <span style="color: #B3B0BC">Miércoles 7 de octubre · dkoding.net · 31 clientes · 38 sitios</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+          <span style="padding: 3px 10px; border-radius: 999px; background: rgba(199,85,239,0.14); color: #D98BFF; font-size: 12px; font-weight: 600">Datos de ejemplo</span>
+          <div role="group" aria-label="Periodo de las métricas" style="display: flex; border: 1px solid rgba(255,255,255,0.18); border-radius: 6px; overflow: hidden">
+            <sc-for list="{{periods}}" as="p" hint-placeholder-count="3"><button type="button" onClick="{{p.pick}}" aria-pressed="{{p.on}}" style="{{p.style}}">{{p.label}}</button></sc-for>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1 · REQUIERE ATENCIÓN -->
+      <section aria-labelledby="h-att" style="display: flex; flex-direction: column; gap: 10px; padding: 16px 18px 18px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 12px"><h2 id="h-att" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">Requiere atención</h2><span style="font-size: 13px; color: #B3B0BC">1 crítico · 4 de atención · lo más urgente primero, máximo 5</span></div>
+        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px">
+          <sc-for list="{{attention}}" as="a" hint-placeholder-count="5">
+            <li class="dk-row" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; min-height: 54px; box-sizing: border-box; padding: 8px 12px; background: #0F0F11; border: 1px solid rgba(255,255,255,0.06); border-radius: 6px">
+              <span style="display: inline-flex; align-items: center; gap: 8px; width: 86px; flex: none"><svg width="14" height="14" viewBox="0 0 16 16" role="img" aria-label="{{a.sevLabel}}" style="flex: none"><path d="{{a.shape}}" fill="{{a.color}}"></path></svg><span style="{{a.sevStyle}}">{{a.sevLabel}}</span></span>
+              <span style="flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column"><span style="font-weight: 600">{{a.title}}</span><span style="font-size: 12px; color: #B3B0BC">{{a.meta}}</span></span>
+              <span style="font-size: 12px; color: #B3B0BC; font-family: 'JetBrains Mono', monospace; white-space: nowrap">{{a.age}}</span>
+              <a href="{{a.href}}" style="display: inline-flex; align-items: center; justify-content: center; min-height: 36px; min-width: 156px; box-sizing: border-box; padding: 0 12px; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; color: #F4F2F8; font-weight: 600">{{a.cta}}</a>
+            </li>
+          </sc-for>
+        </ul>
+      </section>
+
+      <!-- 2 · DKODING.NET -->
+      <section aria-labelledby="h-site" style="display: flex; flex-direction: column; gap: 12px">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 12px"><h2 id="h-site" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">dkoding.net · últimos {{days}} días</h2><span style="font-size: 13px; color: #B3B0BC">{{range}} · frente a los {{days}} días anteriores · <a href="Paginas.dc.html">Ver páginas »</a></span></div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(196px, 100%), 1fr)); gap: 12px">
+          <sc-for list="{{kpis}}" as="k" hint-placeholder-count="5">
+            <article style="display: flex; flex-direction: column; gap: 6px; min-width: 0; padding: 14px 16px 12px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px">
+              <h3 style="margin: 0; color: #B3B0BC; font-size: 13px; font-weight: 500">{{k.label}}</h3>
+              <span style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px"><span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 32px; line-height: 1; font-variant-numeric: tabular-nums">{{k.value}}</span><span style="{{k.deltaStyle}}">{{k.delta}}</span></span>
+              <span style="font-size: 12px; color: #B3B0BC">{{k.desc}}</span>
+              <div role="img" aria-label="{{k.sparkLabel}}" style="position: relative; height: 34px; margin-top: 2px">
+                <svg viewBox="0 0 120 34" width="100%" height="34" preserveAspectRatio="none" aria-hidden="true" style="display: block"><path d="{{k.area}}" fill="rgba(199,85,239,0.14)"></path><path d="{{k.line}}" fill="none" stroke="#C755EF" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linejoin="round"></path></svg>
+                <span aria-hidden="true" style="{{k.dot}}"></span>
+                <div class="dk-spark" aria-hidden="true" style="position: absolute; inset: 0; display: flex"><sc-for list="{{k.tips}}" as="t" hint-placeholder-count="28"><span title="{{t}}" style="flex: 1 1 0; min-width: 0; border-radius: 2px"></span></sc-for></div>
+              </div>
+              <span style="font-size: 11px; color: #8E8A9B">{{k.source}}</span>
+            </article>
+          </sc-for>
+        </div>
+      </section>
+
+      <!-- 3 · PÁGINAS + VENTAS -->
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: stretch">
+        <section aria-labelledby="h-top" style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; padding: 16px 18px 8px"><h2 id="h-top" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">Páginas con más clics</h2><a href="Paginas.dc.html" style="font-weight: 600">Ver las 23 páginas »</a></div>
+          <div style="overflow-x: auto">
+            <table style="width: 100%; min-width: 560px; border-collapse: collapse">
+              <thead><tr style="color: #B3B0BC; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; text-align: left"><th scope="col" style="padding: 8px 18px; font-weight: 600">Página</th><th scope="col" style="padding: 8px; font-weight: 600; text-align: right">Clics</th><th scope="col" style="padding: 8px; font-weight: 600; text-align: right">Posición</th><th scope="col" style="padding: 8px 18px 8px 8px; font-weight: 600; text-align: right">Tendencia</th></tr></thead>
+              <tbody>
+                <sc-for list="{{topPages}}" as="r" hint-placeholder-count="5">
+                  <tr class="dk-row" style="border-top: 1px solid rgba(255,255,255,0.06); height: 54px">
+                    <td style="padding: 8px 18px"><a href="Paginas.dc.html" style="display: flex; flex-direction: column; color: #F4F2F8; min-width: 0"><span style="font-weight: 600">{{r.title}}</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #B3B0BC">{{r.url}}</span></a></td>
+                    <td style="padding: 8px; text-align: right; font-variant-numeric: tabular-nums; font-family: 'JetBrains Mono', monospace; font-size: 13px">{{r.clicks}}</td>
+                    <td style="padding: 8px; text-align: right; font-variant-numeric: tabular-nums; font-family: 'JetBrains Mono', monospace; font-size: 13px">{{r.pos}}</td>
+                    <td style="padding: 8px 18px 8px 8px; text-align: right"><span style="{{r.trendStyle}}">{{r.trend}}</span></td>
+                  </tr>
+                </sc-for>
+              </tbody>
+            </table>
+          </div>
+          <p style="margin: auto 0 0; padding: 10px 18px 14px; font-size: 12px; color: #8E8A9B">Clics y posición: Search Console, datos hasta el 06/10. Posición: más bajo es mejor.</p>
+        </section>
+
+        <section aria-labelledby="h-sales" style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 16px 18px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px">
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px"><h2 id="h-sales" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">Ventas</h2><a href="Cotizaciones.dc.html" style="font-weight: 600">Abrir cotizaciones »</a></div>
+          <div style="display: flex; flex-direction: column; gap: 2px">
+            <span style="font-size: 13px; color: #B3B0BC">Cotizaciones abiertas · hoy</span>
+            <span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 30px; line-height: 1.1; font-variant-numeric: tabular-nums">$ 86,4 M</span>
+            <span style="font-size: 12px; color: #B3B0BC">12 cotizaciones · rango máximo sin IVA</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px">
+            <sc-for list="{{stages}}" as="s" hint-placeholder-count="4">
+              <div title="{{s.tip}}" style="display: flex; flex-direction: column; gap: 4px">
+                <div style="display: flex; justify-content: space-between; gap: 8px; font-size: 13px"><span>{{s.label}} <span style="color: #B3B0BC">· {{s.count}}</span></span><span style="font-variant-numeric: tabular-nums; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #D8D4E2">{{s.amount}}</span></div>
+                <div aria-hidden="true" style="height: 8px; background: #0F0F11; border-radius: 999px; overflow: hidden"><div style="{{s.bar}}"></div></div>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-top: auto; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 13px"><span style="color: #B3B0BC">Ganadas en los últimos {{days}} días</span><span style="font-weight: 600; font-variant-numeric: tabular-nums">{{won}}</span></div>
+        </section>
+      </div>
+
+      <!-- 4 · RENOVACIONES + SALUD -->
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: stretch">
+        <section aria-labelledby="h-ren" style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; padding: 16px 18px 8px"><h2 id="h-ren" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">Renovaciones próximas · 30 días</h2><span style="font-size: 13px; color: #B3B0BC">del 07/10 al 06/11 · avisos a 30 y 7 días</span></div>
+          <div style="overflow-x: auto">
+            <table style="width: 100%; min-width: 560px; border-collapse: collapse">
+              <thead><tr style="color: #B3B0BC; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; text-align: left"><th scope="col" style="padding: 8px 18px; font-weight: 600">Cliente</th><th scope="col" style="padding: 8px; font-weight: 600">Servicio</th><th scope="col" style="padding: 8px; font-weight: 600">Fecha</th><th scope="col" style="padding: 8px 18px 8px 8px; font-weight: 600; text-align: right">Importe</th></tr></thead>
+              <tbody>
+                <sc-for list="{{renewals}}" as="r" hint-placeholder-count="6">
+                  <tr class="dk-row" style="border-top: 1px solid rgba(255,255,255,0.06); height: 52px">
+                    <td style="padding: 8px 18px"><a href="Cliente.dc.html" style="color: #F4F2F8; font-weight: 600">{{r.client}}</a></td>
+                    <td style="padding: 8px"><span style="display: flex; flex-direction: column"><span>{{r.service}}</span><span style="font-size: 12px; color: #B3B0BC">{{r.period}}</span></span></td>
+                    <td style="padding: 8px"><span style="display: inline-flex; align-items: center; gap: 8px; white-space: nowrap"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px">{{r.date}}</span><span style="{{r.inStyle}}"><svg width="12" height="12" viewBox="0 0 16 16" role="img" aria-label="{{r.stateLabel}}" style="{{r.iconStyle}}"><path d="{{r.shape}}" fill="{{r.color}}"></path></svg>{{r.inDays}}</span></span></td>
+                    <td style="padding: 8px 18px 8px 8px; text-align: right; font-variant-numeric: tabular-nums; font-family: 'JetBrains Mono', monospace; font-size: 13px; white-space: nowrap">{{r.amount}}</td>
+                  </tr>
+                </sc-for>
+              </tbody>
+              <tfoot><tr style="border-top: 1px solid rgba(255,255,255,0.14)"><th scope="row" colspan="3" style="padding: 12px 18px; text-align: left; font-weight: 600">6 renovaciones en los próximos 30 días</th><td style="padding: 12px 18px 12px 8px; text-align: right; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px; font-variant-numeric: tabular-nums; white-space: nowrap">$ 4,5 M</td></tr></tfoot>
+            </table>
+          </div>
+        </section>
+
+        <section aria-labelledby="h-health" style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 14px; padding: 16px 18px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px">
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px"><h2 id="h-health" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">Salud de clientes</h2><a href="Sitios.dc.html" style="font-weight: 600">Ver sitios »</a></div>
+          <sc-for list="{{health}}" as="h" hint-placeholder-count="2">
+            <a href="Sitios.dc.html" style="display: flex; flex-direction: column; gap: 8px; padding: 12px 14px; background: #0F0F11; border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; color: #F4F2F8">
+              <span style="display: flex; justify-content: space-between; align-items: center; gap: 8px"><span style="font-size: 13px; color: #B3B0BC">{{h.label}}</span><span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: #D8D4E2; white-space: nowrap"><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><path d="{{h.shape}}" fill="{{h.color}}"></path></svg>{{h.stateLabel}}</span></span>
+              <span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 28px; line-height: 1; font-variant-numeric: tabular-nums">{{h.value}} <span style="font-family: 'Barlow', sans-serif; font-weight: 400; font-size: 14px; color: #B3B0BC">de {{h.total}}</span></span>
+              <span aria-hidden="true" style="display: flex; gap: 2px; height: 8px"><span style="{{h.okBar}}"></span><span style="{{h.badBar}}"></span></span>
+              <span style="font-size: 12px; color: #B3B0BC">{{h.note}}</span>
+            </a>
+          </sc-for>
+          <span style="font-size: 12px; color: #8E8A9B">Estado: UptimeRobot cada 5 min. Copias: UpdraftPlus → R2 cada 15 días; al día si la última tiene 16 días o menos.</span>
+        </section>
+      </div>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1768}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { period: '28' }; }
+  renderVals() {
+    var self = this, P = this.state.period;
+    var SH = { ok: 'M8 2a6 6 0 1 1 0 12A6 6 0 0 1 8 2z', warn: 'M8 1.5L15 14H1z', crit: 'M8 1L15 8L8 15L1 8z', none: 'M2.5 2.5h11v11h-11z' };
+    var CO = { ok: '#5BE49B', warn: '#E0A93B', crit: '#FF6B6B', none: '#8E8A9B' };
+    var TX = { ok: '#5BE49B', warn: '#E0A93B', crit: '#FF8F9B', none: '#B3B0BC' };
+    var LB = { ok: 'Correcto', warn: 'Atención', crit: 'Crítico', none: 'Sin datos' };
+    function sev(s) { return { shape: SH[s], color: CO[s], sevLabel: LB[s], stateLabel: LB[s], sevStyle: 'font-size: 12px; font-weight: 600; color: ' + TX[s] + ';' }; }
+    function fmtN(n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
+    function fmtD(n) { return n.toFixed(1).replace('.', ','); }
+    function dm(d) { return ('0' + d.getDate()).slice(-2) + '/' + ('0' + (d.getMonth() + 1)).slice(-2); }
+
+    var periods = [{ id: '7', label: '7 días' }, { id: '28', label: '28 días' }, { id: '90', label: '90 días' }].map(function (p) {
+      var on = P === p.id;
+      return { label: p.label, on: on, pick: function () { self.setState({ period: p.id }); },
+        style: 'min-height: 38px; padding: 0 14px; border: 0; cursor: pointer; font-weight: 600; ' + (on ? 'background: #1A0B2B; color: #F4F2F8;' : 'background: transparent; color: #B3B0BC;') };
+    });
+
+    var attention = [
+      Object.assign(sev('crit'), { title: 'luzmauniformes.com no responde', meta: 'LuzMa · UptimeRobot: HTTP 503 desde 3 regiones · ya se avisó por WhatsApp', age: 'hace 6 min', cta: 'Ver sitio', href: 'Sitios.dc.html' }),
+      Object.assign(sev('warn'), { title: 'Copia de coloradohardwood.co atrasada', meta: 'Colorado Hardwood Design · última copia hace 19 días · el límite es 16', age: 'hace 3 d', cta: 'Ver copias', href: 'Sitios.dc.html' }),
+      Object.assign(sev('warn'), { title: 'Renovación de «Soporte de agencia» de 4Bellú vence en 5 días', meta: '4Bellú · $ 450.000 mensual · 12/10 · sin renovar se pausan sus copias', age: 'hace 2 d', cta: 'Ver cliente', href: 'Cliente.dc.html' }),
+      Object.assign(sev('warn'), { title: '2 leads del cotizador sin contactar', meta: 'Tienda online · Restaurante (ejemplo) y Desarrollo de marca · Inmobiliaria (ejemplo)', age: 'hace 26 h', cta: 'Ver leads', href: 'Cotizaciones.dc.html' }),
+      Object.assign(sev('warn'), { title: '/producto/tienda-virtual/ responde 404 con 41 visitas', meta: 'Search Console · URL vieja que no estaba en el sitemap · sin redirección', age: 'hace 1 d', cta: 'Ver redirecciones', href: 'Paginas.dc.html' })
+    ];
+
+    // Series diarias (o semanales en 90 d) normalizadas a su total, con fines de semana más bajos.
+    var END = new Date(2026, 9, 6);
+    function dayLabels(n, weekly) {
+      var out = [];
+      for (var i = n - 1; i >= 0; i--) {
+        var d = new Date(END.getTime() - i * (weekly ? 7 : 1) * 86400000);
+        if (weekly) { var s = new Date(d.getTime() - 6 * 86400000); out.push('semana ' + dm(s) + '–' + dm(d)); } else out.push(dm(d));
+      }
+      return out;
+    }
+    function shape(n, weekly, seed, growth) {
+      var raw = [];
+      for (var i = 0; i < n; i++) {
+        var d = new Date(END.getTime() - (n - 1 - i) * (weekly ? 7 : 1) * 86400000);
+        var wk = weekly ? 1 : ((d.getDay() === 0 || d.getDay() === 6) ? 0.62 : 1);
+        raw.push(Math.max(0.05, (1 + growth * (i / Math.max(1, n - 1) - 0.5)) * wk * (1 + 0.13 * Math.sin(i * 2.17 + seed) + 0.07 * Math.cos(i * 0.9 + seed * 2))));
+      }
+      return raw;
+    }
+    function toTotal(raw, total) {
+      var sum = raw.reduce(function (a, b) { return a + b; }, 0);
+      var ex = raw.map(function (v) { return v / sum * total; });
+      var fl = ex.map(Math.floor), left = total - fl.reduce(function (a, b) { return a + b; }, 0);
+      var order = ex.map(function (v, i) { return { i: i, r: v - Math.floor(v) }; }).sort(function (a, b) { return b.r - a.r; });
+      for (var k = 0; k < left; k++) fl[order[k % order.length].i]++;
+      return fl;
+    }
+    function sparkPath(vals, invert) {
+      var mn = Math.min.apply(null, vals), mx = Math.max.apply(null, vals), span = (mx - mn) || 1;
+      var step = 120 / (vals.length - 1), d = '', last = null;
+      vals.forEach(function (v, i) {
+        var t = (v - mn) / span; if (invert) t = 1 - t;
+        var x = i * step, y = 30 - t * 26;
+        d += (i ? ' L' : 'M') + x.toFixed(1) + ' ' + y.toFixed(1);
+        last = { x: x, y: y };
+      });
+      return { line: d, area: d + ' L120 34 L0 34 Z',
+        dot: 'position: absolute; width: 7px; height: 7px; border-radius: 50%; background: #F4F2F8; border: 2px solid #C755EF; box-sizing: border-box; left: calc(100% - 4px); top: ' + (last.y - 3.5).toFixed(1) + 'px;' };
+    }
+    var cfg = { '7': { n: 7, weekly: false, range: '30/09 – 06/10' }, '28': { n: 28, weekly: false, range: '09/09 – 06/10' }, '90': { n: 13, weekly: true, range: '08/07 – 06/10 · por semana' } }[P];
+    var labels = dayLabels(cfg.n, cfg.weekly);
+
+    var M = {
+      clicks: { '7': [341, 313], '28': [1318, 1080], '90': [3702, 2626] },
+      pos: { '7': [10.9, 11.4], '28': [11.4, 12.7], '90': [12.3, 15.1] },
+      sess: { '7': [812, 766], '28': [3146, 2667], '90': [8920, 6707] },
+      conv: { '7': [11, 10, 7, 4], '28': [47, 38, 31, 16], '90': [121, 88, 78, 43] },
+      leads: { '7': [8, 9], '28': [34, 30], '90': [88, 64] }
+    };
+    function pct(a, b) { return Math.round((a - b) / b * 100); }
+    function deltaStyle(good) { return 'font-size: 13px; font-weight: 600; font-variant-numeric: tabular-nums; color: ' + (good ? '#5BE49B' : '#FF8F9B') + ';'; }
+    function countKpi(label, key, seed, growth, unit, desc, source) {
+      var cur = M[key][P][0], prev = M[key][P][1];
+      var useAbs = cur < 60, roll = useAbs && !cfg.weekly;
+      var vals, plot, tips;
+      if (roll) {
+        // Cifras pequeñas: la línea es la suma móvil de 7 días para que no salte entre 0 y 3.
+        var raw = shape(cfg.n + 6, false, seed, growth);
+        var pre = toTotal(raw.slice(0, 6), Math.round(prev * 6 / cfg.n));
+        vals = toTotal(raw.slice(6), cur);
+        var all = pre.concat(vals);
+        plot = vals.map(function (v, i) { var t = 0; for (var j = i; j < i + 7; j++) t += all[j]; return t; });
+        tips = vals.map(function (v, i) { return labels[i] + ' · ' + v + ' ' + unit + ' · ' + plot[i] + ' en 7 días'; });
+      } else {
+        vals = toTotal(shape(cfg.n, cfg.weekly, seed, growth), cur);
+        plot = vals;
+        tips = vals.map(function (v, i) { return labels[i] + ' · ' + fmtN(v) + ' ' + unit; });
+      }
+      var sp = sparkPath(plot, false);
+      var diff = cur - prev, p = pct(cur, prev);
+      var delta = (diff >= 0 ? '↑ ' : '↓ ') + (useAbs ? Math.abs(diff) : Math.abs(p) + ' %');
+      return { label: label, value: fmtN(cur), delta: delta, deltaStyle: deltaStyle(diff >= 0), desc: desc(cur, prev),
+        line: sp.line, area: sp.area, dot: sp.dot, source: source + (roll ? ' · línea: suma de 7 días' : ''), tips: tips,
+        sparkLabel: label + ': de ' + fmtN(plot[0]) + ' a ' + fmtN(plot[plot.length - 1]) + ' ' + unit + (roll ? ' en 7 días' : cfg.weekly ? ' por semana' : ' por día') };
+    }
+    var posCur = M.pos[P][0], posPrev = M.pos[P][1];
+    var posVals = shape(cfg.n, cfg.weekly, 4, 0).map(function (v, i, arr) {
+      var t = i / Math.max(1, arr.length - 1), dlt = posPrev - posCur;
+      return posCur + dlt * 0.6 - dlt * 1.2 * t + (v - 1) * 0.5;
+    });
+    var posSp = sparkPath(posVals, true);
+    var conv = M.conv[P];
+    var kpis = [
+      countKpi('Clics en Google', 'clicks', 1, 0.5, 'clics', function (c, p) { return 'antes ' + fmtN(p) + ' · ' + fmtN(Math.round(c / (cfg.weekly ? 91 : cfg.n))) + ' al día'; }, 'Fuente: Search Console'),
+      { label: 'Posición media', value: fmtD(posCur), delta: '↑ ' + fmtD(posPrev - posCur), deltaStyle: deltaStyle(true), desc: 'antes ' + fmtD(posPrev) + ' · más bajo es mejor',
+        line: posSp.line, area: posSp.area, dot: posSp.dot, source: 'Fuente: Search Console',
+        tips: posVals.map(function (v, i) { return labels[i] + ' · posición ' + fmtD(v); }),
+        sparkLabel: 'Posición media: mejora de ' + fmtD(posVals[0]) + ' a ' + fmtD(posVals[posVals.length - 1]) },
+      countKpi('Sesiones', 'sess', 2, 0.35, 'sesiones', function (c, p) { return 'antes ' + fmtN(p) + ' · 62 % orgánicas'; }, 'Fuente: GA4'),
+      countKpi('Conversiones', 'conv', 3, 0.4, 'conversiones', function () { return 'formularios ' + conv[2] + ' · cotizador ' + conv[3]; }, 'Fuente: GA4'),
+      countKpi('Leads del sitio', 'leads', 5, 0.3, 'leads', function (c) { return 'únicos de ' + conv[0] + ' conversiones'; }, 'Fuente: CRM')
+    ];
+
+    var TOP = {
+      '7': [['Home · Desarrollo web', '/', 104, 9.6, 6], ['Marketing digital', '/marketing-digital/', 46, 13.8, 12], ['SEO y GEO', '/seo-y-geo/', 38, 11.1, 9], ['Cuánto cuesta una página web en Colombia', '/blog/cuanto-cuesta-una-pagina-web-en-colombia/', 35, 7.0, 14], ['Diseño de marca', '/diseno-de-marca/', 22, 13.2, -8]],
+      '28': [['Home · Desarrollo web', '/', 412, 9.8, 12], ['Marketing digital', '/marketing-digital/', 168, 14.2, 31], ['SEO y GEO', '/seo-y-geo/', 141, 11.6, 26], ['Cuánto cuesta una página web en Colombia', '/blog/cuanto-cuesta-una-pagina-web-en-colombia/', 126, 7.4, null], ['Diseño de marca', '/diseno-de-marca/', 97, 12.9, -4]],
+      '90': [['Home · Desarrollo web', '/', 1167, 10.4, 38], ['Marketing digital', '/marketing-digital/', 421, 15.6, 52], ['SEO y GEO', '/seo-y-geo/', 362, 12.8, 47], ['Diseño de marca', '/diseno-de-marca/', 289, 13.4, 9], ['Cuánto cuesta una página web en Colombia', '/blog/cuanto-cuesta-una-pagina-web-en-colombia/', 151, 7.9, null]]
+    };
+    var topPages = TOP[P].map(function (r) {
+      var t = r[4];
+      return { title: r[0], url: r[1], clicks: fmtN(r[2]), pos: fmtD(r[3]),
+        trend: t === null ? 'nueva · desde 03/09' : (t >= 0 ? '↑ ' : '↓ ') + Math.abs(t) + ' %',
+        trendStyle: 'font-size: 13px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; color: ' + (t === null ? '#D98BFF' : t >= 0 ? '#5BE49B' : '#FF8F9B') + ';' };
+    });
+
+    var maxAmt = 31.6;
+    var stages = [
+      { label: 'Enviadas', count: 5, amt: 28.1 }, { label: 'Vistas', count: 3, amt: 16.9 },
+      { label: 'En conversación', count: 3, amt: 31.6 }, { label: 'Ajustadas', count: 1, amt: 9.8 }
+    ].map(function (s) {
+      var amount = '$ ' + fmtD(s.amt) + ' M';
+      return { label: s.label, count: s.count, amount: amount, tip: s.label + ' · ' + s.count + ' cotizaciones · ' + amount,
+        bar: 'height: 100%; width: ' + Math.round(s.amt / maxAmt * 100) + '%; background: #C755EF; border-radius: 999px;' };
+    });
+    var won = { '7': 'ninguna', '28': '1 · $ 22,0 M', '90': '4 · $ 61,3 M' }[P];
+
+    var renewals = [
+      { client: '4Bellú', service: 'Soporte de agencia', period: 'mensual', date: '12/10', d: 5, amount: '$ 450.000' },
+      { client: 'Jhoana Pérez', service: 'Hosting y dominio', period: 'anual', date: '16/10', d: 9, amount: '$ 480.000' },
+      { client: 'Colorado Hardwood Design', service: 'SEO', period: 'mensual', date: '20/10', d: 13, amount: '$ 1.200.000' },
+      { client: 'LuzMa', service: 'Soporte de agencia', period: 'mensual', date: '24/10', d: 17, amount: '$ 350.000' },
+      { client: 'Clínica dental (ejemplo)', service: 'Redes sociales', period: 'mensual', date: '28/10', d: 21, amount: '$ 1.400.000' },
+      { client: '4Bellú', service: 'SEO mensual', period: 'mensual', date: '01/11', d: 25, amount: '$ 610.000' }
+    ].map(function (r) {
+      var w = r.d <= 7;
+      return Object.assign(r, { inDays: 'en ' + r.d + ' días', shape: SH.warn, color: CO.warn, stateLabel: 'Atención: vence en 7 días o menos',
+        iconStyle: w ? 'display: inline-block; flex: none' : 'display: none',
+        inStyle: 'display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: ' + (w ? '600' : '400') + '; color: ' + (w ? '#E0A93B' : '#B3B0BC') + ';' });
+    });
+
+    function bars(ok, total, bad) {
+      return { okBar: 'flex: ' + ok + ' 1 0; background: #5BE49B; border-radius: 999px 0 0 999px;',
+        badBar: 'flex: ' + (total - ok) + ' 1 0; background: ' + CO[bad] + '; border-radius: 0 999px 999px 0;' };
+    }
+    var health = [
+      Object.assign({ label: 'Sitios arriba', value: '37', total: '38', note: 'luzmauniformes.com caído hace 6 min · los demás responden' }, sev('crit'), bars(37, 38, 'crit'), { stateLabel: '1 caído' }),
+      Object.assign({ label: 'Copias al día', value: '18', total: '19', note: 'solo clientes con soporte de agencia · coloradohardwood.co: última copia hace 19 días' }, sev('warn'), bars(18, 19, 'warn'), { stateLabel: '1 atrasada' })
+    ];
+
+    return { periods: periods, days: P, range: cfg.range, attention: attention, kpis: kpis, topPages: topPages, stages: stages, won: won, renewals: renewals, health: health };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,767 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Páginas de dkoding.net</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Blinker:wght@300;600;700&amp;family=Barlow:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#0C0C0C}
+a{color:#D98BFF;text-decoration:none}a:hover{color:#F0D4FF}
+button,input,select{font:inherit}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:2px solid #D98BFF;outline-offset:2px}
+.dk-nav a:hover{background:#17161C;color:#F4F2F8}
+.dk-row:hover{background:#1D1B24}
+.dk-open:hover .dk-t{color:#F0D4FF}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; min-height: 100%; background: #0C0C0C; color: #F4F2F8; font-family: 'Barlow', system-ui, sans-serif; font-size: 14px; line-height: 1.5">
+
+  <header style="border-bottom: 1px solid rgba(255,255,255,0.08); background: #101013">
+    <div style="padding: 10px 20px; display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center">
+      <a href="Main.dc.html" aria-label="DKODING, inicio del admin" style="display: flex; align-items: center; min-height: 40px"><img src="/_blob/af8d4aea91012d3a301c737f7fa02819" alt="DKODING" style="height: 26px; width: auto"></a>
+      <span style="padding: 3px 10px; border-radius: 999px; background: rgba(199,85,239,0.14); color: #D98BFF; font-size: 12px; font-weight: 600">Admin</span>
+      <div style="flex: 1 1 260px; display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 12px; background: #0C0C0C; border: 1px solid rgba(255,255,255,0.14); border-radius: 6px; max-width: 560px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B3B0BC" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg><label for="g-search" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Buscar en el admin</label><input id="g-search" type="text" placeholder="Buscar página, URL o palabra clave" style="flex: 1; min-width: 0; background: transparent; border: 0; color: #F4F2F8; outline: none"><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 2px 6px; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; color: #B3B0BC">Ctrl K</kbd></div>
+      <div style="display: flex; align-items: center; gap: 8px; margin-left: auto"><a href="Main.dc.html" aria-label="Avisos: 1 sitio caído, 3 de atención" style="position: relative; display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 6px; color: #F4F2F8"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10 21h4"></path></svg><span aria-hidden="true" style="position: absolute; top: 4px; right: 3px; min-width: 16px; height: 16px; padding: 0 4px; box-sizing: border-box; border-radius: 999px; background: #FF6B6B; color: #0C0C0C; font-size: 11px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center">4</span></a><img src="/_blob/c1f4c9d27736f1652e876e2f660320ef" alt="Tu cuenta: Dirección" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 2px solid #3D0A6E"></div>
+    </div>
+  </header>
+
+  <div style="display: flex; flex-wrap: wrap; align-items: flex-start">
+    <nav class="dk-nav" aria-label="Módulos" style="flex: 1 1 232px; max-width: 260px; box-sizing: border-box; padding: 14px 10px 24px; background: #101013; border-right: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; gap: 2px; font-size: 14px">
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Inicio</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Sitio dkoding.net</span>
+      <a href="Paginas.dc.html" aria-current="page" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #F4F2F8; background: #1A0B2B; font-weight: 600"><span aria-hidden="true" style="width: 14px; color: #C755EF; font-family: 'Blinker', sans-serif; font-weight: 700">»</span>Páginas</a>
+      <a href="Paginas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Redirecciones</a>
+      <a href="Paginas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Palabras clave</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">CRM</span>
+      <a href="Cliente.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Clientes</a>
+      <a href="Cotizaciones.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Leads<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(224,169,59,0.16); color: #E0A93B; font-size: 12px; font-weight: 600">2</span></a>
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Renovaciones</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Accesos</span>
+      <a href="Boveda.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Personales</a>
+      <a href="Boveda.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Agencia</a>
+      <a href="Boveda.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Clientes</a>
+      <a href="ImportarAccesos.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Importar Excel</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Ventas</span>
+      <a href="Cotizaciones.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Cotizaciones</a>
+      <a href="Tarifas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Tarifas</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Salud</span>
+      <a href="Sitios.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Sitios<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(255,107,107,0.16); color: #FF8F9B; font-size: 12px; font-weight: 600">1</span></a>
+      <a href="Sitios.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Copias<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(224,169,59,0.16); color: #E0A93B; font-size: 12px; font-weight: 600">1</span></a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Ajustes</span>
+      <a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Usuarios y roles</a>
+      <a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Conexiones</a>
+      <a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Registro</a>
+      <span style="font-size: 12px; color: #8E8A9B; padding: 16px 10px 0">MVP simple. Lo que no se usa todavía no aparece en el menú.</span>
+    </nav>
+
+    <main id="paginas" style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 24px 28px 48px; display: flex; flex-direction: column; gap: 18px">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <nav aria-label="Ruta" style="font-size: 13px; color: #B3B0BC">Sitio dkoding.net</nav>
+          <h1 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 30px; line-height: 1.1">Páginas</h1>
+          <span style="color: #B3B0BC">Inventario del sitio nuevo · se lee del sitemap cada día · Search Console conectado</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+          <span style="padding: 3px 10px; border-radius: 999px; background: rgba(199,85,239,0.14); color: #D98BFF; font-size: 12px; font-weight: 600">Datos de ejemplo</span>
+          <button type="button" onClick="{{sync}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 0 0-14.6-4.5L3 9"></path><path d="M3 4v5h5"></path><path d="M4 13a8 8 0 0 0 14.6 4.5L21 15"></path><path d="M21 20v-5h-5"></path></svg>Sincronizar ahora</button>
+          <button type="button" onClick="{{openNew}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 16px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-weight: 600; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Nueva página planificada</button>
+        </div>
+      </div>
+
+      <sc-if value="{{synced}}" hint-placeholder-val="{{false}}">
+        <div role="status" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 10px 14px; background: rgba(91,228,155,0.07); border: 1px solid rgba(91,228,155,0.35); border-radius: 8px">
+          <svg width="14" height="14" viewBox="0 0 16 16" role="img" aria-label="Correcto"><path d="M8 2a6 6 0 1 1 0 12A6 6 0 0 1 8 2z" fill="#5BE49B"></path></svg>
+          <span style="font-weight: 600">Sincronización terminada</span>
+          <span style="color: #D8D4E2; flex: 1 1 280px">18 URLs leídas del sitemap · 0 cambios de estado · Search Console con datos hasta el 06/10 · revisión SEO repetida en las 18</span>
+          <button type="button" onClick="{{closeSync}}" aria-label="Cerrar aviso" style="width: 36px; height: 36px; background: transparent; color: #B3B0BC; border: 0; border-radius: 4px; cursor: pointer; font-size: 18px; line-height: 1">×</button>
+        </div>
+      </sc-if>
+
+      <div role="tablist" aria-label="Secciones del sitio" style="display: flex; flex-wrap: wrap; gap: 4px; align-self: flex-start; max-width: 100%; box-sizing: border-box; padding: 4px; background: #101013; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px">
+        <sc-for list="{{tabs}}" as="t" hint-placeholder-count="3"><button type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}" style="{{t.style}}">{{t.label}}<span style="{{t.badgeStyle}}">{{t.count}}</span></button></sc-for>
+      </div>
+
+      <!-- ===================== PESTAÑA PÁGINAS ===================== -->
+      <sc-if value="{{isPages}}" hint-placeholder-val="{{true}}">
+        <section aria-label="Páginas del sitio" style="display: flex; flex-direction: column; gap: 12px">
+          <div style="display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center">
+            <span style="font-size: 12px; color: #B3B0BC; text-transform: uppercase; letter-spacing: 0.06em; width: 56px">Estado</span>
+            <div role="group" aria-label="Filtrar por estado" style="display: flex; flex-wrap: wrap; gap: 8px; flex: 1 1 520px">
+              <sc-for list="{{statusChips}}" as="c" hint-placeholder-count="6"><button type="button" onClick="{{c.pick}}" aria-pressed="{{c.on}}" style="{{c.style}}"><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true" style="{{c.iconStyle}}"><path d="{{c.i.f}}" fill="{{c.i.c}}"></path><path d="{{c.i.s}}" fill="none" stroke="{{c.i.c}}" stroke-width="1.5" stroke-dasharray="{{c.i.dash}}"></path></svg>{{c.label}}<span style="font-variant-numeric: tabular-nums; opacity: 0.75">{{c.count}}</span></button></sc-for>
+            </div>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center">
+            <span style="font-size: 12px; color: #B3B0BC; text-transform: uppercase; letter-spacing: 0.06em; width: 56px">Tipo</span>
+            <div role="group" aria-label="Filtrar por tipo" style="display: flex; flex-wrap: wrap; gap: 8px; flex: 1 1 420px">
+              <sc-for list="{{typeChips}}" as="c" hint-placeholder-count="5"><button type="button" onClick="{{c.pick}}" aria-pressed="{{c.on}}" style="{{c.style}}">{{c.label}}<span style="font-variant-numeric: tabular-nums; opacity: 0.75">{{c.count}}</span></button></sc-for>
+            </div>
+            <label for="p-search" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Buscar páginas</label>
+            <input id="p-search" type="search" value="{{q}}" onChange="{{onQ}}" placeholder="Buscar por título, URL o palabra" style="min-height: 38px; width: 280px; max-width: 100%; box-sizing: border-box; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.18); border-radius: 6px">
+          </div>
+
+          <div style="background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden">
+            <div style="position: relative; overflow-x: auto">
+              <table style="width: 100%; min-width: 1120px; border-collapse: collapse">
+                <thead><tr style="color: #B3B0BC; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; text-align: left">
+                  <th scope="col" style="padding: 10px 8px 10px 16px; font-weight: 600">Página</th>
+                  <th scope="col" style="padding: 10px 8px; font-weight: 600">Tipo</th>
+                  <th scope="col" style="padding: 10px 8px; font-weight: 600">Estado</th>
+                  <th scope="col" style="padding: 10px 8px; font-weight: 600">Palabra objetivo</th>
+                  <th scope="col" style="padding: 10px 8px; font-weight: 600; text-align: right; white-space: nowrap">Clics 28 d</th>
+                  <th scope="col" style="padding: 10px 8px; font-weight: 600; text-align: right">Posición</th>
+                  <th scope="col" style="padding: 10px 8px; font-weight: 600">Indexación</th>
+                  <th scope="col" style="padding: 10px 8px; font-weight: 600">Revisión SEO</th>
+                  <th scope="col" style="padding: 10px 16px 10px 8px; font-weight: 600"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Acciones</span></th>
+                </tr></thead>
+                <tbody>
+                  <sc-for list="{{rows}}" as="r" hint-placeholder-count="12">
+                    <tr class="dk-row" style="{{r.rowStyle}}">
+                      <td style="padding: 6px 8px 6px 16px; max-width: 320px"><button type="button" class="dk-open" onClick="{{r.open}}" style="display: flex; flex-direction: column; align-items: flex-start; gap: 0; width: 100%; min-height: 44px; justify-content: center; padding: 0; background: transparent; border: 0; color: #F4F2F8; text-align: left; cursor: pointer"><span class="dk-t" style="font-weight: 600">{{r.title}}</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #B3B0BC; overflow-wrap: anywhere">{{r.url}}</span></button></td>
+                      <td style="padding: 6px 8px; color: #D8D4E2">{{r.type}}</td>
+                      <td style="padding: 6px 8px"><span style="display: flex; flex-direction: column; align-items: flex-start; gap: 2px"><span style="{{r.st.pill}}"><svg width="12" height="12" viewBox="0 0 16 16" role="img" aria-label="{{r.st.label}}"><path d="{{r.st.i.f}}" fill="{{r.st.i.c}}"></path><path d="{{r.st.i.s}}" fill="none" stroke="{{r.st.i.c}}" stroke-width="1.5" stroke-dasharray="{{r.st.i.dash}}"></path></svg>{{r.st.label}}</span><span style="font-size: 12px; color: #B3B0BC">{{r.stNote}}</span></span></td>
+                      <td style="padding: 6px 8px"><span style="{{r.kwStyle}}">{{r.kw}}</span></td>
+                      <td style="padding: 6px 8px; text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-variant-numeric: tabular-nums">{{r.clicks}}</td>
+                      <td style="padding: 6px 8px; text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-variant-numeric: tabular-nums">{{r.pos}}</td>
+                      <td style="padding: 6px 8px"><span style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: #D8D4E2"><svg width="12" height="12" viewBox="0 0 16 16" role="img" aria-label="{{r.ix.label}}" style="flex: none"><path d="{{r.ix.i.f}}" fill="{{r.ix.i.c}}"></path><path d="{{r.ix.i.s}}" fill="none" stroke="{{r.ix.i.c}}" stroke-width="1.5" stroke-dasharray="{{r.ix.i.dash}}"></path></svg>{{r.ix.label}}</span></td>
+                      <td style="padding: 6px 8px"><span style="{{r.sv.pill}}"><svg width="12" height="12" viewBox="0 0 16 16" role="img" aria-label="{{r.sv.label}}"><path d="{{r.sv.i.f}}" fill="{{r.sv.i.c}}"></path><path d="{{r.sv.i.s}}" fill="none" stroke="{{r.sv.i.c}}" stroke-width="1.5" stroke-dasharray="{{r.sv.i.dash}}"></path></svg>{{r.sv.label}}</span></td>
+                      <td style="padding: 6px 16px 6px 8px; text-align: right"><button type="button" onClick="{{r.open}}" aria-label="Ver {{r.url}}" style="min-height: 36px; padding: 0 12px; background: transparent; color: #D98BFF; border: 1px solid rgba(217,139,255,0.35); border-radius: 4px; font-weight: 600; cursor: pointer">Ver</button></td>
+                    </tr>
+                  </sc-for>
+                </tbody>
+              </table>
+            </div>
+            <sc-if value="{{noRows}}" hint-placeholder-val="{{false}}"><p style="margin: 0; padding: 24px 16px; color: #B3B0BC; text-align: center">Ninguna página coincide con los filtros.</p></sc-if>
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding: 12px 16px; border-top: 1px solid rgba(255,255,255,0.08); color: #B3B0BC; font-size: 13px"><span>{{pagesFooter}}</span><span>Revisión SEO: se lee del HTML publicado una vez al día. Haz clic en una página para ver los chequeos.</span></div>
+          </div>
+        </section>
+      </sc-if>
+
+      <!-- ===================== PESTAÑA REDIRECCIONES ===================== -->
+      <sc-if value="{{isRedirects}}" hint-placeholder-val="{{false}}">
+        <section aria-labelledby="h-red" style="display: flex; flex-direction: column; gap: 12px">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 12px"><h2 id="h-red" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">{{rTotal}} URLs del sitio viejo</h2><span style="font-size: 13px; color: #B3B0BC">mapa de la migración · visitas de los últimos 30 días</span></div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 12px">
+            <sc-for list="{{rSummary}}" as="s" hint-placeholder-count="4">
+              <div style="display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px">
+                <span style="display: flex; align-items: center; gap: 8px; color: #B3B0BC; font-size: 13px"><svg width="12" height="12" viewBox="0 0 16 16" role="img" aria-label="{{s.state}}"><path d="{{s.i.f}}" fill="{{s.i.c}}"></path><path d="{{s.i.s}}" fill="none" stroke="{{s.i.c}}" stroke-width="1.5" stroke-dasharray="{{s.i.dash}}"></path></svg>{{s.label}}</span>
+                <span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 28px; line-height: 1.1; font-variant-numeric: tabular-nums">{{s.value}}</span>
+                <span style="font-size: 12px; color: #B3B0BC">{{s.note}}</span>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 10px 14px; background: #101013; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; font-size: 13px; color: #D8D4E2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B3B0BC" stroke-width="2" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><path d="M14 3v6h6"></path></svg>
+            <span style="flex: 1 1 360px">La fuente en el MVP es <code style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #F4F2F8">seo/redirecciones-301.csv</code> del repositorio; el admin la importa y verifica. Última importación: hoy 06:00.</span>
+            <button type="button" onClick="{{verifyAll}}" style="min-height: 36px; padding: 0 12px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; cursor: pointer">{{verifyLabel}}</button>
+          </div>
+          <section aria-labelledby="h-det" style="display: flex; flex-direction: column; gap: 10px; padding: 14px 16px 16px; background: #151518; border: 1px solid rgba(224,169,59,0.35); border-radius: 10px">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 12px"><h3 id="h-det" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 18px">Detectadas por Search Console sin regla</h3><span style="font-size: 13px; color: #B3B0BC">URLs viejas con visitas que responden 404 y no están en el CSV</span></div>
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; min-height: 54px; box-sizing: border-box; padding: 8px 12px; background: #0F0F11; border: 1px solid rgba(255,255,255,0.06); border-radius: 6px">
+              <sc-if value="{{detOpen}}" hint-placeholder-val="{{true}}"><svg width="14" height="14" viewBox="0 0 16 16" role="img" aria-label="Atención" style="flex: none"><path d="M8 1.5L15 14H1z" fill="#E0A93B"></path></svg></sc-if>
+              <sc-if value="{{detDone}}" hint-placeholder-val="{{false}}"><svg width="14" height="14" viewBox="0 0 16 16" role="img" aria-label="Correcto" style="flex: none"><path d="M8 2a6 6 0 1 1 0 12A6 6 0 0 1 8 2z" fill="#5BE49B"></path></svg></sc-if>
+              <span style="flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500">{{det.from}}</span><span style="font-size: 12px; color: #B3B0BC">{{det.note}}</span></span>
+              <sc-if value="{{detOpen}}" hint-placeholder-val="{{true}}"><span style="display: inline-block; padding: 1px 8px; border-radius: 4px; background: rgba(255,255,255,0.08); color: #D8D4E2; font-family: 'JetBrains Mono', monospace; font-size: 12px">404</span></sc-if>
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-variant-numeric: tabular-nums; white-space: nowrap">{{det.visits}} visitas en 30 d</span>
+              <sc-if value="{{detOpen}}" hint-placeholder-val="{{true}}"><button type="button" onClick="{{createRedirect}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 14px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-weight: 600; cursor: pointer; white-space: nowrap"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Crear redirección</button></sc-if>
+              <sc-if value="{{detDone}}" hint-placeholder-val="{{false}}"><span style="display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px 10px"><span style="font-size: 13px; font-weight: 600; color: #5BE49B; white-space: nowrap">301 a / · nueva en la tabla</span><button type="button" onClick="{{undoRedirect}}" style="min-height: 36px; padding: 0 8px; background: transparent; color: #D98BFF; border: 0; font-weight: 600; cursor: pointer">Deshacer</button></span></sc-if>
+            </div>
+            <span style="font-size: 12px; color: #8E8A9B">Crear la redirección la agrega aquí con destino / (tiendas van a la home hasta que exista /tiendas-virtuales/) y la exporta al CSV del repositorio.</span>
+          </section>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between">
+            <div role="group" aria-label="Filtrar redirecciones" style="display: flex; flex-wrap: wrap; gap: 8px">
+              <sc-for list="{{rChips}}" as="c" hint-placeholder-count="4"><button type="button" onClick="{{c.pick}}" aria-pressed="{{c.on}}" style="{{c.style}}">{{c.label}}<span style="font-variant-numeric: tabular-nums; opacity: 0.75">{{c.count}}</span></button></sc-for>
+              <sc-if value="{{hasDest}}" hint-placeholder-val="{{false}}"><button type="button" onClick="{{clearDest}}" aria-label="Quitar filtro de destino" style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 12px; border-radius: 999px; background: #1A0B2B; color: #F4F2F8; border: 1px solid rgba(199,85,239,0.55); cursor: pointer; font-weight: 600">Destino: <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px">{{rdest}}</span><span aria-hidden="true">×</span></button></sc-if>
+            </div>
+            <label for="r-search" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Buscar redirecciones</label>
+            <input id="r-search" type="search" value="{{rq}}" onChange="{{onRq}}" placeholder="Buscar origen o destino" style="min-height: 38px; width: 260px; max-width: 100%; box-sizing: border-box; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.18); border-radius: 6px">
+          </div>
+          <div style="background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden">
+            <div style="position: relative; overflow-x: auto">
+              <table style="width: 100%; min-width: 1080px; border-collapse: collapse">
+                <thead><tr style="color: #B3B0BC; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; text-align: left">
+                  <th scope="col" style="padding: 10px 8px 10px 16px; font-weight: 600">Origen</th>
+                  <th scope="col" style="padding: 10px 8px; font-weight: 600">Código</th>
+                  <th scope="col" style="padding: 10px 8px; font-weight: 600">Destino</th>
+                  <th scope="col" style="padding: 10px 8px; font-weight: 600">Verificación</th>
+                  <th scope="col" style="padding: 10px 8px; font-weight: 600; text-align: right; white-space: nowrap">Visitas 30 d</th>
+                  <th scope="col" style="padding: 10px 8px; font-weight: 600">Confirmar</th>
+                  <th scope="col" style="padding: 10px 16px 10px 8px; font-weight: 600"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Acciones</span></th>
+                </tr></thead>
+                <tbody>
+                  <sc-for list="{{rRows}}" as="r" hint-placeholder-count="15">
+                    <tr class="dk-row" style="border-top: 1px solid rgba(255,255,255,0.06); height: 54px">
+                      <td style="padding: 6px 8px 6px 16px; max-width: 300px"><span style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; overflow-wrap: anywhere">{{r.from}}</span><span style="{{r.newStyle}}">nueva</span></span></td>
+                      <td style="padding: 6px 8px"><span style="{{r.codeStyle}}">{{r.code}}</span></td>
+                      <td style="padding: 6px 8px; max-width: 300px"><span style="display: flex; flex-direction: column"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; overflow-wrap: anywhere; color: #D8D4E2">{{r.to}}</span><span style="font-size: 12px; color: #8E8A9B">{{r.why}}</span></span></td>
+                      <td style="padding: 6px 8px"><span style="display: flex; flex-direction: column"><span style="{{r.vStyle}}"><svg width="12" height="12" viewBox="0 0 16 16" role="img" aria-label="{{r.vState}}" style="flex: none"><path d="{{r.v.f}}" fill="{{r.v.c}}"></path><path d="{{r.v.s}}" fill="none" stroke="{{r.v.c}}" stroke-width="1.5" stroke-dasharray="{{r.v.dash}}"></path></svg>{{r.verif}}</span><span style="font-size: 12px; color: #8E8A9B">{{r.vNote}}</span></span></td>
+                      <td style="padding: 6px 8px; text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-variant-numeric: tabular-nums"><span style="{{r.visStyle}}">{{r.visits}}</span></td>
+                      <td style="padding: 6px 8px; max-width: 220px"><span style="display: flex; flex-direction: column; align-items: flex-start; gap: 2px"><span style="{{r.confStyle}}">{{r.confLabel}}</span><span style="font-size: 12px; color: #B3B0BC">{{r.question}}</span></span></td>
+                      <td style="padding: 6px 16px 6px 8px; text-align: right"><button type="button" onClick="{{r.test}}" style="min-height: 36px; padding: 0 12px; background: transparent; color: #D98BFF; border: 1px solid rgba(217,139,255,0.35); border-radius: 4px; font-weight: 600; cursor: pointer; white-space: nowrap">Probar</button></td>
+                    </tr>
+                  </sc-for>
+                </tbody>
+              </table>
+            </div>
+            <sc-if value="{{noRRows}}" hint-placeholder-val="{{false}}"><p style="margin: 0; padding: 24px 16px; color: #B3B0BC; text-align: center">Ninguna redirección coincide con los filtros.</p></sc-if>
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; padding: 10px 16px; border-top: 1px solid rgba(255,255,255,0.08); color: #B3B0BC; font-size: 13px">
+              <span>{{rFooter}} · ordenadas por visitas</span>
+              <nav aria-label="Paginación" style="display: flex; gap: 4px; align-items: center">
+                <button type="button" onClick="{{rPrev}}" disabled="{{rPrevDis}}" aria-label="Página anterior" style="{{rPrevStyle}}">‹</button>
+                <sc-for list="{{rPages}}" as="p" hint-placeholder-count="4"><button type="button" onClick="{{p.pick}}" aria-current="{{p.cur}}" aria-label="Página {{p.n}}" style="{{p.style}}">{{p.n}}</button></sc-for>
+                <button type="button" onClick="{{rNext}}" disabled="{{rNextDis}}" aria-label="Página siguiente" style="{{rNextStyle}}">›</button>
+              </nav>
+            </div>
+          </div>
+          <p style="margin: 0; font-size: 12px; color: #8E8A9B">«Un salto»: la URL vieja llega con un solo 301 a una página que responde 200. «Por confirmar»: la regla está activa desde el lanzamiento con el destino por defecto del CSV; si se decide otro, se cambia en la misma regla, nunca como un salto nuevo.</p>
+        </section>
+      </sc-if>
+
+      <!-- ===================== PESTAÑA PALABRAS CLAVE ===================== -->
+      <sc-if value="{{isKeywords}}" hint-placeholder-val="{{false}}">
+        <section aria-labelledby="h-kw" style="display: flex; flex-direction: column; gap: 14px">
+          <div role="note" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 12px 16px; background: rgba(224,169,59,0.07); border: 1px solid rgba(224,169,59,0.35); border-radius: 10px">
+            <svg width="14" height="14" viewBox="0 0 16 16" role="img" aria-label="Atención"><path d="M8 1.5L15 14H1z" fill="#E0A93B"></path></svg>
+            <span style="flex: 1 1 420px">Los volúmenes de la hoja de palabras clave no están validados: 21 % tienen exactamente 720 búsquedas y no hay ninguna con Cali.</span>
+            <button type="button" onClick="{{openStudy}}" style="min-height: 36px; padding: 0 12px; background: transparent; color: #D98BFF; border: 1px solid rgba(217,139,255,0.35); border-radius: 4px; font-weight: 600; cursor: pointer">Ver estudio</button>
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 12px">
+            <div style="display: flex; flex-direction: column"><h2 id="h-kw" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">Palabra objetivo contra la consulta real</h2><span style="font-size: 13px; color: #B3B0BC">la consulta que más clics trajo a cada página en 28 días · Search Console</span></div>
+            <div role="group" aria-label="Filtrar por coincidencia" style="display: flex; flex-wrap: wrap; gap: 8px">
+              <sc-for list="{{kChips}}" as="c" hint-placeholder-count="3"><button type="button" onClick="{{c.pick}}" aria-pressed="{{c.on}}" style="{{c.style}}">{{c.label}}<span style="font-variant-numeric: tabular-nums; opacity: 0.75">{{c.count}}</span></button></sc-for>
+            </div>
+          </div>
+          <div style="background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden">
+            <div style="position: relative; overflow-x: auto">
+              <table style="width: 100%; min-width: 1080px; border-collapse: collapse">
+                <thead><tr style="color: #B3B0BC; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; text-align: left">
+                  <th scope="col" style="padding: 10px 8px 10px 16px; font-weight: 600">Página</th>
+                  <th scope="col" style="padding: 10px 8px; font-weight: 600">Palabra objetivo</th>
+                  <th scope="col" style="padding: 10px 8px; font-weight: 600; text-align: right">Volumen de la hoja</th>
+                  <th scope="col" style="padding: 10px 8px; font-weight: 600">Consulta real con más clics</th>
+                  <th scope="col" style="padding: 10px 8px; font-weight: 600; text-align: right">Clics</th>
+                  <th scope="col" style="padding: 10px 8px; font-weight: 600; text-align: right">Posición</th>
+                  <th scope="col" style="padding: 10px 16px 10px 8px; font-weight: 600">¿Coincide?</th>
+                </tr></thead>
+                <tbody>
+                  <sc-for list="{{kRows}}" as="r" hint-placeholder-count="10">
+                    <tr class="dk-row" style="border-top: 1px solid rgba(255,255,255,0.06); height: 56px">
+                      <td style="padding: 6px 8px 6px 16px; max-width: 280px"><button type="button" class="dk-open" onClick="{{r.open}}" style="display: flex; flex-direction: column; align-items: flex-start; min-height: 44px; justify-content: center; padding: 0; background: transparent; border: 0; color: #F4F2F8; text-align: left; cursor: pointer"><span class="dk-t" style="font-weight: 600">{{r.title}}</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #B3B0BC; overflow-wrap: anywhere">{{r.url}}</span></button></td>
+                      <td style="padding: 6px 8px">{{r.kw}}</td>
+                      <td style="padding: 6px 8px; text-align: right"><span style="display: flex; flex-direction: column; align-items: flex-end"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-variant-numeric: tabular-nums">{{r.vol}}</span><span style="font-size: 11px; color: #E0A93B">{{r.volNote}}</span></span></td>
+                      <td style="padding: 6px 8px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #D8D4E2">{{r.query}}</span></td>
+                      <td style="padding: 6px 8px; text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-variant-numeric: tabular-nums">{{r.clicks}}</td>
+                      <td style="padding: 6px 8px; text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-variant-numeric: tabular-nums">{{r.pos}}</td>
+                      <td style="padding: 6px 16px 6px 8px; max-width: 260px"><span style="display: flex; flex-direction: column"><span style="{{r.mStyle}}"><svg width="12" height="12" viewBox="0 0 16 16" role="img" aria-label="{{r.mLabel}}" style="flex: none"><path d="{{r.m.f}}" fill="{{r.m.c}}"></path><path d="{{r.m.s}}" fill="none" stroke="{{r.m.c}}" stroke-width="1.5" stroke-dasharray="{{r.m.dash}}"></path></svg>{{r.mLabel}}</span><span style="font-size: 12px; color: #B3B0BC">{{r.hint}}</span></span></td>
+                    </tr>
+                  </sc-for>
+                </tbody>
+              </table>
+            </div>
+            <div style="padding: 10px 16px; border-top: 1px solid rgba(255,255,255,0.08); color: #B3B0BC; font-size: 13px">Volumen: búsquedas mensuales según la hoja de palabras clave, sin fuente, país ni fecha. Sirve para ordenar, no para prometer tráfico.</div>
+          </div>
+
+          <section aria-labelledby="h-orph" style="background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 12px; padding: 16px 16px 8px"><h2 id="h-orph" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">Consultas sin página asignada</h2><span style="font-size: 13px; color: #B3B0BC">con impresiones en 28 días y que ninguna página tiene como objetivo ni secundaria</span></div>
+            <div style="position: relative; overflow-x: auto">
+              <table style="width: 100%; min-width: 960px; border-collapse: collapse">
+                <thead><tr style="color: #B3B0BC; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; text-align: left">
+                  <th scope="col" style="padding: 10px 8px 10px 16px; font-weight: 600">Consulta</th>
+                  <th scope="col" style="padding: 10px 8px; font-weight: 600; text-align: right">Impresiones</th>
+                  <th scope="col" style="padding: 10px 8px; font-weight: 600; text-align: right">Clics</th>
+                  <th scope="col" style="padding: 10px 8px; font-weight: 600; text-align: right">Posición</th>
+                  <th scope="col" style="padding: 10px 8px; font-weight: 600">Google muestra hoy</th>
+                  <th scope="col" style="padding: 10px 16px 10px 8px; font-weight: 600"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Acciones</span></th>
+                </tr></thead>
+                <tbody>
+                  <sc-for list="{{orphans}}" as="o" hint-placeholder-count="4">
+                    <tr class="dk-row" style="border-top: 1px solid rgba(255,255,255,0.06); height: 56px">
+                      <td style="padding: 6px 8px 6px 16px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px">{{o.q}}</span></td>
+                      <td style="padding: 6px 8px; text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-variant-numeric: tabular-nums">{{o.imp}}</td>
+                      <td style="padding: 6px 8px; text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-variant-numeric: tabular-nums">{{o.clicks}}</td>
+                      <td style="padding: 6px 8px; text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-variant-numeric: tabular-nums">{{o.pos}}</td>
+                      <td style="padding: 6px 8px"><span style="display: flex; flex-direction: column"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #D8D4E2">{{o.shown}}</span><span style="font-size: 12px; color: #B3B0BC">{{o.hint}}</span></span></td>
+                      <td style="padding: 6px 16px 6px 8px; text-align: right">
+                        <sc-if value="{{o.isOpen}}" hint-placeholder-val="{{true}}"><button type="button" onClick="{{o.assign}}" style="min-height: 36px; padding: 0 12px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; cursor: pointer; white-space: nowrap">Asignar a página</button></sc-if>
+                        <sc-if value="{{o.isDone}}" hint-placeholder-val="{{false}}"><span style="display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: flex-end"><span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: #5BE49B; font-weight: 600"><svg width="12" height="12" viewBox="0 0 16 16" role="img" aria-label="Correcto"><path d="M8 2a6 6 0 1 1 0 12A6 6 0 0 1 8 2z" fill="#5BE49B"></path></svg>{{o.doneLabel}}</span><button type="button" onClick="{{o.undo}}" style="min-height: 36px; padding: 0 8px; background: transparent; color: #D98BFF; border: 0; font-weight: 600; cursor: pointer">Deshacer</button></span></sc-if>
+                      </td>
+                    </tr>
+                  </sc-for>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </section>
+      </sc-if>
+    </main>
+  </div>
+
+  <!-- ===================== PANEL LATERAL (slide-over de Filament) ===================== -->
+  <sc-if value="{{panelOpen}}" hint-placeholder-val="{{false}}">
+    <div style="position: fixed; inset: 0; z-index: 40; display: flex; justify-content: flex-end">
+      <button type="button" aria-label="Cerrar el panel" onClick="{{closePanel}}" style="position: absolute; inset: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); border: 0; cursor: pointer"></button>
+      <aside role="dialog" aria-modal="true" aria-labelledby="h-panel" style="position: relative; width: 500px; max-width: 100%; height: 100%; overflow-y: auto; box-sizing: border-box; background: #151518; border-left: 1px solid rgba(199,85,239,0.35); padding: 20px 22px 28px; display: flex; flex-direction: column; gap: 18px">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px">
+          <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0">
+            <span style="display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center"><span style="padding: 2px 8px; border-radius: 999px; background: rgba(255,255,255,0.08); color: #D8D4E2; font-size: 12px; font-weight: 600">{{p.type}}</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #B3B0BC; overflow-wrap: anywhere">{{p.url}}</span></span>
+            <h2 id="h-panel" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 24px; line-height: 1.15">{{p.title}}</h2>
+          </div>
+          <button type="button" onClick="{{closePanel}}" aria-label="Cerrar" style="flex: none; width: 40px; height: 40px; background: transparent; color: #D8D4E2; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; cursor: pointer; font-size: 20px; line-height: 1">×</button>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 6px; padding: 12px 14px; background: #0F0F11; border-radius: 8px">
+          <span style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><span style="{{p.st.pill}}"><svg width="12" height="12" viewBox="0 0 16 16" role="img" aria-label="{{p.st.label}}"><path d="{{p.st.i.f}}" fill="{{p.st.i.c}}"></path><path d="{{p.st.i.s}}" fill="none" stroke="{{p.st.i.c}}" stroke-width="1.5" stroke-dasharray="{{p.st.i.dash}}"></path></svg>{{p.st.label}}</span><span style="font-size: 13px; color: #D8D4E2">{{p.stNote}}</span></span>
+          <sc-for list="{{p.dates}}" as="d" hint-placeholder-count="3"><span style="display: flex; justify-content: space-between; gap: 12px; font-size: 13px"><span style="color: #B3B0BC">{{d.k}}</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; text-align: right">{{d.v}}</span></span></sc-for>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <h3 style="margin: 0; font-size: 13px; font-weight: 600; color: #B3B0BC; text-transform: uppercase; letter-spacing: 0.06em">Palabra objetivo</h3>
+          <span style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px"><span style="font-family: 'Blinker', sans-serif; font-weight: 600; font-size: 20px">{{p.kw}}</span><span style="font-size: 12px; color: #E0A93B">{{p.kwVol}}</span></span>
+          <sc-if value="{{p.hasSec}}" hint-placeholder-val="{{true}}">
+            <span style="font-size: 12px; color: #B3B0BC">Secundarias</span>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px"><sc-for list="{{p.sec}}" as="s" hint-placeholder-count="5"><span style="padding: 3px 10px; border-radius: 999px; background: #1D1B24; border: 1px solid rgba(255,255,255,0.08); font-size: 13px; color: #D8D4E2">{{s}}</span></sc-for></div>
+          </sc-if>
+          <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 4px">
+            <div style="display: flex; flex-direction: column; padding: 10px 12px; background: #0F0F11; border-radius: 6px"><span style="font-size: 12px; color: #B3B0BC">Tema</span><span style="font-weight: 600">{{p.theme}}</span></div>
+            <div style="display: flex; flex-direction: column; padding: 10px 12px; background: #0F0F11; border-radius: 6px"><span style="font-size: 12px; color: #B3B0BC">Nicho</span><span style="font-weight: 600">{{p.niche}}</span></div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px"><h3 style="margin: 0; font-size: 13px; font-weight: 600; color: #B3B0BC; text-transform: uppercase; letter-spacing: 0.06em">Revisión SEO</h3><span style="{{p.sv.pill}}"><svg width="12" height="12" viewBox="0 0 16 16" role="img" aria-label="{{p.sv.label}}"><path d="{{p.sv.i.f}}" fill="{{p.sv.i.c}}"></path><path d="{{p.sv.i.s}}" fill="none" stroke="{{p.sv.i.c}}" stroke-width="1.5" stroke-dasharray="{{p.sv.i.dash}}"></path></svg>{{p.sv.label}}</span></div>
+          <sc-if value="{{p.hasChecks}}" hint-placeholder-val="{{true}}">
+            <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; overflow: hidden">
+              <sc-for list="{{p.checks}}" as="c" hint-placeholder-count="9">
+                <li style="display: flex; align-items: flex-start; gap: 10px; padding: 8px 12px; border-top: 1px solid rgba(255,255,255,0.06); background: #0F0F11; font-size: 13px">
+                  <svg width="12" height="12" viewBox="0 0 16 16" role="img" aria-label="{{c.state}}" style="flex: none; margin-top: 4px"><path d="{{c.i.f}}" fill="{{c.i.c}}"></path><path d="{{c.i.s}}" fill="none" stroke="{{c.i.c}}" stroke-width="1.5" stroke-dasharray="{{c.i.dash}}"></path></svg>
+                  <span style="display: flex; flex-direction: column; min-width: 0"><span>{{c.label}}</span><span style="{{c.detailStyle}}">{{c.detail}}</span></span>
+                </li>
+              </sc-for>
+            </ul>
+          </sc-if>
+          <sc-if value="{{p.noChecks}}" hint-placeholder-val="{{false}}"><p style="margin: 0; font-size: 13px; color: #B3B0BC">{{p.noChecksText}}</p></sc-if>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <h3 style="margin: 0; font-size: 13px; font-weight: 600; color: #B3B0BC; text-transform: uppercase; letter-spacing: 0.06em">Consultas que traen clics · 28 días</h3>
+          <sc-if value="{{p.hasQueries}}" hint-placeholder-val="{{true}}">
+            <table style="width: 100%; border-collapse: collapse; font-size: 13px">
+              <thead><tr style="color: #B3B0BC; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; text-align: left"><th scope="col" style="padding: 4px 0; font-weight: 600">Consulta</th><th scope="col" style="padding: 4px 0; font-weight: 600; text-align: right">Clics</th><th scope="col" style="padding: 4px 0 4px 12px; font-weight: 600; text-align: right">Posición</th></tr></thead>
+              <tbody><sc-for list="{{p.queries}}" as="q" hint-placeholder-count="4"><tr style="border-top: 1px solid rgba(255,255,255,0.06)"><td style="padding: 7px 0; font-family: 'JetBrains Mono', monospace; font-size: 12px">{{q.q}}</td><td style="padding: 7px 0; text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-variant-numeric: tabular-nums">{{q.c}}</td><td style="padding: 7px 0 7px 12px; text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-variant-numeric: tabular-nums">{{q.p}}</td></tr></sc-for></tbody>
+            </table>
+            <span style="font-size: 12px; color: #8E8A9B">{{p.queriesNote}}</span>
+          </sc-if>
+          <sc-if value="{{p.noQueries}}" hint-placeholder-val="{{false}}"><p style="margin: 0; font-size: 13px; color: #B3B0BC">{{p.noQueriesText}}</p></sc-if>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <h3 style="margin: 0; font-size: 13px; font-weight: 600; color: #B3B0BC; text-transform: uppercase; letter-spacing: 0.06em">Redirecciones que llegan aquí</h3>
+          <sc-if value="{{p.hasRedirs}}" hint-placeholder-val="{{true}}">
+            <sc-for list="{{p.redirs}}" as="r" hint-placeholder-count="2">
+              <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 10px; padding: 8px 12px; background: #0F0F11; border-radius: 6px">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; overflow-wrap: anywhere; min-width: 0">{{r.from}}</span>
+                <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: #B3B0BC; white-space: nowrap"><svg width="10" height="10" viewBox="0 0 16 16" role="img" aria-label="{{r.vState}}"><path d="{{r.v.f}}" fill="{{r.v.c}}"></path><path d="{{r.v.s}}" fill="none" stroke="{{r.v.c}}" stroke-width="1.5" stroke-dasharray="{{r.v.dash}}"></path></svg>301 · {{r.verif}} · {{r.visits}} visitas</span>
+              </div>
+            </sc-for>
+            <sc-if value="{{p.moreRedirs}}" hint-placeholder-val="{{false}}"><button type="button" onClick="{{p.seeRedirs}}" style="align-self: flex-start; min-height: 36px; padding: 0; background: transparent; color: #D98BFF; border: 0; font-weight: 600; cursor: pointer">{{p.moreLabel}}</button></sc-if>
+          </sc-if>
+          <sc-if value="{{p.noRedirs}}" hint-placeholder-val="{{false}}"><p style="margin: 0; font-size: 13px; color: #B3B0BC">Ninguna URL vieja apunta a esta página.</p></sc-if>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 4px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08)">
+          <div style="display: flex; flex-wrap: wrap; gap: 8px">
+            <button type="button" disabled="{{true}}" aria-describedby="edit-why" style="display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; background: #1D1B24; color: #8E8A9B; border: 1px dashed rgba(255,255,255,0.18); border-radius: 4px; font-weight: 600; cursor: not-allowed"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"></path></svg>Editar contenido · llega con el editor (fase 2)</button>
+            <sc-if value="{{p.isLive}}" hint-placeholder-val="{{true}}"><a href="{{p.liveUrl}}" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; color: #F4F2F8; font-weight: 600">Abrir en dkoding.net</a></sc-if>
+          </div>
+          <p id="edit-why" style="margin: 0; font-size: 12px; color: #B3B0BC">En el MVP el texto vive en el repositorio de Astro y se cambia ahí. El admin lleva el inventario, el estado y el SEO; cuando llegue el editor, la misma página se edita aquí sin cambiar su URL.</p>
+        </div>
+      </aside>
+    </div>
+  </sc-if>
+
+  <!-- ===================== MODALES ===================== -->
+  <sc-if value="{{modalNew}}" hint-placeholder-val="{{false}}">
+    <div style="position: fixed; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box; background: rgba(0,0,0,0.6)">
+      <div role="dialog" aria-modal="true" aria-labelledby="h-new" style="width: 560px; max-width: 100%; max-height: 100%; overflow-y: auto; box-sizing: border-box; background: #151518; border: 1px solid rgba(255,255,255,0.14); border-radius: 10px; padding: 22px; display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; flex-direction: column; gap: 4px"><h2 id="h-new" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 22px">Nueva página planificada</h2><span style="font-size: 13px; color: #B3B0BC">Entra al inventario como «Planificada». No crea nada en el sitio: el texto se escribe en el repositorio.</span></div>
+        <div style="display: flex; flex-direction: column; gap: 6px"><label for="n-title" style="font-size: 13px; font-weight: 600">Título</label><input id="n-title" type="text" value="{{form.title}}" onChange="{{onFTitle}}" style="min-height: 40px; box-sizing: border-box; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.18); border-radius: 6px"></div>
+        <div style="display: flex; flex-direction: column; gap: 6px"><label for="n-url" style="font-size: 13px; font-weight: 600">URL</label><input id="n-url" type="text" value="{{form.url}}" onChange="{{onFUrl}}" style="min-height: 40px; box-sizing: border-box; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.18); border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 13px"><span style="{{formErrStyle}}">{{formMsg}}</span></div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr)); gap: 12px">
+          <div style="display: flex; flex-direction: column; gap: 6px"><label for="n-type" style="font-size: 13px; font-weight: 600">Tipo</label><select id="n-type" value="{{form.type}}" onChange="{{onFType}}" style="min-height: 40px; padding: 0 10px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.18); border-radius: 6px"><option value="Landing">Landing</option><option value="Blog">Blog</option><option value="Institucional">Institucional</option><option value="Legal">Legal</option></select></div>
+          <div style="display: flex; flex-direction: column; gap: 6px"><label for="n-theme" style="font-size: 13px; font-weight: 600">Tema</label><select id="n-theme" value="{{form.theme}}" onChange="{{onFTheme}}" style="min-height: 40px; padding: 0 10px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.18); border-radius: 6px"><option value="Desarrollo web">Desarrollo web</option><option value="Marketing digital">Marketing digital</option><option value="SEO y GEO">SEO y GEO</option><option value="Redes sociales">Redes sociales</option><option value="Diseño de marca">Diseño de marca</option><option value="Desarrollo de apps">Desarrollo de apps</option></select></div>
+          <div style="display: flex; flex-direction: column; gap: 6px"><label for="n-niche" style="font-size: 13px; font-weight: 600">Nicho</label><select id="n-niche" value="{{form.niche}}" onChange="{{onFNiche}}" style="min-height: 40px; padding: 0 10px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.18); border-radius: 6px"><option value="General">General</option><option value="Salud">Salud</option><option value="Ecommerce">Ecommerce</option><option value="Pymes y emprendedores">Pymes y emprendedores</option><option value="Profesionales independientes">Profesionales independientes</option><option value="Hoteles y turismo">Hoteles y turismo</option><option value="Restaurantes">Restaurantes</option></select></div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px"><label for="n-kw" style="font-size: 13px; font-weight: 600">Palabra objetivo</label><input id="n-kw" type="text" value="{{form.kw}}" onChange="{{onFKw}}" placeholder="Vacía si el estudio no tiene datos" style="min-height: 40px; box-sizing: border-box; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.18); border-radius: 6px"><span style="font-size: 12px; color: #B3B0BC">El estudio no tiene búsquedas de GEO: valida la palabra antes de escribir el texto.</span></div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; padding-top: 4px">
+          <button type="button" onClick="{{closeModal}}" style="min-height: 40px; padding: 0 14px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; cursor: pointer">Cancelar</button>
+          <button type="button" onClick="{{createPage}}" style="min-height: 40px; padding: 0 16px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-weight: 600; cursor: pointer">Crear como planificada</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{modalStudy}}" hint-placeholder-val="{{false}}">
+    <div style="position: fixed; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box; background: rgba(0,0,0,0.6)">
+      <div role="dialog" aria-modal="true" aria-labelledby="h-study" style="width: 620px; max-width: 100%; max-height: 100%; overflow-y: auto; box-sizing: border-box; background: #151518; border: 1px solid rgba(255,255,255,0.14); border-radius: 10px; padding: 22px; display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; flex-direction: column; gap: 4px"><h2 id="h-study" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 22px">Estudio de palabras clave</h2><span style="font-size: 13px; color: #B3B0BC">702 filas en 6 grupos · 660 palabras únicas · semilla: seo/palabras-clave-clasificadas.csv</span></div>
+        <table style="width: 100%; border-collapse: collapse; font-size: 13px">
+          <thead><tr style="color: #B3B0BC; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; text-align: left"><th scope="col" style="padding: 4px 12px 4px 0; font-weight: 600">Problema</th><th scope="col" style="padding: 4px 0; font-weight: 600">Dato</th></tr></thead>
+          <tbody><sc-for list="{{study}}" as="s" hint-placeholder-count="6"><tr style="border-top: 1px solid rgba(255,255,255,0.06)"><td style="padding: 8px 12px 8px 0; font-weight: 600; vertical-align: top">{{s.k}}</td><td style="padding: 8px 0; color: #D8D4E2">{{s.v}}</td></tr></sc-for></tbody>
+        </table>
+        <p style="margin: 0; font-size: 13px; color: #D8D4E2">Para validarlo: Planificador de palabras clave de Google Ads con ubicación Colombia y luego Cali, con las ~60 palabras de las landings y sus variantes con «Cali». Después del lanzamiento manda Search Console.</p>
+        <div style="display: flex; justify-content: flex-end"><button type="button" onClick="{{closeModal}}" style="min-height: 40px; padding: 0 16px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-weight: 600; cursor: pointer">Entendido</button></div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{modalAssign}}" hint-placeholder-val="{{false}}">
+    <div style="position: fixed; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box; background: rgba(0,0,0,0.6)">
+      <div role="dialog" aria-modal="true" aria-labelledby="h-assign" style="width: 520px; max-width: 100%; max-height: 100%; overflow-y: auto; box-sizing: border-box; background: #151518; border: 1px solid rgba(255,255,255,0.14); border-radius: 10px; padding: 22px; display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; flex-direction: column; gap: 4px"><h2 id="h-assign" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 22px">Asignar a página</h2><span style="font-size: 13px; color: #B3B0BC">Consulta: <span style="font-family: 'JetBrains Mono', monospace; color: #F4F2F8">{{asg.q}}</span> · {{asg.imp}} impresiones</span></div>
+        <div style="display: flex; flex-direction: column; gap: 6px"><label for="a-page" style="font-size: 13px; font-weight: 600">Página</label><select id="a-page" value="{{asg.page}}" onChange="{{onAPage}}" style="min-height: 40px; padding: 0 10px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.18); border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 13px"><option value="/">/</option><option value="/marketing-digital/">/marketing-digital/</option><option value="/seo-y-geo/">/seo-y-geo/</option><option value="/redes-sociales/">/redes-sociales/</option><option value="/diseno-de-marca/">/diseno-de-marca/</option><option value="/desarrollo-de-apps/">/desarrollo-de-apps/</option><option value="/blog/cuanto-cuesta-una-pagina-web-en-colombia/">/blog/cuanto-cuesta-una-pagina-web-en-colombia/</option><option value="/blog/paginas-web-para-medicos-y-clinicas/">/blog/paginas-web-para-medicos-y-clinicas/</option></select><span style="font-size: 12px; color: #B3B0BC">{{asg.hint}}</span></div>
+        <div role="group" aria-label="Cómo se asigna" style="display: flex; flex-wrap: wrap; gap: 8px">
+          <sc-for list="{{asgRoles}}" as="r" hint-placeholder-count="2"><button type="button" onClick="{{r.pick}}" aria-pressed="{{r.on}}" style="{{r.style}}">{{r.label}}</button></sc-for>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; padding-top: 4px">
+          <button type="button" onClick="{{closeModal}}" style="min-height: 40px; padding: 0 14px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; cursor: pointer">Cancelar</button>
+          <button type="button" onClick="{{confirmAssign}}" style="min-height: 40px; padding: 0 16px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-weight: 600; cursor: pointer">Asignar</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2037},"panel":{"editor":"boolean","default":false,"section":"Estado inicial"}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { tab: 'pages', status: 'all', type: 'all', q: '', sel: undefined, rf: 'all', rpage: 1, rq: '', rdest: '', tested: {}, verified: false,
+      kf: 'all', created: false, modal: null, synced: false, assigned: {}, asgIdx: 0, asgPage: '', asgRole: 'sec', extra: [],
+      form: { title: 'Cómo aparecer en ChatGPT y en las respuestas de IA', url: '/blog/como-aparecer-en-chatgpt/', type: 'Blog', theme: 'SEO y GEO', niche: 'General', kw: '' }, formErr: '' };
+  }
+  renderVals() {
+    var self = this, st = this.state;
+    function set(o) { self.setState(o); }
+    function fmtN(n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
+    function fmtD(n) { return n.toFixed(1).replace('.', ','); }
+    var CIRC = 'M8 2a6 6 0 1 1 0 12A6 6 0 0 1 8 2z', SQ = 'M2.5 2.5h11v11h-11z', NIL = 'M0 0';
+    // Íconos: f = relleno, s = trazo. Siempre color + forma.
+    var IC = {
+      ok: { f: CIRC, s: NIL, c: '#5BE49B', dash: 'none' }, warn: { f: 'M8 1.5L15 14H1z', s: NIL, c: '#E0A93B', dash: 'none' },
+      crit: { f: 'M8 1L15 8L8 15L1 8z', s: NIL, c: '#FF6B6B', dash: 'none' }, none: { f: NIL, s: SQ, c: '#8E8A9B', dash: '2 2' },
+      pub: { f: CIRC, s: NIL, c: '#5BE49B', dash: 'none' }, des: { f: 'M8 2a6 6 0 0 0 0 12z', s: 'M8 2.75a5.25 5.25 0 1 1 0 10.5a5.25 5.25 0 0 1 0-10.5z', c: '#D98BFF', dash: 'none' },
+      plan: { f: NIL, s: SQ, c: '#B3B0BC', dash: '2 2' }, red: { f: 'M1.5 6.5h7.5V3l5.5 5-5.5 5V9.5H1.5z', s: NIL, c: '#B3B0BC', dash: 'none' },
+      ret: { f: 'M3.5 2L8 6.5 12.5 2 14 3.5 9.5 8 14 12.5 12.5 14 8 9.5 3.5 14 2 12.5 6.5 8 2 3.5z', s: NIL, c: '#8E8A9B', dash: 'none' }
+    };
+    var TXT = { ok: '#5BE49B', warn: '#E0A93B', crit: '#FF8F9B', none: '#B3B0BC', pub: '#5BE49B', des: '#D98BFF', plan: '#B3B0BC', red: '#B3B0BC', ret: '#B3B0BC' };
+    var BG = { ok: 'rgba(91,228,155,0.1)', warn: 'rgba(224,169,59,0.12)', crit: 'rgba(255,107,107,0.12)', none: 'rgba(255,255,255,0.06)', pub: 'rgba(91,228,155,0.1)', des: 'rgba(217,139,255,0.12)', plan: 'rgba(255,255,255,0.06)', red: 'rgba(255,255,255,0.06)', ret: 'rgba(255,255,255,0.06)' };
+    function pill(k) { return 'display: inline-flex; align-items: center; gap: 6px; padding: 2px 10px 2px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap; background: ' + BG[k] + '; color: ' + TXT[k] + ';'; }
+    function chip(on) { return 'display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 12px; border-radius: 999px; cursor: pointer; font-weight: 600; ' + (on ? 'background: #1A0B2B; color: #F4F2F8; border: 1px solid rgba(199,85,239,0.55);' : 'background: transparent; color: #D8D4E2; border: 1px solid rgba(255,255,255,0.18);'); }
+    var STATUS = { pub: 'Publicada', des: 'En diseño', plan: 'Planificada', red: 'Redirigida', ret: 'Retirada' };
+
+    // ---------- Redirecciones: datos reales de seo/redirecciones-301.csv ----------
+    var RD = [["/",200,"/","página","Se conserva: home = desarrollo web","",null],["/nosotros/",200,"/nosotros/","página","Se conserva la URL","",null],["/nuestro-equipo/",200,"/nuestro-equipo/","página","Se conserva la URL","",null],["/casos-de-exito/",200,"/casos-de-exito/","página","Se conserva la URL","",null],["/contacto/",200,"/contacto/","página","Se conserva la URL","",null],["/politica-de-privacidad/",200,"/politica-de-privacidad/","página","Se conserva la URL","",null],["/blog/",200,"/blog/","página","Se conserva la URL","",null],["/servicios/",200,"/servicios/","página","Se conserva como índice ligero de los 6 servicios","¿índice de servicios o 301 a /?",null],["/home-dani/",301,"/","página","Copia de trabajo de la home (94 % igual)","",3],["/desarrollo-web/",301,"/","página","Página «Próximamente»; la home es desarrollo web","",8],["/mapa-del-sitio/",301,"/","página","El sitemap XML lo genera Astro","",1],["/plan-hotelero/",301,"/","página","Vertical hotelero sin página propia en el sitio nuevo","¿se usa en campañas o QR?",6],["/trifecta-hotelera/",301,"/","página","Vertical hotelero sin página propia en el sitio nuevo","¿se usa en campañas o QR?",2],["/dkard/",301,"https://dkard.co/","página","Demo de Dkard: el producto tiene su propio dominio","",14],["/dkarta/",404,"","página","Demo de carta digital con precios de un tercero","¿se enlaza desde algún cliente?",4],["/datos-hoteles/",404,"","página","Formulario interno de onboarding; pasa al admin o a un enlace privado","",2],["/soporte/",301,"/contacto/","página","Ticket de soporte; en el sitio nuevo va a contacto o al portal del cliente","¿los clientes con soporte usan esta URL?",9],["/mi-cuenta/",404,"","woocommerce","El sitio nuevo no tiene carrito ni cuentas","",6],["/carrito/",404,"","woocommerce","El sitio nuevo no tiene carrito","",11],["/finalizar-compra/",404,"","woocommerce","El sitio nuevo no tiene carrito","",3],["/servicios/pagina-personal/",301,"/","producto","Plan de sitio web → home (desarrollo web)","",7],["/servicios/pagina-comercial/",301,"/","producto","Plan de sitio web → home (desarrollo web)","",5],["/servicios/pagina-empresas/",301,"/","producto","Plan de sitio web → home (desarrollo web)","",4],["/servicios/pagina-corporativa/",301,"/","producto","Plan de sitio web → home (desarrollo web)","",22],["/servicios/pagina-web-hotelero/",301,"/","producto","Plan hotelero → home (desarrollo web)","",6],["/servicios/catalogo-virtual/",301,"/","producto","Tiendas y catálogos → home hasta que exista /tiendas-virtuales/","¿landing de tiendas en fase 2?",12],["/servicios/tienda-virtual/",301,"/","producto","Tiendas y catálogos → home hasta que exista /tiendas-virtuales/","¿landing de tiendas en fase 2?",19],["/servicios/tienda-avanzada/",301,"/","producto","Tiendas y catálogos → home hasta que exista /tiendas-virtuales/","¿landing de tiendas en fase 2?",7],["/servicios/posicionamiento-en-google-seo/",301,"/seo-y-geo/","producto","Mismo servicio","",44],["/servicios/anuncios-en-google-ads/",301,"/marketing-digital/","producto","Pauta en Google = marketing digital","",13],["/servicios/anuncios-en-meta-ads/",301,"/marketing-digital/","producto","Pauta en Meta = marketing digital","¿o va a /redes-sociales/?",5],["/servicios/administracion-de-rrss/",301,"/redes-sociales/","producto","Mismo servicio","",9],["/servicios/marca/",301,"/diseno-de-marca/","producto","Mismo servicio","",11],["/servicios/manual-de-identidad/",301,"/diseno-de-marca/","producto","Parte de diseño de marca","",4],["/servicios/logo-sencillo/",301,"/diseno-de-marca/","producto","Parte de diseño de marca","",6],["/servicios/logo-profesional/",301,"/diseno-de-marca/","producto","Parte de diseño de marca","",17],["/servicios/publicidad-papeleria/",301,"/diseno-de-marca/","producto","Papelería y piezas = diseño de marca","",3],["/tienda/",301,"/","redirección vieja","Hoy redirige a /servicios/tienda-avanzada/: se apunta directo al destino final para no encadenar","",8],["/tienda/catalogo-virtual/",301,"/","redirección vieja","Hoy redirige a /servicios/catalogo-virtual/: destino final directo","",1],["/tienda/logo-profesional/",301,"/diseno-de-marca/","redirección vieja","Hoy redirige a /servicios/logo-profesional/: destino final directo","",2],["/categoria/servicios-web/",301,"/","categoría de producto","Categoría web → home","",2],["/categoria/tiendas-y-catalogos/",301,"/","categoría de producto","Categoría tiendas → home","",3],["/categoria/desarrollo-y-ux-ui/",301,"/","categoría de producto","Categoría desarrollo → home","",1],["/categoria/logos-y-marcas/",301,"/diseno-de-marca/","categoría de producto","Mismo tema","",2],["/categoria/diseno-publicitario/",301,"/diseno-de-marca/","categoría de producto","Mismo tema","",1],["/categoria/marketing/",301,"/marketing-digital/","categoría de producto","Mismo tema","",2],["/categoria/consultoria/",301,"/servicios/","categoría de producto","Sin equivalente directo","",0],["/categoria/sin-categorizar/",404,"","categoría de producto","Categoría vacía","",0],["/category/sin-categoria/",301,"/blog/","categoría del blog","Categoría por defecto de WordPress","",1],["/author/admindkoding/",301,"/nosotros/","autor","Archivo de autor genérico","",1],["/importancia-de-un-buen-logo-profesional-para-tu-negocio/",301,"/blog/importancia-de-un-buen-logo-profesional-para-tu-negocio/","entrada","Se migra y actualiza (1.251 palabras)","",58],["/muestra-tu-portafolio-digital-24-7/",301,"/blog/muestra-tu-portafolio-digital-24-7/","entrada","Se migra y actualiza (995 palabras)","",23],["/impulsa-tu-negocio-con-seo-en-google/",301,"/blog/impulsa-tu-negocio-con-seo-en-google/","entrada","Se migra y actualiza (1.216 palabras)","",64],["/crear-mi-tienda-online/",301,"/blog/crear-mi-tienda-online/","entrada","Se migra y actualiza (902 palabras)","",47],["/estrategias-para-incrementar-las-ventas-por-internet/",301,"/blog/estrategias-para-incrementar-las-ventas-por-internet/","entrada","Se migra y actualiza (859 palabras)","",29]];
+    var redirects = RD.map(function (r) {
+      var v = r[1] === 200 ? { k: 'ok', t: 'se conserva · 200 ✓', n: r[5] ? 'activa · puede cambiar' : 'misma URL' } : r[1] === 404 ? { k: 'ok', t: '404 ✓', n: 'a propósito' } :
+        { k: 'ok', t: 'un salto ✓', n: r[5] ? 'destino por defecto · puede cambiar' : r[2].indexOf('http') === 0 ? 'destino externo · 200' : 'destino responde 200' };
+      return { from: r[0], code: r[1], to: r[2], kind: r[3], why: r[4], question: r[5], visits: r[6], isNew: false, v: v };
+    });
+    // Detectada por Search Console sin regla (no está en el CSV)
+    var DET = { from: '/producto/tienda-virtual/', visits: 41, note: 'URL vieja de WooCommerce que no estaba en el sitemap · informe «No encontrado (404)»' };
+    if (st.created) redirects.push({ from: DET.from, code: 301, to: '/', kind: 'detectada', why: 'Creada desde Search Console · tiendas → home', question: '', visits: DET.visits, isNew: true,
+      v: { k: 'ok', t: 'un salto ✓', n: 'creada hoy · se exporta al CSV' } });
+    var nNew = st.created ? 1 : 0;
+
+    // ---------- Páginas ----------
+    var DUP = 'DKODING es una agencia digital de Cali que diseña páginas web, marcas y campañas para pymes de Colombia. Conoce a nuestro equipo y nuestro trabajo.';
+    var PAGES = [
+      { url: '/', title: 'Home · Desarrollo web', type: 'Landing', s: 'pub', kw: 'diseño de páginas web', vol: '5.400', clicks: 412, pos: 9.8, gsc: 'ok', theme: 'Desarrollo web', niche: 'General', pubd: '01/09',
+        sec: ['creación de páginas web', 'desarrollo de páginas web', 'diseño web profesional', 'sitio web profesional', 'agencia de diseño web', 'diseño web wordpress'],
+        t: 'Diseño de páginas web en Cali · Desarrollo web a medida | DKODING', d: 'Diseñamos y desarrollamos páginas web rápidas, seguras y fáciles de administrar para empresas de Cali y de toda Colombia. Cotiza tu sitio en minutos.', schema: 'Organization y WebSite', faq: 'ok',
+        queries: [['diseño de paginas web cali', 61, 8.4], ['dkoding', 54, 1.1], ['paginas web cali', 37, 12.6], ['desarrollo web cali', 22, 9.7]], match: 'yes' },
+      { url: '/marketing-digital/', title: 'Marketing digital', type: 'Landing', s: 'pub', kw: 'agencia de marketing digital', vol: '6.600', clicks: 168, pos: 14.2, gsc: 'ok', theme: 'Marketing digital', niche: 'General', pubd: '01/09',
+        sec: ['servicios de marketing digital', 'campañas en google ads', 'publicidad en internet', 'email marketing', 'agencia de publicidad digital'],
+        t: 'Agencia de marketing digital en Cali | DKODING', d: 'Campañas en Google Ads y Meta, email marketing y estrategia digital para pymes de Cali. Medimos cada peso invertido y te mostramos los resultados.', schema: 'Service', faq: 'ok',
+        queries: [['agencia de marketing digital', 19, 12.8], ['marketing digital cali', 17, 10.4], ['agencia marketing digital colombia', 9, 15.1], ['publicidad en google cali', 6, 13.9]], match: 'yes' },
+      { url: '/seo-y-geo/', title: 'SEO y GEO', type: 'Landing', s: 'pub', kw: 'posicionamiento web', vol: '2.900', clicks: 141, pos: 11.6, gsc: 'ok', theme: 'SEO y GEO', niche: 'General', pubd: '01/09',
+        sec: ['agencia seo', 'auditoría seo', 'seo local', 'seo técnico', 'agencia de posicionamiento en google', 'schema markup'],
+        t: 'SEO y GEO en Cali: posicionamiento web en Google | DKODING', d: 'Posicionamiento web, SEO local y GEO para aparecer en Google y en las respuestas de IA. Auditoría técnica, contenidos y reportes mensuales claros.', schema: 'Service', faq: 'missing',
+        queries: [['agencia seo cali', 38, 6.2], ['posicionamiento web cali', 27, 8.9], ['dkoding seo', 19, 1.3], ['seo local cali', 14, 11.4]], match: 'no', hint: '«agencia seo» trae más clics: probarla como objetivo' },
+      { url: '/redes-sociales/', title: 'Optimización de redes sociales', type: 'Landing', s: 'pub', kw: 'manejo de redes sociales', vol: '', volNote: 'elegida por la revisión de la competencia', clicks: 58, pos: 18.3, gsc: 'ok', theme: 'Redes sociales', niche: 'General', pubd: '01/09',
+        sec: ['agencia de redes sociales', 'marketing en redes sociales', 'anuncios en instagram', 'diseño para redes sociales', 'estrategia de social media'],
+        t: 'Manejo de redes sociales en Cali | DKODING', d: 'Manejamos tus redes sociales de principio a fin: estrategia, diseño de piezas, publicación, pauta en Instagram y Facebook, respuesta a comentarios e informes mensuales con resultados.', schema: 'Service', faq: 'ok',
+        queries: [['manejo de redes sociales cali', 11, 14.6], ['agencia de redes sociales cali', 9, 16.2], ['publicidad en instagram cali', 6, 19.0]], match: 'yes' },
+      { url: '/diseno-de-marca/', title: 'Diseño de marca', type: 'Landing', s: 'pub', kw: 'diseño de logotipos', vol: '2.400', clicks: 97, pos: 12.9, gsc: 'ok', theme: 'Diseño de marca', niche: 'General', pubd: '01/09',
+        sec: ['diseño de marca', 'diseño de identidad corporativa', 'diseño de imagen corporativa', 'diseño de tarjetas de presentación', 'agencia de branding'],
+        t: 'Diseño de marca y logotipos en Cali | DKODING', d: 'Diseño de logotipos, identidad corporativa, manual de marca y papelería para empresas que quieren verse profesionales desde el primer contacto.', schema: 'Service', faq: 'ok',
+        queries: [['diseño de logos cali', 24, 7.7], ['diseño de marca cali', 15, 9.3], ['manual de identidad corporativa', 8, 14.0]], match: 'var', hint: 'variante: «logos» por «logotipos»' },
+      { url: '/desarrollo-de-apps/', title: 'Desarrollo de apps', type: 'Landing', s: 'pub', kw: 'desarrollo de apps móviles', vol: '2.400', volNote: 'la hoja también dice 1.300', clicks: 34, pos: 21.7, gsc: 'ok', theme: 'Desarrollo de apps', niche: 'General', pubd: '01/09', h1: 2,
+        sec: ['desarrollo de aplicaciones web', 'desarrollo de software a medida', 'empresa de desarrollo de apps', 'software a la medida'],
+        t: 'Desarrollo de apps móviles y web a medida | DKODING', d: 'Desarrollamos aplicaciones móviles, aplicaciones web y software a la medida para automatizar procesos y vender más. Desde el prototipo hasta la tienda.', schema: 'Service', faq: 'ok',
+        queries: [['desarrollo de aplicaciones cali', 7, 19.2], ['empresa de desarrollo de apps', 5, 24.8], ['crear una app para mi negocio', 4, 22.1]], match: 'var', hint: 'variante: «aplicaciones» por «apps móviles»' },
+      { url: '/servicios/', title: 'Servicios', type: 'Institucional', s: 'pub', kw: '', clicks: 21, pos: 10.3, gsc: 'ok', theme: 'Todos', niche: 'General', pubd: '01/09', stNote: '¿índice o 301 a /? por confirmar',
+        t: 'Servicios de DKODING: web, marketing, SEO, marca y apps', d: 'Seis servicios para que tu negocio se vea bien, aparezca en Google y venda en línea: desarrollo web, marketing, SEO y GEO, redes, marca y apps.', schema: 'ItemList', faq: null,
+        queries: [['servicios dkoding', 8, 1.4], ['agencia web cali servicios', 5, 11.8]] },
+      { url: '/casos-de-exito/', title: 'Casos de éxito', type: 'Institucional', s: 'pub', kw: '', clicks: 16, pos: 4.1, gsc: 'ok', theme: 'Todos', niche: 'General', pubd: '01/09', dupWith: '/nosotros/',
+        t: 'Casos de éxito: sitios y marcas que hicimos | DKODING', d: DUP, schema: 'Organization', faq: null, queries: [['dkoding clientes', 6, 2.0], ['luzma uniformes pagina web', 3, 3.5]] },
+      { url: '/nosotros/', title: 'Nosotros', type: 'Institucional', s: 'pub', kw: '', clicks: 9, pos: 3.2, gsc: 'ok', theme: 'Todos', niche: 'General', pubd: '01/09', dupWith: '/casos-de-exito/',
+        t: 'Nosotros: la agencia detrás de DKODING en Cali', d: DUP, schema: 'Organization', faq: null, queries: [['dkoding cali', 5, 1.8], ['dkoding agencia', 3, 1.2]] },
+      { url: '/contacto/', title: 'Contacto', type: 'Institucional', s: 'pub', kw: '', clicks: 12, pos: 2.6, gsc: 'ok', theme: 'Todos', niche: 'General', pubd: '01/09',
+        t: 'Contacto: cotiza tu proyecto con DKODING en Cali', d: 'Escríbenos por WhatsApp, correo o el formulario y te respondemos el mismo día hábil. También puedes cotizar tu página web en línea en pocos minutos.', schema: 'ContactPage', faq: null, queries: [['dkoding contacto', 7, 1.3], ['dkoding telefono', 4, 1.6]] },
+      { url: '/blog/', title: 'Blog', type: 'Blog', s: 'pub', kw: '', clicks: 7, pos: 6.0, gsc: 'ok', theme: 'Todos', niche: 'Todos', pubd: '01/09', stNote: 'portada',
+        t: 'Blog de DKODING: web, SEO, marketing y marca para pymes', d: 'Guías prácticas sobre páginas web, SEO, marketing digital, redes sociales y diseño de marca, escritas por el equipo de DKODING para pymes de Colombia.', schema: 'Blog', faq: null, queries: [['blog dkoding', 4, 1.5]] },
+      { url: '/politica-de-privacidad/', title: 'Política de privacidad', type: 'Legal', s: 'pub', kw: '', clicks: 1, pos: 5.5, gsc: 'ok', theme: '—', niche: '—', pubd: '01/09',
+        t: 'Política de privacidad y tratamiento de datos | DKODING', d: 'Cómo DKODING recoge, usa y protege tus datos personales según la Ley 1581 de 2012, y cómo puedes consultarlos, corregirlos o pedir que los borremos.', schema: 'WebPage', faq: null, queries: [['dkoding politica de datos', 1, 4.0]] },
+      { url: '/blog/cuanto-cuesta-una-pagina-web-en-colombia/', title: 'Cuánto cuesta una página web en Colombia en 2026', type: 'Blog', s: 'pub', kw: 'páginas web económicas', vol: '1.600', clicks: 126, pos: 7.4, gsc: 'ok', theme: 'Desarrollo web', niche: 'Pymes y emprendedores', pubd: '03/09',
+        sec: ['crear página web', 'diseño de páginas web económicas'], t: 'Cuánto cuesta una página web en Colombia en 2026', d: 'Precios reales de una página web en Colombia en 2026: qué cambia entre un sitio de $ 2 M y uno de $ 20 M, qué incluye y qué preguntar antes de contratar.', schema: 'Article', faq: 'ok',
+        queries: [['cuanto cuesta una pagina web', 48, 5.1], ['precio pagina web colombia', 31, 6.8], ['cuanto cuesta una pagina web en colombia', 22, 4.2], ['paginas web economicas', 6, 14.7]], match: 'no', hint: 'la gente pregunta por el precio, no por «económicas»' },
+      { url: '/blog/impulsa-tu-negocio-con-seo-en-google/', title: 'Impulsa tu negocio con SEO en Google', type: 'Blog', s: 'pub', kw: 'posicionamiento en google', vol: '', clicks: 71, pos: 8.9, gsc: 'ok', theme: 'SEO y GEO', niche: 'Pymes y emprendedores', pubd: '01/09', stNote: 'migrada de 2024',
+        sec: ['seo en google my business'], t: 'Impulsa tu negocio con SEO en Google | DKODING', d: 'Qué es el SEO, cómo decide Google qué mostrar y qué puedes hacer este mes para que tu negocio aparezca cuando te buscan. Guía práctica para pymes.', schema: 'Article', faq: null,
+        queries: [['como aparecer en google', 21, 7.3], ['seo en google', 14, 9.8], ['posicionamiento en google gratis', 9, 11.2]], match: 'no', hint: 'intención informativa: «cómo aparecer en Google»' },
+      { url: '/blog/importancia-de-un-buen-logo-profesional-para-tu-negocio/', title: 'Importancia de un buen logo profesional', type: 'Blog', s: 'des', kw: 'logo profesional', vol: '', clicks: 66, pos: 6.8, gsc: 'ok', theme: 'Diseño de marca', niche: 'Pymes y emprendedores', pubd: '01/09', stNote: 'versión 2024 en línea',
+        sec: ['diseño de logotipos'], t: 'Importancia de un buen logo profesional para tu negocio en 2024 | DKODING', d: 'Un logo profesional transmite confianza y hace que tu negocio se recuerde. Te contamos qué lo hace funcionar y cuándo vale la pena invertir en uno.', schema: 'Article', faq: null,
+        queries: [['logo profesional', 18, 5.4], ['importancia de un logo', 16, 4.9], ['por que es importante un logo', 11, 6.1]], match: 'yes' },
+      { url: '/blog/crear-mi-tienda-online/', title: 'Crear mi tienda online', type: 'Blog', s: 'pub', kw: 'crear tienda virtual', vol: '1.000', clicks: 39, pos: 13.1, gsc: 'ok', theme: 'Desarrollo web', niche: 'Ecommerce', pubd: '01/09', stNote: 'migrada de 2024',
+        sec: ['abrir tienda online', 'tienda online'], t: 'Crear mi tienda online: guía paso a paso | DKODING', d: '', schema: 'Article', faq: null,
+        queries: [['como crear una tienda online', 12, 11.8], ['crear tienda virtual gratis', 8, 16.4], ['tienda online colombia', 5, 18.9]], match: 'var', hint: 'variante: «tienda online» por «tienda virtual»' },
+      { url: '/blog/muestra-tu-portafolio-digital-24-7/', title: 'Muestra tu portafolio digital 24/7', type: 'Blog', s: 'des', kw: 'diseño de portafolio online', vol: '720', clicks: 0, pos: null, gsc: 'disc', theme: 'Desarrollo web', niche: 'Profesionales independientes', pubd: '01/09', stNote: 'versión 2024 en línea',
+        sec: ['crear sitio web para portafolio'], t: 'Muestra tu portafolio digital 24/7 | DKODING', d: 'Un portafolio en línea trabaja por ti a toda hora: te mostramos qué incluir, cómo ordenarlo y cómo conseguir que tus clientes ideales lo encuentren.', schema: 'Article', faq: null, queries: [] },
+      { url: '/blog/estrategias-para-incrementar-las-ventas-por-internet/', title: 'Estrategias para incrementar las ventas por internet', type: 'Blog', s: 'pub', kw: 'estrategias de venta online', vol: '1.000', clicks: 0, pos: null, gsc: 'no', theme: 'Marketing digital', niche: 'Pymes y emprendedores', pubd: '01/09', stNote: 'migrada de 2024', canon: 'old',
+        sec: ['estrategia de ventas online', 'vender por internet'], t: 'Estrategias para vender más por internet | DKODING', d: 'Siete estrategias probadas para vender más por internet sin subir el presupuesto: catálogo claro, WhatsApp, reseñas, correo y pauta bien medida.', schema: 'Article', faq: null, queries: [] },
+      { url: '/blog/auditoria-seo-que-revisa/', title: 'Auditoría SEO: qué revisa y cómo leer el informe', type: 'Blog', s: 'plan', kw: 'auditoría seo', vol: '5.800', theme: 'SEO y GEO', niche: 'General', created: '30/09', link: '/seo-y-geo/', sec: ['seo técnico'] },
+      { url: '/blog/seo-local-en-cali-google-business-profile/', title: 'SEO local en Cali: guía de Google Business Profile', type: 'Blog', s: 'plan', kw: 'seo en google my business', vol: '2.000', theme: 'SEO y GEO', niche: 'Pymes y emprendedores', created: '30/09', link: '/seo-y-geo/', sec: ['seo local'] },
+      { url: '/blog/paginas-web-para-medicos-y-clinicas/', title: 'Páginas web para médicos y clínicas', type: 'Blog', s: 'plan', kw: 'páginas web para médicos', vol: '590', theme: 'Desarrollo web', niche: 'Salud', created: '30/09', link: '/', sec: ['creación de sitios web para médicos', 'seo para clínicas'] },
+      { url: '/desarrollo-web/', title: 'Desarrollo web (página «Próximamente»)', type: 'Landing', s: 'red', kw: '', theme: 'Desarrollo web', niche: '—', stNote: '301 a /' },
+      { url: '/datos-hoteles/', title: 'Datos hoteles (formulario interno)', type: 'Institucional', s: 'ret', kw: '', theme: '—', niche: 'Hoteles y turismo', stNote: 'responde 404' }
+    ].concat(st.extra);
+
+    function checksFor(p) {
+      var out = [];
+      function add(k, label, detail) { out.push({ k: k, label: label, detail: detail || '' }); }
+      var tl = p.t.length, dl = p.d.length;
+      if (tl <= 60) add('ok', 'Título · ' + tl + ' caracteres', p.t); else add('warn', 'Título · ' + tl + ' caracteres: se corta en Google (máx. 60)', p.t);
+      if (!dl) add('warn', 'Sin meta descripción', 'Google arma una con el primer párrafo');
+      else if (p.dupWith) add('warn', 'Descripción duplicada con ' + p.dupWith, dl + ' caracteres');
+      else if (dl > 160) add('warn', 'Descripción · ' + dl + ' caracteres: se corta (máx. 160)', '');
+      else add('ok', 'Descripción · ' + dl + ' caracteres, única', '');
+      if ((p.h1 || 1) === 1) add('ok', 'H1 único', ''); else add('warn', p.h1 + ' H1 en la página', 'el del hero y el de la sección de casos');
+      if (p.canon === 'old') add('crit', 'Canonical apunta a la URL vieja', '/estrategias-para-incrementar-las-ventas-por-internet/ · quedó del WordPress'); else add('ok', 'Canonical apunta a sí misma', '');
+      add('ok', 'Indexable · sin noindex', '');
+      add('ok', 'En el sitemap', '');
+      add('ok', 'Schema ' + p.schema + ' presente', '');
+      if (p.faq === 'ok' && p.type === 'Landing') add('ok', 'Schema FAQPage presente', '');
+      if (p.faq === 'missing') add('warn', 'Schema FAQPage ausente', 'la página tiene preguntas frecuentes sin marcar');
+      if (p.gsc === 'ok') add('ok', 'Search Console: indexada el 02/10', 'último rastreo correcto');
+      else if (p.gsc === 'disc') add('warn', 'Search Console: descubierta sin indexar', 'Google conoce la URL pero aún no la rastrea');
+      else add('crit', 'Search Console: no indexada', 'Google tomó como canónica la URL vieja');
+      return out;
+    }
+    function verdict(checks) {
+      var w = 'ok'; checks.forEach(function (c) { if (c.k === 'crit') w = 'crit'; else if (c.k === 'warn' && w !== 'crit') w = 'warn'; });
+      return w;
+    }
+    var SVL = { ok: 'Listo', warn: 'Mejorable', crit: 'Bloqueado' };
+    function ix(p) {
+      if (p.s === 'plan') return { label: 'No publicada', i: IC.none };
+      if (p.s === 'red' || p.s === 'ret') return { label: 'No indexada · esperado', i: IC.none };
+      if (p.gsc === 'ok') return { label: 'Indexada', i: IC.ok };
+      if (p.gsc === 'disc') return { label: 'Descubierta sin indexar', i: IC.warn };
+      return { label: 'No indexada', i: IC.crit };
+    }
+    var pages = PAGES.map(function (p) {
+      var live = p.s === 'pub' || p.s === 'des';
+      var checks = live ? checksFor(p) : [];
+      var v = live ? verdict(checks) : null;
+      return Object.assign({}, p, { live: live, checks: checks, v: v,
+        st: { label: STATUS[p.s], i: IC[p.s], pill: pill(p.s) },
+        sv: v ? { label: SVL[v], i: IC[v], pill: pill(v) } : { label: 'Sin revisar', i: IC.none, pill: pill('none') },
+        ixd: ix(p) });
+    });
+
+    // Filtros de la tabla de páginas
+    var q = (st.q || '').toLowerCase();
+    var byType = pages.filter(function (p) { return st.type === 'all' || p.type === st.type; });
+    var byStatus = pages.filter(function (p) { return st.status === 'all' || p.s === st.status; });
+    var rowsData = pages.filter(function (p) {
+      return (st.status === 'all' || p.s === st.status) && (st.type === 'all' || p.type === st.type) &&
+        (!q || (p.title + ' ' + p.url + ' ' + (p.kw || '')).toLowerCase().indexOf(q) > -1);
+    });
+    var selUrl = st.sel === undefined ? (this.props.panel ? '/seo-y-geo/' : null) : st.sel;
+    function openFn(url) { return function () { set({ sel: url }); }; }
+    var statusChips = [{ id: 'all', label: 'Todas', ic: null }].concat(['plan', 'des', 'pub', 'red', 'ret'].map(function (k) { return { id: k, label: STATUS[k], ic: IC[k] }; })).map(function (c) {
+      var on = st.status === c.id;
+      return { label: c.label, on: on, count: byType.filter(function (p) { return c.id === 'all' || p.s === c.id; }).length,
+        i: c.ic || IC.none, iconStyle: c.ic ? 'flex: none' : 'display: none',
+        pick: function () { set({ status: c.id }); }, style: chip(on) };
+    });
+    var typeChips = ['all', 'Landing', 'Blog', 'Institucional', 'Legal'].map(function (t) {
+      var on = st.type === t;
+      return { label: t === 'all' ? 'Todos' : t, on: on, count: byStatus.filter(function (p) { return t === 'all' || p.type === t; }).length,
+        pick: function () { set({ type: on && t !== 'all' ? 'all' : t }); }, style: chip(on) };
+    });
+    var rows = rowsData.map(function (p) {
+      var on = selUrl === p.url;
+      return { title: p.title, url: p.url, type: p.type, st: p.st, stNote: p.stNote || (p.s === 'plan' ? 'creada el ' + p.created : ''),
+        kw: p.kw || 'sin palabra objetivo', kwStyle: p.kw ? 'color: #F4F2F8;' : 'color: #8E8A9B; font-size: 13px;',
+        clicks: p.live ? fmtN(p.clicks) : '—', pos: p.live && p.pos ? fmtD(p.pos) : '—', ix: p.ixd, sv: p.sv, open: openFn(p.url),
+        rowStyle: 'border-top: 1px solid rgba(255,255,255,0.06); height: 56px; ' + (on ? 'background: #1A0B2B;' : '') };
+    });
+
+    // Panel lateral
+    var sp = pages.filter(function (p) { return p.url === selUrl; })[0];
+    var panel = null;
+    if (sp) {
+      var dates;
+      if (sp.s === 'plan') dates = [{ k: 'Creada', v: sp.created + ' · equipo' }, { k: 'Enlaza a', v: sp.link || '—' }];
+      else if (sp.s === 'red') dates = [{ k: 'Redirigida', v: '01/09 · 301 a /' }, { k: 'Verificada', v: 'un salto ✓ · hoy 06:00' }];
+      else if (sp.s === 'ret') dates = [{ k: 'Retirada', v: '01/09 · fuera del sitemap' }, { k: 'Responde', v: '404 · a propósito' }];
+      else dates = [{ k: 'En línea desde', v: sp.pubd }, { k: 'Leída del sitemap', v: 'hoy 06:00' }, { k: 'Revisión SEO', v: 'hoy 06:10' }];
+      var inc = redirects.filter(function (r) { return r.code === 301 && r.to === sp.url; }).sort(function (a, b) { return (b.visits || 0) - (a.visits || 0); });
+      var redirs = inc.slice(0, 3).map(function (r) { return { from: r.from, verif: r.v.t, visits: r.visits, v: IC[r.v.k], vState: r.v.k === 'ok' ? 'Correcto' : 'Atención' }; });
+      var noChecksText = sp.s === 'plan' ? 'Se revisa sola cuando la página esté publicada y en el sitemap.' : sp.s === 'red' ? 'No aplica: la URL redirige a / en un solo salto.' : 'No aplica: la URL responde 404 a propósito.';
+      var qs = (sp.queries || []).map(function (x) { return { q: x[0], c: fmtN(x[1]), p: fmtD(x[2]) }; });
+      var qSum = (sp.queries || []).reduce(function (a, x) { return a + x[1]; }, 0);
+      panel = {
+        title: sp.title, url: sp.url, type: sp.type, st: sp.st, stNote: sp.stNote || '', dates: dates,
+        kw: sp.kw || 'sin palabra objetivo', kwVol: sp.kw ? (sp.vol ? sp.vol + ' búsquedas según la hoja · sin validar' : 'no está en la hoja') + (sp.volNote ? ' · ' + sp.volNote : '') : 'institucional: no compite por una búsqueda',
+        sec: sp.sec || [], hasSec: !!(sp.sec && sp.sec.length), theme: sp.theme, niche: sp.niche,
+        sv: sp.sv, checks: sp.checks.map(function (c) { return { label: c.label, detail: c.detail, i: IC[c.k], state: SVL[c.k] === 'Listo' ? 'Correcto' : c.k === 'warn' ? 'Mejorable' : 'Bloqueado',
+          detailStyle: c.detail ? 'font-size: 12px; color: #B3B0BC; word-break: break-word;' : 'display: none;' }; }),
+        hasChecks: sp.checks.length > 0, noChecks: sp.checks.length === 0, noChecksText: noChecksText,
+        queries: qs, hasQueries: qs.length > 0, noQueries: qs.length === 0,
+        queriesNote: sp.live ? 'Estas ' + qs.length + ' consultas suman ' + qSum + ' de los ' + fmtN(sp.clicks) + ' clics de la página.' : '',
+        noQueriesText: sp.s === 'plan' ? 'Sin datos: la URL todavía no existe.' : sp.live ? 'Sin clics en 28 días: ' + (sp.gsc === 'disc' ? 'Google aún no la indexa.' : 'no está indexada; ver la revisión SEO.') : 'No aplica.',
+        redirs: redirs, hasRedirs: redirs.length > 0, noRedirs: redirs.length === 0,
+        moreRedirs: inc.length > 3, moreLabel: 'Ver las ' + inc.length + ' en Redirecciones »',
+        seeRedirs: function () { set({ tab: 'redirects', rdest: sp.url, rf: 'all', rpage: 1, rq: '', sel: null }); },
+        isLive: sp.live, liveUrl: 'https://dkoding.net' + sp.url
+      };
+    }
+
+    // ---------- Pestañas ----------
+    var tabs = [{ id: 'pages', label: 'Páginas', count: pages.length }, { id: 'redirects', label: 'Redirecciones', count: 55 + nNew }, { id: 'keywords', label: 'Palabras clave', count: 10 }].map(function (t) {
+      var on = st.tab === t.id;
+      return { label: t.label, count: t.count, on: on, pick: function () { set({ tab: t.id }); },
+        style: 'display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border: 0; border-radius: 6px; cursor: pointer; font-weight: 600; ' + (on ? 'background: #1A0B2B; color: #F4F2F8;' : 'background: transparent; color: #B3B0BC;'),
+        badgeStyle: 'padding: 0 7px; border-radius: 999px; font-size: 12px; font-variant-numeric: tabular-nums; ' + (on ? 'background: rgba(199,85,239,0.22); color: #F0D4FF;' : 'background: rgba(255,255,255,0.08); color: #B3B0BC;') };
+    });
+
+    // ---------- Redirecciones: tabla ----------
+    var rq = (st.rq || '').toLowerCase();
+    function rMatch(r, f) { return f === 'all' || (f === '301' && r.code === 301) || (f === '404' && r.code === 404) || (f === 'conf' && !!r.question); }
+    var rBase = redirects.filter(function (r) { return (!st.rdest || r.to === st.rdest) && (!rq || (r.from + ' ' + r.to).toLowerCase().indexOf(rq) > -1); });
+    var rChips = [{ id: 'all', label: 'Todas' }, { id: '301', label: '301' }, { id: '404', label: '404' }, { id: 'conf', label: 'Por confirmar' }].map(function (c) {
+      var on = st.rf === c.id;
+      return { label: c.label, on: on, count: rBase.filter(function (r) { return rMatch(r, c.id); }).length, pick: function () { set({ rf: c.id, rpage: 1 }); }, style: chip(on) };
+    });
+    var rList = rBase.filter(function (r) { return rMatch(r, st.rf); }).sort(function (a, b) { return (b.visits === null ? -1 : b.visits) - (a.visits === null ? -1 : a.visits); });
+    var PER = 15, nPages = Math.max(1, Math.ceil(rList.length / PER)), cur = Math.min(st.rpage, nPages);
+    var rSlice = rList.slice((cur - 1) * PER, cur * PER);
+    var rRows = rSlice.map(function (r) {
+      var tested = !!st.tested[r.from] || st.verified;
+      var vk = r.v.k;
+      return { from: r.from, code: r.code, to: r.code === 404 ? '— sin destino' : r.to, why: r.why, verif: r.v.t, vNote: tested ? 'probada hace un momento · ' + r.v.n : r.v.n,
+        v: IC[vk], vState: vk === 'ok' ? 'Correcto' : 'Atención',
+        vStyle: 'display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; white-space: nowrap; color: ' + TXT[vk] + ';',
+        visits: r.visits === null ? '—' : fmtN(r.visits),
+        visStyle: 'color: #F4F2F8;', newStyle: r.isNew ? 'display: inline-block; padding: 0 8px; border-radius: 999px; background: rgba(199,85,239,0.16); color: #D98BFF; font-size: 12px; font-weight: 600; font-family: Barlow, sans-serif;' : 'display: none;',
+        codeStyle: 'display: inline-block; padding: 1px 8px; border-radius: 4px; font-family: JetBrains Mono, monospace; font-size: 12px; font-weight: 500; ' + (r.code === 301 ? 'background: rgba(199,85,239,0.14); color: #D98BFF;' : r.code === 404 ? 'background: rgba(255,255,255,0.08); color: #D8D4E2;' : 'background: rgba(91,228,155,0.1); color: #5BE49B;'),
+        confLabel: r.question ? 'Por confirmar' : '—', question: r.question || '',
+        confStyle: r.question ? 'display: inline-block; padding: 1px 8px; border-radius: 999px; background: rgba(224,169,59,0.12); color: #E0A93B; font-size: 12px; font-weight: 600; white-space: nowrap;' : 'color: #8E8A9B;',
+        test: function () { var n = Object.assign({}, st.tested); n[r.from] = true; set({ tested: n }); } };
+    });
+    function pgBtn(on, dis) { return 'min-width: 36px; height: 36px; padding: 0 8px; border-radius: 4px; font-weight: 600; font-variant-numeric: tabular-nums; cursor: ' + (dis ? 'default' : 'pointer') + '; ' + (on ? 'background: #1A0B2B; color: #F4F2F8; border: 1px solid rgba(199,85,239,0.55);' : 'background: transparent; color: ' + (dis ? '#5E5A6A' : '#D8D4E2') + '; border: 1px solid rgba(255,255,255,0.14);'); }
+    var rPages = []; for (var i = 1; i <= nPages; i++) (function (n) { rPages.push({ n: n, cur: n === cur ? 'page' : 'false', pick: function () { set({ rpage: n }); }, style: pgBtn(n === cur, false) }); })(i);
+    var rSummary = [
+      { label: 'Se conservan', value: '8', note: 'misma URL · responden 200', i: IC.ok, state: 'Correcto' },
+      { label: 'Con 301', value: String(41 + nNew), note: 'verificadas en un salto' + (nNew ? ' · 1 nueva' : ''), i: IC.ok, state: 'Correcto' },
+      { label: 'En 404', value: '6', note: 'a propósito: no tienen equivalente', i: IC.ok, state: 'Correcto' },
+      { label: 'Por confirmar', value: '9', note: 'activas con su destino por defecto', i: IC.warn, state: 'Atención: falta decidir el destino' }
+    ];
+
+    // ---------- Palabras clave ----------
+    var kwPages = pages.filter(function (p) { return p.match; });
+    var MT = { yes: { l: 'Coincide', k: 'ok' }, 'var': { l: 'Coincide', k: 'ok' }, no: { l: 'No coincide', k: 'warn' } };
+    function kOk(p, f) { return f === 'all' || (f === 'yes' && p.match !== 'no') || (f === 'no' && p.match === 'no'); }
+    var kChips = [{ id: 'all', label: 'Todas' }, { id: 'yes', label: 'Coincide' }, { id: 'no', label: 'No coincide' }].map(function (c) {
+      var on = st.kf === c.id;
+      return { label: c.label, on: on, count: kwPages.filter(function (p) { return kOk(p, c.id); }).length, pick: function () { set({ kf: c.id }); }, style: chip(on) };
+    });
+    var kRows = kwPages.filter(function (p) { return kOk(p, st.kf); }).map(function (p) {
+      var m = MT[p.match], top = p.queries[0];
+      return { title: p.title, url: p.url, kw: p.kw, vol: p.vol || '—', volNote: p.vol ? 'sin validar' : 'no está en la hoja',
+        query: top[0], clicks: fmtN(top[1]), pos: fmtD(top[2]), m: IC[m.k], mLabel: m.l, hint: p.hint || 'contiene la palabra objetivo',
+        mStyle: 'display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: ' + TXT[m.k] + ';', open: openFn(p.url) };
+    });
+    var ORPH = [
+      { q: 'agencia de marketing digital cali', imp: 1240, clicks: 9, pos: 24.3, shown: '/', hint: 'Google muestra la home; encaja en /marketing-digital/', sug: '/marketing-digital/' },
+      { q: 'cuanto cuesta una pagina web en cali', imp: 860, clicks: 14, pos: 13.8, shown: '/blog/cuanto-cuesta-una-pagina-web-en-colombia/', hint: 'ya la muestra el artículo: falta asignarla', sug: '/blog/cuanto-cuesta-una-pagina-web-en-colombia/' },
+      { q: 'community manager cali', imp: 540, clicks: 2, pos: 31.0, shown: '/redes-sociales/', hint: 'el doc pide validar «community manager»', sug: '/redes-sociales/' },
+      { q: 'pagina web para restaurante', imp: 390, clicks: 1, pos: 18.7, shown: '/', hint: 'nicho restaurantes: sin artículo todavía', sug: '/' }
+    ];
+    var orphans = ORPH.map(function (o, idx) {
+      var a = st.assigned[o.q];
+      return { q: o.q, imp: fmtN(o.imp), clicks: fmtN(o.clicks), pos: fmtD(o.pos), shown: o.shown, hint: o.hint, isOpen: !a, isDone: !!a,
+        doneLabel: a ? 'Asignada a ' + a.page + (a.role === 'obj' ? ' como objetivo' : ' como secundaria') : '',
+        assign: function () { set({ modal: 'assign', asgIdx: idx, asgPage: o.sug, asgRole: 'sec' }); },
+        undo: function () { var n = Object.assign({}, st.assigned); delete n[o.q]; set({ assigned: n }); } };
+    });
+    var ao = ORPH[st.asgIdx] || ORPH[0];
+    var asgRoles = [{ id: 'sec', label: 'Como secundaria' }, { id: 'obj', label: 'Como palabra objetivo' }].map(function (r) {
+      var on = st.asgRole === r.id;
+      return { label: r.label, on: on, pick: function () { set({ asgRole: r.id }); }, style: chip(on) };
+    });
+    var study = [
+      { k: 'Volúmenes sin fuente', v: 'No dice si son de Colombia, de todo el español ni de qué herramienta' },
+      { k: 'Valores repetidos', v: '136 de 660 palabras (21 %) tienen exactamente 720 búsquedas y 115 tienen 590' },
+      { k: 'Contradicciones', v: '27 palabras aparecen con volúmenes distintos, p. ej. «desarrollo de apps móviles» con 1.300 y 2.400' },
+      { k: 'Ninguna con «Cali»', v: 'Hay 18 con Medellín o Bogotá y ninguna de tu ciudad' },
+      { k: 'Descartadas', v: '72: búsqueda de empleo (37), fuera de la oferta (15), hazlo tú mismo (5) y otras; siguen en el CSV con su motivo' },
+      { k: 'Sin GEO', v: 'No hay búsquedas sobre aparecer en ChatGPT o en respuestas de IA' }
+    ];
+
+    // ---------- Formulario nueva página ----------
+    var f = st.form;
+    function fset(k) { return function (e) { var n = Object.assign({}, st.form); n[k] = e.target.value; set({ form: n, formErr: '' }); }; }
+    var createPage = function () {
+      var url = (f.url || '').trim();
+      if (!/^\/.*\/$/.test(url)) { set({ formErr: 'La URL empieza y termina con «/».' }); return; }
+      if (pages.some(function (p) { return p.url === url; })) { set({ formErr: 'Esa URL ya está en el inventario.' }); return; }
+      var np = { url: url, title: f.title || url, type: f.type, s: 'plan', kw: f.kw, vol: '', theme: f.theme, niche: f.niche, created: '07/10', link: f.theme === 'SEO y GEO' ? '/seo-y-geo/' : '/', sec: [] };
+      set({ extra: st.extra.concat([np]), modal: null, tab: 'pages', status: 'all', type: 'all', q: '', sel: url });
+    };
+
+    return {
+      sync: function () { set({ synced: true }); }, closeSync: function () { set({ synced: false }); }, synced: st.synced,
+      openNew: function () { set({ modal: 'new', formErr: '' }); }, closeModal: function () { set({ modal: null }); },
+      tabs: tabs, isPages: st.tab === 'pages', isRedirects: st.tab === 'redirects', isKeywords: st.tab === 'keywords',
+      statusChips: statusChips, typeChips: typeChips, q: st.q, onQ: function (e) { set({ q: e.target.value }); },
+      rows: rows, noRows: rows.length === 0, pagesFooter: 'Mostrando ' + (rows.length ? '1 a ' + rows.length : '0') + ' de ' + rows.length + (rows.length !== pages.length ? ' · ' + pages.length + ' en total' : ''),
+      panelOpen: !!panel, p: panel || {}, closePanel: function () { set({ sel: null }); },
+      rSummary: rSummary, rChips: rChips, rRows: rRows, noRRows: rRows.length === 0, rq: st.rq, onRq: function (e) { set({ rq: e.target.value, rpage: 1 }); },
+      hasDest: !!st.rdest, rdest: st.rdest, clearDest: function () { set({ rdest: '', rpage: 1 }); },
+      rFooter: rList.length ? 'Mostrando ' + ((cur - 1) * PER + 1) + ' a ' + Math.min(cur * PER, rList.length) + ' de ' + rList.length : 'Mostrando 0 de 0',
+      rPages: rPages, rPrev: function () { if (cur > 1) set({ rpage: cur - 1 }); }, rNext: function () { if (cur < nPages) set({ rpage: cur + 1 }); },
+      rPrevDis: cur <= 1, rNextDis: cur >= nPages, rPrevStyle: pgBtn(false, cur <= 1), rNextStyle: pgBtn(false, cur >= nPages),
+      verifyAll: function () { set({ verified: true }); }, verifyLabel: st.verified ? 'Verificadas hace un momento' : 'Verificar las ' + (47 + nNew) + ' ahora', rTotal: 55 + nNew,
+      detOpen: !st.created, detDone: !!st.created, det: DET,
+      createRedirect: function () { set({ created: true, rf: 'all', rpage: 1, rq: '', rdest: '' }); }, undoRedirect: function () { set({ created: false }); },
+      kChips: kChips, kRows: kRows, orphans: orphans, openStudy: function () { set({ modal: 'study' }); }, study: study,
+      modalNew: st.modal === 'new', modalStudy: st.modal === 'study', modalAssign: st.modal === 'assign',
+      form: f, onFTitle: fset('title'), onFUrl: fset('url'), onFType: fset('type'), onFTheme: fset('theme'), onFNiche: fset('niche'), onFKw: fset('kw'),
+      formMsg: st.formErr || 'Corta, en minúsculas y sin el tema en la ruta: el artículo se puede reclasificar sin romper enlaces.',
+      formErrStyle: 'font-size: 12px; color: ' + (st.formErr ? '#FF8F9B' : '#B3B0BC') + ';', createPage: createPage,
+      asg: { q: ao.q, imp: fmtN(ao.imp), page: st.asgPage || ao.sug, hint: 'Sugerida: ' + ao.sug + ' · hoy Google muestra ' + ao.shown },
+      onAPage: function (e) { set({ asgPage: e.target.value }); }, asgRoles: asgRoles,
+      confirmAssign: function () { var n = Object.assign({}, st.assigned); n[ao.q] = { page: st.asgPage || ao.sug, role: st.asgRole }; set({ assigned: n, modal: null }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

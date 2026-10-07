@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Ficha del cliente</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Blinker:wght@300;600;700&amp;family=Barlow:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#0C0C0C}
+a{color:#D98BFF;text-decoration:none}a:hover{color:#F0D4FF}
+button,input,select,textarea{font:inherit}
+button:focus-visible,input:focus-visible,a:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid #D98BFF;outline-offset:2px}
+.dk-nav a:hover{background:#17161C;color:#F4F2F8}
+.dk-row:hover{background:#1D1B24}
+.dk-card:hover{border-color:rgba(199,85,239,0.45)}
+.dk-ghost:hover{background:#1D1B24;color:#F4F2F8}
+select option{background:#151518;color:#F4F2F8}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; min-height: 100%; background: #0C0C0C; color: #F4F2F8; font-family: 'Barlow', system-ui, sans-serif; font-size: 14px; line-height: 1.5">
+
+  <header style="border-bottom: 1px solid rgba(255,255,255,0.08); background: #101013">
+    <div style="padding: 10px 20px; display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center">
+      <a href="Main.dc.html" aria-label="DKODING, inicio del admin" style="display: flex; align-items: center; min-height: 40px"><img src="/_blob/af8d4aea91012d3a301c737f7fa02819" alt="DKODING" style="height: 26px; width: auto"></a>
+      <span style="padding: 3px 10px; border-radius: 999px; background: rgba(199,85,239,0.14); color: #D98BFF; font-size: 12px; font-weight: 600">Admin</span>
+      <div style="flex: 1 1 260px; display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 12px; background: #0C0C0C; border: 1px solid rgba(255,255,255,0.14); border-radius: 6px; max-width: 560px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B3B0BC" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg><label for="g-search" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Buscar en el admin</label><input id="g-search" type="text" placeholder="Buscar cliente, servicio o acceso" style="flex: 1; min-width: 0; background: transparent; border: 0; color: #F4F2F8; outline: none"><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 2px 6px; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; color: #B3B0BC">Ctrl K</kbd></div>
+      <div style="display: flex; align-items: center; gap: 8px; margin-left: auto"><a href="Main.dc.html" aria-label="Avisos: 1 sitio caído, 3 de atención" style="position: relative; display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 6px; color: #F4F2F8"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10 21h4"></path></svg><span aria-hidden="true" style="position: absolute; top: 4px; right: 3px; min-width: 16px; height: 16px; padding: 0 4px; box-sizing: border-box; border-radius: 999px; background: #FF6B6B; color: #0C0C0C; font-size: 11px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center">4</span></a><img src="/_blob/c1f4c9d27736f1652e876e2f660320ef" alt="Tu cuenta: Dirección" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 2px solid #3D0A6E"></div>
+    </div>
+  </header>
+
+  <div style="display: flex; flex-wrap: wrap; align-items: flex-start">
+    <nav class="dk-nav" aria-label="Módulos" style="flex: 1 1 232px; max-width: 260px; box-sizing: border-box; padding: 14px 10px 24px; background: #101013; border-right: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; gap: 2px; font-size: 14px">
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Inicio</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Sitio dkoding.net</span>
+      <a href="Paginas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Páginas</a>
+      <a href="Paginas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Redirecciones</a>
+      <a href="Paginas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Palabras clave</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">CRM</span>
+      <a href="Cliente.dc.html" aria-current="page" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #F4F2F8; background: #1A0B2B; font-weight: 600"><span aria-hidden="true" style="width: 14px; color: #C755EF; font-family: 'Blinker', sans-serif; font-weight: 700">»</span>Clientes</a>
+      <a href="Cotizaciones.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Leads<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(224,169,59,0.16); color: #E0A93B; font-size: 12px; font-weight: 600">2</span></a>
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Renovaciones</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Accesos</span>
+      <a href="Boveda.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Personales</a>
+      <a href="Boveda.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Agencia</a>
+      <a href="Boveda.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Clientes</a>
+      <a href="ImportarAccesos.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Importar Excel</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Ventas</span>
+      <a href="Cotizaciones.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Cotizaciones</a>
+      <a href="Tarifas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Tarifas</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Salud</span>
+      <a href="Sitios.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Sitios<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(255,107,107,0.16); color: #FF8F9B; font-size: 12px; font-weight: 600">1</span></a>
+      <a href="Sitios.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Copias<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(224,169,59,0.16); color: #E0A93B; font-size: 12px; font-weight: 600">1</span></a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Ajustes</span>
+      <a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Usuarios y roles</a>
+      <a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Conexiones</a>
+      <a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Registro</a>
+      <span style="font-size: 12px; color: #8E8A9B; padding: 16px 10px 0">MVP simple. Lo que no se usa todavía no aparece en el menú.</span>
+    </nav>
+
+    <main id="cliente" style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 24px 28px 48px; display: flex; flex-direction: column; gap: 18px">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px">
+        <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0">
+          <nav aria-label="Ruta" style="font-size: 13px; color: #B3B0BC">CRM » Clientes</nav>
+          <div style="display: flex; align-items: center; gap: 14px; min-width: 0">
+            <span aria-hidden="true" style="width: 52px; height: 52px; flex: none; display: inline-flex; align-items: center; justify-content: center; border-radius: 10px; background: #3D0A6E; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 22px">4B</span>
+            <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0">
+              <h1 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 30px; line-height: 1.1">4Bellú · Body shapers</h1>
+              <div style="display: flex; flex-wrap: wrap; gap: 6px; align-items: center">
+                <span style="display: inline-flex; align-items: center; gap: 6px; padding: 2px 10px; border-radius: 999px; background: rgba(91,228,155,0.1); color: #5BE49B; font-size: 12px; font-weight: 600"><svg width="9" height="9" viewBox="0 0 16 16" role="img" aria-label="Correcto"><path d="M8 2a6 6 0 1 1 0 12A6 6 0 0 1 8 2z" fill="#5BE49B"></path></svg>Activo</span>
+                <span style="display: inline-flex; align-items: center; gap: 6px; padding: 2px 10px; border-radius: 999px; background: rgba(199,85,239,0.14); color: #D98BFF; font-size: 12px; font-weight: 600"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"></path></svg>Soporte de agencia activo</span>
+                <span style="padding: 2px 10px; border-radius: 999px; border: 1px dashed rgba(255,255,255,0.28); color: #B3B0BC; font-size: 12px; font-weight: 600">Datos de ejemplo</span>
+              </div>
+            </div>
+          </div>
+          <span style="color: #B3B0BC">Cali · NIT 900.123.456-7 (ejemplo) · contacto principal: Carolina Ejemplo, gerente · cliente desde 03/02/2024</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+          <button type="button" onClick="{{openNote}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"></path></svg>Nueva nota</button>
+          <button type="button" onClick="{{openEditClient}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"></path></svg>Editar</button>
+          <button type="button" onClick="{{openNewService}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 16px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-weight: 600; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Nuevo servicio</button>
+        </div>
+      </div>
+
+      <section aria-label="Resumen del cliente" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr)); gap: 12px">
+        <sc-for list="{{stats}}" as="k" hint-placeholder-count="5">
+          <button type="button" class="dk-card" onClick="{{k.pick}}" style="display: flex; flex-direction: column; gap: 6px; padding: 14px 16px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: #F4F2F8; cursor: pointer; text-align: left">
+            <span style="display: flex; justify-content: space-between; gap: 8px; width: 100%; color: #B3B0BC; font-size: 13px">{{k.label}}<svg width="12" height="12" viewBox="0 0 16 16" role="img" aria-label="{{k.ic.label}}" style="flex: none; margin-top: 4px"><path d="{{k.ic.d}}" fill="{{k.ic.fill}}" stroke="{{k.ic.stroke}}" stroke-width="1.5" stroke-dasharray="{{k.ic.dash}}"></path></svg></span>
+            <span style="display: flex; align-items: baseline; gap: 4px; flex-wrap: wrap"><span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 28px; line-height: 1; font-variant-numeric: tabular-nums">{{k.value}}</span><span style="font-size: 13px; color: #B3B0BC">{{k.unit}}</span></span>
+            <span style="font-size: 12px; color: #B3B0BC">{{k.note}}</span>
+          </button>
+        </sc-for>
+      </section>
+
+      <div role="tablist" aria-label="Secciones del cliente" style="display: flex; flex-wrap: wrap; gap: 4px; padding: 4px; background: #101013; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; align-self: flex-start; max-width: 100%; box-sizing: border-box">
+        <sc-for list="{{tabs}}" as="t" hint-placeholder-count="6"><button type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}" style="{{t.style}}">{{t.label}}<sc-if value="{{t.hasCount}}" hint-placeholder-val="{{false}}"><span style="{{t.badgeStyle}}">{{t.count}}</span></sc-if></button></sc-for>
+      </div>
+
+      <sc-if value="{{tabServicios}}" hint-placeholder-val="{{true}}">
+        <section aria-labelledby="h-serv" role="tabpanel" style="display: flex; flex-direction: column; gap: 12px">
+          <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 12px 16px; background: #1A0B2B; border: 1px solid rgba(199,85,239,0.4); border-radius: 10px">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D98BFF" stroke-width="2" aria-hidden="true" style="flex: none"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"></path></svg>
+            <span style="flex: 1 1 320px"><strong style="font-weight: 600">Soporte de agencia activo → copias cada 15 días de sus sitios.</strong> <span style="color: #D8D4E2">4bellu.com y tienda.4bellu.com van a su propio bucket de R2. Si el servicio se vence o se cancela, las copias se pausan.</span></span>
+            <a href="Sitios.dc.html" style="display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; border: 1px solid rgba(217,139,255,0.4); border-radius: 4px; font-weight: 600">Ver copias »</a>
+          </div>
+          <div style="background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; min-width: 0">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; padding: 14px 16px">
+              <h2 id="h-serv" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">Servicios contratados</h2>
+              <div role="group" aria-label="Filtrar servicios" style="display: flex; flex-wrap: wrap; gap: 6px"><sc-for list="{{svcFilters}}" as="f" hint-placeholder-count="4"><button type="button" onClick="{{f.pick}}" aria-pressed="{{f.on}}" style="{{f.style}}">{{f.label}}</button></sc-for></div>
+            </div>
+            <div style="overflow-x: auto">
+              <table style="width: 100%; min-width: 900px; border-collapse: collapse">
+                <thead><tr style="color: #B3B0BC; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; text-align: left; border-top: 1px solid rgba(255,255,255,0.08)"><th scope="col" style="padding: 10px 8px 10px 16px; font-weight: 600">Servicio</th><th scope="col" style="padding: 10px 8px; font-weight: 600">Inicio</th><th scope="col" style="padding: 10px 8px; font-weight: 600">Periodicidad</th><th scope="col" style="padding: 10px 8px; font-weight: 600">Renovación</th><th scope="col" style="padding: 10px 8px; font-weight: 600; text-align: right">Importe</th><th scope="col" style="padding: 10px 8px 10px 20px; font-weight: 600">Estado</th><th scope="col" style="padding: 10px 16px 10px 8px; font-weight: 600; text-align: right">Acciones</th></tr></thead>
+                <tbody>
+                  <sc-for list="{{svcRows}}" as="s" hint-placeholder-count="6">
+                    <tr class="dk-row" style="{{s.rowStyle}}">
+                      <td style="padding: 10px 8px 10px 16px"><span style="display: flex; flex-direction: column"><span style="font-weight: 600">{{s.name}}</span><span style="font-size: 12px; color: #B3B0BC">{{s.desc}}</span></span></td>
+                      <td style="padding: 10px 8px; font-variant-numeric: tabular-nums; color: #D8D4E2; white-space: nowrap">{{s.start}}</td>
+                      <td style="padding: 10px 8px; color: #D8D4E2">{{s.per}}</td>
+                      <td style="padding: 10px 8px; white-space: nowrap"><span style="display: flex; flex-direction: column"><span style="{{s.renStyle}}">{{s.ren}}</span><span style="font-size: 12px; color: #B3B0BC">{{s.renNote}}</span></span></td>
+                      <td style="padding: 10px 8px; text-align: right; white-space: nowrap"><span style="display: flex; flex-direction: column; align-items: flex-end"><span style="font-weight: 600; font-variant-numeric: tabular-nums">{{s.amount}}</span><span style="font-size: 12px; color: #B3B0BC">{{s.amountNote}}</span></span></td>
+                      <td style="padding: 10px 8px 10px 20px"><span style="display: inline-flex; align-items: center; gap: 6px; white-space: nowrap"><svg width="11" height="11" viewBox="0 0 16 16" role="img" aria-label="{{s.ic.label}}"><path d="{{s.ic.d}}" fill="{{s.ic.fill}}" stroke="{{s.ic.stroke}}" stroke-width="1.5" stroke-dasharray="{{s.ic.dash}}"></path></svg><span style="{{s.stStyle}}">{{s.status}}</span></span></td>
+                      <td style="padding: 10px 16px 10px 8px"><span style="display: flex; justify-content: flex-end; gap: 6px">
+                        <sc-if value="{{s.canRenew}}" hint-placeholder-val="{{true}}"><button type="button" onClick="{{s.renew}}" aria-label="Renovar {{s.name}}" style="{{s.renewStyle}}">Renovar</button></sc-if>
+                        <button type="button" class="dk-ghost" onClick="{{s.edit}}" aria-label="Editar {{s.name}}" style="min-height: 36px; padding: 0 12px; background: transparent; color: #D8D4E2; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; font-weight: 600; cursor: pointer">Editar</button>
+                      </span></td>
+                    </tr>
+                  </sc-for>
+                </tbody>
+              </table>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 16px; padding: 12px 16px; border-top: 1px solid rgba(255,255,255,0.08); background: #0F0F11; border-radius: 0 0 10px 10px">
+              <span style="color: #B3B0BC; font-size: 13px">{{svcFootNote}}</span>
+              <span style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap"><span style="color: #B3B0BC">Total recurrente</span><span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 22px; font-variant-numeric: tabular-nums">{{recurringFull}}/mes</span><span style="color: #B3B0BC; font-size: 13px">{{recurringYear}} al año</span></span>
+            </div>
+          </div>
+        </section>
+      </sc-if>
+
+      <sc-if value="{{tabAccesos}}" hint-placeholder-val="{{false}}">
+        <section aria-labelledby="h-acc" role="tabpanel" style="display: flex; flex-direction: column; gap: 12px">
+          <sc-if value="{{isVerified}}" hint-placeholder-val="{{false}}">
+            <div role="status" style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 10px 14px; background: rgba(91,228,155,0.07); border: 1px solid rgba(91,228,155,0.3); border-radius: 8px; font-size: 13px">
+              <svg width="12" height="12" viewBox="0 0 16 16" role="img" aria-label="Correcto"><path d="M8 2a6 6 0 1 1 0 12A6 6 0 0 1 8 2z" fill="#5BE49B"></path></svg>
+              <span style="flex: 1 1 260px; color: #D8D4E2">Identidad confirmada a las {{verifiedTime}}. Hasta las {{verifiedUntil}} puedes ver contraseñas sin volver a escribir el código; cada vista igual queda registrada.</span>
+              <button type="button" class="dk-ghost" onClick="{{forget}}" style="min-height: 36px; padding: 0 12px; background: transparent; color: #D8D4E2; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; font-weight: 600; cursor: pointer">Pedir el código otra vez</button>
+            </div>
+          </sc-if>
+          <div style="background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; min-width: 0">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; padding: 14px 16px">
+              <div style="display: flex; flex-direction: column"><h2 id="h-acc" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">Accesos de 4Bellú</h2><span style="font-size: 13px; color: #B3B0BC">Los mismos de la bóveda, filtrados por este cliente · 3 sin verificar · 1 falló</span></div>
+              <a href="Boveda.dc.html" style="display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; border: 1px solid rgba(217,139,255,0.4); border-radius: 4px; font-weight: 600">Abrir en Accesos »</a>
+            </div>
+            <div style="overflow-x: auto">
+              <table style="width: 100%; min-width: 860px; border-collapse: collapse">
+                <thead><tr style="color: #B3B0BC; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; text-align: left; border-top: 1px solid rgba(255,255,255,0.08)"><th scope="col" style="padding: 10px 8px 10px 16px; font-weight: 600">Nombre</th><th scope="col" style="padding: 10px 8px; font-weight: 600">Tipo</th><th scope="col" style="padding: 10px 8px; font-weight: 600">Usuario</th><th scope="col" style="padding: 10px 8px; font-weight: 600; min-width: 150px">Contraseña</th><th scope="col" style="padding: 10px 8px; font-weight: 600">Verificación</th><th scope="col" style="padding: 10px 16px 10px 8px; font-weight: 600">Origen</th></tr></thead>
+                <tbody>
+                  <sc-for list="{{accRows}}" as="r" hint-placeholder-count="8">
+                    <tr class="dk-row" style="{{r.rowStyle}}">
+                      <td style="padding: 9px 8px 9px 16px"><span style="display: flex; flex-direction: column"><span style="font-weight: 600">{{r.name}}</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #B3B0BC">{{r.url}}</span></span></td>
+                      <td style="padding: 9px 8px; color: #D8D4E2; font-size: 13px">{{r.tipo}}</td>
+                      <td style="padding: 9px 8px"><span style="display: flex; align-items: center; gap: 2px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; white-space: nowrap">{{r.user}}</span><button type="button" class="dk-ghost" onClick="{{r.copyUser}}" aria-label="Copiar usuario de {{r.name}}" title="Copiar usuario" style="flex: none; display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: transparent; color: #B3B0BC; border: 0; border-radius: 4px; cursor: pointer"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"></rect><path d="M5 15V5a1 1 0 0 1 1-1h10"></path></svg></button></span></td>
+                      <td style="padding: 9px 8px">
+                        <sc-if value="{{r.shown}}" hint-placeholder-val="{{false}}">
+                          <span style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px">
+                            <code style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #F4F2F8; background: #0F0F11; border: 1px solid rgba(199,85,239,0.55); border-radius: 4px; padding: 2px 6px; white-space: nowrap">{{r.pass}}</code>
+                            <span style="display: flex; align-items: center; gap: 8px"><button type="button" onClick="{{r.copyPass}}" style="min-height: 30px; padding: 0 10px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-size: 12px; font-weight: 600; cursor: pointer">{{copyLabel}}</button><span aria-live="polite" style="font-size: 12px; color: #E0A93B; font-variant-numeric: tabular-nums; white-space: nowrap">Se oculta en {{left}} s</span></span>
+                          </span>
+                        </sc-if>
+                        <sc-if value="{{r.hidden}}" hint-placeholder-val="{{true}}">
+                          <span style="display: flex; align-items: center; gap: 8px"><span role="img" aria-label="Contraseña oculta" style="font-family: 'JetBrains Mono', monospace; letter-spacing: 0.08em; color: #B3B0BC">••••••</span><button type="button" onClick="{{r.ver}}" aria-label="Ver contraseña de {{r.name}}" style="display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 10px; background: transparent; color: #D98BFF; border: 1px solid rgba(217,139,255,0.4); border-radius: 4px; font-weight: 600; cursor: pointer"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></svg>Ver</button></span>
+                        </sc-if>
+                      </td>
+                      <td style="padding: 9px 8px; font-size: 13px"><span style="display: flex; gap: 6px; align-items: flex-start"><svg width="11" height="11" viewBox="0 0 16 16" role="img" aria-label="{{r.vic.label}}" style="flex: none; margin-top: 5px"><path d="{{r.vic.d}}" fill="{{r.vic.fill}}" stroke="{{r.vic.stroke}}" stroke-width="1.5" stroke-dasharray="{{r.vic.dash}}"></path></svg><span style="{{r.verStyle}}">{{r.verText}}</span></span></td>
+                      <td style="padding: 9px 16px 9px 8px"><span style="{{r.oriStyle}}">{{r.origin}}</span></td>
+                    </tr>
+                  </sc-for>
+                </tbody>
+              </table>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding: 10px 16px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 13px; color: #B3B0BC"><span>Mostrando 1 a 8 de 14</span><span style="display: inline-flex; align-items: center; gap: 6px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg>Ver pide tu código si no lo diste en los últimos 5 minutos · sin exportación masiva</span></div>
+          </div>
+        </section>
+      </sc-if>
+
+      <sc-if value="{{tabSitios}}" hint-placeholder-val="{{false}}">
+        <section aria-labelledby="h-sit" role="tabpanel" style="background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; min-width: 0">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; padding: 14px 16px">
+            <div style="display: flex; flex-direction: column"><h2 id="h-sit" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">Sitios de 4Bellú</h2><span style="font-size: 13px; color: #B3B0BC">Estado de UptimeRobot cada 5 min · copias cada 15 días en R2 (bucket dk-4bellu) por el soporte de agencia</span></div>
+            <a href="Sitios.dc.html" style="display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; border: 1px solid rgba(217,139,255,0.4); border-radius: 4px; font-weight: 600">Abrir en Salud »</a>
+          </div>
+          <div style="overflow-x: auto">
+            <table style="width: 100%; min-width: 880px; border-collapse: collapse">
+              <thead><tr style="color: #B3B0BC; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; text-align: left; border-top: 1px solid rgba(255,255,255,0.08)"><th scope="col" style="padding: 10px 8px 10px 16px; font-weight: 600">Sitio</th><th scope="col" style="padding: 10px 8px; font-weight: 600">Estado</th><th scope="col" style="padding: 10px 8px; font-weight: 600">SSL y dominio</th><th scope="col" style="padding: 10px 8px; font-weight: 600">Última copia</th><th scope="col" style="padding: 10px 16px 10px 8px; font-weight: 600; text-align: right">Acceder</th></tr></thead>
+              <tbody>
+                <sc-for list="{{sites}}" as="x" hint-placeholder-count="2">
+                  <tr class="dk-row" style="border-top: 1px solid rgba(255,255,255,0.06)">
+                    <td style="padding: 12px 8px 12px 16px"><span style="display: flex; flex-direction: column"><span style="font-weight: 600">{{x.domain}}</span><span style="font-size: 12px; color: #B3B0BC">{{x.platform}}</span></span></td>
+                    <td style="padding: 12px 8px"><span style="display: flex; gap: 6px; align-items: flex-start"><svg width="11" height="11" viewBox="0 0 16 16" role="img" aria-label="{{x.sic.label}}" style="flex: none; margin-top: 5px"><path d="{{x.sic.d}}" fill="{{x.sic.fill}}"></path></svg><span style="display: flex; flex-direction: column"><span style="font-weight: 600">{{x.state}}</span><span style="font-size: 12px; color: #B3B0BC">{{x.stateNote}}</span></span></span></td>
+                    <td style="padding: 12px 8px"><span style="display: flex; flex-direction: column"><span style="{{x.sslStyle}}">{{x.ssl}}</span><span style="font-size: 12px; color: #B3B0BC">{{x.dom}}</span></span></td>
+                    <td style="padding: 12px 8px"><span style="display: flex; gap: 6px; align-items: flex-start"><svg width="11" height="11" viewBox="0 0 16 16" role="img" aria-label="{{x.bic.label}}" style="flex: none; margin-top: 5px"><path d="{{x.bic.d}}" fill="{{x.bic.fill}}"></path></svg><span style="display: flex; flex-direction: column"><span style="font-weight: 600">{{x.backup}}</span><span style="font-size: 12px; color: #B3B0BC">{{x.backupNote}}</span></span></span></td>
+                    <td style="padding: 12px 16px 12px 8px"><span style="display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px"><a href="Sitios.dc.html" aria-label="Acceder a WP de {{x.domain}}" style="display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; white-space: nowrap">Acceder a WP</a><a href="Sitios.dc.html" aria-label="Acceder a cPanel de {{x.domain}}" style="display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; white-space: nowrap">Acceder a cPanel</a></span></td>
+                  </tr>
+                </sc-for>
+              </tbody>
+            </table>
+          </div>
+          <div style="padding: 10px 16px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 13px; color: #B3B0BC">«Acceder» pide tu código si no lo diste en los últimos 5 minutos y queda en el historial, igual que ver una contraseña.</div>
+        </section>
+      </sc-if>
+
+      <sc-if value="{{tabVentas}}" hint-placeholder-val="{{false}}">
+        <section aria-labelledby="h-ven" role="tabpanel" style="background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; min-width: 0">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; padding: 14px 16px">
+            <div style="display: flex; flex-direction: column"><h2 id="h-ven" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">Leads y cotizaciones</h2><span style="font-size: 13px; color: #B3B0BC">Un lead convertido conserva su historial y sus cotizaciones</span></div>
+            <a href="Cotizaciones.dc.html" style="display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; border: 1px solid rgba(217,139,255,0.4); border-radius: 4px; font-weight: 600">Nueva cotización »</a>
+          </div>
+          <div style="overflow-x: auto">
+            <table style="width: 100%; min-width: 820px; border-collapse: collapse">
+              <thead><tr style="color: #B3B0BC; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; text-align: left; border-top: 1px solid rgba(255,255,255,0.08)"><th scope="col" style="padding: 10px 8px 10px 16px; font-weight: 600">Código</th><th scope="col" style="padding: 10px 8px; font-weight: 600">Qué</th><th scope="col" style="padding: 10px 8px; font-weight: 600">Origen</th><th scope="col" style="padding: 10px 8px; font-weight: 600">Etapa</th><th scope="col" style="padding: 10px 8px; font-weight: 600; text-align: right">Valor</th><th scope="col" style="padding: 10px 16px 10px 8px; font-weight: 600">Fecha</th></tr></thead>
+              <tbody>
+                <sc-for list="{{sales}}" as="v" hint-placeholder-count="3">
+                  <tr class="dk-row" style="border-top: 1px solid rgba(255,255,255,0.06)">
+                    <td style="padding: 12px 8px 12px 16px"><a href="Cotizaciones.dc.html" style="display: inline-flex; align-items: center; min-height: 32px; padding: 0 8px; border: 1px solid rgba(217,139,255,0.35); border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 13px">{{v.code}}</a></td>
+                    <td style="padding: 12px 8px"><span style="display: flex; flex-direction: column"><span style="font-weight: 600">{{v.what}}</span><span style="font-size: 12px; color: #B3B0BC">{{v.kind}}</span></span></td>
+                    <td style="padding: 12px 8px; color: #D8D4E2">{{v.origin}}</td>
+                    <td style="padding: 12px 8px"><span style="{{v.stageStyle}}">{{v.stage}}</span></td>
+                    <td style="padding: 12px 8px; text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap">{{v.value}}</td>
+                    <td style="padding: 12px 16px 12px 8px; color: #D8D4E2; font-variant-numeric: tabular-nums">{{v.date}}</td>
+                  </tr>
+                </sc-for>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </sc-if>
+
+      <sc-if value="{{tabHistorial}}" hint-placeholder-val="{{false}}">
+        <section aria-labelledby="h-his" role="tabpanel" style="background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 12px">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px">
+            <div style="display: flex; flex-direction: column"><h2 id="h-his" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">Historial</h2><span style="font-size: 13px; color: #B3B0BC">Automático: quién hizo qué y cuándo. Solo se agrega, nunca se borra.</span></div>
+            <div role="group" aria-label="Filtrar historial" style="display: flex; flex-wrap: wrap; gap: 6px"><sc-for list="{{histFilters}}" as="f" hint-placeholder-count="6"><button type="button" onClick="{{f.pick}}" aria-pressed="{{f.on}}" style="{{f.style}}">{{f.label}}</button></sc-for></div>
+          </div>
+          <ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column">
+            <sc-for list="{{histAll}}" as="e" hint-placeholder-count="10">
+              <li style="display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 12px; padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.06)">
+                <span aria-hidden="true" style="width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; background: #1D1B24; color: #D98BFF"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="{{e.icon}}"></path></svg></span>
+                <span style="display: flex; flex-direction: column; gap: 2px; min-width: 0">
+                  <span style="display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline"><span style="font-weight: 600">{{e.what}}</span><sc-if value="{{e.hasTag}}" hint-placeholder-val="{{false}}"><span style="{{e.tagStyle}}"><svg width="9" height="9" viewBox="0 0 16 16" role="img" aria-label="{{e.tic.label}}"><path d="{{e.tic.d}}" fill="{{e.tic.fill}}"></path></svg>{{e.tag}}</span></sc-if></span>
+                  <span style="font-size: 13px; color: #B3B0BC"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px">{{e.t}}</span> · {{e.who}}{{e.detail}}</span>
+                </span>
+              </li>
+            </sc-for>
+          </ol>
+        </section>
+      </sc-if>
+
+      <sc-if value="{{tabResumen}}" hint-placeholder-val="{{false}}">
+        <div role="tabpanel" aria-label="Resumen" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); gap: 16px; align-items: start">
+          <div style="display: flex; flex-direction: column; gap: 16px; min-width: 0">
+            <section aria-labelledby="h-datos" style="display: flex; flex-direction: column; gap: 10px; padding: 16px 18px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px">
+              <h2 id="h-datos" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">Datos del cliente</h2>
+              <dl style="margin: 0; display: grid; grid-template-columns: minmax(110px, 0.8fr) minmax(0, 1.6fr); gap: 8px 12px; font-size: 14px">
+                <dt style="color: #B3B0BC">Razón social</dt><dd style="margin: 0">4Bellú S.A.S. (ejemplo)</dd>
+                <dt style="color: #B3B0BC">NIT</dt><dd style="margin: 0; font-variant-numeric: tabular-nums">900.123.456-7 (ejemplo)</dd>
+                <dt style="color: #B3B0BC">Ciudad</dt><dd style="margin: 0">Cali, Valle del Cauca</dd>
+                <dt style="color: #B3B0BC">Responsable</dt><dd style="margin: 0">Laura · cuenta y soporte</dd>
+                <dt style="color: #B3B0BC">Cliente desde</dt><dd style="margin: 0">03/02/2024</dd>
+                <dt style="color: #B3B0BC">Próxima renovación</dt><dd style="margin: 0">{{nextRenewText}}</dd>
+              </dl>
+            </section>
+            <section aria-labelledby="h-cont" style="display: flex; flex-direction: column; gap: 4px; padding: 16px 18px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px">
+              <h2 id="h-cont" style="margin: 0 0 6px; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">Contactos</h2>
+              <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 12px; padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.06)"><span style="display: flex; flex-direction: column"><span style="font-weight: 600">Carolina Ejemplo <span style="font-weight: 400; color: #B3B0BC">· gerente · principal</span></span><span style="font-size: 13px; color: #D8D4E2">gerencia@ejemplo.com · +57 300 000 0000</span></span><span style="padding: 2px 8px; border-radius: 999px; background: rgba(199,85,239,0.14); color: #D98BFF; font-size: 12px; font-weight: 600; align-self: flex-start">Aprueba cambios</span></div>
+              <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 12px; padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.06)"><span style="display: flex; flex-direction: column"><span style="font-weight: 600">Contabilidad (ejemplo) <span style="font-weight: 400; color: #B3B0BC">· facturas</span></span><span style="font-size: 13px; color: #D8D4E2">facturas@ejemplo.com · +57 300 000 0001</span></span></div>
+            </section>
+            <section aria-labelledby="h-rsit" style="display: flex; flex-direction: column; gap: 4px; padding: 16px 18px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px">
+              <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 6px"><h2 id="h-rsit" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">Sitios</h2><button type="button" onClick="{{goSitios}}" style="min-height: 36px; padding: 0 4px; background: transparent; color: #D98BFF; border: 0; font-weight: 600; cursor: pointer">Ver sitios »</button></div>
+              <sc-for list="{{sites}}" as="x" hint-placeholder-count="2"><div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.06)"><span style="display: flex; gap: 8px; align-items: center"><svg width="11" height="11" viewBox="0 0 16 16" role="img" aria-label="{{x.sic.label}}"><path d="{{x.sic.d}}" fill="{{x.sic.fill}}"></path></svg><span style="font-weight: 600">{{x.domain}}</span><span style="color: #B3B0BC">{{x.state}}</span></span><span style="font-size: 13px; color: #B3B0BC">copia {{x.backup}}</span></div></sc-for>
+            </section>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 16px; min-width: 0">
+            <section aria-labelledby="h-notas" style="display: flex; flex-direction: column; gap: 8px; padding: 16px 18px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px">
+              <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px"><h2 id="h-notas" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">Notas fijadas</h2><button type="button" onClick="{{openNote}}" style="min-height: 36px; padding: 0 4px; background: transparent; color: #D98BFF; border: 0; font-weight: 600; cursor: pointer">Nueva nota</button></div>
+              <sc-for list="{{pinned}}" as="n" hint-placeholder-count="2"><div style="display: flex; flex-direction: column; gap: 4px; padding: 12px; background: #0F0F11; border: 1px solid rgba(255,255,255,0.06); border-radius: 8px"><span>{{n.text}}</span><span style="font-size: 12px; color: #B3B0BC">{{n.meta}}</span></div></sc-for>
+            </section>
+            <section aria-labelledby="h-rec" style="display: flex; flex-direction: column; gap: 4px; padding: 16px 18px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px">
+              <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 6px"><h2 id="h-rec" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">Lo más reciente</h2><button type="button" onClick="{{goHistorial}}" style="min-height: 36px; padding: 0 4px; background: transparent; color: #D98BFF; border: 0; font-weight: 600; cursor: pointer">Todo el historial »</button></div>
+              <sc-for list="{{histRecent}}" as="e" hint-placeholder-count="4"><div style="display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 10px; padding: 8px 0; border-top: 1px solid rgba(255,255,255,0.06)"><span aria-hidden="true" style="width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; background: #1D1B24; color: #D98BFF"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="{{e.icon}}"></path></svg></span><span style="display: flex; flex-direction: column; min-width: 0"><span style="font-weight: 600; font-size: 13px">{{e.what}}</span><span style="font-size: 12px; color: #B3B0BC"><span style="font-family: 'JetBrains Mono', monospace">{{e.t}}</span> · {{e.who}}</span></span></div></sc-for>
+            </section>
+          </div>
+        </div>
+      </sc-if>
+
+      <p style="margin: 0; font-size: 12px; color: #8E8A9B">Datos de ejemplo. 4Bellú es cliente real de DKODING; NIT, contactos, importes, usuarios y contraseñas son ficticios.</p>
+    </main>
+  </div>
+
+  <sc-if value="{{hasModal}}" hint-placeholder-val="{{false}}">
+    <div style="position: fixed; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(0,0,0,0.6)">
+      <div role="dialog" aria-modal="true" aria-labelledby="h-verify" style="width: 100%; max-width: 440px; box-sizing: border-box; display: flex; flex-direction: column; gap: 14px; padding: 22px; background: #151518; border: 1px solid rgba(255,255,255,0.14); border-radius: 12px; box-shadow: 0 30px 80px rgba(0,0,0,0.6)">
+        <div style="display: flex; justify-content: space-between; align-items: start; gap: 12px">
+          <div style="display: flex; gap: 12px; align-items: center"><span aria-hidden="true" style="flex: none; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; background: #1A0B2B; color: #D98BFF"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg></span><h2 id="h-verify" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 22px">Confirma que eres tú</h2></div>
+          <button type="button" onClick="{{closeModal}}" aria-label="Cerrar" style="flex: none; width: 36px; height: 36px; background: transparent; color: #B3B0BC; border: 0; border-radius: 4px; cursor: pointer; font-size: 20px">×</button>
+        </div>
+        <span style="color: #D8D4E2">Vas a ver la contraseña de <strong style="color: #F4F2F8; font-weight: 600">{{mName}}</strong>. {{modeText}}</span>
+        <sc-if value="{{isCodeMode}}" hint-placeholder-val="{{true}}">
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <label for="otp" style="font-size: 13px; font-weight: 600">Código de 6 dígitos</label>
+            <input id="otp" type="text" inputMode="numeric" autoComplete="one-time-code" placeholder="000000" value="{{code}}" onChange="{{setCode}}" onKeyDown="{{enterKey}}" style="min-height: 48px; padding: 0 14px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(199,85,239,0.55); border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 22px; letter-spacing: 0.35em; font-variant-numeric: tabular-nums">
+          </div>
+        </sc-if>
+        <sc-if value="{{isPwdMode}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <label for="me-pwd" style="font-size: 13px; font-weight: 600">Tu contraseña del admin</label>
+            <input id="me-pwd" type="password" autoComplete="current-password" value="{{pwd}}" onChange="{{setPwd}}" onKeyDown="{{enterKey}}" style="min-height: 44px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(199,85,239,0.55); border-radius: 6px">
+          </div>
+        </sc-if>
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 13px">
+          <button type="button" onClick="{{toggleMode}}" style="min-height: 32px; padding: 0; background: transparent; color: #D98BFF; border: 0; font-weight: 600; cursor: pointer">{{toggleLabel}}</button>
+          <span style="color: #B3B0BC">No pedimos esto otra vez durante 5 minutos.</span>
+        </div>
+        <div style="display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; background: #0F0F11; border-radius: 6px; font-size: 13px; color: #D8D4E2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D98BFF" stroke-width="2" aria-hidden="true" style="flex: none; margin-top: 3px"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Se muestra 30 segundos y queda registrado: tú, cuál, cuándo y desde qué IP.</span></div>
+        <span style="font-size: 12px; color: #8E8A9B">Prototipo: sirve cualquier código de 6 cifras.</span>
+        <div style="display: flex; justify-content: flex-end; gap: 8px">
+          <button type="button" onClick="{{closeModal}}" style="min-height: 40px; padding: 0 14px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; cursor: pointer">Cancelar</button>
+          <button type="button" onClick="{{confirm}}" disabled="{{cantConfirm}}" style="{{confirmStyle}}">Confirmar y ver</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{hasRenew}}" hint-placeholder-val="{{false}}">
+    <div style="position: fixed; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(0,0,0,0.6)">
+      <div role="dialog" aria-modal="true" aria-labelledby="h-renew" style="width: 100%; max-width: 460px; box-sizing: border-box; display: flex; flex-direction: column; gap: 14px; padding: 22px; background: #151518; border: 1px solid rgba(255,255,255,0.14); border-radius: 12px; box-shadow: 0 30px 80px rgba(0,0,0,0.6)">
+        <div style="display: flex; justify-content: space-between; align-items: start; gap: 12px">
+          <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #B3B0BC">Renovar servicio · {{rn.per}}</span><h2 id="h-renew" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 22px">{{rn.name}}</h2></div>
+          <button type="button" onClick="{{closeRenew}}" aria-label="Cerrar" style="flex: none; width: 36px; height: 36px; background: transparent; color: #B3B0BC; border: 0; border-radius: 4px; cursor: pointer; font-size: 20px">×</button>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+          <div style="display: flex; flex-direction: column; gap: 2px; padding: 12px; background: #0F0F11; border-radius: 8px"><span style="font-size: 12px; color: #B3B0BC">Renovación actual</span><span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 22px; font-variant-numeric: tabular-nums">{{rn.from}}</span></div>
+          <div style="display: flex; flex-direction: column; gap: 2px; padding: 12px; background: #1A0B2B; border: 1px solid rgba(199,85,239,0.45); border-radius: 8px"><span style="font-size: 12px; color: #D98BFF">Nueva renovación</span><span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 22px; font-variant-numeric: tabular-nums">{{rn.to}}</span></div>
+        </div>
+        <label for="rn-amount" style="font-size: 13px; font-weight: 600">Importe del periodo (COP)</label>
+        <input id="rn-amount" type="text" inputMode="numeric" value="{{rnAmount}}" onChange="{{setRnAmount}}" style="min-height: 40px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-variant-numeric: tabular-nums">
+        <label style="display: flex; gap: 10px; align-items: center; min-height: 36px; cursor: pointer"><input type="checkbox" checked="{{rnPaid}}" onChange="{{togglePaid}}" style="width: 18px; height: 18px; accent-color: #6D00C2">Registrar el pago como recibido</label>
+        <span style="font-size: 12px; color: #B3B0BC">Queda en el historial del cliente. {{rn.extra}}</span>
+        <div style="display: flex; justify-content: flex-end; gap: 8px">
+          <button type="button" onClick="{{closeRenew}}" style="min-height: 40px; padding: 0 14px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; cursor: pointer">Cancelar</button>
+          <button type="button" onClick="{{doRenew}}" style="min-height: 40px; padding: 0 16px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-weight: 600; cursor: pointer">Renovar hasta {{rn.to}}</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{hasSvcForm}}" hint-placeholder-val="{{false}}">
+    <div style="position: fixed; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(0,0,0,0.6)">
+      <div role="dialog" aria-modal="true" aria-labelledby="h-svcform" style="width: 100%; max-width: 560px; box-sizing: border-box; display: flex; flex-direction: column; gap: 14px; padding: 22px; background: #151518; border: 1px solid rgba(255,255,255,0.14); border-radius: 12px; box-shadow: 0 30px 80px rgba(0,0,0,0.6)">
+        <div style="display: flex; justify-content: space-between; align-items: start; gap: 12px">
+          <h2 id="h-svcform" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 22px">{{fm.title}}</h2>
+          <button type="button" onClick="{{closeSvcForm}}" aria-label="Cerrar" style="flex: none; width: 36px; height: 36px; background: transparent; color: #B3B0BC; border: 0; border-radius: 4px; cursor: pointer; font-size: 20px">×</button>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 12px">
+          <div style="display: flex; flex-direction: column; gap: 4px"><label for="fm-type" style="font-size: 13px; font-weight: 600">Servicio</label><select id="fm-type" value="{{fm.type}}" onChange="{{fmSet.type}}" style="min-height: 40px; padding: 0 10px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px"><sc-for list="{{typeOpts}}" as="o" hint-placeholder-count="6"><option value="{{o}}">{{o}}</option></sc-for></select></div>
+          <div style="display: flex; flex-direction: column; gap: 4px"><label for="fm-desc" style="font-size: 13px; font-weight: 600">Detalle</label><input id="fm-desc" type="text" value="{{fm.desc}}" onChange="{{fmSet.desc}}" style="min-height: 40px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px"></div>
+          <div style="display: flex; flex-direction: column; gap: 4px"><label for="fm-start" style="font-size: 13px; font-weight: 600">Inicio (dd/mm/aaaa)</label><input id="fm-start" type="text" value="{{fm.start}}" onChange="{{fmSet.start}}" style="min-height: 40px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-variant-numeric: tabular-nums"></div>
+          <div style="display: flex; flex-direction: column; gap: 4px"><label for="fm-per" style="font-size: 13px; font-weight: 600">Periodicidad</label><select id="fm-per" value="{{fm.per}}" onChange="{{fmSet.per}}" style="min-height: 40px; padding: 0 10px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px"><option value="mensual">Mensual</option><option value="anual">Anual</option><option value="único">Único</option></select></div>
+          <div style="display: flex; flex-direction: column; gap: 4px"><label for="fm-ren" style="font-size: 13px; font-weight: 600">Renovación (dd/mm/aaaa)</label><input id="fm-ren" type="text" value="{{fm.ren}}" onChange="{{fmSet.ren}}" disabled="{{fm.isOnce}}" placeholder="no aplica" style="min-height: 40px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-variant-numeric: tabular-nums"></div>
+          <div style="display: flex; flex-direction: column; gap: 4px"><label for="fm-amount" style="font-size: 13px; font-weight: 600">Importe por periodo (COP)</label><input id="fm-amount" type="text" inputMode="numeric" value="{{fm.amount}}" onChange="{{fmSet.amount}}" style="min-height: 40px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-variant-numeric: tabular-nums"></div>
+          <div style="display: flex; flex-direction: column; gap: 4px"><label for="fm-state" style="font-size: 13px; font-weight: 600">Estado</label><select id="fm-state" value="{{fm.state}}" onChange="{{fmSet.state}}" style="min-height: 40px; padding: 0 10px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px"><option value="active">Activo</option><option value="cancelled">Cancelado</option><option value="done">Terminado</option></select></div>
+        </div>
+        <sc-if value="{{fm.hasError}}" hint-placeholder-val="{{false}}"><span role="alert" style="display: flex; gap: 8px; align-items: center; font-size: 13px; color: #FF8F9B"><svg width="11" height="11" viewBox="0 0 16 16" role="img" aria-label="Crítico"><path d="M8 1L15 8L8 15L1 8z" fill="#FF6B6B"></path></svg>{{fm.error}}</span></sc-if>
+        <span style="font-size: 12px; color: #B3B0BC">«Por renovar» y «Vencido» se calculan solos con la fecha de renovación. Si el servicio es «Soporte de agencia» y queda activo, se activan las copias quincenales de los sitios del cliente.</span>
+        <div style="display: flex; justify-content: flex-end; gap: 8px">
+          <button type="button" onClick="{{closeSvcForm}}" style="min-height: 40px; padding: 0 14px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; cursor: pointer">Cancelar</button>
+          <button type="button" onClick="{{saveSvcForm}}" style="min-height: 40px; padding: 0 16px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-weight: 600; cursor: pointer">{{fm.saveLabel}}</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{hasNote}}" hint-placeholder-val="{{false}}">
+    <div style="position: fixed; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(0,0,0,0.6)">
+      <div role="dialog" aria-modal="true" aria-labelledby="h-note" style="width: 100%; max-width: 500px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; padding: 22px; background: #151518; border: 1px solid rgba(255,255,255,0.14); border-radius: 12px; box-shadow: 0 30px 80px rgba(0,0,0,0.6)">
+        <div style="display: flex; justify-content: space-between; align-items: start; gap: 12px">
+          <h2 id="h-note" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 22px">Nueva nota · 4Bellú</h2>
+          <button type="button" onClick="{{closeNote}}" aria-label="Cerrar" style="flex: none; width: 36px; height: 36px; background: transparent; color: #B3B0BC; border: 0; border-radius: 4px; cursor: pointer; font-size: 20px">×</button>
+        </div>
+        <div role="group" aria-label="Tipo de nota" style="display: flex; flex-wrap: wrap; gap: 6px"><sc-for list="{{noteKinds}}" as="k" hint-placeholder-count="3"><button type="button" onClick="{{k.pick}}" aria-pressed="{{k.on}}" style="{{k.style}}">{{k.label}}</button></sc-for></div>
+        <label for="note-text" style="font-size: 13px; font-weight: 600">Nota</label>
+        <textarea id="note-text" rows="4" value="{{noteText}}" onChange="{{setNoteText}}" placeholder="Ej.: llamó Carolina, quiere cambiar los banners de la tienda antes del Black Friday." style="padding: 10px 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; resize: vertical"></textarea>
+        <label style="display: flex; gap: 10px; align-items: center; min-height: 36px; cursor: pointer"><input type="checkbox" checked="{{notePin}}" onChange="{{toggleNotePin}}" style="width: 18px; height: 18px; accent-color: #6D00C2">Fijar en el resumen del cliente</label>
+        <div style="display: flex; justify-content: flex-end; gap: 8px">
+          <button type="button" onClick="{{closeNote}}" style="min-height: 40px; padding: 0 14px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; cursor: pointer">Cancelar</button>
+          <button type="button" onClick="{{saveNote}}" disabled="{{cantSaveNote}}" style="{{saveNoteStyle}}">Guardar nota</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{hasToast}}" hint-placeholder-val="{{false}}">
+    <div role="status" style="position: fixed; top: 76px; right: 20px; z-index: 60; width: min(400px, calc(100% - 40px)); box-sizing: border-box; display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: #1D1B24; border: 1px solid rgba(91,228,155,0.4); border-radius: 10px; box-shadow: 0 20px 50px rgba(0,0,0,0.5)">
+      <svg width="14" height="14" viewBox="0 0 16 16" role="img" aria-label="Correcto" style="flex: none; margin-top: 4px"><path d="M8 2a6 6 0 1 1 0 12A6 6 0 0 1 8 2z" fill="#5BE49B"></path></svg>
+      <span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">{{toast.title}}</span><span style="font-size: 13px; color: #D8D4E2">{{toast.body}}</span></span>
+      <button type="button" onClick="{{closeToast}}" aria-label="Cerrar aviso" style="flex: none; width: 32px; height: 32px; background: transparent; color: #B3B0BC; border: 0; cursor: pointer; font-size: 18px">×</button>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1101}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { tab: 'servicios', svcFilter: 'all', histFilter: 'all',
+      services: [
+        { id: 's1', type: 'Soporte de agencia', desc: 'Mantenimiento, cambios menores y copias cada 15 días', start: '12/10/2025', per: 'mensual', ren: '12/10/2026', amount: 450000, state: 'active' },
+        { id: 's2', type: 'Hosting y dominio', desc: '4bellu.com · hosting en SeguriServer + dominio', start: '03/02/2024', per: 'anual', ren: '03/02/2027', amount: 1080000, state: 'active' },
+        { id: 's3', type: 'SEO mensual', desc: 'Contenido y posicionamiento de la tienda', start: '01/03/2026', per: 'mensual', ren: '01/11/2026', amount: 610000, state: 'active' },
+        { id: 's4', type: 'Correo corporativo', desc: '5 buzones en el dominio', start: '28/09/2024', per: 'anual', ren: '28/09/2026', amount: 520000, state: 'active' },
+        { id: 's5', type: 'Desarrollo de marca', desc: 'Logo, manual y empaques · entregado', start: '15/01/2025', per: 'único', ren: '', amount: 6800000, state: 'done' },
+        { id: 's6', type: 'Redes sociales', desc: 'Contenido y pauta en Instagram · cancelado el 30/06', start: '01/02/2026', per: 'mensual', ren: '01/07/2026', amount: 380000, state: 'cancelled' }
+      ],
+      extraHist: [], notes: [
+        { text: 'Quieren la pasarela Addi para diciembre. Cotizar en noviembre.', meta: 'Andrés · 06/10 · llamada' },
+        { text: 'Los cambios en la tienda los aprueba Carolina por WhatsApp, no por correo.', meta: 'Laura · 14/08 · nota' }
+      ],
+      renewId: null, rnAmount: '', rnPaid: true, form: null, noteOpen: false, noteKind: 'Llamada', noteText: '', notePin: true,
+      modalId: null, mode: 'code', code: '', pwd: '', verifiedAt: 0, verifiedTime: '', revealId: null, left: 0, copied: false, toast: null, reveals: 0 };
+    this.timer = null; this.leftNow = 0; this.clockN = 0;
+  }
+  stamp() { var m = 42 + this.clockN; this.clockN += 1; return '10:' + (m < 10 ? '0' : '') + m; }
+  componentWillUnmount() { if (this.timer) { clearInterval(this.timer); this.timer = null; } }
+  addHist(e) { this.setState({ extraHist: [e].concat(this.state.extraHist) }); }
+  startReveal(id, name, asked) {
+    var self = this;
+    var t = this.stamp();
+    var patch = { modalId: null, code: '', pwd: '', revealId: id, left: 30, copied: false, reveals: this.state.reveals + 1,
+      extraHist: [{ k: 'acceso', t: '07/10 ' + t, who: 'Tú', what: 'Vio la contraseña de ' + name, detail: ' · desde 181.xx.xx.xx' }].concat(this.state.extraHist),
+      toast: { kind: 'reveal', title: asked ? 'Contraseña visible durante 30 s' : 'Contraseña visible 30 s · sin pedir código (verificaste hace menos de 5 min)', body: 'Quedó registrado: tú, 07/10 ' + t + ', desde 181.xx.xx.xx' } };
+    if (asked) { patch.verifiedAt = Date.now(); patch.verifiedTime = t; }
+    this.setState(patch);
+    if (this.timer) clearInterval(this.timer);
+    this.leftNow = 30;
+    this.timer = setInterval(function () {
+      self.leftNow -= 1;
+      if (self.leftNow <= 0) {
+        clearInterval(self.timer); self.timer = null;
+        var tt = self.state.toast;
+        self.setState({ revealId: null, left: 0, copied: false, toast: tt && tt.kind === 'reveal' ? null : tt });
+      } else { self.setState({ left: self.leftNow }); }
+    }, 1000);
+  }
+  renderVals() {
+    var self = this, st = this.state;
+    var SH = { ok: 'M8 2a6 6 0 1 1 0 12A6 6 0 0 1 8 2z', warn: 'M8 1.5L15 14H1z', crit: 'M8 1L15 8L8 15L1 8z', none: 'M3 3h10v10H3z' };
+    var CO = { ok: '#5BE49B', warn: '#E0A93B', crit: '#FF6B6B', none: '#8E8A9B' };
+    var LB = { ok: 'Correcto', warn: 'Atención', crit: 'Crítico', none: 'Sin datos' };
+    function ic(k) { return { d: SH[k], fill: k === 'none' ? 'none' : CO[k], stroke: k === 'none' ? '#8E8A9B' : 'none', dash: k === 'none' ? '2 2' : '0', label: LB[k] }; }
+    function copyText(txt) { try { if (navigator.clipboard) { navigator.clipboard.writeText(txt).catch(function () {}); } } catch (e) {} }
+    var TODAY = new Date(2026, 9, 7);
+    function parseD(s) { var m = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/.exec(String(s || '').trim()); return m ? new Date(+m[3], +m[2] - 1, +m[1]) : null; }
+    function two(n) { return (n < 10 ? '0' : '') + n; }
+    function fmtFull(d) { return two(d.getDate()) + '/' + two(d.getMonth() + 1) + '/' + d.getFullYear(); }
+    function fmtShort(d) { return two(d.getDate()) + '/' + two(d.getMonth() + 1) + (d.getFullYear() !== 2026 ? '/' + d.getFullYear() : ''); }
+    function addPer(d, per) { var n = new Date(d.getTime()); if (per === 'mensual') n.setMonth(n.getMonth() + 1); else if (per === 'anual') n.setFullYear(n.getFullYear() + 1); return n; }
+    function days(d) { return Math.round((d.getTime() - TODAY.getTime()) / 86400000); }
+    function money(n) { return '$ ' + String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
+    function mill(n) { return '$ ' + (n / 1e6).toFixed(2).replace('.', ',') + ' M'; }
+    function mill1(n) { return '$ ' + (n / 1e6).toFixed(1).replace('.', ',') + ' M'; }
+    function digits(s) { return parseInt(String(s).replace(/\D/g, ''), 10) || 0; }
+
+    function svcStatus(s) {
+      if (s.state === 'cancelled') return { k: 'none', label: 'Cancelado', active: false, key: 'cancel' };
+      if (s.state === 'done') return { k: 'none', label: 'Terminado', active: false, key: 'cancel' };
+      var d = parseD(s.ren);
+      if (!d) return { k: 'ok', label: 'Activo', active: true, key: 'active' };
+      var n = days(d);
+      if (n < 0) return { k: 'crit', label: 'Vencido hace ' + (-n) + (n === -1 ? ' día' : ' días'), active: false, key: 'late' };
+      if (n <= 7) return { k: 'warn', label: n === 0 ? 'Por renovar hoy' : 'Por renovar en ' + n + (n === 1 ? ' día' : ' días'), active: true, key: 'soon' };
+      return { k: 'ok', label: 'Activo', active: true, key: 'active' };
+    }
+    function monthly(s) { return s.per === 'mensual' ? s.amount : s.per === 'anual' ? s.amount / 12 : 0; }
+
+    var svcs = st.services;
+    var activeSvcs = svcs.filter(function (s) { return svcStatus(s).active; });
+    var recurring = activeSvcs.reduce(function (a, s) { return a + monthly(s); }, 0);
+    var upcoming = activeSvcs.filter(function (s) { return parseD(s.ren); }).sort(function (a, b) { return parseD(a.ren) - parseD(b.ren); })[0];
+    var soonCount = svcs.filter(function (s) { return svcStatus(s).key === 'soon'; }).length;
+    var lateCount = svcs.filter(function (s) { return svcStatus(s).key === 'late'; }).length;
+
+    var svcFilterDefs = [{ id: 'all', label: 'Todos' }, { id: 'active', label: 'Activos' }, { id: 'attn', label: 'Por renovar o vencidos' }, { id: 'cancel', label: 'Cancelados y terminados' }];
+    var svcFilters = svcFilterDefs.map(function (f) {
+      var on = st.svcFilter === f.id;
+      return { label: f.label, on: on, pick: function () { self.setState({ svcFilter: f.id }); },
+        style: 'min-height: 36px; padding: 0 12px; border-radius: 999px; cursor: pointer; font-size: 13px; font-weight: 600; ' + (on ? 'background: #1A0B2B; color: #F4F2F8; border: 1px solid #C755EF;' : 'background: transparent; color: #B3B0BC; border: 1px solid rgba(255,255,255,0.16);') };
+    });
+    var svcRows = svcs.filter(function (s) {
+      var k = svcStatus(s).key;
+      if (st.svcFilter === 'active') return k === 'active' || k === 'soon';
+      if (st.svcFilter === 'attn') return k === 'soon' || k === 'late';
+      if (st.svcFilter === 'cancel') return k === 'cancel';
+      return true;
+    }).map(function (s) {
+      var stt = svcStatus(s), d = parseD(s.ren), canRenew = s.state === 'active' && s.per !== 'único';
+      var renNote = '';
+      if (s.state === 'cancelled') renNote = 'no se renueva';
+      else if (s.per === 'único') renNote = 'pago único';
+      else if (d) { var n = days(d); renNote = n < 0 ? 'hace ' + (-n) + ' días' : n === 0 ? 'hoy' : 'en ' + n + ' días'; }
+      return { name: s.type, desc: s.desc, start: fmtFull(parseD(s.start) || TODAY), per: s.per.charAt(0).toUpperCase() + s.per.slice(1),
+        ren: s.per === 'único' || s.state === 'cancelled' || !d ? '—' : fmtShort(d), renNote: renNote,
+        renStyle: 'font-weight: 600; font-variant-numeric: tabular-nums; color: ' + (stt.key === 'late' ? '#FF8F9B' : stt.key === 'soon' ? '#E0A93B' : '#F4F2F8') + ';',
+        amount: money(s.amount), amountNote: s.per === 'mensual' ? 'al mes' : s.per === 'anual' ? 'al año · ' + money(s.amount / 12) + '/mes' : 'único',
+        ic: ic(stt.k), status: stt.label, stStyle: 'font-weight: 600; color: ' + (stt.k === 'crit' ? '#FF8F9B' : stt.k === 'warn' ? '#E0A93B' : stt.k === 'ok' ? '#F4F2F8' : '#B3B0BC') + ';',
+        rowStyle: 'border-top: 1px solid rgba(255,255,255,0.06);' + (stt.key === 'soon' || stt.key === 'late' ? ' background: rgba(224,169,59,0.04);' : ''),
+        canRenew: canRenew,
+        renewStyle: 'min-height: 36px; padding: 0 12px; border-radius: 4px; font-weight: 600; cursor: pointer; ' + (stt.key === 'soon' || stt.key === 'late' ? 'background: #6D00C2; color: #FFFFFF; border: 0;' : 'background: transparent; color: #D98BFF; border: 1px solid rgba(217,139,255,0.4);'),
+        renew: function () { self.setState({ renewId: s.id, rnAmount: money(s.amount).replace('$ ', ''), rnPaid: true }); },
+        edit: function () { self.setState({ form: { id: s.id, type: s.type, desc: s.desc, start: s.start, per: s.per, ren: s.ren, amount: money(s.amount).replace('$ ', ''), state: s.state, error: '' } }); } };
+    });
+
+    var stats = [
+      { label: 'Servicios activos', value: String(activeSvcs.length), unit: '', note: (soonCount ? soonCount + ' por renovar' : 'ninguno por renovar') + (lateCount ? ' · ' + lateCount + ' vencido' : ''), k: lateCount ? 'crit' : soonCount ? 'warn' : 'ok', tab: 'servicios' },
+      { label: 'Facturación recurrente', value: mill(recurring), unit: '/mes', note: mill1(recurring * 12) + ' al año · ' + activeSvcs.length + ' servicios', k: 'ok', tab: 'servicios' },
+      { label: 'Próxima renovación', value: upcoming ? fmtShort(parseD(upcoming.ren)) : '—', unit: upcoming ? '· ' + upcoming.type : '', note: upcoming ? (function () { var n = days(parseD(upcoming.ren)); return (n === 0 ? 'hoy' : 'en ' + n + ' días') + ' · ' + money(upcoming.amount); })() : 'sin renovaciones', k: upcoming && days(parseD(upcoming.ren)) <= 7 ? 'warn' : 'ok', tab: 'servicios' },
+      { label: 'Sitios', value: '2', unit: '', note: '1 con atención: tienda lenta', k: 'warn', tab: 'sitios' },
+      { label: 'Accesos guardados', value: '14', unit: '', note: '3 sin verificar · 1 falló', k: 'warn', tab: 'accesos' }
+    ].map(function (k) { return { label: k.label, value: k.value, unit: k.unit, note: k.note, ic: ic(k.k), pick: function () { self.setState({ tab: k.tab }); } }; });
+
+    var tabDefs = [{ id: 'resumen', label: 'Resumen' }, { id: 'servicios', label: 'Servicios', count: svcs.length }, { id: 'accesos', label: 'Accesos', count: 14 }, { id: 'sitios', label: 'Sitios', count: 2 }, { id: 'ventas', label: 'Ventas', count: 3 }, { id: 'historial', label: 'Historial' }];
+    var tabs = tabDefs.map(function (t) {
+      var on = st.tab === t.id;
+      return { label: t.label, on: on, hasCount: t.count !== undefined, count: t.count, pick: function () { self.setState({ tab: t.id }); },
+        style: 'display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border: 0; border-radius: 6px; cursor: pointer; font-weight: 600; ' + (on ? 'background: #1A0B2B; color: #F4F2F8; box-shadow: inset 0 0 0 1px rgba(199,85,239,0.45);' : 'background: transparent; color: #B3B0BC;'),
+        badgeStyle: 'padding: 0 7px; border-radius: 999px; font-size: 12px; font-variant-numeric: tabular-nums; ' + (on ? 'background: rgba(199,85,239,0.22); color: #F0D4FF;' : 'background: rgba(255,255,255,0.08); color: #B3B0BC;') };
+    });
+
+    // Accesos (los mismos de la bóveda)
+    var ACC = [
+      { id: 'c1', name: 'cPanel · 4bellu.com', tipo: 'cPanel', url: 'https://4bellu.com:2083', user: 'admin_ejemplo', pass: 'Ej3mplo-no-real-26', v: 'ok', vt: 'Verificado 02/10 por Laura ✓', o: 'excel' },
+      { id: 'c2', name: 'WordPress · 4bellu.com', tipo: 'WordPress', url: 'https://4bellu.com/wp-admin', user: 'dk_soporte_ejemplo', pass: 'Ej3mplo-wp-no-real', v: 'ok', vt: 'Verificado 02/10 por Laura ✓', o: 'admin' },
+      { id: 'c3', name: 'WordPress · tienda.4bellu.com', tipo: 'WordPress', url: 'https://tienda.4bellu.com/wp-admin', user: 'admin_ejemplo', pass: 'Ej3mplo-tienda-26', v: 'none', vt: 'Sin verificar', o: 'excel' },
+      { id: 'c4', name: 'Dominio · 4bellu.com', tipo: 'Dominio', url: 'https://registrador.ejemplo.com', user: 'cliente_4bellu_ejemplo', pass: 'Ej3mplo-dominio-26', v: 'crit', vt: 'Falló 28/09', o: 'excel' },
+      { id: 'c11', name: 'Correo corporativo · 4Bellú', tipo: 'Correo', url: 'https://correo.ejemplo.com', user: 'gerencia@ejemplo.com', pass: 'Ej3mplo-correo-4b-26', v: 'none', vt: 'Sin verificar', o: 'excel' },
+      { id: 'c5', name: 'Meta Business · 4Bellú', tipo: 'Meta Business', url: 'https://business.facebook.com', user: 'pauta@ejemplo.com', pass: 'Ej3mplo-meta-26', v: 'ok', vt: 'Verificado 30/09 por Andrés ✓', o: 'excel' },
+      { id: 'c6', name: 'Google Ads · 4Bellú', tipo: 'Google Ads', url: 'https://ads.google.com', user: 'ads@ejemplo.com', pass: 'Ej3mplo-ads-26', v: 'none', vt: 'Sin verificar', o: 'excel' },
+      { id: 'c12', name: 'FTP · tienda.4bellu.com', tipo: 'FTP', url: 'ftp://ftp.ejemplo.com', user: 'tienda_ejemplo', pass: 'Ej3mplo-ftp-4b-26', v: 'ok', vt: 'Verificado 02/10 por Laura ✓', o: 'admin' }
+    ];
+    function ver(a) {
+      if (st.verifiedAt && Date.now() - st.verifiedAt < 300000) { self.startReveal(a.id, a.name, false); }
+      else { self.setState({ modalId: a.id, code: '', pwd: '', mode: 'code' }); }
+    }
+    var accRows = ACC.map(function (a) {
+      var shown = st.revealId === a.id;
+      return { name: a.name, tipo: a.tipo, url: a.url, user: a.user, pass: a.pass, shown: shown, hidden: !shown,
+        vic: ic(a.v), verText: a.vt, verStyle: 'color: ' + (a.v === 'crit' ? '#FF8F9B' : a.v === 'ok' ? '#F4F2F8' : '#D8D4E2') + '; white-space: nowrap;',
+        origin: a.o === 'excel' ? 'Excel · sin rotar' : 'Creada en el admin',
+        oriStyle: 'display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 12px; white-space: nowrap; ' + (a.o === 'excel' ? 'background: rgba(224,169,59,0.1); color: #E8C27A; border: 1px solid rgba(224,169,59,0.3);' : 'background: rgba(255,255,255,0.06); color: #D8D4E2; border: 1px solid rgba(255,255,255,0.12);'),
+        rowStyle: 'border-top: 1px solid rgba(255,255,255,0.06);' + (shown ? ' background: #1A0B2B;' : ''),
+        ver: function () { ver(a); }, copyPass: function () { copyText(a.pass); self.setState({ copied: true }); },
+        copyUser: function () { copyText(a.user); self.setState({ toast: { kind: 'info', title: 'Usuario copiado', body: a.user + ' · copiar el usuario no pide código.' } }); } };
+    });
+    var md = ACC.filter(function (a) { return a.id === st.modalId; })[0];
+    var codeOk = /^\d{6}$/.test(st.code), pwdOk = st.pwd.length >= 6;
+    var canConfirm = st.mode === 'code' ? codeOk : pwdOk;
+    var doConfirm = function () { if (canConfirm && md) { self.startReveal(md.id, md.name, true); } };
+    var vt = st.verifiedTime || '10:42';
+    var untilMin = parseInt(vt.split(':')[1], 10) + 5;
+
+    var sites = [
+      { domain: '4bellu.com', platform: 'WordPress · sitio principal', sic: ic('ok'), state: 'Arriba', stateNote: '99,98 % en 30 días', ssl: 'SSL vence en 74 días', sslStyle: 'color: #F4F2F8;', dom: 'Dominio vence 03/02/2027', bic: ic('ok'), backup: '04/10 · 2,1 GB', backupNote: 'próxima 19/10 · 6 copias guardadas' },
+      { domain: 'tienda.4bellu.com', platform: 'WordPress + WooCommerce', sic: ic('warn'), state: 'Lento', stateNote: 'responde en 3,1 s', ssl: 'SSL vence en 12 días', sslStyle: 'color: #E0A93B; font-weight: 600;', dom: 'Subdominio de 4bellu.com', bic: ic('ok'), backup: '05/10 · 1,2 GB', backupNote: 'se repitió tras fallar el 04/10' }
+    ];
+    var sales = [
+      { code: 'COT-0144', what: 'Pasarela Addi + catálogo para mayoristas', kind: 'Cotización · v1 · vista 2 veces', origin: 'Llamada (L-0311)', stage: 'Enviada', s: 'open', value: '$ 3,2–4,1 M', date: '03/10' },
+      { code: 'L-0311', what: 'Quiere pagar con Addi en diciembre', kind: 'Lead · convertido en COT-0144', origin: 'WhatsApp', stage: 'En conversación', s: 'open', value: '—', date: '02/10' },
+      { code: 'COT-0118', what: 'SEO mensual · 6 meses', kind: 'Cotización · se volvió el servicio SEO mensual', origin: 'Manual', stage: 'Aceptada', s: 'won', value: '$ 610.000/mes', date: '20/02' }
+    ].map(function (v) { v.stageStyle = 'display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap; ' + (v.s === 'won' ? 'background: rgba(91,228,155,0.1); color: #5BE49B;' : 'background: rgba(199,85,239,0.14); color: #D98BFF;'); return v; });
+
+    var IC = {
+      servicio: 'M4 12a8 8 0 0 1 14-5.3M20 4v5h-5M20 12a8 8 0 0 1-14 5.3M4 20v-5h5',
+      acceso: 'M8 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM12 12h9M18 12v3M21 12v3',
+      nota: 'M4 5h16v11H9l-5 4z',
+      copia: 'M12 3c4.4 0 8 1.3 8 3v12c0 1.7-3.6 3-8 3s-8-1.3-8-3V6c0-1.7 3.6-3 8-3zM4 6c0 1.7 3.6 3 8 3s8-1.3 8-3M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3',
+      venta: 'M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h5'
+    };
+    var baseHist = [
+      { k: 'acceso', t: '07/10 09:15', who: 'Laura', what: 'Vio la contraseña de cPanel · 4bellu.com', detail: ' · desde 181.xx.xx.xx' },
+      { k: 'nota', t: '06/10 16:40', who: 'Andrés', what: 'Nota de llamada: quieren la pasarela Addi para diciembre', detail: ' · fijada en el resumen' },
+      { k: 'copia', t: '05/10 03:20', who: 'Sistema', what: 'Copia de tienda.4bellu.com resuelta', detail: ' · se repitió a mano y quedó en R2 (1,2 GB)', tag: 'resuelta', tk: 'ok' },
+      { k: 'copia', t: '04/10 03:10', who: 'Sistema', what: 'Copia de tienda.4bellu.com fallida', detail: ' · UpdraftPlus no pudo subir a R2 (tiempo agotado)', tag: 'falló', tk: 'crit' },
+      { k: 'venta', t: '03/10 11:30', who: 'Andrés', what: 'Envió la cotización COT-0144', detail: ' · pasarela Addi + catálogo mayoristas' },
+      { k: 'acceso', t: '02/10 15:24', who: 'Laura', what: 'Verificó WordPress · 4bellu.com: funciona', detail: '' },
+      { k: 'acceso', t: '28/09 11:05', who: 'Laura', what: 'Marcó Dominio · 4bellu.com como «No funciona»', detail: ' · contraseña rechazada', tag: 'falló', tk: 'crit' },
+      { k: 'servicio', t: '12/09 10:30', who: 'Tú', what: 'Renovó Soporte de agencia hasta 12/10', detail: ' · $ 450.000 · pago recibido' },
+      { k: 'acceso', t: '12/09 10:02', who: 'Tú', what: 'Importó 14 accesos desde Excel', detail: ' · marcados «Excel · sin rotar» · el registro no guarda valores' },
+      { k: 'venta', t: '20/02 17:45', who: 'Andrés', what: 'Cotización COT-0118 aceptada', detail: ' · se creó el servicio SEO mensual' }
+    ];
+    function histItem(e) {
+      return { icon: IC[e.k], t: e.t, who: e.who, what: e.what, detail: e.detail || '', hasTag: !!e.tag, tag: e.tag || '', tic: ic(e.tk || 'ok'),
+        tagStyle: 'display: inline-flex; align-items: center; gap: 5px; padding: 0 8px; border-radius: 999px; font-size: 12px; font-weight: 600; ' + (e.tk === 'crit' ? 'background: rgba(255,107,107,0.12); color: #FF8F9B;' : 'background: rgba(91,228,155,0.1); color: #5BE49B;') };
+    }
+    var allHist = st.extraHist.concat(baseHist);
+    var histFilterDefs = [{ id: 'all', label: 'Todo' }, { id: 'servicio', label: 'Servicios' }, { id: 'acceso', label: 'Accesos' }, { id: 'nota', label: 'Notas' }, { id: 'copia', label: 'Copias' }, { id: 'venta', label: 'Ventas' }];
+    var histFilters = histFilterDefs.map(function (f) {
+      var on = st.histFilter === f.id;
+      return { label: f.label, on: on, pick: function () { self.setState({ histFilter: f.id }); },
+        style: 'min-height: 36px; padding: 0 12px; border-radius: 999px; cursor: pointer; font-size: 13px; font-weight: 600; ' + (on ? 'background: #1A0B2B; color: #F4F2F8; border: 1px solid #C755EF;' : 'background: transparent; color: #B3B0BC; border: 1px solid rgba(255,255,255,0.16);') };
+    });
+    var histAll = allHist.filter(function (e) { return st.histFilter === 'all' || e.k === st.histFilter; }).map(histItem);
+    var histRecent = allHist.slice(0, 4).map(histItem);
+
+    // Renovar
+    var rs = svcs.filter(function (s) { return s.id === st.renewId; })[0];
+    var rn = { name: '', per: '', from: '', to: '', extra: '' };
+    var rnTo = null;
+    if (rs) {
+      var cur = parseD(rs.ren) || TODAY;
+      var base = cur < TODAY && rs.per === 'anual' ? cur : cur;
+      rnTo = addPer(base, rs.per);
+      rn = { name: rs.type, per: rs.per, from: fmtFull(cur), to: fmtFull(rnTo), extra: rs.type === 'Soporte de agencia' ? 'Las copias cada 15 días siguen activas.' : '' };
+    }
+    var doRenew = function () {
+      if (!rs || !rnTo) return;
+      var amt = digits(st.rnAmount) || rs.amount;
+      var list = svcs.map(function (s) { return s.id === rs.id ? Object.assign({}, s, { ren: fmtFull(rnTo), amount: amt, state: 'active' }) : s; });
+      self.setState({ services: list, renewId: null,
+        extraHist: [{ k: 'servicio', t: '07/10 ' + self.stamp(), who: 'Tú', what: 'Renovó ' + rs.type + ' hasta ' + fmtShort(rnTo), detail: ' · ' + money(amt) + (st.rnPaid ? ' · pago recibido' : ' · pago pendiente') }].concat(st.extraHist),
+        toast: { kind: 'info', title: rs.type + ' renovado hasta ' + fmtShort(rnTo), body: 'Quedó en el historial del cliente.' } });
+    };
+
+    // Formulario de servicio (nuevo / editar)
+    var f = st.form;
+    var fm = { title: '', type: '', desc: '', start: '', per: 'mensual', ren: '', amount: '', state: 'active', isOnce: false, hasError: false, error: '', saveLabel: 'Guardar' };
+    var fmSet = {};
+    if (f) {
+      fm = { title: f.id ? 'Editar · ' + f.type : 'Nuevo servicio para 4Bellú', type: f.type, desc: f.desc, start: f.start, per: f.per, ren: f.per === 'único' ? '' : f.ren, amount: f.amount, state: f.state, isOnce: f.per === 'único', hasError: !!f.error, error: f.error, saveLabel: f.id ? 'Guardar cambios' : 'Crear servicio' };
+      ['type', 'desc', 'start', 'per', 'ren', 'amount', 'state'].forEach(function (key) {
+        fmSet[key] = function (ev) {
+          var patch = {}; patch[key] = ev.target.value; patch.error = '';
+          var nf = Object.assign({}, st.form, patch);
+          if (key === 'start' || key === 'per') { var sd = parseD(nf.start); if (sd && nf.per !== 'único' && !f.id) nf.ren = fmtFull(addPer(sd, nf.per)); }
+          if (key === 'per' && ev.target.value === 'único' && nf.state === 'active') nf.state = 'active';
+          self.setState({ form: nf });
+        };
+      });
+    }
+    var saveSvcForm = function () {
+      if (!f) return;
+      if (!parseD(f.start)) { self.setState({ form: Object.assign({}, f, { error: 'La fecha de inicio debe ir como dd/mm/aaaa.' }) }); return; }
+      if (f.per !== 'único' && !parseD(f.ren)) { self.setState({ form: Object.assign({}, f, { error: 'La fecha de renovación debe ir como dd/mm/aaaa.' }) }); return; }
+      if (!digits(f.amount)) { self.setState({ form: Object.assign({}, f, { error: 'Escribe el importe en pesos.' }) }); return; }
+      var rec = { type: f.type, desc: f.desc, start: f.start, per: f.per, ren: f.per === 'único' ? '' : f.ren, amount: digits(f.amount), state: f.per === 'único' && f.state === 'active' ? 'done' : f.state };
+      var list, hist;
+      if (f.id) { list = svcs.map(function (s) { return s.id === f.id ? Object.assign({}, s, rec) : s; }); hist = { k: 'servicio', t: '07/10 ' + self.stamp(), who: 'Tú', what: 'Editó el servicio ' + f.type, detail: '' }; }
+      else { list = svcs.concat([Object.assign({ id: 'n' + (svcs.length + 1) }, rec)]); hist = { k: 'servicio', t: '07/10 ' + self.stamp(), who: 'Tú', what: 'Creó el servicio ' + f.type, detail: ' · ' + money(rec.amount) + ' ' + f.per }; }
+      self.setState({ services: list, form: null, tab: 'servicios', svcFilter: 'all', extraHist: [hist].concat(st.extraHist), toast: { kind: 'info', title: f.id ? 'Servicio actualizado' : 'Servicio creado', body: 'Quedó en el historial del cliente.' } });
+    };
+
+    // Nota
+    var noteKinds = ['Llamada', 'Nota', 'WhatsApp'].map(function (k) {
+      var on = st.noteKind === k;
+      return { label: k, on: on, pick: function () { self.setState({ noteKind: k }); },
+        style: 'min-height: 36px; padding: 0 12px; border-radius: 999px; cursor: pointer; font-weight: 600; ' + (on ? 'background: #6D00C2; color: #FFFFFF; border: 1px solid #6D00C2;' : 'background: transparent; color: #D8D4E2; border: 1px solid rgba(255,255,255,0.22);') };
+    });
+    var canNote = st.noteText.trim().length > 3;
+    var pinned = st.notes;
+
+    var nextRenewText = upcoming ? fmtShort(parseD(upcoming.ren)) + ' · ' + upcoming.type + ' · ' + money(upcoming.amount) : 'sin renovaciones';
+
+    return {
+      stats: stats, tabs: tabs,
+      tabResumen: st.tab === 'resumen', tabServicios: st.tab === 'servicios', tabAccesos: st.tab === 'accesos', tabSitios: st.tab === 'sitios', tabVentas: st.tab === 'ventas', tabHistorial: st.tab === 'historial',
+      goSitios: function () { self.setState({ tab: 'sitios' }); }, goHistorial: function () { self.setState({ tab: 'historial' }); },
+      svcFilters: svcFilters, svcRows: svcRows,
+      recurringFull: money(recurring), recurringYear: mill1(recurring * 12),
+      svcFootNote: activeSvcs.length + ' servicios activos · los anuales se cuentan como su importe ÷ 12 · vencidos, cancelados y únicos no suman',
+      accRows: accRows, left: st.left, copyLabel: st.copied ? 'Copiada' : 'Copiar',
+      isVerified: !!(st.verifiedAt && Date.now() - st.verifiedAt < 300000), verifiedTime: vt, verifiedUntil: '10:' + (untilMin < 10 ? '0' : '') + untilMin,
+      forget: function () { self.setState({ verifiedAt: 0 }); },
+      sites: sites, sales: sales, histFilters: histFilters, histAll: histAll, histRecent: histRecent, pinned: pinned, nextRenewText: nextRenewText,
+      hasModal: !!md, mName: md ? md.name : '',
+      isCodeMode: st.mode === 'code', isPwdMode: st.mode === 'pwd',
+      modeText: st.mode === 'code' ? 'Escribe el código de 6 dígitos de tu app autenticadora.' : 'Escribe la contraseña con la que entras al admin.',
+      toggleLabel: st.mode === 'code' ? 'Usar mi contraseña' : 'Usar el código de la app',
+      toggleMode: function () { self.setState({ mode: st.mode === 'code' ? 'pwd' : 'code', code: '', pwd: '' }); },
+      code: st.code, setCode: function (ev) { self.setState({ code: String(ev.target.value).replace(/\D/g, '').slice(0, 6) }); },
+      pwd: st.pwd, setPwd: function (ev) { self.setState({ pwd: ev.target.value }); },
+      enterKey: function (ev) { if (ev.key === 'Enter') doConfirm(); },
+      cantConfirm: !canConfirm, confirm: doConfirm,
+      confirmStyle: 'min-height: 40px; padding: 0 16px; border-radius: 4px; font-weight: 600; ' + (canConfirm ? 'background: #6D00C2; color: #FFFFFF; border: 0; cursor: pointer;' : 'background: #2A2733; color: #8E8A9B; border: 0; cursor: not-allowed;'),
+      closeModal: function () { self.setState({ modalId: null, code: '', pwd: '' }); },
+      hasRenew: !!rs, rn: rn, rnAmount: st.rnAmount, setRnAmount: function (ev) { self.setState({ rnAmount: ev.target.value }); },
+      rnPaid: st.rnPaid, togglePaid: function () { self.setState({ rnPaid: !st.rnPaid }); },
+      closeRenew: function () { self.setState({ renewId: null }); }, doRenew: doRenew,
+      hasSvcForm: !!f, fm: fm, fmSet: fmSet, typeOpts: ['Soporte de agencia', 'Hosting y dominio', 'SEO mensual', 'Redes sociales', 'Correo corporativo', 'Desarrollo de marca', 'Desarrollo web'],
+      openNewService: function () { self.setState({ form: { id: null, type: 'Desarrollo web', desc: 'Pasarela Addi + catálogo para mayoristas', start: '07/10/2026', per: 'único', ren: '', amount: '3.650.000', state: 'active', error: '' } }); },
+      closeSvcForm: function () { self.setState({ form: null }); }, saveSvcForm: saveSvcForm,
+      openEditClient: function () { self.setState({ toast: { kind: 'info', title: 'Editar cliente', body: 'Abre el formulario estándar de Filament: nombre, NIT, estado, contactos y notas.' } }); },
+      hasNote: st.noteOpen, openNote: function () { self.setState({ noteOpen: true, noteText: '', notePin: true, noteKind: 'Llamada' }); }, closeNote: function () { self.setState({ noteOpen: false }); },
+      noteKinds: noteKinds, noteText: st.noteText, setNoteText: function (ev) { self.setState({ noteText: ev.target.value }); },
+      notePin: st.notePin, toggleNotePin: function () { self.setState({ notePin: !st.notePin }); },
+      cantSaveNote: !canNote,
+      saveNoteStyle: 'min-height: 40px; padding: 0 16px; border-radius: 4px; font-weight: 600; ' + (canNote ? 'background: #6D00C2; color: #FFFFFF; border: 0; cursor: pointer;' : 'background: #2A2733; color: #8E8A9B; border: 0; cursor: not-allowed;'),
+      saveNote: function () {
+        if (!canNote) return;
+        var txt = st.noteText.trim();
+        self.setState({ noteOpen: false, notes: st.notePin ? [{ text: txt, meta: 'Tú · 07/10 · ' + st.noteKind.toLowerCase() }].concat(st.notes) : st.notes,
+          extraHist: [{ k: 'nota', t: '07/10 ' + self.stamp(), who: 'Tú', what: (st.noteKind === 'Nota' ? 'Nota: ' : 'Nota de ' + st.noteKind.toLowerCase() + ': ') + txt, detail: st.notePin ? ' · fijada en el resumen' : '' }].concat(st.extraHist),
+          toast: { kind: 'info', title: 'Nota guardada', body: st.notePin ? 'Quedó fijada en el resumen y en el historial.' : 'Quedó en el historial.' } });
+      },
+      hasToast: !!st.toast, toast: st.toast || { title: '', body: '' }, closeToast: function () { self.setState({ toast: null }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

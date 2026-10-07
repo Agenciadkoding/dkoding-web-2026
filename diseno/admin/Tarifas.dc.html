@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Tarifas del cotizador</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Blinker:wght@300;600;700&amp;family=Barlow:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#0C0C0C}
+a{color:#D98BFF;text-decoration:none}a:hover{color:#F0D4FF}
+button,input{font:inherit}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid #D98BFF;outline-offset:2px}
+.dk-nav a:hover{background:#17161C;color:#F4F2F8}
+input[type=number]::-webkit-inner-spin-button{opacity:0.4}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; min-height: 100%; background: #0C0C0C; color: #F4F2F8; font-family: 'Barlow', system-ui, sans-serif; font-size: 14px; line-height: 1.5">
+
+  <header style="border-bottom: 1px solid rgba(255,255,255,0.08); background: #101013">
+    <div style="padding: 10px 20px; display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center">
+      <a href="Main.dc.html" aria-label="DKODING, inicio del admin" style="display: flex; align-items: center; min-height: 40px"><img src="/_blob/af8d4aea91012d3a301c737f7fa02819" alt="DKODING" style="height: 26px; width: auto"></a>
+      <span style="padding: 3px 10px; border-radius: 999px; background: rgba(199,85,239,0.14); color: #D98BFF; font-size: 12px; font-weight: 600">Admin</span>
+      <div style="flex: 1 1 260px; display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 12px; background: #0C0C0C; border: 1px solid rgba(255,255,255,0.14); border-radius: 6px; max-width: 560px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B3B0BC" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg><label for="g-search" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Buscar en el admin</label><input id="g-search" type="text" placeholder="Buscar cliente, lead, cotización o acceso" style="flex: 1; min-width: 0; background: transparent; border: 0; color: #F4F2F8; outline: none"><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 2px 6px; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; color: #B3B0BC">Ctrl K</kbd></div>
+      <div style="display: flex; align-items: center; gap: 8px; margin-left: auto"><a href="Main.dc.html" aria-label="Avisos: 1 sitio caído, 3 de atención" style="position: relative; display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 6px; color: #F4F2F8"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10 21h4"></path></svg><span aria-hidden="true" style="position: absolute; top: 4px; right: 3px; min-width: 16px; height: 16px; padding: 0 4px; box-sizing: border-box; border-radius: 999px; background: #FF6B6B; color: #0C0C0C; font-size: 11px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center">4</span></a><img src="/_blob/c1f4c9d27736f1652e876e2f660320ef" alt="Tu cuenta: Dirección" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 2px solid #3D0A6E"></div>
+    </div>
+  </header>
+
+  <div style="display: flex; flex-wrap: wrap; align-items: flex-start">
+    <nav class="dk-nav" aria-label="Módulos" style="flex: 1 1 232px; max-width: 260px; box-sizing: border-box; padding: 14px 10px 24px; background: #101013; border-right: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; gap: 2px; font-size: 14px">
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Inicio</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Sitio dkoding.net</span>
+      <a href="Paginas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Páginas</a>
+      <a href="Paginas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Redirecciones</a>
+      <a href="Paginas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Palabras clave</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">CRM</span>
+      <a href="Cliente.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Clientes</a>
+      <a href="Cotizaciones.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Leads<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(224,169,59,0.16); color: #E0A93B; font-size: 12px; font-weight: 600">2</span></a>
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Renovaciones</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Accesos</span>
+      <a href="Boveda.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Personales</a>
+      <a href="Boveda.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Agencia</a>
+      <a href="Boveda.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Clientes</a>
+      <a href="ImportarAccesos.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Importar Excel</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Ventas</span>
+      <a href="Cotizaciones.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Cotizaciones</a>
+      <a href="Tarifas.dc.html" aria-current="page" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #F4F2F8; background: #1A0B2B; font-weight: 600"><span aria-hidden="true" style="width: 14px; color: #C755EF; font-family: 'Blinker', sans-serif; font-weight: 700">»</span>Tarifas</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Salud</span>
+      <a href="Sitios.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Sitios<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(255,107,107,0.16); color: #FF8F9B; font-size: 12px; font-weight: 600">1</span></a>
+      <a href="Sitios.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Copias<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(224,169,59,0.16); color: #E0A93B; font-size: 12px; font-weight: 600">1</span></a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Ajustes</span>
+      <a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Usuarios y roles</a>
+      <a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Conexiones</a>
+      <a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Registro</a>
+      <span style="font-size: 12px; color: #8E8A9B; padding: 16px 10px 0">MVP simple. Lo que no se usa todavía no aparece en el menú.</span>
+    </nav>
+
+    <main id="tarifas" style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 24px 28px 48px; display: flex; flex-direction: column; gap: 18px">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <nav aria-label="Ruta" style="font-size: 13px; color: #B3B0BC">Ventas</nav>
+          <h1 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 30px; line-height: 1.1">Tarifas del cotizador</h1>
+          <span style="color: #B3B0BC">Lo que cambies aquí no toca las cotizaciones ya enviadas: cada una guarda su versión.</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+          <span style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 12px; border: 1px solid rgba(255,255,255,0.18); border-radius: 6px"><span style="color: #B3B0BC">Publicada</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px">2026-10</span></span>
+          <span style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 12px; background: #1A0B2B; border: 1px solid rgba(199,85,239,0.55); border-radius: 6px"><span style="color: #D98BFF; font-weight: 600">Editando borrador</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px">2026-11</span></span>
+          <button type="button" onClick="{{publish}}" style="min-height: 40px; padding: 0 16px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-weight: 600; cursor: pointer">{{publishLabel}}</button>
+        </div>
+      </div>
+
+      <div role="tablist" aria-label="Secciones del cotizador" style="display: flex; flex-wrap: wrap; gap: 4px; border-bottom: 1px solid rgba(255,255,255,0.1)">
+        <sc-for list="{{tabs}}" as="t" hint-placeholder-count="7"><button type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}" style="{{t.style}}">{{t.label}}</button></sc-for>
+      </div>
+
+      <sc-if value="{{isRoles}}" hint-placeholder-val="{{true}}">
+        <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+          <section aria-labelledby="h-roles" style="flex: 999 1 520px; min-width: 0; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; padding: 14px 16px"><h2 id="h-roles" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">Tarifa por rol · COP por hora</h2><span style="font-size: 13px; color: #B3B0BC">IVA 19 % aparte · buffer 15 % · mínimo $ 1.500.000</span></div>
+            <div style="overflow-x: auto">
+              <table style="width: 100%; min-width: 560px; border-collapse: collapse">
+                <thead><tr style="color: #B3B0BC; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; text-align: left"><th scope="col" style="padding: 8px 16px; font-weight: 600">Rol</th><th scope="col" style="padding: 8px; font-weight: 600; text-align: right">Publicada</th><th scope="col" style="padding: 8px; font-weight: 600">Borrador</th><th scope="col" style="padding: 8px 16px 8px 8px; font-weight: 600; text-align: right">Cambio</th></tr></thead>
+                <tbody>
+                  <sc-for list="{{roles}}" as="r" hint-placeholder-count="6">
+                    <tr style="border-top: 1px solid rgba(255,255,255,0.06)">
+                      <td style="padding: 8px 16px"><span style="display: flex; flex-direction: column"><label for="{{r.inputId}}" style="font-weight: 600">{{r.label}}</label><span style="font-size: 12px; color: #B3B0BC">{{r.hint}}</span></span></td>
+                      <td style="padding: 8px; text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #B3B0BC">{{r.pubFmt}}</td>
+                      <td style="padding: 8px"><input id="{{r.inputId}}" type="number" step="5000" min="0" value="{{r.draft}}" onChange="{{r.set}}" style="width: 130px; min-height: 36px; padding: 0 10px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 13px; text-align: right"></td>
+                      <td style="padding: 8px 16px 8px 8px; text-align: right"><span style="{{r.deltaStyle}}">{{r.delta}}</span></td>
+                    </tr>
+                  </sc-for>
+                </tbody>
+              </table>
+            </div>
+            <div style="padding: 12px 16px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 13px; color: #B3B0BC">Las horas por primitiva y la distribución por rol viven en la pestaña Primitivas. Cambiar una tarifa recalcula todos los bloques que usan ese rol.</div>
+          </section>
+
+          <aside aria-labelledby="h-sim" style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 18px; background: #151518; border: 1px solid rgba(199,85,239,0.35); border-radius: 10px">
+            <h2 id="h-sim" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">Simulador</h2>
+            <div role="group" aria-label="Proyecto de ejemplo" style="display: flex; flex-wrap: wrap; gap: 6px"><sc-for list="{{presets}}" as="p" hint-placeholder-count="3"><button type="button" onClick="{{p.pick}}" aria-pressed="{{p.on}}" style="{{p.style}}">{{p.label}}</button></sc-for></div>
+            <span style="font-size: 13px; color: #B3B0BC">{{presetDesc}}</span>
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+              <div style="display: flex; flex-direction: column; gap: 4px; padding: 12px; background: #0F0F11; border-radius: 8px"><span style="font-size: 12px; color: #B3B0BC">Con la publicada</span><span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px; line-height: 1.15; font-variant-numeric: tabular-nums">{{pubRange}}</span></div>
+              <div style="display: flex; flex-direction: column; gap: 4px; padding: 12px; background: #1A0B2B; border: 1px solid rgba(199,85,239,0.45); border-radius: 8px"><span style="font-size: 12px; color: #D98BFF">Con el borrador</span><span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px; line-height: 1.15; font-variant-numeric: tabular-nums">{{draftRange}}</span></div>
+            </div>
+            <span style="{{simDeltaStyle}}">{{simDelta}}</span>
+            <div style="display: flex; flex-direction: column; gap: 4px; padding: 12px; border: 1px dashed rgba(255,255,255,0.2); border-radius: 8px"><span style="font-size: 12px; color: #B3B0BC">Precio público hoy en dkoding.net</span><span style="font-weight: 600">{{refPrice}}</span><span style="font-size: 12px; color: #E0A93B">{{refGap}}</span></div>
+            <details style="font-size: 13px; color: #D8D4E2"><summary style="cursor: pointer; min-height: 28px; font-weight: 600">Cómo se calcula</summary><p style="margin: 8px 0 0">Horas por rol × tarifa × nivel de diseño. Mínimo = base × 0,90; máximo = base × 1,15 (buffer). Más extras fijos de $ 430.000 (dominio y hosting del primer año). Redondeo a $ 50.000. Valores antes de IVA.</p></details>
+          </aside>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{isRolesNot}}" hint-placeholder-val="{{false}}">
+        <section style="display: flex; flex-direction: column; gap: 8px; padding: 24px; background: #151518; border: 1px dashed rgba(255,255,255,0.18); border-radius: 10px">
+          <span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">{{otherTitle}}</span>
+          <span style="color: #B3B0BC; max-width: 680px">{{otherDesc}}</span>
+        </section>
+      </sc-if>
+
+      <section aria-labelledby="h-cal" style="background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; padding: 14px 16px"><h2 id="h-cal" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">Calibración: horas estimadas frente a reales</h2><span style="font-size: 13px; color: #B3B0BC">proyectos cerrados en el último trimestre · objetivo ±15 %</span></div>
+        <div style="overflow-x: auto">
+          <table style="width: 100%; min-width: 620px; border-collapse: collapse">
+            <thead><tr style="color: #B3B0BC; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; text-align: left"><th scope="col" style="padding: 8px 16px; font-weight: 600">Proyecto</th><th scope="col" style="padding: 8px; font-weight: 600; text-align: right">Estimadas</th><th scope="col" style="padding: 8px; font-weight: 600; text-align: right">Reales</th><th scope="col" style="padding: 8px; font-weight: 600; text-align: right">Desviación</th><th scope="col" style="padding: 8px 16px 8px 8px; font-weight: 600">Dónde se fue el tiempo</th></tr></thead>
+            <tbody><sc-for list="{{calib}}" as="c" hint-placeholder-count="4"><tr style="border-top: 1px solid rgba(255,255,255,0.06)"><td style="padding: 8px 16px">{{c.p}}</td><td style="padding: 8px; text-align: right; font-variant-numeric: tabular-nums">{{c.e}}</td><td style="padding: 8px; text-align: right; font-variant-numeric: tabular-nums">{{c.r}}</td><td style="padding: 8px; text-align: right"><span style="{{c.style}}">{{c.d}}</span></td><td style="padding: 8px 16px 8px 8px; color: #B3B0BC">{{c.n}}</td></tr></sc-for></tbody>
+          </table>
+        </div>
+        <div style="padding: 12px 16px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 13px; color: #B3B0BC">Sugerencia: subir «Contenido» de 1,5 h a 2 h por página en P2. Se aplica al borrador con un clic; nunca a la versión publicada.</div>
+      </section>
+      <p style="margin: 0; font-size: 12px; color: #8E8A9B">Tarifas semilla del documento del cotizador; cámbialas por las reales. Proyectos de calibración de ejemplo.</p>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1420}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { tab: 'roles', preset: 'corp', published: false,
+      draft: { est: 150000, ux: 110000, fr: 120000, be: 130000, co: 85000, qa: 80000 } };
+  }
+  fmt(n) { return '$ ' + String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
+  fmtM(n) { var m = Math.round(n / 100000) / 10; return '$ ' + String(m).replace('.', ',') + ' M'; }
+  renderVals() {
+    var self = this, st = this.state;
+    var PUB = { est: 180000, ux: 140000, fr: 150000, be: 160000, co: 110000, qa: 100000 };
+    var roleDefs = [
+      { id: 'est', label: 'Estrategia y dirección', hint: 'incluye la dirección de proyecto' },
+      { id: 'ux', label: 'Diseño UX/UI', hint: 'wireframes, interfaz, marca' },
+      { id: 'fr', label: 'Desarrollo front', hint: 'Astro, integraciones, animación' },
+      { id: 'be', label: 'Desarrollo back', hint: 'CMS, e-commerce, APIs' },
+      { id: 'co', label: 'Contenido y SEO on-page', hint: 'textos, metadatos, schema' },
+      { id: 'qa', label: 'Pruebas y lanzamiento', hint: 'QA, velocidad, accesibilidad' }
+    ];
+    var roles = roleDefs.map(function (r) {
+      var d = Number(st.draft[r.id]) || 0, p = PUB[r.id], pct = p ? Math.round((d - p) / p * 100) : 0;
+      return { label: r.label, hint: r.hint, inputId: 'rate-' + r.id, pubFmt: self.fmt(p), draft: st.draft[r.id],
+        delta: (pct > 0 ? '+' : '') + pct + ' %',
+        deltaStyle: 'font-family: JetBrains Mono, monospace; font-size: 13px; font-weight: 500; color: ' + (pct < 0 ? '#5BE49B' : pct > 0 ? '#E0A93B' : '#B3B0BC') + ';',
+        set: function (ev) { var n = Object.assign({}, st.draft); n[r.id] = ev.target.value; self.setState({ draft: n }); } };
+    });
+    var P = {
+      esencial: { label: 'Esencial', mult: 1.0, h: { est: 6, ux: 14, fr: 26, be: 4, co: 8, qa: 6 }, desc: 'Sitio sobre el sistema de diseño DKODING, 5 secciones, sin multiplicador · 64 h', ref: 1800000, refLabel: 'Página comercial: $ 1.800.000' },
+      corp: { label: 'Corporativo', mult: 1.4, h: { est: 20, ux: 40, fr: 52, be: 24, co: 18, qa: 16 }, desc: 'Corporativo con paquete de entrega, diseño semi-custom × 1,4 · 170 h', ref: 6000000, refLabel: 'Página corporativa: $ 6.000.000' },
+      tienda: { label: 'Tienda', mult: 1.4, h: { est: 27, ux: 54, fr: 68, be: 81, co: 13, qa: 27 }, desc: 'Tienda online con pasarela, diseño semi-custom × 1,4 · 270 h', ref: 6000000, refLabel: 'Tienda avanzada: $ 6.000.000' }
+    };
+    var pr = P[st.preset];
+    function range(rates) {
+      var sub = 0;
+      Object.keys(pr.h).forEach(function (k) { sub += pr.h[k] * (Number(rates[k]) || 0); });
+      var base = sub * pr.mult, ex = 430000;
+      var lo = Math.round((base * 0.9 + ex) / 50000) * 50000, hi = Math.round((base * 1.15 + ex) / 50000) * 50000;
+      return { lo: lo, hi: hi };
+    }
+    var a = range(PUB), b = range(st.draft);
+    var diff = a.hi ? Math.round((b.hi - a.hi) / a.hi * 100) : 0;
+    var presets = ['esencial', 'corp', 'tienda'].map(function (id) {
+      var on = st.preset === id;
+      return { label: P[id].label, on: on, pick: function () { self.setState({ preset: id }); },
+        style: 'min-height: 36px; padding: 0 12px; border-radius: 999px; cursor: pointer; font-weight: 600; ' + (on ? 'background: #6D00C2; color: #FFFFFF; border: 1px solid #6D00C2;' : 'background: transparent; color: #D8D4E2; border: 1px solid rgba(255,255,255,0.22);') };
+    });
+    var gapX = Math.round(b.lo / pr.ref * 10) / 10;
+    var tabDefs = [
+      { id: 'roles', label: 'Tarifas y simulador' },
+      { id: 'prim', label: 'Primitivas', t: 'Primitivas P1–P11', d: 'Horas base y distribución por rol de cada primitiva (sección, página, colección, galería, formulario, integración, catálogo transaccional, área autenticada, multiidioma, capacitación, soporte post-lanzamiento).' },
+      { id: 'bloques', label: 'Bloques', t: 'Los 25 bloques del cotizador público', d: 'Nombre para el cliente, línea de ayuda, primitivas que usa, extras opcionales, grupo (Presencia, Contenido, Conversión, Comercio, Plataforma) y dependencias como «Tienda incluye Productos».' },
+      { id: 'familias', label: 'Familias', t: 'Familias de servicio', d: 'Web, marca, marketing, impresos, apps y soporte, cada una con sus productos, tiers y si es proyecto o mensualidad.' },
+      { id: 'reglas', label: 'Reglas', t: 'Reglas y descuentos', d: 'Web + marca −8 % en marca; web + SEO on-page −30 %; dos o más mensualidades −10 %; más de 200 h pasa a «desde» y agenda.' },
+      { id: 'pdf', label: 'PDF y textos', t: 'Plantilla del PDF tiquete', d: 'Encabezado, condiciones (IVA, anticipo, vigencia), qué no incluye y mensaje de WhatsApp precargado.' },
+      { id: 'embudo', label: 'Embudo', t: 'Embudo del cotizador público', d: 'Inicio, pasos, resultado, datos dejados y abandono por pantalla, con el paso donde más gente se va.' }
+    ];
+    var tabs = tabDefs.map(function (t) {
+      var on = st.tab === t.id;
+      return { label: t.label, on: on, pick: function () { self.setState({ tab: t.id }); },
+        style: 'min-height: 40px; padding: 0 14px; background: transparent; border: 0; border-bottom: 2px solid ' + (on ? '#C755EF' : 'transparent') + '; color: ' + (on ? '#F4F2F8' : '#B3B0BC') + '; font-weight: 600; cursor: pointer; margin-bottom: -1px;' };
+    });
+    var cur = tabDefs.filter(function (t) { return t.id === st.tab; })[0];
+    var calib = [
+      { p: 'Corporativo · constructora', e: '172 h', r: '188 h', dv: 9, n: 'contenido entregado tarde, 2 rondas extra' },
+      { p: 'Tienda · distribuidora', e: '262 h', r: '301 h', dv: 15, n: 'integración de inventario no prevista' },
+      { p: 'Landing · campaña', e: '48 h', r: '44 h', dv: -8, n: 'reutilizó el sistema de diseño' },
+      { p: 'Catálogo · inmobiliaria', e: '112 h', r: '139 h', dv: 24, n: 'carga de 180 inmuebles a mano' }
+    ].map(function (c) {
+      return { p: c.p, e: c.e, r: c.r, n: c.n, d: (c.dv > 0 ? '+' : '') + c.dv + ' %',
+        style: 'font-family: JetBrains Mono, monospace; font-size: 13px; font-weight: 500; color: ' + (Math.abs(c.dv) > 15 ? '#FF8F9B' : Math.abs(c.dv) > 10 ? '#E0A93B' : '#5BE49B') + ';' };
+    });
+    return {
+      tabs: tabs, isRoles: st.tab === 'roles', isRolesNot: st.tab !== 'roles', otherTitle: cur && cur.t ? cur.t : '', otherDesc: cur && cur.d ? cur.d : '',
+      roles: roles, presets: presets, presetDesc: pr.desc,
+      pubRange: this.fmtM(a.lo) + ' – ' + this.fmtM(a.hi), draftRange: this.fmtM(b.lo) + ' – ' + this.fmtM(b.hi),
+      simDelta: diff === 0 ? 'Sin cambio frente a la publicada' : (diff > 0 ? '+' : '') + diff + ' % frente a la publicada en el máximo',
+      simDeltaStyle: 'font-size: 13px; font-weight: 600; color: ' + (diff < 0 ? '#5BE49B' : diff > 0 ? '#E0A93B' : '#B3B0BC') + ';',
+      refPrice: pr.refLabel, refGap: 'El mínimo del borrador es ' + String(gapX).replace('.', ',') + ' veces ese precio',
+      calib: calib,
+      publishLabel: st.published ? 'Publicada · aplica solo a cotizaciones nuevas' : 'Publicar versión 2026-11',
+      publish: function () { self.setState({ published: true }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

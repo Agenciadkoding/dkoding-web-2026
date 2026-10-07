@@ -1,0 +1,140 @@
+{
+  "attachments": {},
+  "boards": {
+    "Boveda.dc.html": {
+      "expand": "fill",
+      "h": 1482,
+      "is_interactive": true,
+      "title": "ACC · Accesos con verificación",
+      "w": 1440,
+      "x": 1520,
+      "y": 2560
+    },
+    "Cliente.dc.html": {
+      "expand": "fill",
+      "h": 1101,
+      "is_interactive": true,
+      "title": "CRM · Ficha del cliente: servicios, renovaciones e historial",
+      "w": 1440,
+      "x": 0,
+      "y": 2560
+    },
+    "Cotizaciones.dc.html": {
+      "expand": "fill",
+      "h": 1079,
+      "is_interactive": true,
+      "title": "VEN · Cotizaciones",
+      "w": 1440,
+      "x": 0,
+      "y": 5520
+    },
+    "ImportarAccesos.dc.html": {
+      "expand": "fill",
+      "h": 2460,
+      "is_interactive": true,
+      "title": "ACC · Importar accesos desde Excel",
+      "w": 1440,
+      "x": 3040,
+      "y": 2560
+    },
+    "Main.dc.html": {
+      "expand": "fill",
+      "h": 1768,
+      "is_interactive": true,
+      "title": "INI · Inicio: dkoding.net, ventas y salud",
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "Paginas.dc.html": {
+      "expand": "fill",
+      "h": 2037,
+      "is_interactive": true,
+      "title": "WEB · Páginas, redirecciones y palabras clave de dkoding.net",
+      "w": 1440,
+      "x": 1520,
+      "y": 0
+    },
+    "Sistema.dc.html": {
+      "h": 1880,
+      "title": "Sistema de interfaz del admin",
+      "w": 1240,
+      "x": 0,
+      "y": 7160
+    },
+    "Sitios.dc.html": {
+      "expand": "fill",
+      "h": 1135,
+      "is_interactive": true,
+      "title": "SAL · Sitios de clientes y copias quincenales",
+      "w": 1440,
+      "x": 3040,
+      "y": 5520
+    },
+    "Tarifas.dc.html": {
+      "expand": "fill",
+      "h": 1133,
+      "is_interactive": true,
+      "title": "VEN · Tarifas y simulador",
+      "w": 1440,
+      "x": 1520,
+      "y": 5520
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-10-06T19:30:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "view": "canvas"
+  },
+  "notes": {
+    "row1": {
+      "kind": "title1",
+      "maxW": 2960,
+      "text": "Inicio y sitio dkoding.net",
+      "w": 240,
+      "x": 0,
+      "y": -300
+    },
+    "row2": {
+      "kind": "title1",
+      "maxW": 4480,
+      "text": "CRM y accesos",
+      "w": 240,
+      "x": 0,
+      "y": 2260
+    },
+    "row3": {
+      "kind": "title1",
+      "maxW": 4480,
+      "text": "Ventas y salud de clientes",
+      "w": 240,
+      "x": 0,
+      "y": 5220
+    },
+    "row4": {
+      "kind": "title1",
+      "maxW": 1240,
+      "text": "Sistema",
+      "w": 240,
+      "x": 0,
+      "y": 6860
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "Paginas.dc.html",
+    "Cliente.dc.html",
+    "Boveda.dc.html",
+    "ImportarAccesos.dc.html",
+    "Cotizaciones.dc.html",
+    "Tarifas.dc.html",
+    "Sitios.dc.html",
+    "Sistema.dc.html"
+  ],
+  "pages": [],
+  "title": "DKODING Admin · MVP simple",
+  "v": 3
+}

@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Accesos</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Blinker:wght@300;600;700&amp;family=Barlow:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#0C0C0C}
+a{color:#D98BFF;text-decoration:none}a:hover{color:#F0D4FF}
+button,input,select,textarea{font:inherit}
+button:focus-visible,input:focus-visible,a:focus-visible,select:focus-visible{outline:2px solid #D98BFF;outline-offset:2px}
+.dk-nav a:hover{background:#17161C;color:#F4F2F8}
+.dk-row:hover{background:#1D1B24}
+.dk-card:hover{border-color:rgba(199,85,239,0.45)}
+.dk-ghost:hover{background:#1D1B24;color:#F4F2F8}
+select option{background:#151518;color:#F4F2F8}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; min-height: 100%; background: #0C0C0C; color: #F4F2F8; font-family: 'Barlow', system-ui, sans-serif; font-size: 14px; line-height: 1.5">
+
+  <header style="border-bottom: 1px solid rgba(255,255,255,0.08); background: #101013">
+    <div style="padding: 10px 20px; display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center">
+      <a href="Main.dc.html" aria-label="DKODING, inicio del admin" style="display: flex; align-items: center; min-height: 40px"><img src="/_blob/af8d4aea91012d3a301c737f7fa02819" alt="DKODING" style="height: 26px; width: auto"></a>
+      <span style="padding: 3px 10px; border-radius: 999px; background: rgba(199,85,239,0.14); color: #D98BFF; font-size: 12px; font-weight: 600">Admin</span>
+      <div style="flex: 1 1 260px; display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 12px; background: #0C0C0C; border: 1px solid rgba(255,255,255,0.14); border-radius: 6px; max-width: 560px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B3B0BC" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg><label for="g-search" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Buscar en el admin</label><input id="g-search" type="text" placeholder="Buscar acceso, cliente o usuario" style="flex: 1; min-width: 0; background: transparent; border: 0; color: #F4F2F8; outline: none"><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 2px 6px; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; color: #B3B0BC">Ctrl K</kbd></div>
+      <div style="display: flex; align-items: center; gap: 8px; margin-left: auto"><a href="Main.dc.html" aria-label="Avisos: 1 sitio caído, 3 de atención" style="position: relative; display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 6px; color: #F4F2F8"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10 21h4"></path></svg><span aria-hidden="true" style="position: absolute; top: 4px; right: 3px; min-width: 16px; height: 16px; padding: 0 4px; box-sizing: border-box; border-radius: 999px; background: #FF6B6B; color: #0C0C0C; font-size: 11px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center">4</span></a><img src="/_blob/c1f4c9d27736f1652e876e2f660320ef" alt="Tu cuenta: Dirección" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 2px solid #3D0A6E"></div>
+    </div>
+  </header>
+
+  <div style="display: flex; flex-wrap: wrap; align-items: flex-start">
+    <nav class="dk-nav" aria-label="Módulos" style="flex: 1 1 232px; max-width: 260px; box-sizing: border-box; padding: 14px 10px 24px; background: #101013; border-right: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; gap: 2px; font-size: 14px">
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Inicio</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Sitio dkoding.net</span>
+      <a href="Paginas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Páginas</a>
+      <a href="Paginas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Redirecciones</a>
+      <a href="Paginas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Palabras clave</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">CRM</span>
+      <a href="Cliente.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Clientes</a>
+      <a href="Cotizaciones.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Leads<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(224,169,59,0.16); color: #E0A93B; font-size: 12px; font-weight: 600">2</span></a>
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Renovaciones</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Accesos</span>
+      <a href="Boveda.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Personales</a>
+      <a href="Boveda.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Agencia</a>
+      <a href="Boveda.dc.html" aria-current="page" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #F4F2F8; background: #1A0B2B; font-weight: 600"><span aria-hidden="true" style="width: 14px; color: #C755EF; font-family: 'Blinker', sans-serif; font-weight: 700">»</span>Clientes</a>
+      <a href="ImportarAccesos.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Importar Excel</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Ventas</span>
+      <a href="Cotizaciones.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Cotizaciones</a>
+      <a href="Tarifas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Tarifas</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Salud</span>
+      <a href="Sitios.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Sitios<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(255,107,107,0.16); color: #FF8F9B; font-size: 12px; font-weight: 600">1</span></a>
+      <a href="Sitios.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Copias<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(224,169,59,0.16); color: #E0A93B; font-size: 12px; font-weight: 600">1</span></a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Ajustes</span>
+      <a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Usuarios y roles</a>
+      <a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Conexiones</a>
+      <a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Registro</a>
+      <span style="font-size: 12px; color: #8E8A9B; padding: 16px 10px 0">MVP simple. Lo que no se usa todavía no aparece en el menú.</span>
+    </nav>
+
+    <main id="accesos" style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 24px 28px 48px; display: flex; flex-direction: column; gap: 18px">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px">
+        <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0">
+          <nav aria-label="Ruta" style="font-size: 13px; color: #B3B0BC">Accesos</nav>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px"><h1 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 30px; line-height: 1.1">Accesos</h1><span style="padding: 2px 10px; border-radius: 999px; border: 1px dashed rgba(255,255,255,0.28); color: #B3B0BC; font-size: 12px; font-weight: 600">Datos de ejemplo</span></div>
+          <span style="color: #B3B0BC">214 accesos · 3 ámbitos · cifrados con una clave fuera de la base de datos</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+          <a href="ImportarAccesos.dc.html" style="display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; color: #F4F2F8; font-weight: 600"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4"></path><path d="M7 9l5-5 5 5"></path><path d="M4 20h16"></path></svg>Importar Excel</a>
+          <button type="button" style="display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 16px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-weight: 600; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Nuevo acceso</button>
+        </div>
+      </div>
+
+      <section aria-label="Salud de los accesos" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr)); gap: 12px">
+        <sc-for list="{{health}}" as="k" hint-placeholder-count="4">
+          <button type="button" class="dk-card" onClick="{{k.pick}}" aria-pressed="{{k.on}}" style="{{k.style}}">
+            <span style="display: flex; justify-content: space-between; gap: 8px; color: #B3B0BC; font-size: 13px; text-align: left">{{k.label}}<svg width="12" height="12" viewBox="0 0 16 16" role="img" aria-label="{{k.ic.label}}" style="flex: none; margin-top: 4px"><path d="{{k.ic.d}}" fill="{{k.ic.fill}}" stroke="{{k.ic.stroke}}" stroke-width="1.5" stroke-dasharray="{{k.ic.dash}}"></path></svg></span>
+            <span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 30px; line-height: 1; font-variant-numeric: tabular-nums; text-align: left">{{k.value}}</span>
+            <span style="font-size: 12px; color: #B3B0BC; text-align: left">{{k.note}}</span>
+          </button>
+        </sc-for>
+      </section>
+
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <div role="tablist" aria-label="Ámbito" style="display: flex; flex-wrap: wrap; gap: 4px; padding: 4px; background: #101013; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; align-self: flex-start; max-width: 100%; box-sizing: border-box">
+          <sc-for list="{{scopes}}" as="t" hint-placeholder-count="3"><button type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}" style="{{t.style}}">{{t.label}}<span style="{{t.badgeStyle}}">{{t.count}}</span></button></sc-for>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center; font-size: 13px; color: #D8D4E2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D98BFF" stroke-width="2" aria-hidden="true" style="flex: none"><rect x="4" y="10" width="16" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg>
+          <span style="flex: 1 1 200px">{{scopeNote}}</span>
+        </div>
+      </div>
+
+      <sc-if value="{{isVerified}}" hint-placeholder-val="{{false}}">
+        <div role="status" style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 10px 14px; background: rgba(91,228,155,0.07); border: 1px solid rgba(91,228,155,0.3); border-radius: 8px; font-size: 13px">
+          <svg width="12" height="12" viewBox="0 0 16 16" role="img" aria-label="Correcto"><path d="M8 2a6 6 0 1 1 0 12A6 6 0 0 1 8 2z" fill="#5BE49B"></path></svg>
+          <span style="flex: 1 1 300px; color: #D8D4E2">Identidad confirmada a las {{verifiedTime}}. Hasta las {{verifiedUntil}} puedes ver contraseñas sin volver a escribir el código; cada vista igual queda registrada.</span>
+          <button type="button" class="dk-ghost" onClick="{{forget}}" style="min-height: 36px; padding: 0 12px; background: transparent; color: #D8D4E2; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; font-weight: 600; cursor: pointer">Pedir el código otra vez</button>
+        </div>
+      </sc-if>
+
+      <section aria-labelledby="h-tabla" style="background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; min-width: 0">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; padding: 14px 16px 0">
+          <h2 id="h-tabla" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">{{tableTitle}}</h2>
+          <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: #8E8A9B"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg>Sin exportación masiva por seguridad</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.08)">
+          <div style="flex: 1 1 220px; display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 12px; background: #0C0C0C; border: 1px solid rgba(255,255,255,0.14); border-radius: 4px; min-width: 0; box-sizing: border-box"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B3B0BC" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg><label for="acc-q" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Buscar en los accesos</label><input id="acc-q" type="text" value="{{q}}" onChange="{{setQ}}" placeholder="Buscar por nombre, cliente o usuario" style="flex: 1; min-width: 0; background: transparent; border: 0; color: #F4F2F8; outline: none"></div>
+          <label for="f-tipo" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Filtrar por tipo</label>
+          <select id="f-tipo" value="{{fTipo}}" onChange="{{setTipo}}" style="{{selTipo}}"><sc-for list="{{tipoOpts}}" as="o" hint-placeholder-count="5"><option value="{{o.v}}">{{o.l}}</option></sc-for></select>
+          <sc-if value="{{isCli}}" hint-placeholder-val="{{true}}">
+            <label for="f-cli" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Filtrar por cliente</label>
+            <select id="f-cli" value="{{fCli}}" onChange="{{setCli}}" style="{{selCli}}"><sc-for list="{{cliOpts}}" as="o" hint-placeholder-count="5"><option value="{{o.v}}">{{o.l}}</option></sc-for></select>
+          </sc-if>
+          <label for="f-ver" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Filtrar por verificación</label>
+          <select id="f-ver" value="{{fVer}}" onChange="{{setVer}}" style="{{selVer}}"><sc-for list="{{verOpts}}" as="o" hint-placeholder-count="4"><option value="{{o.v}}">{{o.l}}</option></sc-for></select>
+          <label for="f-ori" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Filtrar por origen</label>
+          <select id="f-ori" value="{{fOri}}" onChange="{{setOri}}" style="{{selOri}}"><sc-for list="{{oriOpts}}" as="o" hint-placeholder-count="3"><option value="{{o.v}}">{{o.l}}</option></sc-for></select>
+          <sc-if value="{{hasFilters}}" hint-placeholder-val="{{false}}"><button type="button" onClick="{{clearFilters}}" style="min-height: 40px; padding: 0 12px; background: transparent; color: #D98BFF; border: 0; font-weight: 600; cursor: pointer">Quitar filtros</button></sc-if>
+        </div>
+        <div style="overflow-x: auto">
+          <table style="width: 100%; min-width: 1060px; border-collapse: collapse">
+            <thead>
+              <tr style="color: #B3B0BC; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; text-align: left">
+                <th scope="col" style="padding: 10px 8px 10px 16px; font-weight: 600">Acceso</th>
+                <sc-if value="{{isCli}}" hint-placeholder-val="{{true}}"><th scope="col" style="padding: 10px 8px; font-weight: 600">Cliente</th></sc-if>
+                <th scope="col" style="padding: 10px 8px; font-weight: 600">Tipo</th>
+                <th scope="col" style="padding: 10px 8px; font-weight: 600">Usuario</th>
+                <th scope="col" style="padding: 10px 8px; font-weight: 600; min-width: 140px">Contraseña</th>
+                <th scope="col" style="padding: 10px 8px; font-weight: 600">2FA</th>
+                <th scope="col" style="padding: 10px 8px; font-weight: 600; min-width: 118px">Verificación</th>
+                <th scope="col" style="padding: 10px 8px; font-weight: 600">Origen</th>
+                <th scope="col" style="padding: 10px 16px 10px 8px; font-weight: 600; text-align: right; min-width: 76px">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <sc-for list="{{rows}}" as="r" hint-placeholder-count="10">
+                <tr class="dk-row" style="{{r.rowStyle}}">
+                  <td style="padding: 8px 8px 8px 16px; max-width: 240px">
+                    <button type="button" onClick="{{r.open}}" style="display: flex; align-items: center; min-height: 28px; padding: 0; background: transparent; border: 0; color: #F4F2F8; cursor: pointer; text-align: left; max-width: 100%">
+                      <span style="font-weight: 600; text-decoration: underline; text-decoration-color: rgba(217,139,255,0.4); text-underline-offset: 3px">{{r.name}}</span>
+                      </button>
+                    <span style="display: flex; align-items: center; gap: 2px; min-width: 0"><span title="{{r.url}}" style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #B3B0BC; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 146px">{{r.url}}</span><button type="button" class="dk-ghost" onClick="{{r.openLogin}}" aria-label="Abrir inicio de sesión de {{r.name}}" title="Abrir inicio de sesión" style="flex: none; display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: transparent; color: #D98BFF; border: 0; border-radius: 4px; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"></path><path d="M20 4l-9 9"></path><path d="M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"></path></svg></button></span>
+                  </td>
+                  <sc-if value="{{isCli}}" hint-placeholder-val="{{true}}"><td style="padding: 8px; color: #D8D4E2; font-size: 13px">{{r.clientShort}}</td></sc-if>
+                  <td style="padding: 8px; font-size: 13px; color: #D8D4E2">{{r.tipo}}</td>
+                  <td style="padding: 8px">
+                    <span style="display: flex; align-items: center; gap: 2px"><span title="{{r.user}}" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 106px">{{r.user}}</span><button type="button" class="dk-ghost" onClick="{{r.copyUser}}" aria-label="Copiar usuario de {{r.name}}" title="Copiar usuario" style="flex: none; display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: transparent; color: #B3B0BC; border: 0; border-radius: 4px; cursor: pointer"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"></rect><path d="M5 15V5a1 1 0 0 1 1-1h10"></path></svg></button></span>
+                  </td>
+                  <td style="padding: 8px">
+                    <sc-if value="{{r.shown}}" hint-placeholder-val="{{false}}">
+                      <span style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px">
+                        <code style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #F4F2F8; background: #0F0F11; border: 1px solid rgba(199,85,239,0.55); border-radius: 4px; padding: 2px 6px; white-space: nowrap">{{r.pass}}</code>
+                        <span style="display: flex; align-items: center; gap: 8px"><button type="button" onClick="{{r.copyPass}}" style="min-height: 30px; padding: 0 10px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-size: 12px; font-weight: 600; cursor: pointer">{{copyLabel}}</button><span aria-live="polite" style="font-size: 12px; color: #E0A93B; font-variant-numeric: tabular-nums; white-space: nowrap">Se oculta en {{left}} s</span></span>
+                      </span>
+                    </sc-if>
+                    <sc-if value="{{r.hidden}}" hint-placeholder-val="{{true}}">
+                      <span style="display: flex; align-items: center; gap: 8px"><span role="img" aria-label="Contraseña oculta" style="font-family: 'JetBrains Mono', monospace; letter-spacing: 0.08em; color: #B3B0BC">••••••</span><button type="button" onClick="{{r.ver}}" aria-label="Ver contraseña de {{r.name}}" style="display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 10px; background: transparent; color: #D98BFF; border: 1px solid rgba(217,139,255,0.4); border-radius: 4px; font-weight: 600; cursor: pointer"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></svg>Ver</button></span>
+                    </sc-if>
+                  </td>
+                  <td style="padding: 8px; font-size: 13px"><span style="display: flex; flex-direction: column"><span style="{{r.mfaStyle}}">{{r.mfaYes}}</span><span style="font-size: 12px; color: #B3B0BC">{{r.mfaWhere}}</span></span></td>
+                  <td style="padding: 8px; font-size: 13px"><span style="display: flex; gap: 6px; align-items: flex-start"><svg width="11" height="11" viewBox="0 0 16 16" role="img" aria-label="{{r.vic.label}}" style="flex: none; margin-top: 5px"><path d="{{r.vic.d}}" fill="{{r.vic.fill}}" stroke="{{r.vic.stroke}}" stroke-width="1.5" stroke-dasharray="{{r.vic.dash}}"></path></svg><span style="display: flex; flex-direction: column"><span style="{{r.verStyle}} white-space: nowrap;">{{r.ver1}}</span><span style="font-size: 12px; color: #B3B0BC; white-space: nowrap">{{r.ver2}}</span></span></span></td>
+                  <td style="padding: 8px"><span style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px"><span style="{{r.oriStyle}}">{{r.origin}}</span><sc-if value="{{r.rep}}" hint-placeholder-val="{{false}}"><span style="display: inline-flex; align-items: flex-start; gap: 4px; font-size: 12px; line-height: 1.35; color: #E0A93B"><svg width="10" height="10" viewBox="0 0 16 16" role="img" aria-label="Atención" style="flex: none; margin-top: 3px"><path d="M8 1.5L15 14H1z" fill="#E0A93B"></path></svg>Repetida en 2 clientes</span></sc-if></span></td>
+                  <td style="padding: 8px 16px 8px 8px">
+                    <span style="display: flex; justify-content: flex-end; gap: 4px">
+                      
+                      <button type="button" class="dk-ghost" onClick="{{r.markOk}}" aria-label="Marcar «Funciona» en {{r.name}}" title="Funciona" style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: transparent; color: #5BE49B; border: 1px solid rgba(91,228,155,0.35); border-radius: 4px; cursor: pointer"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg></button>
+                      <button type="button" class="dk-ghost" onClick="{{r.markFail}}" aria-label="Marcar «No funciona» en {{r.name}}" title="No funciona" style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: transparent; color: #FF8F9B; border: 1px solid rgba(255,107,107,0.35); border-radius: 4px; cursor: pointer"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+                    </span>
+                  </td>
+                </tr>
+              </sc-for>
+            </tbody>
+          </table>
+          <sc-if value="{{isEmpty}}" hint-placeholder-val="{{false}}">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 36px 16px; color: #B3B0BC; text-align: center"><span style="font-weight: 600; color: #F4F2F8">Ningún acceso coincide con los filtros</span><button type="button" onClick="{{clearFilters}}" style="min-height: 36px; padding: 0 12px; background: transparent; color: #D98BFF; border: 1px solid rgba(217,139,255,0.4); border-radius: 4px; font-weight: 600; cursor: pointer">Quitar filtros</button></div>
+          </sc-if>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; padding: 10px 16px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 13px; color: #B3B0BC">
+          <span>{{pageText}}</span>
+          <span style="display: flex; align-items: center; gap: 4px" aria-label="Paginación"><span aria-current="page" style="display: inline-flex; align-items: center; justify-content: center; min-width: 32px; height: 32px; border-radius: 4px; background: #1A0B2B; color: #F4F2F8; font-weight: 600">1</span><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 32px; height: 32px; color: #D8D4E2">2</span><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 32px; height: 32px; color: #D8D4E2">3</span><span style="padding: 0 4px">…</span><span style="display: inline-flex; align-items: center; justify-content: center; min-width: 32px; height: 32px; color: #D8D4E2">{{lastPage}}</span></span>
+        </div>
+      </section>
+
+      <p style="margin: 0; font-size: 12px; color: #8E8A9B">Datos de ejemplo: usuarios y contraseñas son ficticios. Límite real: 10 revelaciones por minuto y 50 por día por persona.</p>
+    </main>
+  </div>
+
+  <sc-if value="{{hasPanel}}" hint-placeholder-val="{{false}}">
+    <div style="position: fixed; inset: 0; z-index: 30; display: flex; justify-content: flex-end; background: rgba(0,0,0,0.6)">
+      <button type="button" aria-label="Cerrar el detalle" onClick="{{closePanel}}" style="flex: 1 1 auto; min-width: 0; background: transparent; border: 0; cursor: default"></button>
+      <aside role="dialog" aria-modal="true" aria-labelledby="h-panel" style="flex: none; width: 100%; max-width: 480px; box-sizing: border-box; height: 100%; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; padding: 22px; background: #151518; border-left: 1px solid rgba(199,85,239,0.4); box-shadow: -30px 0 80px rgba(0,0,0,0.5)">
+        <div style="display: flex; justify-content: space-between; align-items: start; gap: 12px">
+          <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 12px; color: #B3B0BC">{{p.kicker}}</span><h2 id="h-panel" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 24px; line-height: 1.15">{{p.name}}</h2></div>
+          <button type="button" onClick="{{closePanel}}" aria-label="Cerrar" style="flex: none; width: 40px; height: 40px; background: transparent; color: #B3B0BC; border: 0; border-radius: 4px; cursor: pointer; font-size: 22px">×</button>
+        </div>
+        <dl style="margin: 0; display: grid; grid-template-columns: 128px minmax(0, 1fr); gap: 10px 12px; font-size: 14px">
+          <dt style="color: #B3B0BC">{{p.whoLabel}}</dt><dd style="margin: 0">{{p.client}}</dd>
+          <dt style="color: #B3B0BC">Tipo</dt><dd style="margin: 0">{{p.tipo}}</dd>
+          <dt style="color: #B3B0BC">Inicio de sesión</dt><dd style="margin: 0; display: flex; align-items: center; gap: 6px; min-width: 0"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; overflow-wrap: anywhere">{{p.url}}</span><button type="button" onClick="{{p.openLogin}}" style="flex: none; min-height: 32px; padding: 0 8px; background: transparent; color: #D98BFF; border: 0; font-weight: 600; cursor: pointer">Abrir</button></dd>
+          <dt style="color: #B3B0BC">Usuario</dt><dd style="margin: 0; display: flex; align-items: center; gap: 6px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; overflow-wrap: anywhere">{{p.user}}</span><button type="button" onClick="{{p.copyUser}}" style="flex: none; min-height: 32px; padding: 0 8px; background: transparent; color: #D98BFF; border: 0; font-weight: 600; cursor: pointer">Copiar</button></dd>
+          <dt style="color: #B3B0BC">Contraseña</dt>
+          <dd style="margin: 0">
+            <sc-if value="{{p.shown}}" hint-placeholder-val="{{false}}"><span style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><code style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; background: #0F0F11; border: 1px solid rgba(199,85,239,0.55); border-radius: 4px; padding: 2px 6px">{{p.pass}}</code><button type="button" onClick="{{p.copyPass}}" style="min-height: 30px; padding: 0 10px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-size: 12px; font-weight: 600; cursor: pointer">{{copyLabel}}</button><span style="font-size: 12px; color: #E0A93B">Se oculta en {{left}} s</span></span></sc-if>
+            <sc-if value="{{p.hidden}}" hint-placeholder-val="{{true}}"><span style="display: flex; align-items: center; gap: 8px"><span role="img" aria-label="Contraseña oculta" style="font-family: 'JetBrains Mono', monospace; color: #B3B0BC">••••••</span><button type="button" onClick="{{p.ver}}" style="display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 10px; background: transparent; color: #D98BFF; border: 1px solid rgba(217,139,255,0.4); border-radius: 4px; font-weight: 600; cursor: pointer">Ver</button></span></sc-if>
+          </dd>
+          <dt style="color: #B3B0BC">2FA</dt><dd style="margin: 0">{{p.mfa}}</dd>
+          <dt style="color: #B3B0BC">Notas</dt><dd style="margin: 0; color: #D8D4E2">{{p.notes}}</dd>
+          <dt style="color: #B3B0BC">Origen</dt><dd style="margin: 0">{{p.origin}}</dd>
+        </dl>
+
+        <div style="display: flex; flex-direction: column; gap: 10px; padding: 14px; background: #0F0F11; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px">
+          <span style="display: flex; gap: 8px; align-items: flex-start"><svg width="12" height="12" viewBox="0 0 16 16" role="img" aria-label="{{p.vic.label}}" style="flex: none; margin-top: 5px"><path d="{{p.vic.d}}" fill="{{p.vic.fill}}" stroke="{{p.vic.stroke}}" stroke-width="1.5" stroke-dasharray="{{p.vic.dash}}"></path></svg><span><strong style="font-weight: 600">Verificación:</strong> {{p.verText}}</span></span>
+          <span style="display: flex; flex-wrap: wrap; gap: 8px"><button type="button" onClick="{{p.markOk}}" style="min-height: 36px; padding: 0 12px; background: rgba(91,228,155,0.1); color: #5BE49B; border: 1px solid rgba(91,228,155,0.4); border-radius: 4px; font-weight: 600; cursor: pointer">Funciona</button><button type="button" onClick="{{p.markFail}}" style="min-height: 36px; padding: 0 12px; background: rgba(255,107,107,0.08); color: #FF8F9B; border: 1px solid rgba(255,107,107,0.4); border-radius: 4px; font-weight: 600; cursor: pointer">No funciona</button></span>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <h3 style="margin: 0; font-size: 15px; font-weight: 600">Quién la vio</h3>
+          <sc-for list="{{p.views}}" as="e" hint-placeholder-count="3">
+            <div style="display: flex; gap: 10px; align-items: baseline; padding: 8px 0; border-top: 1px solid rgba(255,255,255,0.06); font-size: 13px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #B3B0BC; white-space: nowrap">{{e.t}}</span><span style="color: #D8D4E2"><strong style="color: #F4F2F8; font-weight: 600">{{e.who}}</strong> · {{e.x}}</span></div>
+          </sc-for>
+          <span style="font-size: 12px; color: #8E8A9B">El registro guarda quién, cuál, cuándo y desde dónde. Nunca guarda el valor.</span>
+        </div>
+
+        <sc-if value="{{p.notRotating}}" hint-placeholder-val="{{true}}">
+          <button type="button" onClick="{{startRotate}}" style="align-self: flex-start; min-height: 40px; padding: 0 14px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; cursor: pointer">Registrar cambio de contraseña</button>
+        </sc-if>
+        <sc-if value="{{p.rotating}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; flex-direction: column; gap: 8px; padding: 14px; border: 1px solid rgba(199,85,239,0.45); border-radius: 8px; background: #1A0B2B">
+            <label for="new-pwd" style="font-weight: 600">Nueva contraseña (la que pusiste en el servicio)</label>
+            <input id="new-pwd" type="password" autoComplete="new-password" value="{{newPwd}}" onChange="{{setNewPwd}}" style="min-height: 40px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-family: 'JetBrains Mono', monospace">
+            <span style="font-size: 12px; color: #B3B0BC">Se cifra al guardarla. El origen pasa a «Rotada en el admin» y el acceso queda sin verificar hasta que alguien pruebe que funciona.</span>
+            <span style="display: flex; gap: 8px"><button type="button" onClick="{{saveRotate}}" disabled="{{cantRotate}}" style="{{rotateStyle}}">Guardar cambio</button><button type="button" onClick="{{cancelRotate}}" style="min-height: 40px; padding: 0 12px; background: transparent; color: #D8D4E2; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; font-weight: 600; cursor: pointer">Cancelar</button></span>
+          </div>
+        </sc-if>
+      </aside>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{hasModal}}" hint-placeholder-val="{{false}}">
+    <div style="position: fixed; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(0,0,0,0.6)">
+      <div role="dialog" aria-modal="true" aria-labelledby="h-verify" style="width: 100%; max-width: 440px; box-sizing: border-box; display: flex; flex-direction: column; gap: 14px; padding: 22px; background: #151518; border: 1px solid rgba(255,255,255,0.14); border-radius: 12px; box-shadow: 0 30px 80px rgba(0,0,0,0.6)">
+        <div style="display: flex; justify-content: space-between; align-items: start; gap: 12px">
+          <div style="display: flex; gap: 12px; align-items: center"><span aria-hidden="true" style="flex: none; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; background: #1A0B2B; color: #D98BFF"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg></span><h2 id="h-verify" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 22px">Confirma que eres tú</h2></div>
+          <button type="button" onClick="{{closeModal}}" aria-label="Cerrar" style="flex: none; width: 36px; height: 36px; background: transparent; color: #B3B0BC; border: 0; border-radius: 4px; cursor: pointer; font-size: 20px">×</button>
+        </div>
+        <span style="color: #D8D4E2">Vas a ver la contraseña de <strong style="color: #F4F2F8; font-weight: 600">{{mName}}</strong>. {{modeText}}</span>
+        <sc-if value="{{isCodeMode}}" hint-placeholder-val="{{true}}">
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <label for="otp" style="font-size: 13px; font-weight: 600">Código de 6 dígitos</label>
+            <input id="otp" type="text" inputMode="numeric" autoComplete="one-time-code" placeholder="000000" value="{{code}}" onChange="{{setCode}}" onKeyDown="{{enterKey}}" style="min-height: 48px; padding: 0 14px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(199,85,239,0.55); border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 22px; letter-spacing: 0.35em; font-variant-numeric: tabular-nums">
+          </div>
+        </sc-if>
+        <sc-if value="{{isPwdMode}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <label for="me-pwd" style="font-size: 13px; font-weight: 600">Tu contraseña del admin</label>
+            <input id="me-pwd" type="password" autoComplete="current-password" value="{{pwd}}" onChange="{{setPwd}}" onKeyDown="{{enterKey}}" style="min-height: 44px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(199,85,239,0.55); border-radius: 6px">
+          </div>
+        </sc-if>
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 13px">
+          <button type="button" onClick="{{toggleMode}}" style="min-height: 32px; padding: 0; background: transparent; color: #D98BFF; border: 0; font-weight: 600; cursor: pointer">{{toggleLabel}}</button>
+          <span style="color: #B3B0BC">No pedimos esto otra vez durante 5 minutos.</span>
+        </div>
+        <div style="display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; background: #0F0F11; border-radius: 6px; font-size: 13px; color: #D8D4E2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D98BFF" stroke-width="2" aria-hidden="true" style="flex: none; margin-top: 3px"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Se muestra 30 segundos y queda registrado: tú, cuál, cuándo y desde qué IP.</span></div>
+        <span style="font-size: 12px; color: #8E8A9B">Prototipo: sirve cualquier código de 6 cifras.</span>
+        <div style="display: flex; justify-content: flex-end; gap: 8px">
+          <button type="button" onClick="{{closeModal}}" style="min-height: 40px; padding: 0 14px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; cursor: pointer">Cancelar</button>
+          <button type="button" onClick="{{confirm}}" disabled="{{cantConfirm}}" style="{{confirmStyle}}">Confirmar y ver</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{hasToast}}" hint-placeholder-val="{{false}}">
+    <div role="status" style="{{toastPos}} z-index: 60; width: min(400px, calc(100% - 40px)); box-sizing: border-box; display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: #1D1B24; border: 1px solid rgba(91,228,155,0.4); border-radius: 10px; box-shadow: 0 20px 50px rgba(0,0,0,0.5)">
+      <svg width="14" height="14" viewBox="0 0 16 16" role="img" aria-label="Correcto" style="flex: none; margin-top: 4px"><path d="M8 2a6 6 0 1 1 0 12A6 6 0 0 1 8 2z" fill="#5BE49B"></path></svg>
+      <span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">{{toast.title}}</span><span style="font-size: 13px; color: #D8D4E2">{{toast.body}}</span></span>
+      <button type="button" onClick="{{closeToast}}" aria-label="Cerrar aviso" style="flex: none; width: 32px; height: 32px; background: transparent; color: #B3B0BC; border: 0; cursor: pointer; font-size: 18px">×</button>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1482}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { scope: 'cli', q: '', fTipo: '', fCli: '', fVer: '', fOri: '', fRep: false,
+      modalId: null, mode: 'code', code: '', pwd: '', verifiedAt: 0, verifiedTime: '', revealId: null, left: 0, copied: false,
+      toast: null, reveals: 0, marks: {}, panelId: null, rotating: false, newPwd: '', rotated: {}, seen: {} };
+    this.timer = null;
+    this.leftNow = 0;
+  }
+  componentWillUnmount() { if (this.timer) { clearInterval(this.timer); this.timer = null; } }
+  stamp() {
+    var times = ['10:42', '10:43', '10:44', '10:45', '10:46', '10:47'];
+    return times[Math.min(this.state.reveals, times.length - 1)];
+  }
+  startReveal(id, asked) {
+    var self = this;
+    var t = this.stamp();
+    var seen = Object.assign({}, this.state.seen); seen[id] = t;
+    var patch = { modalId: null, code: '', pwd: '', revealId: id, left: 30, copied: false, reveals: this.state.reveals + 1, seen: seen,
+      toast: { kind: 'reveal', title: asked ? 'Contraseña visible durante 30 s' : 'Contraseña visible 30 s · sin pedir código (verificaste hace menos de 5 min)', body: 'Quedó registrado: tú, 07/10 ' + t + ', desde 181.xx.xx.xx' } };
+    if (asked) { patch.verifiedAt = Date.now(); patch.verifiedTime = t; }
+    this.setState(patch);
+    if (this.timer) clearInterval(this.timer);
+    this.leftNow = 30;
+    this.timer = setInterval(function () {
+      self.leftNow -= 1;
+      if (self.leftNow <= 0) {
+        clearInterval(self.timer); self.timer = null;
+        var tt = self.state.toast;
+        self.setState({ revealId: null, left: 0, copied: false, toast: tt && tt.kind === 'reveal' ? null : tt });
+      } else { self.setState({ left: self.leftNow }); }
+    }, 1000);
+  }
+  renderVals() {
+    var self = this, st = this.state;
+    var SH = { ok: 'M8 2a6 6 0 1 1 0 12A6 6 0 0 1 8 2z', warn: 'M8 1.5L15 14H1z', crit: 'M8 1L15 8L8 15L1 8z', none: 'M3 3h10v10H3z' };
+    var CO = { ok: '#5BE49B', warn: '#E0A93B', crit: '#FF6B6B', none: '#8E8A9B' };
+    var LB = { ok: 'Correcto', warn: 'Atención', crit: 'Crítico', none: 'Sin datos' };
+    function ic(k) { return { d: SH[k], fill: k === 'none' ? 'none' : CO[k], stroke: k === 'none' ? '#8E8A9B' : 'none', dash: k === 'none' ? '2 2' : '0', label: LB[k] }; }
+    function copyText(txt) { try { if (navigator.clipboard) { navigator.clipboard.writeText(txt).catch(function () {}); } } catch (e) {} }
+    var withinGrace = st.verifiedAt && (Date.now() - st.verifiedAt < 300000);
+
+    var V = function (k, d, who) { return { k: k, d: d, who: who }; };
+    var DATA = [
+      { id: 'c1', scope: 'cli', name: 'cPanel · 4bellu.com', client: '4Bellú · Body shapers', tipo: 'cPanel', url: 'https://4bellu.com:2083', user: 'admin_ejemplo', pass: 'Ej3mplo-no-real-26', mfa: 'No', mfaWhere: '', ver: V('ok', '02/10', 'Laura'), origin: 'excel', rep: true, notes: 'En el Excel decía «la del hosting».',
+        views: [{ t: '02/10 15:20', who: 'Laura', x: 'la vio y la copió · desde 181.xx.xx.xx' }, { t: '27/09 09:12', who: 'Andrés', x: 'la vio · desde 190.xx.xx.xx' }, { t: '18/09 18:03', who: 'Tú', x: 'la vio · desde 181.xx.xx.xx' }] },
+      { id: 'c2', scope: 'cli', name: 'WordPress · 4bellu.com', client: '4Bellú · Body shapers', tipo: 'WordPress', url: 'https://4bellu.com/wp-admin', user: 'dk_soporte_ejemplo', pass: 'Ej3mplo-wp-no-real', mfa: 'Sí', mfaWhere: 'app de DKODING', ver: V('ok', '02/10', 'Laura'), origin: 'admin', rep: false, notes: 'Usuario propio de DKODING, rol administrador.',
+        views: [{ t: '02/10 15:24', who: 'Laura', x: 'entró con «Acceder a WP» · desde 181.xx.xx.xx' }, { t: '30/09 11:40', who: 'Andrés', x: 'la vio · desde 190.xx.xx.xx' }, { t: '12/09 10:05', who: 'Tú', x: 'la creó en el admin' }] },
+      { id: 'c3', scope: 'cli', name: 'WordPress · tienda.4bellu.com', client: '4Bellú · Body shapers', tipo: 'WordPress', url: 'https://tienda.4bellu.com/wp-admin', user: 'admin_ejemplo', pass: 'Ej3mplo-tienda-26', mfa: 'No', mfaWhere: '', ver: V('none'), origin: 'excel', rep: false, notes: 'Sin notas en el Excel.',
+        views: [{ t: '12/09 10:02', who: 'Tú', x: 'importada desde Excel (sin valor en el registro)' }, { t: '—', who: 'Nadie', x: 'la ha visto desde la importación' }] },
+      { id: 'c4', scope: 'cli', name: 'Dominio · 4bellu.com', client: '4Bellú · Body shapers', tipo: 'Dominio', url: 'https://registrador.ejemplo.com', user: 'cliente_4bellu_ejemplo', pass: 'Ej3mplo-dominio-26', mfa: 'Sí', mfaWhere: 'celular del cliente', ver: V('crit', '28/09', 'Laura'), origin: 'excel', rep: false, notes: 'El código de 2FA llega al celular de Carolina (cliente).',
+        views: [{ t: '28/09 11:05', who: 'Laura', x: 'la vio · contraseña rechazada' }, { t: '28/09 11:02', who: 'Laura', x: 'la vio · desde 181.xx.xx.xx' }, { t: '12/09 10:02', who: 'Tú', x: 'importada desde Excel' }] },
+      { id: 'c5', scope: 'cli', name: 'Meta Business · 4Bellú', client: '4Bellú · Body shapers', tipo: 'Meta Business', url: 'https://business.facebook.com', user: 'pauta@ejemplo.com', pass: 'Ej3mplo-meta-26', mfa: 'Sí', mfaWhere: 'app del cliente', ver: V('ok', '30/09', 'Andrés'), origin: 'excel', rep: false, notes: 'Mejor pedir acceso de socio que usar esta cuenta.',
+        views: [{ t: '30/09 16:10', who: 'Andrés', x: 'la vio · desde 190.xx.xx.xx' }, { t: '22/09 08:47', who: 'Laura', x: 'la vio y la copió · desde 181.xx.xx.xx' }, { t: '12/09 10:02', who: 'Tú', x: 'importada desde Excel (sin valor en el registro)' }] },
+      { id: 'c6', scope: 'cli', name: 'Google Ads · 4Bellú', client: '4Bellú · Body shapers', tipo: 'Google Ads', url: 'https://ads.google.com', user: 'ads@ejemplo.com', pass: 'Ej3mplo-ads-26', mfa: 'Sí', mfaWhere: 'celular del cliente', ver: V('none'), origin: 'excel', rep: false, notes: 'Sin notas en el Excel.',
+        views: [{ t: '03/10 17:30', who: 'Andrés', x: 'la vio · desde 190.xx.xx.xx' }, { t: '19/09 09:05', who: 'Laura', x: 'la vio · desde 181.xx.xx.xx' }, { t: '12/09 10:02', who: 'Tú', x: 'importada desde Excel (sin valor en el registro)' }] },
+      { id: 'c7', scope: 'cli', name: 'cPanel · LuzMa', client: 'LuzMa · uniformes', tipo: 'cPanel', url: 'https://servidor.ejemplo.com:2083', user: 'luzma_ejemplo', pass: 'Ej3mplo-no-real-26', mfa: 'No', mfaWhere: '', ver: V('ok', '01/10', 'Laura'), origin: 'excel', rep: true, notes: 'Misma contraseña que cPanel · 4bellu.com.',
+        views: [{ t: '01/10 09:30', who: 'Laura', x: 'la vio · desde 181.xx.xx.xx' }, { t: '24/09 15:12', who: 'Andrés', x: 'la vio y la copió · desde 190.xx.xx.xx' }, { t: '12/09 10:02', who: 'Tú', x: 'importada desde Excel (sin valor en el registro)' }] },
+      { id: 'c8', scope: 'cli', name: 'WordPress · Colorado', client: 'Colorado Hardwood Design', short: 'Colorado Hardwood', tipo: 'WordPress', url: 'https://colorado.ejemplo.com/wp-admin', user: 'admin_ejemplo', pass: 'Ej3mplo-colorado-26', mfa: 'Sí', mfaWhere: 'app de DKODING', ver: V('ok', '01/10', 'Laura'), origin: 'admin', rep: false, notes: 'Sitio en inglés.',
+        views: [{ t: '01/10 14:12', who: 'Laura', x: 'entró con «Acceder a WP» · desde 181.xx.xx.xx' }, { t: '15/09 08:50', who: 'Andrés', x: 'la vio · desde 190.xx.xx.xx' }, { t: '02/09 11:00', who: 'Tú', x: 'la creó en el admin' }] },
+      { id: 'c9', scope: 'cli', name: 'Correo · Jhoana Pérez', client: 'Jhoana Pérez · psicóloga', tipo: 'Correo', url: 'https://correo.ejemplo.com', user: 'consultorio@ejemplo.com', pass: 'Ej3mplo-correo-26', mfa: 'No', mfaWhere: '', ver: V('crit', '28/09', 'Andrés'), origin: 'excel', rep: false, notes: 'La clienta pudo haberla cambiado.',
+        views: [{ t: '28/09 17:40', who: 'Andrés', x: 'la vio · marcó «No funciona»' }, { t: '28/09 17:38', who: 'Andrés', x: 'la vio · desde 190.xx.xx.xx' }, { t: '12/09 10:02', who: 'Tú', x: 'importada desde Excel (sin valor en el registro)' }] },
+      { id: 'c10', scope: 'cli', name: 'FTP · Clínica dental', client: 'Clínica dental (ejemplo)', tipo: 'FTP', url: 'ftp://ftp.ejemplo.com', user: 'clinica_ejemplo', pass: 'Ej3mplo-ftp-26', mfa: 'No', mfaWhere: '', ver: V('none'), origin: 'excel', rep: false, notes: 'Sin notas en el Excel.',
+        views: [{ t: '12/09 10:02', who: 'Tú', x: 'importada desde Excel' }] },
+      { id: 'a1', scope: 'age', name: 'Google Ads · MCC DKODING', client: 'DKODING', tipo: 'Google Ads', url: 'https://ads.google.com', user: 'mcc@ejemplo.com', pass: 'Ej3mplo-mcc-26', mfa: 'Sí', mfaWhere: 'llave física', ver: V('ok', '01/10', 'ti'), origin: 'admin', rep: false, notes: 'Cuenta administradora de todas las cuentas de clientes.',
+        views: [{ t: '01/10 08:15', who: 'Tú', x: 'la vio · desde 181.xx.xx.xx' }] },
+      { id: 'a2', scope: 'age', name: 'Meta Business · DKODING', client: 'DKODING', tipo: 'Meta Business', url: 'https://business.facebook.com', user: 'meta@ejemplo.com', pass: 'Ej3mplo-meta-dk-26', mfa: 'Sí', mfaWhere: 'app de Dirección', ver: V('ok', '30/09', 'Andrés'), origin: 'admin', rep: false, notes: '',
+        views: [{ t: '30/09 16:02', who: 'Andrés', x: 'la vio' }] },
+      { id: 'a3', scope: 'age', name: 'Dominio · dkoding.net', client: 'DKODING', tipo: 'Dominio', url: 'https://registrador.ejemplo.com', user: 'dkoding_ejemplo', pass: 'Ej3mplo-dkn-26', mfa: 'Sí', mfaWhere: 'llave física', ver: V('ok', '15/09', 'ti'), origin: 'excel', rep: false, notes: 'Renueva en marzo.',
+        views: [{ t: '15/09 12:00', who: 'Tú', x: 'la vio' }] },
+      { id: 'a4', scope: 'age', name: 'SeguriServer · revendedor', client: 'DKODING', tipo: 'Hosting', url: 'https://clientes.ejemplo.com', user: 'dkoding_ejemplo', pass: 'Ej3mplo-seguri-26', mfa: 'Sí', mfaWhere: 'app de Dirección', ver: V('none'), origin: 'excel', rep: false, notes: 'Pendiente: pedir WHM de revendedor.',
+        views: [{ t: '12/09 10:02', who: 'Tú', x: 'importada desde Excel' }] },
+      { id: 'a5', scope: 'age', name: 'Cloudflare · cuenta DKODING', client: 'DKODING', tipo: 'Otro', url: 'https://dash.cloudflare.com', user: 'infra@ejemplo.com', pass: 'Ej3mplo-cf-26', mfa: 'Sí', mfaWhere: 'llave física', ver: V('ok', '05/10', 'ti'), origin: 'admin', rep: false, notes: 'R2: un bucket por cliente.',
+        views: [{ t: '05/10 09:00', who: 'Tú', x: 'la vio' }] },
+      { id: 'a6', scope: 'age', name: 'UptimeRobot', client: 'DKODING', tipo: 'Otro', url: 'https://uptimerobot.com/login', user: 'monitoreo@ejemplo.com', pass: 'Ej3mplo-uptime-26', mfa: 'No', mfaWhere: '', ver: V('crit', '20/09', 'Laura'), origin: 'excel', rep: false, notes: '',
+        views: [{ t: '20/09 10:30', who: 'Laura', x: 'la vio · no funcionó' }] },
+      { id: 'p1', scope: 'per', name: 'Mi correo DKODING', client: 'Tú', tipo: 'Correo', url: 'https://correo.ejemplo.com', user: 'tu.nombre@ejemplo.com', pass: 'Ej3mplo-mio-26', mfa: 'Sí', mfaWhere: 'app autenticadora', ver: V('ok', '01/10', 'ti'), origin: 'admin', rep: false, notes: 'Solo tú la ves.',
+        views: [{ t: '01/10 07:58', who: 'Tú', x: 'la viste' }] },
+      { id: 'p2', scope: 'per', name: 'Mi GitHub', client: 'Tú', tipo: 'Otro', url: 'https://github.com/login', user: 'tu_usuario_ejemplo', pass: 'Ej3mplo-gh-26', mfa: 'Sí', mfaWhere: 'llave física', ver: V('ok', '28/09', 'ti'), origin: 'admin', rep: false, notes: '',
+        views: [{ t: '28/09 19:20', who: 'Tú', x: 'la viste' }] },
+      { id: 'p3', scope: 'per', name: 'Banco de la empresa (ejemplo)', client: 'Tú', tipo: 'Otro', url: 'https://banco.ejemplo.com', user: 'tu_usuario_ejemplo', pass: 'Ej3mplo-banco-26', mfa: 'Sí', mfaWhere: 'token del banco', ver: V('none'), origin: 'admin', rep: false, notes: '',
+        views: [{ t: '—', who: 'Nadie', x: 'la ha visto todavía' }] },
+      { id: 'p4', scope: 'per', name: 'Wi-Fi de la oficina', client: 'Tú', tipo: 'Otro', url: '—', user: 'DKODING-oficina', pass: 'Ej3mplo-wifi-26', mfa: 'No', mfaWhere: '', ver: V('ok', '03/10', 'ti'), origin: 'excel', rep: false, notes: '',
+        views: [{ t: '03/10 08:30', who: 'Tú', x: 'la viste' }] }
+    ];
+    function verOf(d) {
+      var m = st.marks[d.id];
+      if (st.rotated[d.id] && !m) return { k: 'none', l1: 'Sin verificar', l2: 'rotada 07/10', txt: 'sin verificar desde el cambio de contraseña del 07/10.' };
+      if (m === 'ok') return { k: 'ok', l1: 'Verificado 07/10', l2: 'por ti · funciona', txt: 'verificado el 07/10 por ti · funciona.' };
+      if (m === 'fail') return { k: 'crit', l1: 'Falló 07/10', l2: 'tú · no funciona', txt: 'falló el 07/10 (tú) · no funciona.' };
+      if (d.ver.k === 'ok') return { k: 'ok', l1: 'Verificado ' + d.ver.d + ' ✓', l2: 'por ' + d.ver.who, txt: 'verificado el ' + d.ver.d + ' por ' + d.ver.who + ' · funciona.' };
+      if (d.ver.k === 'crit') return { k: 'crit', l1: 'Falló ' + d.ver.d, l2: d.ver.who + ' · no funciona', txt: 'falló el ' + d.ver.d + ' (' + d.ver.who + ') · no funciona.' };
+      return { k: 'none', l1: 'Sin verificar', l2: 'nadie la ha probado', txt: 'sin verificar. Nadie la ha probado desde que se importó.' };
+    }
+    function originOf(d) {
+      if (st.rotated[d.id]) return 'Rotada en el admin · 07/10';
+      return d.origin === 'excel' ? 'Excel · sin rotar' : 'Creada en el admin';
+    }
+    function ver(id) {
+      if (st.verifiedAt && Date.now() - st.verifiedAt < 300000) { self.startReveal(id, false); }
+      else { self.setState({ modalId: id, code: '', pwd: '', mode: 'code' }); }
+    }
+    function mark(id, v) { var m = Object.assign({}, st.marks); m[id] = v; self.setState({ marks: m, toast: { kind: 'mark', title: v === 'ok' ? 'Marcado «Funciona»' : 'Marcado «No funciona»', body: 'Quedó en la verificación del acceso y en el registro: tú, 07/10.' } }); }
+    function toastOnly(title, body) { self.setState({ toast: { kind: 'info', title: title, body: body } }); }
+
+    var counts = { per: 7, age: 24, cli: 183 };
+    var scopes = [{ id: 'per', label: 'Personales' }, { id: 'age', label: 'Agencia' }, { id: 'cli', label: 'Clientes' }].map(function (s) {
+      var on = st.scope === s.id;
+      return { label: s.label, count: counts[s.id], on: on, pick: function () { self.setState({ scope: s.id, fCli: '', panelId: null }); },
+        style: 'display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border: 0; border-radius: 6px; cursor: pointer; font-weight: 600; ' + (on ? 'background: #1A0B2B; color: #F4F2F8; box-shadow: inset 0 0 0 1px rgba(199,85,239,0.45);' : 'background: transparent; color: #B3B0BC;'),
+        badgeStyle: 'padding: 0 7px; border-radius: 999px; font-size: 12px; font-variant-numeric: tabular-nums; ' + (on ? 'background: rgba(199,85,239,0.22); color: #F0D4FF;' : 'background: rgba(255,255,255,0.08); color: #B3B0BC;') };
+    });
+    var notes = { per: 'Solo tú los ves. Ni un administrador puede verlos.', age: 'Los ve el equipo según su rol: Google Ads, Meta, dominios propios, proveedores y hosting de DKODING.', cli: 'Los ve el equipo según su rol y los clientes que tiene asignados. Cada acceso está ligado a un cliente y, si aplica, a un sitio.' };
+
+    var healthDefs = [
+      { id: 'sin', label: 'Sin verificar', value: '23', note: 'nadie ha probado que funcionen', k: 'none', f: { fVer: 'sin' } },
+      { id: 'fallo', label: 'Falló la última verificación', value: '4', note: 'alguien marcó «No funciona»', k: 'crit', f: { fVer: 'fallo' } },
+      { id: 'excel', label: 'Importados del Excel sin rotar', value: '187', note: 'no es obligatorio rotarlos', k: 'warn', f: { fOri: 'excel' } },
+      { id: 'rep', label: 'Repetidos en varios clientes', value: '6', note: 'la misma contraseña en 2 o más', k: 'warn', f: { fRep: true } }
+    ];
+    var health = healthDefs.map(function (h) {
+      var on = (h.id === 'sin' && st.fVer === 'sin') || (h.id === 'fallo' && st.fVer === 'fallo') || (h.id === 'excel' && st.fOri === 'excel') || (h.id === 'rep' && st.fRep);
+      return { label: h.label, value: h.value, note: h.note, ic: ic(h.k), on: on,
+        pick: function () { var base = { fVer: '', fOri: '', fRep: false, fTipo: '', fCli: '', q: '' }; self.setState(on ? base : Object.assign(base, h.f)); },
+        style: 'display: flex; flex-direction: column; gap: 6px; padding: 14px 16px; border-radius: 8px; cursor: pointer; color: #F4F2F8; ' + (on ? 'background: #1A0B2B; border: 1px solid #C755EF;' : 'background: #151518; border: 1px solid rgba(255,255,255,0.08);') };
+    });
+
+    var inScope = DATA.filter(function (d) { return d.scope === st.scope; });
+    var q = st.q.trim().toLowerCase();
+    var filtered = inScope.filter(function (d) {
+      var v = verOf(d).k;
+      if (st.fTipo && d.tipo !== st.fTipo) return false;
+      if (st.scope === 'cli' && st.fCli && d.client !== st.fCli) return false;
+      if (st.fVer === 'ok' && v !== 'ok') return false;
+      if (st.fVer === 'sin' && v !== 'none') return false;
+      if (st.fVer === 'fallo' && v !== 'crit') return false;
+      if (st.fOri === 'excel' && originOf(d) !== 'Excel · sin rotar') return false;
+      if (st.fOri === 'admin' && originOf(d) === 'Excel · sin rotar') return false;
+      if (st.fRep && !d.rep) return false;
+      if (q && (d.name + ' ' + d.client + ' ' + d.user).toLowerCase().indexOf(q) < 0) return false;
+      return true;
+    });
+    var rows = filtered.map(function (d) {
+      var vv = verOf(d), shown = st.revealId === d.id, panel = st.panelId === d.id;
+      var ori = originOf(d);
+      return { name: d.name, url: d.url, client: d.client, clientShort: d.short || d.client.split(' · ')[0], tipo: d.tipo, user: d.user, pass: d.pass, rep: d.rep,
+        shown: shown, hidden: !shown,
+        mfaYes: d.mfa, mfaWhere: d.mfaWhere || '—', mfaStyle: d.mfa === 'Sí' ? 'font-weight: 600; color: #F4F2F8;' : 'color: #B3B0BC;',
+        vic: ic(vv.k), ver1: vv.l1, ver2: vv.l2, verStyle: 'font-weight: 600; color: ' + (vv.k === 'ok' ? '#F4F2F8' : vv.k === 'crit' ? '#FF8F9B' : '#D8D4E2') + ';',
+        origin: ori, oriStyle: 'display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 12px; white-space: nowrap; ' + (ori === 'Excel · sin rotar' ? 'background: rgba(224,169,59,0.1); color: #E8C27A; border: 1px solid rgba(224,169,59,0.3);' : 'background: rgba(255,255,255,0.06); color: #D8D4E2; border: 1px solid rgba(255,255,255,0.12);'),
+        rowStyle: 'border-top: 1px solid rgba(255,255,255,0.06); ' + (panel || shown ? 'background: #1A0B2B;' : ''),
+        open: function () { self.setState({ panelId: d.id, rotating: false, newPwd: '' }); },
+        ver: function () { ver(d.id); },
+        copyPass: function () { copyText(d.pass); self.setState({ copied: true }); },
+        copyUser: function () { copyText(d.user); toastOnly('Usuario copiado', d.user + ' · copiar el usuario no pide código.'); },
+        openLogin: function () { toastOnly('Inicio de sesión', 'Se abre ' + d.url + ' en otra pestaña. En el prototipo no se abre.'); },
+        markOk: function () { mark(d.id, 'ok'); }, markFail: function () { mark(d.id, 'fail'); } };
+    });
+
+    var pd = DATA.filter(function (d) { return d.id === st.panelId; })[0];
+    var p = { kicker: '', name: '', whoLabel: '', client: '', tipo: '', url: '', user: '', pass: '', mfa: '', notes: '', origin: '', vic: ic('none'), verText: '', views: [], shown: false, hidden: true, rotating: false, notRotating: true };
+    if (pd) {
+      var pv = verOf(pd);
+      var views = pd.views.slice(0);
+      if (st.seen[pd.id]) views.unshift({ t: '07/10 ' + st.seen[pd.id], who: 'Tú', x: 'la viste · desde 181.xx.xx.xx' });
+      if (st.rotated[pd.id]) views.unshift({ t: '07/10 10:50', who: 'Tú', x: 'registraste un cambio de contraseña' });
+      p = { kicker: (pd.scope === 'cli' ? 'Acceso de cliente' : pd.scope === 'age' ? 'Acceso de la agencia' : 'Acceso personal') + ' · ' + pd.tipo,
+        name: pd.name, whoLabel: pd.scope === 'cli' ? 'Cliente' : 'Dueño', client: pd.scope === 'per' ? 'Tú (solo tú lo ves)' : pd.client, tipo: pd.tipo, url: pd.url, user: pd.user, pass: pd.pass,
+        mfa: pd.mfa === 'Sí' ? 'Sí · ' + pd.mfaWhere : 'No', notes: pd.notes || 'Sin notas.', origin: originOf(pd) + (pd.origin === 'excel' && !st.rotated[pd.id] ? ' · importado el 12/09' : ''),
+        vic: ic(pv.k), verText: pv.txt, views: views.slice(0, 4),
+        shown: st.revealId === pd.id, hidden: st.revealId !== pd.id, rotating: st.rotating, notRotating: !st.rotating,
+        ver: function () { ver(pd.id); }, copyPass: function () { copyText(pd.pass); self.setState({ copied: true }); },
+        copyUser: function () { copyText(pd.user); toastOnly('Usuario copiado', pd.user + ' · copiar el usuario no pide código.'); },
+        openLogin: function () { toastOnly('Inicio de sesión', 'Se abre ' + pd.url + ' en otra pestaña. En el prototipo no se abre.'); },
+        markOk: function () { mark(pd.id, 'ok'); }, markFail: function () { mark(pd.id, 'fail'); } };
+    }
+    var md = DATA.filter(function (d) { return d.id === st.modalId; })[0];
+    var codeOk = /^\d{6}$/.test(st.code), pwdOk = st.pwd.length >= 6;
+    var canConfirm = st.mode === 'code' ? codeOk : pwdOk;
+    var doConfirm = function () { if (canConfirm && md) { self.startReveal(md.id, true); } };
+
+    var sel = function (on) { return 'min-height: 40px; padding: 0 10px; background: ' + (on ? '#1A0B2B' : '#0C0C0C') + '; color: #F4F2F8; border: 1px solid ' + (on ? 'rgba(199,85,239,0.6)' : 'rgba(255,255,255,0.14)') + '; border-radius: 4px; cursor: pointer; max-width: 100%;'; };
+    var opt = function (v, l) { return { v: v, l: l }; };
+    var tipoOpts = [opt('', 'Tipo: todos'), opt('cPanel', 'cPanel'), opt('WordPress', 'WordPress'), opt('Dominio', 'Dominio'), opt('Correo', 'Correo'), opt('Meta Business', 'Meta Business'), opt('Google Ads', 'Google Ads'), opt('Hosting', 'Hosting'), opt('FTP', 'FTP'), opt('Otro', 'Otro')];
+    var cliOpts = [opt('', 'Cliente: todos'), opt('4Bellú · Body shapers', '4Bellú · Body shapers'), opt('LuzMa · uniformes', 'LuzMa · uniformes'), opt('Colorado Hardwood Design', 'Colorado Hardwood Design'), opt('Jhoana Pérez · psicóloga', 'Jhoana Pérez · psicóloga'), opt('Clínica dental (ejemplo)', 'Clínica dental (ejemplo)')];
+    var verOpts = [opt('', 'Verificación: todas'), opt('ok', 'Verificado'), opt('sin', 'Sin verificar'), opt('fallo', 'Falló')];
+    var oriOpts = [opt('', 'Origen: todos'), opt('excel', 'Excel · sin rotar'), opt('admin', 'Creada o rotada en el admin')];
+    var hasFilters = !!(st.fTipo || st.fCli || st.fVer || st.fOri || st.fRep || q);
+    var titles = { per: 'Tus accesos personales', age: 'Accesos de la agencia', cli: 'Accesos de clientes' };
+    var pageText = hasFilters ? (filtered.length + (filtered.length === 1 ? ' resultado' : ' resultados') + ' en esta página de ejemplo' + (st.fRep ? ' · filtro: repetidos en varios clientes' : '')) : ('Mostrando 1 a ' + inScope.length + ' de ' + counts[st.scope]);
+    var last = Math.ceil(counts[st.scope] / inScope.length);
+    var vt = st.verifiedTime || '10:42';
+    var untilMin = parseInt(vt.split(':')[1], 10) + 5;
+
+    return {
+      health: health, scopes: scopes, scopeNote: notes[st.scope], isCli: st.scope === 'cli', tableTitle: titles[st.scope],
+      rows: rows, isEmpty: rows.length === 0, pageText: pageText, lastPage: String(last),
+      q: st.q, setQ: function (ev) { self.setState({ q: ev.target.value }); },
+      fTipo: st.fTipo, fCli: st.fCli, fVer: st.fVer, fOri: st.fOri,
+      setTipo: function (ev) { self.setState({ fTipo: ev.target.value }); }, setCli: function (ev) { self.setState({ fCli: ev.target.value }); },
+      setVer: function (ev) { self.setState({ fVer: ev.target.value }); }, setOri: function (ev) { self.setState({ fOri: ev.target.value }); },
+      selTipo: sel(!!st.fTipo), selCli: sel(!!st.fCli), selVer: sel(!!st.fVer), selOri: sel(!!st.fOri),
+      tipoOpts: tipoOpts, cliOpts: cliOpts, verOpts: verOpts, oriOpts: oriOpts, hasFilters: hasFilters,
+      clearFilters: function () { self.setState({ fTipo: '', fCli: '', fVer: '', fOri: '', fRep: false, q: '' }); },
+      left: st.left, copyLabel: st.copied ? 'Copiada' : 'Copiar',
+      isVerified: !!withinGrace, verifiedTime: vt, verifiedUntil: '10:' + (untilMin < 10 ? '0' : '') + untilMin,
+      forget: function () { self.setState({ verifiedAt: 0 }); },
+      hasPanel: !!pd, p: p, closePanel: function () { self.setState({ panelId: null, rotating: false, newPwd: '' }); },
+      startRotate: function () { self.setState({ rotating: true, newPwd: '' }); }, cancelRotate: function () { self.setState({ rotating: false, newPwd: '' }); },
+      newPwd: st.newPwd, setNewPwd: function (ev) { self.setState({ newPwd: ev.target.value }); },
+      cantRotate: st.newPwd.length < 6,
+      rotateStyle: 'min-height: 40px; padding: 0 14px; border-radius: 4px; font-weight: 600; ' + (st.newPwd.length >= 6 ? 'background: #6D00C2; color: #FFFFFF; border: 0; cursor: pointer;' : 'background: transparent; color: #8E8A9B; border: 1px solid rgba(255,255,255,0.14); cursor: default;'),
+      saveRotate: function () { if (st.newPwd.length < 6 || !pd) return; var r = Object.assign({}, st.rotated); r[pd.id] = true; var m = Object.assign({}, st.marks); delete m[pd.id]; self.setState({ rotated: r, marks: m, rotating: false, newPwd: '', toast: { kind: 'info', title: 'Cambio de contraseña registrado', body: 'Origen: «Rotada en el admin · 07/10». Queda sin verificar hasta que alguien pruebe que funciona.' } }); },
+      hasModal: !!md, mName: md ? md.name : '',
+      isCodeMode: st.mode === 'code', isPwdMode: st.mode === 'pwd',
+      modeText: st.mode === 'code' ? 'Escribe el código de 6 dígitos de tu app autenticadora.' : 'Escribe la contraseña con la que entras al admin.',
+      toggleLabel: st.mode === 'code' ? 'Usar mi contraseña' : 'Usar el código de la app',
+      toggleMode: function () { self.setState({ mode: st.mode === 'code' ? 'pwd' : 'code', code: '', pwd: '' }); },
+      code: st.code, setCode: function (ev) { self.setState({ code: String(ev.target.value).replace(/\D/g, '').slice(0, 6) }); },
+      pwd: st.pwd, setPwd: function (ev) { self.setState({ pwd: ev.target.value }); },
+      enterKey: function (ev) { if (ev.key === 'Enter') doConfirm(); },
+      cantConfirm: !canConfirm, confirm: doConfirm,
+      confirmStyle: 'min-height: 40px; padding: 0 16px; border-radius: 4px; font-weight: 600; ' + (canConfirm ? 'background: #6D00C2; color: #FFFFFF; border: 0; cursor: pointer;' : 'background: #2A2733; color: #8E8A9B; border: 0; cursor: not-allowed;'),
+      closeModal: function () { self.setState({ modalId: null, code: '', pwd: '' }); },
+      toastPos: 'position: fixed; top: 76px; right: ' + (pd ? 'max(20px, min(500px, calc(100% - 440px)))' : '20px') + ';', hasToast: !!st.toast, toast: st.toast || { title: '', body: '' }, closeToast: function () { self.setState({ toast: null }); }
+    };
+  }
+}
+</script>
+</body>
+</html>
