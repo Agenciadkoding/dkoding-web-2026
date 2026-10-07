@@ -1,6 +1,7 @@
 # Cloudflare _redirects · BORRADOR generado desde seo/redirecciones-301.csv (no editar a mano)
 # Va en public/_redirects del proyecto Astro. Cada origen se escribe con y sin barra final.
 # Las URLs marcadas 404 en el CSV no llevan regla: responden con la página 404 del sitio.
+# Las 302 son temporales: cuando exista /trifecta-hotelera/, esa regla se borra y /plan-hotelero/ pasa a 301.
 
 /home-dani/ / 301
 /home-dani / 301
@@ -8,14 +9,12 @@
 /desarrollo-web / 301
 /mapa-del-sitio/ / 301
 /mapa-del-sitio / 301
-/plan-hotelero/ / 301
-/plan-hotelero / 301
-/trifecta-hotelera/ / 301
-/trifecta-hotelera / 301
+/plan-hotelero/ / 302
+/plan-hotelero / 302
+/trifecta-hotelera/ / 302
+/trifecta-hotelera / 302
 /dkard/ https://dkard.co/ 301
 /dkard https://dkard.co/ 301
-/soporte/ /contacto/ 301
-/soporte /contacto/ 301
 /servicios/pagina-personal/ / 301
 /servicios/pagina-personal / 301
 /servicios/pagina-comercial/ / 301

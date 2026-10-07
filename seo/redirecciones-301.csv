@@ -10,12 +10,12 @@ origen,codigo,destino,tipo_actual,motivo,confirmar
 /home-dani/,301,/,página,Copia de trabajo de la home (94 % igual),
 /desarrollo-web/,301,/,página,Página «Próximamente»; la home es desarrollo web,
 /mapa-del-sitio/,301,/,página,El sitemap XML lo genera Astro,
-/plan-hotelero/,301,/,página,Vertical hotelero sin página propia en el sitio nuevo,sí: ¿se usa en campañas o QR?
-/trifecta-hotelera/,301,/,página,Vertical hotelero sin página propia en el sitio nuevo,sí: ¿se usa en campañas o QR?
+/plan-hotelero/,302,/,página,"302 temporal a la home; cuando exista /trifecta-hotelera/ pasa a 301 hacia ella (misma regla, sin cadena)",
+/trifecta-hotelera/,302,/,página,Landing hotelera que se construirá con esta URL; 302 temporal a la home mientras tanto,
 /dkard/,301,https://dkard.co/,página,Demo de Dkard: el producto tiene su propio dominio,
 /dkarta/,404,,página,Demo de carta digital con precios de un tercero,sí: ¿se enlaza desde algún cliente?
 /datos-hoteles/,404,,página,Formulario interno de onboarding; pasa al admin o a un enlace privado,
-/soporte/,301,/contacto/,página,Ticket de soporte; en el sitio nuevo va a contacto o al portal del cliente,sí: ¿los clientes con soporte usan esta URL?
+/soporte/,200,/soporte/,página,Se conserva: página de soporte con tickets (UX de referencia pendiente),
 /mi-cuenta/,404,,woocommerce,El sitio nuevo no tiene carrito ni cuentas,
 /carrito/,404,,woocommerce,El sitio nuevo no tiene carrito,
 /finalizar-compra/,404,,woocommerce,El sitio nuevo no tiene carrito,

@@ -1,11 +1,12 @@
 # Estructura del sitio, palabras clave y migración de URLs · dkoding.net
 
-Fecha: 2026-10-07 · Estado: **PROPUESTA**, con el inventario de URLs verificado sobre el sitio en vivo.
+Fecha: 2026-10-07 · Estado: **PROPUESTA**, con el inventario de URLs verificado sobre el sitio en vivo y
+las respuestas del mismo día (soporte, landing hotelera, cifras de palabras clave y uso de la matriz).
 
 Archivos de datos:
 
 - `seo/redirecciones-301.csv`: las 55 URLs actuales con su destino en el sitio nuevo.
-- `seo/_redirects.borrador`: las 82 reglas listas para Cloudflare, generadas desde el CSV.
+- `seo/_redirects.borrador`: las 80 reglas listas para Cloudflare, generadas desde el CSV.
 - `seo/palabras-clave-clasificadas.csv`: las 660 palabras clave únicas de tu estudio, con su página sugerida, si van a landing o a blog, su sector y su motivo de descarte.
 
 ---
@@ -18,15 +19,16 @@ Archivos de datos:
 2. La estructura nueva tiene **la home más 5 landings**, con URLs cortas: `/marketing-digital/`,
    `/seo-y-geo/`, `/redes-sociales/`, `/diseno-de-marca/` y `/desarrollo-de-apps/`. La home
    sigue siendo la página de desarrollo web, como hoy.
-3. Se conservan 8 URLs tal cual (home, nosotros, equipo, casos, contacto, privacidad, blog y
-   servicios). 41 pasan con 301 a su equivalente y 6 quedan en 404 porque no tienen equivalente
-   (carrito, cuenta, demos y un formulario interno).
+3. Se conservan 9 URLs tal cual (home, nosotros, equipo, casos, contacto, privacidad, blog,
+   servicios y soporte). 38 pasan con 301 a su equivalente, 2 van con 302 temporal mientras se
+   construye la landing hotelera, y 6 quedan en 404 porque no tienen equivalente (carrito,
+   cuenta, demos y un formulario interno).
 4. El blog pasa a `/blog/{slug}/`, organizado por **tema** (los 6 servicios) y por **nicho**
    (salud, ecommerce, profesionales independientes, pymes, etc.). Las 5 entradas de 2024 se
    migran y actualizan; tienen entre 859 y 1.251 palabras.
-5. Tu estudio de palabras clave sirve para repartir temas, pero **sus volúmenes no son
-   confiables** para priorizar, y **no tiene ninguna búsqueda con "Cali"**. Antes de
-   escribir textos hay que validar unas 60 palabras en el Planificador de Google Ads (§5).
+5. Tu estudio de palabras clave sirve para repartir temas. Sus cifras son de referencia, de
+   hace unos años: se usan como relevancia relativa hasta tener cifras reales. **No tiene
+   ninguna búsqueda con "Cali"**, y conviene sumarlas al actualizarlo (§5).
 6. De 22 competidores revisados en vivo, **ninguno es de Cali**, pero varios de fuera ya tienen
    landings con "Cali". **Ninguno tiene cotizador interactivo.** Apps y diseño de marca son las
    landings con menos competencia (§6).
@@ -70,6 +72,8 @@ con el CSV. El admin lo hará solo cuando esté conectado a Search Console.
 | Diseño de marca | `/diseno-de-marca/` | diseño de logotipos (2.400) · diseño de marca (880) | diseño de identidad corporativa (1.000), diseño de imagen corporativa (1.000), diseño de packaging (1.000), diseño de tarjetas de presentación (2.400), agencia de branding (590), diseño de papelería empresarial (720) | "diseño gráfico" (12.100) es demasiado amplia: la buscan estudiantes y gente que busca empleo |
 | Desarrollo de apps | `/desarrollo-de-apps/` | desarrollo de apps móviles (2.400) | desarrollo de aplicaciones web (1.300), desarrollo de software a medida (1.300), empresa de desarrollo de apps (880), software a la medida (880), crear app móvil personalizada (720), desarrollo de crm personalizado (590) | "desarrollo de software" (4.400) da para una sexta landing más adelante |
 | Servicios | `/servicios/` | — | — | Índice corto de los 6 servicios. Conserva la URL que existe desde 2024 |
+| Trifecta hotelera | `/trifecta-hotelera/` | crear sitio web para hotel (480) + "en Cali" | seo para hoteles (720), páginas web para hoteles, sistema de reservas | Landing por sector que se construirá más adelante. Absorbe `/plan-hotelero/` |
+| Soporte | `/soporte/` | — | — | Se conserva: entrada de los tickets de los clientes |
 | Casos de éxito, Nosotros, Equipo, Contacto, Privacidad | igual que hoy | — | — | Se conservan las URLs |
 
 Las cifras entre paréntesis son las de tu hoja, sin validar. Sirven para ordenar, no para
@@ -143,13 +147,18 @@ El mapa completo está en `seo/redirecciones-301.csv`.
 
 | Qué pasa | URLs | Ejemplos |
 |---|---|---|
-| Se conserva la URL | 8 | `/`, `/nosotros/`, `/casos-de-exito/`, `/contacto/`, `/blog/`, `/servicios/` |
-| 301 al servicio equivalente | 22 | `/servicios/posicionamiento-en-google-seo/` → `/seo-y-geo/`; `/servicios/marca/` → `/diseno-de-marca/` |
-| 301 de planes web y tiendas a la home | 11 | `/servicios/pagina-corporativa/` → `/`; `/tienda/` → `/` |
+| Se conserva la URL | 9 | `/`, `/nosotros/`, `/casos-de-exito/`, `/contacto/`, `/blog/`, `/servicios/`, `/soporte/` |
+| 301 al servicio equivalente | 14 | `/servicios/posicionamiento-en-google-seo/` → `/seo-y-geo/`; `/servicios/marca/` → `/diseno-de-marca/` |
+| 301 a la home | 16 | Planes web, tiendas y catálogos, sus categorías, `/home-dani/` y `/desarrollo-web/` |
 | 301 de entradas a `/blog/` | 5 | `/crear-mi-tienda-online/` → `/blog/crear-mi-tienda-online/` |
+| 301 de archivos | 2 | `/author/admindkoding/` → `/nosotros/`, `/category/sin-categoria/` → `/blog/` |
 | 301 externo | 1 | `/dkard/` → `https://dkard.co/` |
-| 301 de archivos y páginas de trabajo | 2 | `/home-dani/` → `/`, `/author/admindkoding/` → `/nosotros/` |
+| 302 temporal | 2 | `/trifecta-hotelera/` y `/plan-hotelero/` → `/` mientras se construye la landing |
 | Queda en 404 (sin equivalente) | 6 | `/carrito/`, `/finalizar-compra/`, `/mi-cuenta/`, `/dkarta/`, `/datos-hoteles/`, `/categoria/sin-categorizar/` |
+
+**Las dos 302 son temporales a propósito.** Cuando exista la landing, `/trifecta-hotelera/`
+deja de redirigir y `/plan-hotelero/` pasa a 301 hacia ella. Se cambia la misma regla, así que
+nunca hay una cadena de dos saltos.
 
 No redirigir todo a la home es deliberado: Google trata como error (soft 404) una redirección a
 una página que no tiene que ver con la original. Una URL sin equivalente responde 404 y Google
@@ -157,20 +166,21 @@ la retira sola.
 
 **Por confirmar contigo** (columna `confirmar` del CSV):
 
-1. `/plan-hotelero/` y `/trifecta-hotelera/`: ¿se usan en campañas, QR o enlaces enviados a hoteles?
-2. `/soporte/`: ¿los clientes con soporte usan esa URL para abrir tickets?
-3. `/dkarta/`: ¿algún cliente la enlaza como demo?
-4. `/servicios/anuncios-en-meta-ads/`: ¿va a marketing digital o a redes sociales?
-5. `/servicios/`: ¿índice de servicios, o 301 a la home?
-6. Tiendas y catálogos: ¿se crea `/tiendas-virtuales/` en la fase 2?
+1. `/dkarta/`: ¿algún cliente la enlaza como demo?
+2. `/servicios/anuncios-en-meta-ads/`: ¿va a marketing digital o a redes sociales?
+3. `/servicios/`: ¿índice de servicios, o 301 a la home?
+4. Tiendas y catálogos (3 URLs): ¿se crea `/tiendas-virtuales/` en la fase 2?
+
+Resueltas el 7 de octubre: `/soporte/` se conserva, y `/plan-hotelero/` y `/trifecta-hotelera/`
+esperan su landing.
 
 **Pasos del lanzamiento:**
 
 1. **Antes:** exportar de Search Console las URLs con impresiones y cruzarlas con el CSV. Revisar
    backlinks en Search Console → *Enlaces*.
 2. **En el build:** el CSV genera `public/_redirects`. Cloudflare admite 2.000 reglas estáticas;
-   este mapa usa 82, porque cada origen va con y sin barra final.
-3. **El día del cambio:** un script recorre las 55 URLs viejas y comprueba que cada 301 llegue
+   este mapa usa 80, porque cada origen va con y sin barra final.
+3. **El día del cambio:** un script recorre las 55 URLs viejas y comprueba que cada 301 o 302 llegue
    en **un solo salto** a una página que responde 200. Se publica el sitemap nuevo, se envía en
    Search Console y se declara en `robots.txt`.
 4. **También:** actualizar el enlace de Google Business Profile, las biografías de redes, las
@@ -185,29 +195,38 @@ la retira sola.
 El documento se lee completo: **702 filas en 6 grupos** (SEO, Agencia, Web, Marketing, Diseño
 y Desarrollo), que quedan en **660 palabras únicas** al quitar repetidas.
 
+**Qué son esas cifras.** Se sacaron cuando tu cuenta de Google Ads no mostraba volúmenes
+exactos, hace unos años. Por eso muchas se repiten (720, 590, 880): son rangos aproximados. Se
+usan como **relevancia relativa** entre palabras, para ordenar temas, hasta tener cifras reales.
+
 **Lo que sirve:** cubre bien los seis servicios, separa la intención (transaccional,
 informativa o mixta) y tiene suficientes palabras de nicho para planear un año de blog.
 
-**Lo que hay que corregir antes de usar los números:**
+**Lo que falta y conviene sumar cuando actualices las cifras:**
 
-| Problema | Dato |
+| Hueco | Por qué importa |
 |---|---|
-| Volúmenes sin fuente, país ni fecha | No dice si son de Colombia, de todo el español o de una herramienta concreta |
-| Valores sospechosamente repetidos | 136 de las 660 palabras (21 %) tienen exactamente 720 búsquedas, y 115 tienen 590 |
-| Contradicciones internas | 27 palabras aparecen dos o tres veces con volúmenes distintos, por ejemplo "desarrollo de apps móviles" con 1.300 y 2.400 |
-| Ninguna búsqueda con "Cali" | Hay 18 con Medellín o Bogotá, pero ninguna de tu ciudad |
-| Palabras de búsqueda de empleo | 37 son de gente que busca trabajo o freelancers ("programador freelance", "diseñador gráfico junior") |
-| Fuera de tu oferta | 15, como "seo en yandex", "seo para criptomonedas" o "agencia de marketing político" |
-| Hazlo tú mismo | 5, como "crear sitio web gratis" o "programa para hacer una página web" |
-| Intención mal marcada | "robots.txt" aparece como transaccional; el grupo Diseño trae palabras de desarrollo |
+| Búsquedas con "Cali" | Hay 18 con Medellín o Bogotá y ninguna de tu ciudad, que es tu ventaja frente a la competencia |
+| GEO y visibilidad en IA | Ya tiene landing en 7 competidores |
+| "manejo de redes sociales" y "community manager" | Es el término que usa la competencia para lo que tú llamas optimización de redes sociales |
+| Búsquedas de hoteles | Para la landing de Trifecta hotelera |
 
-En total se descartan 72. Están en el CSV con su motivo, no borradas.
+**Lo que se descartó para la estructura** (72 palabras, en el CSV con su motivo, no borradas):
 
-**Cómo validarlo, gratis y en una tarde:** en el Planificador de palabras clave de Google Ads,
-con ubicación **Colombia** y luego **Cali**, pegar las ~60 palabras de la tabla del §2 más sus
-variantes con "Cali". Con eso se elige la palabra principal de cada landing. Después del
-lanzamiento, la fuente de verdad es Search Console: el admin guarda la palabra objetivo de cada
-página y la compara con las consultas reales que traen clics.
+| Motivo | Palabras | Ejemplos |
+|---|---|---|
+| Búsqueda de empleo o freelancers | 37 | "programador freelance", "diseñador gráfico junior" |
+| Otras ciudades | 18 | Medellín y Bogotá |
+| Fuera de tu oferta | 15 | "seo en yandex", "agencia de marketing político" |
+| Hazlo tú mismo | 5 | "crear sitio web gratis" |
+
+Algunas palabras caen en dos motivos, por eso la suma pasa de 72.
+
+**Cómo actualizar las cifras:** en el Planificador de palabras clave de Google Ads, ya con
+cifras exactas, ubicación **Colombia** y luego **Cali**, pegar las ~60 palabras de la tabla del
+§2 más sus variantes con "Cali". Con eso se confirma la palabra principal de cada landing.
+Después del lanzamiento, la fuente de verdad es Search Console: el admin guarda la palabra
+objetivo de cada página y la compara con las consultas reales que traen clics.
 
 **Competencia:** ver §6.
 
@@ -217,16 +236,10 @@ página y la compara con las consultas reales que traen clics.
 
 ### 6.1 Tu matriz
 
-Tiene 43 filas y sirve como punto de partida, pero conviene limpiarla antes de compartirla:
-
-- **No todos son competidores.** Hay SaaS (MailerLite, Mailchimp, StackAdapt), un directorio
-  (Sortlist), una consultora (EY), un catálogo de incentivos y agencias de España o Argentina.
-- **Hay errores de copiar y pegar.** Dimark aparece con servicios de "hogar, hospitalario";
-  Knowbi y Los Creativos tienen el mismo modelo de negocio; Sortlist dice Bogotá pero enlaza
-  Medellín.
-- **Faltan las métricas que permiten comparar:** URLs indexadas, si el blog está activo, schema,
-  precios y CTA. "Enfoque SEO: alto/medio/bajo" es una opinión.
-- **Hay comentarios informales en tres celdas.** Bórralos antes de compartir el archivo.
+La usas para encontrar mejoras a la oferta de DKODING, así que ese análisis está aparte, en
+`docs/mejoras-oferta.md`. Resumen: soporte mensual como producto estrella, un método con nombre,
+diagnóstico gratis como puerta de entrada, paquetes por sector (hoteles y salud) y los
+productos propios (dkard y dkarta) a la vista.
 
 ### 6.2 Lo que muestran sus sitios hoy
 

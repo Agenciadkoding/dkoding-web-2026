@@ -1,6 +1,6 @@
 # Admin DKODING · MVP simple
 
-Fecha: 2026-10-07 · Estado: **PROPUESTA v2**. Reemplaza el alcance y el stack de
+Fecha: 2026-10-07 · Estado: **PROPUESTA v2**, con las respuestas del 7 de octubre (§10). Reemplaza el alcance y el stack de
 `docs/ux-admin.md` (6 de octubre). Ese documento queda como referencia para las fases
 siguientes.
 
@@ -18,13 +18,12 @@ siguientes.
 | Foco | Agencia multi-cliente: métricas, SEO y contenido de todos | **dkoding.net**. De los clientes, solo estado del sitio y copias |
 | Contraseñas | Bitwarden; el admin nunca muestra una contraseña | **Bóveda propia** en el admin: se listan y se ven tras verificar tu identidad |
 | Copias | JetBackup del proveedor, cuenta de Cloudflare aparte | **UpdraftPlus → Cloudflare R2 cada 15 días**, solo clientes con soporte activo |
+| Hosting de los sitios | SeguriServer | **Banahost**, servidor de la agencia con WHM de revendedor. SeguriServer y el hosting propio del cliente son la excepción |
 | Leads | Módulo de Ventas | **En el CRM**, ligados a sus cotizaciones |
 | Pantallas | ~16 propias + 20 colecciones | **8 grupos de menú**, casi todo con pantallas estándar de Filament |
 | Costo mensual | 180–350 USD | **25–75 USD** |
 
-Sobre "Laravel + Astra": entiendo **Astro**, el framework del sitio público con el que veníamos
-trabajando, no el tema Astra de WordPress. Si era el tema, avísame, porque cambia el sitio
-público, no el admin.
+Confirmado: el sitio público es **Astro** (el framework), no el tema Astra de WordPress.
 
 ---
 
@@ -57,6 +56,7 @@ público, no el admin.
 | Sitio público | Astro 7 en Cloudflare, contenido en el repositorio | Formularios y cotizador envían al admin por una API |
 | Estado de sitios | UptimeRobot (gratis hasta 50 sitios cada 5 min) | Avisa por su cuenta aunque el admin esté caído |
 | Copias | UpdraftPlus gratis en cada WordPress → un bucket de R2 por cliente | Programación quincenal y destino R2 están en la versión gratis |
+| cPanel de Banahost | Token de API del WHM de revendedor, con solo los permisos necesarios y limitado a la IP del servidor del admin | Abre cPanel de cualquier cuenta de la agencia sin contraseña (`create_user_session`) |
 
 Hosting descartado: Laravel Cloud, porque sus IP de salida cambian y no sirven para listas
 blancas, y el cPanel compartido, porque no tiene workers persistentes y guardaría secretos en un
@@ -140,6 +140,9 @@ por mes. Avisos a 30 y 7 días.
 **El servicio "Soporte de agencia" activo** es lo que activa las copias quincenales de los
 sitios del cliente (§4.6).
 
+Los servicios no se importan: el equipo los carga desde el formulario de cada cliente a medida
+que los revisa. Los clientes sí se crean solos al importar el Excel de accesos.
+
 ### 4.4 Accesos
 
 Tres ámbitos en la misma pantalla:
@@ -150,13 +153,14 @@ Tres ámbitos en la misma pantalla:
 | Agencia | El equipo, según su rol: Google Ads, Meta, dominios propios, proveedores, hosting de DKODING |
 | Clientes | El equipo, según su rol. Cada acceso está ligado a un cliente y, si aplica, a un sitio |
 
-Cada acceso guarda: nombre, tipo (cPanel, WordPress, hosting, dominio, correo, redes, FTP,
-otro), URL de inicio de sesión, usuario, contraseña, notas, si tiene 2FA y dónde,
-**verificación** (fecha, quién y si funcionó) y origen ("Excel, sin rotar" o "creada en el
-admin").
+Cada acceso guarda: nombre, tipo (cPanel, WHM, WordPress, correo, Google, redes, hosting o
+dominio, herramienta, otro), **cómo se inicia sesión** (usuario y contraseña, o "con Google" o
+"con Facebook", enlazado a esa cuenta y sin contraseña propia), URL de inicio de sesión,
+usuario, contraseña, un **secreto adicional** cifrado (códigos de respaldo de la doble
+verificación o una llave), notas, si tiene 2FA y dónde, **verificación** (fecha, quién y si
+funcionó), último cambio y origen ("Excel, sin rotar" o "creada en el admin").
 
-**"Visualización con verificación" lo implemento de dos formas.** Si querías decir otra cosa,
-dímelo:
+**"Visualización con verificación" (confirmado) funciona de dos formas:**
 
 1. **Verificar quién mira:** ver una contraseña pide el código de tu app autenticadora (o tu
    contraseña) si no lo diste en los últimos 5 minutos. El valor se muestra 30 segundos, se
@@ -182,7 +186,8 @@ para vencer, si el cliente tiene soporte activo, última copia y dos botones:
 | Botón | Cómo funciona en el MVP | Mejora posterior |
 |---|---|---|
 | Acceder a WP | Pide verificación (§4.4) y abre una pestaña que envía usuario y contraseña al formulario de inicio de sesión de ese sitio. Si el sitio tiene captcha, 2FA o el login escondido, muestra los datos para copiarlos | Plugin propio de inicio de sesión firmado: no viaja la contraseña y no lo frenan el captcha ni el login escondido |
-| Acceder a cPanel | Igual: formulario enviado desde tu navegador al login de cPanel del servidor | Con WHM de revendedor, `create_user_session` da un enlace de un solo uso |
+| Acceder a cPanel en **Banahost** | Pide verificación y pide al WHM de la agencia un enlace de un solo uso (`create_user_session`). **No viaja ninguna contraseña.** La sesión caduca a los 15 minutos sin uso | — |
+| Acceder a cPanel en **otro hosting** (SeguriServer, el del cliente) | Igual que WordPress: formulario enviado desde tu navegador al login de cPanel de ese servidor | Si ese proveedor da WHM, mismo método que Banahost |
 
 Cada acceso por botón queda en el registro, igual que ver una contraseña.
 
@@ -197,15 +202,26 @@ Cada acceso por botón queda en el registro, igual que ver una contraseña.
    cuya última copia tenga más de 16 días o pese mucho menos que la anterior.
 4. La pestaña Copias muestra por sitio las 6 copias con fecha y tamaño. Descargar una pide
    verificación.
-5. **Plan B** para sitios donde el plugin no funcione: copia completa por la API de cPanel
-   enviada al VPS y de ahí a R2. Depende de lo que permita SeguriServer.
-6. **Restaurar** se hace en el MVP a mano, desde UpdraftPlus o cPanel. Un simulacro al mes con
-   un sitio elegido al azar comprueba que las copias sirven.
+5. **Segunda capa en Banahost:** las cuentas de Banahost tienen además las copias diarias del
+   proveedor (JetBackup), que se restauran desde el cPanel de cada cuenta.
+6. **Plan B** para sitios donde el plugin no funcione, o que no sean WordPress: con el mismo
+   token del WHM, el admin pide a cPanel una copia completa de la cuenta enviada al servidor del
+   admin, y de ahí a R2. No hace falta la contraseña de cada cPanel. Solo para cuentas de
+   Banahost.
+7. **Restaurar** se hace en el MVP a mano, desde UpdraftPlus o desde JetBackup en el cPanel de
+   Banahost. Un simulacro al mes con un sitio elegido al azar comprueba que las copias sirven.
 
 **Estado:** UptimeRobot vigila cada sitio cada 5 minutos (palabra clave, SSL, vencimiento del
 dominio) y avisa por correo o WhatsApp a quien corresponda. El admin lee su API para mostrar
 el estado. Ojo: la consulta del vencimiento de dominios `.co` no funciona por RDAP. Para esos
 dominios, la fecha se escribe a mano o se consulta por WHOIS.
+
+### 4.7 Soporte (tickets)
+
+La página `/soporte/` del sitio se conserva y será la entrada de los tickets de los clientes. El
+admin tendrá su bandeja de tickets ligada al CRM: cada ticket pertenece a un cliente y, si
+aplica, a un sitio. **Se diseña cuando llegue la UX de referencia** que vas a enviar; por eso
+todavía no tiene tablero.
 
 ---
 
@@ -242,23 +258,48 @@ Sí se puede, y las contraseñas quedan exactamente como están. El asistente ti
 
 1. **Subir:** el .xlsx se lee en memoria y no se guarda. Cada contraseña se cifra en ese mismo
    momento. Lo pendiente de confirmar se borra solo a los 30 minutos.
-2. **Columnas:** el admin propone a qué campo va cada columna (cliente, tipo, URL, usuario,
-   contraseña, notas) según el encabezado, y tú lo confirmas.
-3. **Revisar:** cuántas filas entran, y las que necesitan atención:
-   - cliente que no existe en el CRM (se crea o se empareja);
-   - duplicado (se omite, se actualiza o se conservan los dos);
-   - URL inválida o sin usuario;
-   - contraseña con espacios al inicio o al final, que **no se recortan**;
-   - celda que Excel convirtió en número o fecha, porque pudo haber perdido ceros a la izquierda.
-     Esas filas se marcan para confirmarlas a mano.
+2. **Columnas:** el admin detecta en qué fila están los encabezados y propone a qué campo va cada
+   columna, y tú lo confirmas.
+3. **Revisar:** cuántas filas entran y cuáles necesitan una decisión.
 4. **Importar:** todo entra en una transacción, marcado "Excel · sin rotar", con un solo registro
    de auditoría que no guarda valores.
+
+**Tu archivo, revisado el 7 de octubre** (la copia compartida, sin la columna de contraseñas):
+
+| Hoja | Filas | Encabezados | Se importa como |
+|---|---|---|---|
+| Contraseñas Dkoding | 41 | Fila 3, desde la columna B: Nombre · Tipo acceso · Correo/Usuario · Link de acceso · Códigos de respaldo/Llave de acceso · Último cambio | Agencia. Las cuentas personales de una persona del equipo se proponen como Personales |
+| Contraseñas Clientes | 155 | Fila 1, desde la columna B: Nombre · Sitio web · Tipo · Usuario · Link de acceso | Clientes: 84 clientes y 57 sitios |
+
+Lo que el importador resuelve con tus datos reales:
+
+| Caso | Cuántos | Qué hace |
+|---|---|---|
+| Clientes que no existen en el CRM | 84 | Se crean. Los servicios los cargas después desde los formularios |
+| Filas sin cliente | 13 | Se asignan a mano o se omiten |
+| Filas sin tipo | 16 | 3 se deducen del enlace; 13 quedan a mano |
+| Tipos escritos de 12 formas | 155 | Se normalizan: Cpanel → cPanel, WebMail → Correo, Gmail → Google, Hostinger/NameCheap/GoDaddy → Hosting o dominio, Brevo/Boxplay → Herramienta |
+| Enlaces sin `https://` | 59 | Se completan |
+| Enlaces vacíos | 47 | En cPanel y WordPress se propone `dominio/cpanel` o `dominio/wp-admin` |
+| Inicio de sesión escondido | 4 | Se respeta la ruta propia |
+| Sitios con espacios al final | 14 | Se recortan en el sitio y el enlace. **Nunca en la contraseña** |
+| Duplicado exacto | 1 | Se omite |
+| Usuarios repetidos en varios clientes | 11 | Informativo: suelen ser usuarios genéricos |
+| "Tipo acceso: Google" | 6 | Sin contraseña propia: se enlazan a la cuenta de Google de la agencia |
+| Códigos de respaldo de doble verificación | 2 | Se guardan cifrados como secreto adicional |
+| Enlace con una sesión vieja de WHM (`cpsess…`) | 1 | Se limpia la parte de sesión |
+| Último cambio vacío | 41 | Queda como "desconocido" |
+| Dominios .co, .com.co, .edu.co | 13 | Informativo: su vencimiento se escribe a mano en Salud |
+
+Lo que depende de la columna de contraseñas (espacios al inicio o al final, celdas que Excel
+convirtió en número o fecha, contraseñas repetidas entre clientes) se revisa al subir el archivo
+real.
+
+Con las decisiones por defecto entran **141 accesos de clientes y 41 de la agencia**.
 
 **Después de importar:** borra el Excel de todos los lugares donde esté (computadores, Drive,
 correo, WhatsApp). Cambiar contraseñas no es obligatorio. Conviene hacerlo con calma solo en las
 que circularon mucho o se repiten entre clientes; el admin las marca.
-
-Para preparar la importación necesito **solo los encabezados** de tu Excel, sin datos.
 
 ---
 
@@ -269,8 +310,8 @@ Para preparar la importación necesito **solo los encabezados** de tu Excel, sin
 | `clients` | nombre, nit, estado, notas |
 | `contacts` | client_id, nombre, correo, teléfono, rol |
 | `services` | client_id, tipo, inicio, periodicidad, renovación, importe, moneda, estado |
-| `sites` | client_id, dominio, plataforma, login_url_wp, login_url_cpanel, uptimerobot_id, r2_bucket |
-| `credentials` | scope (personal, agencia, cliente), owner_id, client_id, site_id, tipo, url, usuario, secreto cifrado, clave envuelta, versión de clave, 2FA, verificado_en, verificado_por, verificado_ok, origen, rotación |
+| `sites` | client_id, dominio, plataforma, hosting (Banahost, SeguriServer, del cliente, otro), usuario de cPanel, login_url_wp, login_url_cpanel, uptimerobot_id, r2_bucket |
+| `credentials` | scope (personal, agencia, cliente), owner_id, client_id, site_id, tipo, método de inicio (contraseña, Google, Facebook) y cuenta enlazada, url, usuario, secreto cifrado, secreto adicional cifrado, clave envuelta, versión de clave, 2FA, verificado_en, verificado_por, verificado_ok, último cambio, origen, rotación |
 | `backups` | site_id, fecha, tamaño, clave en R2, estado (leído de R2) |
 | `leads` | origen, página, campaña, nombre, contacto, servicio, estado, client_id |
 | `quotes` y `quote_lines` | lead_id o client_id, versión de tarifas, horas por rol, rango, estado |
@@ -278,6 +319,7 @@ Para preparar la importación necesito **solo los encabezados** de tu Excel, sin
 | `pages` | url, tipo, estado, palabra objetivo, tema, nicho, seo (JSON), blocks (JSON, vacío en el MVP) |
 | `page_metrics` | page_id, fecha, clics, impresiones, posición, indexación |
 | `redirects` | origen, destino, código, verificado |
+| `tickets` (etapa 2) | client_id, site_id, asunto, estado, prioridad, mensajes. Se define con la UX de referencia |
 | `activity_log` | quién, qué, sobre qué registro, cuándo, IP |
 
 ---
@@ -286,10 +328,10 @@ Para preparar la importación necesito **solo los encabezados** de tu Excel, sin
 
 | Etapa | Qué entra | Duración estimada |
 |---|---|---|
-| 1 · Reemplazar el Excel | Usuarios con 2FA y roles, Clientes y servicios con renovación, Accesos con importador, Sitios con estado y botones de acceso | 3–4 semanas |
-| 2 · Copias y ventas | UpdraftPlus → R2 con lectura de buckets, Leads por API desde el sitio, Cotizaciones y Tarifas | 3–4 semanas |
+| 1 · Reemplazar el Excel | Usuarios con 2FA y roles, Clientes y servicios con renovación, Accesos con importador, Sitios con estado y botones de acceso (WHM de Banahost incluido) | 3–4 semanas |
+| 2 · Copias, ventas y soporte | UpdraftPlus → R2 con lectura de buckets, Leads por API desde el sitio, Cotizaciones y Tarifas, tickets de soporte cuando llegue su UX | 4–5 semanas |
 | 3 · dkoding.net | Páginas, redirecciones y palabras clave con Search Console y GA4, Inicio completo | 2–3 semanas, a la par del lanzamiento del sitio |
-| Después | Login firmado en WP, WHM y `create_user_session`, KMS, passkeys, editor, portal del cliente, copias por API de cPanel | Según uso |
+| Después | Login firmado en WP, KMS, passkeys, editor, portal del cliente, copias por WHM para sitios que no son WordPress | Según uso |
 
 Las duraciones suponen un desarrollador con experiencia en Laravel y Filament. Hay que
 recalibrarlas al terminar la etapa 1. La etapa 1 sirve desde el primer día porque reemplaza el
@@ -312,20 +354,33 @@ Excel, y no depende del sitio nuevo.
 
 **Para ti:**
 
-1. ¿"Astra" era Astro?
-2. ¿"Verificación de los datos" es lo que describo en §4.4, o algo más?
-3. Encabezados del Excel de contraseñas (sin datos).
-4. ¿Qué clientes tienen hoy el servicio de soporte de agencia activo?
-5. ¿Los clientes con soporte tienen todos WordPress? ¿Hay otros tipos de sitio?
-6. ¿Quién del equipo usará el admin y con qué rol?
-7. Las 6 redirecciones por confirmar de `docs/estructura-seo-y-migracion.md` §4.
+1. ¿Quién del equipo usará el admin y con qué rol?
+2. ¿Los clientes con soporte tienen todos WordPress? ¿Hay otros tipos de sitio?
+3. Las 6 redirecciones que siguen por confirmar en `docs/estructura-seo-y-migracion.md` §4.
+4. La UX de referencia para los tickets.
 
-**Para SeguriServer:**
+**Para Banahost** (el servidor de la agencia):
 
-1. ¿Nos dan WHM de revendedor, o al menos `create_user_session`?
-2. ¿Qué versión de cPanel tienen? ¿Están activas las funciones de Backup y API Tokens?
-3. ¿Qué límites de CloudLinux (IO, procesos, inodos) y qué cuota de disco tienen las cuentas?
-4. ¿Ponen en lista blanca, en cPHulk, CSF e Imunify, la IP del VPS y la de la oficina? Unos
-   cuantos intentos con contraseñas viejas del Excel bloquearían la IP en todo el servidor.
-5. ¿El WAF bloquea envíos de formulario desde otro sitio a `wp-login.php` o al login de cPanel?
-6. ¿Tienen copias propias, con qué retención, y restauran por cliente?
+1. ¿El plan es de revendedor con WHM? ¿El token de API del WHM puede tener el permiso "Create
+   User Session" y limitarse a una IP?
+2. ¿Qué retención tienen las copias diarias de JetBackup y cómo se restaura una cuenta?
+3. ¿Ponen en lista blanca, en cPHulk, CSF e Imunify, la IP del servidor del admin y la de la
+   oficina? Unos cuantos intentos con contraseñas viejas bloquearían la IP en todo el servidor.
+4. ¿Qué límites de CloudLinux (IO, procesos, inodos) y qué cuota de disco tienen las cuentas?
+
+**Para SeguriServer** (solo para los clientes que están allá): ¿bloquea su firewall envíos de
+formulario desde otro sitio al login de cPanel o de WordPress?
+
+## 10. Respuestas del 7 de octubre
+
+| Tema | Respuesta | Qué cambió |
+|---|---|---|
+| Framework del sitio | Astro | Nada: era el supuesto |
+| Ver contraseñas con verificación | Las dos formas de §4.4 | Confirmado |
+| Excel de accesos | Compartido sin contraseñas | §5.3 con la estructura real |
+| Servicios activos | Se cargan desde los formularios del admin | No se importan (§4.3) |
+| `/soporte/` | Se conserva para tickets | Nueva §4.7; la redirección se quitó |
+| `/plan-hotelero/` y `/trifecta-hotelera/` | Serán una landing, seguramente Trifecta hotelera | 302 temporales hasta que exista |
+| Hosting | Banahost es el servidor de la agencia; SeguriServer, solo de algunos clientes | cPanel por WHM sin contraseña; preguntas a Banahost |
+| Palabras clave | Cifras de referencia de hace unos años | Se usan como relevancia relativa |
+| Matriz competitiva | Para mejorar la oferta | `docs/mejoras-oferta.md` |
