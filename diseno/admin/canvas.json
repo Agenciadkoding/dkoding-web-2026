@@ -1,0 +1,159 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "Boveda.dc.html": {
+      "expand": "fill",
+      "h": 1300,
+      "is_interactive": true,
+      "title": "VLT-02 · Bóveda: accesos de un cliente sobre Bitwarden",
+      "w": 1440,
+      "x": 0,
+      "y": 4040
+    },
+    "Cliente.dc.html": {
+      "expand": "fill",
+      "h": 1320,
+      "is_interactive": true,
+      "title": "CLI-03 · Ficha del cliente, con la vista del cliente (CLI-02)",
+      "w": 1440,
+      "x": 1520,
+      "y": 0
+    },
+    "ConectarCpanel.dc.html": {
+      "expand": "fill",
+      "h": 1100,
+      "is_interactive": true,
+      "title": "MON-03 · Conectar cPanel o WHM (fase 2)",
+      "w": 1440,
+      "x": 3040,
+      "y": 2060
+    },
+    "Cotizaciones.dc.html": {
+      "expand": "fill",
+      "h": 1160,
+      "is_interactive": true,
+      "title": "COT-01 · Cotizaciones (tabla; tablero en fase 2)",
+      "w": 1440,
+      "x": 0,
+      "y": 6280
+    },
+    "Editor.dc.html": {
+      "expand": "fill",
+      "h": 1420,
+      "is_interactive": true,
+      "title": "WEB-02 · Editor de página con SEO, schema e IA",
+      "w": 1440,
+      "x": 1520,
+      "y": 4040
+    },
+    "Main.dc.html": {
+      "expand": "fill",
+      "h": 1560,
+      "is_interactive": true,
+      "title": "INI-01 · Inicio de la agencia (CEO)",
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "Movil.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "ALR-02 · Alertas y aprobaciones en el celular",
+      "w": 390,
+      "x": 3040,
+      "y": 0
+    },
+    "Sistema.dc.html": {
+      "h": 1880,
+      "title": "Sistema de interfaz del admin",
+      "w": 1240,
+      "x": 3040,
+      "y": 4040
+    },
+    "Sitio.dc.html": {
+      "expand": "fill",
+      "h": 1560,
+      "is_interactive": true,
+      "title": "MON-04 · Detalle de sitio: copias y restauración",
+      "w": 1440,
+      "x": 1520,
+      "y": 2060
+    },
+    "Sitios.dc.html": {
+      "expand": "fill",
+      "h": 1320,
+      "is_interactive": true,
+      "title": "MON-02 · Sitios, agrupables por servidor",
+      "w": 1440,
+      "x": 0,
+      "y": 2060
+    },
+    "Tarifas.dc.html": {
+      "expand": "fill",
+      "h": 1420,
+      "is_interactive": true,
+      "title": "COT-05 · Versión de tarifas y simulador",
+      "w": 1440,
+      "x": 1520,
+      "y": 6280
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-10-06T19:30:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "view": "canvas"
+  },
+  "notes": {
+    "row1": {
+      "kind": "title1",
+      "maxW": 3430,
+      "text": "Inicio: agencia, cliente y celular",
+      "w": 240,
+      "x": 0,
+      "y": -300
+    },
+    "row2": {
+      "kind": "title1",
+      "maxW": 4480,
+      "text": "Salud: monitoreo, copias y cPanel",
+      "w": 240,
+      "x": 0,
+      "y": 1760
+    },
+    "row3": {
+      "kind": "title1",
+      "maxW": 2960,
+      "text": "Bóveda, contenido y SEO",
+      "w": 240,
+      "x": 0,
+      "y": 3740
+    },
+    "row4": {
+      "kind": "title1",
+      "maxW": 2960,
+      "text": "Ventas: cotizaciones y cotizador",
+      "w": 240,
+      "x": 0,
+      "y": 5980
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "Cliente.dc.html",
+    "Movil.dc.html",
+    "Sitios.dc.html",
+    "Sitio.dc.html",
+    "ConectarCpanel.dc.html",
+    "Boveda.dc.html",
+    "Editor.dc.html",
+    "Sistema.dc.html",
+    "Cotizaciones.dc.html",
+    "Tarifas.dc.html"
+  ],
+  "pages": [],
+  "title": "DKODING Admin"
+}

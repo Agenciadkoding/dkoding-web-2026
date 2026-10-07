@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Bóveda de accesos</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Blinker:wght@300;600;700&amp;family=Barlow:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#0C0C0C}
+a{color:#D98BFF;text-decoration:none}a:hover{color:#F0D4FF}
+button,input{font:inherit}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid #D98BFF;outline-offset:2px}
+.dk-nav a:hover{background:#17161C;color:#F4F2F8}
+.dk-row:hover{background:#1D1B24}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; min-height: 100%; background: #0C0C0C; color: #F4F2F8; font-family: 'Barlow', system-ui, sans-serif; font-size: 14px; line-height: 1.5">
+
+  <header style="border-bottom: 1px solid rgba(255,255,255,0.08); background: #101013">
+    <div style="padding: 10px 20px; display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center">
+      <a href="Main.dc.html" aria-label="DKODING, inicio del admin" style="display: flex; align-items: center; min-height: 40px"><img src="/_blob/af8d4aea91012d3a301c737f7fa02819" alt="DKODING" style="height: 26px; width: auto"></a>
+      <button type="button" style="display: flex; align-items: center; gap: 10px; min-height: 40px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.18); border-radius: 6px; cursor: pointer"><span aria-hidden="true" style="width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; border-radius: 5px; background: #6D00C2; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 13px">»</span><span style="font-weight: 600">Todos los clientes</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B3B0BC" stroke-width="2" aria-hidden="true"><path d="M7 10l5 5 5-5"></path></svg></button>
+      <div style="flex: 1 1 260px; display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 12px; background: #0C0C0C; border: 1px solid rgba(255,255,255,0.14); border-radius: 6px; max-width: 520px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B3B0BC" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg><label for="g-search" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Buscar o ejecutar una acción</label><input id="g-search" type="text" placeholder="«cpanel 4bellu» · solo busca nombres, nunca contraseñas" style="flex: 1; min-width: 0; background: transparent; border: 0; color: #F4F2F8; outline: none"><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 2px 6px; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; color: #B3B0BC">Ctrl K</kbd></div>
+      <div style="display: flex; align-items: center; gap: 8px; margin-left: auto"><a href="Movil.dc.html" aria-label="Alertas" style="position: relative; display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 6px; color: #F4F2F8"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10 21h4"></path></svg></a><img src="/_blob/71f25de0f1226aaf37f6bb2ad7e7231b" alt="Tu cuenta: Operaciones" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 2px solid #3D0A6E"></div>
+    </div>
+  </header>
+
+  <div style="display: flex; flex-wrap: wrap; align-items: flex-start">
+    <nav class="dk-nav" aria-label="Módulos" style="flex: 1 1 232px; max-width: 260px; box-sizing: border-box; padding: 14px 10px 24px; background: #101013; border-right: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; gap: 2px; font-size: 14px">
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Inicio</a>
+      <a href="Movil.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Alertas<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(255,107,107,0.16); color: #FF8F9B; font-size: 12px; font-weight: 600">1</span></a>
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Aprobaciones<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(199,85,239,0.16); color: #D98BFF; font-size: 12px; font-weight: 600">4</span></a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Clientes</span>
+      <a href="Cliente.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Directorio</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Sitio</span>
+      <a href="Editor.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Contenido</a>
+      <a href="#boveda" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Medios</a>
+      <a href="#boveda" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Formularios</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Métricas y SEO</span>
+      <a href="Cliente.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Métricas</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Salud y copias</span>
+      <a href="Sitios.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Flota</a>
+      <a href="Sitios.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Sitios</a>
+      <a href="Sitio.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Copias</a>
+      <a href="#boveda" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Vencimientos</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Ventas</span>
+      <a href="Cotizaciones.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Leads<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(224,169,59,0.16); color: #E0A93B; font-size: 12px; font-weight: 600">2</span></a>
+      <a href="Cotizaciones.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Cotizaciones</a>
+      <a href="Tarifas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Tarifas</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Bóveda</span>
+      <a href="Boveda.dc.html" aria-current="page" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #F4F2F8; background: #1A0B2B; font-weight: 600"><span aria-hidden="true" style="width: 14px; color: #C755EF; font-family: 'Blinker', sans-serif; font-weight: 700">»</span>Accesos</a>
+      <a href="Boveda.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Salud de accesos</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Agencia</span>
+      <a href="#boveda" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Equipo y roles</a>
+      <a href="#boveda" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Conexiones</a>
+      <a href="#boveda" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Avisos y plantillas</a>
+      <a href="#boveda" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Registro y cumplimiento</a>
+      <a href="#boveda" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Sistema y ajustes</a>
+      <span style="font-size: 12px; color: #8E8A9B; padding: 16px 10px 0">Menú del MVP. Las vistas de fases 2 y 3 aparecen cuando se activan.</span>
+    </nav>
+
+    <main id="boveda" style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 24px 28px 48px; display: flex; flex-direction: column; gap: 18px">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <nav aria-label="Ruta" style="font-size: 13px; color: #B3B0BC">Agencia » Seguridad » Bóveda de accesos</nav>
+          <h1 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 30px; line-height: 1.1">Bóveda de accesos</h1>
+          <span style="color: #B3B0BC">Aquí ves quién puede entrar a qué y cuándo lo usó. Las contraseñas viven cifradas en Bitwarden; este panel nunca las muestra ni las guarda.</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+          <span style="font-size: 12px; color: #B3B0BC">Bitwarden sincronizado hace 4 min</span>
+          <button type="button" style="min-height: 40px; padding: 0 14px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; cursor: pointer">Pedir accesos a un cliente</button>
+          <button type="button" style="min-height: 40px; padding: 0 16px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-weight: 600; cursor: pointer">Registrar acceso</button>
+        </div>
+      </div>
+
+      <section aria-label="Salud de accesos" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr)); gap: 12px">
+        <sc-for list="{{health}}" as="k" hint-placeholder-count="5">
+          <div style="display: flex; flex-direction: column; gap: 6px; padding: 14px 16px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px">
+            <span style="display: flex; justify-content: space-between; gap: 8px; color: #B3B0BC; font-size: 13px">{{k.label}}<svg width="12" height="12" viewBox="0 0 16 16" aria-label="{{k.stateLabel}}"><path d="{{k.shape}}" fill="{{k.color}}"></path></svg></span>
+            <span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 28px; line-height: 1; font-variant-numeric: tabular-nums">{{k.value}}</span>
+            <span style="font-size: 12px; color: #B3B0BC">{{k.note}}</span>
+          </div>
+        </sc-for>
+      </section>
+
+      <div role="tablist" aria-label="Secciones de la bóveda" style="display: flex; flex-wrap: wrap; gap: 4px; border-bottom: 1px solid rgba(255,255,255,0.1)">
+        <sc-for list="{{tabs}}" as="t" hint-placeholder-count="4"><button type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}" style="{{t.style}}">{{t.label}}</button></sc-for>
+      </div>
+
+      <sc-if value="{{isInv}}" hint-placeholder-val="{{true}}">
+        <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+          <section aria-labelledby="h-inv" style="flex: 999 1 520px; min-width: 0; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; padding: 14px 16px"><h2 id="h-inv" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">Accesos de 4Bellú</h2><span style="font-size: 13px; color: #E0A93B">2 ítems nuevos en Bitwarden sin registrar aquí</span></div>
+            <div style="overflow-x: auto">
+              <table style="width: 100%; min-width: 760px; border-collapse: collapse">
+                <thead><tr style="color: #B3B0BC; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; text-align: left"><th scope="col" style="padding: 8px 16px; font-weight: 600">Acceso</th><th scope="col" style="padding: 8px; font-weight: 600">Nivel</th><th scope="col" style="padding: 8px; font-weight: 600">Cómo lo tenemos</th><th scope="col" style="padding: 8px; font-weight: 600">Segundo factor</th><th scope="col" style="padding: 8px; font-weight: 600">Último uso</th><th scope="col" style="padding: 8px 16px 8px 8px; font-weight: 600">Estado</th></tr></thead>
+                <tbody>
+                  <sc-for list="{{items}}" as="i" hint-placeholder-count="8">
+                    <tr class="dk-row" style="{{i.rowStyle}}">
+                      <td style="padding: 10px 16px"><button type="button" onClick="{{i.pick}}" style="display: flex; flex-direction: column; align-items: flex-start; padding: 0; background: transparent; border: 0; color: #F4F2F8; cursor: pointer; text-align: left"><span style="font-weight: 600">{{i.name}}</span><span style="font-size: 12px; color: #B3B0BC">{{i.kind}}</span></button></td>
+                      <td style="padding: 10px 8px"><span style="{{i.levelStyle}}">{{i.level}}</span></td>
+                      <td style="padding: 10px 8px">{{i.method}}</td>
+                      <td style="padding: 10px 8px; color: #D8D4E2">{{i.mfa}}</td>
+                      <td style="padding: 10px 8px; color: #B3B0BC">{{i.used}}</td>
+                      <td style="padding: 10px 16px 10px 8px"><span style="display: inline-flex; align-items: center; gap: 6px"><svg width="10" height="10" viewBox="0 0 16 16" aria-hidden="true"><path d="{{i.shape}}" fill="{{i.color}}"></path></svg>{{i.status}}</span></td>
+                    </tr>
+                  </sc-for>
+                </tbody>
+              </table>
+            </div>
+            <div style="padding: 10px 16px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 12px; color: #B3B0BC">Nivel A: dominio, DNS, hosting y pagos; solo con acceso temporal aprobado. B: operación diaria. C: bajo riesgo. «Delegado» significa que DKODING tiene su propio usuario y no hay contraseña compartida.</div>
+          </section>
+
+          <aside aria-labelledby="h-det" style="flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 18px; background: #151518; border: 1px solid rgba(199,85,239,0.35); border-radius: 10px">
+            <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #B3B0BC">{{d.kind}} · nivel {{d.level}}</span><h2 id="h-det" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 22px; line-height: 1.15">{{d.name}}</h2></div>
+            <div style="display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; background: #0F0F11; border-radius: 6px; font-size: 13px; color: #D8D4E2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D98BFF" stroke-width="2" aria-hidden="true" style="flex: none; margin-top: 2px"><rect x="4" y="10" width="16" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg><span>Esta ficha no tiene campo de contraseña a propósito. «Abrir login» abre el servicio y la extensión de Bitwarden rellena el acceso.</span></div>
+            <sc-if value="{{d.canOpen}}" hint-placeholder-val="{{true}}">
+              <div style="display: flex; flex-wrap: wrap; gap: 8px">
+                <a href="https://vault.bitwarden.com/" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; background: #6D00C2; color: #FFFFFF; border-radius: 4px; font-weight: 600">Abrir login</a>
+                <a href="https://vault.bitwarden.com/" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; color: #F4F2F8; font-weight: 600">Abrir en Bitwarden ↗</a>
+              </div>
+            </sc-if>
+            <sc-if value="{{d.needsJit}}" hint-placeholder-val="{{false}}">
+              <div style="display: flex; flex-direction: column; gap: 10px; padding: 12px; background: #1A0B2B; border: 1px solid rgba(199,85,239,0.45); border-radius: 8px">
+                <span style="font-weight: 600">Nivel A: pide acceso temporal</span>
+                <span style="font-size: 13px; color: #D8D4E2">Aprueba Dirección. Al vencer se retira solo, y si copiaste la contraseña entra a la cola de rotación.</span>
+                <div role="group" aria-label="Duración" style="display: flex; flex-wrap: wrap; gap: 6px"><sc-for list="{{durations}}" as="u" hint-placeholder-count="4"><button type="button" onClick="{{u.pick}}" aria-pressed="{{u.on}}" style="{{u.style}}">{{u.label}}</button></sc-for></div>
+                <label for="jit-why" style="font-weight: 600; font-size: 13px">Motivo o ticket</label>
+                <input id="jit-why" type="text" value="{{why}}" onChange="{{setWhy}}" placeholder="Ej.: renovar SSL del dominio, ticket SOP-212" style="min-height: 40px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px">
+                <button type="button" onClick="{{askJit}}" disabled="{{cantAsk}}" style="{{askStyle}}">{{askLabel}}</button>
+              </div>
+            </sc-if>
+            <dl style="margin: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 8px 12px; font-size: 13px">
+              <dt style="color: #B3B0BC">Dueño legal</dt><dd style="margin: 0">{{d.owner}}</dd>
+              <dt style="color: #B3B0BC">Segundo factor</dt><dd style="margin: 0">{{d.mfa}}</dd>
+              <dt style="color: #B3B0BC">Quién accede</dt><dd style="margin: 0">{{d.who}}</dd>
+              <dt style="color: #B3B0BC">Rotación</dt><dd style="margin: 0">{{d.rotation}}</dd>
+              <dt style="color: #B3B0BC">Lo usa</dt><dd style="margin: 0">{{d.usedBy}}</dd>
+            </dl>
+            <div style="display: flex; flex-direction: column; gap: 6px; font-size: 13px">
+              <span style="font-weight: 600">Historial</span>
+              <sc-for list="{{d.log}}" as="e" hint-placeholder-count="3"><span style="display: flex; gap: 10px; color: #D8D4E2"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #B3B0BC; white-space: nowrap">{{e.t}}</span>{{e.x}}</span></sc-for>
+            </div>
+          </aside>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{isMachine}}" hint-placeholder-val="{{false}}">
+        <section aria-labelledby="h-mac" style="background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; padding: 14px 16px"><h2 id="h-mac" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">Secretos de máquina</h2><span style="font-size: 13px; color: #B3B0BC">Los usa el sistema. Se pueden reemplazar o revocar; nadie los puede leer.</span></div>
+          <div style="overflow-x: auto"><table style="width: 100%; min-width: 820px; border-collapse: collapse">
+            <thead><tr style="color: #B3B0BC; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; text-align: left"><th scope="col" style="padding: 8px 16px; font-weight: 600">Secreto</th><th scope="col" style="padding: 8px; font-weight: 600">Lo usa</th><th scope="col" style="padding: 8px; font-weight: 600">Huella</th><th scope="col" style="padding: 8px; font-weight: 600">Vence</th><th scope="col" style="padding: 8px; font-weight: 600">Último uso</th><th scope="col" style="padding: 8px 16px 8px 8px; font-weight: 600"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Acciones</span></th></tr></thead>
+            <tbody><sc-for list="{{machine}}" as="m" hint-placeholder-count="5"><tr style="border-top: 1px solid rgba(255,255,255,0.06)"><td style="padding: 10px 16px"><span style="display: flex; flex-direction: column"><span style="font-weight: 600">{{m.name}}</span><span style="font-size: 12px; color: #B3B0BC">{{m.scope}}</span></span></td><td style="padding: 10px 8px; color: #D8D4E2">{{m.job}}</td><td style="padding: 10px 8px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #B3B0BC">{{m.fp}}</td><td style="padding: 10px 8px"><span style="{{m.dueStyle}}">{{m.due}}</span></td><td style="padding: 10px 8px"><span style="{{m.useStyle}}">{{m.use}}</span></td><td style="padding: 10px 16px 10px 8px"><span style="display: flex; gap: 6px"><button type="button" style="min-height: 32px; padding: 0 10px; background: transparent; color: #D98BFF; border: 1px solid rgba(217,139,255,0.4); border-radius: 4px; font-weight: 600; cursor: pointer">Reemplazar</button><button type="button" style="min-height: 32px; padding: 0 10px; background: transparent; color: #D8D4E2; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; cursor: pointer">Probar</button></span></td></tr></sc-for></tbody>
+          </table></div>
+          <div style="padding: 10px 16px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 12px; color: #B3B0BC">Cifrado de sobre con una llave por secreto. El panel solo cifra; únicamente el servidor de copias descifra, en memoria y con registro de cada uso.</div>
+        </section>
+      </sc-if>
+
+      <sc-if value="{{isOther}}" hint-placeholder-val="{{false}}">
+        <section style="display: flex; flex-direction: column; gap: 8px; padding: 24px; background: #151518; border: 1px dashed rgba(255,255,255,0.18); border-radius: 10px">
+          <span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">{{otherTitle}}</span>
+          <span style="color: #B3B0BC; max-width: 680px">{{otherDesc}}</span>
+        </section>
+      </sc-if>
+      <p style="margin: 0; font-size: 12px; color: #8E8A9B">Datos de ejemplo. Ningún nombre de usuario, correo ni contraseña aparece en este módulo, tampoco en la versión real.</p>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1300}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { tab: 'inv', picked: 'dns', dur: '4', why: '', asked: false }; }
+  renderVals() {
+    var self = this, st = this.state;
+    var SH = { ok: 'M8 2a6 6 0 1 1 0 12A6 6 0 0 1 8 2z', warn: 'M8 1.5L15 14H1z', crit: 'M8 1L15 8L8 15L1 8z' };
+    var CO = { ok: '#5BE49B', warn: '#E0A93B', crit: '#FF6B6B' };
+    var LB = { ok: 'Correcto', warn: 'Atención', crit: 'Crítico' };
+    var health = [
+      { label: 'Equipo sin 2FA', value: '0 de 9', note: 'obligatorio por política', s: 'ok' },
+      { label: 'Rotaciones vencidas', value: '5', note: '3 por la salida de un empleado', s: 'warn' },
+      { label: 'Accesos temporales activos', value: '1', note: 'vence hoy a las 18:00', s: 'ok' },
+      { label: 'Nivel A sin dueño legal', value: '2', note: 'dominios sin titular claro', s: 'warn' },
+      { label: 'Preparación de emergencia', value: '2 dueños', note: 'llaves físicas · simulacro hace 4 meses', s: 'ok' }
+    ].map(function (k) { return { label: k.label, value: k.value, note: k.note, shape: SH[k.s], color: CO[k.s], stateLabel: LB[k.s] }; });
+    var tabDefs = [
+      { id: 'inv', label: 'Accesos por cliente' },
+      { id: 'machine', label: 'Secretos de máquina' },
+      { id: 'jit', label: 'Accesos temporales', t: 'Accesos temporales activos', d: '1 activo: Operaciones en «DNS de 4bellu.com», aprobado por Dirección, de 14:00 a 18:00. Al vencer se retira del grupo en Bitwarden y se verifica. Las copias de contraseña dentro de la ventana pasan a la cola de rotación.' },
+      { id: 'audit', label: 'Registro', t: 'Registro de auditoría', d: 'Una sola línea de tiempo: quién vio, copió, cambió o concedió qué, con eventos de Bitwarden (vio, copió, autocompletó, editó, exportó) y del panel. Solo se agrega, nunca se borra, y se replica cada día a almacenamiento inmutable.' }
+    ];
+    var tabs = tabDefs.map(function (t) {
+      var on = st.tab === t.id;
+      return { label: t.label, on: on, pick: function () { self.setState({ tab: t.id }); },
+        style: 'min-height: 40px; padding: 0 14px; background: transparent; border: 0; border-bottom: 2px solid ' + (on ? '#C755EF' : 'transparent') + '; color: ' + (on ? '#F4F2F8' : '#B3B0BC') + '; font-weight: 600; cursor: pointer; margin-bottom: -1px;' };
+    });
+    var cur = tabDefs.filter(function (t) { return t.id === st.tab; })[0];
+    var defs = [
+      { id: 'dns', name: 'DNS y dominio · 4bellu.com', kind: 'Registrador', level: 'A', method: 'Delegado (usuario DKODING)', mfa: 'Llave física del cliente', used: 'hace 3 meses', s: 'warn', status: 'sin dueño legal', owner: '[por confirmar con el cliente]', who: 'nadie de forma permanente', rotation: 'tras cada acceso temporal', usedBy: 'renovación de SSL',
+        log: [{ t: '12/07', x: 'Acceso temporal aprobado a Operaciones (4 h)' }, { t: '12/07', x: 'Autocompletó el login' }, { t: '12/07', x: 'Revocado y verificado' }] },
+      { id: 'cpanel', name: 'cPanel · 4bellu.com', kind: 'Hosting', level: 'A', method: 'Compartido en Bitwarden', mfa: 'Código en el celular del cliente', used: 'ayer', s: 'ok', status: 'al día', owner: '4Bellú', who: 'Operaciones (temporal)', rotation: 'rotado el 02/09 · verificado', usedBy: 'nadie: el monitoreo usa su propio token',
+        log: [{ t: '05/10', x: 'Operaciones vio el ítem' }, { t: '02/09', x: 'Rotado: cambio confirmado en Bitwarden' }] },
+      { id: 'wp', name: 'WordPress · 4bellu.com', kind: 'Administrador del sitio', level: 'B', method: 'Usuario nominal por persona', mfa: 'App de cada persona', used: 'hoy', s: 'ok', status: 'al día', owner: '4Bellú', who: 'Grupo proyecto 4Bellú (3)', rotation: 'no aplica: cada quien tiene su usuario', usedBy: 'edición de contenido',
+        log: [{ t: 'hoy', x: 'Contenido autocompletó el login' }] },
+      { id: 'gsc', name: 'Search Console y GA4', kind: 'Google', level: 'B', method: 'Delegado (cuenta de servicio)', mfa: 'no aplica', used: 'cada día', s: 'ok', status: 'al día', owner: '4Bellú', who: 'el sistema de métricas', rotation: 'no aplica', usedBy: 'informes y alertas SEO',
+        log: [{ t: 'hoy 06:00', x: 'Lectura diaria de Search Console' }] },
+      { id: 'meta', name: 'Meta Business', kind: 'Redes y anuncios', level: 'B', method: 'Delegado (socio)', mfa: 'App de cada persona', used: 'hace 2 días', s: 'ok', status: 'al día', owner: '4Bellú', who: 'Pauta (1)', rotation: 'no aplica', usedBy: 'campañas',
+        log: [{ t: '04/10', x: 'Socio DKODING con permiso de anuncios' }] },
+      { id: 'wompi', name: 'Pasarela de pagos', kind: 'Pagos', level: 'A', method: 'Compartido en Bitwarden', mfa: 'Código del cliente', used: 'hace 5 meses', s: 'warn', status: 'rotación vencida', owner: '4Bellú', who: 'nadie de forma permanente', rotation: 'vencida: la vio un exempleado', usedBy: 'configuración de la tienda',
+        log: [{ t: '28/09', x: 'Tarea de rotación creada por salida de empleado' }] },
+      { id: 'mail', name: 'Correo corporativo', kind: 'Correo', level: 'C', method: 'Compartido en Bitwarden', mfa: 'no configurado', used: 'hace 1 mes', s: 'warn', status: 'sin segundo factor', owner: '4Bellú', who: 'Soporte (2)', rotation: 'cada 12 meses', usedBy: 'soporte del correo',
+        log: [{ t: '02/09', x: 'Soporte copió la contraseña' }] }
+    ];
+    var items = defs.map(function (d) {
+      var on = st.picked === d.id;
+      return { name: d.name, kind: d.kind, level: d.level, method: d.method, mfa: d.mfa, used: d.used, status: d.status,
+        shape: SH[d.s], color: CO[d.s],
+        levelStyle: 'display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 4px; font-family: Blinker, sans-serif; font-weight: 700; ' + (d.level === 'A' ? 'background: rgba(255,107,107,0.16); color: #FF8F9B;' : d.level === 'B' ? 'background: rgba(199,85,239,0.16); color: #D98BFF;' : 'background: rgba(255,255,255,0.08); color: #D8D4E2;'),
+        rowStyle: 'border-top: 1px solid rgba(255,255,255,0.06); ' + (on ? 'background: #1A0B2B;' : ''),
+        pick: function () { self.setState({ picked: d.id, asked: false, why: '' }); } };
+    });
+    var p = defs.filter(function (d) { return d.id === st.picked; })[0] || defs[0];
+    var durations = ['1', '4', '8', '24'].map(function (u) {
+      var on = st.dur === u;
+      return { label: u + ' h', on: on, pick: function () { self.setState({ dur: u }); },
+        style: 'min-height: 36px; padding: 0 12px; border-radius: 999px; cursor: pointer; font-weight: 600; ' + (on ? 'background: #6D00C2; color: #FFFFFF; border: 1px solid #6D00C2;' : 'background: transparent; color: #D8D4E2; border: 1px solid rgba(255,255,255,0.22);') };
+    });
+    var can = st.why.trim().length > 4 && !st.asked;
+    var machine = [
+      { name: 'Token cPanel · 4bellu.com', scope: 'cuenta 4bellu · acceso completo de la cuenta', job: 'copias, integridad, SSL', fp: 'hmac·7f3a91c2', due: 'en 64 días', dt: 'ok', use: 'hoy 03:05 · correcto', ut: 'ok' },
+      { name: 'Token cPanel · jhoanaperez.com', scope: 'cuenta jhoanap', job: 'copias, integridad, SSL', fp: 'hmac·0b44e7d9', due: 'en 30 días', dt: 'warn', use: 'hoy 03:15 · correcto', ut: 'ok' },
+      { name: 'Clave R2 · copias de 4Bellú', scope: 'solo su carpeta · sin permiso de borrar', job: 'subir copias', fp: 'hmac·c91d02aa', due: 'sin vencimiento', dt: 'ok', use: 'hoy 03:07 · correcto', ut: 'ok' },
+      { name: 'Clave de API de Bitwarden', scope: 'organización DKODING · gestión', job: 'sincronizar metadatos y accesos temporales', fp: 'hmac·5e8810b3', due: 'rotar en 112 días', dt: 'ok', use: 'hace 4 min · correcto', ut: 'ok' },
+      { name: 'Cuenta de servicio de Google', scope: 'lectura de Search Console y GA4', job: 'métricas diarias', fp: 'federada · sin llave', due: 'no aplica', dt: 'ok', use: 'hoy 06:00 · 1 fallo en 30 días', ut: 'warn' }
+    ].map(function (m) {
+      m.dueStyle = 'font-size: 13px; color: ' + (m.dt === 'warn' ? '#E0A93B' : '#D8D4E2') + ';';
+      m.useStyle = 'font-size: 13px; color: ' + (m.ut === 'warn' ? '#E0A93B' : '#B3B0BC') + ';';
+      return m;
+    });
+    return {
+      health: health, tabs: tabs, isInv: st.tab === 'inv', isMachine: st.tab === 'machine', isOther: st.tab === 'jit' || st.tab === 'audit',
+      otherTitle: cur && cur.t ? cur.t : '', otherDesc: cur && cur.d ? cur.d : '',
+      items: items, machine: machine, durations: durations,
+      d: { name: p.name, kind: p.kind, level: p.level, owner: p.owner, mfa: p.mfa, who: p.who, rotation: p.rotation, usedBy: p.usedBy, log: p.log,
+        canOpen: p.level !== 'A', needsJit: p.level === 'A' },
+      why: st.why, setWhy: function (ev) { self.setState({ why: ev.target.value }); },
+      cantAsk: !can,
+      askLabel: st.asked ? 'Enviado a Dirección · te avisamos al aprobar' : 'Pedir ' + st.dur + ' h de acceso',
+      askStyle: 'min-height: 40px; padding: 0 14px; border-radius: 4px; font-weight: 600; ' + (can ? 'background: #6D00C2; color: #FFFFFF; border: 0; cursor: pointer;' : 'background: transparent; color: #B3B0BC; border: 1px solid rgba(255,255,255,0.18); cursor: default;'),
+      askJit: function () { if (can) { self.setState({ asked: true }); } }
+    };
+  }
+}
+</script>
+</body>
+</html>

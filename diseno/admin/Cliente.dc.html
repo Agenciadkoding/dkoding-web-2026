@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Panel de un cliente</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Blinker:wght@300;600;700&amp;family=Barlow:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#0C0C0C}
+a{color:#D98BFF;text-decoration:none}a:hover{color:#F0D4FF}
+button,input{font:inherit}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid #D98BFF;outline-offset:2px}
+.dk-nav a:hover{background:#17161C;color:#F4F2F8}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; min-height: 100%; background: #0C0C0C; color: #F4F2F8; font-family: 'Barlow', system-ui, sans-serif; font-size: 14px; line-height: 1.5">
+
+  <header style="border-bottom: 1px solid rgba(255,255,255,0.08); background: #101013">
+    <div style="padding: 10px 20px; display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center">
+      <a href="Main.dc.html" aria-label="DKODING, inicio del admin" style="display: flex; align-items: center; min-height: 40px"><img src="/_blob/af8d4aea91012d3a301c737f7fa02819" alt="DKODING" style="height: 26px; width: auto"></a>
+      <button type="button" style="display: flex; align-items: center; gap: 10px; min-height: 40px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.18); border-radius: 6px; cursor: pointer"><span aria-hidden="true" style="width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; border-radius: 5px; background: #3D0A6E; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 12px">4B</span><span style="font-weight: 600">4Bellú</span><span aria-hidden="true" style="color: #8E8A9B">›</span><span style="color: #B3B0BC">2 sitios</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B3B0BC" stroke-width="2" aria-hidden="true"><path d="M7 10l5 5 5-5"></path></svg></button>
+      <div style="flex: 1 1 260px; display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 12px; background: #0C0C0C; border: 1px solid rgba(255,255,255,0.14); border-radius: 6px; max-width: 520px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B3B0BC" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg><label for="g-search" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Buscar o ejecutar una acción</label><input id="g-search" type="text" placeholder="Buscar en 4Bellú o escribe una acción" style="flex: 1; min-width: 0; background: transparent; border: 0; color: #F4F2F8; outline: none"><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 2px 6px; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; color: #B3B0BC">Ctrl K</kbd></div>
+      <div style="display: flex; align-items: center; gap: 8px; margin-left: auto"><a href="Movil.dc.html" aria-label="Alertas" style="position: relative; display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 6px; color: #F4F2F8"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10 21h4"></path></svg></a><img src="/_blob/ec6aad7f5a0276659274453cb2f867c0" alt="Tu cuenta: Comercial" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 2px solid #3D0A6E"></div>
+    </div>
+  </header>
+
+  <div style="display: flex; flex-wrap: wrap; align-items: flex-start">
+    <nav class="dk-nav" aria-label="Módulos" style="flex: 1 1 232px; max-width: 260px; box-sizing: border-box; padding: 14px 10px 24px; background: #101013; border-right: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; gap: 2px; font-size: 14px">
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Inicio</a>
+      <a href="Movil.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Alertas<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(255,107,107,0.16); color: #FF8F9B; font-size: 12px; font-weight: 600">1</span></a>
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Aprobaciones<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(199,85,239,0.16); color: #D98BFF; font-size: 12px; font-weight: 600">4</span></a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Clientes</span>
+      <a href="Cliente.dc.html" aria-current="page" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #F4F2F8; background: #1A0B2B; font-weight: 600"><span aria-hidden="true" style="width: 14px; color: #C755EF; font-family: 'Blinker', sans-serif; font-weight: 700">»</span>Directorio</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Sitio</span>
+      <a href="Editor.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Contenido</a>
+      <a href="#cliente" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Medios</a>
+      <a href="#cliente" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Formularios</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Métricas y SEO</span>
+      <a href="Cliente.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Métricas</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Salud y copias</span>
+      <a href="Sitios.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Flota</a>
+      <a href="Sitios.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Sitios</a>
+      <a href="Sitio.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Copias</a>
+      <a href="#cliente" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Vencimientos</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Ventas</span>
+      <a href="Cotizaciones.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Leads<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(224,169,59,0.16); color: #E0A93B; font-size: 12px; font-weight: 600">2</span></a>
+      <a href="Cotizaciones.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Cotizaciones</a>
+      <a href="Tarifas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Tarifas</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Bóveda</span>
+      <a href="Boveda.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Accesos</a>
+      <a href="Boveda.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Salud de accesos</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Agencia</span>
+      <a href="#cliente" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Equipo y roles</a>
+      <a href="#cliente" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Conexiones</a>
+      <a href="#cliente" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Avisos y plantillas</a>
+      <a href="#cliente" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Registro y cumplimiento</a>
+      <a href="#cliente" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Sistema y ajustes</a>
+      <span style="font-size: 12px; color: #8E8A9B; padding: 16px 10px 0">Menú del MVP. Las vistas de fases 2 y 3 aparecen cuando se activan.</span>
+    </nav>
+
+    <main id="cliente" style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 24px 28px 48px; display: flex; flex-direction: column; gap: 18px">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px">
+        <div style="display: flex; align-items: center; gap: 14px; min-width: 0">
+          <span aria-hidden="true" style="width: 52px; height: 52px; flex: none; display: inline-flex; align-items: center; justify-content: center; border-radius: 10px; background: #3D0A6E; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 22px">4B</span>
+          <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0">
+            <h1 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 30px; line-height: 1.1">4Bellú</h1>
+            <span style="color: #B3B0BC">Body shapers · 2 sitios · {{subline}}</span>
+          </div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+          <div role="group" aria-label="Ver como" style="display: flex; border: 1px solid rgba(255,255,255,0.18); border-radius: 6px; overflow: hidden"><sc-for list="{{lenses}}" as="l" hint-placeholder-count="2"><button type="button" onClick="{{l.pick}}" aria-pressed="{{l.on}}" style="{{l.style}}">{{l.label}}</button></sc-for></div>
+          <sc-if value="{{isAgency}}" hint-placeholder-val="{{true}}"><button type="button" style="min-height: 40px; padding: 0 16px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-weight: 600; cursor: pointer">Enviar informe de septiembre</button></sc-if>
+        </div>
+      </div>
+
+      <sc-if value="{{isClientView}}" hint-placeholder-val="{{false}}">
+        <div role="note" style="display: flex; gap: 10px; align-items: center; padding: 10px 14px; background: #1A0B2B; border: 1px solid rgba(199,85,239,0.45); border-radius: 8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D98BFF" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"></path></svg><span>Así lo ve 4Bellú. Ocultos: accesos, horas internas, notas del equipo y datos del servidor.</span></div>
+      </sc-if>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+        <span style="font-size: 13px; color: #B3B0BC">Periodo</span>
+        <div role="group" aria-label="Periodo" style="display: flex; border: 1px solid rgba(255,255,255,0.18); border-radius: 6px; overflow: hidden"><sc-for list="{{periods}}" as="p" hint-placeholder-count="2"><button type="button" onClick="{{p.pick}}" aria-pressed="{{p.on}}" style="{{p.style}}">{{p.label}}</button></sc-for></div>
+        <span style="font-size: 12px; color: #8E8A9B">Search Console llega con 2–3 días de retraso.</span>
+      </div>
+
+      <section aria-label="Indicadores" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr)); gap: 12px">
+        <sc-for list="{{kpis}}" as="k" hint-placeholder-count="6">
+          <div style="display: flex; flex-direction: column; gap: 6px; padding: 16px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px">
+            <span style="display: flex; justify-content: space-between; gap: 8px; color: #B3B0BC; font-size: 13px">{{k.label}}<svg width="12" height="12" viewBox="0 0 16 16" aria-label="{{k.stateLabel}}"><path d="{{k.shape}}" fill="{{k.color}}"></path></svg></span>
+            <span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 28px; line-height: 1; font-variant-numeric: tabular-nums">{{k.value}}</span>
+            <span style="font-size: 12px; color: #B3B0BC">{{k.note}}</span>
+          </div>
+        </sc-for>
+      </section>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: stretch">
+        <section aria-labelledby="h-clk" style="flex: 3 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 8px; padding: 16px 18px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: baseline"><h2 id="h-clk" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 18px">Clics desde Google por semana</h2><span style="font-size: 13px; color: #B3B0BC">{{clkHover}}</span></div>
+          <div style="position: relative">
+            <svg viewBox="0 0 640 196" width="100%" role="img" aria-label="Clics semanales desde Google, de {{clkFirst}} a {{clkLast}}" style="display: block; overflow: visible">
+              <line x1="52" x2="628" y1="186" y2="186" stroke="rgba(255,255,255,0.14)" stroke-width="1"></line>
+              <line x1="52" x2="628" y1="101" y2="101" stroke="rgba(255,255,255,0.08)" stroke-width="1"></line>
+              <line x1="52" x2="628" y1="16" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="1"></line>
+              <text x="44" y="190" fill="#8E8A9B" font-size="12" text-anchor="end" font-family="Barlow, sans-serif">0</text>
+              <text x="44" y="105" fill="#8E8A9B" font-size="12" text-anchor="end" font-family="Barlow, sans-serif">1.000</text>
+              <text x="44" y="20" fill="#8E8A9B" font-size="12" text-anchor="end" font-family="Barlow, sans-serif">2.000</text>
+              <path d="{{clkArea}}" fill="rgba(199,85,239,0.16)"></path>
+              <path d="{{clkLine}}" fill="none" stroke="#C755EF" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+              <line x1="{{clkHx}}" x2="{{clkHx}}" y1="12" y2="186" stroke="rgba(244,242,248,0.5)" stroke-width="1" opacity="{{clkHop}}"></line>
+              <circle cx="{{clkHx}}" cy="{{clkHy}}" r="5" fill="#C755EF" stroke="#151518" stroke-width="2" opacity="{{clkHop}}"></circle>
+              <circle cx="{{clkEndX}}" cy="{{clkEndY}}" r="5" fill="#F4F2F8" stroke="#151518" stroke-width="2"></circle>
+              <text x="{{clkEndX}}" y="{{clkEndLabelY}}" fill="#F4F2F8" font-size="13" font-weight="600" text-anchor="end" font-family="Barlow, sans-serif">{{clkEndLabel}}</text>
+            </svg>
+            <div aria-hidden="true" style="{{clkOverlay}}"><sc-for list="{{clkHits}}" as="h" hint-placeholder-count="13"><span onMouseEnter="{{h.on}}" onMouseLeave="{{h.off}}" style="display: block; height: 100%"></span></sc-for></div>
+          </div>
+          <div aria-hidden="true" style="display: flex; justify-content: space-between; padding-left: 8%; font-size: 12px; color: #8E8A9B"><sc-for list="{{clkX}}" as="x" hint-placeholder-count="3"><span>{{x.label}}</span></sc-for></div>
+          <details style="font-size: 13px; color: #D8D4E2"><summary style="cursor: pointer; min-height: 28px; font-weight: 600; color: #D98BFF">Ver los datos en tabla</summary><div style="overflow-x: auto"><table style="margin-top: 6px; border-collapse: collapse; min-width: 280px"><tbody><sc-for list="{{clkTable}}" as="r" hint-placeholder-count="13"><tr style="border-top: 1px solid rgba(255,255,255,0.06)"><td style="padding: 4px 16px 4px 0">{{r.w}}</td><td style="padding: 4px 0; text-align: right; font-variant-numeric: tabular-nums">{{r.v}}</td></tr></sc-for></tbody></table></div></details>
+        </section>
+
+        <section aria-labelledby="h-lead" style="flex: 2 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 8px; padding: 16px 18px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: baseline"><h2 id="h-lead" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 18px">Leads por semana</h2><span style="font-size: 13px; color: #B3B0BC">{{ldHover}}</span></div>
+          <div role="img" aria-label="Leads semanales: formularios y clics a WhatsApp, {{ldSum}} en el periodo" style="display: flex; gap: 8px">
+            <div aria-hidden="true" style="display: flex; flex-direction: column; justify-content: space-between; height: 170px; font-size: 12px; color: #8E8A9B; text-align: right; min-width: 18px"><span>20</span><span>10</span><span>0</span></div>
+            <div style="position: relative; flex: 1; height: 170px; border-bottom: 1px solid rgba(255,255,255,0.14)">
+              <span aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 7px; border-top: 1px solid rgba(255,255,255,0.08)"></span>
+              <span aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 85px; border-top: 1px solid rgba(255,255,255,0.08)"></span>
+              <div style="position: absolute; inset: 7px 0 0 0; display: flex; align-items: flex-end; gap: 2px">
+                <sc-for list="{{ldBars}}" as="b" hint-placeholder-count="13"><span onMouseEnter="{{b.on}}" onMouseLeave="{{b.off}}" style="{{b.style}}"></span></sc-for>
+              </div>
+            </div>
+          </div>
+          <div aria-hidden="true" style="display: flex; justify-content: space-between; padding-left: 26px; font-size: 12px; color: #8E8A9B"><sc-for list="{{ldX}}" as="x" hint-placeholder-count="3"><span>{{x.label}}</span></sc-for></div>
+          <span style="font-size: 12px; color: #B3B0BC">Formularios del sitio + clics al botón de WhatsApp. No incluye llamadas.</span>
+        </section>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+        <section aria-labelledby="h-done" style="flex: 3 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 8px; padding: 16px 18px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px">
+          <h2 id="h-done" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 18px">Qué hicimos este mes</h2>
+          <sc-for list="{{done}}" as="d" hint-placeholder-count="5"><div style="display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; border-top: 1px solid rgba(255,255,255,0.06)"><span aria-hidden="true" style="color: #C755EF; font-family: 'Blinker', sans-serif; font-weight: 700">»</span><span style="display: flex; flex-direction: column"><span style="font-weight: 600">{{d.t}}</span><span style="font-size: 12px; color: #B3B0BC">{{d.n}}</span></span></div></sc-for>
+          <div style="margin-top: 4px; padding: 12px; background: #1A0B2B; border-radius: 8px; display: flex; flex-direction: column; gap: 4px"><span style="color: #D98BFF; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase">Próximo paso recomendado</span><span>Publicar la guía de tallas con medidas reales: es lo que más citan los motores de IA en fajas.</span></div>
+        </section>
+
+        <sc-if value="{{isAgency}}" hint-placeholder-val="{{true}}">
+          <section aria-labelledby="h-int" style="flex: 2 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 10px; padding: 16px 18px; background: #151518; border: 1px dashed rgba(199,85,239,0.45); border-radius: 10px">
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px"><h2 id="h-int" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 18px">Solo para la agencia</h2><span style="padding: 2px 8px; border-radius: 999px; background: rgba(199,85,239,0.16); color: #D98BFF; font-size: 12px; font-weight: 600">interno</span></div>
+            <div style="display: flex; flex-direction: column; gap: 4px"><div style="display: flex; justify-content: space-between; font-size: 13px"><span>Horas del plan mensual</span><span style="font-variant-numeric: tabular-nums">6 de 8 h</span></div><span aria-hidden="true" style="height: 8px; border-radius: 999px; background: #0F0F11; overflow: hidden"><span style="display: block; height: 100%; width: 75%; background: linear-gradient(90deg, #6D00C2, #C755EF)"></span></span></div>
+            <dl style="margin: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px 12px; font-size: 13px">
+              <dt style="color: #B3B0BC">Accesos en la bóveda</dt><dd style="margin: 0"><a href="Boveda.dc.html">14 · 2 por rotar »</a></dd>
+              <dt style="color: #B3B0BC">Renovación del plan</dt><dd style="margin: 0">en 58 días</dd>
+              <dt style="color: #B3B0BC">Último informe</dt><dd style="margin: 0">01/10 · abierto por el cliente</dd>
+              <dt style="color: #B3B0BC">Responsable</dt><dd style="margin: 0; display: flex; align-items: center; gap: 8px"><img src="/_blob/ec6aad7f5a0276659274453cb2f867c0" alt="" style="width: 22px; height: 22px; border-radius: 50%; object-fit: cover">Comercial</dd>
+            </dl>
+            <div style="padding: 10px 12px; background: #0F0F11; border-radius: 6px; font-size: 13px; color: #D8D4E2"><span style="font-weight: 600">Nota del equipo:</span> quieren pasarela adicional (Addi) en diciembre; cotizar en noviembre.</div>
+          </section>
+        </sc-if>
+      </div>
+      <p style="margin: 0; font-size: 12px; color: #8E8A9B">Datos de ejemplo. 4Bellú es cliente real de DKODING; las cifras son ilustrativas.</p>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1320}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { lens: 'agency', period: '90', clkH: -1, ldH: -1 }; }
+  fmtN(n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
+  renderVals() {
+    var self = this, st = this.state;
+    var lenses = [{ id: 'agency', label: 'Vista agencia' }, { id: 'client', label: 'Vista del cliente' }].map(function (l) {
+      var on = st.lens === l.id;
+      return { label: l.label, on: on, pick: function () { self.setState({ lens: l.id }); },
+        style: 'min-height: 38px; padding: 0 14px; border: 0; cursor: pointer; font-weight: 600; ' + (on ? 'background: #1A0B2B; color: #F4F2F8;' : 'background: transparent; color: #B3B0BC;') };
+    });
+    var periods = [{ id: '30', label: 'Últimos 30 días' }, { id: '90', label: 'Últimos 90 días' }].map(function (p) {
+      var on = st.period === p.id;
+      return { label: p.label, on: on, pick: function () { self.setState({ period: p.id, clkH: -1, ldH: -1 }); },
+        style: 'min-height: 36px; padding: 0 12px; border: 0; cursor: pointer; font-weight: 600; ' + (on ? 'background: #1A0B2B; color: #F4F2F8;' : 'background: transparent; color: #B3B0BC;') };
+    });
+    var weeks = ['7 jul', '14 jul', '21 jul', '28 jul', '4 ago', '11 ago', '18 ago', '25 ago', '1 sep', '8 sep', '15 sep', '22 sep', '29 sep'];
+    var clicks = [1180, 1240, 1310, 1290, 1380, 1420, 1460, 1390, 1510, 1550, 1580, 1620, 1690];
+    var leads = [7, 9, 8, 10, 12, 9, 11, 13, 12, 10, 14, 12, 15];
+    var n = st.period === '30' ? 5 : 13;
+    var W = weeks.slice(13 - n), C = clicks.slice(13 - n), L = leads.slice(13 - n);
+    var SH = { ok: 'M8 2a6 6 0 1 1 0 12A6 6 0 0 1 8 2z', warn: 'M8 1.5L15 14H1z', none: 'M3 3h10v10H3z' };
+    var sumC = C.reduce(function (a, b) { return a + b; }, 0), sumL = L.reduce(function (a, b) { return a + b; }, 0);
+    var kpis = [
+      { label: 'Leads', value: String(sumL), note: (n === 5 ? '+12 %' : '+18 %') + ' frente al periodo anterior', s: 'ok' },
+      { label: 'Clics en Google', value: this.fmtN(sumC), note: (n === 5 ? '+9 %' : '+21 %') + ' frente al periodo anterior', s: 'ok' },
+      { label: 'Posición media', value: '9,8', note: 'mejoró 1,2 puestos · 40 consultas seguidas', s: 'ok' },
+      { label: 'Visibilidad en IA', value: '11 de 30', note: 'prompts con mención · 4 con cita a 4bellu.com', s: 'warn' },
+      { label: 'Velocidad real (LCP)', value: '1,6 s', note: 'p75 de visitantes reales · INP 140 ms', s: 'ok' },
+      { label: 'Disponibilidad', value: '99,98 %', note: '9 min caído en el periodo · 30 de 30 copias', s: 'ok' }
+    ].map(function (k) {
+      return { label: k.label, value: k.value, note: k.note, shape: SH[k.s], color: k.s === 'ok' ? '#5BE49B' : '#E0A93B', stateLabel: k.s === 'ok' ? 'Correcto' : 'Atención' };
+    });
+    // Clics: área + línea, una escala 0–2.000 (y 186 = 0, y 16 = 2.000)
+    var x0 = 60, x1 = 620, y0 = 186, y1 = 16, max = 2000;
+    function cx(i) { return n === 1 ? x0 : x0 + (x1 - x0) * i / (n - 1); }
+    function cy(v) { return y0 - (y0 - y1) * v / max; }
+    var line = '', i;
+    for (i = 0; i < n; i++) { line += (i ? ' L' : 'M') + cx(i).toFixed(1) + ' ' + cy(C[i]).toFixed(1); }
+    var area = line + ' L' + cx(n - 1).toFixed(1) + ' ' + y0 + ' L' + x0 + ' ' + y0 + ' Z';
+    var step = n > 1 ? (x1 - x0) / (n - 1) : 40;
+    var clkHits = C.map(function (v, k) { return { on: function () { self.setState({ clkH: k }); }, off: function () { self.setState({ clkH: -1 }); } }; });
+    var ovLeft = (x0 - step / 2) / 640 * 100, ovWidth = (x1 - x0 + step) / 640 * 100;
+    var clkOverlay = 'position: absolute; top: 0; bottom: 0; left: ' + ovLeft.toFixed(2) + '%; width: ' + ovWidth.toFixed(2) + '%; display: grid; grid-template-columns: repeat(' + n + ', minmax(0, 1fr));';
+    var xIdx = n === 5 ? [0, 2, 4] : [0, 6, 12];
+    var clkX = xIdx.map(function (k) { return { label: W[k] }; });
+    var h = st.clkH;
+    var clkTable = W.map(function (w, k) { return { w: 'Semana del ' + w, v: self.fmtN(C[k]) + ' clics' }; });
+    // Leads: barras HTML, extremo redondeado de 4 px anclado a la base, 2 px de separación
+    var ldBars = L.map(function (v, k) {
+      return { on: function () { self.setState({ ldH: k }); }, off: function () { self.setState({ ldH: -1 }); },
+        style: 'display: block; flex: 1; height: ' + (v / 20 * 100).toFixed(1) + '%; border-radius: 4px 4px 0 0; background: ' + (st.ldH === k ? '#E3A6F7' : '#C755EF') + ';' };
+    });
+    var ldX = (n === 5 ? [0, 2, 4] : [0, 6, 12]).map(function (k) { return { label: W[k] }; });
+    var isAgency = st.lens === 'agency';
+    return {
+      lenses: lenses, periods: periods, kpis: kpis, isAgency: isAgency, isClientView: !isAgency,
+      subline: isAgency ? 'Plan Tienda + SEO + GEO · cliente desde 2022' : 'Tu plan: Tienda + SEO + GEO',
+      clkArea: area, clkLine: line, clkHits: clkHits, clkOverlay: clkOverlay, clkX: clkX, clkTable: clkTable,
+      clkFirst: W[0], clkLast: W[n - 1],
+      clkEndX: cx(n - 1), clkEndY: cy(C[n - 1]), clkEndLabelY: cy(C[n - 1]) - 12, clkEndLabel: this.fmtN(C[n - 1]),
+      clkHop: h > -1 ? 1 : 0, clkHx: h > -1 ? cx(h) : x1, clkHy: h > -1 ? cy(C[h]) : cy(C[n - 1]),
+      clkHover: h > -1 ? this.fmtN(C[h]) + ' clics · semana del ' + W[h] : 'Pasa el cursor sobre la línea',
+      ldBars: ldBars, ldX: ldX, ldSum: sumL,
+      ldHover: st.ldH > -1 ? L[st.ldH] + ' leads · semana del ' + W[st.ldH] : sumL + ' en el periodo',
+      done: [
+        { t: '4 artículos publicados', n: 'Guías de cuidado y tallas · 2 ya reciben clics' },
+        { t: '30 de 30 copias de seguridad verificadas', n: 'Restauración de prueba exitosa el 5 de octubre' },
+        { t: '12 imágenes optimizadas', n: 'La página de inicio carga 0,4 s más rápido' },
+        { t: '2 redirecciones creadas', n: 'Productos descontinuados apuntan a su categoría' },
+        { t: 'Visibilidad en IA medida', n: '30 prompts en 4 motores · aparecen en 11' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
