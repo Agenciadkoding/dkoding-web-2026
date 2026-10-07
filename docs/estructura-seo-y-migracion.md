@@ -206,7 +206,7 @@ informativa o mixta) y tiene suficientes palabras de nicho para planear un año 
 
 | Hueco | Por qué importa |
 |---|---|
-| Búsquedas con "Cali" | Hay 18 con Medellín o Bogotá y ninguna de tu ciudad, que es tu ventaja frente a la competencia |
+| Búsquedas con "Cali" | Hay 16 con Medellín o Bogotá y ninguna de tu ciudad, que es tu ventaja frente a la competencia |
 | GEO y visibilidad en IA | Ya tiene landing en 7 competidores |
 | "manejo de redes sociales" y "community manager" | Es el término que usa la competencia para lo que tú llamas optimización de redes sociales |
 | Búsquedas de hoteles | Para la landing de Trifecta hotelera |
@@ -215,9 +215,9 @@ informativa o mixta) y tiene suficientes palabras de nicho para planear un año 
 
 | Motivo | Palabras | Ejemplos |
 |---|---|---|
-| Búsqueda de empleo o freelancers | 37 | "programador freelance", "diseñador gráfico junior" |
-| Otras ciudades | 18 | Medellín y Bogotá |
-| Fuera de tu oferta | 15 | "seo en yandex", "agencia de marketing político" |
+| Búsqueda de empleo o freelancers | 31 | "programador freelance", "diseñador gráfico junior" |
+| Otras ciudades | 16 | Medellín y Bogotá |
+| Fuera de tu oferta | 22 | "seo en yandex", "agencia de marketing político" |
 | Hazlo tú mismo | 5 | "crear sitio web gratis" |
 
 Algunas palabras caen en dos motivos, por eso la suma pasa de 72.
