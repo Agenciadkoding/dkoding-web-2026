@@ -75,7 +75,8 @@ con el CSV. El admin lo hará solo cuando esté conectado a Search Console.
 | Trifecta hotelera | `/trifecta-hotelera/` | crear sitio web para hotel (480) + "en Cali" | seo para hoteles (720), páginas web para hoteles, sistema de reservas | Landing por sector que se construirá más adelante. Absorbe `/plan-hotelero/` |
 | Soporte | `/soporte/` | — | — | Se conserva: Centro de ayuda con tickets (diseño en el lienzo del admin) |
 | dkarta | `/dkarta/` | — | — | Software propio; su landing está pendiente de diseño |
-| Casos de éxito, Nosotros, Equipo, Contacto, Privacidad | igual que hoy | — | — | Se conservan las URLs |
+| Casos de éxito, Nosotros, Equipo, Contacto, Privacidad | igual que hoy | — | — | Se conservan las URLs. Casos de éxito trae los 24 sitios en vivo de `recursos/casos-de-exito/` |
+| Términos y cookies | `/terminos/` y `/cookies/` | — | — | Páginas nuevas; textos en revisión legal |
 
 Las cifras entre paréntesis son las de tu hoja, sin validar. Sirven para ordenar, no para
 prometer tráfico.
