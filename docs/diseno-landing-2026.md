@@ -3,7 +3,10 @@
 > Fecha: 2026-10-06
 > Estado: **PROPUESTA v3** (estructura del plan Web PRO del cliente, sin precios, hero en slider).
 > Detalle de la v3 y su correspondencia con el plan: `plan-web-pro-estructura.md`.
-> Lienzo de diseño (editable, con cotizador funcional): https://claude.ai/artifact/Goh45JaCPxbFcYUNcdaZmP
+> Lienzo de diseño (editable, con cotizador funcional): https://claude.ai/artifact/3gfSHhiYsQGuhm9qXYbX8X, fila
+> «Sitio público dkoding.net» (fuente en `diseno/admin/`). Desde el 07/10/2026 la landing vive en el
+> mismo lienzo que el admin; el lienzo anterior (https://claude.ai/artifact/Goh45JaCPxbFcYUNcdaZmP)
+> ya no se actualiza.
 > Insumos: `auditoria-sitio-actual.md`, `sitio-actual-visual.md`,
 > `benchmark-bigseo-seo-geo-diseno-2026.md`, `arquitectura-plataforma-agencia.md`.
 

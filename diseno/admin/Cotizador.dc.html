@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>DKODING — Cotizador modular por horas</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Blinker:wght@300;400;600;700&amp;family=Barlow:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#0C0C0C}
+a{color:#F4F2F8;text-decoration:none}a:hover{color:#D98BFF}
+@keyframes dk-float{0%,100%{transform:translate3d(0,0,0) rotate(0deg)}50%{transform:translate3d(0,-24px,0) rotate(3deg)}}
+@keyframes dk-wave{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes dk-wave-rev{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@media (prefers-reduced-motion: reduce){.dk-float,.dk-wave,.dk-wave-rev{animation:none !important}}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; background: #0C0C0C; color: #F4F2F8; font-family: 'Barlow', system-ui, sans-serif; font-size: 15px; line-height: 1.5; overflow-x: hidden; min-height: 100%">
+
+<!-- ===== NAV ===== -->
+<nav aria-label="Principal" style="position: sticky; top: 0; z-index: 10; background: rgba(12,12,12,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08)">
+  <div style="max-width: 1360px; margin: 0 auto; padding: 10px 24px; display: flex; flex-wrap: wrap; gap: 10px 24px; justify-content: space-between; align-items: center">
+    <a href="Landing.dc.html" aria-label="DKODING, volver al inicio" style="display: flex; align-items: center; gap: 14px"><img src="/_blob/abfd6f3303fb5cb6442e0e77c7fb56a8" alt="DKODING" style="height: 24px; width: auto"><span style="color: #D98BFF; font-weight: 600; font-size: 15px; border-left: 1px solid rgba(255,255,255,0.14); padding-left: 14px">Cotizar</span></a>
+    <div role="tablist" aria-label="Familias de servicio" style="display: flex; flex-wrap: wrap; gap: 6px">
+      <sc-for list="{{fams}}" as="f" hint-placeholder-count="6"><button type="button" role="tab" onClick="{{f.toggle}}" aria-selected="{{f.on}}" style="{{f.style}}">{{f.label}}<sc-if value="{{f.n}}" hint-placeholder-val="{{false}}"><span style="margin-left: 8px; padding: 1px 7px; border-radius: 999px; background: rgba(255,255,255,0.18); font-size: 11px">{{f.count}}</span></sc-if></button></sc-for>
+    </div>
+    <button type="button" onClick="{{toggleTeam}}" aria-pressed="{{team}}" style="{{teamBtn}}"><span aria-hidden="true" style="{{teamDot}}"></span>{{teamLabel}}</button>
+  </div>
+</nav>
+
+<!-- ===== CABECERA ===== -->
+<header style="position: relative; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.08)">
+  <img src="/_blob/a836e0d319a241142197243d2a9df94e" alt="" aria-hidden="true" class="dk-float" style="position: absolute; right: -4%; top: -70%; width: 24%; opacity: 0.5; animation: dk-float 14s ease-in-out infinite; pointer-events: none">
+  <svg aria-hidden="true" viewBox="0 0 2880 400" preserveAspectRatio="none" class="dk-wave" style="position: absolute; left: 0; top: 10%; width: 200%; height: 80%; animation: dk-wave 40s linear infinite; pointer-events: none"><path d="M0 200 C 240 130, 480 130, 720 200 C 960 270, 1200 270, 1440 200 C 1680 130, 1920 130, 2160 200 C 2400 270, 2640 270, 2880 200" fill="none" stroke="rgba(199,85,239,0.25)" stroke-width="1" vector-effect="non-scaling-stroke"></path></svg>
+  <svg aria-hidden="true" viewBox="0 0 2880 400" preserveAspectRatio="none" class="dk-wave-rev" style="position: absolute; left: 0; top: 40%; width: 200%; height: 80%; animation: dk-wave-rev 54s linear infinite; pointer-events: none"><path d="M0 200 C 240 140, 480 140, 720 200 C 960 260, 1200 260, 1440 200 C 1680 140, 1920 140, 2160 200 C 2400 260, 2640 260, 2880 200" fill="none" stroke="rgba(109,0,194,0.5)" stroke-width="1" vector-effect="non-scaling-stroke"></path></svg>
+  <div style="position: relative; max-width: 1360px; margin: 0 auto; padding: 40px 24px 28px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 16px 32px">
+    <div style="display: flex; flex-direction: column; gap: 10px; max-width: 760px">
+      <p style="margin: 0; display: inline-flex; align-items: center; gap: 10px; color: {{accent}}; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 13px"><svg width="18" height="14" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M2 1l6 6-6 6M10 1l6 6-6 6"></path></svg>Cotizador por módulos · precio por hora de proyecto</p>
+      <h1 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 300; font-size: clamp(34px, 3.8vw, 54px); line-height: 1.02">Cotiza con precisión el costo del <strong style="font-weight: 700">servicio que necesitas</strong></h1>
+      <p style="margin: 0; color: #B3B0BC; font-size: 16px">Cada módulo tiene horas asociadas. Elige lo que tu proyecto necesita, mira las horas y el rango de inversión en vivo, y recibe el detalle por WhatsApp o en PDF. Precios en COP; IVA discriminado.</p>
+    </div>
+    <dl style="margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; min-width: 300px">
+      <div style="padding: 12px 14px; background: rgba(21,21,24,0.85); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; display: flex; flex-direction: column"><dt style="font-size: 11px; color: #B3B0BC; letter-spacing: 0.06em; text-transform: uppercase">Módulos</dt><dd style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 26px; line-height: 1">{{nItems}}</dd></div>
+      <div style="padding: 12px 14px; background: rgba(21,21,24,0.85); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; display: flex; flex-direction: column"><dt style="font-size: 11px; color: #B3B0BC; letter-spacing: 0.06em; text-transform: uppercase">Horas</dt><dd style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 26px; line-height: 1">{{horasTot}}</dd></div>
+      <div style="padding: 12px 14px; background: rgba(21,21,24,0.85); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; display: flex; flex-direction: column"><dt style="font-size: 11px; color: #B3B0BC; letter-spacing: 0.06em; text-transform: uppercase">Entrega</dt><dd style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 26px; line-height: 1">{{semanas}} sem</dd></div>
+    </dl>
+  </div>
+</header>
+
+<!-- ===== CUERPO ===== -->
+<main style="max-width: 1360px; margin: 0 auto; padding: 28px 24px 96px; display: flex; flex-wrap: wrap; gap: 24px; align-items: start">
+  <div style="flex: 999 1 600px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
+
+    <!-- ===== FAMILIA WEB ===== -->
+    <sc-if value="{{famWeb}}" hint-placeholder-val="{{true}}">
+    <section aria-labelledby="h-web" style="display: flex; flex-direction: column; gap: 18px">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px">
+        <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.1em; color: #D98BFF">SITIO WEB · PASO 1</span><h2 id="h-web" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 24px">¿Qué tipo de sitio es?</h2><span style="font-size: 13px; color: #B3B0BC">Define los módulos base incluidos. Luego añades lo que quieras.</span></div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px">
+        <sc-for list="{{tipos}}" as="t" hint-placeholder-count="5">
+          <button type="button" onClick="{{t.pick}}" aria-pressed="{{t.on}}" style="{{t.style}}"><span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 17px; line-height: 1.1">{{t.n}}</span><span style="font-size: 12px; color: #B3B0BC">{{t.d}}</span><span style="margin-top: auto; font-size: 12px; color: #D98BFF; font-weight: 600">{{t.h}} h base</span></button>
+        </sc-for>
+      </div>
+
+      <!-- seleccionados -->
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px"><h3 style="margin: 0; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #B3B0BC; font-weight: 600">Módulos seleccionados · {{nWebSel}}</h3><button type="button" onClick="{{vaciarWeb}}" style="min-height: 32px; padding: 0 10px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.18); background: transparent; color: #B3B0BC; font: inherit; font-size: 12px; cursor: pointer">Quitar los añadidos</button></div>
+        <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px">
+          <sc-for list="{{webSel}}" as="b" hint-placeholder-count="4">
+            <div style="{{b.style}}">
+              <div style="display: flex; justify-content: space-between; align-items: start; gap: 8px"><span style="display: inline-flex; align-items: center; gap: 6px; padding: 2px 8px; border-radius: 999px; background: rgba(199,85,239,0.18); color: #D98BFF; font-size: 11px; font-weight: 700">{{b.hTxt}}</span><sc-if value="{{b.locked}}" hint-placeholder-val="{{false}}"><span style="font-size: 11px; color: #5BE49B; font-weight: 600">Incluido</span></sc-if><sc-if value="{{b.removable}}" hint-placeholder-val="{{true}}"><button type="button" onClick="{{b.toggle}}" aria-label="Quitar {{b.n}}" style="width: 28px; height: 28px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.18); background: transparent; color: #F4F2F8; cursor: pointer; display: inline-flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"></path></svg></button></sc-if></div>
+              <span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 17px; line-height: 1.1">{{b.n}}</span>
+              <span style="font-size: 12px; color: #B3B0BC">{{b.d}}</span>
+              <sc-if value="{{b.hasOpts}}" hint-placeholder-val="{{false}}">
+                <div style="display: flex; flex-direction: column; gap: 4px; margin-top: 4px; padding-top: 8px; border-top: 1px dashed rgba(255,255,255,0.14)">
+                  <span style="font-size: 11px; color: #B3B0BC; letter-spacing: 0.06em; text-transform: uppercase">Añadibles</span>
+                  <sc-for list="{{b.opts}}" as="o" hint-placeholder-count="2"><button type="button" onClick="{{o.toggle}}" aria-pressed="{{o.on}}" style="{{o.style}}"><span aria-hidden="true" style="{{o.box}}"></span><span style="flex: 1; text-align: left">{{o.n}}</span><span style="color: #D98BFF; font-weight: 700">+{{o.h}} h</span></button></sc-for>
+                </div>
+              </sc-if>
+              <sc-if value="{{b.hasQty}}" hint-placeholder-val="{{false}}">
+                <label style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 4px; font-size: 12px; color: #B3B0BC">Productos a cargar<input type="number" min="0" step="10" value="{{qtyProd}}" onChange="{{setQty}}" style="width: 72px; min-height: 32px; padding: 0 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.16); background: #0F0F11; color: #F4F2F8; font: inherit; font-size: 13px"></label>
+              </sc-if>
+              <sc-if value="{{b.nota}}" hint-placeholder-val="{{false}}"><span style="font-size: 11px; color: #E0A93B">{{b.notaTxt}}</span></sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <!-- disponibles -->
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px">
+          <h3 style="margin: 0; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #B3B0BC; font-weight: 600">Módulos disponibles</h3>
+          <div role="tablist" aria-label="Grupos" style="display: flex; flex-wrap: wrap; gap: 6px"><sc-for list="{{grps}}" as="g" hint-placeholder-count="5"><button type="button" role="tab" onClick="{{g.pick}}" aria-selected="{{g.on}}" style="{{g.style}}">{{g.label}}</button></sc-for></div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px">
+          <sc-for list="{{webDisp}}" as="b" hint-placeholder-count="4">
+            <button type="button" onClick="{{b.toggle}}" style="{{b.style}}">
+              <span style="display: flex; justify-content: space-between; align-items: center; width: 100%"><span style="padding: 2px 8px; border-radius: 999px; background: rgba(255,255,255,0.08); color: #D8CFE6; font-size: 11px; font-weight: 700">{{b.hTxt}}</span><span aria-hidden="true" style="width: 26px; height: 26px; border-radius: 50%; border: 1px solid #5BE49B; color: #5BE49B; display: inline-flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></span>
+              <span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 17px; line-height: 1.1; text-align: left">{{b.n}}</span>
+              <span style="font-size: 12px; color: #B3B0BC; text-align: left">{{b.d}}</span>
+              <sc-if value="{{b.dep}}" hint-placeholder-val="{{false}}"><span style="font-size: 11px; color: #5BE49B; text-align: left">{{b.depTxt}}</span></sc-if>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+
+      <!-- nivel y tiempos -->
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding: 18px; background: #151518; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px">
+        <fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 6px"><legend style="padding: 0; margin-bottom: 8px; font-size: 12px; color: #B3B0BC; letter-spacing: 0.06em; text-transform: uppercase">Nivel de diseño</legend><sc-for list="{{lvl}}" as="o" hint-placeholder-count="3"><button type="button" onClick="{{o.pick}}" aria-pressed="{{o.on}}" style="{{o.style}}"><span style="flex: 1; text-align: left">{{o.label}}</span><span style="font-size: 12px; color: #B3B0BC">{{o.f}}</span></button></sc-for></fieldset>
+        <fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 6px"><legend style="padding: 0; margin-bottom: 8px; font-size: 12px; color: #B3B0BC; letter-spacing: 0.06em; text-transform: uppercase">Contenido</legend><sc-for list="{{cont}}" as="o" hint-placeholder-count="2"><button type="button" onClick="{{o.pick}}" aria-pressed="{{o.on}}" style="{{o.style}}"><span style="flex: 1; text-align: left">{{o.label}}</span><span style="font-size: 12px; color: #B3B0BC">{{o.f}}</span></button></sc-for></fieldset>
+        <fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 6px"><legend style="padding: 0; margin-bottom: 8px; font-size: 12px; color: #B3B0BC; letter-spacing: 0.06em; text-transform: uppercase">Tiempos</legend><sc-for list="{{urg}}" as="o" hint-placeholder-count="3"><button type="button" onClick="{{o.pick}}" aria-pressed="{{o.on}}" style="{{o.style}}"><span style="flex: 1; text-align: left">{{o.label}}</span><span style="font-size: 12px; color: #B3B0BC">{{o.f}}</span></button></sc-for></fieldset>
+      </div>
+    </section>
+    </sc-if>
+
+    <!-- ===== OTRAS FAMILIAS (misma tarjeta) ===== -->
+    <sc-for list="{{otras}}" as="fa" hint-placeholder-count="2">
+      <section style="display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.1em; color: #D98BFF">{{fa.eyebrow}}</span><h2 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 24px">{{fa.title}}</h2><span style="font-size: 13px; color: #B3B0BC">{{fa.sub}}</span></div>
+        <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px">
+          <sc-for list="{{fa.items}}" as="b" hint-placeholder-count="4">
+            <button type="button" onClick="{{b.toggle}}" aria-pressed="{{b.on}}" style="{{b.style}}">
+              <span style="display: flex; justify-content: space-between; align-items: center; width: 100%"><span style="{{b.badge}}">{{b.hTxt}}</span><span aria-hidden="true" style="{{b.icon}}"><sc-if value="{{b.on}}" hint-placeholder-val="{{false}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg></sc-if><sc-if value="{{b.off}}" hint-placeholder-val="{{true}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></sc-if></span></span>
+              <span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 17px; line-height: 1.1; text-align: left">{{b.n}}</span>
+              <span style="font-size: 12px; color: #B3B0BC; text-align: left">{{b.d}}</span>
+              <sc-if value="{{b.reco}}" hint-placeholder-val="{{false}}"><span style="font-size: 11px; color: #D98BFF; font-weight: 600">Recomendado</span></sc-if>
+              <sc-if value="{{b.desde}}" hint-placeholder-val="{{false}}"><span style="font-size: 11px; color: #E0A93B">Se cotiza "desde" tras una sesión de alcance</span></sc-if>
+            </button>
+          </sc-for>
+        </div>
+      </section>
+    </sc-for>
+
+    <!-- ===== DATOS ===== -->
+    <section aria-labelledby="h-datos" style="display: flex; flex-direction: column; gap: 14px; padding: 22px; background: #151518; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px">
+      <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.1em; color: #D98BFF">ÚLTIMO PASO</span><h2 id="h-datos" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 24px">{{datosTitle}}</h2><span style="font-size: 13px; color: #B3B0BC">El rango ya lo ves sin dejar datos. El desglose completo y el PDF se envían a este contacto.</span></div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: #B3B0BC">Nombre *<input type="text" autocomplete="name" value="{{cli.nombre}}" onChange="{{setNombre}}" placeholder="Nombre y apellido" style="min-height: 44px; padding: 0 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.16); background: #0F0F11; color: #F4F2F8; font: inherit; font-size: 15px"></label>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: #B3B0BC">Empresa<input type="text" autocomplete="organization" value="{{cli.empresa}}" onChange="{{setEmpresa}}" placeholder="Nombre del negocio" style="min-height: 44px; padding: 0 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.16); background: #0F0F11; color: #F4F2F8; font: inherit; font-size: 15px"></label>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: #B3B0BC">WhatsApp *<input type="tel" autocomplete="tel" value="{{cli.tel}}" onChange="{{setTel}}" placeholder="+57 300 000 0000" style="min-height: 44px; padding: 0 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.16); background: #0F0F11; color: #F4F2F8; font: inherit; font-size: 15px"></label>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: #B3B0BC">Correo *<input type="email" autocomplete="email" value="{{cli.email}}" onChange="{{setEmail}}" placeholder="nombre@empresa.com" style="min-height: 44px; padding: 0 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.16); background: #0F0F11; color: #F4F2F8; font: inherit; font-size: 15px"></label>
+      </div>
+      <sc-if value="{{team}}" hint-placeholder-val="{{false}}">
+        <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; padding: 14px; background: rgba(109,0,194,0.12); border: 1px dashed rgba(199,85,239,0.5); border-radius: 8px">
+          <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: #B3B0BC">Tarifa por hora (COP)<input type="number" min="10000" step="5000" value="{{rateVal}}" onChange="{{setRate}}" style="min-height: 44px; padding: 0 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.16); background: #0F0F11; color: #F4F2F8; font: inherit; font-size: 15px"></label>
+          <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: #B3B0BC">Descuento comercial (%)<input type="number" min="0" max="20" step="1" value="{{desc}}" onChange="{{setDesc}}" style="min-height: 44px; padding: 0 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.16); background: #0F0F11; color: #F4F2F8; font: inherit; font-size: 15px"></label>
+          <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: #B3B0BC">Asesor<input type="text" value="{{asesor}}" onChange="{{setAsesor}}" placeholder="Nombre" style="min-height: 44px; padding: 0 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.16); background: #0F0F11; color: #F4F2F8; font: inherit; font-size: 15px"></label>
+          <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: #B3B0BC">Capacidad (h/semana)<input type="number" min="5" max="80" step="5" value="{{capVal}}" onChange="{{setCap}}" style="min-height: 44px; padding: 0 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.16); background: #0F0F11; color: #F4F2F8; font: inherit; font-size: 15px"></label>
+          <p style="grid-column: span 4; margin: 0; font-size: 12px; color: #D8CFE6">Modo equipo: la tarifa y la capacidad son las de la versión de tarifas vigente (se administran en el panel, tablero «Tarifas»). Tope de descuento 20 %. Las horas por módulo son semilla hasta calibrarlas con proyectos reales.</p>
+        </div>
+      </sc-if>
+    </section>
+  </div>
+
+  <!-- ===== PANEL FIJO ===== -->
+  <aside aria-label="Cotización en vivo" style="flex: 1 1 360px; max-width: 420px; min-width: 0; position: sticky; top: 76px; display: flex; flex-direction: column; border-radius: 12px; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,0.55); border: 1px solid rgba(255,255,255,0.12)">
+    <div style="padding: 22px 24px 18px; background: linear-gradient(160deg, #6D00C2, #3D0A6E); display: flex; flex-direction: column; gap: 10px">
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px"><span style="font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #EADFF7; font-weight: 600">{{horasTot}} horas de proyecto</span><button type="button" onClick="{{toggleDesglose}}" aria-expanded="{{showDesglose}}" aria-label="Ver desglose por fase" style="width: 32px; height: 32px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.4); background: transparent; color: #FFFFFF; cursor: pointer; display: inline-flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square" aria-hidden="true" style="{{chev}}"><path d="M6 15l6-6 6 6"></path></svg></button></div>
+      <sc-if value="{{modoDesde}}" hint-placeholder-val="{{false}}"><span style="font-size: 12px; color: #FFD58A">Proyecto de más de 200 h: el precio se cierra en una sesión de alcance.</span></sc-if>
+      <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 34px; line-height: 1; color: #FFFFFF">{{rangoTxt}}</span><span style="font-size: 12px; color: #EADFF7">{{rangoNota}}</span></div>
+      <sc-if value="{{hasMensual}}" hint-placeholder-val="{{false}}"><div style="display: flex; justify-content: space-between; gap: 12px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 13px; color: #EADFF7"><span>Mensual ({{nRet}} servicios)</span><span style="font-family: 'Blinker', sans-serif; font-weight: 700; color: #FFFFFF">{{mensualTxt}}</span></div></sc-if>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 11px; color: #EADFF7"><span>+ IVA 19 %</span><span>Anticipo 50 %</span><span>Vigencia 15 días</span></div>
+    </div>
+    <div style="background: #151518; display: flex; flex-direction: column; gap: 12px; padding: 18px 24px 22px">
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 13px"><span style="color: #B3B0BC">Posible fecha de entrega</span><span style="font-weight: 700; color: #D98BFF">{{fechaTxt}}</span></div>
+      <sc-if value="{{showDesglose}}" hint-placeholder-val="{{false}}">
+        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 13px">
+          <sc-for list="{{fases}}" as="f" hint-placeholder-count="5"><li style="display: flex; flex-direction: column; gap: 4px"><span style="display: flex; justify-content: space-between; gap: 12px"><span>{{f.n}}</span><span style="color: #B3B0BC">{{f.h}} h · <span style="color: #F4F2F8; font-weight: 600">{{f.c}}</span></span></span><span style="height: 4px; border-radius: 2px; background: rgba(255,255,255,0.08); overflow: hidden; display: block"><span style="display: block; height: 100%; width: {{f.w}}; background: {{f.col}}"></span></span></li></sc-for>
+        </ul>
+        <p style="margin: 0; font-size: 11px; color: #B3B0BC">Mín. = horas × tarifa × 0,90 · Máx. = × 1,15 (15 % de contingencia). Incluye dirección de proyecto (12 %). Extras fijos sin ajuste.</p>
+      </sc-if>
+      <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 4px; font-size: 13px; max-height: 220px; overflow: auto">
+        <sc-for list="{{lineas}}" as="l" hint-placeholder-count="4"><li style="display: flex; justify-content: space-between; gap: 10px; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.06)"><span style="display: flex; flex-direction: column; min-width: 0"><span style="font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{l.n}}</span><span style="font-size: 11px; color: #B3B0BC">{{l.k}}</span></span><span style="font-family: 'Blinker', sans-serif; font-weight: 700; white-space: nowrap; color: {{l.col}}">{{l.v}}</span></li></sc-for>
+      </ul>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; padding-top: 4px">
+        <a href="{{waHref}}" style="{{waStyle}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"></path></svg>{{waLabel}}</a>
+        <a href="{{pdfHref}}" aria-disabled="{{notReady}}" style="{{pdfStyle}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"></path></svg>{{pdfLabel}}</a>
+      </div>
+      <span style="font-size: 11px; color: #B3B0BC; text-align: center">{{hint}}</span>
+      <sc-if value="{{confirmVaciar}}" hint-placeholder-val="{{false}}"><div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 10px 12px; background: rgba(224,169,59,0.12); border: 1px solid rgba(224,169,59,0.4); border-radius: 6px; font-size: 12px"><span>¿Vaciar toda la cotización?</span><span style="display: flex; gap: 6px"><button type="button" onClick="{{vaciarSi}}" style="min-height: 30px; padding: 0 10px; border-radius: 4px; border: 0; background: #E0A93B; color: #0C0C0C; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer">Sí, vaciar</button><button type="button" onClick="{{vaciarNo}}" style="min-height: 30px; padding: 0 10px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: #F4F2F8; font: inherit; font-size: 12px; cursor: pointer">No</button></span></div></sc-if>
+      <sc-if value="{{noConfirm}}" hint-placeholder-val="{{true}}"><button type="button" onClick="{{vaciarAsk}}" style="min-height: 32px; border: 0; background: transparent; color: #B3B0BC; font: inherit; font-size: 12px; cursor: pointer; text-decoration: underline">Vaciar cotización</button></sc-if>
+      <details style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 8px"><summary style="cursor: pointer; font-size: 12px; color: #D98BFF; font-weight: 600; list-style: none; min-height: 28px; display: flex; align-items: center; gap: 6px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg>Texto que se enviará</summary><pre style="margin: 6px 0 0; font: inherit; font-size: 11px; line-height: 1.45; color: #D8CFE6; white-space: pre-wrap; word-break: break-word; max-height: 220px; overflow: auto">{{texto}}</pre></details>
+      <p style="margin: 0; font-size: 10px; color: #B3B0BC">Estimación orientativa calculada con la versión de tarifas {{version}}. Precio cerrado tras una llamada de 20 min. No incluye fotografía ni redacción si eliges «contenido propio».</p>
+    </div>
+  </aside>
+</main>
+
+<footer style="border-top: 1px solid rgba(255,255,255,0.08); background: #0F0F11"><div style="max-width: 1360px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 13px; color: #B3B0BC"><span>© 2026 DKODING · Red LATAM · Todos los derechos reservados</span><span style="display: flex; gap: 16px"><a href="tel:+573002867104" style="color: #B3B0BC">+57 300 286 7104</a><a href="mailto:info@dkoding.net" style="color: #B3B0BC">info@dkoding.net</a></span></div></footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#C755EF","options":["#C755EF","#D98BFF","#A255EF","#5BE49B"],"section":"Marca"},"tarifaHora":{"editor":"int","default":60000,"min":10000,"max":300000,"step":5000,"unit":"COP","section":"Tarifas semilla"},"capacidadSemanal":{"editor":"int","default":20,"min":5,"max":80,"step":5,"unit":"h","section":"Tarifas semilla"},"$preview":{"width":1440,"height":3300}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = {
+      fam: { web: true, marca: false, mkt: false, imp: false, app: false, sop: false },
+      tipo: 'corporativo', grp: 'presencia', sel: {}, opts: {}, qtyProd: 50,
+      lvl: 'sistema', cont: 'propio', urg: 'normal',
+      otros: {}, team: false, rate: '', cap: '', desc: 0, asesor: '',
+      cli: { nombre: '', empresa: '', tel: '', email: '' },
+      showDesglose: false, confirmVaciar: false
+    };
+  }
+  fmt(n) { return '$ ' + String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
+  fmtM(n) { return n >= 1000000 ? (Math.round(n / 100000) / 10).toFixed(1).replace('.', ',') + ' M' : this.fmt(n); }
+  r50(n) { return Math.round(n / 50000) * 50000; }
+  renderVals() {
+    var accent = this.props.accent || '#C755EF';
+    var self = this, s = this.state;
+    var rate = Number(s.rate) || this.props.tarifaHora || 60000;
+    var cap = Number(s.cap) || this.props.capacidadSemanal || 20;
+
+    /* ---------- estilos ---------- */
+    var pill = 'min-height: 36px; padding: 0 12px; border-radius: 999px; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; ';
+    var pillOn = 'background: #6D00C2; color: #FFFFFF; border: 1px solid #6D00C2;';
+    var pillOff = 'background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22);';
+    var card = 'display: flex; flex-direction: column; gap: 8px; align-items: start; width: 100%; min-height: 150px; padding: 14px; border-radius: 10px; cursor: pointer; font: inherit; color: #F4F2F8; text-align: left; box-sizing: border-box; ';
+    var cardOn = 'background: #24103A; border: 2px solid ' + accent + ';';
+    var cardOff = 'background: #151518; border: 1px solid rgba(255,255,255,0.12);';
+    var cardSel = 'display: flex; flex-direction: column; gap: 8px; width: 100%; padding: 14px; border-radius: 10px; box-sizing: border-box; background: #1A0B2B; border: 1px solid rgba(199,85,239,0.45); ';
+    var optBtn = 'display: flex; align-items: center; gap: 8px; width: 100%; min-height: 30px; padding: 2px 0; border: 0; background: transparent; color: #F4F2F8; font: inherit; font-size: 12px; cursor: pointer; ';
+    var boxOn = 'display: inline-flex; width: 14px; height: 14px; border-radius: 3px; flex: none; background: #6D00C2; border: 1px solid #6D00C2;';
+    var boxOff = 'display: inline-flex; width: 14px; height: 14px; border-radius: 3px; flex: none; background: transparent; border: 1px solid rgba(255,255,255,0.35);';
+    var segBtn = 'display: flex; align-items: center; gap: 8px; min-height: 38px; padding: 0 12px; border-radius: 6px; font: inherit; font-size: 13px; cursor: pointer; ';
+
+    /* ---------- familias ---------- */
+    var famDef = [{ id: 'web', label: 'Sitio web o tienda' }, { id: 'marca', label: 'Marca' }, { id: 'mkt', label: 'Marketing y redes' }, { id: 'imp', label: 'Impresos y carteles' }, { id: 'app', label: 'App o plataforma' }, { id: 'sop', label: 'Mantenimiento' }];
+
+    /* ---------- catálogo web: 25 bloques (horas semilla, cotizador-catalogo-servicios.md §2) ---------- */
+    var W = [
+      { id: 'inicio', n: 'Inicio', d: 'Portada con hero premium y propuesta de valor', h: 16, g: 'base', opts: [{ n: 'Hero animado / WebGL', h: 10 }, { n: 'Video de fondo', h: 3 }] },
+      { id: 'nosotros', n: 'Nosotros', d: 'Historia, misión y equipo', h: 10, g: 'presencia', opts: [{ n: 'Equipo con fichas', h: 6 }, { n: 'Línea de tiempo', h: 4 }, { n: 'Certificaciones', h: 2 }] },
+      { id: 'servicios', n: 'Servicios', d: 'Hub de servicios con página por servicio', h: 28, g: 'base', opts: [{ n: 'Tabla de paquetes', h: 5 }, { n: 'Testimonios por servicio', h: 3 }] },
+      { id: 'productos', n: 'Productos (catálogo)', d: 'Catálogo con filtros, sin venta en línea', h: 20, g: 'comercio', qty: true, opts: [{ n: 'Fichas con PDF', h: 3 }, { n: 'Valoraciones', h: 6 }] },
+      { id: 'blog', n: 'Blog o recursos', d: 'Artículos administrables con categorías', h: 18, g: 'contenido', opts: [{ n: 'Categorías y autores', h: 4 }, { n: 'Video / podcast embebido', h: 8 }, { n: 'Newsletter', h: 8 }] },
+      { id: 'casos', n: 'Casos de éxito', d: 'Resultados con cifras y testimonio', h: 18, g: 'conversion', opts: [{ n: 'Antes / después', h: 4 }, { n: 'Video testimonio', h: 3 }, { n: 'Schema Review', h: 2 }] },
+      { id: 'portafolio', n: 'Portafolio', d: 'Galería de proyectos con filtros', h: 14, g: 'presencia', opts: [{ n: 'Detalle por proyecto', h: 8 }, { n: 'Transición tarjeta → detalle', h: 4 }] },
+      { id: 'contacto', n: 'Contacto', d: 'Formulario, mapa y WhatsApp', h: 20, g: 'base', opts: [{ n: 'Horarios dinámicos', h: 2 }, { n: 'Varias sedes', h: 4 }, { n: 'Agenda en línea', h: 8 }] },
+      { id: 'faq', n: 'Preguntas frecuentes', d: 'Acordeón con schema FAQPage', h: 8, g: 'conversion', opts: [{ n: 'FAQ por servicio', h: 10 }] },
+      { id: 'tienda', n: 'Tienda online', d: 'Carrito, pasarela y correos de pedido', h: 90, g: 'comercio', incluye: ['productos'], opts: [{ n: 'Segunda pasarela', h: 16 }, { n: 'Envíos por zona', h: 12 }, { n: 'Cupones', h: 8 }, { n: 'Factura electrónica', h: 20 }, { n: 'Seguimiento de pedidos', h: 10 }] },
+      { id: 'area', n: 'Área de clientes', d: 'Registro, login y panel del usuario', h: 40, g: 'plataforma', p8: true, opts: [{ n: 'Descarga de documentos', h: 10 }, { n: 'Seguimiento de proyecto', h: 16 }] },
+      { id: 'noticias', n: 'Noticias', d: 'Novedades de la empresa', h: 18, g: 'contenido', siBlog: 3 },
+      { id: 'empleo', n: 'Trabaja con nosotros', d: 'Vacantes y aplicación con hoja de vida', h: 26, g: 'presencia', opts: [{ n: 'Filtro por área', h: 3 }] },
+      { id: 'aliados', n: 'Aliados', d: 'Logos de partners en movimiento', h: 3, g: 'presencia', opts: [{ n: 'Página por aliado', h: 15 }] },
+      { id: 'legales', n: 'Políticas y avisos legales', d: 'Privacidad, términos, cookies', h: 14, g: 'base' },
+      { id: 'comunidad', n: 'Comunidad / foro', d: 'Miembros, hilos y moderación', h: 70, g: 'plataforma', p8: true, ext: true },
+      { id: 'eventos', n: 'Eventos', d: 'Calendario con fechas e inscripción', h: 22, g: 'contenido', opts: [{ n: 'Inscripción', h: 6 }, { n: 'Pago', h: 12 }] },
+      { id: 'descargas', n: 'Descargas', d: 'Archivos con registro de correo', h: 18, g: 'conversion' },
+      { id: 'redes', n: 'Redes sociales', d: 'Iconos, compartir y feed en vivo', h: 11, g: 'presencia' },
+      { id: 'galeria', n: 'Galería', d: 'Fotos y videos con lightbox', h: 14, g: 'presencia', opts: [{ n: 'Álbumes anidados', h: 4 }] },
+      { id: 'educacion', n: 'Educación / cursos', d: 'Cursos con inscripción y pago', h: 32, g: 'plataforma', opts: [{ n: 'Área de alumno', h: 40 }] },
+      { id: 'donaciones', n: 'Donaciones', d: 'Pasarela de donación e impacto', h: 17, g: 'conversion', opts: [{ n: 'Donación recurrente', h: 8 }] },
+      { id: 'soporte', n: 'Soporte técnico', d: 'Tickets y centro de ayuda', h: 18, g: 'plataforma', ext: true, opts: [{ n: 'Centro de ayuda propio', h: 18 }, { n: 'Chat en vivo', h: 4 }] },
+      { id: 'innovacion', n: 'Innovación / investigación', d: 'Publicaciones técnicas', h: 18, g: 'contenido', siBlog: 3 },
+      { id: 'idiomas', n: 'Idiomas', d: 'Segunda lengua: rutas, hreflang, selector', h: 12, g: 'plataforma', multi: true }
+    ];
+    var tiposDef = [
+      { id: 'landing', n: 'Landing page', d: 'Una página que vende una cosa', inc: ['inicio', 'contacto', 'legales'] },
+      { id: 'corporativo', n: 'Sitio corporativo', d: 'Empresa con servicios y casos', inc: ['inicio', 'nosotros', 'servicios', 'casos', 'faq', 'contacto', 'legales'] },
+      { id: 'catalogo', n: 'Catálogo virtual', d: 'Productos sin venta en línea', inc: ['inicio', 'nosotros', 'servicios', 'casos', 'faq', 'contacto', 'legales', 'productos'] },
+      { id: 'tienda', n: 'Tienda online', d: 'Carrito y pagos', inc: ['inicio', 'nosotros', 'servicios', 'casos', 'faq', 'contacto', 'legales', 'tienda'] },
+      { id: 'plataforma', n: 'Plataforma / portal', d: 'Con área de clientes', inc: ['inicio', 'nosotros', 'servicios', 'casos', 'faq', 'contacto', 'legales', 'area'] }
+    ];
+    var grpDef = [{ id: 'presencia', label: 'Presencia' }, { id: 'contenido', label: 'Contenido' }, { id: 'conversion', label: 'Conversión' }, { id: 'comercio', label: 'Comercio' }, { id: 'plataforma', label: 'Plataforma' }];
+    var INCLUIDO_H = 26, SETUP_H = 16, DIR_PCT = 0.12;
+
+    /* ---------- otras familias ---------- */
+    var F = {
+      marca: { eyebrow: 'MARCA E IDENTIDAD', title: 'Marca e identidad', sub: 'Pago único. Si también haces el sitio, la marca tiene 8 % de descuento (investigación compartida).', items: [
+        { id: 'logo_s', n: 'Logo sencillo', d: '1 propuesta, 2 rondas, archivos finales', h: 12 },
+        { id: 'logo_p', n: 'Logo profesional', d: 'Investigación, 3 propuestas, versiones y 80+ formatos', h: 32 },
+        { id: 'manual', n: 'Manual de identidad', d: 'Uso de logo, paleta, tipografía, tono y aplicaciones', h: 24 },
+        { id: 'marca_c', n: 'Desarrollo de marca', d: 'Logo profesional + manual + papelería + kit de redes + 500 formatos', h: 96, reco: true },
+        { id: 'kit', n: 'Kit de redes', d: 'Avatares, portadas y 6 plantillas', h: 12 },
+        { id: 'rebrand', n: 'Rebranding', d: 'Auditoría de marca actual + logo + manual + migración', h: 70 },
+        { id: 'naming', n: 'Naming', d: '20 opciones, verificación de dominio, 3 finalistas', h: 16 },
+        { id: 'anim', n: 'Animación de logo', d: 'Intro animada para video y redes', h: 8 }
+      ] },
+      mkt: { eyebrow: 'MARKETING Y REDES', title: 'Marketing digital', sub: 'Proyectos de una vez y servicios mensuales (se muestran aparte en el panel).', items: [
+        { id: 'audit', n: 'Auditoría SEO + visibilidad en IA', d: 'Qué frena tu posicionamiento y cómo te ven ChatGPT y Google', h: 24 },
+        { id: 'onpage', n: 'SEO on-page inicial', d: 'Títulos, metas, schema, enlazado y velocidad (hasta 10 páginas) · −30 % con sitio nuevo', h: 20 },
+        { id: 'local', n: 'SEO local', d: 'Google Business Profile, NAP y reseñas', h: 12 },
+        { id: 'geo', n: 'SEO para IA (GEO)', d: 'Entidad, FAQ, llms.txt, citas y panel de prompts', h: 16 },
+        { id: 'setup_ads', n: 'Setup de campañas', d: 'Píxel, conversiones, audiencias y estructura, por plataforma', h: 12 },
+        { id: 'redes_b', n: 'Redes · Básico', d: '8 posts + 8 historias al mes', h: 20, ret: true },
+        { id: 'redes_c', n: 'Redes · Crecimiento', d: '12 posts + 16 historias + 4 reels + community', h: 36, ret: true, reco: true },
+        { id: 'seo_cont', n: 'Contenidos SEO · 4 artículos/mes', d: 'Plan editorial, redacción y publicación', h: 24, ret: true },
+        { id: 'pauta', n: 'Gestión de pauta', d: 'Optimización mensual por plataforma', h: 10, ret: true },
+        { id: 'monitor', n: 'Monitoreo y reporte mensual', d: 'CWV, posiciones, GEO y leads', h: 4, ret: true }
+      ] },
+      imp: { eyebrow: 'IMPRESOS Y CARTELES DIGITALES', title: 'Publicidad impresa y pantallas', sub: 'Diseño por pieza; la impresión se cotiza como extra externo.', items: [
+        { id: 'flyer', n: 'Pieza impresa simple', d: 'Flyer, afiche o tarjeta', h: 3 },
+        { id: 'brochure', n: 'Pieza compleja', d: 'Brochure o catálogo impreso de 6+ páginas', h: 12 },
+        { id: 'senal', n: 'Señalética / aviso exterior', d: 'Diseño para producción externa', h: 6 },
+        { id: 'cartel', n: 'Cartel digital animado', d: 'Loop de 15–30 s para pantallas', h: 6 },
+        { id: 'canva', n: 'Plantilla editable (Canva)', d: 'Para que el cliente la actualice', h: 4 },
+        { id: 'papeleria', n: 'Papelería', d: 'Tarjetas, membrete, firma de correo, carpeta', h: 10 }
+      ] },
+      app: { eyebrow: 'APP O PLATAFORMA', title: 'Producto digital a medida', sub: 'Lo que supera 200 h se cotiza "desde" y se cierra en una sesión de alcance.', items: [
+        { id: 'audit_ux', n: 'Auditoría UX', d: 'De un producto existente', h: 16 },
+        { id: 'discovery', n: 'Discovery de producto', d: 'Primer paso obligatorio para apps', h: 16 },
+        { id: 'proto', n: 'Prototipo navegable', d: 'Para validar antes de desarrollar', h: 12 },
+        { id: 'app_web', n: 'Aplicación web o móvil', d: 'Desde el mínimo; alcance en sesión', h: 160, desde: true }
+      ] },
+      sop: { eyebrow: 'MANTENIMIENTO Y SOPORTE', title: 'Después del lanzamiento', sub: 'Servicios mensuales. Dos o más servicios mensuales: −10 %.', items: [
+        { id: 'mant', n: 'Mantenimiento web', d: 'Actualizaciones, backups, monitoreo y 2 h de cambios', h: 8, ret: true },
+        { id: 'tickets', n: 'Soporte con tickets', d: 'SLA 24 h y 4 h de cambios al mes', h: 12, ret: true, reco: true },
+        { id: 'hosting', n: 'Hosting + correo gestionado', d: 'Extra fijo anual', fijo: 350000 }
+      ] }
+    };
+
+    /* ---------- helpers ---------- */
+    var tipo = tiposDef.filter(function (t) { return t.id === s.tipo; })[0] || tiposDef[1];
+    var incl = {}; tipo.inc.forEach(function (id) { incl[id] = true; });
+    var selected = {}; W.forEach(function (b) { if (incl[b.id] || s.sel[b.id]) { selected[b.id] = true; } });
+    var hasTienda = !!selected.tienda, hasBlog = !!selected.blog;
+    var p8Used = false;
+    var webLines = [], webHours = 0;
+    var optH = function (b) { var acc = 0; var o = s.opts[b.id] || {}; (b.opts || []).forEach(function (op, i) { if (o[i]) { acc += op.h; } }); return acc; };
+    W.forEach(function (b) {
+      if (!selected[b.id]) { return; }
+      if (b.id === 'productos' && hasTienda) { return; }
+      var h = b.h;
+      var note = '';
+      if (b.siBlog && hasBlog) { h = b.siBlog; note = 'Ya tienes blog: pasa a ' + b.siBlog + ' h como categoría'; }
+      if (b.p8) { if (p8Used) { h = h - 40; note = 'Comparte el área autenticada ya cotizada'; } p8Used = true; }
+      if (b.id === 'educacion') { var eo = s.opts.educacion || {}; if (eo[0] && p8Used) { h = h; } }
+      h += optH(b);
+      if (b.qty) { h += 0.5 * (Number(s.qtyProd) || 0); }
+      webHours += h;
+      webLines.push({ id: b.id, n: b.n, h: h, note: note });
+    });
+    var famWeb = !!s.fam.web;
+    var baseWeb = famWeb ? webHours + SETUP_H + INCLUIDO_H : 0;
+    var lvlF = { sistema: 1.0, semi: 1.4, custom: 1.9 }[s.lvl] || 1;
+    var urgF = { normal: 1.0, prio: 1.25, expres: 1.5 }[s.urg] || 1;
+    var contF = s.cont === 'dkoding' ? 1.08 : 1.0;          /* contenido DKODING: +50 % sobre ~15 % de horas de contenido */
+    var idiomaF = selected.idiomas && famWeb ? 1.2 : 1.0;
+    var webAdj = baseWeb * lvlF * urgF * contF * idiomaF;
+    var webDir = webAdj * DIR_PCT;
+    var webTotal = webAdj + webDir;
+
+    /* otras familias */
+    var otrosLines = [], otrosH = 0, retH = 0, retN = 0, fijos = 0, anyDesde = false, marcaH = 0, onpageH = 0;
+    Object.keys(F).forEach(function (fk) {
+      if (!s.fam[fk]) { return; }
+      F[fk].items.forEach(function (it) {
+        if (!s.otros[it.id]) { return; }
+        if (it.fijo) { fijos += it.fijo; otrosLines.push({ n: it.n, k: 'Extra fijo anual', v: self.fmt(it.fijo), ret: false }); return; }
+        if (it.ret) { retH += it.h; retN++; otrosLines.push({ n: it.n, k: it.h + ' h / mes', v: self.fmt(it.h * rate) + ' / mes', ret: true }); return; }
+        if (it.desde) { anyDesde = true; }
+        if (fk === 'marca') { marcaH += it.h; }
+        if (it.id === 'onpage') { onpageH = it.h; }
+        otrosH += it.h;
+        otrosLines.push({ n: it.n, k: it.h + ' h · pago único', v: self.fmt(it.h * rate), ret: false });
+      });
+    });
+    var unicoH = (famWeb ? webTotal : 0) + otrosH;
+    var totalH = Math.round(unicoH);
+    var base = unicoH * rate;
+    var descReglas = 0;
+    if (famWeb && webHours > 0 && marcaH > 0) { descReglas += marcaH * rate * 0.08; }
+    if (famWeb && webHours > 0 && onpageH > 0) { descReglas += onpageH * rate * 0.30; }
+    var descCom = s.team ? Math.max(0, Math.min(20, Number(s.desc) || 0)) : 0;
+    var descComVal = base * descCom / 100;
+    var baseNeta = Math.max(0, base - descReglas - descComVal);
+    var minV = this.r50(baseNeta * 0.9 + fijos), maxV = this.r50(baseNeta * 1.15 + fijos);
+    var MIN_PROY = 1500000;
+    var bajoMin = totalH > 0 && minV < MIN_PROY;
+    if (bajoMin) { minV = MIN_PROY; if (maxV < MIN_PROY) { maxV = MIN_PROY; } }
+    var modoDesde = anyDesde || totalH > 200;
+    var mensual = retH * rate; var mensualDesc = retN >= 2 ? mensual * 0.10 : 0; var mensualNeto = mensual - mensualDesc;
+    var semanas = totalH > 0 ? Math.ceil(totalH / cap) : 0;
+    var fecha = new Date(); fecha.setDate(fecha.getDate() + semanas * 7);
+    var meses = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+    var fechaTxt = totalH > 0 ? fecha.getDate() + ' ' + meses[fecha.getMonth()] + ' ' + fecha.getFullYear() + ' · ' + semanas + ' semanas' : '—';
+
+    /* fases (distribución semilla sobre horas únicas) */
+    var split = [['Estrategia y dirección', 0.12, '#D98BFF'], ['Diseño UX/UI', 0.27, '#C755EF'], ['Desarrollo', 0.41, '#8A1EDF'], ['Contenido y SEO', 0.10, '#6D00C2'], ['Pruebas y lanzamiento', 0.10, '#5BE49B']];
+    var fases = split.map(function (f) { var h = Math.round(unicoH * f[1]); return { n: f[0], h: h, c: self.fmtM(h * rate), w: Math.round(f[1] * 100) + '%', col: f[2] }; });
+
+    /* líneas del panel */
+    var lineas = [];
+    if (famWeb) {
+      lineas.push({ n: tipo.n, k: webLines.length + ' módulos · ' + Math.round(webHours) + ' h', v: Math.round(webHours) + ' h', col: '#F4F2F8' });
+      lineas.push({ n: 'Incluido en todo sitio DKODING', k: 'Capacitación, soporte 3 meses, dkard, lanzamiento en redes', v: INCLUIDO_H + ' h', col: '#5BE49B' });
+      lineas.push({ n: 'Setup técnico y dirección', k: 'Repo, Cloudflare, analítica, schema · 12 % dirección', v: Math.round(SETUP_H + webDir) + ' h', col: '#F4F2F8' });
+      if (lvlF > 1 || urgF > 1 || contF > 1 || idiomaF > 1) { lineas.push({ n: 'Ajustes', k: 'diseño ×' + lvlF + ' · tiempos ×' + urgF + (idiomaF > 1 ? ' · idiomas ×1,2' : '') + (contF > 1 ? ' · contenido DKODING' : ''), v: '×' + (lvlF * urgF * contF * idiomaF).toFixed(2).replace('.', ','), col: '#D98BFF' }); }
+    }
+    otrosLines.forEach(function (l) { lineas.push({ n: l.n, k: l.k, v: l.v, col: l.ret ? '#D98BFF' : '#F4F2F8' }); });
+    if (descReglas > 0) { lineas.push({ n: 'Descuentos por combinación', k: 'Web + marca −8 % · web + SEO on-page −30 %', v: '− ' + this.fmtM(descReglas), col: '#5BE49B' }); }
+    if (descComVal > 0) { lineas.push({ n: 'Descuento comercial ' + descCom + ' %', k: 'Autorizado por ' + (s.asesor || 'asesor'), v: '− ' + this.fmtM(descComVal), col: '#5BE49B' }); }
+    if (mensualDesc > 0) { lineas.push({ n: 'Dos o más servicios mensuales', k: '−10 % en el mensual', v: '− ' + this.fmtM(mensualDesc) + ' / mes', col: '#5BE49B' }); }
+    if (bajoMin) { lineas.push({ n: 'Mínimo de proyecto', k: 'Se aplica el mínimo de COP 1.500.000', v: this.fmtM(MIN_PROY), col: '#E0A93B' }); }
+
+    /* ---------- UI: familias ---------- */
+    var countFam = function (fk) { if (fk === 'web') { return webLines.length; } var c = 0; F[fk].items.forEach(function (it) { if (s.otros[it.id]) { c++; } }); return c; };
+    var fams = famDef.map(function (f) {
+      var on = !!s.fam[f.id]; var n = on ? countFam(f.id) : 0;
+      return { label: f.label, on: on, n: n > 0, count: n, style: pill + (on ? pillOn : pillOff), toggle: function () { var nx = Object.assign({}, self.state.fam); nx[f.id] = !nx[f.id]; self.setState({ fam: nx }); } };
+    });
+    var tipos = tiposDef.map(function (t) {
+      var on = t.id === s.tipo; var h = 0; t.inc.forEach(function (id) { var b = W.filter(function (x) { return x.id === id; })[0]; if (b) { h += b.h; } });
+      return { n: t.n, d: t.d, h: h, on: on, style: card + 'min-height: 120px; ' + (on ? cardOn : cardOff), pick: function () { self.setState({ tipo: t.id }); } };
+    });
+    var grps = grpDef.map(function (g) { var on = s.grp === g.id; return { label: g.label, on: on, style: pill + 'min-height: 32px; font-size: 12px; ' + (on ? pillOn : pillOff), pick: function () { self.setState({ grp: g.id }); } }; });
+    var mkToggleWeb = function (b) { return function () { var nx = Object.assign({}, self.state.sel); nx[b.id] = !nx[b.id]; self.setState({ sel: nx }); }; };
+    var webSel = W.filter(function (b) { return selected[b.id] && !(b.id === 'productos' && hasTienda); }).map(function (b) {
+      var line = webLines.filter(function (l) { return l.id === b.id; })[0];
+      var o = s.opts[b.id] || {};
+      return {
+        n: b.n, d: b.d, hTxt: '+' + (line ? Math.round(line.h) : b.h) + ' h', locked: !!incl[b.id], removable: !incl[b.id], style: cardSel,
+        toggle: mkToggleWeb(b), hasOpts: !!(b.opts && b.opts.length), hasQty: !!b.qty, nota: !!(line && line.note) || !!b.ext, notaTxt: (line && line.note) || (b.ext ? 'Recomendamos herramienta externa integrada; esta es la versión propia' : ''),
+        opts: (b.opts || []).map(function (op, i) { var on = !!o[i]; return { n: op.n, h: op.h, on: on, style: optBtn, box: on ? boxOn : boxOff, toggle: function () { var all = Object.assign({}, self.state.opts); var mine = Object.assign({}, all[b.id] || {}); mine[i] = !mine[i]; all[b.id] = mine; self.setState({ opts: all }); } }; })
+      };
+    });
+    var webDisp = W.filter(function (b) { return !selected[b.id] && b.g === s.grp; }).map(function (b) {
+      var dep = (b.id === 'productos' && hasTienda) ? 'Incluido en Tienda online' : ((b.siBlog && hasBlog) ? 'Con blog: solo +' + b.siBlog + ' h' : ((b.p8 && p8Used) ? 'Comparte el área autenticada: −40 h' : ''));
+      return { n: b.n, d: b.d, hTxt: '+' + b.h + ' h', style: card + cardOff, toggle: mkToggleWeb(b), dep: !!dep, depTxt: dep };
+    });
+    var seg = function (key, opts) { return opts.map(function (o) { var on = s[key] === o.v; var st = {}; return { label: o.label, f: o.f, on: on, style: segBtn + (on ? 'background: #24103A; color: #F4F2F8; border: 1px solid ' + accent + ';' : 'background: #0F0F11; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.14);'), pick: function () { st[key] = o.v; self.setState(st); } }; }); };
+    var lvl = seg('lvl', [{ v: 'sistema', label: 'Sistema DKODING', f: '×1,0' }, { v: 'semi', label: 'Semi-custom', f: '×1,4' }, { v: 'custom', label: '100 % custom + animación', f: '×1,9' }]);
+    var cont = seg('cont', [{ v: 'propio', label: 'Lo entrega el cliente', f: '—' }, { v: 'dkoding', label: 'Lo redacta DKODING', f: '+ horas' }]);
+    var urg = seg('urg', [{ v: 'normal', label: 'Normal (6–8 sem)', f: '×1,0' }, { v: 'prio', label: 'Prioritario (4 sem)', f: '×1,25' }, { v: 'expres', label: 'Exprés (2 sem)', f: '×1,5' }]);
+
+    var otras = Object.keys(F).filter(function (fk) { return s.fam[fk]; }).map(function (fk) {
+      var fa = F[fk];
+      return { eyebrow: fa.eyebrow, title: fa.title, sub: fa.sub, items: fa.items.map(function (it) {
+        var on = !!s.otros[it.id];
+        return { n: it.n, d: it.d, on: on, off: !on, reco: !!it.reco, desde: !!it.desde,
+          hTxt: it.fijo ? self.fmt(it.fijo) + ' / año' : (it.desde ? 'desde ' + it.h + ' h' : (it.h + ' h' + (it.ret ? ' / mes' : ''))),
+          badge: 'padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 700; ' + (on ? 'background: rgba(199,85,239,0.18); color: #D98BFF;' : 'background: rgba(255,255,255,0.08); color: #D8CFE6;'),
+          icon: 'width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; ' + (on ? 'background: #6D00C2; color: #FFFFFF; border: 1px solid #6D00C2;' : 'border: 1px solid #5BE49B; color: #5BE49B;'),
+          style: card + (on ? cardOn : cardOff),
+          toggle: function () { var nx = Object.assign({}, self.state.otros); nx[it.id] = !nx[it.id]; self.setState({ otros: nx }); } };
+      }) };
+    });
+
+    /* ---------- datos y mensaje ---------- */
+    var cli = s.cli;
+    var setCli = function (k) { return function (ev) { var nx = Object.assign({}, self.state.cli); nx[k] = ev && ev.target ? ev.target.value : ''; self.setState({ cli: nx }); }; };
+    var setS = function (k) { return function (ev) { var st = {}; st[k] = ev && ev.target ? ev.target.value : ''; self.setState(st); }; };
+    var ready = cli.nombre.trim().length > 1 && cli.tel.trim().length > 6 && cli.email.indexOf('@') > 0;
+    var hoy = new Date(); var fechaHoy = hoy.getDate() + '/' + (hoy.getMonth() + 1) + '/' + hoy.getFullYear();
+    var numCot = 'DK-' + hoy.getFullYear() + String(hoy.getMonth() + 1).padStart(2, '0') + '-' + String(Math.abs((cli.nombre + cli.tel).length * 7919) % 900 + 100);
+    var rangoTxt = totalH > 0 ? (modoDesde ? 'desde ' + this.fmtM(minV) : this.fmtM(minV) + ' – ' + this.fmtM(maxV)) : 'Elige módulos';
+    var L = [];
+    L.push(s.team ? 'PROPUESTA DKODING · ' + numCot + ' · ' + fechaHoy : 'Hola DKODING, armé mi cotización en dkoding.net (' + fechaHoy + ').');
+    L.push('Cliente: ' + (cli.nombre.trim() || '—') + (cli.empresa.trim() ? ' · ' + cli.empresa.trim() : '') + ' · WA ' + (cli.tel.trim() || '—') + ' · ' + (cli.email.trim() || '—'));
+    L.push('');
+    L.push('MÓDULOS (' + totalH + ' h de proyecto)');
+    if (famWeb) { L.push('• ' + tipo.n + ' — nivel ' + s.lvl + ', tiempos ' + s.urg + ', contenido ' + s.cont); webLines.forEach(function (l) { L.push('   - ' + l.n + ' · ' + Math.round(l.h) + ' h'); }); L.push('   - Incluido en todo sitio DKODING · ' + INCLUIDO_H + ' h'); L.push('   - Setup técnico y dirección · ' + Math.round(SETUP_H + webDir) + ' h'); }
+    otrosLines.forEach(function (l) { L.push('• ' + l.n + ' — ' + l.k + ' — ' + l.v); });
+    L.push('');
+    L.push((modoDesde ? 'Inversión desde: ' : 'Inversión estimada: ') + rangoTxt + ' + IVA 19 %');
+    if (mensual) { L.push('Mensual: ' + this.fmt(mensualNeto) + ' / mes'); }
+    L.push('Entrega estimada: ' + fechaTxt);
+    L.push('Anticipo 50 % · vigencia 15 días · incluye 15 % de contingencia' + (s.team ? ' · asesor: ' + (s.asesor || '—') : ''));
+    var texto = L.join('\n');
+    var btn = 'display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px; padding: 0 14px; border-radius: 6px; font-weight: 600; font-size: 14px; ';
+    var waNum = s.team ? (cli.tel.replace(/[^0-9]/g, '') || '573002867104') : '573002867104';
+
+    return {
+      accent: accent, version: '2026-10 (semilla)',
+      fams: fams, famWeb: famWeb, tipos: tipos, grps: grps, webSel: webSel, webDisp: webDisp, nWebSel: webSel.length,
+      vaciarWeb: function () { self.setState({ sel: {}, opts: {} }); },
+      qtyProd: s.qtyProd, setQty: setS('qtyProd'),
+      lvl: lvl, cont: cont, urg: urg, otras: otras,
+      team: s.team, teamLabel: s.team ? 'Modo equipo DKODING' : 'Soy del equipo DKODING',
+      teamBtn: 'display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 12px; border-radius: 999px; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer; ' + (s.team ? 'background: rgba(199,85,239,0.18); color: #D98BFF; border: 1px solid rgba(199,85,239,0.5);' : 'background: transparent; color: #B3B0BC; border: 1px solid rgba(255,255,255,0.18);'),
+      teamDot: 'width: 8px; height: 8px; border-radius: 50%; background: ' + (s.team ? '#5BE49B' : 'rgba(255,255,255,0.3)'),
+      toggleTeam: function () { self.setState({ team: !self.state.team }); },
+      datosTitle: s.team ? 'Datos del cliente' : 'Tus datos para el detalle y el PDF',
+      cli: cli, setNombre: setCli('nombre'), setEmpresa: setCli('empresa'), setTel: setCli('tel'), setEmail: setCli('email'),
+      rateVal: rate, setRate: setS('rate'), capVal: cap, setCap: setS('cap'), desc: s.desc, setDesc: setS('desc'), asesor: s.asesor, setAsesor: setS('asesor'),
+      nItems: webSel.length + otrosLines.length, horasTot: totalH, semanas: semanas,
+      modoDesde: modoDesde, rangoTxt: rangoTxt,
+      rangoNota: totalH > 0 ? (modoDesde ? 'Mínimo estimado antes de IVA; alcance en sesión de 45 min' : 'Antes de IVA · rango con 15 % de contingencia') : 'El rango aparece al elegir el primer módulo',
+      hasMensual: mensual > 0, nRet: retN, mensualTxt: this.fmtM(mensualNeto),
+      fechaTxt: fechaTxt, showDesglose: s.showDesglose, toggleDesglose: function () { self.setState({ showDesglose: !self.state.showDesglose }); },
+      chev: s.showDesglose ? 'transform: rotate(180deg)' : '',
+      fases: fases, lineas: lineas, texto: texto, notReady: !ready,
+      waHref: 'https://api.whatsapp.com/send/?phone=' + waNum + '&text=' + encodeURIComponent(texto),
+      waLabel: s.team ? 'Enviar al cliente' : 'Cotizar por WhatsApp',
+      waStyle: btn + 'background: #25D366; color: #0C0C0C;',
+      pdfHref: 'mailto:' + (s.team ? (cli.email.trim() || 'info@dkoding.net') : 'info@dkoding.net') + '?subject=' + encodeURIComponent('Cotización ' + numCot + ' · ' + (cli.empresa.trim() || cli.nombre.trim() || 'DKODING')) + '&body=' + encodeURIComponent(texto),
+      pdfLabel: ready ? 'Descargar PDF' : 'PDF: deja tus datos',
+      pdfStyle: btn + (ready ? 'background: #FFFFFF; color: #0C0C0C;' : 'background: rgba(255,255,255,0.08); color: #B3B0BC; border: 1px dashed rgba(255,255,255,0.25); pointer-events: none;'),
+      hint: ready ? 'El PDF incluye desglose por fase, condiciones y número de cotización ' + numCot + '.' : 'WhatsApp funciona ya. Para el PDF con desglose completa nombre, WhatsApp y correo.',
+      confirmVaciar: s.confirmVaciar, noConfirm: !s.confirmVaciar,
+      vaciarAsk: function () { self.setState({ confirmVaciar: true }); },
+      vaciarNo: function () { self.setState({ confirmVaciar: false }); },
+      vaciarSi: function () { self.setState({ sel: {}, opts: {}, otros: {}, confirmVaciar: false, lvl: 'sistema', cont: 'propio', urg: 'normal' }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

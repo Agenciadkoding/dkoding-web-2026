@@ -16,7 +16,7 @@
       "is_interactive": true,
       "title": "WEB · Sitio público /casos-de-exito/: sitios en vivo con desplazamiento al pasar el cursor",
       "w": 1440,
-      "x": 1520,
+      "x": 3520,
       "y": 8640
     },
     "Cliente.dc.html": {
@@ -37,6 +37,15 @@
       "x": 0,
       "y": 6960
     },
+    "Cotizador.dc.html": {
+      "expand": "fill",
+      "h": 3300,
+      "is_interactive": true,
+      "title": "WEB · Cotizador modular por horas: familias, tipo de sitio, 25 módulos con añadibles, nivel y tiempos, rango en vivo",
+      "w": 1440,
+      "x": 1520,
+      "y": 8640
+    },
     "ImportarAccesos.dc.html": {
       "expand": "fill",
       "h": 3637,
@@ -45,6 +54,15 @@
       "w": 1440,
       "x": 4560,
       "y": 2800
+    },
+    "Landing.dc.html": {
+      "expand": "fill",
+      "h": 8000,
+      "is_interactive": true,
+      "title": "WEB · Landing v3 de dkoding.net · Play o doble clic para verla completa (el lienzo recorta a 8000 px)",
+      "w": 1440,
+      "x": 0,
+      "y": 8640
     },
     "Main.dc.html": {
       "expand": "fill",
@@ -68,8 +86,15 @@
       "h": 2605,
       "title": "Sistema de interfaz del admin",
       "w": 1240,
-      "x": 3040,
-      "y": 8640
+      "x": 1520,
+      "y": 17040
+    },
+    "SistemaLanding.dc.html": {
+      "h": 1740,
+      "title": "Sistema visual del sitio: color, tipografía y componentes",
+      "w": 1100,
+      "x": 0,
+      "y": 17040
     },
     "Sitios.dc.html": {
       "expand": "fill",
@@ -86,8 +111,8 @@
       "is_interactive": true,
       "title": "WEB · Sitio público /soporte/: Centro de ayuda y crear ticket",
       "w": 1440,
-      "x": 0,
-      "y": 8640
+      "x": 1520,
+      "y": 12240
     },
     "Tarifas.dc.html": {
       "expand": "fill",
@@ -106,6 +131,13 @@
       "w": 1440,
       "x": 1520,
       "y": 2800
+    },
+    "Tiquete.dc.html": {
+      "h": 844,
+      "title": "WEB · Cotización en el celular: tiquete dentado (resumen móvil y plantilla del PDF)",
+      "w": 390,
+      "x": 3040,
+      "y": 8640
     }
   },
   "createdOnFiles": {
@@ -143,11 +175,19 @@
     },
     "row4": {
       "kind": "title1",
-      "maxW": 4280,
-      "text": "Sitio público dkoding.net y sistema del admin",
+      "maxW": 4960,
+      "text": "Sitio público dkoding.net: landing, cotizador, soporte y casos",
       "w": 240,
       "x": 0,
       "y": 8340
+    },
+    "row5": {
+      "kind": "title1",
+      "maxW": 2760,
+      "text": "Sistemas visuales: sitio y admin",
+      "w": 240,
+      "x": 0,
+      "y": 16740
     }
   },
   "order": [
@@ -160,11 +200,15 @@
     "Cotizaciones.dc.html",
     "Tarifas.dc.html",
     "Sitios.dc.html",
+    "Landing.dc.html",
+    "Cotizador.dc.html",
+    "Tiquete.dc.html",
     "Soporte.dc.html",
     "Casos.dc.html",
+    "SistemaLanding.dc.html",
     "Sistema.dc.html"
   ],
   "pages": [],
-  "title": "DKODING Admin · MVP simple",
+  "title": "DKODING 2026 · Admin y sitio",
   "v": 3
 }

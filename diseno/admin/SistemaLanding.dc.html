@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>DKODING — Sistema visual</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Blinker:wght@300;400;600;700&amp;family=Barlow:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#0C0C0C}
+a{color:#F4F2F8;text-decoration:none}a:hover{color:#D98BFF}
+</style>
+</helmet>
+<div style="width: 1100px; height: 1740px; box-sizing: border-box; padding: 56px; background: #0C0C0C; color: #F4F2F8; font-family: 'Barlow', system-ui, sans-serif; font-size: 15px; line-height: 1.5; display: flex; flex-direction: column; gap: 40px">
+
+  <div style="display: flex; justify-content: space-between; align-items: end; gap: 24px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 24px">
+    <div style="display: flex; flex-direction: column; gap: 8px"><p style="margin: 0; color: #C755EF; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 13px">» Sistema visual · v1</p><h1 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 300; font-size: 44px; line-height: 1">Noche violeta: <strong style="font-weight: 700">la marca actual, afinada</strong></h1></div>
+    <img src="/_blob/af8d4aea91012d3a301c737f7fa02819" alt="DKODING" style="height: 72px; width: auto">
+  </div>
+
+  <!-- COLOR -->
+  <section style="display: flex; flex-direction: column; gap: 16px">
+    <h2 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 22px">Color: un violeta por función, no por gusto</h2>
+    <div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px">
+      <div style="display: flex; flex-direction: column; gap: 8px"><span style="height: 88px; border-radius: 6px; background: #0C0C0C; border: 1px solid rgba(255,255,255,0.14)"></span><span style="font-weight: 600">Fondo</span><code style="font-size: 13px; color: #B3B0BC">#0C0C0C</code><span style="font-size: 12px; color: #B3B0BC">--dk-bg</span></div>
+      <div style="display: flex; flex-direction: column; gap: 8px"><span style="height: 88px; border-radius: 6px; background: #151518; border: 1px solid rgba(255,255,255,0.14)"></span><span style="font-weight: 600">Superficie</span><code style="font-size: 13px; color: #B3B0BC">#151518</code><span style="font-size: 12px; color: #B3B0BC">--dk-surface</span></div>
+      <div style="display: flex; flex-direction: column; gap: 8px"><span style="height: 88px; border-radius: 6px; background: #6D00C2"></span><span style="font-weight: 600">Violeta acción</span><code style="font-size: 13px; color: #B3B0BC">#6D00C2</code><span style="font-size: 12px; color: #B3B0BC">Fondo de botón. Blanco encima: 8,6:1</span></div>
+      <div style="display: flex; flex-direction: column; gap: 8px"><span style="height: 88px; border-radius: 6px; background: #C755EF"></span><span style="font-weight: 600">Lila acento</span><code style="font-size: 13px; color: #B3B0BC">#C755EF</code><span style="font-size: 12px; color: #B3B0BC">Eyebrows y marcas sobre negro: 7,0:1. Nunca sobre blanco</span></div>
+      <div style="display: flex; flex-direction: column; gap: 8px"><span style="height: 88px; border-radius: 6px; background: #D98BFF"></span><span style="font-weight: 600">Lila enlace</span><code style="font-size: 13px; color: #B3B0BC">#D98BFF</code><span style="font-size: 12px; color: #B3B0BC">Enlaces y hover sobre negro: 9,8:1</span></div>
+      <div style="display: flex; flex-direction: column; gap: 8px"><span style="height: 88px; border-radius: 6px; background: #5BE49B"></span><span style="font-weight: 600">Éxito</span><code style="font-size: 13px; color: #B3B0BC">#5BE49B</code><span style="font-size: 12px; color: #B3B0BC">Estados OK, WhatsApp vivo</span></div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px">
+      <div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 6px"><span style="width: 36px; height: 36px; border-radius: 4px; background: #F4F2F8; flex: none"></span><span style="display: flex; flex-direction: column"><span style="font-weight: 600">Texto principal</span><code style="font-size: 13px; color: #B3B0BC">#F4F2F8 · 18,4:1</code></span></div>
+      <div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 6px"><span style="width: 36px; height: 36px; border-radius: 4px; background: #B3B0BC; flex: none"></span><span style="display: flex; flex-direction: column"><span style="font-weight: 600">Texto secundario</span><code style="font-size: 13px; color: #B3B0BC">#B3B0BC · 9,0:1</code></span></div>
+      <div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 6px"><span style="width: 36px; height: 36px; border-radius: 4px; background: #1A0B2B; border: 1px solid rgba(255,255,255,0.14); flex: none"></span><span style="display: flex; flex-direction: column"><span style="font-weight: 600">Violeta profundo</span><code style="font-size: 13px; color: #B3B0BC">#1A0B2B · fondos de franja</code></span></div>
+    </div>
+    <p style="margin: 0; padding: 12px 16px; background: rgba(199,85,239,0.1); border-left: 3px solid #C755EF; border-radius: 0 6px 6px 0; color: #D8CFE6; font-size: 14px">Regla: el lila <code>#C755EF</code> del sitio actual da 3,5:1 sobre blanco y falla WCAG AA. En el nuevo sitio vive solo sobre fondo oscuro; para botones se usa el violeta <code>#6D00C2</code>. Se eliminan los 9 colores por defecto de Gutenberg detectados en el sitio actual.</p>
+  </section>
+
+  <!-- TIPOGRAFÍA -->
+  <section style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px">
+    <div style="grid-column: span 7; display: flex; flex-direction: column; gap: 14px">
+      <h2 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 22px">Tipografía: Blinker titula, Barlow explica</h2>
+      <p style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 300; font-size: 64px; line-height: 1">Sitios que <strong style="font-weight: 700">venden</strong></p>
+      <p style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 30px; line-height: 1.1">H3 · Tienda online y catálogo virtual</p>
+      <p style="margin: 0; font-size: 19px; color: #B3B0BC">Cuerpo · Diseñamos, desarrollamos y posicionamos páginas web para empresas que quieren crecer en Google y vender por WhatsApp.</p>
+      <p style="margin: 0; color: #C755EF; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 13px">» Eyebrow · 13 px · 600 · tracking 0,08em</p>
+    </div>
+    <div style="grid-column: span 5; display: flex; flex-direction: column; gap: 10px; padding: 20px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; font-size: 14px">
+      <div style="display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px"><span style="color: #B3B0BC">H1</span><span>Blinker 300 + 700 · clamp(44, 5.4vw, 78) · 1.02</span></div>
+      <div style="display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px"><span style="color: #B3B0BC">H2</span><span>Blinker 300 + 700 · clamp(34, 3.6vw, 52) · 1.05</span></div>
+      <div style="display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px"><span style="color: #B3B0BC">H3</span><span>Blinker 700 · 24–30 · 1.1</span></div>
+      <div style="display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px"><span style="color: #B3B0BC">Cifra</span><span>Blinker 700 · 30–44 · 1.0</span></div>
+      <div style="display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px"><span style="color: #B3B0BC">Cuerpo</span><span>Barlow 400 · 17–19 · 1.55</span></div>
+      <div style="display: flex; justify-content: space-between; gap: 12px"><span style="color: #B3B0BC">Carga</span><span>Auto-hospedadas, subset latín, swap, &lt; 100 KB</span></div>
+    </div>
+  </section>
+
+  <!-- COMPONENTES -->
+  <section style="display: flex; flex-direction: column; gap: 16px">
+    <h2 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 22px">Componentes base</h2>
+    <div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px; align-items: start">
+      <div style="grid-column: span 7; display: flex; flex-direction: column; gap: 14px; padding: 20px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px">
+        <span style="font-size: 13px; color: #B3B0BC; letter-spacing: 0.06em; text-transform: uppercase">Botones · radio 4 px · alto mínimo 44 px (52 en hero)</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px">
+          <a href="#inicio" style="display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; background: #FFFFFF; color: #0C0C0C; border-radius: 4px; font-weight: 600">Primario claro</a>
+          <a href="#inicio" style="display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; background: #6D00C2; color: #FFFFFF; border-radius: 4px; font-weight: 600"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"></path></svg>WhatsApp</a>
+          <a href="#inicio" style="display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600">Secundario</a>
+          <a href="#inicio" style="display: inline-flex; align-items: center; gap: 8px; min-height: 48px; color: #D98BFF; font-weight: 600">Enlace de acción »</a>
+        </div>
+        <span style="font-size: 13px; color: #B3B0BC; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 6px">Etiquetas y estados</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center">
+          <span style="padding: 4px 10px; border-radius: 999px; background: rgba(199,85,239,0.18); color: #D98BFF; font-size: 12px; font-weight: 600">Nuevo</span>
+          <span style="padding: 4px 10px; border-radius: 999px; background: rgba(91,228,155,0.14); color: #5BE49B; font-size: 12px; font-weight: 600">En línea</span>
+          <span style="padding: 4px 10px; border-radius: 999px; background: rgba(224,169,59,0.16); color: #E0A93B; font-size: 12px; font-weight: 600">Atención</span>
+          <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: #D8CFE6"><span aria-hidden="true" style="color: #D98BFF; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 18px">»</span>Viñeta con chevrón del logo</span>
+        </div>
+      </div>
+      <div style="grid-column: span 5; display: flex; flex-direction: column; gap: 10px; padding: 24px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px">
+        <span style="color: #C755EF; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase">Tarjeta de servicio</span>
+        <h3 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 24px; line-height: 1.1">Página web comercial</h3>
+        <p style="margin: 0; color: #B3B0BC; font-size: 14px">Superficie #151518, borde blanco al 8 %, radio 8 px, padding 28–32 px. La variante destacada usa degradado #24103A → #151518 y borde lila al 35 %.</p>
+        <div style="display: flex; justify-content: space-between; align-items: end; padding-top: 10px"><span style="display: flex; flex-direction: column"><span style="font-size: 13px; color: #B3B0BC">desde</span><span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 26px; line-height: 1">$ 1.800.000</span></span><span style="color: #D98BFF; font-weight: 600">Ver plan »</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOTIVO Y REGLAS -->
+  <section style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px; align-items: stretch">
+    <div style="grid-column: span 5; position: relative; overflow: hidden; min-height: 180px; padding: 24px; background: linear-gradient(135deg, #6D00C2, #3D0A6E); border-radius: 8px; display: flex; flex-direction: column; justify-content: end; gap: 6px">
+      <span aria-hidden="true" style="position: absolute; right: -10px; top: -70px; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 260px; line-height: 1; color: rgba(255,255,255,0.08)">»</span>
+      <span style="font-weight: 600; position: relative">Motivo gráfico: el chevrón del logo</span><span style="font-size: 14px; color: #EADFF7; position: relative">Marca de sección, viñeta, fondo de CTA y franja diagonal. Sustituye a las franjas de degradado del sitio actual.</span>
+    </div>
+    <div style="grid-column: span 7; padding: 24px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: #D8CFE6">
+      <span style="font-weight: 600; color: #F4F2F8">Reglas de la landing</span>
+      <span style="display: flex; gap: 10px"><span aria-hidden="true" style="color: #D98BFF; font-family: 'Blinker', sans-serif; font-weight: 700">»</span>Un solo H1, con la palabra clave y el claim. Un H2 por sección, cada uno legible como frase autónoma (BLUF).</span>
+      <span style="display: flex; gap: 10px"><span aria-hidden="true" style="color: #D98BFF; font-family: 'Blinker', sans-serif; font-weight: 700">»</span>Texto siempre en HTML real: nunca en imagen ni en canvas. Lo leen Google y los motores de IA.</span>
+      <span style="display: flex; gap: 10px"><span aria-hidden="true" style="color: #D98BFF; font-family: 'Blinker', sans-serif; font-weight: 700">»</span>Un CTA dominante (WhatsApp con mensaje precargado) repetido en nav, hero, cotizador y cierre. Teléfono siempre con enlace tel:.</span>
+      <span style="display: flex; gap: 10px"><span aria-hidden="true" style="color: #D98BFF; font-family: 'Blinker', sans-serif; font-weight: 700">»</span>Cifras reales o corchetes. Ningún número inventado en casos ni testimonios.</span>
+      <span style="display: flex; gap: 10px"><span aria-hidden="true" style="color: #D98BFF; font-family: 'Blinker', sans-serif; font-weight: 700">»</span>Movimiento con propósito y con fallback: marquee CSS, reveal del titular, contadores; todo apagado con prefers-reduced-motion.</span>
+      <span style="display: flex; gap: 10px"><span aria-hidden="true" style="color: #D98BFF; font-family: 'Blinker', sans-serif; font-weight: 700">»</span>Presupuesto: LCP &lt; 1,8 s · INP &lt; 150 ms · CLS &lt; 0,05 · home &lt; 1,2 MB · JS inicial &lt; 150 KB · Lighthouse móvil ≥ 90.</span>
+    </div>
+  </section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1100,"height":1740}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
