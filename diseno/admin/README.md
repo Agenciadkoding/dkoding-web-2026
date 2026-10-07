@@ -1,6 +1,6 @@
 # Tableros del admin DKODING · MVP simple
 
-Fuente del lienzo publicado en https://claude.ai/artifact/3gfSHhiYsQGuhm9qXYbX8X (versión 23,
+Fuente del lienzo publicado en https://claude.ai/artifact/3gfSHhiYsQGuhm9qXYbX8X (versión 24,
 7 de octubre de 2026). Especificación: `docs/admin-mvp.md`.
 
 Cada archivo `.dc.html` es un tablero del lienzo de diseño. `canvas.json` es el índice con su
@@ -19,8 +19,10 @@ posición y tamaño. Los datos son de ejemplo; las credenciales que aparecen son
 | `Cotizaciones.dc.html` | Ventas: cotizaciones con detalle por horas | Selección de cotización |
 | `Tarifas.dc.html` | Ventas: versión de tarifas y simulador | Editar tarifas y ver el efecto en los paquetes |
 | `Sitios.dc.html` | Salud: estado de los sitios, acceso a WP y cPanel (con usuario y contraseña; por WHM sin contraseña cuando Banahost dé el token, activable en los ajustes del tablero), copias quincenales | Filtros, «Acceder» con verificación, pestaña Copias con detalle |
-| `Sistema.dc.html` | Sistema de interfaz: superficies, estados con forma y color, tipografía y piezas | — |
+| `Sistema.dc.html` | Sistema de interfaz: qué logo va en cada zona, superficies, estados con forma y color, tipografía y piezas | — |
 
-`shell` (barra superior y menú) es el mismo en todos los tableros.
+`shell` (barra superior y menú) es el mismo en todos los tableros. Lleva el logo para menús
+(`recursos/marca/logos/dkoding-logo-menu.svg`) a 20 px de alto; los encabezados públicos de Soporte
+y Casos, a 24 px.
 
 La versión anterior (multi-cliente, sobre Payload) está en `v1/`.
