@@ -10,6 +10,15 @@
       "x": 3040,
       "y": 2800
     },
+    "Casos.dc.html": {
+      "expand": "fill",
+      "h": 7396,
+      "is_interactive": true,
+      "title": "WEB · Sitio público /casos-de-exito/: sitios en vivo con desplazamiento al pasar el cursor",
+      "w": 1440,
+      "x": 1520,
+      "y": 8640
+    },
     "Cliente.dc.html": {
       "expand": "fill",
       "h": 1101,
@@ -59,7 +68,7 @@
       "h": 1880,
       "title": "Sistema de interfaz del admin",
       "w": 1240,
-      "x": 0,
+      "x": 3040,
       "y": 8640
     },
     "Sitios.dc.html": {
@@ -77,8 +86,8 @@
       "is_interactive": true,
       "title": "WEB · Sitio público /soporte/: Centro de ayuda y crear ticket",
       "w": 1440,
-      "x": 3040,
-      "y": 0
+      "x": 0,
+      "y": 8640
     },
     "Tarifas.dc.html": {
       "expand": "fill",
@@ -110,8 +119,8 @@
   "notes": {
     "row1": {
       "kind": "title1",
-      "maxW": 4480,
-      "text": "Inicio y sitio dkoding.net",
+      "maxW": 2960,
+      "text": "Inicio y sitio dkoding.net en el admin",
       "w": 240,
       "x": 0,
       "y": -300
@@ -134,8 +143,8 @@
     },
     "row4": {
       "kind": "title1",
-      "maxW": 1240,
-      "text": "Sistema",
+      "maxW": 4280,
+      "text": "Sitio público dkoding.net y sistema del admin",
       "w": 240,
       "x": 0,
       "y": 8340
@@ -144,7 +153,6 @@
   "order": [
     "Main.dc.html",
     "Paginas.dc.html",
-    "Soporte.dc.html",
     "Cliente.dc.html",
     "Tickets.dc.html",
     "Boveda.dc.html",
@@ -152,6 +160,8 @@
     "Cotizaciones.dc.html",
     "Tarifas.dc.html",
     "Sitios.dc.html",
+    "Soporte.dc.html",
+    "Casos.dc.html",
     "Sistema.dc.html"
   ],
   "pages": [],

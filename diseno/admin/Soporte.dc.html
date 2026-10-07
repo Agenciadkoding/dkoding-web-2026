@@ -324,7 +324,7 @@ input::placeholder,textarea::placeholder{color:#8E8A9B}
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1102},"vista":{"editor":"enum","options":["portada","ticket","confirmacion"],"default":"portada","section":"Estado inicial"}}'>
 class Component extends DCLogic {
   constructor(props) { super(props); this.state = this.preset(props.vista || 'portada'); }
-  componentDidUpdate(prev) { if (prev.vista !== this.props.vista) this.setState(this.preset(this.props.vista || 'portada')); }
+  componentDidUpdate(prev) { if (prev && prev.vista !== this.props.vista) this.setState(this.preset(this.props.vista || 'portada')); }
   preset(v) {
     var empty = { type: null, svc: null, step: 1, email: '', name: '', p1: '', p2: '', company: '', web: '', msg: '', files: [], terms: false, data: false, tried: false };
     var base = { view: 'home', wa: '', call: { name: '', cc: '+57', phone: '' }, callTried: false, callSent: false, my: { email: '', state: 'idle', tried: false }, t: empty };
