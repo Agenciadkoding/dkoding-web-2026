@@ -1,0 +1,56 @@
+origen,codigo,destino,tipo_actual,motivo,confirmar
+/,200,/,página,Se conserva: home = desarrollo web,
+/nosotros/,200,/nosotros/,página,Se conserva la URL,
+/nuestro-equipo/,200,/nuestro-equipo/,página,Se conserva la URL,
+/casos-de-exito/,200,/casos-de-exito/,página,Se conserva la URL,
+/contacto/,200,/contacto/,página,Se conserva la URL,
+/politica-de-privacidad/,200,/politica-de-privacidad/,página,Se conserva la URL,
+/blog/,200,/blog/,página,Se conserva la URL,
+/servicios/,200,/servicios/,página,Se conserva como índice ligero de los 6 servicios,sí: ¿índice de servicios o 301 a /?
+/home-dani/,301,/,página,Copia de trabajo de la home (94 % igual),
+/desarrollo-web/,301,/,página,Página «Próximamente»; la home es desarrollo web,
+/mapa-del-sitio/,301,/,página,El sitemap XML lo genera Astro,
+/plan-hotelero/,301,/,página,Vertical hotelero sin página propia en el sitio nuevo,sí: ¿se usa en campañas o QR?
+/trifecta-hotelera/,301,/,página,Vertical hotelero sin página propia en el sitio nuevo,sí: ¿se usa en campañas o QR?
+/dkard/,301,https://dkard.co/,página,Demo de Dkard: el producto tiene su propio dominio,
+/dkarta/,404,,página,Demo de carta digital con precios de un tercero,sí: ¿se enlaza desde algún cliente?
+/datos-hoteles/,404,,página,Formulario interno de onboarding; pasa al admin o a un enlace privado,
+/soporte/,301,/contacto/,página,Ticket de soporte; en el sitio nuevo va a contacto o al portal del cliente,sí: ¿los clientes con soporte usan esta URL?
+/mi-cuenta/,404,,woocommerce,El sitio nuevo no tiene carrito ni cuentas,
+/carrito/,404,,woocommerce,El sitio nuevo no tiene carrito,
+/finalizar-compra/,404,,woocommerce,El sitio nuevo no tiene carrito,
+/servicios/pagina-personal/,301,/,producto,Plan de sitio web → home (desarrollo web),
+/servicios/pagina-comercial/,301,/,producto,Plan de sitio web → home (desarrollo web),
+/servicios/pagina-empresas/,301,/,producto,Plan de sitio web → home (desarrollo web),
+/servicios/pagina-corporativa/,301,/,producto,Plan de sitio web → home (desarrollo web),
+/servicios/pagina-web-hotelero/,301,/,producto,Plan hotelero → home (desarrollo web),
+/servicios/catalogo-virtual/,301,/,producto,Tiendas y catálogos → home hasta que exista /tiendas-virtuales/,sí: ¿landing de tiendas en fase 2?
+/servicios/tienda-virtual/,301,/,producto,Tiendas y catálogos → home hasta que exista /tiendas-virtuales/,sí: ¿landing de tiendas en fase 2?
+/servicios/tienda-avanzada/,301,/,producto,Tiendas y catálogos → home hasta que exista /tiendas-virtuales/,sí: ¿landing de tiendas en fase 2?
+/servicios/posicionamiento-en-google-seo/,301,/seo-y-geo/,producto,Mismo servicio,
+/servicios/anuncios-en-google-ads/,301,/marketing-digital/,producto,Pauta en Google = marketing digital,
+/servicios/anuncios-en-meta-ads/,301,/marketing-digital/,producto,Pauta en Meta = marketing digital,sí: ¿o va a /redes-sociales/?
+/servicios/administracion-de-rrss/,301,/redes-sociales/,producto,Mismo servicio,
+/servicios/marca/,301,/diseno-de-marca/,producto,Mismo servicio,
+/servicios/manual-de-identidad/,301,/diseno-de-marca/,producto,Parte de diseño de marca,
+/servicios/logo-sencillo/,301,/diseno-de-marca/,producto,Parte de diseño de marca,
+/servicios/logo-profesional/,301,/diseno-de-marca/,producto,Parte de diseño de marca,
+/servicios/publicidad-papeleria/,301,/diseno-de-marca/,producto,Papelería y piezas = diseño de marca,
+/tienda/,301,/,redirección vieja,Hoy redirige a /servicios/tienda-avanzada/: se apunta directo al destino final para no encadenar,
+/tienda/catalogo-virtual/,301,/,redirección vieja,Hoy redirige a /servicios/catalogo-virtual/: destino final directo,
+/tienda/logo-profesional/,301,/diseno-de-marca/,redirección vieja,Hoy redirige a /servicios/logo-profesional/: destino final directo,
+/categoria/servicios-web/,301,/,categoría de producto,Categoría web → home,
+/categoria/tiendas-y-catalogos/,301,/,categoría de producto,Categoría tiendas → home,
+/categoria/desarrollo-y-ux-ui/,301,/,categoría de producto,Categoría desarrollo → home,
+/categoria/logos-y-marcas/,301,/diseno-de-marca/,categoría de producto,Mismo tema,
+/categoria/diseno-publicitario/,301,/diseno-de-marca/,categoría de producto,Mismo tema,
+/categoria/marketing/,301,/marketing-digital/,categoría de producto,Mismo tema,
+/categoria/consultoria/,301,/servicios/,categoría de producto,Sin equivalente directo,
+/categoria/sin-categorizar/,404,,categoría de producto,Categoría vacía,
+/category/sin-categoria/,301,/blog/,categoría del blog,Categoría por defecto de WordPress,
+/author/admindkoding/,301,/nosotros/,autor,Archivo de autor genérico,
+/importancia-de-un-buen-logo-profesional-para-tu-negocio/,301,/blog/importancia-de-un-buen-logo-profesional-para-tu-negocio/,entrada,Se migra y actualiza (1.251 palabras),
+/muestra-tu-portafolio-digital-24-7/,301,/blog/muestra-tu-portafolio-digital-24-7/,entrada,Se migra y actualiza (995 palabras),
+/impulsa-tu-negocio-con-seo-en-google/,301,/blog/impulsa-tu-negocio-con-seo-en-google/,entrada,Se migra y actualiza (1.216 palabras),
+/crear-mi-tienda-online/,301,/blog/crear-mi-tienda-online/,entrada,Se migra y actualiza (902 palabras),
+/estrategias-para-incrementar-las-ventas-por-internet/,301,/blog/estrategias-para-incrementar-las-ventas-por-internet/,entrada,Se migra y actualiza (859 palabras),

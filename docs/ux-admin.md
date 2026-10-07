@@ -2,6 +2,9 @@
 
 Fecha: 2026-10-06 · Estado: **PROPUESTA**
 
+> **Reemplazado el 2026-10-07 por `docs/admin-mvp.md`** en stack, alcance y tamaño del MVP. Se
+> conserva como referencia para las fases siguientes.
+
 > Resumen ejecutivo para decidir: `docs/ux-admin-resumen.md`. Diseño navegable de las pantallas principales: https://claude.ai/artifact/3gfSHhiYsQGuhm9qXYbX8X (fuente en `diseno/admin/`).
 
 > Versión final tras tres revisiones (seguridad, usabilidad y viabilidad). Lo aplicado y lo rechazado está en «Cambios tras revisión», al final.

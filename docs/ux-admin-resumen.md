@@ -2,6 +2,10 @@
 
 Fecha: 2026-10-06 · Estado: **PROPUESTA**
 
+> **Reemplazado el 2026-10-07 por `docs/admin-mvp.md`.** Cambiaron el stack (Laravel + Filament,
+> no Payload), el foco (dkoding.net; de los clientes solo estado y copias), la bóveda (propia,
+> no Bitwarden) y el tamaño del MVP. Este resumen queda como referencia de fases posteriores.
+
 - Lienzo con el diseño navegable: https://claude.ai/artifact/3gfSHhiYsQGuhm9qXYbX8X
 - Especificación completa (31.600 palabras, 11 diagramas, 165 fuentes): `docs/ux-admin.md`
 - Sistema de diseño del admin: `docs/arquitectura-diseno-admin.md`
