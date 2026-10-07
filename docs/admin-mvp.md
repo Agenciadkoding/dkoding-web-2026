@@ -381,8 +381,7 @@ Excel, y no depende del sitio nuevo.
 **Para ti:**
 
 1. ¿Los clientes con soporte tienen todos WordPress? ¿Hay otros tipos de sitio?
-2. Las 3 decisiones de redirección que siguen abiertas en `docs/estructura-seo-y-migracion.md` §4.
-3. Revisar con el abogado el borrador de términos, política de datos, aviso de privacidad,
+2. Revisar con el abogado el borrador de términos, política de datos, aviso de privacidad,
    autorizaciones y cookies: https://claude.ai/code/artifact/483debdd-cb3f-4161-a722-ceada285cded
 
 **Para Banahost** (el servidor de la agencia):
@@ -418,3 +417,4 @@ formulario desde otro sitio al login de cPanel o de WordPress?
 | Token de WHM | Probablemente no hay | El acceso a cPanel va con usuario y contraseña; el WHM queda como mejora |
 | Términos y datos personales | Redactar unos actuales para revisión del abogado | Borrador en un documento compartible (enlace en §9) |
 | Casos de éxito | Llevarlos al sitio nuevo con el efecto al pasar el cursor | `recursos/casos-de-exito/` y tablero `Casos.dc.html` |
+| Redirecciones abiertas | Meta Ads a marketing digital; `/servicios/` al cotizador; tiendas a la home | Mapa cerrado: 0 por confirmar |

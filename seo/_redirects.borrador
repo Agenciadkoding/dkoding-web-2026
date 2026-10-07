@@ -3,6 +3,8 @@
 # Las URLs marcadas 404 en el CSV no llevan regla: responden con la página 404 del sitio.
 # Las 302 son temporales: se cambian cuando existan la landing hotelera y la de dkarta.
 
+/servicios/ /cotizador/ 301
+/servicios /cotizador/ 301
 /home-dani/ / 301
 /home-dani / 301
 /desarrollo-web/ / 301
@@ -69,8 +71,8 @@
 /categoria/diseno-publicitario /diseno-de-marca/ 301
 /categoria/marketing/ /marketing-digital/ 301
 /categoria/marketing /marketing-digital/ 301
-/categoria/consultoria/ /servicios/ 301
-/categoria/consultoria /servicios/ 301
+/categoria/consultoria/ /cotizador/ 301
+/categoria/consultoria /cotizador/ 301
 /category/sin-categoria/ /blog/ 301
 /category/sin-categoria /blog/ 301
 /author/admindkoding/ /nosotros/ 301

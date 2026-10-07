@@ -6,7 +6,7 @@ origen,codigo,destino,tipo_actual,motivo,confirmar
 /contacto/,200,/contacto/,página,Se conserva la URL,
 /politica-de-privacidad/,200,/politica-de-privacidad/,página,Se conserva la URL,
 /blog/,200,/blog/,página,Se conserva la URL,
-/servicios/,200,/servicios/,página,Se conserva como índice ligero de los 6 servicios,sí: ¿índice de servicios o 301 a /?
+/servicios/,301,/cotizador/,página,El índice de servicios pasa al cotizador (confirmado),
 /home-dani/,301,/,página,Copia de trabajo de la home (94 % igual),
 /desarrollo-web/,301,/,página,Página «Próximamente»; la home es desarrollo web,
 /mapa-del-sitio/,301,/,página,El sitemap XML lo genera Astro,
@@ -24,12 +24,12 @@ origen,codigo,destino,tipo_actual,motivo,confirmar
 /servicios/pagina-empresas/,301,/,producto,Plan de sitio web → home (desarrollo web),
 /servicios/pagina-corporativa/,301,/,producto,Plan de sitio web → home (desarrollo web),
 /servicios/pagina-web-hotelero/,301,/,producto,Plan hotelero → home (desarrollo web),
-/servicios/catalogo-virtual/,301,/,producto,Tiendas y catálogos → home hasta que exista /tiendas-virtuales/,sí: ¿landing de tiendas en fase 2?
-/servicios/tienda-virtual/,301,/,producto,Tiendas y catálogos → home hasta que exista /tiendas-virtuales/,sí: ¿landing de tiendas en fase 2?
-/servicios/tienda-avanzada/,301,/,producto,Tiendas y catálogos → home hasta que exista /tiendas-virtuales/,sí: ¿landing de tiendas en fase 2?
+/servicios/catalogo-virtual/,301,/,producto,Tiendas y catálogos → home; pasará a /tiendas-virtuales/ cuando exista esa landing (confirmado),
+/servicios/tienda-virtual/,301,/,producto,Tiendas y catálogos → home; pasará a /tiendas-virtuales/ cuando exista esa landing (confirmado),
+/servicios/tienda-avanzada/,301,/,producto,Tiendas y catálogos → home; pasará a /tiendas-virtuales/ cuando exista esa landing (confirmado),
 /servicios/posicionamiento-en-google-seo/,301,/seo-y-geo/,producto,Mismo servicio,
 /servicios/anuncios-en-google-ads/,301,/marketing-digital/,producto,Pauta en Google = marketing digital,
-/servicios/anuncios-en-meta-ads/,301,/marketing-digital/,producto,Pauta en Meta = marketing digital,sí: ¿o va a /redes-sociales/?
+/servicios/anuncios-en-meta-ads/,301,/marketing-digital/,producto,Pauta en Meta = marketing digital (confirmado),
 /servicios/administracion-de-rrss/,301,/redes-sociales/,producto,Mismo servicio,
 /servicios/marca/,301,/diseno-de-marca/,producto,Mismo servicio,
 /servicios/manual-de-identidad/,301,/diseno-de-marca/,producto,Parte de diseño de marca,
@@ -45,7 +45,7 @@ origen,codigo,destino,tipo_actual,motivo,confirmar
 /categoria/logos-y-marcas/,301,/diseno-de-marca/,categoría de producto,Mismo tema,
 /categoria/diseno-publicitario/,301,/diseno-de-marca/,categoría de producto,Mismo tema,
 /categoria/marketing/,301,/marketing-digital/,categoría de producto,Mismo tema,
-/categoria/consultoria/,301,/servicios/,categoría de producto,Sin equivalente directo,
+/categoria/consultoria/,301,/cotizador/,categoría de producto,Sin equivalente directo: va al cotizador,
 /categoria/sin-categorizar/,404,,categoría de producto,Categoría vacía,
 /category/sin-categoria/,301,/blog/,categoría del blog,Categoría por defecto de WordPress,
 /author/admindkoding/,301,/nosotros/,autor,Archivo de autor genérico,

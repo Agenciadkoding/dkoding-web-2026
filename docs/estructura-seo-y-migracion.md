@@ -6,7 +6,7 @@ las respuestas del mismo día (soporte, landing hotelera, cifras de palabras cla
 Archivos de datos:
 
 - `seo/redirecciones-301.csv`: las 55 URLs actuales con su destino en el sitio nuevo.
-- `seo/_redirects.borrador`: las 82 reglas listas para Cloudflare, generadas desde el CSV.
+- `seo/_redirects.borrador`: las 84 reglas listas para Cloudflare, generadas desde el CSV.
 - `seo/palabras-clave-clasificadas.csv`: las 660 palabras clave únicas de tu estudio, con su página sugerida, si van a landing o a blog, su sector y su motivo de descarte.
 
 ---
@@ -19,10 +19,10 @@ Archivos de datos:
 2. La estructura nueva tiene **la home más 5 landings**, con URLs cortas: `/marketing-digital/`,
    `/seo-y-geo/`, `/redes-sociales/`, `/diseno-de-marca/` y `/desarrollo-de-apps/`. La home
    sigue siendo la página de desarrollo web, como hoy.
-3. Se conservan 9 URLs tal cual (home, nosotros, equipo, casos, contacto, privacidad, blog,
-   servicios y soporte). 38 pasan con 301 a su equivalente, 3 van con 302 temporal mientras se
-   construyen la landing hotelera y la de dkarta, y 5 quedan en 404 porque no tienen
-   equivalente (carrito, cuenta y un formulario interno).
+3. Se conservan 8 URLs tal cual (home, nosotros, equipo, casos, contacto, privacidad, blog y
+   soporte). 39 pasan con 301 a su equivalente (`/servicios/` va al cotizador), 3 van con 302
+   temporal mientras se construyen la landing hotelera y la de dkarta, y 5 quedan en 404
+   porque no tienen equivalente (carrito, cuenta y un formulario interno).
 4. El blog pasa a `/blog/{slug}/`, organizado por **tema** (los 6 servicios) y por **nicho**
    (salud, ecommerce, profesionales independientes, pymes, etc.). Las 5 entradas de 2024 se
    migran y actualizan; tienen entre 859 y 1.251 palabras.
@@ -71,7 +71,7 @@ con el CSV. El admin lo hará solo cuando esté conectado a Search Console.
 | Optimización de redes sociales | `/redes-sociales/` | manejo de redes sociales (validar) · agencia de redes sociales (2.900) | anuncios en instagram (2.400), anuncios en redes sociales (1.900), diseño para redes sociales (1.600), publicidad pagada en redes sociales (1.300), estrategia de social media (1.000) | "Optimización de redes sociales" no aparece como búsqueda. Validar "manejo de redes sociales" y "community manager" |
 | Diseño de marca | `/diseno-de-marca/` | diseño de logotipos (2.400) · diseño de marca (880) | diseño de identidad corporativa (1.000), diseño de imagen corporativa (1.000), diseño de packaging (1.000), diseño de tarjetas de presentación (2.400), agencia de branding (590), diseño de papelería empresarial (720) | "diseño gráfico" (12.100) es demasiado amplia: la buscan estudiantes y gente que busca empleo |
 | Desarrollo de apps | `/desarrollo-de-apps/` | desarrollo de apps móviles (2.400) | desarrollo de aplicaciones web (1.300), desarrollo de software a medida (1.300), empresa de desarrollo de apps (880), software a la medida (880), crear app móvil personalizada (720), desarrollo de crm personalizado (590) | "desarrollo de software" (4.400) da para una sexta landing más adelante |
-| Servicios | `/servicios/` | — | — | Índice corto de los 6 servicios. Conserva la URL que existe desde 2024 |
+| Cotizador | `/cotizador/` | cuánto cuesta una página web (a validar) | páginas web económicas (1.600), diseño de páginas web económicas (1.000) | Versión indexable del cotizador del botón flotante. Recibe `/servicios/` con 301 |
 | Trifecta hotelera | `/trifecta-hotelera/` | crear sitio web para hotel (480) + "en Cali" | seo para hoteles (720), páginas web para hoteles, sistema de reservas | Landing por sector que se construirá más adelante. Absorbe `/plan-hotelero/` |
 | Soporte | `/soporte/` | — | — | Se conserva: Centro de ayuda con tickets (diseño en el lienzo del admin) |
 | dkarta | `/dkarta/` | — | — | Software propio; su landing está pendiente de diseño |
@@ -149,8 +149,9 @@ El mapa completo está en `seo/redirecciones-301.csv`.
 
 | Qué pasa | URLs | Ejemplos |
 |---|---|---|
-| Se conserva la URL | 9 | `/`, `/nosotros/`, `/casos-de-exito/`, `/contacto/`, `/blog/`, `/servicios/`, `/soporte/` |
-| 301 al servicio equivalente | 14 | `/servicios/posicionamiento-en-google-seo/` → `/seo-y-geo/`; `/servicios/marca/` → `/diseno-de-marca/` |
+| Se conserva la URL | 8 | `/`, `/nosotros/`, `/casos-de-exito/`, `/contacto/`, `/blog/`, `/soporte/` |
+| 301 al servicio equivalente | 13 | `/servicios/posicionamiento-en-google-seo/` → `/seo-y-geo/`; `/servicios/marca/` → `/diseno-de-marca/` |
+| 301 al cotizador | 2 | `/servicios/` y `/categoria/consultoria/` → `/cotizador/` |
 | 301 a la home | 16 | Planes web, tiendas y catálogos, sus categorías, `/home-dani/` y `/desarrollo-web/` |
 | 301 de entradas a `/blog/` | 5 | `/crear-mi-tienda-online/` → `/blog/crear-mi-tienda-online/` |
 | 301 de archivos | 2 | `/author/admindkoding/` → `/nosotros/`, `/category/sin-categoria/` → `/blog/` |
@@ -166,21 +167,17 @@ No redirigir todo a la home es deliberado: Google trata como error (soft 404) un
 una página que no tiene que ver con la original. Una URL sin equivalente responde 404 y Google
 la retira sola.
 
-**Por confirmar contigo** (columna `confirmar` del CSV):
-
-1. `/servicios/anuncios-en-meta-ads/`: ¿va a marketing digital o a redes sociales?
-2. `/servicios/`: ¿índice de servicios, o 301 a la home?
-3. Tiendas y catálogos (3 URLs): ¿se crea `/tiendas-virtuales/` en la fase 2?
-
-Resueltas el 7 de octubre: `/soporte/` se conserva; `/plan-hotelero/` y `/trifecta-hotelera/`
-esperan su landing; `/dkarta/` espera la suya; `/dkard/` va a dkard.co, que ya tiene landing.
+**Todas las decisiones están cerradas** (7 de octubre): `/soporte/` se conserva; `/plan-hotelero/`,
+`/trifecta-hotelera/` y `/dkarta/` esperan su landing con 302; `/dkard/` va a dkard.co;
+`/servicios/` va al cotizador; los anuncios en Meta van a marketing digital; tiendas y catálogos
+van a la home hasta que exista `/tiendas-virtuales/`.
 
 **Pasos del lanzamiento:**
 
 1. **Antes:** exportar de Search Console las URLs con impresiones y cruzarlas con el CSV. Revisar
    backlinks en Search Console → *Enlaces*.
 2. **En el build:** el CSV genera `public/_redirects`. Cloudflare admite 2.000 reglas estáticas;
-   este mapa usa 82, porque cada origen va con y sin barra final.
+   este mapa usa 84, porque cada origen va con y sin barra final.
 3. **El día del cambio:** un script recorre las 55 URLs viejas y comprueba que cada 301 o 302 llegue
    en **un solo salto** a una página que responde 200. Se publica el sitemap nuevo, se envía en
    Search Console y se declara en `robots.txt`.
