@@ -12,8 +12,8 @@ origen,codigo,destino,tipo_actual,motivo,confirmar
 /mapa-del-sitio/,301,/,página,El sitemap XML lo genera Astro,
 /plan-hotelero/,302,/,página,"302 temporal a la home; cuando exista /trifecta-hotelera/ pasa a 301 hacia ella (misma regla, sin cadena)",
 /trifecta-hotelera/,302,/,página,Landing hotelera que se construirá con esta URL; 302 temporal a la home mientras tanto,
-/dkard/,301,https://dkard.co/,página,Demo de Dkard: el producto tiene su propio dominio,
-/dkarta/,404,,página,Demo de carta digital con precios de un tercero,sí: ¿se enlaza desde algún cliente?
+/dkard/,301,https://dkard.co/,página,Dkard tiene su propia landing funcionando en dkard.co (confirmado),
+/dkarta/,302,/,página,Software propio (carta digital); su landing está pendiente de diseño. 302 temporal a la home,
 /datos-hoteles/,404,,página,Formulario interno de onboarding; pasa al admin o a un enlace privado,
 /soporte/,200,/soporte/,página,Se conserva: página de soporte con tickets (UX de referencia pendiente),
 /mi-cuenta/,404,,woocommerce,El sitio nuevo no tiene carrito ni cuentas,

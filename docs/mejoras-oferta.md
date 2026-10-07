@@ -53,7 +53,7 @@ Fuentes:
 | Activo | Dónde está hoy | Cómo venderlo |
 |---|---|---|
 | dkard.co, la tarjeta digital | Incluida en el paquete web, casi invisible | "Toda web DKODING incluye tu tarjeta digital": en la home y en cada propuesta |
-| dkarta, la carta digital | Demo indexada con precios de un tercero | Producto para restaurantes y hoteles, dentro de Trifecta hotelera |
+| dkarta, la carta digital | Software propio; su landing está pendiente de diseño | Producto para restaurantes y hoteles, dentro de Trifecta hotelera |
 | Vertical hotelero | `/trifecta-hotelera/` y `/plan-hotelero/`, con contenido cruzado | Primer paquete por sector (acción 4) |
 | Capacitación grabada, 3 meses de soporte, copia entregada, antivirus, antispam y reCAPTCHA | Lista de "incluye" del paquete | Agruparlos como "entregamos y te enseñamos", con garantía de plazos |
 | Monitoreo y copias del admin | Herramienta interna | Es el corazón del plan de soporte (acción 1) |
@@ -69,11 +69,11 @@ Fuentes:
 | 3 | **Diagnóstico gratis** de web, SEO y GEO como segundo CTA, junto al cotizador y WhatsApp. Después, un informe automático desde la revisión SEO del admin | Lemon (embudos), Seology e Ignacio Cuello (auditorías) | Medio | Lanzamiento, luego automático |
 | 4 | **Trifecta hotelera:** sitio con reservas o WhatsApp, dkarta para el restaurante, dkard para el personal, Google Business Profile y SEO local | Tu estudio tiene búsquedas de hoteles ("seo para hoteles", "crear sitio web para hotel", "sistema de reservas"); ya tienes el vertical y nadie lo ataca desde Cali | Medio | Cuando se construya su landing |
 | 5 | **Paquete salud** para psicólogos, médicos y clínicas | 22 búsquedas de salud en tu estudio; Cocuna demuestra el nicho; caso real de una psicóloga | Medio | Después de Trifecta |
-| 6 | **dkard y dkarta visibles** como productos propios | Dimark usa sus herramientas como prueba de capacidad | Bajo | Con el lanzamiento |
+| 6 | **dkard y dkarta visibles** como productos propios | Dimark usa sus herramientas como prueba de capacidad | Bajo | Después de la base: decidiste no sumar las apps a la landing todavía |
 | 7 | **Casos con cifras** de los 4 clientes actuales | Paxzu y Digital Active venden con nombres; tú puedes vender con resultados | Medio: hay que pedir datos | Antes del lanzamiento |
 | 8 | **Email marketing y WhatsApp** como servicio | "email marketing" y "marketing por WhatsApp" están entre las búsquedas relevantes de tu estudio | Medio | Fase 2 |
 | 9 | **GEO con prueba:** informe de citas en ChatGPT, Perplexity y AI Overviews | 7 competidores ya tienen landing de GEO; ninguno lo demuestra con datos | Medio | Con la landing de SEO y GEO |
-| 10 | **Plazos y tiempos de respuesta por escrito:** entrega del sitio, respuesta del soporte y aviso si el sitio se cae | Da confianza y el admin lo puede medir | Bajo | Con el plan de soporte |
+| 10 | **Plazos y tiempos de respuesta por escrito:** entrega del sitio, respuesta del soporte y aviso si el sitio se cae | Da confianza y el admin lo puede medir. El Centro de ayuda ya los muestra al crear un ticket | Bajo | Con el plan de soporte |
 | 11 | **Certificaciones** de Google y Meta | Webcreativa la usa como argumento | Alto: depende de la inversión en pauta | Más adelante |
 | 12 | **Bono por resultado** opcional en pauta | Convertia y E-core venden resultados | Alto: requiere medición fina | Más adelante |
 

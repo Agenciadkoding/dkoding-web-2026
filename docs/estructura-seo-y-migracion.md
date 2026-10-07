@@ -6,7 +6,7 @@ las respuestas del mismo día (soporte, landing hotelera, cifras de palabras cla
 Archivos de datos:
 
 - `seo/redirecciones-301.csv`: las 55 URLs actuales con su destino en el sitio nuevo.
-- `seo/_redirects.borrador`: las 80 reglas listas para Cloudflare, generadas desde el CSV.
+- `seo/_redirects.borrador`: las 82 reglas listas para Cloudflare, generadas desde el CSV.
 - `seo/palabras-clave-clasificadas.csv`: las 660 palabras clave únicas de tu estudio, con su página sugerida, si van a landing o a blog, su sector y su motivo de descarte.
 
 ---
@@ -20,9 +20,9 @@ Archivos de datos:
    `/seo-y-geo/`, `/redes-sociales/`, `/diseno-de-marca/` y `/desarrollo-de-apps/`. La home
    sigue siendo la página de desarrollo web, como hoy.
 3. Se conservan 9 URLs tal cual (home, nosotros, equipo, casos, contacto, privacidad, blog,
-   servicios y soporte). 38 pasan con 301 a su equivalente, 2 van con 302 temporal mientras se
-   construye la landing hotelera, y 6 quedan en 404 porque no tienen equivalente (carrito,
-   cuenta, demos y un formulario interno).
+   servicios y soporte). 38 pasan con 301 a su equivalente, 3 van con 302 temporal mientras se
+   construyen la landing hotelera y la de dkarta, y 5 quedan en 404 porque no tienen
+   equivalente (carrito, cuenta y un formulario interno).
 4. El blog pasa a `/blog/{slug}/`, organizado por **tema** (los 6 servicios) y por **nicho**
    (salud, ecommerce, profesionales independientes, pymes, etc.). Las 5 entradas de 2024 se
    migran y actualizan; tienen entre 859 y 1.251 palabras.
@@ -73,7 +73,8 @@ con el CSV. El admin lo hará solo cuando esté conectado a Search Console.
 | Desarrollo de apps | `/desarrollo-de-apps/` | desarrollo de apps móviles (2.400) | desarrollo de aplicaciones web (1.300), desarrollo de software a medida (1.300), empresa de desarrollo de apps (880), software a la medida (880), crear app móvil personalizada (720), desarrollo de crm personalizado (590) | "desarrollo de software" (4.400) da para una sexta landing más adelante |
 | Servicios | `/servicios/` | — | — | Índice corto de los 6 servicios. Conserva la URL que existe desde 2024 |
 | Trifecta hotelera | `/trifecta-hotelera/` | crear sitio web para hotel (480) + "en Cali" | seo para hoteles (720), páginas web para hoteles, sistema de reservas | Landing por sector que se construirá más adelante. Absorbe `/plan-hotelero/` |
-| Soporte | `/soporte/` | — | — | Se conserva: entrada de los tickets de los clientes |
+| Soporte | `/soporte/` | — | — | Se conserva: Centro de ayuda con tickets (diseño en el lienzo del admin) |
+| dkarta | `/dkarta/` | — | — | Software propio; su landing está pendiente de diseño |
 | Casos de éxito, Nosotros, Equipo, Contacto, Privacidad | igual que hoy | — | — | Se conservan las URLs |
 
 Las cifras entre paréntesis son las de tu hoja, sin validar. Sirven para ordenar, no para
@@ -153,10 +154,10 @@ El mapa completo está en `seo/redirecciones-301.csv`.
 | 301 de entradas a `/blog/` | 5 | `/crear-mi-tienda-online/` → `/blog/crear-mi-tienda-online/` |
 | 301 de archivos | 2 | `/author/admindkoding/` → `/nosotros/`, `/category/sin-categoria/` → `/blog/` |
 | 301 externo | 1 | `/dkard/` → `https://dkard.co/` |
-| 302 temporal | 2 | `/trifecta-hotelera/` y `/plan-hotelero/` → `/` mientras se construye la landing |
-| Queda en 404 (sin equivalente) | 6 | `/carrito/`, `/finalizar-compra/`, `/mi-cuenta/`, `/dkarta/`, `/datos-hoteles/`, `/categoria/sin-categorizar/` |
+| 302 temporal | 3 | `/trifecta-hotelera/` y `/plan-hotelero/` → `/` mientras se construye la landing hotelera; `/dkarta/` → `/` mientras se diseña la suya |
+| Queda en 404 (sin equivalente) | 5 | `/carrito/`, `/finalizar-compra/`, `/mi-cuenta/`, `/datos-hoteles/`, `/categoria/sin-categorizar/` |
 
-**Las dos 302 son temporales a propósito.** Cuando exista la landing, `/trifecta-hotelera/`
+**Las 302 son temporales a propósito.** Cuando exista la landing, `/trifecta-hotelera/`
 deja de redirigir y `/plan-hotelero/` pasa a 301 hacia ella. Se cambia la misma regla, así que
 nunca hay una cadena de dos saltos.
 
@@ -166,20 +167,19 @@ la retira sola.
 
 **Por confirmar contigo** (columna `confirmar` del CSV):
 
-1. `/dkarta/`: ¿algún cliente la enlaza como demo?
-2. `/servicios/anuncios-en-meta-ads/`: ¿va a marketing digital o a redes sociales?
-3. `/servicios/`: ¿índice de servicios, o 301 a la home?
-4. Tiendas y catálogos (3 URLs): ¿se crea `/tiendas-virtuales/` en la fase 2?
+1. `/servicios/anuncios-en-meta-ads/`: ¿va a marketing digital o a redes sociales?
+2. `/servicios/`: ¿índice de servicios, o 301 a la home?
+3. Tiendas y catálogos (3 URLs): ¿se crea `/tiendas-virtuales/` en la fase 2?
 
-Resueltas el 7 de octubre: `/soporte/` se conserva, y `/plan-hotelero/` y `/trifecta-hotelera/`
-esperan su landing.
+Resueltas el 7 de octubre: `/soporte/` se conserva; `/plan-hotelero/` y `/trifecta-hotelera/`
+esperan su landing; `/dkarta/` espera la suya; `/dkard/` va a dkard.co, que ya tiene landing.
 
 **Pasos del lanzamiento:**
 
 1. **Antes:** exportar de Search Console las URLs con impresiones y cruzarlas con el CSV. Revisar
    backlinks en Search Console → *Enlaces*.
 2. **En el build:** el CSV genera `public/_redirects`. Cloudflare admite 2.000 reglas estáticas;
-   este mapa usa 80, porque cada origen va con y sin barra final.
+   este mapa usa 82, porque cada origen va con y sin barra final.
 3. **El día del cambio:** un script recorre las 55 URLs viejas y comprueba que cada 301 o 302 llegue
    en **un solo salto** a una página que responde 200. Se publica el sitemap nuevo, se envía en
    Search Console y se declara en `robots.txt`.

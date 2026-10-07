@@ -18,7 +18,7 @@ siguientes.
 | Foco | Agencia multi-cliente: métricas, SEO y contenido de todos | **dkoding.net**. De los clientes, solo estado del sitio y copias |
 | Contraseñas | Bitwarden; el admin nunca muestra una contraseña | **Bóveda propia** en el admin: se listan y se ven tras verificar tu identidad |
 | Copias | JetBackup del proveedor, cuenta de Cloudflare aparte | **UpdraftPlus → Cloudflare R2 cada 15 días**, solo clientes con soporte activo |
-| Hosting de los sitios | SeguriServer | **Banahost**, servidor de la agencia con WHM de revendedor. SeguriServer y el hosting propio del cliente son la excepción |
+| Hosting de los sitios | SeguriServer | **Banahost**, servidor de la agencia con WHM de revendedor (sin token de API por ahora). SeguriServer y el hosting propio del cliente son la excepción |
 | Leads | Módulo de Ventas | **En el CRM**, ligados a sus cotizaciones |
 | Pantallas | ~16 propias + 20 colecciones | **8 grupos de menú**, casi todo con pantallas estándar de Filament |
 | Costo mensual | 180–350 USD | **25–75 USD** |
@@ -56,7 +56,8 @@ Confirmado: el sitio público es **Astro** (el framework), no el tema Astra de W
 | Sitio público | Astro 7 en Cloudflare, contenido en el repositorio | Formularios y cotizador envían al admin por una API |
 | Estado de sitios | UptimeRobot (gratis hasta 50 sitios cada 5 min) | Avisa por su cuenta aunque el admin esté caído |
 | Copias | UpdraftPlus gratis en cada WordPress → un bucket de R2 por cliente | Programación quincenal y destino R2 están en la versión gratis |
-| cPanel de Banahost | Token de API del WHM de revendedor, con solo los permisos necesarios y limitado a la IP del servidor del admin | Abre cPanel de cualquier cuenta de la agencia sin contraseña (`create_user_session`) |
+| cPanel de Banahost (cuando haya token) | Token de API del WHM de revendedor, con solo los permisos necesarios y limitado a la IP del servidor del admin | Abre cPanel de cualquier cuenta de la agencia sin contraseña (`create_user_session`). Mientras no haya token, se entra con usuario y contraseña |
+| Tickets | Formulario de /soporte/ en Astro → API de Laravel; Cloudflare Turnstile contra bots; correo para las respuestas | Sin cuentas de cliente: el seguimiento es por un enlace que llega al correo |
 
 Hosting descartado: Laravel Cloud, porque sus IP de salida cambian y no sirven para listas
 blancas, y el cPanel compartido, porque no tiene workers persistentes y guardaría secretos en un
@@ -71,6 +72,7 @@ servidor compartido.
 | — | **Inicio** | Widgets de dkoding.net, ventas y salud |
 | Sitio dkoding.net | Páginas · Redirecciones · Palabras clave | Una lista con pestañas |
 | CRM | Clientes · Leads · Renovaciones | Lista + ficha del cliente con pestañas |
+| Soporte | Tickets · Llamadas por devolver | Bandeja con detalle y conversación |
 | Accesos | Personales · Agencia · Clientes · Importar Excel | Lista con pestañas + asistente |
 | Ventas | Cotizaciones · Tarifas | Lista + simulador |
 | Salud | Sitios · Copias | Lista con pestañas |
@@ -150,8 +152,8 @@ Tres ámbitos en la misma pantalla:
 | Ámbito | Quién lo ve |
 |---|---|
 | Personales | **Solo su dueño.** Ni un administrador puede verlas |
-| Agencia | El equipo, según su rol: Google Ads, Meta, dominios propios, proveedores, hosting de DKODING |
-| Clientes | El equipo, según su rol. Cada acceso está ligado a un cliente y, si aplica, a un sitio |
+| Agencia | El super admin (luego, el equipo según su rol): Google Ads, Meta, dominios propios, proveedores, hosting de DKODING |
+| Clientes | El super admin (luego, el equipo según su rol). Cada acceso está ligado a un cliente y, si aplica, a un sitio |
 
 Cada acceso guarda: nombre, tipo (cPanel, WHM, WordPress, correo, Google, redes, hosting o
 dominio, herramienta, otro), **cómo se inicia sesión** (usuario y contraseña, o "con Google" o
@@ -186,8 +188,7 @@ para vencer, si el cliente tiene soporte activo, última copia y dos botones:
 | Botón | Cómo funciona en el MVP | Mejora posterior |
 |---|---|---|
 | Acceder a WP | Pide verificación (§4.4) y abre una pestaña que envía usuario y contraseña al formulario de inicio de sesión de ese sitio. Si el sitio tiene captcha, 2FA o el login escondido, muestra los datos para copiarlos | Plugin propio de inicio de sesión firmado: no viaja la contraseña y no lo frenan el captcha ni el login escondido |
-| Acceder a cPanel en **Banahost** | Pide verificación y pide al WHM de la agencia un enlace de un solo uso (`create_user_session`). **No viaja ninguna contraseña.** La sesión caduca a los 15 minutos sin uso | — |
-| Acceder a cPanel en **otro hosting** (SeguriServer, el del cliente) | Igual que WordPress: formulario enviado desde tu navegador al login de cPanel de ese servidor | Si ese proveedor da WHM, mismo método que Banahost |
+| Acceder a cPanel | Pide verificación y tu navegador envía usuario y contraseña al login de cPanel del servidor. Igual en Banahost, SeguriServer o el hosting del cliente | Cuando Banahost habilite un token de WHM: enlace de un solo uso (`create_user_session`), sin enviar contraseña |
 
 Cada acceso por botón queda en el registro, igual que ver una contraseña.
 
@@ -204,10 +205,10 @@ Cada acceso por botón queda en el registro, igual que ver una contraseña.
    verificación.
 5. **Segunda capa en Banahost:** las cuentas de Banahost tienen además las copias diarias del
    proveedor (JetBackup), que se restauran desde el cPanel de cada cuenta.
-6. **Plan B** para sitios donde el plugin no funcione, o que no sean WordPress: con el mismo
-   token del WHM, el admin pide a cPanel una copia completa de la cuenta enviada al servidor del
-   admin, y de ahí a R2. No hace falta la contraseña de cada cPanel. Solo para cuentas de
-   Banahost.
+6. **Plan B** para sitios donde el plugin no funcione, o que no sean WordPress: el admin pide
+   a cPanel una copia completa de la cuenta, enviada al servidor del admin y de ahí a R2. Con
+   token de WHM sirve para todas las cuentas de Banahost sin la contraseña de cada una; sin él,
+   usa el usuario y la contraseña guardados de esa cuenta.
 7. **Restaurar** se hace en el MVP a mano, desde UpdraftPlus o desde JetBackup en el cPanel de
    Banahost. Un simulacro al mes con un sitio elegido al azar comprueba que las copias sirven.
 
@@ -218,10 +219,36 @@ dominios, la fecha se escribe a mano o se consulta por WHOIS.
 
 ### 4.7 Soporte (tickets)
 
-La página `/soporte/` del sitio se conserva y será la entrada de los tickets de los clientes. El
-admin tendrá su bandeja de tickets ligada al CRM: cada ticket pertenece a un cliente y, si
-aplica, a un sitio. **Se diseña cuando llegue la UX de referencia** que vas a enviar; por eso
-todavía no tiene tablero.
+Inspirado en el Centro de Ayuda de SeguriServer que te gustó, con la estética y los servicios de
+DKODING. Tiene dos partes.
+
+**Página pública `/soporte/` (Centro de ayuda)**, en el sitio de Astro:
+
+- WhatsApp con mensaje escrito y el número público.
+- "Solicita una llamada": nombre y celular. Entra al admin como llamada por devolver.
+- "Crear ticket" en 3 pasos:
+  1. Tipo de ayuda: servicio al cliente, asesoría comercial o soporte técnico.
+  2. Servicio: sitio web o tienda, hosting y dominio, correo corporativo, diseño de marca,
+     marketing y pauta, SEO y GEO, redes sociales, desarrollo de apps, dkard.co u otro.
+  3. Datos y mensaje, con adjuntos, aceptación de términos y de tratamiento de datos (Ley 1581)
+     y Cloudflare Turnstile contra bots.
+- Confirmación con número de ticket y **tiempo de primera respuesta por escrito**: soporte
+  técnico 4 horas hábiles, servicio al cliente 1 día hábil, asesoría comercial el mismo día.
+- "Ver mis tickets" **sin registro ni contraseña**: escribes tu correo y te llega un enlace. Es
+  más simple y seguro que crear cuentas de cliente; el portal con cuenta queda para después.
+
+**Bandeja en el admin (Soporte):**
+
+- Tickets por estado (nuevo, en curso, esperando al cliente, resuelto, cerrado), con filtros por
+  tipo, servicio y prioridad, y el tiempo que queda para cumplir la primera respuesta.
+- Cada ticket se vincula solo al cliente del CRM si coincide el correo o la empresa. Si no,
+  queda como contacto nuevo con un botón para vincularlo o crear el cliente.
+- **Reglas automáticas:** la asesoría comercial crea un lead en el CRM; el soporte técnico
+  sobre un sitio se liga a ese sitio en Salud y muestra su estado.
+- Detalle con la conversación (las respuestas salen por correo), notas internas que el
+  cliente no ve, plantillas de respuesta y atajos a Salud, Accesos y Cotizaciones.
+- **Llamadas por devolver:** lista con botones de llamar y WhatsApp, y el resultado de cada
+  llamada.
 
 ---
 
@@ -244,13 +271,11 @@ todavía no tiene tablero.
 
 ### 5.2 Roles
 
-| Rol | Puede |
-|---|---|
-| Dirección | Todo, incluidos los accesos de la agencia y de todos los clientes |
-| Equipo | Accesos de los clientes que tiene asignados. Ver el registro de lo propio |
-| Ventas | CRM y ventas. Sin accesos |
+Por ahora hay **un solo rol: super admin**, que puede todo. Los demás roles (por ejemplo
+equipo y ventas) se crean después. El admin ya nace con el sistema de roles y permisos
+(Filament Shield), así que agregarlos no exige rehacer nada.
 
-Las contraseñas personales son de su dueño en cualquier rol.
+Las contraseñas personales son siempre solo de su dueño, aunque luego haya más roles.
 
 ### 5.3 Importar el Excel sin cambiar las contraseñas
 
@@ -319,7 +344,8 @@ que circularon mucho o se repiten entre clientes; el admin las marca.
 | `pages` | url, tipo, estado, palabra objetivo, tema, nicho, seo (JSON), blocks (JSON, vacío en el MVP) |
 | `page_metrics` | page_id, fecha, clics, impresiones, posición, indexación |
 | `redirects` | origen, destino, código, verificado |
-| `tickets` (etapa 2) | client_id, site_id, asunto, estado, prioridad, mensajes. Se define con la UX de referencia |
+| `tickets` y `ticket_messages` | número, tipo de ayuda, servicio, client_id o contacto, site_id, prioridad, estado, vencimiento de la primera respuesta; mensajes con autor, interno o público, adjuntos |
+| `call_requests` | nombre, celular, estado, notas, ticket o lead resultante |
 | `activity_log` | quién, qué, sobre qué registro, cuándo, IP |
 
 ---
@@ -329,9 +355,9 @@ que circularon mucho o se repiten entre clientes; el admin las marca.
 | Etapa | Qué entra | Duración estimada |
 |---|---|---|
 | 1 · Reemplazar el Excel | Usuarios con 2FA y roles, Clientes y servicios con renovación, Accesos con importador, Sitios con estado y botones de acceso (WHM de Banahost incluido) | 3–4 semanas |
-| 2 · Copias, ventas y soporte | UpdraftPlus → R2 con lectura de buckets, Leads por API desde el sitio, Cotizaciones y Tarifas, tickets de soporte cuando llegue su UX | 4–5 semanas |
+| 2 · Copias, ventas y soporte | UpdraftPlus → R2 con lectura de buckets, Leads por API desde el sitio, Cotizaciones y Tarifas, tickets con su página pública y llamadas por devolver | 4–5 semanas |
 | 3 · dkoding.net | Páginas, redirecciones y palabras clave con Search Console y GA4, Inicio completo | 2–3 semanas, a la par del lanzamiento del sitio |
-| Después | Login firmado en WP, KMS, passkeys, editor, portal del cliente, copias por WHM para sitios que no son WordPress | Según uso |
+| Después | Token de WHM con Banahost, login firmado en WP, más roles, KMS, passkeys, editor, portal del cliente, dkarta, las apps en la landing | Según uso |
 
 Las duraciones suponen un desarrollador con experiencia en Laravel y Filament. Hay que
 recalibrarlas al terminar la etapa 1. La etapa 1 sirve desde el primer día porque reemplaza el
@@ -354,15 +380,15 @@ Excel, y no depende del sitio nuevo.
 
 **Para ti:**
 
-1. ¿Quién del equipo usará el admin y con qué rol?
-2. ¿Los clientes con soporte tienen todos WordPress? ¿Hay otros tipos de sitio?
-3. Las 6 redirecciones que siguen por confirmar en `docs/estructura-seo-y-migracion.md` §4.
-4. La UX de referencia para los tickets.
+1. ¿Los clientes con soporte tienen todos WordPress? ¿Hay otros tipos de sitio?
+2. Las 3 decisiones de redirección que siguen abiertas en `docs/estructura-seo-y-migracion.md` §4.
+3. ¿Hay términos y condiciones y política de tratamiento de datos publicados, para enlazarlos desde
+   el formulario de tickets?
 
 **Para Banahost** (el servidor de la agencia):
 
-1. ¿El plan es de revendedor con WHM? ¿El token de API del WHM puede tener el permiso "Create
-   User Session" y limitarse a una IP?
+1. ¿Pueden habilitar "Manage API Tokens" en nuestro WHM de revendedor, con el permiso "Create
+   User Session" y limitado a una IP? Sin eso, el acceso a cPanel sigue con usuario y contraseña.
 2. ¿Qué retención tienen las copias diarias de JetBackup y cómo se restaura una cuenta?
 3. ¿Ponen en lista blanca, en cPHulk, CSF e Imunify, la IP del servidor del admin y la de la
    oficina? Unos cuantos intentos con contraseñas viejas bloquearían la IP en todo el servidor.
@@ -384,3 +410,9 @@ formulario desde otro sitio al login de cPanel o de WordPress?
 | Hosting | Banahost es el servidor de la agencia; SeguriServer, solo de algunos clientes | cPanel por WHM sin contraseña; preguntas a Banahost |
 | Palabras clave | Cifras de referencia de hace unos años | Se usan como relevancia relativa |
 | Matriz competitiva | Para mejorar la oferta | `docs/mejoras-oferta.md` |
+| Roles | Un super admin; los demás roles después | §5.2 |
+| Tickets | UX de referencia: Centro de Ayuda de SeguriServer | §4.7 y dos tableros nuevos |
+| dkarta | Software propio, diseño pendiente | 302 temporal; fuera del formulario de tickets por ahora |
+| dkard | `/dkard/` va a dkard.co, que ya tiene su landing | Confirmado |
+| Apps en la landing | Pendiente: primero la base | Pasa a "Después" |
+| Token de WHM | Probablemente no hay | El acceso a cPanel va con usuario y contraseña; el WHM queda como mejora |
