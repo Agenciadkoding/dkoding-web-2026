@@ -7,8 +7,8 @@
       "is_interactive": true,
       "title": "ACC · Accesos con verificación",
       "w": 1440,
-      "x": 1520,
-      "y": 2720
+      "x": 3040,
+      "y": 2800
     },
     "Cliente.dc.html": {
       "expand": "fill",
@@ -17,7 +17,7 @@
       "title": "CRM · Ficha del cliente: servicios, renovaciones e historial",
       "w": 1440,
       "x": 0,
-      "y": 2720
+      "y": 2800
     },
     "Cotizaciones.dc.html": {
       "expand": "fill",
@@ -26,7 +26,7 @@
       "title": "VEN · Cotizaciones",
       "w": 1440,
       "x": 0,
-      "y": 6880
+      "y": 6960
     },
     "ImportarAccesos.dc.html": {
       "expand": "fill",
@@ -34,8 +34,8 @@
       "is_interactive": true,
       "title": "ACC · Importar accesos desde tu Excel (estructura real)",
       "w": 1440,
-      "x": 3040,
-      "y": 2720
+      "x": 4560,
+      "y": 2800
     },
     "Main.dc.html": {
       "expand": "fill",
@@ -48,7 +48,7 @@
     },
     "Paginas.dc.html": {
       "expand": "fill",
-      "h": 2203,
+      "h": 2276,
       "is_interactive": true,
       "title": "WEB · Páginas, redirecciones y palabras clave de dkoding.net",
       "w": 1440,
@@ -60,16 +60,25 @@
       "title": "Sistema de interfaz del admin",
       "w": 1240,
       "x": 0,
-      "y": 8560
+      "y": 8640
     },
     "Sitios.dc.html": {
       "expand": "fill",
-      "h": 1154,
+      "h": 1175,
       "is_interactive": true,
-      "title": "SAL · Sitios de clientes (Banahost por WHM) y copias quincenales",
+      "title": "SAL · Sitios de clientes, acceso a WP y cPanel, y copias quincenales",
       "w": 1440,
       "x": 3040,
-      "y": 6880
+      "y": 6960
+    },
+    "Soporte.dc.html": {
+      "expand": "fill",
+      "h": 1102,
+      "is_interactive": true,
+      "title": "WEB · Sitio público /soporte/: Centro de ayuda y crear ticket",
+      "w": 1440,
+      "x": 3040,
+      "y": 0
     },
     "Tarifas.dc.html": {
       "expand": "fill",
@@ -78,7 +87,16 @@
       "title": "VEN · Tarifas y simulador",
       "w": 1440,
       "x": 1520,
-      "y": 6880
+      "y": 6960
+    },
+    "Tickets.dc.html": {
+      "expand": "fill",
+      "h": 1228,
+      "is_interactive": true,
+      "title": "SOP · Tickets y llamadas por devolver",
+      "w": 1440,
+      "x": 1520,
+      "y": 2800
     }
   },
   "createdOnFiles": {
@@ -92,7 +110,7 @@
   "notes": {
     "row1": {
       "kind": "title1",
-      "maxW": 2960,
+      "maxW": 4480,
       "text": "Inicio y sitio dkoding.net",
       "w": 240,
       "x": 0,
@@ -100,11 +118,11 @@
     },
     "row2": {
       "kind": "title1",
-      "maxW": 4480,
-      "text": "CRM y accesos",
+      "maxW": 6000,
+      "text": "CRM, soporte y accesos",
       "w": 240,
       "x": 0,
-      "y": 2420
+      "y": 2500
     },
     "row3": {
       "kind": "title1",
@@ -112,7 +130,7 @@
       "text": "Ventas y salud de clientes",
       "w": 240,
       "x": 0,
-      "y": 6580
+      "y": 6660
     },
     "row4": {
       "kind": "title1",
@@ -120,13 +138,15 @@
       "text": "Sistema",
       "w": 240,
       "x": 0,
-      "y": 8260
+      "y": 8340
     }
   },
   "order": [
     "Main.dc.html",
     "Paginas.dc.html",
+    "Soporte.dc.html",
     "Cliente.dc.html",
+    "Tickets.dc.html",
     "Boveda.dc.html",
     "ImportarAccesos.dc.html",
     "Cotizaciones.dc.html",

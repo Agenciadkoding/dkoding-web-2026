@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Centro de ayuda DKODING</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Blinker:wght@300;700&amp;family=Barlow:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#0C0C0C}
+a{color:#D98BFF;text-decoration:none}a:hover{color:#F0D4FF}
+button,input,select,textarea{font:inherit}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:2px solid #D98BFF;outline-offset:2px}
+input::placeholder,textarea::placeholder{color:#8E8A9B}
+.dk-opt:hover{border-color:rgba(199,85,239,0.6)}
+.dk-wa:hover{background:#3BE07A;color:#0C0C0C}
+.dk-pri:hover{background:#7E10D6;color:#FFFFFF}
+@media (max-width: 760px){.dk-aside{order:2}}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; min-height: 100%; background: #0C0C0C; color: #F4F2F8; font-family: 'Barlow', system-ui, sans-serif; font-size: 16px; line-height: 1.55; overflow-x: hidden">
+
+  <!-- ===== CABECERA DEL SITIO ===== -->
+  <header style="background: #1A0B2B; border-bottom: 1px solid rgba(255,255,255,0.08)">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 12px 24px; display: flex; flex-wrap: wrap; gap: 10px 24px; align-items: center; justify-content: space-between">
+      <div style="display: flex; align-items: center; gap: 14px">
+        <a href="https://dkoding.net/" aria-label="DKODING, ir al sitio" style="display: flex; align-items: center; min-height: 44px"><img src="/_blob/af8d4aea91012d3a301c737f7fa02819" alt="DKODING" style="height: 30px; width: auto"></a>
+        <span aria-hidden="true" style="width: 1px; height: 24px; background: rgba(255,255,255,0.18)"></span>
+        <span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: 0.01em">Centro de ayuda</span>
+      </div>
+      <nav aria-label="Atajos" style="display: flex; flex-wrap: wrap; gap: 4px 20px; align-items: center; font-size: 15px">
+        <a href="tel:+573002867104" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: #F4F2F8"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg>+57 300 286 7104</a>
+        <a href="https://dkoding.net/" style="display: inline-flex; align-items: center; min-height: 44px; color: #D8D4E2">Volver a dkoding.net</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ======================================================= -->
+  <!-- 1 · PORTADA                                             -->
+  <!-- ======================================================= -->
+  <sc-if value="{{isHome}}" hint-placeholder-val="{{true}}">
+    <main style="position: relative">
+      <div aria-hidden="true" style="position: absolute; inset: 0 0 auto 0; height: 420px; background: radial-gradient(60% 70% at 50% 0%, rgba(109,0,194,0.28), rgba(109,0,194,0) 70%); pointer-events: none"></div>
+      <div style="position: relative; max-width: 1120px; margin: 0 auto; padding: 56px 24px 64px; box-sizing: border-box; display: flex; flex-direction: column; gap: 32px">
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px">
+          <p style="margin: 0; display: inline-flex; align-items: center; gap: 10px; color: #C755EF; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 13px"><svg width="18" height="14" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M2 1l6 6-6 6M10 1l6 6-6 6"></path></svg>Soporte DKODING</p>
+          <h1 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 300; font-size: clamp(40px, 5vw, 64px); line-height: 1.02">Centro de <strong style="font-weight: 700">ayuda</strong></h1>
+          <p style="margin: 0; max-width: 620px; font-size: 18px; color: #B3B0BC">Escríbenos por WhatsApp, pide que te llamemos o abre un ticket. Todo queda registrado y te respondemos en horario hábil.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 20px; align-items: stretch">
+          <!-- WhatsApp -->
+          <section aria-labelledby="h-wa" style="display: flex; flex-direction: column; gap: 14px; padding: 24px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px">
+            <div style="display: flex; align-items: center; gap: 12px"><span aria-hidden="true" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 8px; background: rgba(37,211,102,0.12); color: #25D366"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"></path><path d="M9 9.5c.3 1.6 1.9 3.4 3.6 4.1l1.2-1.1 1.7.8-.3 1.3c-2.9.3-6.2-2.8-6.4-5.6l1.3-.4.8 1.7z"></path></svg></span><h2 id="h-wa" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 24px; line-height: 1.1">Escríbenos por WhatsApp</h2></div>
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="wa-msg" style="font-size: 14px; font-weight: 600">Escribe tu mensaje</label><textarea id="wa-msg" rows="3" value="{{wa}}" onChange="{{onWa}}" placeholder="Hola, necesito ayuda con…" style="min-height: 88px; box-sizing: border-box; padding: 10px 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; resize: vertical"></textarea></div>
+            <span style="font-size: 14px; color: #B3B0BC">Número público: <a href="tel:+573002867104" style="color: #F4F2F8; font-weight: 600">+57 300 286 7104</a></span>
+            <a class="dk-wa" href="{{waHref}}" style="margin-top: auto; display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 20px; background: #25D366; color: #0C0C0C; border-radius: 4px; font-weight: 700"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"></path></svg>Enviar por WhatsApp</a>
+          </section>
+
+          <!-- Solicita una llamada -->
+          <section aria-labelledby="h-call" style="display: flex; flex-direction: column; gap: 14px; padding: 24px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px">
+            <div style="display: flex; align-items: center; gap: 12px"><span aria-hidden="true" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 8px; background: rgba(199,85,239,0.14); color: #C755EF"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg></span><h2 id="h-call" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 24px; line-height: 1.1">Solicita una llamada</h2></div>
+            <sc-if value="{{callOpen}}" hint-placeholder-val="{{true}}">
+              <div style="display: flex; flex-direction: column; gap: 6px"><label for="c-name" style="font-size: 14px; font-weight: 600">Nombre completo <span aria-hidden="true" style="color: #C755EF">*</span></label><input id="c-name" type="text" autocomplete="name" value="{{call.name}}" onChange="{{onCallName}}" aria-invalid="{{cErr.nameBad}}" aria-describedby="c-name-err" style="{{cErr.nameField}}"><span id="c-name-err" style="{{cErr.nameMsgStyle}}">{{cErr.name}}</span></div>
+              <div style="display: flex; flex-direction: column; gap: 6px">
+                <label for="c-phone" style="font-size: 14px; font-weight: 600">Celular <span aria-hidden="true" style="color: #C755EF">*</span></label>
+                <div style="display: flex; gap: 8px">
+                  <label for="c-cc" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">País del celular</label>
+                  <select id="c-cc" value="{{call.cc}}" onChange="{{onCallCc}}" style="flex: none; width: 146px; min-height: 44px; padding: 0 8px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px"><option value="+57">+57 Colombia</option><option value="+1">+1 EE. UU.</option><option value="+34">+34 España</option><option value="+52">+52 México</option><option value="+593">+593 Ecuador</option><option value="+51">+51 Perú</option></select>
+                  <input id="c-phone" type="tel" inputmode="tel" autocomplete="tel-national" value="{{call.phone}}" onChange="{{onCallPhone}}" placeholder="300 000 0000" aria-invalid="{{cErr.phoneBad}}" aria-describedby="c-phone-err" style="{{cErr.phoneField}}">
+                </div>
+                <span id="c-phone-err" style="{{cErr.phoneMsgStyle}}">{{cErr.phone}}</span>
+              </div>
+              <button type="button" onClick="{{sendCall}}" style="margin-top: auto; display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 20px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.3); border-radius: 4px; font-weight: 600; cursor: pointer">Solicitar llamada</button>
+            </sc-if>
+            <sc-if value="{{callDone}}" hint-placeholder-val="{{false}}">
+              <div role="status" style="display: flex; flex-direction: column; gap: 10px; padding: 16px; background: rgba(91,228,155,0.07); border: 1px solid rgba(91,228,155,0.35); border-radius: 8px">
+                <span style="display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px"><svg width="16" height="16" viewBox="0 0 16 16" role="img" aria-label="Correcto"><path d="M8 2a6 6 0 1 1 0 12A6 6 0 0 1 8 2z" fill="#5BE49B"></path></svg>Te llamamos en horario hábil</span>
+                <span style="font-size: 15px; color: #D8D4E2">{{callDoneText}}</span>
+                <span style="font-size: 14px; color: #B3B0BC">Tu solicitud ya está en nuestra lista de llamadas por devolver. Si es urgente, escríbenos por WhatsApp.</span>
+              </div>
+              <button type="button" onClick="{{resetCall}}" style="align-self: flex-start; min-height: 44px; padding: 0; background: transparent; color: #D98BFF; border: 0; font-weight: 600; cursor: pointer">Pedir otra llamada</button>
+            </sc-if>
+          </section>
+
+          <!-- Crear ticket -->
+          <section aria-labelledby="h-tk" style="display: flex; flex-direction: column; gap: 14px; padding: 24px; background: #1A0B2B; border: 1px solid rgba(199,85,239,0.55); border-radius: 8px">
+            <div style="display: flex; align-items: center; gap: 12px"><span aria-hidden="true" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 8px; background: rgba(199,85,239,0.18); color: #C755EF"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3a2 2 0 0 0 0-4z"></path><path d="M14 5v2M14 11v2M14 17v2"></path></svg></span><h2 id="h-tk" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 24px; line-height: 1.1">Crear ticket</h2></div>
+            <p style="margin: 0; color: #D8D4E2">Para servicio al cliente, asesoría comercial o soporte técnico.</p>
+            <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 15px; color: #D8D4E2">
+              <li style="display: flex; gap: 10px"><span aria-hidden="true" style="color: #C755EF; font-family: 'Blinker', sans-serif; font-weight: 700">»</span>Recibes un número para seguirlo</li>
+              <li style="display: flex; gap: 10px"><span aria-hidden="true" style="color: #C755EF; font-family: 'Blinker', sans-serif; font-weight: 700">»</span>Tiempo de primera respuesta por escrito</li>
+              <li style="display: flex; gap: 10px"><span aria-hidden="true" style="color: #C755EF; font-family: 'Blinker', sans-serif; font-weight: 700">»</span>Puedes adjuntar capturas o archivos</li>
+            </ul>
+            <button type="button" class="dk-pri" onClick="{{goTicket}}" style="margin-top: auto; display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 20px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-weight: 700; cursor: pointer">Crear ticket<span aria-hidden="true" style="font-family: 'Blinker', sans-serif">»</span></button>
+          </section>
+        </div>
+
+        <!-- Ver mis tickets -->
+        <section id="mis-tickets" aria-labelledby="h-my" style="display: flex; flex-wrap: wrap; gap: 24px 40px; padding: 28px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px">
+          <div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+            <h2 id="h-my" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 28px; line-height: 1.1">Ver mis tickets</h2>
+            <p style="margin: 0; color: #B3B0BC">Sin registro ni contraseña: escribe el correo con el que abriste tus tickets y te enviamos un enlace de acceso.</p>
+            <ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px">
+              <sc-for list="{{mySteps}}" as="s" hint-placeholder-count="3">
+                <li aria-current="{{s.cur}}" style="display: flex; align-items: center; gap: 12px"><span aria-hidden="true" style="{{s.badge}}">{{s.n}}</span><span style="{{s.textStyle}}">{{s.label}}</span></li>
+              </sc-for>
+            </ol>
+          </div>
+          <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+            <sc-if value="{{myIdle}}" hint-placeholder-val="{{true}}">
+              <div style="display: flex; flex-direction: column; gap: 6px">
+                <label for="my-email" style="font-size: 14px; font-weight: 600">Tu correo</label>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px">
+                  <input id="my-email" type="email" autocomplete="email" value="{{my.email}}" onChange="{{onMyEmail}}" placeholder="tu@empresa.com" aria-invalid="{{myErr.bad}}" aria-describedby="my-email-err" style="{{myErr.field}}">
+                  <button type="button" class="dk-pri" onClick="{{sendLink}}" style="flex: none; min-height: 44px; padding: 0 18px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-weight: 700; cursor: pointer">Enviarme el enlace</button>
+                </div>
+                <span id="my-email-err" style="{{myErr.msgStyle}}">{{myErr.msg}}</span>
+              </div>
+            </sc-if>
+            <sc-if value="{{mySent}}" hint-placeholder-val="{{false}}">
+              <div role="status" style="display: flex; flex-direction: column; gap: 4px"><span style="display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px"><svg width="16" height="16" viewBox="0 0 16 16" role="img" aria-label="Correcto"><path d="M8 2a6 6 0 1 1 0 12A6 6 0 0 1 8 2z" fill="#5BE49B"></path></svg>Revisa tu correo</span><span style="color: #D8D4E2">Te enviamos un enlace de acceso a <strong>{{my.email}}</strong>. Sirve una sola vez y vence en 15 minutos.</span></div>
+              <div aria-label="Vista previa del correo que te llega" style="display: flex; flex-direction: column; gap: 10px; padding: 16px; background: #0F0F11; border: 1px dashed rgba(255,255,255,0.18); border-radius: 8px">
+                <span style="font-size: 12px; color: #B3B0BC; text-transform: uppercase; letter-spacing: 0.08em">Así llega a tu bandeja</span>
+                <span style="font-weight: 600">DKODING · Tu enlace para ver tus tickets</span>
+                <span style="font-size: 14px; color: #D8D4E2">Hola. Usa este botón para entrar a tus tickets. Si no lo pediste, ignora este correo.</span>
+                <button type="button" onClick="{{openLink}}" style="align-self: flex-start; min-height: 44px; padding: 0 16px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-weight: 700; cursor: pointer">Ver mis tickets</button>
+              </div>
+              <div style="display: flex; flex-wrap: wrap; gap: 4px 20px"><button type="button" onClick="{{sendLink}}" style="min-height: 44px; padding: 0; background: transparent; color: #D98BFF; border: 0; font-weight: 600; cursor: pointer">Reenviar el enlace</button><button type="button" onClick="{{otherEmail}}" style="min-height: 44px; padding: 0; background: transparent; color: #D98BFF; border: 0; font-weight: 600; cursor: pointer">Usar otro correo</button></div>
+            </sc-if>
+            <sc-if value="{{myList}}" hint-placeholder-val="{{false}}">
+              <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 12px"><span style="font-weight: 700; font-size: 18px">Tus tickets</span><span style="font-size: 14px; color: #B3B0BC">{{my.email}} · sesión de 24 h</span></div>
+              <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px">
+                <sc-for list="{{myTickets}}" as="k" hint-placeholder-count="2">
+                  <li style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; min-height: 56px; box-sizing: border-box; padding: 10px 14px; background: #0F0F11; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px">
+                    <span style="flex: none; width: 76px; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 18px">{{k.id}}</span>
+                    <span style="flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column"><span style="font-weight: 600">{{k.what}}</span><span style="font-size: 13px; color: #B3B0BC">{{k.when}}</span></span>
+                    <span style="{{k.pill}}"><svg width="12" height="12" viewBox="0 0 16 16" role="img" aria-label="{{k.status}}"><path d="{{k.shape}}" fill="{{k.color}}"></path></svg>{{k.status}}</span>
+                  </li>
+                </sc-for>
+              </ul>
+              <button type="button" onClick="{{otherEmail}}" style="align-self: flex-start; min-height: 44px; padding: 0; background: transparent; color: #D98BFF; border: 0; font-weight: 600; cursor: pointer">Salir</button>
+            </sc-if>
+          </div>
+        </section>
+      </div>
+    </main>
+  </sc-if>
+
+  <!-- ======================================================= -->
+  <!-- 2 · CREAR TICKET EN 3 PASOS                             -->
+  <!-- ======================================================= -->
+  <sc-if value="{{isTicket}}" hint-placeholder-val="{{false}}">
+    <main style="max-width: 1360px; margin: 0 auto; padding: 28px 24px 56px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+      <!-- Columna izquierda -->
+      <aside class="dk-aside" aria-label="Otros canales" style="flex: 1 1 260px; padding-top: 4px; max-width: 100%; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; flex-direction: column; gap: 12px; padding: 18px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px">
+          <h2 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">¿Prefieres escribir?</h2>
+          <label for="wa-msg-2" style="font-size: 14px; font-weight: 600">Escribe tu mensaje</label>
+          <input id="wa-msg-2" type="text" value="{{wa}}" onChange="{{onWa}}" placeholder="Hola, necesito ayuda con…" style="min-height: 44px; box-sizing: border-box; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px">
+          <span style="font-size: 14px; color: #B3B0BC">+57 300 286 7104</span>
+          <a class="dk-wa" href="{{waHref}}" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 44px; padding: 0 16px; background: #25D366; color: #0C0C0C; border-radius: 4px; font-weight: 700"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"></path></svg>Enviar por WhatsApp</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px; padding: 18px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px">
+          <h2 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">Solicita una llamada</h2>
+          <sc-if value="{{callOpen}}" hint-placeholder-val="{{true}}">
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="c2-name" style="font-size: 14px; font-weight: 600">Nombre completo <span aria-hidden="true" style="color: #C755EF">*</span></label><input id="c2-name" type="text" autocomplete="name" value="{{call.name}}" onChange="{{onCallName}}" aria-invalid="{{cErr.nameBad}}" style="{{cErr.nameField}}"><span style="{{cErr.nameMsgStyle}}">{{cErr.name}}</span></div>
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="c2-phone" style="font-size: 14px; font-weight: 600">Celular · {{call.cc}} <span aria-hidden="true" style="color: #C755EF">*</span></label><input id="c2-phone" type="tel" inputmode="tel" value="{{call.phone}}" onChange="{{onCallPhone}}" placeholder="300 000 0000" aria-invalid="{{cErr.phoneBad}}" style="{{cErr.phoneField}}"><span style="{{cErr.phoneMsgStyle}}">{{cErr.phone}}</span></div>
+            <button type="button" onClick="{{sendCall}}" style="min-height: 44px; padding: 0 16px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.3); border-radius: 4px; font-weight: 600; cursor: pointer">Solicitar llamada</button>
+          </sc-if>
+          <sc-if value="{{callDone}}" hint-placeholder-val="{{false}}">
+            <span role="status" style="display: flex; align-items: center; gap: 10px; font-weight: 700"><svg width="14" height="14" viewBox="0 0 16 16" role="img" aria-label="Correcto"><path d="M8 2a6 6 0 1 1 0 12A6 6 0 0 1 8 2z" fill="#5BE49B"></path></svg>Te llamamos en horario hábil</span>
+            <span style="font-size: 14px; color: #B3B0BC">{{callDoneText}}</span>
+          </sc-if>
+        </div>
+        <button type="button" onClick="{{goMyTickets}}" style="min-height: 44px; padding: 0 16px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; cursor: pointer">Ver mis tickets</button>
+      </aside>
+
+      <!-- Pasos -->
+      <div style="flex: 999 1 680px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <button type="button" onClick="{{goHome}}" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0; background: transparent; color: #D98BFF; border: 0; font-weight: 600; cursor: pointer"><span aria-hidden="true">‹</span>Volver al centro de ayuda</button>
+          <h1 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 300; font-size: clamp(34px, 3.6vw, 48px); line-height: 1.05">Crear <strong style="font-weight: 700">ticket</strong></h1>
+        </div>
+        <nav aria-label="Pasos del ticket">
+          <ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 8px">
+            <sc-for list="{{steps}}" as="s" hint-placeholder-count="3">
+              <li style="display: flex"><button type="button" onClick="{{s.go}}" aria-current="{{s.cur}}" style="{{s.style}}"><span aria-hidden="true" style="{{s.badge}}">{{s.mark}}</span><span style="display: flex; flex-direction: column; align-items: flex-start; min-width: 0"><span style="font-weight: 700">{{s.label}}</span><span style="{{s.valueStyle}}">{{s.value}}</span></span></button></li>
+            </sc-for>
+          </ol>
+        </nav>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 20px; align-items: start">
+          <!-- Paso 1 -->
+          <section aria-labelledby="h-s1" style="{{col1}}">
+            <div style="display: flex; flex-direction: column; gap: 2px; padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.08)"><h2 id="h-s1" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 24px">1. Tipo de ayuda</h2><span style="font-size: 15px; color: #B3B0BC">Según tu necesidad, elige una opción</span></div>
+            <div role="group" aria-label="Tipo de ayuda" style="display: flex; flex-direction: column; gap: 10px">
+              <sc-for list="{{types}}" as="o" hint-placeholder-count="3">
+                <button type="button" class="dk-opt" onClick="{{o.pick}}" aria-pressed="{{o.on}}" aria-label="{{o.label}}" aria-describedby="{{o.descId}}" style="{{o.style}}">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; color: #C755EF; margin-top: 2px"><path d="{{o.icon}}"></path></svg>
+                  <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; text-align: left"><span style="font-weight: 700; font-size: 17px">{{o.label}}</span><span id="{{o.descId}}" style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; color: #B3B0BC">{{o.desc}}</span><span style="{{o.noteStyle}}">{{o.note}}</span></span></span>
+                  <span aria-hidden="true" style="{{o.radio}}"></span>
+                </button>
+              </sc-for>
+            </div>
+          </section>
+
+          <!-- Paso 2 -->
+          <section aria-labelledby="h-s2" style="{{col2}}">
+            <div style="display: flex; flex-direction: column; gap: 2px; padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.08)"><h2 id="h-s2" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 24px">2. ¿Sobre qué servicio?</h2><span style="font-size: 15px; color: #B3B0BC">Elige el servicio con el que necesitas ayuda</span></div>
+            <div role="group" aria-label="Servicio" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+              <sc-for list="{{services}}" as="v" hint-placeholder-count="10">
+                <button type="button" class="dk-opt" onClick="{{v.pick}}" aria-pressed="{{v.on}}" style="{{v.style}}">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: #C755EF"><path d="{{v.icon}}"></path></svg>
+                  <span style="font-weight: 600; font-size: 14px; line-height: 1.3; text-align: left">{{v.label}}</span>
+                </button>
+              </sc-for>
+            </div>
+          </section>
+
+          <!-- Paso 3 -->
+          <section aria-labelledby="h-s3" style="{{col3}}">
+            <div style="display: flex; flex-direction: column; gap: 2px; padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.08)"><h2 id="h-s3" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 24px">3. Tu ticket</h2><span style="font-size: 15px; color: #B3B0BC">Completa el formulario para terminar</span></div>
+            <div aria-label="Resumen de lo elegido" style="display: flex; flex-direction: column; gap: 6px; padding: 12px 14px; background: #0F0F11; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; font-size: 14px">
+              <sc-for list="{{summary}}" as="m" hint-placeholder-count="2">
+                <span style="display: flex; justify-content: space-between; align-items: center; gap: 10px"><span style="display: flex; flex-direction: column; min-width: 0"><span style="font-size: 12px; color: #B3B0BC">{{m.k}}</span><span style="{{m.vStyle}}">{{m.v}}</span></span><button type="button" onClick="{{m.go}}" style="flex: none; min-height: 36px; padding: 0 4px; background: transparent; color: #D98BFF; border: 0; font-weight: 600; cursor: pointer">{{m.cta}}</button></span>
+              </sc-for>
+              <span style="{{slaStyle}}">{{slaText}}</span>
+            </div>
+            <sc-if value="{{hasErrors}}" hint-placeholder-val="{{false}}">
+              <div role="alert" style="display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; background: rgba(255,107,107,0.08); border: 1px solid rgba(255,107,107,0.4); border-radius: 8px; font-size: 14px"><svg width="14" height="14" viewBox="0 0 16 16" role="img" aria-label="Error" style="flex: none; margin-top: 3px"><path d="M8 1L15 8L8 15L1 8z" fill="#FF6B6B"></path></svg><span>{{errorsTitle}}</span></div>
+            </sc-if>
+            <sc-for list="{{fields}}" as="f" hint-placeholder-count="6">
+              <div style="display: flex; flex-direction: column; gap: 6px">
+                <label for="{{f.id}}" style="font-size: 14px; font-weight: 600">{{f.label}} <span aria-hidden="true" style="{{f.reqStyle}}">*</span><span style="{{f.optStyle}}">opcional</span></label>
+                <div style="display: flex; gap: 8px">
+                  <span aria-hidden="true" style="{{f.ccStyle}}">CO +57</span>
+                  <input id="{{f.id}}" type="{{f.type}}" autocomplete="{{f.ac}}" inputmode="{{f.im}}" value="{{f.value}}" onChange="{{f.on}}" placeholder="{{f.ph}}" aria-invalid="{{f.bad}}" aria-describedby="{{f.errId}}" style="{{f.style}}">
+                </div>
+                <span id="{{f.errId}}" style="{{f.msgStyle}}">{{f.msg}}</span>
+              </div>
+            </sc-for>
+            <div style="display: flex; flex-direction: column; gap: 6px">
+              <label for="t-msg" style="font-size: 14px; font-weight: 600">Mensaje <span aria-hidden="true" style="color: #C755EF">*</span></label>
+              <textarea id="t-msg" rows="5" value="{{t.msg}}" onChange="{{onMsg}}" placeholder="Cuéntanos qué pasa, desde cuándo y en qué página" aria-invalid="{{msgErr.bad}}" aria-describedby="t-msg-err" style="{{msgErr.style}}"></textarea>
+              <span id="t-msg-err" style="{{msgErr.msgStyle}}">{{msgErr.msg}}</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 8px">
+              <button type="button" onClick="{{attach}}" disabled="{{attachFull}}" style="{{attachStyle}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5l-8.6 8.6a5 5 0 0 1-7.1-7.1l8.6-8.6a3.3 3.3 0 0 1 4.7 4.7l-8.6 8.6a1.7 1.7 0 0 1-2.4-2.4l7.9-7.9"></path></svg>Adjuntar archivos</button>
+              <span style="font-size: 13px; color: #B3B0BC">{{filesNote}}</span>
+              <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px">
+                <sc-for list="{{files}}" as="x" hint-placeholder-count="0">
+                  <li style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 4px 4px 4px 12px; background: #0F0F11; border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; font-size: 14px"><span style="min-width: 0; overflow-wrap: anywhere">{{x.name}} <span style="color: #B3B0BC">· {{x.size}}</span></span><button type="button" onClick="{{x.remove}}" aria-label="Quitar {{x.name}}" style="flex: none; width: 36px; height: 36px; background: transparent; color: #B3B0BC; border: 0; border-radius: 4px; font-size: 18px; cursor: pointer">×</button></li>
+                </sc-for>
+              </ul>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 10px">
+              <div style="display: flex; flex-direction: column; gap: 4px">
+                <div style="display: flex; align-items: flex-start; gap: 10px"><input id="t-terms" type="checkbox" checked="{{t.terms}}" onChange="{{onTerms}}" aria-invalid="{{termsErr.bad}}" aria-describedby="t-terms-err" style="flex: none; width: 20px; height: 20px; margin: 2px 0 0; accent-color: #6D00C2"><label for="t-terms" style="font-size: 14px">Acepto los <a href="https://dkoding.net/terminos/">términos y condiciones</a> <span aria-hidden="true" style="color: #C755EF">*</span></label></div>
+                <span id="t-terms-err" style="{{termsErr.msgStyle}}">{{termsErr.msg}}</span>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 4px">
+                <div style="display: flex; align-items: flex-start; gap: 10px"><input id="t-data" type="checkbox" checked="{{t.data}}" onChange="{{onData}}" aria-invalid="{{dataErr.bad}}" aria-describedby="t-data-err" style="flex: none; width: 20px; height: 20px; margin: 2px 0 0; accent-color: #6D00C2"><label for="t-data" style="font-size: 14px">Autorizo el <a href="https://dkoding.net/politica-de-privacidad/">tratamiento de mis datos personales</a> (Ley 1581 de 2012) <span aria-hidden="true" style="color: #C755EF">*</span></label></div>
+                <span id="t-data-err" style="{{dataErr.msgStyle}}">{{dataErr.msg}}</span>
+              </div>
+            </div>
+            <div role="status" aria-label="Verificación anti-bots" style="display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: #0F0F11; border: 1px solid rgba(255,255,255,0.14); border-radius: 4px">
+              <svg width="20" height="20" viewBox="0 0 16 16" role="img" aria-label="Verificado" style="flex: none"><path d="M8 2a6 6 0 1 1 0 12A6 6 0 0 1 8 2z" fill="#5BE49B"></path><path d="M5.5 8.2l1.7 1.7 3.4-3.6" fill="none" stroke="#0C0C0C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <span style="display: flex; flex-direction: column; line-height: 1.3"><span style="font-size: 14px; white-space: nowrap">Verificando que eres humano ✓</span><span style="font-size: 12px; color: #8E8A9B">Cloudflare Turnstile</span></span>
+            </div>
+            <button type="button" class="dk-pri" onClick="{{submit}}" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 24px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-weight: 700; font-size: 17px; cursor: pointer">Enviar ticket<span aria-hidden="true" style="font-family: 'Blinker', sans-serif">»</span></button>
+            <span style="font-size: 13px; color: #B3B0BC">Los campos con <span aria-hidden="true" style="color: #C755EF">*</span> son obligatorios.</span>
+          </section>
+        </div>
+      </div>
+    </main>
+  </sc-if>
+
+  <!-- ======================================================= -->
+  <!-- 3 · CONFIRMACIÓN                                        -->
+  <!-- ======================================================= -->
+  <sc-if value="{{isDone}}" hint-placeholder-val="{{false}}">
+    <main style="position: relative">
+      <div aria-hidden="true" style="position: absolute; inset: 0 0 auto 0; height: 380px; background: radial-gradient(60% 70% at 50% 0%, rgba(109,0,194,0.26), rgba(109,0,194,0) 70%); pointer-events: none"></div>
+      <div style="position: relative; max-width: 760px; margin: 0 auto; padding: 56px 24px 72px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px">
+          <svg width="44" height="44" viewBox="0 0 16 16" role="img" aria-label="Ticket creado"><path d="M8 2a6 6 0 1 1 0 12A6 6 0 0 1 8 2z" fill="#5BE49B"></path><path d="M5.5 8.2l1.7 1.7 3.4-3.6" fill="none" stroke="#0C0C0C" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          <p style="margin: 0; color: #C755EF; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 13px">Ticket creado</p>
+          <h1 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 300; font-size: clamp(40px, 5vw, 60px); line-height: 1.02">Tu ticket es el <strong style="font-weight: 700; white-space: nowrap">{{ticketId}}</strong></h1>
+          <p style="margin: 0; font-size: 18px; color: #D8D4E2">Te enviamos una copia a tu correo con el enlace para seguirlo: <strong>{{t.email}}</strong></p>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; padding: 20px 22px; background: #1A0B2B; border: 1px solid rgba(199,85,239,0.55); border-radius: 8px">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C755EF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0z"></path><path d="M12 7v5l3 2"></path></svg>
+          <span style="flex: 1 1 280px; display: flex; flex-direction: column"><span style="font-size: 14px; color: #D8CFE6">Primera respuesta · compromiso por escrito</span><span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 28px; line-height: 1.15">{{slaShort}}</span></span>
+          <span style="font-size: 14px; color: #D8CFE6; flex: 1 1 220px">{{slaRule}}</span>
+        </div>
+        <section aria-labelledby="h-sum" style="display: flex; flex-direction: column; gap: 4px; padding: 20px 22px; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px">
+          <h2 id="h-sum" style="margin: 0 0 8px; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 22px">Resumen</h2>
+          <dl style="margin: 0; display: flex; flex-direction: column">
+            <sc-for list="{{doneRows}}" as="r" hint-placeholder-count="7">
+              <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 16px; padding: 9px 0; border-top: 1px solid rgba(255,255,255,0.06)"><dt style="color: #B3B0BC; font-size: 15px">{{r.k}}</dt><dd style="margin: 0; font-weight: 600; text-align: right; overflow-wrap: anywhere">{{r.v}}</dd></div>
+            </sc-for>
+          </dl>
+        </section>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center">
+          <button type="button" class="dk-pri" onClick="{{goHomeReset}}" style="min-height: 48px; padding: 0 24px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-weight: 700; cursor: pointer">Volver al inicio</button>
+          <a class="dk-wa" href="{{waHrefTicket}}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 20px; background: #25D366; color: #0C0C0C; border-radius: 4px; font-weight: 700"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"></path></svg>Es urgente: escribir por WhatsApp</a>
+        </div>
+      </div>
+    </main>
+  </sc-if>
+
+  <footer style="border-top: 1px solid rgba(255,255,255,0.08); background: #0F0F11">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 10px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0 24px; font-size: 14px; color: #B3B0BC">
+      <span>© 2026 DKODING · Cali, Colombia</span>
+      <nav aria-label="Legal" style="display: flex; flex-wrap: wrap; gap: 4px 20px"><a href="https://dkoding.net/terminos/" style="display: inline-flex; align-items: center; min-height: 44px">Términos y condiciones</a><a href="https://dkoding.net/politica-de-privacidad/" style="display: inline-flex; align-items: center; min-height: 44px">Tratamiento de datos</a></nav>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1102},"vista":{"editor":"enum","options":["portada","ticket","confirmacion"],"default":"portada","section":"Estado inicial"}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = this.preset(props.vista || 'portada'); }
+  componentDidUpdate(prev) { if (prev.vista !== this.props.vista) this.setState(this.preset(this.props.vista || 'portada')); }
+  preset(v) {
+    var empty = { type: null, svc: null, step: 1, email: '', name: '', p1: '', p2: '', company: '', web: '', msg: '', files: [], terms: false, data: false, tried: false };
+    var base = { view: 'home', wa: '', call: { name: '', cc: '+57', phone: '' }, callTried: false, callSent: false, my: { email: '', state: 'idle', tried: false }, t: empty };
+    var demo = { type: 'tec', svc: 'web', step: 3, email: 'laura@empresa-ejemplo.co', name: 'Laura Gómez (ejemplo)', p1: '310 555 0148', p2: '', company: 'Ferretería en Cali (ejemplo)', web: 'ferreteria-ejemplo.co',
+      msg: 'Desde esta mañana el formulario de contacto no envía y muestra un error 500.', files: [{ name: 'captura-error-500.png', size: '840 KB' }], terms: true, data: true, tried: false };
+    if (v === 'ticket') return Object.assign({}, base, { view: 'ticket', t: Object.assign({}, demo, { msg: '', data: false, tried: true }) });
+    if (v === 'confirmacion') return Object.assign({}, base, { view: 'done', t: demo });
+    return base;
+  }
+  renderVals() {
+    var self = this, st = this.state, t = st.t;
+    function set(o) { self.setState(o); }
+    function setT(o) { set({ t: Object.assign({}, self.state.t, o) }); }
+    var ERR = 'font-size: 13px; color: #FF8F9B; display: flex; align-items: center; gap: 6px;';
+    var HIDE = 'display: none;';
+    function field(bad, extra) { return 'width: 100%; min-width: 0; min-height: 44px; box-sizing: border-box; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border-radius: 4px; border: 1px solid ' + (bad ? '#FF6B6B' : 'rgba(255,255,255,0.18)') + ';' + (extra || ''); }
+    function digits(s) { return (s || '').replace(/\D/g, '').length; }
+    function emailOk(s) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test((s || '').trim()); }
+    function enc(s) { return encodeURIComponent(s); }
+
+    // ---------- WhatsApp ----------
+    var waText = st.wa && st.wa.trim() ? st.wa.trim() : 'Hola, necesito ayuda de DKODING.';
+    var waHref = 'https://api.whatsapp.com/send/?phone=573002867104&text=' + enc(waText);
+
+    // ---------- Llamada ----------
+    var c = st.call;
+    var cNameMsg = st.callTried && !c.name.trim() ? '◆ Escribe tu nombre completo' : '';
+    var cPhoneMsg = st.callTried ? (!c.phone.trim() ? '◆ Escribe tu celular' : (c.cc === '+57' && digits(c.phone) !== 10 ? '◆ El celular en Colombia tiene 10 dígitos' : (digits(c.phone) < 7 ? '◆ Revisa el número' : ''))) : '';
+    var cErr = { name: cNameMsg, nameBad: !!cNameMsg, nameField: field(!!cNameMsg), nameMsgStyle: cNameMsg ? ERR : HIDE,
+      phone: cPhoneMsg, phoneBad: !!cPhoneMsg, phoneField: field(!!cPhoneMsg, ' flex: 1;'), phoneMsgStyle: cPhoneMsg ? ERR : HIDE };
+    function callSet(k) { return function (e) { var n = Object.assign({}, self.state.call); n[k] = e.target.value; set({ call: n }); }; }
+    var sendCall = function () {
+      var cc = self.state.call; var okName = !!cc.name.trim(); var d = digits(cc.phone);
+      var okPhone = cc.cc === '+57' ? d === 10 : d >= 7;
+      if (okName && okPhone) set({ callSent: true, callTried: false }); else set({ callTried: true });
+    };
+
+    // ---------- Ver mis tickets ----------
+    var my = st.my;
+    var myMsg = my.tried && !emailOk(my.email) ? (my.email.trim() ? '◆ Revisa el correo: falta algo' : '◆ Escribe tu correo') : '';
+    var mySteps = [{ n: '1', label: 'Escribe tu correo' }, { n: '2', label: 'Abre el enlace que te llega' }, { n: '3', label: 'Ves tus tickets y su estado' }].map(function (s, i) {
+      var cur = (my.state === 'idle' && i === 0) || (my.state === 'sent' && i === 1) || (my.state === 'list' && i === 2);
+      var done = (my.state === 'sent' && i < 1) || (my.state === 'list' && i < 2);
+      return { n: done ? '✓' : s.n, label: s.label, cur: cur ? 'step' : 'false',
+        badge: 'display: inline-flex; align-items: center; justify-content: center; flex: none; width: 30px; height: 30px; border-radius: 50%; font-weight: 700; font-size: 14px; ' + (cur ? 'background: #6D00C2; color: #FFFFFF;' : done ? 'background: rgba(91,228,155,0.14); color: #5BE49B;' : 'background: transparent; color: #B3B0BC; border: 1px solid rgba(255,255,255,0.2); box-sizing: border-box;'),
+        textStyle: cur ? 'font-weight: 600; color: #F4F2F8;' : 'color: #B3B0BC;' };
+    });
+    var sendLink = function () { if (emailOk(self.state.my.email)) set({ my: Object.assign({}, self.state.my, { state: 'sent', tried: false }) }); else set({ my: Object.assign({}, self.state.my, { tried: true }) }); };
+    var CIRC = 'M8 2a6 6 0 1 1 0 12A6 6 0 0 1 8 2z', TRI = 'M8 1.5L15 14H1z';
+    var myTickets = [
+      { id: 'DK-0148', what: 'Soporte técnico · Sitio web o tienda virtual', when: 'abierto hoy 09:12 · primera respuesta antes de las 13:12', status: 'En curso', shape: TRI, color: '#E0A93B', tone: 'warn' },
+      { id: 'DK-0131', what: 'Servicio al cliente · Correo corporativo', when: 'abierto el 28/09 · resuelto el 29/09', status: 'Resuelto', shape: CIRC, color: '#5BE49B', tone: 'ok' }
+    ].map(function (k) { return Object.assign(k, { pill: 'display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; ' + (k.tone === 'ok' ? 'background: rgba(91,228,155,0.1); color: #5BE49B;' : 'background: rgba(224,169,59,0.12); color: #E0A93B;') }); });
+
+    // ---------- Ticket ----------
+    var TYPES = [
+      { id: 'cli', label: 'Servicio al cliente', desc: 'Dudas, capacitación, cambios en tu sitio.', note: '', sla: '1 día hábil', icon: 'M4 13v-1a8 8 0 0 1 16 0v1 M4 13a2 2 0 0 1 2-2h1v6H6a2 2 0 0 1-2-2z M20 13a2 2 0 0 0-2-2h-1v6h1a2 2 0 0 0 2-2z M17 17v1a3 3 0 0 1-3 3h-2' },
+      { id: 'com', label: 'Asesoría comercial', desc: 'Cotizaciones, nuevos servicios, facturación.', note: 'Te atiende el equipo comercial', sla: 'el mismo día hábil', icon: 'M3 8h18v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z M8 8V5a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v3 M3 13h18' },
+      { id: 'tec', label: 'Soporte técnico', desc: 'Fallas, sitio caído, correo, hosting.', note: '', sla: '4 horas hábiles', icon: 'M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z' }
+    ];
+    var SVCS = [
+      { id: 'web', label: 'Sitio web o tienda virtual', icon: 'M5 4h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z M3 9h18 M6.5 6.5h.01 M9 6.5h.01' },
+      { id: 'host', label: 'Hosting y dominio', icon: 'M4 4h16a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z M4 13h16a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-5a1 1 0 0 1 1-1z M7 7.5h.01 M7 16.5h.01 M11 7.5h6 M11 16.5h6' },
+      { id: 'mail', label: 'Correo corporativo', icon: 'M5 5h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z M3 7l9 6 9-6' },
+      { id: 'brand', label: 'Diseño de marca', icon: 'M12 19l7-7 3 3-7 7z M18 13l-1.5-7.5L2 2l3.5 14.5L13 18z M2 2l7.6 7.6 M13 11a2 2 0 1 1-4 0a2 2 0 0 1 4 0z' },
+      { id: 'mkt', label: 'Marketing digital y pauta', icon: 'M3 10v4a1 1 0 0 0 1 1h3l6 4V5L7 9H4a1 1 0 0 0-1 1z M16.5 8.5a5 5 0 0 1 0 7 M19 6a8.5 8.5 0 0 1 0 12' },
+      { id: 'seo', label: 'SEO y GEO', icon: 'M17 10.5a6.5 6.5 0 1 1-13 0a6.5 6.5 0 0 1 13 0z M20 20l-4.8-4.8 M7.5 12l2-2 1.5 1.5 2.5-3' },
+      { id: 'rrss', label: 'Manejo de redes sociales', icon: 'M21 5a3 3 0 1 1-6 0a3 3 0 0 1 6 0z M9 12a3 3 0 1 1-6 0a3 3 0 0 1 6 0z M21 19a3 3 0 1 1-6 0a3 3 0 0 1 6 0z M8.6 13.5l6.8 4 M15.4 6.5l-6.8 4' },
+      { id: 'apps', label: 'Desarrollo de apps', icon: 'M9 2h6a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z M11 18h2' },
+      { id: 'dkard', label: 'dkard.co (tarjeta digital)', icon: 'M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z M10.5 12a2.5 2.5 0 1 1-5 0a2.5 2.5 0 0 1 5 0z M13 10h5 M13 14h3' },
+      { id: 'otro', label: 'Otro', icon: 'M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0z M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7 M12 17h.01' }
+    ];
+    var tp = TYPES.filter(function (x) { return x.id === t.type; })[0];
+    var sv = SVCS.filter(function (x) { return x.id === t.svc; })[0];
+    function optStyle(on, extra) { return 'display: flex; gap: 12px; width: 100%; box-sizing: border-box; padding: 14px; border-radius: 8px; cursor: pointer; color: #F4F2F8; ' + (on ? 'background: #1A0B2B; border: 1px solid #C755EF;' : 'background: #0F0F11; border: 1px solid rgba(255,255,255,0.1);') + (extra || ''); }
+    var types = TYPES.map(function (o) {
+      var on = t.type === o.id;
+      return { label: o.label, desc: o.desc, note: o.note, icon: o.icon, on: on, descId: 'tipo-' + o.id + '-desc',
+        noteStyle: o.note ? 'margin-top: 4px; align-self: flex-start; padding: 1px 8px; border-radius: 999px; background: rgba(199,85,239,0.14); color: #D98BFF; font-size: 12px; font-weight: 600;' : HIDE,
+        radio: 'flex: none; width: 18px; height: 18px; margin-top: 4px; box-sizing: border-box; border-radius: 50%; ' + (on ? 'border: 5px solid #C755EF; background: #0C0C0C;' : 'border: 2px solid rgba(255,255,255,0.3);'),
+        style: optStyle(on, ' align-items: flex-start; min-height: 76px;'),
+        pick: function () { setT({ type: o.id, step: self.state.t.svc ? 3 : 2 }); } };
+    });
+    var services = SVCS.map(function (o) {
+      var on = t.svc === o.id;
+      return { label: o.label, icon: o.icon, on: on, style: optStyle(on, ' flex-direction: column; align-items: flex-start; gap: 8px; min-height: 92px; padding: 12px;'),
+        pick: function () { setT({ svc: o.id, step: 3 }); } };
+    });
+    var steps = [{ n: 1, label: 'Tipo de ayuda', v: tp ? tp.label : '' }, { n: 2, label: 'Servicio', v: sv ? sv.label : '' }, { n: 3, label: 'Tu ticket', v: '' }].map(function (s) {
+      var cur = t.step === s.n, done = !!s.v;
+      return { label: s.n + '. ' + s.label, value: s.v || (s.n === 3 ? 'datos y mensaje' : 'sin elegir'), mark: done ? '✓' : String(s.n), cur: cur ? 'step' : 'false',
+        valueStyle: 'font-size: 13px; color: ' + (s.v ? '#D8D4E2' : '#B3B0BC') + '; text-align: left;',
+        badge: 'display: inline-flex; align-items: center; justify-content: center; flex: none; width: 30px; height: 30px; border-radius: 50%; font-weight: 700; font-size: 14px; ' + (cur ? 'background: #6D00C2; color: #FFFFFF;' : done ? 'background: rgba(91,228,155,0.14); color: #5BE49B;' : 'border: 1px solid rgba(255,255,255,0.24); color: #B3B0BC; box-sizing: border-box;'),
+        style: 'display: flex; align-items: center; gap: 12px; width: 100%; min-height: 56px; padding: 8px 14px; border-radius: 8px; cursor: pointer; color: #F4F2F8; ' + (cur ? 'background: #1A0B2B; border: 1px solid #C755EF;' : 'background: #151518; border: 1px solid rgba(255,255,255,0.08);'),
+        go: function () { setT({ step: s.n }); } };
+    });
+    function colStyle(n) { return 'display: flex; flex-direction: column; gap: 14px; min-width: 0; padding: 20px; border-radius: 8px; background: #151518; border: 1px solid ' + (t.step === n ? '#C755EF' : 'rgba(255,255,255,0.08)') + ';'; }
+
+    // Validación
+    var tried = t.tried;
+    function need(cond, msg) { return tried && cond ? '◆ ' + msg : ''; }
+    var E = {
+      type: need(!t.type, 'Elige el tipo de ayuda (paso 1)'),
+      svc: need(!t.svc, 'Elige el servicio (paso 2)'),
+      email: need(!emailOk(t.email), t.email.trim() ? 'Revisa el correo: falta algo' : 'Escribe tu correo'),
+      name: need(!t.name.trim(), 'Escribe tu nombre completo'),
+      p1: need(digits(t.p1) !== 10, t.p1.trim() ? 'El celular en Colombia tiene 10 dígitos' : 'Escribe tu celular'),
+      p2: need(t.p2.trim() !== '' && digits(t.p2) !== 10, 'Revisa el celular 2 o déjalo vacío'),
+      company: need(!t.company.trim(), 'Escribe tu empresa (o «Persona natural»)'),
+      msg: need(!t.msg.trim(), 'Cuéntanos qué pasa'),
+      terms: need(!t.terms, 'Debes aceptar los términos y condiciones'),
+      data: need(!t.data, 'Debes autorizar el tratamiento de datos')
+    };
+    var errCount = Object.keys(E).filter(function (k) { return !!E[k]; }).length;
+    function fset(k) { return function (e) { var o = {}; o[k] = e.target.value; setT(o); }; }
+    var FIELDS = [
+      { k: 'email', id: 't-email', label: 'Correo electrónico', type: 'email', ac: 'email', im: 'email', ph: 'tu@empresa.com', req: true },
+      { k: 'name', id: 't-name', label: 'Nombre completo', type: 'text', ac: 'name', im: 'text', ph: '', req: true },
+      { k: 'p1', id: 't-p1', label: 'Celular 1', type: 'tel', ac: 'tel-national', im: 'tel', ph: '300 000 0000', req: true, cc: true },
+      { k: 'p2', id: 't-p2', label: 'Celular 2', type: 'tel', ac: 'off', im: 'tel', ph: '300 000 0000', req: false, cc: true },
+      { k: 'company', id: 't-company', label: 'Empresa', type: 'text', ac: 'organization', im: 'text', ph: '', req: true },
+      { k: 'web', id: 't-web', label: 'Sitio web', type: 'text', ac: 'url', im: 'url', ph: 'tusitio.com', req: false }
+    ];
+    var fields = FIELDS.map(function (f) {
+      var msg = E[f.k] || '';
+      return { id: f.id, label: f.label, type: f.type, ac: f.ac, im: f.im, ph: f.ph, value: t[f.k], on: fset(f.k), bad: !!msg, msg: msg, errId: f.id + '-err',
+        reqStyle: f.req ? 'color: #C755EF;' : HIDE, optStyle: f.req ? HIDE : 'margin-left: 6px; font-size: 12px; font-weight: 400; color: #B3B0BC;',
+        ccStyle: f.cc ? 'flex: none; display: inline-flex; align-items: center; padding: 0 10px; min-height: 44px; box-sizing: border-box; background: #0F0F11; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; font-size: 14px; color: #D8D4E2;' : HIDE,
+        style: field(!!msg), msgStyle: msg ? ERR : HIDE };
+    });
+    function errBlock(msg) { return { msg: msg, bad: !!msg, msgStyle: msg ? ERR : HIDE }; }
+    var msgErr = Object.assign(errBlock(E.msg), { style: field(!!E.msg, ' min-height: 120px; padding: 10px 12px; resize: vertical;') });
+    var summary = [
+      { k: 'Tipo de ayuda', v: tp ? tp.label : (E.type || 'Sin elegir'), vStyle: tp ? 'font-weight: 600;' : (E.type ? 'color: #FF8F9B; font-weight: 600;' : 'color: #B3B0BC;'), cta: tp ? 'Cambiar' : 'Elegir', go: function () { setT({ step: 1 }); } },
+      { k: 'Servicio', v: sv ? sv.label : (E.svc || 'Sin elegir'), vStyle: sv ? 'font-weight: 600;' : (E.svc ? 'color: #FF8F9B; font-weight: 600;' : 'color: #B3B0BC;'), cta: sv ? 'Cambiar' : 'Elegir', go: function () { setT({ step: 2 }); } }
+    ];
+    var SAMPLE = [{ name: 'captura-error-500.png', size: '840 KB' }, { name: 'factura-septiembre.pdf', size: '1,2 MB' }, { name: 'logo-nuevo.svg', size: '36 KB' }, { name: 'video-falla.mp4', size: '9,4 MB' }, { name: 'textos-pagina.docx', size: '220 KB' }];
+    var files = t.files.map(function (x, i) { return { name: x.name, size: x.size, remove: function () { var n = self.state.t.files.slice(); n.splice(i, 1); setT({ files: n }); } }; });
+    var full = t.files.length >= 5;
+    var submit = function () {
+      var T = self.state.t;
+      var ok = T.type && T.svc && emailOk(T.email) && T.name.trim() && digits(T.p1) === 10 && (T.p2.trim() === '' || digits(T.p2) === 10) && T.company.trim() && T.msg.trim() && T.terms && T.data;
+      if (ok) set({ view: 'done' }); else setT({ tried: true, step: !T.type ? 1 : !T.svc ? 2 : 3 });
+    };
+    var doneRows = [
+      { k: 'Tipo de ayuda', v: tp ? tp.label : '—' }, { k: 'Servicio', v: sv ? sv.label : '—' }, { k: 'Nombre', v: t.name }, { k: 'Correo', v: t.email },
+      { k: 'Celular', v: '+57 ' + t.p1 + (t.p2 ? ' · +57 ' + t.p2 : '') }, { k: 'Empresa', v: t.company + (t.web ? ' · ' + t.web : '') },
+      { k: 'Mensaje', v: t.msg }, { k: 'Adjuntos', v: t.files.length ? t.files.map(function (x) { return x.name; }).join(', ') : 'ninguno' }
+    ];
+    var goHome = function () { set({ view: 'home' }); };
+
+    return {
+      isHome: st.view === 'home', isTicket: st.view === 'ticket', isDone: st.view === 'done',
+      wa: st.wa, onWa: function (e) { set({ wa: e.target.value }); }, waHref: waHref,
+      call: c, cErr: cErr, onCallName: callSet('name'), onCallCc: callSet('cc'), onCallPhone: callSet('phone'), sendCall: sendCall,
+      callOpen: !st.callSent, callDone: st.callSent, callDoneText: c.name.trim().split(' ')[0] + ', te llamaremos al ' + c.cc + ' ' + c.phone + '.',
+      resetCall: function () { set({ callSent: false, call: { name: '', cc: '+57', phone: '' } }); },
+      goTicket: function () { set({ view: 'ticket' }); },
+      my: my, mySteps: mySteps, myIdle: my.state === 'idle', mySent: my.state === 'sent', myList: my.state === 'list',
+      onMyEmail: function (e) { set({ my: Object.assign({}, self.state.my, { email: e.target.value }) }); },
+      myErr: { msg: myMsg, bad: !!myMsg, field: field(!!myMsg, ' flex: 1 1 220px; width: auto;'), msgStyle: myMsg ? ERR : HIDE },
+      sendLink: sendLink, openLink: function () { set({ my: Object.assign({}, self.state.my, { state: 'list' }) }); },
+      otherEmail: function () { set({ my: { email: '', state: 'idle', tried: false } }); }, myTickets: myTickets,
+      goHome: goHome, goMyTickets: goHome,
+      steps: steps, types: types, services: services, col1: colStyle(1), col2: colStyle(2), col3: colStyle(3),
+      summary: summary, slaText: tp ? 'Primera respuesta: ' + tp.sla + ' · compromiso por escrito' : 'El tiempo de primera respuesta depende del tipo de ayuda',
+      slaStyle: 'padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.06); font-size: 13px; color: ' + (tp ? '#D98BFF' : '#B3B0BC') + ';',
+      hasErrors: tried && errCount > 0, errorsTitle: errCount === 1 ? 'Falta 1 dato para enviar el ticket. Está marcado abajo.' : 'Faltan ' + errCount + ' datos para enviar el ticket. Están marcados en cada campo.',
+      fields: fields, t: t, onMsg: fset('msg'), msgErr: msgErr,
+      onTerms: function (e) { setT({ terms: e.target.checked }); }, onData: function (e) { setT({ data: e.target.checked }); },
+      termsErr: errBlock(E.terms), dataErr: errBlock(E.data),
+      files: files, attach: function () { var n = self.state.t.files; if (n.length < 5) setT({ files: n.concat([SAMPLE[n.length % SAMPLE.length]]) }); }, attachFull: full,
+      attachStyle: 'align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; background: transparent; border-radius: 4px; font-weight: 600; cursor: ' + (full ? 'not-allowed' : 'pointer') + '; ' + (full ? 'color: #8E8A9B; border: 1px solid rgba(255,255,255,0.12);' : 'color: #F4F2F8; border: 1px solid rgba(255,255,255,0.3);'),
+      filesNote: t.files.length + ' de 5 archivos · hasta 10 MB cada uno · imágenes, PDF, documentos o video',
+      submit: submit,
+      ticketId: 'DK-0148', slaShort: tp ? tp.sla : '—',
+      slaRule: 'Soporte técnico: 4 horas hábiles · Servicio al cliente: 1 día hábil · Asesoría comercial: el mismo día hábil.',
+      doneRows: doneRows, goHomeReset: function () { set(self.preset('portada')); },
+      waHrefTicket: 'https://api.whatsapp.com/send/?phone=573002867104&text=' + enc('Hola, escribo por el ticket DK-0148.')
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Tickets de soporte</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Blinker:wght@300;600;700&amp;family=Barlow:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#0C0C0C}
+a{color:#D98BFF;text-decoration:none}a:hover{color:#F0D4FF}
+button,input,select,textarea{font:inherit}
+button:focus-visible,input:focus-visible,a:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid #D98BFF;outline-offset:2px}
+.dk-nav a:hover{background:#17161C;color:#F4F2F8}
+.dk-row:hover{background:#1D1B24}
+.dk-ghost:hover{background:#1D1B24;color:#F4F2F8}
+select option{background:#151518;color:#F4F2F8}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; min-height: 100%; background: #0C0C0C; color: #F4F2F8; font-family: 'Barlow', system-ui, sans-serif; font-size: 14px; line-height: 1.5">
+
+  <header style="border-bottom: 1px solid rgba(255,255,255,0.08); background: #101013">
+    <div style="padding: 10px 20px; display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center">
+      <a href="Main.dc.html" aria-label="DKODING, inicio del admin" style="display: flex; align-items: center; min-height: 40px"><img src="/_blob/af8d4aea91012d3a301c737f7fa02819" alt="DKODING" style="height: 26px; width: auto"></a>
+      <span style="padding: 3px 10px; border-radius: 999px; background: rgba(199,85,239,0.14); color: #D98BFF; font-size: 12px; font-weight: 600">Admin</span>
+      <div style="flex: 1 1 260px; display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 12px; background: #0C0C0C; border: 1px solid rgba(255,255,255,0.14); border-radius: 6px; max-width: 560px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B3B0BC" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg><label for="g-search" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Buscar en el admin</label><input id="g-search" type="text" placeholder="Buscar ticket, contacto o cliente" style="flex: 1; min-width: 0; background: transparent; border: 0; color: #F4F2F8; outline: none"><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 2px 6px; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; color: #B3B0BC">Ctrl K</kbd></div>
+      <div style="display: flex; align-items: center; gap: 8px; margin-left: auto"><a href="Main.dc.html" aria-label="Avisos: 1 sitio caído, 3 de atención" style="position: relative; display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 6px; color: #F4F2F8"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10 21h4"></path></svg><span aria-hidden="true" style="position: absolute; top: 4px; right: 3px; min-width: 16px; height: 16px; padding: 0 4px; box-sizing: border-box; border-radius: 999px; background: #FF6B6B; color: #0C0C0C; font-size: 11px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center">4</span></a><img src="/_blob/c1f4c9d27736f1652e876e2f660320ef" alt="Tu cuenta: Dirección" style="width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 2px solid #3D0A6E"></div>
+    </div>
+  </header>
+
+  <div style="display: flex; flex-wrap: wrap; align-items: flex-start">
+    <nav class="dk-nav" aria-label="Módulos" style="flex: 1 1 232px; max-width: 260px; box-sizing: border-box; padding: 14px 10px 24px; background: #101013; border-right: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; gap: 2px; font-size: 14px">
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Inicio</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Sitio dkoding.net</span>
+      <a href="Paginas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Páginas</a>
+      <a href="Paginas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Redirecciones</a>
+      <a href="Paginas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Palabras clave</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">CRM</span>
+      <a href="Cliente.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Clientes</a>
+      <a href="Cotizaciones.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Leads<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(224,169,59,0.16); color: #E0A93B; font-size: 12px; font-weight: 600">2</span></a>
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Renovaciones</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Soporte</span>
+      <a href="Tickets.dc.html" aria-current="page" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #F4F2F8; background: #1A0B2B; font-weight: 600"><span aria-hidden="true" style="width: 14px; color: #C755EF; font-family: 'Blinker', sans-serif; font-weight: 700">»</span>Tickets<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(224,169,59,0.16); color: #E0A93B; font-size: 12px; font-weight: 600">3</span></a>
+      <a href="Tickets.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Llamadas por devolver<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(224,169,59,0.16); color: #E0A93B; font-size: 12px; font-weight: 600">2</span></a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Accesos</span>
+      <a href="Boveda.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Personales</a>
+      <a href="Boveda.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Agencia</a>
+      <a href="Boveda.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Clientes</a>
+      <a href="ImportarAccesos.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Importar Excel</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Ventas</span>
+      <a href="Cotizaciones.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Cotizaciones</a>
+      <a href="Tarifas.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Tarifas</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Salud</span>
+      <a href="Sitios.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Sitios<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(255,107,107,0.16); color: #FF8F9B; font-size: 12px; font-weight: 600">1</span></a>
+      <a href="Sitios.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Copias<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(224,169,59,0.16); color: #E0A93B; font-size: 12px; font-weight: 600">1</span></a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Ajustes</span>
+      <a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Usuarios y roles</a>
+      <a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Conexiones</a>
+      <a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Registro</a>
+      <span style="font-size: 12px; color: #8E8A9B; padding: 16px 10px 0">MVP simple. Lo que no se usa todavía no aparece en el menú.</span>
+    </nav>
+
+    <main id="tickets" style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 24px 28px 48px; display: flex; flex-direction: column; gap: 16px">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px">
+        <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0">
+          <nav aria-label="Ruta" style="font-size: 13px; color: #B3B0BC">Soporte</nav>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px"><h1 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 30px; line-height: 1.1">Tickets</h1><span style="padding: 2px 10px; border-radius: 999px; border: 1px dashed rgba(255,255,255,0.28); color: #B3B0BC; font-size: 12px; font-weight: 600">Datos de ejemplo</span></div>
+          <span style="color: #B3B0BC">{{subtitle}}</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+          <span style="font-size: 12px; color: #8E8A9B">Llegan de dkoding.net/soporte/ · se siguen por un enlace en el correo</span>
+          <button type="button" onClick="{{openNew}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 16px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-weight: 600; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Nuevo ticket</button>
+        </div>
+      </div>
+
+      <div role="tablist" aria-label="Soporte" style="display: flex; flex-wrap: wrap; gap: 4px; padding: 4px; background: #101013; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; align-self: flex-start; max-width: 100%; box-sizing: border-box">
+        <sc-for list="{{tabs}}" as="t" hint-placeholder-count="2"><button type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}" style="{{t.style}}">{{t.label}}<span style="{{t.badgeStyle}}">{{t.count}}</span></button></sc-for>
+      </div>
+
+      <sc-if value="{{isTickets}}" hint-placeholder-val="{{true}}">
+        <div style="display: flex; flex-direction: column; gap: 14px">
+          <div style="display: flex; flex-wrap: wrap; gap: 8px 20px; padding: 10px 14px; background: #101013; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; font-size: 13px; color: #D8D4E2">
+            <span style="display: inline-flex; align-items: center; gap: 8px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D98BFF" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><strong style="font-weight: 600">Primera respuesta</strong> (L–V, 8:00–18:00): soporte técnico 4 h hábiles · servicio al cliente 1 día hábil · asesoría comercial el mismo día</span>
+            <span style="color: #B3B0BC">Ámbar: queda menos del 25 % · rojo: venció</span>
+          </div>
+
+          <section aria-labelledby="h-bandeja" style="background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; min-width: 0">
+            <h2 id="h-bandeja" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Bandeja de tickets</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px; padding: 14px 16px 0" role="group" aria-label="Estado">
+              <sc-for list="{{statusChips}}" as="c" hint-placeholder-count="7"><button type="button" onClick="{{c.pick}}" aria-pressed="{{c.on}}" style="{{c.style}}">{{c.label}}<span style="{{c.countStyle}}">{{c.count}}</span></button></sc-for>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.08)">
+              <div style="flex: 1 1 220px; display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 12px; background: #0C0C0C; border: 1px solid rgba(255,255,255,0.14); border-radius: 4px; min-width: 0; box-sizing: border-box"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B3B0BC" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg><label for="t-q" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Buscar tickets</label><input id="t-q" type="text" value="{{q}}" onChange="{{setQ}}" placeholder="Buscar por número, asunto, contacto o cliente" style="flex: 1; min-width: 0; background: transparent; border: 0; color: #F4F2F8; outline: none"></div>
+              <label for="f-tipo" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Filtrar por tipo de ayuda</label>
+              <select id="f-tipo" value="{{fTipo}}" onChange="{{setTipo}}" style="{{selTipo}}"><sc-for list="{{tipoOpts}}" as="o" hint-placeholder-count="4"><option value="{{o.v}}">{{o.l}}</option></sc-for></select>
+              <label for="f-serv" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Filtrar por servicio</label>
+              <select id="f-serv" value="{{fServ}}" onChange="{{setServ}}" style="{{selServ}}"><sc-for list="{{servOpts}}" as="o" hint-placeholder-count="10"><option value="{{o.v}}">{{o.l}}</option></sc-for></select>
+              <label for="f-prio" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Filtrar por prioridad</label>
+              <select id="f-prio" value="{{fPrio}}" onChange="{{setPrio}}" style="{{selPrio}}"><sc-for list="{{prioOpts}}" as="o" hint-placeholder-count="4"><option value="{{o.v}}">{{o.l}}</option></sc-for></select>
+              <sc-if value="{{hasFilters}}" hint-placeholder-val="{{false}}"><button type="button" onClick="{{clearFilters}}" style="min-height: 40px; padding: 0 12px; background: transparent; color: #D98BFF; border: 0; font-weight: 600; cursor: pointer">Quitar filtros</button></sc-if>
+            </div>
+            <div style="overflow-x: auto">
+              <table style="width: 100%; min-width: 1100px; border-collapse: collapse">
+                <thead>
+                  <tr style="color: #B3B0BC; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; text-align: left">
+                    <th scope="col" style="padding: 10px 8px 10px 16px; font-weight: 600">Número</th>
+                    <th scope="col" style="padding: 10px 8px; font-weight: 600">Asunto</th>
+                    <th scope="col" style="padding: 10px 8px; font-weight: 600; min-width: 128px">Cliente</th>
+                    <th scope="col" style="padding: 10px 8px; font-weight: 600">Servicio y tipo</th>
+                    <th scope="col" style="padding: 10px 8px; font-weight: 600">Prioridad</th>
+                    <th scope="col" style="padding: 10px 8px; font-weight: 600">Estado</th>
+                    <th scope="col" style="padding: 10px 8px; font-weight: 600">Primera respuesta</th>
+                    <th scope="col" style="padding: 10px 16px 10px 8px; font-weight: 600">Canal y antigüedad</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <sc-for list="{{rows}}" as="r" hint-placeholder-count="7">
+                    <tr class="dk-row" style="{{r.rowStyle}}">
+                      <td style="padding: 10px 8px 10px 16px; vertical-align: top"><button type="button" onClick="{{r.open}}" aria-label="Abrir el ticket {{r.id}}" style="min-height: 32px; padding: 0 8px; background: transparent; color: #D98BFF; border: 1px solid rgba(217,139,255,0.35); border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; cursor: pointer; white-space: nowrap">{{r.id}}</button></td>
+                      <td style="padding: 10px 8px; vertical-align: top; max-width: 270px">
+                        <button type="button" onClick="{{r.open}}" style="display: block; max-width: 100%; padding: 0; background: transparent; border: 0; color: #F4F2F8; font-weight: 600; text-align: left; cursor: pointer">{{r.subject}}</button>
+                        <span style="display: block; font-size: 12.5px; color: #B3B0BC; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 250px">{{r.preview}}</span>
+                        <sc-if value="{{r.hasSite}}" hint-placeholder-val="{{false}}"><a href="Sitios.dc.html" style="{{r.siteStyle}}"><svg width="9" height="9" viewBox="0 0 16 16" role="img" aria-label="{{r.sic.label}}" style="flex: none"><path d="{{r.sic.d}}" fill="{{r.sic.fill}}"></path></svg>{{r.siteText}}</a></sc-if>
+                        <sc-if value="{{r.hasLead}}" hint-placeholder-val="{{false}}"><a href="Cotizaciones.dc.html" style="display: inline-flex; align-items: center; gap: 5px; margin-top: 4px; padding: 1px 8px; border-radius: 999px; background: rgba(199,85,239,0.12); color: #D98BFF; font-size: 12px; font-weight: 600">{{r.leadText}} »</a></sc-if>
+                      </td>
+                      <td style="padding: 10px 8px; vertical-align: top">
+                        <sc-if value="{{r.isClient}}" hint-placeholder-val="{{true}}"><span style="display: flex; flex-direction: column"><span style="font-weight: 600; font-size: 13px">{{r.clientName}}</span><span style="font-size: 12px; color: #B3B0BC">{{r.clientKind}}</span></span></sc-if>
+                        <sc-if value="{{r.isNew}}" hint-placeholder-val="{{false}}"><span style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px"><span style="display: inline-flex; padding: 1px 8px; border-radius: 999px; background: rgba(224,169,59,0.12); color: #E8C27A; font-size: 12px; font-weight: 600; white-space: nowrap">Contacto nuevo</span><span style="font-size: 12px; color: #B3B0BC">{{r.company}}</span><button type="button" onClick="{{r.openLink}}" style="min-height: 30px; padding: 0 8px; background: transparent; color: #D98BFF; border: 1px solid rgba(217,139,255,0.4); border-radius: 4px; font-size: 12px; font-weight: 600; cursor: pointer">Vincular o crear cliente</button></span></sc-if>
+                      </td>
+                      <td style="padding: 10px 8px; vertical-align: top"><span style="display: flex; flex-direction: column"><span style="font-size: 13px">{{r.serv}}</span><span style="font-size: 12px; color: #B3B0BC">{{r.tipoLabel}}</span></span></td>
+                      <td style="padding: 10px 8px; vertical-align: top"><span style="{{r.prioStyle}}">{{r.prio}}</span></td>
+                      <td style="padding: 10px 8px; vertical-align: top"><span style="{{r.stStyle}}">{{r.stLabel}}</span></td>
+                      <td style="padding: 10px 8px; vertical-align: top"><span style="display: flex; gap: 6px; align-items: flex-start"><svg width="11" height="11" viewBox="0 0 16 16" role="img" aria-label="{{r.slaIc.label}}" style="flex: none; margin-top: 5px"><path d="{{r.slaIc.d}}" fill="{{r.slaIc.fill}}"></path></svg><span style="display: flex; flex-direction: column"><span style="{{r.slaStyle}}">{{r.slaText}}</span><span style="font-size: 12px; color: #B3B0BC">{{r.slaNote}}</span></span></span></td>
+                      <td style="padding: 10px 16px 10px 8px; vertical-align: top"><span style="display: flex; flex-direction: column"><span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B3B0BC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{r.canalIcon}}"></path></svg>{{r.canal}}</span><span style="font-size: 12px; color: #B3B0BC">{{r.age}}</span></span></td>
+                    </tr>
+                  </sc-for>
+                </tbody>
+              </table>
+              <sc-if value="{{isEmpty}}" hint-placeholder-val="{{false}}">
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 36px 16px; color: #B3B0BC; text-align: center"><span style="font-weight: 600; color: #F4F2F8">Ningún ticket coincide</span><button type="button" onClick="{{clearFilters}}" style="min-height: 36px; padding: 0 12px; background: transparent; color: #D98BFF; border: 1px solid rgba(217,139,255,0.4); border-radius: 4px; font-weight: 600; cursor: pointer">Quitar filtros</button></div>
+              </sc-if>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding: 10px 16px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 13px; color: #B3B0BC">
+              <span>{{pageText}}</span>
+              <span>Reglas: <strong style="font-weight: 600; color: #D8D4E2">asesoría comercial</strong> crea o actualiza un lead · <strong style="font-weight: 600; color: #D8D4E2">soporte técnico</strong> de un sitio se vincula a Salud</span>
+            </div>
+          </section>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{isCalls}}" hint-placeholder-val="{{false}}">
+        <section aria-labelledby="h-calls" style="background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; min-width: 0">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; padding: 14px 16px">
+            <div style="display: flex; flex-direction: column"><h2 id="h-calls" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">Llamadas por devolver</h2><span style="font-size: 13px; color: #B3B0BC">Llegan del formulario «Solicita una llamada» de /soporte/ · nombre y celular</span></div>
+          </div>
+          <div style="overflow-x: auto">
+            <table style="width: 100%; min-width: 960px; border-collapse: collapse">
+              <thead><tr style="color: #B3B0BC; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; text-align: left; border-top: 1px solid rgba(255,255,255,0.08)"><th scope="col" style="padding: 10px 8px 10px 16px; font-weight: 600">Nombre</th><th scope="col" style="padding: 10px 8px; font-weight: 600">Celular</th><th scope="col" style="padding: 10px 8px; font-weight: 600">Pidió la llamada</th><th scope="col" style="padding: 10px 8px; font-weight: 600">Estado</th><th scope="col" style="padding: 10px 8px; font-weight: 600">Notas</th><th scope="col" style="padding: 10px 16px 10px 8px; font-weight: 600; text-align: right">Acciones</th></tr></thead>
+              <tbody>
+                <sc-for list="{{calls}}" as="c" hint-placeholder-count="3">
+                  <tr class="dk-row" style="border-top: 1px solid rgba(255,255,255,0.06)">
+                    <td style="padding: 12px 8px 12px 16px"><span style="display: flex; flex-direction: column"><span style="font-weight: 600">{{c.name}}</span><span style="font-size: 12px; color: #B3B0BC">{{c.company}}</span></span></td>
+                    <td style="padding: 12px 8px; font-family: 'JetBrains Mono', monospace; font-size: 13px; white-space: nowrap">{{c.cel}}</td>
+                    <td style="padding: 12px 8px"><span style="display: flex; flex-direction: column"><span>{{c.when}}</span><span style="font-size: 12px; color: #B3B0BC">{{c.wait}}</span></span></td>
+                    <td style="padding: 12px 8px"><span style="display: inline-flex; align-items: center; gap: 6px; white-space: nowrap"><svg width="11" height="11" viewBox="0 0 16 16" role="img" aria-label="{{c.ic.label}}"><path d="{{c.ic.d}}" fill="{{c.ic.fill}}"></path></svg><span style="{{c.stStyle}}">{{c.stLabel}}</span></span></td>
+                    <td style="padding: 12px 8px; font-size: 13px; color: #D8D4E2; max-width: 280px"><span style="display: flex; flex-direction: column; align-items: flex-start; gap: 2px"><span>{{c.notes}}</span><sc-if value="{{c.hasTicket}}" hint-placeholder-val="{{false}}"><button type="button" onClick="{{c.openTicket}}" style="min-height: 28px; padding: 0; background: transparent; border: 0; color: #D98BFF; font-weight: 600; cursor: pointer">{{c.linkText}} »</button></sc-if><sc-if value="{{c.hasLead}}" hint-placeholder-val="{{false}}"><a href="Cotizaciones.dc.html" style="display: inline-flex; align-items: center; min-height: 28px; font-weight: 600">{{c.linkText}} »</a></sc-if></span></td>
+                    <td style="padding: 12px 16px 12px 8px"><span style="display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px">
+                      <a href="{{c.tel}}" aria-label="Llamar a {{c.name}}" style="display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 12px; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; white-space: nowrap"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path></svg>Llamar</a>
+                      <a href="{{c.wa}}" aria-label="Escribir por WhatsApp a {{c.name}}" style="display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 12px; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; white-space: nowrap"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"></path></svg>WhatsApp</a>
+                      <button type="button" onClick="{{c.mark}}" aria-label="Marcar resultado de la llamada a {{c.name}}" style="{{c.markStyle}}">Marcar resultado</button>
+                    </span></td>
+                  </tr>
+                </sc-for>
+              </tbody>
+            </table>
+          </div>
+          <div style="padding: 10px 16px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 13px; color: #B3B0BC">El resultado puede crear un ticket (si hay algo que resolver) o un lead (si quiere cotizar). Todo queda en el historial del contacto.</div>
+        </section>
+      </sc-if>
+
+      <p style="margin: 0; font-size: 12px; color: #8E8A9B">Datos de ejemplo: contactos, correos y celulares son ficticios. Por ahora hay un solo usuario (super admin): «Tú».</p>
+    </main>
+  </div>
+
+  <sc-if value="{{hasPanel}}" hint-placeholder-val="{{false}}">
+    <div style="position: fixed; inset: 0; z-index: 30; display: flex; justify-content: flex-end; background: rgba(0,0,0,0.6)">
+      <button type="button" aria-label="Cerrar el ticket" onClick="{{closePanel}}" style="flex: 1 1 auto; min-width: 0; background: transparent; border: 0; cursor: default"></button>
+      <aside role="dialog" aria-modal="true" aria-labelledby="h-ticket" style="flex: none; width: 100%; max-width: 620px; box-sizing: border-box; height: 100%; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; padding: 22px; background: #151518; border-left: 1px solid rgba(199,85,239,0.4); box-shadow: -30px 0 80px rgba(0,0,0,0.5)">
+        <div style="display: flex; justify-content: space-between; align-items: start; gap: 12px">
+          <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0">
+            <span style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #B3B0BC">{{d.id}}</span><span style="{{d.stStyle}}">{{d.stLabel}}</span><span style="{{d.prioStyle}}">{{d.prio}}</span></span>
+            <h2 id="h-ticket" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 24px; line-height: 1.15">{{d.subject}}</h2>
+            <span style="font-size: 13px; color: #B3B0BC">{{d.meta}}</span>
+          </div>
+          <button type="button" onClick="{{closePanel}}" aria-label="Cerrar" style="flex: none; width: 40px; height: 40px; background: transparent; color: #B3B0BC; border: 0; border-radius: 4px; cursor: pointer; font-size: 22px">×</button>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr)); gap: 10px">
+          <div style="display: flex; flex-direction: column; gap: 4px"><label for="d-status" style="font-size: 12px; color: #B3B0BC">Estado</label><select id="d-status" value="{{d.status}}" onChange="{{setStatus}}" style="min-height: 40px; padding: 0 10px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px"><option value="nuevo">Nuevo</option><option value="curso">En curso</option><option value="espera">Esperando al cliente</option><option value="resuelto">Resuelto</option><option value="cerrado">Cerrado</option></select></div>
+          <div style="display: flex; flex-direction: column; gap: 4px"><label for="d-prio" style="font-size: 12px; color: #B3B0BC">Prioridad</label><select id="d-prio" value="{{d.prio}}" onChange="{{setPrioD}}" style="min-height: 40px; padding: 0 10px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px"><option value="Alta">Alta</option><option value="Media">Media</option><option value="Baja">Baja</option></select></div>
+          <div style="display: flex; flex-direction: column; gap: 4px"><label for="d-asig" style="font-size: 12px; color: #B3B0BC">Asignado</label><select id="d-asig" value="tu" style="min-height: 40px; padding: 0 10px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px"><option value="tu">Tú (super admin)</option></select></div>
+        </div>
+        <div style="display: flex; gap: 8px; align-items: center; font-size: 13px; color: #B3B0BC"><svg width="11" height="11" viewBox="0 0 16 16" role="img" aria-label="{{d.slaIc.label}}"><path d="{{d.slaIc.d}}" fill="{{d.slaIc.fill}}"></path></svg><span><strong style="{{d.slaStyle}}">{{d.slaText}}</strong> · {{d.slaNote}}</span></div>
+
+        <section aria-labelledby="h-contact" style="display: flex; flex-direction: column; gap: 10px; padding: 14px; background: #0F0F11; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px">
+          <h3 id="h-contact" style="margin: 0; font-size: 15px; font-weight: 600">Contacto</h3>
+          <dl style="margin: 0; display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 6px 12px; font-size: 14px">
+            <dt style="color: #B3B0BC">Nombre</dt><dd style="margin: 0">{{d.cName}}</dd>
+            <dt style="color: #B3B0BC">Empresa</dt><dd style="margin: 0">{{d.company}}</dd>
+            <dt style="color: #B3B0BC">Correo</dt><dd style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; overflow-wrap: anywhere">{{d.email}}</dd>
+            <dt style="color: #B3B0BC">Celulares</dt><dd style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 12.5px">{{d.cels}}</dd>
+            <dt style="color: #B3B0BC">Sitio web</dt><dd style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 12.5px">{{d.web}}</dd>
+          </dl>
+          <span style="display: flex; flex-wrap: wrap; gap: 8px">
+            <a href="{{d.wa}}" style="display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 12px; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"></path></svg>WhatsApp</a>
+            <a href="{{d.tel}}" style="display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 12px; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path></svg>Llamar</a>
+          </span>
+          <div style="display: flex; flex-direction: column; gap: 6px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.06)">
+            <sc-if value="{{d.isClient}}" hint-placeholder-val="{{true}}"><span style="font-size: 14px">Cliente: <a href="Cliente.dc.html" style="font-weight: 600">{{d.clientName}} »</a> <span style="color: #B3B0BC">· {{d.clientKind}}</span></span></sc-if>
+            <sc-if value="{{d.isNew}}" hint-placeholder-val="{{false}}">
+              <div style="display: flex; flex-direction: column; gap: 8px">
+                <span style="font-size: 14px"><span style="display: inline-flex; padding: 1px 8px; border-radius: 999px; background: rgba(224,169,59,0.12); color: #E8C27A; font-size: 12px; font-weight: 600">Contacto nuevo</span> <span style="color: #B3B0BC">el correo y la empresa no coinciden con el CRM</span></span>
+                <span style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center"><label for="link-pick" style="font-size: 13px; color: #B3B0BC">Vincular o crear cliente</label><select id="link-pick" value="{{linkPick}}" onChange="{{setLinkPick}}" style="flex: 1 1 220px; min-height: 40px; padding: 0 10px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(217,139,255,0.45); border-radius: 4px"><sc-for list="{{linkOpts}}" as="o" hint-placeholder-count="5"><option value="{{o.v}}">{{o.l}}</option></sc-for></select><button type="button" onClick="{{doLink}}" style="min-height: 40px; padding: 0 14px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-weight: 600; cursor: pointer">Guardar</button></span>
+              </div>
+            </sc-if>
+            <sc-if value="{{d.hasSite}}" hint-placeholder-val="{{false}}"><span style="display: flex; gap: 8px; align-items: center; font-size: 14px"><svg width="11" height="11" viewBox="0 0 16 16" role="img" aria-label="{{d.sic.label}}"><path d="{{d.sic.d}}" fill="{{d.sic.fill}}"></path></svg><span>Sitio: <strong style="font-weight: 600">{{d.siteText}}</strong></span></span></sc-if>
+            <sc-if value="{{d.hasLead}}" hint-placeholder-val="{{false}}"><span style="font-size: 14px">Lead: <a href="Cotizaciones.dc.html" style="font-weight: 600">{{d.leadText}} »</a></span></sc-if>
+          </div>
+          <sc-if value="{{d.isTech}}" hint-placeholder-val="{{false}}"><span style="display: flex; flex-wrap: wrap; gap: 8px"><a href="Sitios.dc.html" style="display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; background: #6D00C2; color: #FFFFFF; border-radius: 4px; font-weight: 600">Ver en Salud</a><a href="Sitios.dc.html" style="display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600">Acceder a WP</a><a href="Sitios.dc.html" style="display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600">Acceder a cPanel</a></span></sc-if>
+          <sc-if value="{{d.isCom}}" hint-placeholder-val="{{false}}"><span style="display: flex; flex-wrap: wrap; gap: 8px"><a href="Cotizaciones.dc.html" style="display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600">Ver lead</a><a href="Cotizaciones.dc.html" style="display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; background: #6D00C2; color: #FFFFFF; border-radius: 4px; font-weight: 600">Crear cotización</a></span></sc-if>
+        </section>
+
+        <section aria-labelledby="h-msg" style="display: flex; flex-direction: column; gap: 8px">
+          <h3 id="h-msg" style="margin: 0; font-size: 15px; font-weight: 600">Mensaje original <span style="font-weight: 400; color: #B3B0BC; font-size: 13px">· {{d.created}} · por {{d.canal}}</span></h3>
+          <div style="padding: 12px 14px; background: #0F0F11; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; white-space: pre-line">{{d.message}}</div>
+          <sc-if value="{{d.hasFiles}}" hint-placeholder-val="{{false}}"><span style="display: flex; flex-wrap: wrap; gap: 6px"><sc-for list="{{d.files}}" as="f" hint-placeholder-count="2"><span style="display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 10px; border: 1px solid rgba(255,255,255,0.14); border-radius: 4px; font-size: 13px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D98BFF" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 12l-8 8a5 5 0 0 1-7-7l9-9a3.5 3.5 0 0 1 5 5l-9 9a2 2 0 0 1-3-3l8-8"></path></svg>{{f}}</span></sc-for></span></sc-if>
+        </section>
+
+        <section aria-labelledby="h-conv" style="display: flex; flex-direction: column; gap: 8px">
+          <h3 id="h-conv" style="margin: 0; font-size: 15px; font-weight: 600">Conversación</h3>
+          <sc-if value="{{d.noThread}}" hint-placeholder-val="{{false}}"><span style="font-size: 13px; color: #B3B0BC">Todavía no hay respuestas.</span></sc-if>
+          <sc-for list="{{d.thread}}" as="m" hint-placeholder-count="2">
+            <div style="{{m.style}}">
+              <span style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 10px; font-size: 12px"><span style="{{m.headStyle}}">{{m.head}}</span><span style="font-family: 'JetBrains Mono', monospace; color: #B3B0BC">{{m.t}}</span></span>
+              <span style="white-space: pre-line">{{m.text}}</span>
+            </div>
+          </sc-for>
+        </section>
+
+        <section aria-labelledby="h-reply" style="display: flex; flex-direction: column; gap: 8px; padding: 14px; background: #0F0F11; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px">
+          <h3 id="h-reply" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Responder</h3>
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: center">
+            <div role="group" aria-label="Tipo de mensaje" style="display: flex; border: 1px solid rgba(255,255,255,0.18); border-radius: 6px; overflow: hidden"><sc-for list="{{modes}}" as="mo" hint-placeholder-count="2"><button type="button" onClick="{{mo.pick}}" aria-pressed="{{mo.on}}" style="{{mo.style}}">{{mo.label}}</button></sc-for></div>
+            <button type="button" onClick="{{toggleTpl}}" aria-expanded="{{tplOpen}}" style="min-height: 36px; padding: 0 12px; background: transparent; color: #D98BFF; border: 1px solid rgba(217,139,255,0.4); border-radius: 4px; font-weight: 600; cursor: pointer">Plantillas ▾</button>
+          </div>
+          <sc-if value="{{tplOpen}}" hint-placeholder-val="{{false}}">
+            <div style="display: flex; flex-direction: column; border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; overflow: hidden">
+              <sc-for list="{{templates}}" as="tp" hint-placeholder-count="3"><button type="button" class="dk-ghost" onClick="{{tp.use}}" style="display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 8px 12px; background: #151518; color: #F4F2F8; border: 0; border-top: 1px solid rgba(255,255,255,0.06); text-align: left; cursor: pointer"><span style="font-weight: 600">{{tp.name}}</span><span style="font-size: 12px; color: #B3B0BC">{{tp.preview}}</span></button></sc-for>
+            </div>
+          </sc-if>
+          <label for="draft" style="font-size: 13px; color: #B3B0BC">{{draftLabel}}</label>
+          <textarea id="draft" rows="4" value="{{draft}}" onChange="{{setDraft}}" placeholder="{{draftPh}}" style="{{draftStyle}}"></textarea>
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: center">
+            <span style="font-size: 12px; color: #B3B0BC">{{sendHint}}</span>
+            <button type="button" onClick="{{send}}" disabled="{{cantSend}}" style="{{sendStyle}}">{{sendLabel}}</button>
+          </div>
+        </section>
+
+        <section aria-labelledby="h-hist" style="display: flex; flex-direction: column; gap: 6px">
+          <h3 id="h-hist" style="margin: 0; font-size: 15px; font-weight: 600">Historial de cambios</h3>
+          <sc-for list="{{d.hist}}" as="h" hint-placeholder-count="3"><div style="display: flex; gap: 10px; align-items: baseline; padding: 6px 0; border-top: 1px solid rgba(255,255,255,0.06); font-size: 13px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #B3B0BC; white-space: nowrap">{{h.t}}</span><span style="color: #D8D4E2">{{h.x}}</span></div></sc-for>
+        </section>
+      </aside>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{hasCallModal}}" hint-placeholder-val="{{false}}">
+    <div style="position: fixed; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(0,0,0,0.6)">
+      <div role="dialog" aria-modal="true" aria-labelledby="h-callres" style="width: 100%; max-width: 480px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; padding: 22px; background: #151518; border: 1px solid rgba(255,255,255,0.14); border-radius: 12px; box-shadow: 0 30px 80px rgba(0,0,0,0.6)">
+        <div style="display: flex; justify-content: space-between; align-items: start; gap: 12px">
+          <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #B3B0BC">{{cm.cel}}</span><h2 id="h-callres" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 22px">Resultado de la llamada a {{cm.name}}</h2></div>
+          <button type="button" onClick="{{closeCall}}" aria-label="Cerrar" style="flex: none; width: 36px; height: 36px; background: transparent; color: #B3B0BC; border: 0; border-radius: 4px; cursor: pointer; font-size: 20px">×</button>
+        </div>
+        <fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 4px">
+          <legend style="font-size: 13px; font-weight: 600; margin-bottom: 4px">¿Qué pasó?</legend>
+          <sc-for list="{{callOpts}}" as="o" hint-placeholder-count="4"><label style="{{o.style}}"><input type="radio" name="callres" checked="{{o.on}}" onChange="{{o.pick}}" style="width: 18px; height: 18px; accent-color: #6D00C2"><span style="display: flex; flex-direction: column"><span style="font-weight: 600">{{o.label}}</span><span style="font-size: 12px; color: #B3B0BC">{{o.note}}</span></span></label></sc-for>
+        </fieldset>
+        <label for="call-note" style="font-size: 13px; font-weight: 600">Notas</label>
+        <textarea id="call-note" rows="3" value="{{callNote}}" onChange="{{setCallNote}}" placeholder="Ej.: quiere cambiar el horario del domicilio en la tienda." style="padding: 10px 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; resize: vertical"></textarea>
+        <div style="display: flex; justify-content: flex-end; gap: 8px">
+          <button type="button" onClick="{{closeCall}}" style="min-height: 40px; padding: 0 14px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; cursor: pointer">Cancelar</button>
+          <button type="button" onClick="{{saveCall}}" style="min-height: 40px; padding: 0 16px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-weight: 600; cursor: pointer">{{callSaveLabel}}</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{hasNew}}" hint-placeholder-val="{{false}}">
+    <div style="position: fixed; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(0,0,0,0.6)">
+      <div role="dialog" aria-modal="true" aria-labelledby="h-new" style="width: 100%; max-width: 620px; max-height: calc(100% - 32px); overflow-y: auto; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; padding: 22px; background: #151518; border: 1px solid rgba(255,255,255,0.14); border-radius: 12px; box-shadow: 0 30px 80px rgba(0,0,0,0.6)">
+        <div style="display: flex; justify-content: space-between; align-items: start; gap: 12px">
+          <div style="display: flex; flex-direction: column; gap: 2px"><h2 id="h-new" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 22px">Nuevo ticket</h2><span style="font-size: 13px; color: #B3B0BC">Para lo que llegó por WhatsApp o por llamada. Le enviamos al contacto el enlace para seguirlo.</span></div>
+          <button type="button" onClick="{{closeNew}}" aria-label="Cerrar" style="flex: none; width: 36px; height: 36px; background: transparent; color: #B3B0BC; border: 0; border-radius: 4px; cursor: pointer; font-size: 20px">×</button>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 12px">
+          <div style="display: flex; flex-direction: column; gap: 4px"><label for="n-tipo" style="font-size: 13px; font-weight: 600">Tipo de ayuda</label><select id="n-tipo" value="{{nf.tipo}}" onChange="{{nfSet.tipo}}" style="min-height: 40px; padding: 0 10px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px"><option value="sac">Servicio al cliente</option><option value="com">Asesoría comercial</option><option value="tec">Soporte técnico</option></select></div>
+          <div style="display: flex; flex-direction: column; gap: 4px"><label for="n-serv" style="font-size: 13px; font-weight: 600">Servicio</label><select id="n-serv" value="{{nf.serv}}" onChange="{{nfSet.serv}}" style="min-height: 40px; padding: 0 10px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px"><sc-for list="{{servList}}" as="o" hint-placeholder-count="10"><option value="{{o}}">{{o}}</option></sc-for></select></div>
+          <div style="display: flex; flex-direction: column; gap: 4px"><label for="n-canal" style="font-size: 13px; font-weight: 600">Llegó por</label><select id="n-canal" value="{{nf.canal}}" onChange="{{nfSet.canal}}" style="min-height: 40px; padding: 0 10px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px"><option value="WhatsApp">WhatsApp</option><option value="Llamada">Llamada</option></select></div>
+          <div style="display: flex; flex-direction: column; gap: 4px"><label for="n-name" style="font-size: 13px; font-weight: 600">Nombre</label><input id="n-name" placeholder="Ej.: Marta Ejemplo" type="text" value="{{nf.name}}" onChange="{{nfSet.name}}" style="min-height: 40px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px"></div>
+          <div style="display: flex; flex-direction: column; gap: 4px"><label for="n-cel" style="font-size: 13px; font-weight: 600">Celular</label><input id="n-cel" placeholder="+57 300 000 0000" type="tel" value="{{nf.cel}}" onChange="{{nfSet.cel}}" style="min-height: 40px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px"></div>
+          <div style="display: flex; flex-direction: column; gap: 4px"><label for="n-email" style="font-size: 13px; font-weight: 600">Correo (para el enlace de seguimiento)</label><input id="n-email" placeholder="correo@ejemplo.com" type="email" value="{{nf.email}}" onChange="{{nfSet.email}}" style="min-height: 40px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px"></div>
+          <div style="display: flex; flex-direction: column; gap: 4px"><label for="n-company" style="font-size: 13px; font-weight: 600">Empresa</label><input id="n-company" placeholder="Ej.: LuzMa · uniformes" type="text" value="{{nf.company}}" onChange="{{nfSet.company}}" style="min-height: 40px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px"></div>
+          <div style="display: flex; flex-direction: column; gap: 4px"><label for="n-subject" style="font-size: 13px; font-weight: 600">Asunto</label><input id="n-subject" placeholder="Ej.: no puede entrar al correo" type="text" value="{{nf.subject}}" onChange="{{nfSet.subject}}" style="min-height: 40px; padding: 0 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px"></div>
+        </div>
+        <label for="n-msg" style="font-size: 13px; font-weight: 600">Mensaje</label>
+        <textarea id="n-msg" rows="3" value="{{nf.msg}}" onChange="{{nfSet.msg}}" style="padding: 10px 12px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; resize: vertical"></textarea>
+        <span style="font-size: 12px; color: #B3B0BC">{{newHint}}</span>
+        <div style="display: flex; justify-content: flex-end; gap: 8px">
+          <button type="button" onClick="{{closeNew}}" style="min-height: 40px; padding: 0 14px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; cursor: pointer">Cancelar</button>
+          <button type="button" onClick="{{createTicket}}" disabled="{{cantCreate}}" style="{{createStyle}}">Crear ticket</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{hasToast}}" hint-placeholder-val="{{false}}">
+    <div role="status" style="{{toastPos}} z-index: 60; width: min(400px, calc(100% - 40px)); box-sizing: border-box; display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: #1D1B24; border: 1px solid rgba(91,228,155,0.4); border-radius: 10px; box-shadow: 0 20px 50px rgba(0,0,0,0.5)">
+      <svg width="14" height="14" viewBox="0 0 16 16" role="img" aria-label="Correcto" style="flex: none; margin-top: 4px"><path d="M8 2a6 6 0 1 1 0 12A6 6 0 0 1 8 2z" fill="#5BE49B"></path></svg>
+      <span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">{{toast.title}}</span><span style="font-size: 13px; color: #D8D4E2">{{toast.body}}</span></span>
+      <button type="button" onClick="{{closeToast}}" aria-label="Cerrar aviso" style="flex: none; width: 32px; height: 32px; background: transparent; color: #B3B0BC; border: 0; cursor: pointer; font-size: 18px">×</button>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1228}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    var T = function (o) { return Object.assign({ files: [], thread: [], hist: [], client: null, site: null, lead: null, cel2: '', web: '' }, o); };
+    var due = { k: 'ok', text: '', note: '' };
+    this.state = { tab: 'tickets', statusF: 'open', fTipo: '', fServ: '', fPrio: '', q: '', openId: null, mode: 'reply', draft: '', tplOpen: false, linkPick: 'new',
+      callId: null, callRes: 'resuelto', callNote: '', newOpen: false, nf: null, toast: null, nextNum: 149, nextLead: 316,
+      tickets: [
+        T({ id: 'DK-0148', subject: 'La tienda no abre desde esta mañana', preview: 'Ayer cargaba lento y a ratos se caía. Hoy no abre y los clientes nos escriben…', tipo: 'tec', serv: 'Sitio web o tienda', prio: 'Alta', status: 'nuevo', canal: 'WhatsApp', created: '06/10 15:20', age: 'hace 19 h', responded: false,
+          sla: { k: 'crit', text: 'Vencido hace 1 h 22 min', note: '4 h hábiles · venció hoy 09:20' },
+          cName: 'Marta Ejemplo', company: 'LuzMa · uniformes', email: 'ventas@luzma-ejemplo.com', cel: '+57 300 000 0012', cel2: '+57 300 000 0013', web: 'luzmauniformes.com',
+          client: { name: 'LuzMa · uniformes', kind: 'cliente · soporte de agencia activo' }, site: { k: 'crit', text: 'luzmauniformes.com · caído desde 10:36' },
+          message: 'Hola. Desde ayer la tienda cargaba lento y a ratos se caía. Hoy no abre y los clientes nos están escribiendo por Instagram.\nAdjunto la captura del error.', files: ['captura.png · 240 KB', 'error-pantalla.jpg · 512 KB'],
+          thread: [{ kind: 'note', who: 'Tú', t: '07/10 10:38', text: 'UptimeRobot avisó la caída a las 10:36 (HTTP 503). Revisar recursos de la cuenta en Banahost antes de responder.' }],
+          hist: [{ t: '07/10 10:38', x: 'Tú agregaste una nota interna' }, { t: '07/10 10:36', x: 'Regla: sitio caído en Salud → prioridad Alta' }, { t: '06/10 15:20', x: 'Creado desde WhatsApp · vinculado a luzmauniformes.com' }] }),
+        T({ id: 'DK-0147', subject: 'App y página para agendar citas', preview: 'Tenemos una clínica veterinaria y queremos que los clientes agenden desde el celular…', tipo: 'com', serv: 'Desarrollo de apps', prio: 'Media', status: 'nuevo', canal: 'Formulario', created: '07/10 09:10', age: 'hace 1 h 32 min', responded: false,
+          sla: { k: 'ok', text: 'Quedan 7 h 18 min', note: 'el mismo día · hasta las 18:00' },
+          cName: 'Andrea Ejemplo', company: 'Clínica veterinaria (ejemplo)', email: 'andrea@veterinaria-ejemplo.com', cel: '+57 300 000 0021', web: 'veterinaria-ejemplo.com',
+          lead: { text: 'Creó el lead L-0315' },
+          message: 'Buenos días. Tenemos una clínica veterinaria en el sur de Cali y queremos que los clientes agenden citas desde el celular, con recordatorios por WhatsApp. ¿Cuánto cuesta y cuánto se demora?', files: ['ideas-app.pdf · 1,2 MB'],
+          hist: [{ t: '07/10 09:10', x: 'Regla: asesoría comercial → se creó el lead L-0315' }, { t: '07/10 09:10', x: 'Creado desde el formulario de /soporte/' }] }),
+        T({ id: 'DK-0146', subject: '¿Cómo cargo las tallas nuevas en la tienda?', preview: 'Llegaron referencias nuevas y no sé dónde se agregan las tallas XS y 3XL…', tipo: 'sac', serv: 'Sitio web o tienda', prio: 'Baja', status: 'nuevo', canal: 'Formulario', created: '06/10 12:00', age: 'hace 1 día', responded: false,
+          sla: { k: 'warn', text: 'Quedan 1 h 18 min', note: '1 día hábil · vence hoy 12:00' },
+          cName: 'Carolina Ejemplo', company: '4Bellú · Body shapers', email: 'gerencia@ejemplo.com', cel: '+57 300 000 0033', web: '4bellu.com',
+          client: { name: '4Bellú · Body shapers', kind: 'cliente · soporte de agencia activo' },
+          message: 'Hola. Llegaron referencias nuevas de fajas y no sé dónde se agregan las tallas XS y 3XL. ¿Me pueden explicar o hacer una capacitación corta?',
+          hist: [{ t: '06/10 12:00', x: 'Creado desde el formulario de /soporte/ · vinculado a 4Bellú por el correo' }] }),
+        T({ id: 'DK-0145', subject: 'Cambiar el buzón contacto@ por citas@', preview: 'Queremos que los correos de contacto lleguen a un buzón nuevo para citas…', tipo: 'sac', serv: 'Correo corporativo', prio: 'Media', status: 'curso', canal: 'Formulario', created: '06/10 09:30', age: 'hace 1 día', responded: true,
+          sla: { k: 'ok', text: 'Respondido en 3 h 10 min', note: 'a tiempo' },
+          cName: 'Jhoana Ejemplo', company: 'Jhoana Pérez · psicóloga', email: 'consultorio@ejemplo.com', cel: '+57 300 000 0041', web: 'jhoanaperez.com',
+          client: { name: 'Jhoana Pérez · psicóloga', kind: 'cliente' },
+          message: 'Quiero cambiar el correo contacto@ por citas@ y que lo que llegue al viejo se redirija al nuevo por unos meses.',
+          thread: [{ kind: 'out', who: 'Tú', t: '06/10 12:40', text: 'Hola, Jhoana. Creamos citas@ y dejamos la redirección desde contacto@ por 3 meses. Te enviamos la contraseña nueva por WhatsApp.' }, { kind: 'in', who: 'Jhoana Ejemplo', t: '06/10 16:05', text: '¡Gracias! ¿Me ayudan a configurarlo en el celular?' }],
+          hist: [{ t: '06/10 16:05', x: 'El cliente respondió desde el enlace del correo · estado: En curso' }, { t: '06/10 12:40', x: 'Tú respondiste por correo' }, { t: '06/10 09:30', x: 'Creado desde el formulario de /soporte/' }] }),
+        T({ id: 'DK-0144', subject: 'Galería de proyectos en inglés y español', preview: 'Queremos mostrar los pisos instalados este año, con filtro por tipo de madera…', tipo: 'com', serv: 'Sitio web o tienda', prio: 'Media', status: 'espera', canal: 'Formulario', created: '03/10 10:15', age: 'hace 4 días', responded: true,
+          sla: { k: 'ok', text: 'Respondido en 40 min', note: 'a tiempo' },
+          cName: 'Contacto Colorado (ejemplo)', company: 'Colorado Hardwood Design', email: 'projects@ejemplo.com', cel: '+57 300 000 0051', web: 'coloradohardwood.co',
+          client: { name: 'Colorado Hardwood Design', kind: 'cliente' }, lead: { text: 'Actualizó el lead L-0309' },
+          message: 'We would like a project gallery in English and Spanish, with a filter by wood type.',
+          thread: [{ kind: 'out', who: 'Tú', t: '03/10 10:55', text: 'Hi! We can add it. Could you send 10–15 photos per project and the wood type of each one? Then we send the quote.' }],
+          hist: [{ t: '03/10 10:55', x: 'Tú respondiste por correo · estado: Esperando al cliente' }, { t: '03/10 10:15', x: 'Regla: asesoría comercial → se actualizó el lead L-0309' }] }),
+        T({ id: 'DK-0143', subject: 'Las reservas no llegan al correo', preview: 'Desde el lunes no nos llega el aviso de las reservas que hacen en la página…', tipo: 'tec', serv: 'Sitio web o tienda', prio: 'Alta', status: 'curso', canal: 'Llamada', created: '07/10 08:20', age: 'hace 2 h 22 min', responded: true,
+          sla: { k: 'ok', text: 'Respondido en 1 h 05 min', note: 'a tiempo' },
+          cName: 'Recepción (ejemplo)', company: 'Hotel boutique (ejemplo)', email: 'reservas@hotel-ejemplo.com', cel: '+57 300 000 0061', web: 'hotel-ejemplo.com',
+          client: { name: 'Hotel boutique (ejemplo)', kind: 'cliente' }, site: { k: 'ok', text: 'hotel-ejemplo.com · arriba' },
+          message: 'Llamaron a las 8:15: desde el lunes no les llega el correo de las reservas que hacen en la página.',
+          thread: [{ kind: 'out', who: 'Tú', t: '07/10 09:25', text: 'Hola. Ya estamos revisando el envío de correos del formulario de reservas. Te confirmamos hoy antes de las 12:00.' }, { kind: 'note', who: 'Tú', t: '07/10 09:40', text: 'El SMTP del plugin perdió la clave al cambiar el correo. Revisar con el acceso de WordPress.' }],
+          hist: [{ t: '07/10 09:40', x: 'Tú agregaste una nota interna' }, { t: '07/10 09:25', x: 'Tú respondiste por correo · estado: En curso' }, { t: '07/10 08:20', x: 'Registrado a mano (llamada) · vinculado a hotel-ejemplo.com' }] }),
+        T({ id: 'DK-0142', subject: 'Subir el presupuesto de pauta de octubre', preview: 'Queremos invertir más en Meta para la temporada de fin de año…', tipo: 'sac', serv: 'Marketing digital y pauta', prio: 'Media', status: 'espera', canal: 'WhatsApp', created: '06/10 11:20', age: 'hace 1 día', responded: true,
+          sla: { k: 'ok', text: 'Respondido en 2 h', note: 'a tiempo' },
+          cName: 'Carolina Ejemplo', company: '4Bellú · Body shapers', email: 'gerencia@ejemplo.com', cel: '+57 300 000 0033', web: '4bellu.com',
+          client: { name: '4Bellú · Body shapers', kind: 'cliente' },
+          message: 'Queremos subir la pauta de Meta para la temporada de fin de año. ¿Cuánto nos recomiendan?',
+          thread: [{ kind: 'out', who: 'Tú', t: '06/10 13:20', text: 'Hola, Carolina. Te proponemos dos montos con el alcance estimado. ¿Cuál prefieres para arrancar el lunes?' }],
+          hist: [{ t: '06/10 13:20', x: 'Tú respondiste por correo · estado: Esperando al cliente' }, { t: '06/10 11:20', x: 'Creado desde la llamada devuelta a Carolina Ejemplo' }] }),
+        T({ id: 'DK-0141', subject: 'Logo y manual de marca para inmobiliaria', preview: 'Estamos lanzando una inmobiliaria y necesitamos logo, colores y plantillas…', tipo: 'com', serv: 'Diseño de marca', prio: 'Media', status: 'resuelto', canal: 'Formulario', created: '01/10 14:00', age: 'hace 6 días', responded: true,
+          sla: { k: 'ok', text: 'Respondido en 25 min', note: 'a tiempo' },
+          cName: 'Felipe Ejemplo', company: 'Inmobiliaria (ejemplo)', email: 'felipe@inmobiliaria-ejemplo.com', cel: '+57 300 000 0071',
+          client: { name: 'Inmobiliaria (ejemplo)', kind: 'lead · cotización COT-0133' }, lead: { text: 'Lead L-0306 · COT-0133' },
+          message: 'Estamos lanzando una inmobiliaria y necesitamos logo, colores y plantillas para redes.',
+          thread: [{ kind: 'out', who: 'Tú', t: '01/10 14:25', text: 'Hola, Felipe. Te enviamos la cotización COT-0133 con marca y catálogo. Quedamos atentos.' }],
+          hist: [{ t: '02/10 09:00', x: 'Tú marcaste el ticket como Resuelto' }, { t: '01/10 14:00', x: 'Regla: asesoría comercial → se creó el lead L-0306' }] }),
+        T({ id: 'DK-0140', subject: '¿Por qué bajamos en Google este mes?', preview: 'Las consultas por la página bajaron y no aparecemos para «odontología estética»…', tipo: 'sac', serv: 'SEO y GEO', prio: 'Media', status: 'resuelto', canal: 'Formulario', created: '30/09 10:00', age: 'hace 7 días', responded: true,
+          sla: { k: 'ok', text: 'Respondido en 5 h', note: 'a tiempo' },
+          cName: 'Coordinación (ejemplo)', company: 'Clínica dental (ejemplo)', email: 'citas@clinicadental-ejemplo.com', cel: '+57 300 000 0081', web: 'clinicadental-ejemplo.com',
+          client: { name: 'Clínica dental (ejemplo)', kind: 'cliente' },
+          message: 'Las consultas por la página bajaron y ya no aparecemos para «odontología estética Cali».',
+          thread: [{ kind: 'out', who: 'Tú', t: '30/09 15:00', text: 'Revisamos Search Console: un cambio de título bajó la página. Ya lo corregimos y pedimos reindexar.' }],
+          hist: [{ t: '01/10 10:00', x: 'Tú marcaste el ticket como Resuelto' }] }),
+        T({ id: 'DK-0139', subject: 'Actualizar mi tarjeta dkard con el nuevo teléfono', preview: 'Cambié de número y la tarjeta digital sigue mostrando el anterior…', tipo: 'sac', serv: 'dkard.co', prio: 'Baja', status: 'cerrado', canal: 'WhatsApp', created: '25/09 16:30', age: 'hace 12 días', responded: true,
+          sla: { k: 'ok', text: 'Respondido en 1 h', note: 'a tiempo' },
+          cName: 'Jhoana Ejemplo', company: 'Jhoana Pérez · psicóloga', email: 'consultorio@ejemplo.com', cel: '+57 300 000 0041',
+          client: { name: 'Jhoana Pérez · psicóloga', kind: 'cliente' },
+          message: 'Cambié de número y la tarjeta digital sigue mostrando el anterior.',
+          thread: [{ kind: 'out', who: 'Tú', t: '25/09 17:30', text: 'Listo, Jhoana: la tarjeta ya muestra el número nuevo.' }],
+          hist: [{ t: '28/09 08:00', x: 'Cerrado solo: 3 días resuelto sin respuesta del cliente' }] })
+      ],
+      calls: [
+        { id: 'l1', name: 'Camilo Ejemplo', company: 'Restaurante (ejemplo) · contacto nuevo', cel: '+57 300 000 0091', when: 'hoy 09:58', wait: 'hace 44 min', status: 'pend', notes: '', link: null },
+        { id: 'l2', name: 'Diana Ejemplo', company: 'Ferretería en Cali (ejemplo) · lead', cel: '+57 300 000 0092', when: 'ayer 17:40', wait: 'hace 17 h', status: 'retry', notes: 'Intento 1 hoy 08:15: no contestó.', link: null },
+        { id: 'l3', name: 'Carolina Ejemplo', company: '4Bellú · cliente', cel: '+57 300 000 0033', when: '06/10 10:50', wait: 'devuelta 06/10 11:10', status: 'done', notes: 'Quiere subir la pauta de octubre.', link: { text: 'Se creó DK-0142', ticket: 'DK-0142' } }
+      ] };
+    this.clockN = 0;
+  }
+  stamp() { var m = 43 + this.clockN; this.clockN += 1; return '10:' + (m < 10 ? '0' : '') + m; }
+  renderVals() {
+    var self = this, st = this.state;
+    var SH = { ok: 'M8 2a6 6 0 1 1 0 12A6 6 0 0 1 8 2z', warn: 'M8 1.5L15 14H1z', crit: 'M8 1L15 8L8 15L1 8z', none: 'M3 3h10v10H3z' };
+    var CO = { ok: '#5BE49B', warn: '#E0A93B', crit: '#FF6B6B', none: '#8E8A9B' };
+    var LB = { ok: 'Correcto', warn: 'Atención', crit: 'Crítico', none: 'Sin datos' };
+    function ic(k) { return { d: SH[k], fill: CO[k], label: LB[k] }; }
+    function set(p) { self.setState(p); }
+    function digits(s) { return String(s || '').replace(/\D/g, ''); }
+    var TIPO = { sac: 'Servicio al cliente', com: 'Asesoría comercial', tec: 'Soporte técnico' };
+    var ST = { nuevo: 'Nuevo', curso: 'En curso', espera: 'Esperando al cliente', resuelto: 'Resuelto', cerrado: 'Cerrado' };
+    var STS = { nuevo: 'background: rgba(199,85,239,0.16); color: #D98BFF;', curso: 'background: rgba(255,255,255,0.08); color: #F4F2F8;', espera: 'background: rgba(224,169,59,0.12); color: #E8C27A;', resuelto: 'background: rgba(91,228,155,0.1); color: #5BE49B;', cerrado: 'background: transparent; color: #8E8A9B; border: 1px dashed rgba(255,255,255,0.22);' };
+    function stStyle(s) { return 'display: inline-flex; padding: 2px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap; ' + STS[s]; }
+    function prioStyle(p) { return 'display: inline-flex; padding: 1px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; white-space: nowrap; ' + (p === 'Alta' ? 'border: 1px solid rgba(255,107,107,0.5); color: #FF8F9B;' : p === 'Media' ? 'border: 1px solid rgba(255,255,255,0.2); color: #D8D4E2;' : 'border: 1px dashed rgba(255,255,255,0.2); color: #8E8A9B;'); }
+    var CANAL = { Formulario: 'M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h5', WhatsApp: 'M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z', Llamada: 'M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2' };
+    var SERV = ['Sitio web o tienda', 'Hosting y dominio', 'Correo corporativo', 'Diseño de marca', 'Marketing digital y pauta', 'SEO y GEO', 'Manejo de redes sociales', 'Desarrollo de apps', 'dkard.co', 'Otro'];
+    var CLIENTS = ['4Bellú · Body shapers', 'LuzMa · uniformes', 'Colorado Hardwood Design', 'Jhoana Pérez · psicóloga', 'Hotel boutique (ejemplo)', 'Clínica dental (ejemplo)'];
+    var tickets = st.tickets;
+    var isOpen = function (t) { return t.status === 'nuevo' || t.status === 'curso' || t.status === 'espera'; };
+    var nOpen = tickets.filter(isOpen).length;
+    var nUnanswered = tickets.filter(function (t) { return isOpen(t) && !t.responded; }).length;
+    var nLate = tickets.filter(function (t) { return isOpen(t) && !t.responded && t.sla.k === 'crit'; }).length;
+    var callsPending = st.calls.filter(function (c) { return c.status !== 'done'; }).length;
+    function upd(id, fn) { return tickets.map(function (t) { return t.id === id ? fn(Object.assign({}, t)) : t; }); }
+    function toast(title, body) { return { title: title, body: body }; }
+
+    var tabs = [{ id: 'tickets', label: 'Tickets', count: nOpen }, { id: 'calls', label: 'Llamadas por devolver', count: callsPending }].map(function (t) {
+      var on = st.tab === t.id;
+      return { label: t.label, count: t.count, on: on, pick: function () { set({ tab: t.id }); },
+        style: 'display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border: 0; border-radius: 6px; cursor: pointer; font-weight: 600; ' + (on ? 'background: #1A0B2B; color: #F4F2F8; box-shadow: inset 0 0 0 1px rgba(199,85,239,0.45);' : 'background: transparent; color: #B3B0BC;'),
+        badgeStyle: 'padding: 0 7px; border-radius: 999px; font-size: 12px; font-variant-numeric: tabular-nums; ' + (on ? 'background: rgba(199,85,239,0.22); color: #F0D4FF;' : 'background: rgba(255,255,255,0.08); color: #B3B0BC;') };
+    });
+
+    var chipDefs = [{ id: 'open', label: 'Abiertos', n: nOpen }].concat(['nuevo', 'curso', 'espera', 'resuelto', 'cerrado'].map(function (s) {
+      return { id: s, label: s === 'nuevo' ? 'Nuevos' : s === 'curso' ? 'En curso' : s === 'espera' ? 'Esperando al cliente' : s === 'resuelto' ? 'Resueltos' : 'Cerrados', n: tickets.filter(function (t) { return t.status === s; }).length };
+    })).concat([{ id: 'all', label: 'Todos', n: tickets.length }]);
+    var statusChips = chipDefs.map(function (c) {
+      var on = st.statusF === c.id;
+      return { label: c.label, count: c.n, on: on, pick: function () { set({ statusF: c.id }); },
+        style: 'display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 12px; border-radius: 999px; cursor: pointer; font-size: 13px; font-weight: 600; ' + (on ? 'background: #1A0B2B; color: #F4F2F8; border: 1px solid #C755EF;' : 'background: transparent; color: #B3B0BC; border: 1px solid rgba(255,255,255,0.16);'),
+        countStyle: 'font-variant-numeric: tabular-nums; ' + (on ? 'color: #F0D4FF;' : 'color: #8E8A9B;') };
+    });
+    var q = st.q.trim().toLowerCase();
+    var filtered = tickets.filter(function (t) {
+      if (st.statusF === 'open' && !isOpen(t)) return false;
+      if (st.statusF !== 'open' && st.statusF !== 'all' && t.status !== st.statusF) return false;
+      if (st.fTipo && t.tipo !== st.fTipo) return false;
+      if (st.fServ && t.serv !== st.fServ) return false;
+      if (st.fPrio && t.prio !== st.fPrio) return false;
+      if (q && (t.id + ' ' + t.subject + ' ' + t.preview + ' ' + t.cName + ' ' + t.company).toLowerCase().indexOf(q) < 0) return false;
+      return true;
+    });
+    function openT(id, extra) { set(Object.assign({ openId: id, draft: '', mode: 'reply', tplOpen: false, linkPick: 'new' }, extra || {})); }
+    var rows = filtered.map(function (t) {
+      var on = st.openId === t.id;
+      return { id: t.id, subject: t.subject, preview: t.preview, serv: t.serv, tipoLabel: TIPO[t.tipo], prio: t.prio, prioStyle: prioStyle(t.prio),
+        stLabel: ST[t.status], stStyle: stStyle(t.status), slaIc: ic(t.responded ? 'ok' : t.sla.k), slaText: t.sla.text, slaNote: t.sla.note,
+        slaStyle: 'font-weight: 600; font-size: 13px; white-space: nowrap; color: ' + (t.responded ? '#B3B0BC' : t.sla.k === 'crit' ? '#FF8F9B' : t.sla.k === 'warn' ? '#E0A93B' : '#F4F2F8') + ';',
+        canal: t.canal, canalIcon: CANAL[t.canal], age: t.age,
+        isClient: !!t.client, isNew: !t.client, clientName: t.client ? t.client.name.split(' · ')[0] : '', clientKind: t.client ? t.client.kind.split(' · ')[0] : '', company: t.company,
+        hasSite: !!t.site, siteText: t.site ? t.site.text : '', sic: ic(t.site ? t.site.k : 'ok'),
+        siteStyle: 'display: inline-flex; align-items: center; gap: 5px; margin-top: 4px; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; ' + (t.site && t.site.k === 'crit' ? 'background: rgba(255,107,107,0.12); color: #FF8F9B;' : 'background: rgba(91,228,155,0.08); color: #5BE49B;'),
+        hasLead: !!t.lead, leadText: t.lead ? t.lead.text : '',
+        rowStyle: 'border-top: 1px solid rgba(255,255,255,0.06);' + (on ? ' background: #1A0B2B;' : t.sla.k === 'crit' && !t.responded ? ' background: rgba(255,107,107,0.04);' : ''),
+        open: function () { openT(t.id); }, openLink: function () { openT(t.id); } };
+    });
+    var opt = function (v, l) { return { v: v, l: l }; };
+    var sel = function (on) { return 'min-height: 40px; padding: 0 10px; background: ' + (on ? '#1A0B2B' : '#0C0C0C') + '; color: #F4F2F8; border: 1px solid ' + (on ? 'rgba(199,85,239,0.6)' : 'rgba(255,255,255,0.14)') + '; border-radius: 4px; cursor: pointer; max-width: 100%;'; };
+    var hasFilters = !!(st.fTipo || st.fServ || st.fPrio || q);
+
+    // ---- detalle
+    var t = tickets.filter(function (x) { return x.id === st.openId; })[0];
+    var d = { id: '', subject: '', meta: '', status: 'nuevo', prio: 'Media', stLabel: '', stStyle: '', prioStyle: '', slaIc: ic('ok'), slaText: '', slaNote: '', slaStyle: '', cName: '', company: '', email: '', cels: '', web: '', wa: '#', tel: '#', isClient: false, isNew: false, clientName: '', clientKind: '', hasSite: false, siteText: '', sic: ic('ok'), hasLead: false, leadText: '', isTech: false, isCom: false, created: '', canal: '', message: '', hasFiles: false, files: [], thread: [], noThread: true, hist: [] };
+    var first = '';
+    if (t) {
+      first = t.cName.split(' ')[0];
+      d = { id: t.id, subject: t.subject, meta: TIPO[t.tipo] + ' · ' + t.serv + ' · llegó por ' + t.canal + ' · ' + t.created + ' · asignado a ti', status: t.status, prio: t.prio, stLabel: ST[t.status], stStyle: stStyle(t.status), prioStyle: prioStyle(t.prio),
+        slaIc: ic(t.responded ? 'ok' : t.sla.k), slaText: t.sla.text, slaNote: 'primera respuesta · ' + t.sla.note, slaStyle: 'font-weight: 600; color: ' + (t.responded ? '#F4F2F8' : t.sla.k === 'crit' ? '#FF8F9B' : t.sla.k === 'warn' ? '#E0A93B' : '#F4F2F8') + ';',
+        cName: t.cName, company: t.company, email: t.email, cels: t.cel + (t.cel2 ? ' · ' + t.cel2 : ''), web: t.web || '—',
+        wa: 'https://wa.me/' + digits(t.cel), tel: 'tel:+' + digits(t.cel),
+        isClient: !!t.client, isNew: !t.client, clientName: t.client ? t.client.name : '', clientKind: t.client ? t.client.kind : '',
+        hasSite: !!t.site, siteText: t.site ? t.site.text : '', sic: ic(t.site ? t.site.k : 'ok'), hasLead: !!t.lead, leadText: t.lead ? t.lead.text : '',
+        isTech: t.tipo === 'tec' && !!t.site, isCom: t.tipo === 'com', created: t.created, canal: t.canal, message: t.message, hasFiles: t.files.length > 0, files: t.files,
+        thread: t.thread.map(function (m) {
+          var base = 'display: flex; flex-direction: column; gap: 4px; padding: 10px 12px; border-radius: 8px; ';
+          if (m.kind === 'note') return { head: 'Nota interna · ' + m.who + ' · el cliente no la ve', t: m.t, text: m.text, style: base + 'background: rgba(224,169,59,0.08); border: 1px dashed rgba(224,169,59,0.45);', headStyle: 'font-weight: 600; color: #E8C27A;' };
+          if (m.kind === 'out') return { head: m.who + ' → cliente · enviado por correo a ' + t.email, t: m.t, text: m.text, style: base + 'background: #1A0B2B; border: 1px solid rgba(199,85,239,0.4); margin-left: 24px;', headStyle: 'font-weight: 600; color: #D98BFF;' };
+          return { head: m.who + ' · respondió desde el enlace del correo', t: m.t, text: m.text, style: base + 'background: #0F0F11; border: 1px solid rgba(255,255,255,0.1); margin-right: 24px;', headStyle: 'font-weight: 600; color: #D8D4E2;' };
+        }), noThread: t.thread.length === 0, hist: t.hist };
+    }
+    var TPL = [
+      { name: 'Recibido: ya lo estamos revisando', text: 'Hola, ' + first + '. Recibimos tu mensaje y ya lo estamos revisando. Te escribimos por aquí apenas tengamos novedades.' },
+      { name: 'Sitio caído: estamos en eso', text: 'Hola, ' + first + '. Ya vimos que el sitio no responde y lo estamos revisando con el servidor. Te avisamos apenas vuelva a estar en línea.' },
+      { name: 'Necesitamos un dato', text: 'Hola, ' + first + '. Para avanzar necesitamos que nos confirmes el dato pendiente. Puedes responder a este correo o escribirnos por WhatsApp.' }
+    ];
+    var templates = TPL.map(function (p) { return { name: p.name, preview: p.text.slice(0, 70) + '…', use: function () { set({ draft: p.text, tplOpen: false }); } }; });
+    var isReply = st.mode === 'reply';
+    var modes = [['reply', 'Responder al cliente'], ['note', 'Nota interna']].map(function (m) {
+      var on = st.mode === m[0];
+      return { label: m[1], on: on, pick: function () { set({ mode: m[0] }); },
+        style: 'min-height: 36px; padding: 0 12px; border: 0; cursor: pointer; font-weight: 600; ' + (on ? (m[0] === 'note' ? 'background: rgba(224,169,59,0.18); color: #F4D58D;' : 'background: #6D00C2; color: #FFFFFF;') : 'background: transparent; color: #D8D4E2;') };
+    });
+    var canSend = st.draft.trim().length > 3 && !!t;
+    var send = function () {
+      if (!canSend) return;
+      var tm = '07/10 ' + self.stamp(), txt = st.draft.trim();
+      if (isReply) {
+        var list = upd(t.id, function (x) {
+          x.thread = x.thread.concat([{ kind: 'out', who: 'Tú', t: tm, text: txt }]);
+          var was = x.status;
+          x.status = 'espera';
+          if (!x.responded) { x.responded = true; x.sla = { k: 'ok', text: 'Respondido hoy ' + tm.slice(6), note: x.sla.k === 'crit' ? 'fuera del compromiso' : 'a tiempo' }; }
+          x.hist = [{ t: tm, x: 'Tú respondiste por correo · estado: ' + ST[was] + ' → Esperando al cliente' }].concat(x.hist);
+          return x;
+        });
+        set({ tickets: list, draft: '', toast: toast('Respuesta enviada a ' + t.email, 'El ticket quedó «Esperando al cliente». El cliente responde desde el enlace del correo.') });
+      } else {
+        var list2 = upd(t.id, function (x) { x.thread = x.thread.concat([{ kind: 'note', who: 'Tú', t: tm, text: txt }]); x.hist = [{ t: tm, x: 'Tú agregaste una nota interna' }].concat(x.hist); return x; });
+        set({ tickets: list2, draft: '', toast: toast('Nota interna guardada', 'Solo la ve el equipo. No se envía al cliente.') });
+      }
+    };
+    var linkOpts = t ? [opt('new', 'Crear cliente «' + t.company + '»')].concat(CLIENTS.map(function (c) { return opt(c, 'Vincular con ' + c); })) : [];
+    var doLink = function () {
+      if (!t) return;
+      var tm = '07/10 ' + self.stamp();
+      var name = st.linkPick === 'new' ? t.company : st.linkPick;
+      var list = upd(t.id, function (x) { x.client = { name: name, kind: st.linkPick === 'new' ? 'cliente nuevo' : 'cliente' }; x.hist = [{ t: tm, x: st.linkPick === 'new' ? 'Tú creaste el cliente ' + name + ' desde el ticket' : 'Tú vinculaste el ticket a ' + name }].concat(x.hist); return x; });
+      set({ tickets: list, toast: toast(st.linkPick === 'new' ? 'Cliente creado en el CRM' : 'Ticket vinculado', name + (t.lead ? ' · el lead queda ligado al cliente' : '')) });
+    };
+
+    // ---- llamadas
+    var CST = { pend: { l: 'Pendiente', k: 'warn', s: 'color: #E0A93B; font-weight: 600;' }, retry: { l: 'No contestó · reintentar', k: 'warn', s: 'color: #E0A93B; font-weight: 600;' }, done: { l: 'Llamado', k: 'ok', s: 'color: #5BE49B; font-weight: 600;' } };
+    var calls = st.calls.map(function (c) {
+      var s = CST[c.status];
+      return { name: c.name, company: c.company, cel: c.cel, when: c.when, wait: c.wait, stLabel: s.l, ic: ic(s.k), stStyle: s.s, notes: c.notes || '—',
+        hasTicket: !!(c.link && c.link.ticket), hasLead: !!(c.link && !c.link.ticket), linkText: c.link ? c.link.text : '',
+        openTicket: function () { if (c.link && c.link.ticket) set({ tab: 'tickets', statusF: 'all', openId: c.link.ticket, draft: '', mode: 'reply', tplOpen: false }); },
+        tel: 'tel:+' + digits(c.cel), wa: 'https://wa.me/' + digits(c.cel),
+        mark: function () { set({ callId: c.id, callRes: c.status === 'done' ? 'resuelto' : 'resuelto', callNote: '' }); },
+        markStyle: 'min-height: 36px; padding: 0 12px; border-radius: 4px; font-weight: 600; cursor: pointer; white-space: nowrap; ' + (c.status === 'done' ? 'background: transparent; color: #D8D4E2; border: 1px solid rgba(255,255,255,0.18);' : 'background: #6D00C2; color: #FFFFFF; border: 0;') };
+    });
+    var cc = st.calls.filter(function (c) { return c.id === st.callId; })[0];
+    var RES = [['resuelto', 'Hablamos · quedó resuelto', 'pasa a «Llamado»'], ['ticket', 'Hablamos · crear ticket', 'hay algo que resolver: se abre un ticket con canal Llamada'], ['lead', 'Hablamos · crear lead', 'quiere cotizar: se crea el lead en el CRM'], ['retry', 'No contestó · reintentar', 'queda en la lista con el intento anotado']];
+    var callOpts = RES.map(function (r) {
+      var on = st.callRes === r[0];
+      return { label: r[1], note: r[2], on: on, pick: function () { set({ callRes: r[0] }); },
+        style: 'display: flex; gap: 10px; align-items: center; min-height: 44px; padding: 6px 10px; border-radius: 6px; cursor: pointer; ' + (on ? 'background: #1A0B2B; border: 1px solid rgba(199,85,239,0.5);' : 'background: transparent; border: 1px solid rgba(255,255,255,0.08);') };
+    });
+    var saveCall = function () {
+      if (!cc) return;
+      var tm = self.stamp(), note = st.callNote.trim();
+      var patch = { callId: null, callNote: '' };
+      var newCall = Object.assign({}, cc);
+      if (st.callRes === 'retry') { newCall.status = 'retry'; newCall.notes = (cc.notes ? cc.notes + ' ' : '') + 'Intento hoy ' + tm + ': no contestó.' + (note ? ' ' + note : ''); newCall.link = null; patch.toast = toast('Queda para reintentar', cc.name + ' sigue en la lista.'); }
+      else {
+        newCall.status = 'done'; newCall.wait = 'devuelta hoy ' + tm; newCall.notes = note || (st.callRes === 'resuelto' ? 'Resuelto en la llamada.' : cc.notes || 'Hablamos.');
+        if (st.callRes === 'ticket') {
+          var id = 'DK-0' + st.nextNum;
+          var nt = { id: id, subject: note ? note.slice(0, 60) : 'Solicitud por llamada de ' + cc.name, preview: note || 'Registrado al devolver la llamada.', tipo: 'sac', serv: 'Otro', prio: 'Media', status: 'nuevo', canal: 'Llamada', created: '07/10 ' + tm, age: 'ahora', responded: false,
+            sla: { k: 'ok', text: 'Queda 1 día hábil', note: '1 día hábil · vence mañana ' + tm }, cName: cc.name, company: cc.company.split(' · ')[0], email: 'sin correo · pedirlo', cel: cc.cel, cel2: '', web: '', files: [], thread: [], client: cc.company.indexOf('cliente') > -1 ? { name: cc.company.split(' · ')[0], kind: 'cliente' } : null, site: null, lead: null,
+            message: note || 'Registrado al devolver la llamada.', hist: [{ t: '07/10 ' + tm, x: 'Creado desde la llamada devuelta a ' + cc.name }] };
+          patch.tickets = [nt].concat(tickets); patch.nextNum = st.nextNum + 1; newCall.link = { text: 'Se creó ' + id, ticket: id };
+          patch.toast = toast('Llamada marcada · se creó ' + id, 'Está en Tickets como «Nuevo».');
+        } else if (st.callRes === 'lead') {
+          var lid = 'L-0' + st.nextLead; patch.nextLead = st.nextLead + 1; newCall.link = { text: 'Se creó el lead ' + lid };
+          patch.toast = toast('Llamada marcada · se creó el lead ' + lid, 'Quedó en CRM » Leads, listo para cotizar.');
+        } else { newCall.link = null; patch.toast = toast('Llamada marcada como hecha', cc.name + ' · resuelto en la llamada.'); }
+      }
+      patch.calls = st.calls.map(function (c) { return c.id === cc.id ? newCall : c; });
+      set(patch);
+    };
+
+    // ---- nuevo ticket
+    var nf = st.nf;
+    var nfSet = {};
+    if (nf) ['tipo', 'serv', 'canal', 'name', 'cel', 'email', 'company', 'subject', 'msg'].forEach(function (k) { nfSet[k] = function (ev) { var o = {}; o[k] = ev.target.value; set({ nf: Object.assign({}, st.nf, o) }); }; });
+    var canCreate = !!nf && nf.name.trim().length > 1 && nf.subject.trim().length > 3;
+    var matchClient = function (company) { var c = String(company || '').toLowerCase(); return CLIENTS.filter(function (x) { return c && x.toLowerCase().indexOf(c.split(' ')[0]) === 0; })[0]; };
+    var createTicket = function () {
+      if (!canCreate) return;
+      var tm = self.stamp(), id = 'DK-0' + st.nextNum, mc = matchClient(nf.company);
+      var sla = nf.tipo === 'tec' ? { k: 'ok', text: 'Quedan 4 h', note: '4 h hábiles · vence hoy 14:' + tm.slice(3) } : nf.tipo === 'com' ? { k: 'ok', text: 'Quedan 7 h', note: 'el mismo día · hasta las 18:00' } : { k: 'ok', text: 'Queda 1 día hábil', note: '1 día hábil · vence mañana ' + tm };
+      var lead = nf.tipo === 'com' ? { text: (mc ? 'Actualizó el lead de ' + mc.split(' · ')[0] : 'Creó el lead L-0' + st.nextLead) } : null;
+      var nt = { id: id, subject: nf.subject.trim(), preview: nf.msg.trim() || 'Sin mensaje.', tipo: nf.tipo, serv: nf.serv, prio: nf.tipo === 'tec' ? 'Alta' : 'Media', status: 'nuevo', canal: nf.canal, created: '07/10 ' + tm, age: 'ahora', responded: false, sla: sla,
+        cName: nf.name.trim(), company: nf.company.trim() || '—', email: nf.email.trim() || 'sin correo · pedirlo', cel: nf.cel.trim() || '—', cel2: '', web: '', files: [], thread: [],
+        client: mc ? { name: mc, kind: 'cliente' } : null, site: nf.tipo === 'tec' && mc === 'LuzMa · uniformes' ? { k: 'crit', text: 'luzmauniformes.com · caído desde 10:36' } : null, lead: lead,
+        message: nf.msg.trim() || 'Sin mensaje.', hist: [{ t: '07/10 ' + tm, x: 'Tú lo registraste a mano (' + nf.canal + ')' + (lead ? ' · regla: ' + lead.text.toLowerCase() : '') }] };
+      set({ tickets: [nt].concat(tickets), nextNum: st.nextNum + 1, nextLead: lead && !mc ? st.nextLead + 1 : st.nextLead, newOpen: false, nf: null, statusF: 'open', tab: 'tickets', toast: toast(id + ' creado', mc ? 'Vinculado a ' + mc + '.' : 'Contacto nuevo: vincúlalo o crea el cliente desde el ticket.') });
+    };
+
+    var shown = filtered.length;
+    return {
+      subtitle: nOpen + ' abiertos · ' + nUnanswered + ' sin responder · ' + nLate + (nLate === 1 ? ' vencido' : ' vencidos') + ' según el tiempo comprometido',
+      tabs: tabs, isTickets: st.tab === 'tickets', isCalls: st.tab === 'calls',
+      statusChips: statusChips, rows: rows, isEmpty: rows.length === 0,
+      pageText: 'Mostrando ' + shown + ' de ' + tickets.length + ' tickets de ejemplo',
+      q: st.q, setQ: function (ev) { set({ q: ev.target.value }); },
+      fTipo: st.fTipo, fServ: st.fServ, fPrio: st.fPrio,
+      setTipo: function (ev) { set({ fTipo: ev.target.value }); }, setServ: function (ev) { set({ fServ: ev.target.value }); }, setPrio: function (ev) { set({ fPrio: ev.target.value }); },
+      selTipo: sel(!!st.fTipo), selServ: sel(!!st.fServ), selPrio: sel(!!st.fPrio),
+      tipoOpts: [opt('', 'Tipo: todos'), opt('sac', 'Servicio al cliente'), opt('com', 'Asesoría comercial'), opt('tec', 'Soporte técnico')],
+      servOpts: [opt('', 'Servicio: todos')].concat(SERV.map(function (s) { return opt(s, s); })),
+      prioOpts: [opt('', 'Prioridad: todas'), opt('Alta', 'Alta'), opt('Media', 'Media'), opt('Baja', 'Baja')],
+      hasFilters: hasFilters, clearFilters: function () { set({ fTipo: '', fServ: '', fPrio: '', q: '', statusF: 'open' }); },
+      hasPanel: !!t, d: d, closePanel: function () { set({ openId: null, tplOpen: false }); },
+      setStatus: function (ev) { var v = ev.target.value, tm = '07/10 ' + self.stamp(); set({ tickets: upd(t.id, function (x) { var was = x.status; x.status = v; x.hist = [{ t: tm, x: 'Tú cambiaste el estado: ' + ST[was] + ' → ' + ST[v] }].concat(x.hist); return x; }) }); },
+      setPrioD: function (ev) { var v = ev.target.value, tm = '07/10 ' + self.stamp(); set({ tickets: upd(t.id, function (x) { var was = x.prio; x.prio = v; x.hist = [{ t: tm, x: 'Tú cambiaste la prioridad: ' + was + ' → ' + v }].concat(x.hist); return x; }) }); },
+      linkOpts: linkOpts, linkPick: st.linkPick, setLinkPick: function (ev) { set({ linkPick: ev.target.value }); }, doLink: doLink,
+      modes: modes, tplOpen: st.tplOpen, toggleTpl: function () { set({ tplOpen: !st.tplOpen }); }, templates: templates,
+      draft: st.draft, setDraft: function (ev) { set({ draft: ev.target.value }); },
+      draftLabel: isReply ? 'Respuesta al cliente · sale por correo con el enlace del ticket' : 'Nota interna · solo la ve el equipo',
+      draftPh: isReply ? 'Escribe la respuesta…' : 'Ej.: el cliente pidió que lo llamemos después de las 3 p. m.',
+      draftStyle: 'padding: 10px 12px; color: #F4F2F8; border-radius: 4px; resize: vertical; ' + (isReply ? 'background: #0C0C0C; border: 1px solid rgba(255,255,255,0.22);' : 'background: rgba(224,169,59,0.06); border: 1px dashed rgba(224,169,59,0.5);'),
+      sendHint: isReply ? 'Al enviar, el estado pasa a «Esperando al cliente».' : 'No cambia el estado ni avisa al cliente.',
+      sendLabel: isReply ? 'Enviar respuesta' : 'Guardar nota interna', cantSend: !canSend, send: send,
+      sendStyle: 'min-height: 40px; padding: 0 16px; border-radius: 4px; font-weight: 600; ' + (canSend ? (isReply ? 'background: #6D00C2; color: #FFFFFF; border: 0; cursor: pointer;' : 'background: rgba(224,169,59,0.18); color: #F4D58D; border: 1px solid rgba(224,169,59,0.5); cursor: pointer;') : 'background: #2A2733; color: #8E8A9B; border: 0; cursor: not-allowed;'),
+      calls: calls, hasCallModal: !!cc, cm: cc ? { name: cc.name, cel: cc.cel + ' · ' + cc.company } : { name: '', cel: '' },
+      callOpts: callOpts, callNote: st.callNote, setCallNote: function (ev) { set({ callNote: ev.target.value }); },
+      closeCall: function () { set({ callId: null }); }, saveCall: saveCall,
+      callSaveLabel: st.callRes === 'ticket' ? 'Guardar y crear ticket' : st.callRes === 'lead' ? 'Guardar y crear lead' : 'Guardar resultado',
+      hasNew: st.newOpen && !!nf, nf: nf || { tipo: 'sac', serv: 'Otro', canal: 'WhatsApp', name: '', cel: '', email: '', company: '', subject: '', msg: '' }, nfSet: nfSet, servList: SERV,
+      openNew: function () { set({ newOpen: true, nf: { tipo: 'sac', serv: 'Sitio web o tienda', canal: 'WhatsApp', name: '', cel: '', email: '', company: '', subject: '', msg: '' } }); },
+      closeNew: function () { set({ newOpen: false, nf: null }); },
+      newHint: nf ? (nf.tipo === 'com' ? 'Regla: asesoría comercial crea o actualiza un lead en el CRM.' : nf.tipo === 'tec' ? 'Regla: soporte técnico de un sitio se vincula a Salud y entra con prioridad Alta.' : 'Compromiso: primera respuesta en 1 día hábil.') : '',
+      cantCreate: !canCreate, createTicket: createTicket,
+      createStyle: 'min-height: 40px; padding: 0 16px; border-radius: 4px; font-weight: 600; ' + (canCreate ? 'background: #6D00C2; color: #FFFFFF; border: 0; cursor: pointer;' : 'background: #2A2733; color: #8E8A9B; border: 0; cursor: not-allowed;'),
+      hasToast: !!st.toast, toast: st.toast || { title: '', body: '' }, closeToast: function () { set({ toast: null }); },
+      toastPos: 'position: fixed; top: 76px; right: ' + (t ? 'max(20px, min(640px, calc(100% - 440px)))' : '20px') + ';'
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -40,6 +40,9 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid #D98B
       <a href="Cliente.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Clientes</a>
       <a href="Cotizaciones.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Leads<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(224,169,59,0.16); color: #E0A93B; font-size: 12px; font-weight: 600">2</span></a>
       <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Renovaciones</a>
+      <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Soporte</span>
+      <a href="Tickets.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Tickets<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(224,169,59,0.16); color: #E0A93B; font-size: 12px; font-weight: 600">3</span></a>
+      <a href="Tickets.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Llamadas por devolver<span style="margin-left: auto; padding: 0 8px; border-radius: 999px; background: rgba(224,169,59,0.16); color: #E0A93B; font-size: 12px; font-weight: 600">2</span></a>
       <span style="font-size: 11px; color: #8E8A9B; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 10px 4px">Accesos</span>
       <a href="Boveda.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Personales</a>
       <a href="Boveda.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 4px; color: #D8D4E2"><span aria-hidden="true" style="width: 14px"></span>Agencia</a>
@@ -129,8 +132,8 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid #D98B
           </section>
 
           <div style="display: flex; flex-wrap: wrap; gap: 12px; padding: 14px 16px; background: #0F0F11; border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; color: #B3B0BC; font-size: 13px">
-            <span style="flex: 1 1 420px"><strong style="color: #F4F2F8">Cómo funciona «Acceder».</strong> Pide tu código si no lo diste en los últimos 5 minutos. En cPanel de Banahost abre un enlace de un solo uso del WHM de la agencia, sin contraseña. En otros hostings y en WordPress, tu navegador envía usuario y contraseña al inicio de sesión; si hay captcha, 2FA o login escondido, te muestra los datos para copiarlos. Cada acceso queda registrado.</span>
-            <span style="flex: 1 1 300px"><strong style="color: #F4F2F8">Más adelante.</strong> En WordPress, inicio de sesión firmado sin enviar la contraseña. Los sitios en SeguriServer o en el hosting del cliente siguen con usuario y contraseña.</span>
+            <span style="flex: 1 1 420px"><strong style="color: #F4F2F8">Cómo funciona «Acceder».</strong> Pide tu código si no lo diste en los últimos 5 minutos, y tu navegador envía usuario y contraseña al inicio de sesión de cPanel o de WordPress. Si hay captcha, 2FA o login escondido, te muestra los datos para copiarlos. Cada acceso queda registrado.</span>
+            <span style="flex: 1 1 300px"><strong style="color: #F4F2F8">Cuando Banahost dé un token de WHM.</strong> cPanel se abre con un enlace de un solo uso, sin enviar contraseña. En WordPress, más adelante, inicio de sesión firmado.</span>
           </div>
         </div>
       </sc-if>
@@ -238,7 +241,7 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid #D98B
   </sc-if>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1240}}'>
+<script type="text/x-dc" data-dc-script data-props='{"whm":{"editor":"boolean","default":false,"section":"Banahost"},"$preview":{"width":1440,"height":1154}}'>
 class Component extends DCLogic {
   constructor(props) { super(props); this.state = { tab: 'sitios', filter: 'all', onlySupport: false, modal: null, verified: false, shown: false, det: 'coloradohardwood.co' }; }
   renderVals() {
@@ -257,7 +260,7 @@ class Component extends DCLogic {
       return out;
     }
     var sites = [
-      { id: 'luzma', host: 'Banahost', s: 'crit', domain: 'luzmauniformes.com', client: 'LuzMa', stack: 'WooCommerce', status: 'Caído', statusNote: 'desde 10:36 · HTTP 503', uptime: '99,41 %', down: [29], slow: [], ssl: '81 días', sslT: 'ok', dom: '14/03/2027', domT: 'ok', domNote: '.com · automático', sup: true, copy: 'copia 01/10 · hace 6 d', copyT: 'ok', wpUrl: 'https://luzmauniformes.com/wp-login.php', cpUrl: 'https://servidor-banahost.ejemplo:2083', warn: 'El sitio está caído: el inicio de sesión de WordPress no va a responder. cPanel sí está disponible por WHM.' },
+      { id: 'luzma', host: 'Banahost', s: 'crit', domain: 'luzmauniformes.com', client: 'LuzMa', stack: 'WooCommerce', status: 'Caído', statusNote: 'desde 10:36 · HTTP 503', uptime: '99,41 %', down: [29], slow: [], ssl: '81 días', sslT: 'ok', dom: '14/03/2027', domT: 'ok', domNote: '.com · automático', sup: true, copy: 'copia 01/10 · hace 6 d', copyT: 'ok', wpUrl: 'https://luzmauniformes.com/wp-login.php', cpUrl: 'https://servidor-banahost.ejemplo:2083', warn: 'El sitio está caído: el inicio de sesión de WordPress no va a responder. cPanel sí está disponible.' },
       { id: 'tienda4b', host: 'Banahost', s: 'warn', domain: 'tienda.4bellu.com', client: '4Bellú', stack: 'WooCommerce', status: 'Lento', statusNote: 'responde en 3,4 s', uptime: '99,96 %', down: [], slow: [24, 27, 28, 29], ssl: '58 días', sslT: 'ok', dom: '02/08/2027', domT: 'ok', domNote: '.com · automático', sup: true, copy: 'copia 01/10 · pesa 58 % menos', copyT: 'warn', wpUrl: 'https://tienda.4bellu.com/wp-login.php', cpUrl: 'https://servidor-banahost.ejemplo:2083', warn: '' },
       { id: 'jhoana', host: 'SeguriServer', s: 'warn', domain: 'jhoanaperez.com', client: 'Jhoana Pérez', stack: 'WordPress', status: 'Arriba', statusNote: 'SSL vence en 9 días', uptime: '100 %', down: [], slow: [], ssl: '9 días', sslT: 'warn', dom: '21/01/2027', domT: 'ok', domNote: '.com · automático', sup: true, copy: 'copia 01/10 · hace 6 d', copyT: 'ok', wpUrl: 'https://jhoanaperez.com/acceso-dk/', cpUrl: 'https://servidor-cliente.ejemplo:2083', warn: 'Este sitio tiene el login escondido (WPS Hide Login): se usa la URL guardada en el sitio.' },
       { id: 'colorado', host: 'Banahost', s: 'ok', domain: 'coloradohardwood.co', client: 'Colorado Hardwood Design', stack: 'WordPress', status: 'Arriba', statusNote: '0,8 s', uptime: '99,99 %', down: [], slow: [], ssl: '64 días', sslT: 'ok', dom: 'sin fecha', domT: 'warn', domNote: '.co · escribir a mano', sup: true, copy: 'copia 18/09 · atrasada 19 d', copyT: 'warn', wpUrl: 'https://coloradohardwood.co/wp-login.php', cpUrl: 'https://servidor-cliente.ejemplo:2083', warn: 'Este sitio tiene reCAPTCHA en el inicio de sesión: si no entra solo, copia los datos.' },
@@ -296,13 +299,13 @@ class Component extends DCLogic {
     if (st.modal) {
       var site = sites.filter(function (x) { return x.id === st.modal.id; })[0];
       var wp = st.modal.kind === 'wp';
-      var whm = !wp && site.host === 'Banahost';
+      var whm = !wp && site.host === 'Banahost' && !!(self.props.whm);
       m = {
         whm: whm, pass: !whm,
         kindLabel: (wp ? 'Acceder a WordPress' : 'Acceder a cPanel') + ' · ' + site.client + ' · ' + site.host,
         title: site.domain,
         needsCode: !st.verified, opened: !!st.verified,
-        openedText: wp ? 'Se abrió el inicio de sesión de WordPress en una pestaña nueva y se enviaron tus datos.' : whm ? 'Se abrió cPanel con un enlace de un solo uso del WHM de la agencia. No se envió ninguna contraseña.' : 'Se abrió cPanel en una pestaña nueva y se enviaron tus datos: este sitio no está en Banahost.',
+        openedText: wp ? 'Se abrió el inicio de sesión de WordPress en una pestaña nueva y se enviaron tus datos.' : whm ? 'Se abrió cPanel con un enlace de un solo uso del WHM de la agencia. No se envió ninguna contraseña.' : 'Se abrió cPanel en una pestaña nueva y se enviaron tus datos.',
         url: wp ? site.wpUrl : whm ? 'Sesión única por WHM · caduca a los 15 min sin uso' : site.cpUrl,
         secret: st.shown ? 'Ej3mplo-no-real-26 · se oculta en 30 s' : '••••••••••••',
         revealLabel: st.shown ? 'Ocultar' : 'Ver contraseña',
