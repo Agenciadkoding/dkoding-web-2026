@@ -278,7 +278,7 @@ Lo que el importador resuelve con tus datos reales:
 | Clientes que no existen en el CRM | 84 | Se crean. Los servicios los cargas después desde los formularios |
 | Filas sin cliente | 13 | Se asignan a mano o se omiten |
 | Filas sin tipo | 16 | 3 se deducen del enlace; 13 quedan a mano |
-| Tipos escritos de 12 formas | 155 | Se normalizan: Cpanel → cPanel, WebMail → Correo, Gmail → Google, Hostinger/NameCheap/GoDaddy → Hosting o dominio, Brevo/Boxplay → Herramienta |
+| Tipos escritos de 11 formas | 139 | Se normalizan: Cpanel → cPanel, WebMail → Correo, Gmail → Google, Hostinger/NameCheap/GoDaddy → Hosting o dominio, Brevo/Boxplay → Herramienta |
 | Enlaces sin `https://` | 59 | Se completan |
 | Enlaces vacíos | 47 | En cPanel y WordPress se propone `dominio/cpanel` o `dominio/wp-admin` |
 | Inicio de sesión escondido | 4 | Se respeta la ruta propia |

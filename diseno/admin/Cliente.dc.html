@@ -417,7 +417,7 @@ class Component extends DCLogic {
     this.state = { tab: 'servicios', svcFilter: 'all', histFilter: 'all',
       services: [
         { id: 's1', type: 'Soporte de agencia', desc: 'Mantenimiento, cambios menores y copias cada 15 días', start: '12/10/2025', per: 'mensual', ren: '12/10/2026', amount: 450000, state: 'active' },
-        { id: 's2', type: 'Hosting y dominio', desc: '4bellu.com · hosting en SeguriServer + dominio', start: '03/02/2024', per: 'anual', ren: '03/02/2027', amount: 1080000, state: 'active' },
+        { id: 's2', type: 'Hosting y dominio', desc: '4bellu.com · hosting en Banahost + dominio', start: '03/02/2024', per: 'anual', ren: '03/02/2027', amount: 1080000, state: 'active' },
         { id: 's3', type: 'SEO mensual', desc: 'Contenido y posicionamiento de la tienda', start: '01/03/2026', per: 'mensual', ren: '01/11/2026', amount: 610000, state: 'active' },
         { id: 's4', type: 'Correo corporativo', desc: '5 buzones en el dominio', start: '28/09/2024', per: 'anual', ren: '28/09/2026', amount: 520000, state: 'active' },
         { id: 's5', type: 'Desarrollo de marca', desc: 'Logo, manual y empaques · entregado', start: '15/01/2025', per: 'único', ren: '', amount: 6800000, state: 'done' },
@@ -542,11 +542,11 @@ class Component extends DCLogic {
       { id: 'c1', name: 'cPanel · 4bellu.com', tipo: 'cPanel', url: 'https://4bellu.com:2083', user: 'admin_ejemplo', pass: 'Ej3mplo-no-real-26', v: 'ok', vt: 'Verificado 02/10 por Laura ✓', o: 'excel' },
       { id: 'c2', name: 'WordPress · 4bellu.com', tipo: 'WordPress', url: 'https://4bellu.com/wp-admin', user: 'dk_soporte_ejemplo', pass: 'Ej3mplo-wp-no-real', v: 'ok', vt: 'Verificado 02/10 por Laura ✓', o: 'admin' },
       { id: 'c3', name: 'WordPress · tienda.4bellu.com', tipo: 'WordPress', url: 'https://tienda.4bellu.com/wp-admin', user: 'admin_ejemplo', pass: 'Ej3mplo-tienda-26', v: 'none', vt: 'Sin verificar', o: 'excel' },
-      { id: 'c4', name: 'Dominio · 4bellu.com', tipo: 'Dominio', url: 'https://registrador.ejemplo.com', user: 'cliente_4bellu_ejemplo', pass: 'Ej3mplo-dominio-26', v: 'crit', vt: 'Falló 28/09', o: 'excel' },
+      { id: 'c4', name: 'Dominio · 4bellu.com', tipo: 'Hosting o dominio', url: 'https://registrador.ejemplo.com', user: 'cliente_4bellu_ejemplo', pass: 'Ej3mplo-dominio-26', v: 'crit', vt: 'Falló 28/09', o: 'excel' },
       { id: 'c11', name: 'Correo corporativo · 4Bellú', tipo: 'Correo', url: 'https://correo.ejemplo.com', user: 'gerencia@ejemplo.com', pass: 'Ej3mplo-correo-4b-26', v: 'none', vt: 'Sin verificar', o: 'excel' },
-      { id: 'c5', name: 'Meta Business · 4Bellú', tipo: 'Meta Business', url: 'https://business.facebook.com', user: 'pauta@ejemplo.com', pass: 'Ej3mplo-meta-26', v: 'ok', vt: 'Verificado 30/09 por Andrés ✓', o: 'excel' },
-      { id: 'c6', name: 'Google Ads · 4Bellú', tipo: 'Google Ads', url: 'https://ads.google.com', user: 'ads@ejemplo.com', pass: 'Ej3mplo-ads-26', v: 'none', vt: 'Sin verificar', o: 'excel' },
-      { id: 'c12', name: 'FTP · tienda.4bellu.com', tipo: 'FTP', url: 'ftp://ftp.ejemplo.com', user: 'tienda_ejemplo', pass: 'Ej3mplo-ftp-4b-26', v: 'ok', vt: 'Verificado 02/10 por Laura ✓', o: 'admin' }
+      { id: 'c5', name: 'Meta Business · 4Bellú', tipo: 'Redes', url: 'https://business.facebook.com', user: 'pauta@ejemplo.com', pass: 'Ej3mplo-meta-26', v: 'ok', vt: 'Verificado 30/09 por Andrés ✓', o: 'excel' },
+      { id: 'c6', name: 'Google Ads · 4Bellú', tipo: 'Google', url: 'https://ads.google.com', user: 'ads@ejemplo.com', pass: 'Ej3mplo-ads-26', v: 'none', vt: 'Sin verificar', o: 'excel' },
+      { id: 'c12', name: 'FTP · tienda.4bellu.com', tipo: 'Otro', url: 'ftp://ftp.ejemplo.com', user: 'tienda_ejemplo', pass: 'Ej3mplo-ftp-4b-26', v: 'ok', vt: 'Verificado 02/10 por Laura ✓', o: 'admin' }
     ];
     function ver(a) {
       if (st.verifiedAt && Date.now() - st.verifiedAt < 300000) { self.startReveal(a.id, a.name, false); }

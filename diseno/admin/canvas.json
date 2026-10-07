@@ -8,7 +8,7 @@
       "title": "ACC · Accesos con verificación",
       "w": 1440,
       "x": 1520,
-      "y": 2560
+      "y": 2720
     },
     "Cliente.dc.html": {
       "expand": "fill",
@@ -17,7 +17,7 @@
       "title": "CRM · Ficha del cliente: servicios, renovaciones e historial",
       "w": 1440,
       "x": 0,
-      "y": 2560
+      "y": 2720
     },
     "Cotizaciones.dc.html": {
       "expand": "fill",
@@ -26,16 +26,16 @@
       "title": "VEN · Cotizaciones",
       "w": 1440,
       "x": 0,
-      "y": 5520
+      "y": 6880
     },
     "ImportarAccesos.dc.html": {
       "expand": "fill",
-      "h": 2460,
+      "h": 3637,
       "is_interactive": true,
-      "title": "ACC · Importar accesos desde Excel",
+      "title": "ACC · Importar accesos desde tu Excel (estructura real)",
       "w": 1440,
       "x": 3040,
-      "y": 2560
+      "y": 2720
     },
     "Main.dc.html": {
       "expand": "fill",
@@ -48,7 +48,7 @@
     },
     "Paginas.dc.html": {
       "expand": "fill",
-      "h": 2037,
+      "h": 2203,
       "is_interactive": true,
       "title": "WEB · Páginas, redirecciones y palabras clave de dkoding.net",
       "w": 1440,
@@ -60,16 +60,16 @@
       "title": "Sistema de interfaz del admin",
       "w": 1240,
       "x": 0,
-      "y": 7160
+      "y": 8560
     },
     "Sitios.dc.html": {
       "expand": "fill",
-      "h": 1135,
+      "h": 1154,
       "is_interactive": true,
-      "title": "SAL · Sitios de clientes y copias quincenales",
+      "title": "SAL · Sitios de clientes (Banahost por WHM) y copias quincenales",
       "w": 1440,
       "x": 3040,
-      "y": 5520
+      "y": 6880
     },
     "Tarifas.dc.html": {
       "expand": "fill",
@@ -78,7 +78,7 @@
       "title": "VEN · Tarifas y simulador",
       "w": 1440,
       "x": 1520,
-      "y": 5520
+      "y": 6880
     }
   },
   "createdOnFiles": {
@@ -104,7 +104,7 @@
       "text": "CRM y accesos",
       "w": 240,
       "x": 0,
-      "y": 2260
+      "y": 2420
     },
     "row3": {
       "kind": "title1",
@@ -112,7 +112,7 @@
       "text": "Ventas y salud de clientes",
       "w": 240,
       "x": 0,
-      "y": 5220
+      "y": 6580
     },
     "row4": {
       "kind": "title1",
@@ -120,7 +120,7 @@
       "text": "Sistema",
       "w": 240,
       "x": 0,
-      "y": 6860
+      "y": 8260
     }
   },
   "order": [

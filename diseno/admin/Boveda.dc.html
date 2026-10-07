@@ -66,7 +66,7 @@ select option{background:#151518;color:#F4F2F8}
         <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0">
           <nav aria-label="Ruta" style="font-size: 13px; color: #B3B0BC">Accesos</nav>
           <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px"><h1 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 30px; line-height: 1.1">Accesos</h1><span style="padding: 2px 10px; border-radius: 999px; border: 1px dashed rgba(255,255,255,0.28); color: #B3B0BC; font-size: 12px; font-weight: 600">Datos de ejemplo</span></div>
-          <span style="color: #B3B0BC">214 accesos · 3 ámbitos · cifrados con una clave fuera de la base de datos</span>
+          <span style="color: #B3B0BC">186 accesos · 3 ámbitos · cifrados con una clave fuera de la base de datos</span>
         </div>
         <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
           <a href="ImportarAccesos.dc.html" style="display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; color: #F4F2F8; font-weight: 600"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4"></path><path d="M7 9l5-5 5 5"></path><path d="M4 20h16"></path></svg>Importar Excel</a>
@@ -160,10 +160,17 @@ select option{background:#151518;color:#F4F2F8}
                     <sc-if value="{{r.hidden}}" hint-placeholder-val="{{true}}">
                       <span style="display: flex; align-items: center; gap: 8px"><span role="img" aria-label="Contraseña oculta" style="font-family: 'JetBrains Mono', monospace; letter-spacing: 0.08em; color: #B3B0BC">••••••</span><button type="button" onClick="{{r.ver}}" aria-label="Ver contraseña de {{r.name}}" style="display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 10px; background: transparent; color: #D98BFF; border: 1px solid rgba(217,139,255,0.4); border-radius: 4px; font-weight: 600; cursor: pointer"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></svg>Ver</button></span>
                     </sc-if>
+                    <sc-if value="{{r.isGoogle}}" hint-placeholder-val="{{false}}">
+                      <span style="display: flex; flex-direction: column; align-items: flex-start; gap: 1px; font-size: 12px; line-height: 1.35">
+                        <span style="display: inline-flex; align-items: center; gap: 6px; font-weight: 600; font-size: 13px; color: #F4F2F8"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D98BFF" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"></path><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"></path></svg>Inicia con Google</span>
+                        <span style="color: #B3B0BC">sin contraseña · con la cuenta de Google</span>
+                        <button type="button" onClick="{{r.openGoogle}}" aria-label="Ver el acceso de la cuenta de Google {{r.googleAcc}}" style="min-height: 28px; padding: 0; background: transparent; border: 0; color: #D98BFF; font-weight: 600; font-size: 12px; cursor: pointer; text-align: left">{{r.googleAcc}} »</button>
+                      </span>
+                    </sc-if>
                   </td>
                   <td style="padding: 8px; font-size: 13px"><span style="display: flex; flex-direction: column"><span style="{{r.mfaStyle}}">{{r.mfaYes}}</span><span style="font-size: 12px; color: #B3B0BC">{{r.mfaWhere}}</span></span></td>
                   <td style="padding: 8px; font-size: 13px"><span style="display: flex; gap: 6px; align-items: flex-start"><svg width="11" height="11" viewBox="0 0 16 16" role="img" aria-label="{{r.vic.label}}" style="flex: none; margin-top: 5px"><path d="{{r.vic.d}}" fill="{{r.vic.fill}}" stroke="{{r.vic.stroke}}" stroke-width="1.5" stroke-dasharray="{{r.vic.dash}}"></path></svg><span style="display: flex; flex-direction: column"><span style="{{r.verStyle}} white-space: nowrap;">{{r.ver1}}</span><span style="font-size: 12px; color: #B3B0BC; white-space: nowrap">{{r.ver2}}</span></span></span></td>
-                  <td style="padding: 8px"><span style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px"><span style="{{r.oriStyle}}">{{r.origin}}</span><sc-if value="{{r.rep}}" hint-placeholder-val="{{false}}"><span style="display: inline-flex; align-items: flex-start; gap: 4px; font-size: 12px; line-height: 1.35; color: #E0A93B"><svg width="10" height="10" viewBox="0 0 16 16" role="img" aria-label="Atención" style="flex: none; margin-top: 3px"><path d="M8 1.5L15 14H1z" fill="#E0A93B"></path></svg>Repetida en 2 clientes</span></sc-if></span></td>
+                  <td style="padding: 8px"><span style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px"><span style="{{r.oriStyle}}">{{r.origin}}</span><sc-if value="{{r.rep}}" hint-placeholder-val="{{false}}"><span style="display: inline-flex; align-items: flex-start; gap: 4px; font-size: 12px; line-height: 1.35; color: #E0A93B"><svg width="10" height="10" viewBox="0 0 16 16" role="img" aria-label="Atención" style="flex: none; margin-top: 3px"><path d="M8 1.5L15 14H1z" fill="#E0A93B"></path></svg>Usuario en varios clientes</span></sc-if></span></td>
                   <td style="padding: 8px 16px 8px 8px">
                     <span style="display: flex; justify-content: flex-end; gap: 4px">
                       
@@ -206,6 +213,13 @@ select option{background:#151518;color:#F4F2F8}
           <dd style="margin: 0">
             <sc-if value="{{p.shown}}" hint-placeholder-val="{{false}}"><span style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><code style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; background: #0F0F11; border: 1px solid rgba(199,85,239,0.55); border-radius: 4px; padding: 2px 6px">{{p.pass}}</code><button type="button" onClick="{{p.copyPass}}" style="min-height: 30px; padding: 0 10px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-size: 12px; font-weight: 600; cursor: pointer">{{copyLabel}}</button><span style="font-size: 12px; color: #E0A93B">Se oculta en {{left}} s</span></span></sc-if>
             <sc-if value="{{p.hidden}}" hint-placeholder-val="{{true}}"><span style="display: flex; align-items: center; gap: 8px"><span role="img" aria-label="Contraseña oculta" style="font-family: 'JetBrains Mono', monospace; color: #B3B0BC">••••••</span><button type="button" onClick="{{p.ver}}" style="display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 10px; background: transparent; color: #D98BFF; border: 1px solid rgba(217,139,255,0.4); border-radius: 4px; font-weight: 600; cursor: pointer">Ver</button></span></sc-if>
+            <sc-if value="{{p.isGoogle}}" hint-placeholder-val="{{false}}"><span style="display: flex; flex-direction: column; gap: 2px"><span>No tiene: inicia con Google, con la cuenta de Google {{p.googleAcc}}.</span><button type="button" onClick="{{p.openGoogle}}" style="align-self: flex-start; min-height: 32px; padding: 0; background: transparent; color: #D98BFF; border: 0; font-weight: 600; cursor: pointer">Ver ese acceso »</button></span></sc-if>
+          </dd>
+          <dt style="color: #B3B0BC">Secreto adicional <span style="display: block; font-size: 12px">códigos de respaldo o llave</span></dt>
+          <dd style="margin: 0">
+            <sc-if value="{{p.secShown}}" hint-placeholder-val="{{false}}"><span style="display: flex; flex-direction: column; align-items: flex-start; gap: 6px"><code style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; background: #0F0F11; border: 1px solid rgba(199,85,239,0.55); border-radius: 4px; padding: 4px 8px; overflow-wrap: anywhere">{{p.secret}}</code><span style="display: flex; align-items: center; gap: 8px"><button type="button" onClick="{{p.copySec}}" style="min-height: 30px; padding: 0 10px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-size: 12px; font-weight: 600; cursor: pointer">{{copyLabel}}</button><span style="font-size: 12px; color: #E0A93B">Se oculta en {{left}} s</span></span></span></sc-if>
+            <sc-if value="{{p.secHidden}}" hint-placeholder-val="{{false}}"><span style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><span role="img" aria-label="Secreto adicional oculto" style="font-family: 'JetBrains Mono', monospace; color: #B3B0BC">••••••</span><button type="button" onClick="{{p.verSec}}" style="display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 10px; background: transparent; color: #D98BFF; border: 1px solid rgba(217,139,255,0.4); border-radius: 4px; font-weight: 600; cursor: pointer">Ver</button><span style="font-size: 12px; color: #B3B0BC">misma verificación que la contraseña</span></span></sc-if>
+            <sc-if value="{{p.noSecret}}" hint-placeholder-val="{{true}}"><span style="color: #B3B0BC">No tiene</span></sc-if>
           </dd>
           <dt style="color: #B3B0BC">2FA</dt><dd style="margin: 0">{{p.mfa}}</dd>
           <dt style="color: #B3B0BC">Notas</dt><dd style="margin: 0; color: #D8D4E2">{{p.notes}}</dd>
@@ -225,7 +239,7 @@ select option{background:#151518;color:#F4F2F8}
           <span style="font-size: 12px; color: #8E8A9B">El registro guarda quién, cuál, cuándo y desde dónde. Nunca guarda el valor.</span>
         </div>
 
-        <sc-if value="{{p.notRotating}}" hint-placeholder-val="{{true}}">
+        <sc-if value="{{p.canRotate}}" hint-placeholder-val="{{true}}">
           <button type="button" onClick="{{startRotate}}" style="align-self: flex-start; min-height: 40px; padding: 0 14px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; cursor: pointer">Registrar cambio de contraseña</button>
         </sc-if>
         <sc-if value="{{p.rotating}}" hint-placeholder-val="{{false}}">
@@ -247,7 +261,7 @@ select option{background:#151518;color:#F4F2F8}
           <div style="display: flex; gap: 12px; align-items: center"><span aria-hidden="true" style="flex: none; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; background: #1A0B2B; color: #D98BFF"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg></span><h2 id="h-verify" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 22px">Confirma que eres tú</h2></div>
           <button type="button" onClick="{{closeModal}}" aria-label="Cerrar" style="flex: none; width: 36px; height: 36px; background: transparent; color: #B3B0BC; border: 0; border-radius: 4px; cursor: pointer; font-size: 20px">×</button>
         </div>
-        <span style="color: #D8D4E2">Vas a ver la contraseña de <strong style="color: #F4F2F8; font-weight: 600">{{mName}}</strong>. {{modeText}}</span>
+        <span style="color: #D8D4E2">Vas a ver {{mWhat}} de <strong style="color: #F4F2F8; font-weight: 600">{{mName}}</strong>. {{modeText}}</span>
         <sc-if value="{{isCodeMode}}" hint-placeholder-val="{{true}}">
           <div style="display: flex; flex-direction: column; gap: 6px">
             <label for="otp" style="font-size: 13px; font-weight: 600">Código de 6 dígitos</label>
@@ -303,7 +317,7 @@ class Component extends DCLogic {
     var t = this.stamp();
     var seen = Object.assign({}, this.state.seen); seen[id] = t;
     var patch = { modalId: null, code: '', pwd: '', revealId: id, left: 30, copied: false, reveals: this.state.reveals + 1, seen: seen,
-      toast: { kind: 'reveal', title: asked ? 'Contraseña visible durante 30 s' : 'Contraseña visible 30 s · sin pedir código (verificaste hace menos de 5 min)', body: 'Quedó registrado: tú, 07/10 ' + t + ', desde 181.xx.xx.xx' } };
+      toast: { kind: 'reveal', title: (String(id).indexOf(':sec') > 0 ? 'Secreto adicional' : 'Contraseña') + (asked ? ' visible durante 30 s' : ' visible 30 s · sin pedir código (verificaste hace menos de 5 min)'), body: 'Quedó registrado: tú, 07/10 ' + t + ', desde 181.xx.xx.xx' } };
     if (asked) { patch.verifiedAt = Date.now(); patch.verifiedTime = t; }
     this.setState(patch);
     if (this.timer) clearInterval(this.timer);
@@ -334,41 +348,51 @@ class Component extends DCLogic {
         views: [{ t: '02/10 15:24', who: 'Laura', x: 'entró con «Acceder a WP» · desde 181.xx.xx.xx' }, { t: '30/09 11:40', who: 'Andrés', x: 'la vio · desde 190.xx.xx.xx' }, { t: '12/09 10:05', who: 'Tú', x: 'la creó en el admin' }] },
       { id: 'c3', scope: 'cli', name: 'WordPress · tienda.4bellu.com', client: '4Bellú · Body shapers', tipo: 'WordPress', url: 'https://tienda.4bellu.com/wp-admin', user: 'admin_ejemplo', pass: 'Ej3mplo-tienda-26', mfa: 'No', mfaWhere: '', ver: V('none'), origin: 'excel', rep: false, notes: 'Sin notas en el Excel.',
         views: [{ t: '12/09 10:02', who: 'Tú', x: 'importada desde Excel (sin valor en el registro)' }, { t: '—', who: 'Nadie', x: 'la ha visto desde la importación' }] },
-      { id: 'c4', scope: 'cli', name: 'Dominio · 4bellu.com', client: '4Bellú · Body shapers', tipo: 'Dominio', url: 'https://registrador.ejemplo.com', user: 'cliente_4bellu_ejemplo', pass: 'Ej3mplo-dominio-26', mfa: 'Sí', mfaWhere: 'celular del cliente', ver: V('crit', '28/09', 'Laura'), origin: 'excel', rep: false, notes: 'El código de 2FA llega al celular de Carolina (cliente).',
+      { id: 'c4', scope: 'cli', name: 'Dominio · 4bellu.com', client: '4Bellú · Body shapers', tipo: 'Hosting o dominio', url: 'https://registrador.ejemplo.com', user: 'cliente_4bellu_ejemplo', pass: 'Ej3mplo-dominio-26', mfa: 'Sí', mfaWhere: 'celular del cliente', ver: V('crit', '28/09', 'Laura'), origin: 'excel', rep: false, notes: 'El código de 2FA llega al celular de Carolina (cliente).',
         views: [{ t: '28/09 11:05', who: 'Laura', x: 'la vio · contraseña rechazada' }, { t: '28/09 11:02', who: 'Laura', x: 'la vio · desde 181.xx.xx.xx' }, { t: '12/09 10:02', who: 'Tú', x: 'importada desde Excel' }] },
-      { id: 'c5', scope: 'cli', name: 'Meta Business · 4Bellú', client: '4Bellú · Body shapers', tipo: 'Meta Business', url: 'https://business.facebook.com', user: 'pauta@ejemplo.com', pass: 'Ej3mplo-meta-26', mfa: 'Sí', mfaWhere: 'app del cliente', ver: V('ok', '30/09', 'Andrés'), origin: 'excel', rep: false, notes: 'Mejor pedir acceso de socio que usar esta cuenta.',
+      { id: 'c5', scope: 'cli', name: 'Meta Business · 4Bellú', client: '4Bellú · Body shapers', tipo: 'Redes', url: 'https://business.facebook.com', user: 'pauta@ejemplo.com', pass: 'Ej3mplo-meta-26', mfa: 'Sí', mfaWhere: 'app del cliente', ver: V('ok', '30/09', 'Andrés'), origin: 'excel', rep: false, notes: 'Mejor pedir acceso de socio que usar esta cuenta.',
         views: [{ t: '30/09 16:10', who: 'Andrés', x: 'la vio · desde 190.xx.xx.xx' }, { t: '22/09 08:47', who: 'Laura', x: 'la vio y la copió · desde 181.xx.xx.xx' }, { t: '12/09 10:02', who: 'Tú', x: 'importada desde Excel (sin valor en el registro)' }] },
-      { id: 'c6', scope: 'cli', name: 'Google Ads · 4Bellú', client: '4Bellú · Body shapers', tipo: 'Google Ads', url: 'https://ads.google.com', user: 'ads@ejemplo.com', pass: 'Ej3mplo-ads-26', mfa: 'Sí', mfaWhere: 'celular del cliente', ver: V('none'), origin: 'excel', rep: false, notes: 'Sin notas en el Excel.',
+      { id: 'c6', scope: 'cli', name: 'Google Ads · 4Bellú', client: '4Bellú · Body shapers', tipo: 'Google', url: 'https://ads.google.com', user: 'ads@ejemplo.com', pass: 'Ej3mplo-ads-26', mfa: 'Sí', mfaWhere: 'celular del cliente', ver: V('none'), origin: 'excel', rep: false, notes: 'Sin notas en el Excel.',
         views: [{ t: '03/10 17:30', who: 'Andrés', x: 'la vio · desde 190.xx.xx.xx' }, { t: '19/09 09:05', who: 'Laura', x: 'la vio · desde 181.xx.xx.xx' }, { t: '12/09 10:02', who: 'Tú', x: 'importada desde Excel (sin valor en el registro)' }] },
-      { id: 'c7', scope: 'cli', name: 'cPanel · LuzMa', client: 'LuzMa · uniformes', tipo: 'cPanel', url: 'https://servidor.ejemplo.com:2083', user: 'luzma_ejemplo', pass: 'Ej3mplo-no-real-26', mfa: 'No', mfaWhere: '', ver: V('ok', '01/10', 'Laura'), origin: 'excel', rep: true, notes: 'Misma contraseña que cPanel · 4bellu.com.',
+      { id: 'c7', scope: 'cli', name: 'cPanel · LuzMa', client: 'LuzMa · uniformes', tipo: 'cPanel', url: 'https://servidor.ejemplo.com:2083', user: 'luzma_ejemplo', pass: 'Ej3mplo-luzma-26', mfa: 'No', mfaWhere: '', ver: V('ok', '01/10', 'Laura'), origin: 'excel', rep: false, notes: 'Está en Banahost.',
         views: [{ t: '01/10 09:30', who: 'Laura', x: 'la vio · desde 181.xx.xx.xx' }, { t: '24/09 15:12', who: 'Andrés', x: 'la vio y la copió · desde 190.xx.xx.xx' }, { t: '12/09 10:02', who: 'Tú', x: 'importada desde Excel (sin valor en el registro)' }] },
       { id: 'c8', scope: 'cli', name: 'WordPress · Colorado', client: 'Colorado Hardwood Design', short: 'Colorado Hardwood', tipo: 'WordPress', url: 'https://colorado.ejemplo.com/wp-admin', user: 'admin_ejemplo', pass: 'Ej3mplo-colorado-26', mfa: 'Sí', mfaWhere: 'app de DKODING', ver: V('ok', '01/10', 'Laura'), origin: 'admin', rep: false, notes: 'Sitio en inglés.',
         views: [{ t: '01/10 14:12', who: 'Laura', x: 'entró con «Acceder a WP» · desde 181.xx.xx.xx' }, { t: '15/09 08:50', who: 'Andrés', x: 'la vio · desde 190.xx.xx.xx' }, { t: '02/09 11:00', who: 'Tú', x: 'la creó en el admin' }] },
       { id: 'c9', scope: 'cli', name: 'Correo · Jhoana Pérez', client: 'Jhoana Pérez · psicóloga', tipo: 'Correo', url: 'https://correo.ejemplo.com', user: 'consultorio@ejemplo.com', pass: 'Ej3mplo-correo-26', mfa: 'No', mfaWhere: '', ver: V('crit', '28/09', 'Andrés'), origin: 'excel', rep: false, notes: 'La clienta pudo haberla cambiado.',
         views: [{ t: '28/09 17:40', who: 'Andrés', x: 'la vio · marcó «No funciona»' }, { t: '28/09 17:38', who: 'Andrés', x: 'la vio · desde 190.xx.xx.xx' }, { t: '12/09 10:02', who: 'Tú', x: 'importada desde Excel (sin valor en el registro)' }] },
-      { id: 'c10', scope: 'cli', name: 'FTP · Clínica dental', client: 'Clínica dental (ejemplo)', tipo: 'FTP', url: 'ftp://ftp.ejemplo.com', user: 'clinica_ejemplo', pass: 'Ej3mplo-ftp-26', mfa: 'No', mfaWhere: '', ver: V('none'), origin: 'excel', rep: false, notes: 'Sin notas en el Excel.',
+      { id: 'c10', scope: 'cli', name: 'FTP · Clínica dental', client: 'Clínica dental (ejemplo)', tipo: 'Otro', url: 'ftp://ftp.ejemplo.com', user: 'clinica_ejemplo', pass: 'Ej3mplo-ftp-26', mfa: 'No', mfaWhere: '', ver: V('none'), origin: 'excel', rep: false, notes: 'Sin notas en el Excel.',
         views: [{ t: '12/09 10:02', who: 'Tú', x: 'importada desde Excel' }] },
-      { id: 'a1', scope: 'age', name: 'Google Ads · MCC DKODING', client: 'DKODING', tipo: 'Google Ads', url: 'https://ads.google.com', user: 'mcc@ejemplo.com', pass: 'Ej3mplo-mcc-26', mfa: 'Sí', mfaWhere: 'llave física', ver: V('ok', '01/10', 'ti'), origin: 'admin', rep: false, notes: 'Cuenta administradora de todas las cuentas de clientes.',
-        views: [{ t: '01/10 08:15', who: 'Tú', x: 'la vio · desde 181.xx.xx.xx' }] },
-      { id: 'a2', scope: 'age', name: 'Meta Business · DKODING', client: 'DKODING', tipo: 'Meta Business', url: 'https://business.facebook.com', user: 'meta@ejemplo.com', pass: 'Ej3mplo-meta-dk-26', mfa: 'Sí', mfaWhere: 'app de Dirección', ver: V('ok', '30/09', 'Andrés'), origin: 'admin', rep: false, notes: '',
-        views: [{ t: '30/09 16:02', who: 'Andrés', x: 'la vio' }] },
-      { id: 'a3', scope: 'age', name: 'Dominio · dkoding.net', client: 'DKODING', tipo: 'Dominio', url: 'https://registrador.ejemplo.com', user: 'dkoding_ejemplo', pass: 'Ej3mplo-dkn-26', mfa: 'Sí', mfaWhere: 'llave física', ver: V('ok', '15/09', 'ti'), origin: 'excel', rep: false, notes: 'Renueva en marzo.',
-        views: [{ t: '15/09 12:00', who: 'Tú', x: 'la vio' }] },
-      { id: 'a4', scope: 'age', name: 'SeguriServer · revendedor', client: 'DKODING', tipo: 'Hosting', url: 'https://clientes.ejemplo.com', user: 'dkoding_ejemplo', pass: 'Ej3mplo-seguri-26', mfa: 'Sí', mfaWhere: 'app de Dirección', ver: V('none'), origin: 'excel', rep: false, notes: 'Pendiente: pedir WHM de revendedor.',
+      { id: 'a1', scope: 'age', name: 'Banahost · WHM', client: 'DKODING', tipo: 'WHM', url: 'https://servidor.ejemplo.com:2087', user: 'admin_ejemplo', pass: 'Ej3mplo-whm-26', mfa: 'Sí', mfaWhere: 'app de Dirección', ver: V('ok', '05/10', 'ti'), origin: 'excel', rep: false, notes: 'Servidor de la agencia: aquí está la mayoría de los sitios. El link traía una sesión vieja (cpsess…) y se limpió al importar.',
+        views: [{ t: '05/10 09:02', who: 'Tú', x: 'la viste · desde 181.xx.xx.xx' }, { t: '01/10 16:30', who: 'Laura', x: 'la vio · desde 181.xx.xx.xx' }, { t: '12/09 10:02', who: 'Tú', x: 'importada desde Excel (sin valor en el registro)' }] },
+      { id: 'a2', scope: 'age', name: 'GoDaddy · dominios de la agencia', client: 'DKODING', tipo: 'Hosting o dominio', url: 'https://sso.godaddy.com', user: 'dkoding_ejemplo', pass: 'Ej3mplo-dominios-26', secret: 'LLAVE-EJEMPLO-0000-0000', mfa: 'Sí', mfaWhere: 'app de Dirección', ver: V('ok', '15/09', 'ti'), origin: 'excel', rep: false, notes: 'Tiene llave de acceso guardada como secreto adicional.',
+        views: [{ t: '15/09 12:00', who: 'Tú', x: 'la viste · desde 181.xx.xx.xx' }, { t: '12/09 10:02', who: 'Tú', x: 'importada desde Excel (sin valor en el registro)' }] },
+      { id: 'a3', scope: 'age', name: 'Google · cuenta de la agencia (ejemplo)', client: 'DKODING', tipo: 'Google', url: 'https://accounts.google.com', user: 'agencia@ejemplo.com', pass: 'Ej3mplo-google-26', secret: 'ejem-1111 · ejem-2222 · ejem-3333 · ejem-4444', mfa: 'Sí', mfaWhere: 'app de Dirección + códigos', ver: V('ok', '01/10', 'ti'), origin: 'excel', rep: false, notes: 'Con esta cuenta inician sesión 6 herramientas (Semrush, Notion…). Sus códigos de respaldo están en el secreto adicional.',
+        views: [{ t: '01/10 08:15', who: 'Tú', x: 'la viste · desde 181.xx.xx.xx' }, { t: '24/09 11:20', who: 'Andrés', x: 'la vio · desde 190.xx.xx.xx' }, { t: '12/09 10:02', who: 'Tú', x: 'importada desde Excel (sin valor en el registro)' }] },
+      { id: 'a4', scope: 'age', name: 'Semrush', client: 'DKODING', tipo: 'Herramienta', url: 'https://www.semrush.com/login', user: 'agencia@ejemplo.com', pass: '', google: 'a3', mfa: 'Sí', mfaWhere: 'la de Google', ver: V('ok', '30/09', 'Andrés'), origin: 'excel', rep: false, notes: 'En el Excel: «Tipo acceso: Google».',
+        views: [{ t: '30/09 10:05', who: 'Andrés', x: 'abrió el inicio de sesión' }, { t: '12/09 10:02', who: 'Tú', x: 'importada desde Excel' }] },
+      { id: 'a5', scope: 'age', name: 'Notion', client: 'DKODING', tipo: 'Herramienta', url: 'https://www.notion.so/login', user: 'agencia@ejemplo.com', pass: '', google: 'a3', mfa: 'Sí', mfaWhere: 'la de Google', ver: V('none'), origin: 'excel', rep: false, notes: 'En el Excel: «Tipo acceso: Google».',
         views: [{ t: '12/09 10:02', who: 'Tú', x: 'importada desde Excel' }] },
-      { id: 'a5', scope: 'age', name: 'Cloudflare · cuenta DKODING', client: 'DKODING', tipo: 'Otro', url: 'https://dash.cloudflare.com', user: 'infra@ejemplo.com', pass: 'Ej3mplo-cf-26', mfa: 'Sí', mfaWhere: 'llave física', ver: V('ok', '05/10', 'ti'), origin: 'admin', rep: false, notes: 'R2: un bucket por cliente.',
-        views: [{ t: '05/10 09:00', who: 'Tú', x: 'la vio' }] },
-      { id: 'a6', scope: 'age', name: 'UptimeRobot', client: 'DKODING', tipo: 'Otro', url: 'https://uptimerobot.com/login', user: 'monitoreo@ejemplo.com', pass: 'Ej3mplo-uptime-26', mfa: 'No', mfaWhere: '', ver: V('crit', '20/09', 'Laura'), origin: 'excel', rep: false, notes: '',
-        views: [{ t: '20/09 10:30', who: 'Laura', x: 'la vio · no funcionó' }] },
+      { id: 'a6', scope: 'age', name: 'Correo Corporativo · ventas@', client: 'DKODING', tipo: 'Correo', url: 'https://correo.ejemplo.com', user: 'ventas@ejemplo.com', pass: 'Ej3mplo-ventas-26', mfa: 'No', mfaWhere: '', ver: V('crit', '20/09', 'Laura'), origin: 'excel', rep: false, notes: 'En el Excel había 4 filas «Correo Corporativo»: se distinguen por el usuario.',
+        views: [{ t: '20/09 10:30', who: 'Laura', x: 'la vio · marcó «No funciona»' }, { t: '20/09 10:28', who: 'Laura', x: 'la vio · desde 181.xx.xx.xx' }, { t: '12/09 10:02', who: 'Tú', x: 'importada desde Excel (sin valor en el registro)' }] },
+      { id: 'a7', scope: 'age', name: 'Trello', client: 'DKODING', tipo: 'Herramienta', url: 'https://trello.com/login', user: 'equipo@ejemplo.com', pass: 'Ej3mplo-trello-26', mfa: 'No', mfaWhere: '', ver: V('none'), origin: 'excel', rep: false, notes: '',
+        views: [{ t: '12/09 10:02', who: 'Tú', x: 'importada desde Excel' }] },
+      { id: 'a8', scope: 'age', name: 'Freepik', client: 'DKODING', tipo: 'Herramienta', url: 'https://www.freepik.com/login', user: 'disenio@ejemplo.com', pass: 'Ej3mplo-freepik-26', mfa: 'No', mfaWhere: '', ver: V('ok', '28/09', 'Andrés'), origin: 'excel', rep: false, notes: '',
+        views: [{ t: '28/09 15:40', who: 'Andrés', x: 'la vio y la copió · desde 190.xx.xx.xx' }, { t: '12/09 10:02', who: 'Tú', x: 'importada desde Excel' }] },
+      { id: 'a9', scope: 'age', name: 'Bold · pagos de la agencia', client: 'DKODING', tipo: 'Herramienta', url: 'https://bold.co', user: 'pagos@ejemplo.com', pass: 'Ej3mplo-bold-26', mfa: 'Sí', mfaWhere: 'app de Dirección', ver: V('ok', '03/10', 'ti'), origin: 'admin', rep: false, notes: 'Creada en el admin después de importar.',
+        views: [{ t: '03/10 17:10', who: 'Tú', x: 'la viste · desde 181.xx.xx.xx' }] },
       { id: 'p1', scope: 'per', name: 'Mi correo DKODING', client: 'Tú', tipo: 'Correo', url: 'https://correo.ejemplo.com', user: 'tu.nombre@ejemplo.com', pass: 'Ej3mplo-mio-26', mfa: 'Sí', mfaWhere: 'app autenticadora', ver: V('ok', '01/10', 'ti'), origin: 'admin', rep: false, notes: 'Solo tú la ves.',
         views: [{ t: '01/10 07:58', who: 'Tú', x: 'la viste' }] },
-      { id: 'p2', scope: 'per', name: 'Mi GitHub', client: 'Tú', tipo: 'Otro', url: 'https://github.com/login', user: 'tu_usuario_ejemplo', pass: 'Ej3mplo-gh-26', mfa: 'Sí', mfaWhere: 'llave física', ver: V('ok', '28/09', 'ti'), origin: 'admin', rep: false, notes: '',
+      { id: 'p2', scope: 'per', name: 'Mi GitHub', client: 'Tú', tipo: 'Herramienta', url: 'https://github.com/login', user: 'tu_usuario_ejemplo', pass: 'Ej3mplo-gh-26', mfa: 'Sí', mfaWhere: 'llave física', ver: V('ok', '28/09', 'ti'), origin: 'admin', rep: false, notes: '',
         views: [{ t: '28/09 19:20', who: 'Tú', x: 'la viste' }] },
       { id: 'p3', scope: 'per', name: 'Banco de la empresa (ejemplo)', client: 'Tú', tipo: 'Otro', url: 'https://banco.ejemplo.com', user: 'tu_usuario_ejemplo', pass: 'Ej3mplo-banco-26', mfa: 'Sí', mfaWhere: 'token del banco', ver: V('none'), origin: 'admin', rep: false, notes: '',
         views: [{ t: '—', who: 'Nadie', x: 'la ha visto todavía' }] },
       { id: 'p4', scope: 'per', name: 'Wi-Fi de la oficina', client: 'Tú', tipo: 'Otro', url: '—', user: 'DKODING-oficina', pass: 'Ej3mplo-wifi-26', mfa: 'No', mfaWhere: '', ver: V('ok', '03/10', 'ti'), origin: 'excel', rep: false, notes: '',
         views: [{ t: '03/10 08:30', who: 'Tú', x: 'la viste' }] }
     ];
+    var userClients = {};
+    DATA.forEach(function (d) { if (d.scope === 'cli') { userClients[d.user] = userClients[d.user] || {}; userClients[d.user][d.client] = true; } });
+    DATA.forEach(function (d) { d.rep = d.scope === 'cli' && Object.keys(userClients[d.user] || {}).length > 1; });
+    var byId = {}; DATA.forEach(function (d) { byId[d.id] = d; });
     function verOf(d) {
       var m = st.marks[d.id];
       if (st.rotated[d.id] && !m) return { k: 'none', l1: 'Sin verificar', l2: 'rotada 07/10', txt: 'sin verificar desde el cambio de contraseña del 07/10.' };
@@ -389,25 +413,25 @@ class Component extends DCLogic {
     function mark(id, v) { var m = Object.assign({}, st.marks); m[id] = v; self.setState({ marks: m, toast: { kind: 'mark', title: v === 'ok' ? 'Marcado «Funciona»' : 'Marcado «No funciona»', body: 'Quedó en la verificación del acceso y en el registro: tú, 07/10.' } }); }
     function toastOnly(title, body) { self.setState({ toast: { kind: 'info', title: title, body: body } }); }
 
-    var counts = { per: 7, age: 24, cli: 183 };
+    var counts = { per: 4, age: 41, cli: 141 };
     var scopes = [{ id: 'per', label: 'Personales' }, { id: 'age', label: 'Agencia' }, { id: 'cli', label: 'Clientes' }].map(function (s) {
       var on = st.scope === s.id;
       return { label: s.label, count: counts[s.id], on: on, pick: function () { self.setState({ scope: s.id, fCli: '', panelId: null }); },
         style: 'display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border: 0; border-radius: 6px; cursor: pointer; font-weight: 600; ' + (on ? 'background: #1A0B2B; color: #F4F2F8; box-shadow: inset 0 0 0 1px rgba(199,85,239,0.45);' : 'background: transparent; color: #B3B0BC;'),
         badgeStyle: 'padding: 0 7px; border-radius: 999px; font-size: 12px; font-variant-numeric: tabular-nums; ' + (on ? 'background: rgba(199,85,239,0.22); color: #F0D4FF;' : 'background: rgba(255,255,255,0.08); color: #B3B0BC;') };
     });
-    var notes = { per: 'Solo tú los ves. Ni un administrador puede verlos.', age: 'Los ve el equipo según su rol: Google Ads, Meta, dominios propios, proveedores y hosting de DKODING.', cli: 'Los ve el equipo según su rol y los clientes que tiene asignados. Cada acceso está ligado a un cliente y, si aplica, a un sitio.' };
+    var notes = { per: 'Solo tú los ves. Ni un administrador puede verlos.', age: 'Los ve el equipo según su rol: el servidor Banahost, dominios, la cuenta de Google, herramientas (Semrush, Notion, Trello…) y pagos de DKODING.', cli: 'Los ve el equipo según su rol y los clientes que tiene asignados. Cada acceso está ligado a un cliente y, si aplica, a un sitio.' };
 
     var healthDefs = [
       { id: 'sin', label: 'Sin verificar', value: '23', note: 'nadie ha probado que funcionen', k: 'none', f: { fVer: 'sin' } },
       { id: 'fallo', label: 'Falló la última verificación', value: '4', note: 'alguien marcó «No funciona»', k: 'crit', f: { fVer: 'fallo' } },
-      { id: 'excel', label: 'Importados del Excel sin rotar', value: '187', note: 'no es obligatorio rotarlos', k: 'warn', f: { fOri: 'excel' } },
-      { id: 'rep', label: 'Repetidos en varios clientes', value: '6', note: 'la misma contraseña en 2 o más', k: 'warn', f: { fRep: true } }
+      { id: 'excel', label: 'Importados del Excel sin rotar', value: '176', note: 'de 180 importados · no es obligatorio rotarlos', k: 'warn', f: { fOri: 'excel' } },
+      { id: 'rep', label: 'Usuarios repetidos en varios clientes', value: '11', note: 'usuarios genéricos como admin · informativo', k: 'warn', f: { fRep: true } }
     ];
     var health = healthDefs.map(function (h) {
       var on = (h.id === 'sin' && st.fVer === 'sin') || (h.id === 'fallo' && st.fVer === 'fallo') || (h.id === 'excel' && st.fOri === 'excel') || (h.id === 'rep' && st.fRep);
       return { label: h.label, value: h.value, note: h.note, ic: ic(h.k), on: on,
-        pick: function () { var base = { fVer: '', fOri: '', fRep: false, fTipo: '', fCli: '', q: '' }; self.setState(on ? base : Object.assign(base, h.f)); },
+        pick: function () { var base = { fVer: '', fOri: '', fRep: false, fTipo: '', fCli: '', q: '' }; if (h.id === 'rep' && !on) base.scope = 'cli'; self.setState(on ? base : Object.assign(base, h.f)); },
         style: 'display: flex; flex-direction: column; gap: 6px; padding: 14px 16px; border-radius: 8px; cursor: pointer; color: #F4F2F8; ' + (on ? 'background: #1A0B2B; border: 1px solid #C755EF;' : 'background: #151518; border: 1px solid rgba(255,255,255,0.08);') };
     });
 
@@ -429,8 +453,10 @@ class Component extends DCLogic {
     var rows = filtered.map(function (d) {
       var vv = verOf(d), shown = st.revealId === d.id, panel = st.panelId === d.id;
       var ori = originOf(d);
+      var gacc = d.google ? byId[d.google] : null;
       return { name: d.name, url: d.url, client: d.client, clientShort: d.short || d.client.split(' · ')[0], tipo: d.tipo, user: d.user, pass: d.pass, rep: d.rep,
-        shown: shown, hidden: !shown,
+        shown: shown && !gacc, hidden: !shown && !gacc, isGoogle: !!gacc, googleAcc: gacc ? gacc.user + ' (ejemplo)' : '',
+        openGoogle: function () { if (gacc) self.setState({ panelId: gacc.id, rotating: false, newPwd: '' }); },
         mfaYes: d.mfa, mfaWhere: d.mfaWhere || '—', mfaStyle: d.mfa === 'Sí' ? 'font-weight: 600; color: #F4F2F8;' : 'color: #B3B0BC;',
         vic: ic(vv.k), ver1: vv.l1, ver2: vv.l2, verStyle: 'font-weight: 600; color: ' + (vv.k === 'ok' ? '#F4F2F8' : vv.k === 'crit' ? '#FF8F9B' : '#D8D4E2') + ';',
         origin: ori, oriStyle: 'display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 12px; white-space: nowrap; ' + (ori === 'Excel · sin rotar' ? 'background: rgba(224,169,59,0.1); color: #E8C27A; border: 1px solid rgba(224,169,59,0.3);' : 'background: rgba(255,255,255,0.06); color: #D8D4E2; border: 1px solid rgba(255,255,255,0.12);'),
@@ -444,36 +470,43 @@ class Component extends DCLogic {
     });
 
     var pd = DATA.filter(function (d) { return d.id === st.panelId; })[0];
-    var p = { kicker: '', name: '', whoLabel: '', client: '', tipo: '', url: '', user: '', pass: '', mfa: '', notes: '', origin: '', vic: ic('none'), verText: '', views: [], shown: false, hidden: true, rotating: false, notRotating: true };
+    var p = { kicker: '', name: '', whoLabel: '', client: '', tipo: '', url: '', user: '', pass: '', mfa: '', notes: '', origin: '', vic: ic('none'), verText: '', views: [], shown: false, hidden: true, rotating: false, notRotating: true, canRotate: false, isGoogle: false, googleAcc: '', hasSecret: false, noSecret: true, secShown: false, secHidden: false, secret: '' };
     if (pd) {
       var pv = verOf(pd);
       var views = pd.views.slice(0);
       if (st.seen[pd.id]) views.unshift({ t: '07/10 ' + st.seen[pd.id], who: 'Tú', x: 'la viste · desde 181.xx.xx.xx' });
+      if (st.seen[pd.id + ':sec']) views.unshift({ t: '07/10 ' + st.seen[pd.id + ':sec'], who: 'Tú', x: 'viste el secreto adicional · desde 181.xx.xx.xx' });
+      var pg = pd.google ? byId[pd.google] : null;
+      var secKey = pd.id + ':sec';
       if (st.rotated[pd.id]) views.unshift({ t: '07/10 10:50', who: 'Tú', x: 'registraste un cambio de contraseña' });
       p = { kicker: (pd.scope === 'cli' ? 'Acceso de cliente' : pd.scope === 'age' ? 'Acceso de la agencia' : 'Acceso personal') + ' · ' + pd.tipo,
         name: pd.name, whoLabel: pd.scope === 'cli' ? 'Cliente' : 'Dueño', client: pd.scope === 'per' ? 'Tú (solo tú lo ves)' : pd.client, tipo: pd.tipo, url: pd.url, user: pd.user, pass: pd.pass,
         mfa: pd.mfa === 'Sí' ? 'Sí · ' + pd.mfaWhere : 'No', notes: pd.notes || 'Sin notas.', origin: originOf(pd) + (pd.origin === 'excel' && !st.rotated[pd.id] ? ' · importado el 12/09' : ''),
         vic: ic(pv.k), verText: pv.txt, views: views.slice(0, 4),
-        shown: st.revealId === pd.id, hidden: st.revealId !== pd.id, rotating: st.rotating, notRotating: !st.rotating,
+        shown: !pg && st.revealId === pd.id, hidden: !pg && st.revealId !== pd.id, rotating: st.rotating, notRotating: !st.rotating, canRotate: !st.rotating && !pg,
+        isGoogle: !!pg, googleAcc: pg ? pg.user + ' (ejemplo)' : '', openGoogle: function () { if (pg) self.setState({ panelId: pg.id, rotating: false, newPwd: '' }); },
+        hasSecret: !!pd.secret, noSecret: !pd.secret, secret: pd.secret || '', secShown: !!pd.secret && st.revealId === secKey, secHidden: !!pd.secret && st.revealId !== secKey,
+        verSec: function () { ver(secKey); }, copySec: function () { copyText(pd.secret); self.setState({ copied: true }); },
         ver: function () { ver(pd.id); }, copyPass: function () { copyText(pd.pass); self.setState({ copied: true }); },
         copyUser: function () { copyText(pd.user); toastOnly('Usuario copiado', pd.user + ' · copiar el usuario no pide código.'); },
         openLogin: function () { toastOnly('Inicio de sesión', 'Se abre ' + pd.url + ' en otra pestaña. En el prototipo no se abre.'); },
         markOk: function () { mark(pd.id, 'ok'); }, markFail: function () { mark(pd.id, 'fail'); } };
     }
-    var md = DATA.filter(function (d) { return d.id === st.modalId; })[0];
+    var mKey = st.modalId, mIsSec = !!mKey && String(mKey).indexOf(':sec') > 0;
+    var md = mKey ? byId[String(mKey).split(':')[0]] : null;
     var codeOk = /^\d{6}$/.test(st.code), pwdOk = st.pwd.length >= 6;
     var canConfirm = st.mode === 'code' ? codeOk : pwdOk;
-    var doConfirm = function () { if (canConfirm && md) { self.startReveal(md.id, true); } };
+    var doConfirm = function () { if (canConfirm && md) { self.startReveal(mKey, true); } };
 
     var sel = function (on) { return 'min-height: 40px; padding: 0 10px; background: ' + (on ? '#1A0B2B' : '#0C0C0C') + '; color: #F4F2F8; border: 1px solid ' + (on ? 'rgba(199,85,239,0.6)' : 'rgba(255,255,255,0.14)') + '; border-radius: 4px; cursor: pointer; max-width: 100%;'; };
     var opt = function (v, l) { return { v: v, l: l }; };
-    var tipoOpts = [opt('', 'Tipo: todos'), opt('cPanel', 'cPanel'), opt('WordPress', 'WordPress'), opt('Dominio', 'Dominio'), opt('Correo', 'Correo'), opt('Meta Business', 'Meta Business'), opt('Google Ads', 'Google Ads'), opt('Hosting', 'Hosting'), opt('FTP', 'FTP'), opt('Otro', 'Otro')];
+    var tipoOpts = [opt('', 'Tipo: todos'), opt('cPanel', 'cPanel'), opt('WordPress', 'WordPress'), opt('Correo', 'Correo'), opt('Google', 'Google'), opt('Redes', 'Redes'), opt('Hosting o dominio', 'Hosting o dominio'), opt('Herramienta', 'Herramienta'), opt('WHM', 'WHM'), opt('Otro', 'Otro')];
     var cliOpts = [opt('', 'Cliente: todos'), opt('4Bellú · Body shapers', '4Bellú · Body shapers'), opt('LuzMa · uniformes', 'LuzMa · uniformes'), opt('Colorado Hardwood Design', 'Colorado Hardwood Design'), opt('Jhoana Pérez · psicóloga', 'Jhoana Pérez · psicóloga'), opt('Clínica dental (ejemplo)', 'Clínica dental (ejemplo)')];
     var verOpts = [opt('', 'Verificación: todas'), opt('ok', 'Verificado'), opt('sin', 'Sin verificar'), opt('fallo', 'Falló')];
     var oriOpts = [opt('', 'Origen: todos'), opt('excel', 'Excel · sin rotar'), opt('admin', 'Creada o rotada en el admin')];
     var hasFilters = !!(st.fTipo || st.fCli || st.fVer || st.fOri || st.fRep || q);
     var titles = { per: 'Tus accesos personales', age: 'Accesos de la agencia', cli: 'Accesos de clientes' };
-    var pageText = hasFilters ? (filtered.length + (filtered.length === 1 ? ' resultado' : ' resultados') + ' en esta página de ejemplo' + (st.fRep ? ' · filtro: repetidos en varios clientes' : '')) : ('Mostrando 1 a ' + inScope.length + ' de ' + counts[st.scope]);
+    var pageText = hasFilters ? (filtered.length + (filtered.length === 1 ? ' resultado' : ' resultados') + ' en esta página de ejemplo' + (st.fRep ? ' · filtro: usuario en varios clientes' : '')) : ('Mostrando 1 a ' + inScope.length + ' de ' + counts[st.scope]);
     var last = Math.ceil(counts[st.scope] / inScope.length);
     var vt = st.verifiedTime || '10:42';
     var untilMin = parseInt(vt.split(':')[1], 10) + 5;
@@ -497,7 +530,7 @@ class Component extends DCLogic {
       cantRotate: st.newPwd.length < 6,
       rotateStyle: 'min-height: 40px; padding: 0 14px; border-radius: 4px; font-weight: 600; ' + (st.newPwd.length >= 6 ? 'background: #6D00C2; color: #FFFFFF; border: 0; cursor: pointer;' : 'background: transparent; color: #8E8A9B; border: 1px solid rgba(255,255,255,0.14); cursor: default;'),
       saveRotate: function () { if (st.newPwd.length < 6 || !pd) return; var r = Object.assign({}, st.rotated); r[pd.id] = true; var m = Object.assign({}, st.marks); delete m[pd.id]; self.setState({ rotated: r, marks: m, rotating: false, newPwd: '', toast: { kind: 'info', title: 'Cambio de contraseña registrado', body: 'Origen: «Rotada en el admin · 07/10». Queda sin verificar hasta que alguien pruebe que funciona.' } }); },
-      hasModal: !!md, mName: md ? md.name : '',
+      hasModal: !!md, mName: md ? md.name : '', mWhat: mIsSec ? 'el secreto adicional (códigos de respaldo o llave)' : 'la contraseña',
       isCodeMode: st.mode === 'code', isPwdMode: st.mode === 'pwd',
       modeText: st.mode === 'code' ? 'Escribe el código de 6 dígitos de tu app autenticadora.' : 'Escribe la contraseña con la que entras al admin.',
       toggleLabel: st.mode === 'code' ? 'Usar mi contraseña' : 'Usar el código de la app',

@@ -64,7 +64,7 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid #D98B
         <div style="display: flex; flex-direction: column; gap: 4px">
           <nav aria-label="Ruta" style="font-size: 13px; color: #B3B0BC">Salud</nav>
           <h1 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 30px; line-height: 1.1">Sitios de clientes</h1>
-          <span style="color: #B3B0BC">38 sitios de 31 clientes · estado de UptimeRobot cada 5 min · copias solo con soporte de agencia activo (19 sitios)</span>
+          <span style="color: #B3B0BC">57 sitios de 84 clientes · casi todos en Banahost · UptimeRobot cada 5 min · copias solo con soporte activo (19)</span>
         </div>
         <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
           <span style="padding: 3px 10px; border-radius: 999px; background: rgba(199,85,239,0.14); color: #D98BFF; font-size: 12px; font-weight: 600">Datos de ejemplo</span>
@@ -108,7 +108,7 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid #D98B
                 <tbody>
                   <sc-for list="{{rows}}" as="r" hint-placeholder-count="10">
                     <tr class="dk-row" style="border-top: 1px solid rgba(255,255,255,0.06)">
-                      <td style="padding: 10px 8px 10px 16px"><span style="display: flex; align-items: center; gap: 10px"><svg width="12" height="12" viewBox="0 0 16 16" aria-label="{{r.stateLabel}}" style="flex: none"><path d="{{r.shape}}" fill="{{r.color}}"></path></svg><span style="display: flex; flex-direction: column; min-width: 0"><span style="font-weight: 600; font-family: 'JetBrains Mono', monospace; font-size: 13px">{{r.domain}}</span><a href="Cliente.dc.html" style="font-size: 12px; color: #B3B0BC">{{r.client}} · {{r.stack}}</a></span></span></td>
+                      <td style="padding: 10px 8px 10px 16px"><span style="display: flex; align-items: center; gap: 10px"><svg width="12" height="12" viewBox="0 0 16 16" aria-label="{{r.stateLabel}}" style="flex: none"><path d="{{r.shape}}" fill="{{r.color}}"></path></svg><span style="display: flex; flex-direction: column; min-width: 0"><span style="font-weight: 600; font-family: 'JetBrains Mono', monospace; font-size: 13px">{{r.domain}}</span><a href="Cliente.dc.html" style="font-size: 12px; color: #B3B0BC">{{r.client}} · {{r.stack}} · {{r.host}}</a></span></span></td>
                       <td style="padding: 10px 8px"><span style="display: flex; flex-direction: column"><span style="{{r.statusStyle}}">{{r.status}}</span><span style="font-size: 12px; color: #B3B0BC">{{r.statusNote}}</span></span></td>
                       <td style="padding: 10px 8px"><span style="display: flex; flex-direction: column; gap: 4px"><span style="font-variant-numeric: tabular-nums">{{r.uptime}}</span><span aria-hidden="true" style="display: grid; grid-template-columns: repeat(30, minmax(0, 1fr)); gap: 1px; width: 120px"><sc-for list="{{r.bars}}" as="b" hint-placeholder-count="30"><span style="{{b}}"></span></sc-for></span></span></td>
                       <td style="padding: 10px 8px"><span style="{{r.sslStyle}}">{{r.ssl}}</span></td>
@@ -125,12 +125,12 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid #D98B
                 </tbody>
               </table>
             </div>
-            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding: 12px 16px; border-top: 1px solid rgba(255,255,255,0.08); color: #B3B0BC; font-size: 13px"><span>Mostrando 1 a {{shown}} de 38</span><span>El vencimiento de dominios .co no se consulta solo (no tienen RDAP): esa fecha se escribe a mano.</span></div>
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding: 12px 16px; border-top: 1px solid rgba(255,255,255,0.08); color: #B3B0BC; font-size: 13px"><span>Mostrando 1 a {{shown}} de 57</span><span>El vencimiento de dominios .co no se consulta solo (no tienen RDAP): esa fecha se escribe a mano.</span></div>
           </section>
 
           <div style="display: flex; flex-wrap: wrap; gap: 12px; padding: 14px 16px; background: #0F0F11; border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; color: #B3B0BC; font-size: 13px">
-            <span style="flex: 1 1 420px"><strong style="color: #F4F2F8">Cómo funciona «Acceder».</strong> Pide tu código si no lo diste en los últimos 5 minutos, y desde tu navegador envía usuario y contraseña al inicio de sesión del sitio. Si el sitio tiene captcha, 2FA o el login escondido, te muestra los datos para copiarlos. Cada acceso queda registrado.</span>
-            <span style="flex: 1 1 300px"><strong style="color: #F4F2F8">Más adelante.</strong> En WordPress, inicio de sesión firmado sin enviar la contraseña. En cPanel, un enlace de un solo uso si SeguriServer da WHM de revendedor.</span>
+            <span style="flex: 1 1 420px"><strong style="color: #F4F2F8">Cómo funciona «Acceder».</strong> Pide tu código si no lo diste en los últimos 5 minutos. En cPanel de Banahost abre un enlace de un solo uso del WHM de la agencia, sin contraseña. En otros hostings y en WordPress, tu navegador envía usuario y contraseña al inicio de sesión; si hay captcha, 2FA o login escondido, te muestra los datos para copiarlos. Cada acceso queda registrado.</span>
+            <span style="flex: 1 1 300px"><strong style="color: #F4F2F8">Más adelante.</strong> En WordPress, inicio de sesión firmado sin enviar la contraseña. Los sitios en SeguriServer o en el hosting del cliente siguen con usuario y contraseña.</span>
           </div>
         </div>
       </sc-if>
@@ -148,7 +148,7 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid #D98B
             </sc-for>
           </section>
 
-          <div style="padding: 12px 16px; background: rgba(199,85,239,0.06); border: 1px solid rgba(199,85,239,0.3); border-radius: 8px; font-size: 13px; color: #D8D4E2">Las copias las hace <strong style="color: #F4F2F8">UpdraftPlus</strong> en cada WordPress: cada 15 días, a un bucket de Cloudflare R2 propio del cliente, y conserva las 6 últimas (unos 3 meses). El admin no ejecuta copias: revisa cada bucket una vez al día y avisa si la última tiene más de 16 días o pesa mucho menos que la anterior.</div>
+          <div style="padding: 12px 16px; background: rgba(199,85,239,0.06); border: 1px solid rgba(199,85,239,0.3); border-radius: 8px; font-size: 13px; color: #D8D4E2">Las copias las hace <strong style="color: #F4F2F8">UpdraftPlus</strong> en cada WordPress: cada 15 días, a un bucket de Cloudflare R2 propio del cliente, y conserva las 6 últimas (unos 3 meses). El admin no ejecuta copias: revisa cada bucket una vez al día y avisa si la última tiene más de 16 días o pesa mucho menos que la anterior. Los sitios en Banahost tienen además las copias diarias del proveedor (JetBackup), como segunda capa.</div>
 
           <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
             <section aria-label="Copias por sitio" style="flex: 999 1 560px; min-width: 0; background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden">
@@ -191,7 +191,7 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid #D98B
                   </li>
                 </sc-for>
               </ul>
-              <div style="padding: 10px 12px; background: #0F0F11; border-radius: 6px; font-size: 13px; color: #B3B0BC"><strong style="color: #F4F2F8">Restaurar</strong> en el MVP se hace desde UpdraftPlus del sitio o desde cPanel. Descargar una copia pide tu código y queda registrado.</div>
+              <div style="padding: 10px 12px; background: #0F0F11; border-radius: 6px; font-size: 13px; color: #B3B0BC"><strong style="color: #F4F2F8">Restaurar</strong> en el MVP se hace desde UpdraftPlus del sitio, o desde JetBackup en el cPanel de Banahost. Descargar una copia pide tu código y queda registrado.</div>
               <span style="font-size: 12px; color: #8E8A9B">Último simulacro de restauración: 02/10 · okvet.co en una carpeta de prueba · correcto</span>
             </aside>
           </div>
@@ -222,11 +222,15 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid #D98B
             <div style="display: flex; gap: 10px; align-items: start; padding: 10px 12px; background: rgba(91,228,155,0.08); border: 1px solid rgba(91,228,155,0.3); border-radius: 6px"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true" style="flex: none; margin-top: 3px"><path d="M8 2a6 6 0 1 1 0 12A6 6 0 0 1 8 2z" fill="#5BE49B"></path></svg><span>{{m.openedText}}</span></div>
             <dl style="margin: 0; display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 8px 12px; font-size: 14px">
               <dt style="color: #B3B0BC">Inicio de sesión</dt><dd style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 13px; overflow-wrap: anywhere">{{m.url}}</dd>
-              <dt style="color: #B3B0BC">Usuario</dt><dd style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 13px">admin_ejemplo</dd>
-              <dt style="color: #B3B0BC">Contraseña</dt><dd style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 13px">{{m.secret}}</dd>
             </dl>
+            <sc-if value="{{m.pass}}" hint-placeholder-val="{{true}}">
+              <dl style="margin: 0; display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 8px 12px; font-size: 14px">
+                <dt style="color: #B3B0BC">Usuario</dt><dd style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 13px">admin_ejemplo</dd>
+                <dt style="color: #B3B0BC">Contraseña</dt><dd style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 13px">{{m.secret}}</dd>
+              </dl>
+            </sc-if>
             <sc-if value="{{m.hasWarn}}" hint-placeholder-val="{{false}}"><span style="padding: 10px 12px; background: rgba(224,169,59,0.08); border: 1px solid rgba(224,169,59,0.35); border-radius: 6px; font-size: 13px; color: #E8C27A">{{m.warn}}</span></sc-if>
-            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px"><span style="font-size: 12px; color: #8E8A9B">Registrado: tú · 07/10 10:42 · 181.xx.xx.xx</span><span style="display: flex; gap: 8px"><button type="button" onClick="{{reveal}}" style="min-height: 40px; padding: 0 14px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; cursor: pointer">{{m.revealLabel}}</button><button type="button" onClick="{{closeModal}}" style="min-height: 40px; padding: 0 16px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-weight: 600; cursor: pointer">Listo</button></span></div>
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px"><span style="font-size: 12px; color: #8E8A9B">Registrado: tú · 07/10 10:42 · 181.xx.xx.xx</span><span style="display: flex; gap: 8px"><sc-if value="{{m.pass}}" hint-placeholder-val="{{true}}"><button type="button" onClick="{{reveal}}" style="min-height: 40px; padding: 0 14px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600; cursor: pointer">{{m.revealLabel}}</button></sc-if><button type="button" onClick="{{closeModal}}" style="min-height: 40px; padding: 0 16px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-weight: 600; cursor: pointer">Listo</button></span></div>
           </div>
         </sc-if>
       </div>
@@ -253,19 +257,19 @@ class Component extends DCLogic {
       return out;
     }
     var sites = [
-      { id: 'luzma', s: 'crit', domain: 'luzmauniformes.com', client: 'LuzMa', stack: 'WooCommerce', status: 'Caído', statusNote: 'desde 10:36 · HTTP 503', uptime: '99,41 %', down: [29], slow: [], ssl: '81 días', sslT: 'ok', dom: '14/03/2027', domT: 'ok', domNote: '.com · automático', sup: true, copy: 'copia 01/10 · hace 6 d', copyT: 'ok', wpUrl: 'https://luzmauniformes.com/wp-login.php', cpUrl: 'https://srv12.seguriserver.com:2083', warn: 'El sitio está caído: el inicio de sesión de WordPress no va a responder. cPanel sí está disponible.' },
-      { id: 'tienda4b', s: 'warn', domain: 'tienda.4bellu.com', client: '4Bellú', stack: 'WooCommerce', status: 'Lento', statusNote: 'responde en 3,4 s', uptime: '99,96 %', down: [], slow: [24, 27, 28, 29], ssl: '58 días', sslT: 'ok', dom: '02/08/2027', domT: 'ok', domNote: '.com · automático', sup: true, copy: 'copia 01/10 · pesa 58 % menos', copyT: 'warn', wpUrl: 'https://tienda.4bellu.com/wp-login.php', cpUrl: 'https://srv12.seguriserver.com:2083', warn: '' },
-      { id: 'jhoana', s: 'warn', domain: 'jhoanaperez.com', client: 'Jhoana Pérez', stack: 'WordPress', status: 'Arriba', statusNote: 'SSL vence en 9 días', uptime: '100 %', down: [], slow: [], ssl: '9 días', sslT: 'warn', dom: '21/01/2027', domT: 'ok', domNote: '.com · automático', sup: true, copy: 'copia 01/10 · hace 6 d', copyT: 'ok', wpUrl: 'https://jhoanaperez.com/acceso-dk/', cpUrl: 'https://srv07.seguriserver.com:2083', warn: 'Este sitio tiene el login escondido (WPS Hide Login): se usa la URL guardada en el sitio.' },
-      { id: 'colorado', s: 'ok', domain: 'coloradohardwood.co', client: 'Colorado Hardwood Design', stack: 'WordPress', status: 'Arriba', statusNote: '0,8 s', uptime: '99,99 %', down: [], slow: [], ssl: '64 días', sslT: 'ok', dom: 'sin fecha', domT: 'warn', domNote: '.co · escribir a mano', sup: true, copy: 'copia 18/09 · atrasada 19 d', copyT: 'warn', wpUrl: 'https://coloradohardwood.co/wp-login.php', cpUrl: 'https://srv07.seguriserver.com:2083', warn: 'Este sitio tiene reCAPTCHA en el inicio de sesión: si no entra solo, copia los datos.' },
-      { id: '4bellu', s: 'ok', domain: '4bellu.com', client: '4Bellú', stack: 'WordPress', status: 'Arriba', statusNote: '0,9 s', uptime: '99,98 %', down: [], slow: [], ssl: '58 días', sslT: 'ok', dom: '02/08/2027', domT: 'ok', domNote: '.com · automático', sup: true, copy: 'copia 01/10 · hace 6 d', copyT: 'ok', wpUrl: 'https://4bellu.com/wp-login.php', cpUrl: 'https://srv12.seguriserver.com:2083', warn: '' },
-      { id: 'clinica', s: 'ok', domain: 'clinicadental-ejemplo.com', client: 'Clínica dental (ejemplo)', stack: 'WordPress', status: 'Arriba', statusNote: '1,1 s', uptime: '100 %', down: [], slow: [], ssl: '77 días', sslT: 'ok', dom: '09/05/2027', domT: 'ok', domNote: '.com · automático', sup: true, copy: 'copia 01/10 · hace 6 d', copyT: 'ok', wpUrl: 'https://clinicadental-ejemplo.com/wp-login.php', cpUrl: 'https://srv07.seguriserver.com:2083', warn: '' },
-      { id: 'hotel', s: 'ok', domain: 'hotel-ejemplo.com', client: 'Hotel boutique (ejemplo)', stack: 'WordPress', status: 'Arriba', statusNote: '1,3 s', uptime: '99,97 %', down: [], slow: [11], ssl: '43 días', sslT: 'ok', dom: '30/11/2026', domT: 'warn', domNote: 'vence en 54 días', sup: true, copy: 'copia 01/10 · hace 6 d', copyT: 'ok', wpUrl: 'https://hotel-ejemplo.com/wp-login.php', cpUrl: 'https://srv12.seguriserver.com:2083', warn: '' },
-      { id: 'resto', s: 'ok', domain: 'restaurante-ejemplo.co', client: 'Restaurante (ejemplo)', stack: 'WordPress', status: 'Arriba', statusNote: '1,0 s', uptime: '100 %', down: [], slow: [], ssl: '70 días', sslT: 'ok', dom: 'sin fecha', domT: 'warn', domNote: '.co · escribir a mano', sup: false, copy: 'sin copias de la agencia', copyT: 'none', wpUrl: 'https://restaurante-ejemplo.co/wp-login.php', cpUrl: 'https://srv07.seguriserver.com:2083', warn: '' },
-      { id: 'ferre', s: 'ok', domain: 'ferreteria-ejemplo.co', client: 'Ferretería (ejemplo)', stack: 'WordPress', status: 'Arriba', statusNote: '1,2 s', uptime: '99,99 %', down: [], slow: [], ssl: '88 días', sslT: 'ok', dom: '12/06/2027', domT: 'ok', domNote: 'fecha escrita a mano', sup: false, copy: 'sin copias de la agencia', copyT: 'none', wpUrl: 'https://ferreteria-ejemplo.co/wp-login.php', cpUrl: 'https://srv12.seguriserver.com:2083', warn: '' },
-      { id: 'dk', s: 'ok', domain: 'dkoding.net', client: 'DKODING', stack: 'Astro', status: 'Arriba', statusNote: '0,4 s', uptime: '100 %', down: [], slow: [], ssl: 'Cloudflare', sslT: 'ok', dom: '19/02/2027', domT: 'ok', domNote: '.net · automático', sup: null, copy: 'código y contenido en Git', copyT: 'none', wpUrl: '', cpUrl: '', warn: '' }
+      { id: 'luzma', host: 'Banahost', s: 'crit', domain: 'luzmauniformes.com', client: 'LuzMa', stack: 'WooCommerce', status: 'Caído', statusNote: 'desde 10:36 · HTTP 503', uptime: '99,41 %', down: [29], slow: [], ssl: '81 días', sslT: 'ok', dom: '14/03/2027', domT: 'ok', domNote: '.com · automático', sup: true, copy: 'copia 01/10 · hace 6 d', copyT: 'ok', wpUrl: 'https://luzmauniformes.com/wp-login.php', cpUrl: 'https://servidor-banahost.ejemplo:2083', warn: 'El sitio está caído: el inicio de sesión de WordPress no va a responder. cPanel sí está disponible por WHM.' },
+      { id: 'tienda4b', host: 'Banahost', s: 'warn', domain: 'tienda.4bellu.com', client: '4Bellú', stack: 'WooCommerce', status: 'Lento', statusNote: 'responde en 3,4 s', uptime: '99,96 %', down: [], slow: [24, 27, 28, 29], ssl: '58 días', sslT: 'ok', dom: '02/08/2027', domT: 'ok', domNote: '.com · automático', sup: true, copy: 'copia 01/10 · pesa 58 % menos', copyT: 'warn', wpUrl: 'https://tienda.4bellu.com/wp-login.php', cpUrl: 'https://servidor-banahost.ejemplo:2083', warn: '' },
+      { id: 'jhoana', host: 'SeguriServer', s: 'warn', domain: 'jhoanaperez.com', client: 'Jhoana Pérez', stack: 'WordPress', status: 'Arriba', statusNote: 'SSL vence en 9 días', uptime: '100 %', down: [], slow: [], ssl: '9 días', sslT: 'warn', dom: '21/01/2027', domT: 'ok', domNote: '.com · automático', sup: true, copy: 'copia 01/10 · hace 6 d', copyT: 'ok', wpUrl: 'https://jhoanaperez.com/acceso-dk/', cpUrl: 'https://servidor-cliente.ejemplo:2083', warn: 'Este sitio tiene el login escondido (WPS Hide Login): se usa la URL guardada en el sitio.' },
+      { id: 'colorado', host: 'Banahost', s: 'ok', domain: 'coloradohardwood.co', client: 'Colorado Hardwood Design', stack: 'WordPress', status: 'Arriba', statusNote: '0,8 s', uptime: '99,99 %', down: [], slow: [], ssl: '64 días', sslT: 'ok', dom: 'sin fecha', domT: 'warn', domNote: '.co · escribir a mano', sup: true, copy: 'copia 18/09 · atrasada 19 d', copyT: 'warn', wpUrl: 'https://coloradohardwood.co/wp-login.php', cpUrl: 'https://servidor-cliente.ejemplo:2083', warn: 'Este sitio tiene reCAPTCHA en el inicio de sesión: si no entra solo, copia los datos.' },
+      { id: '4bellu', host: 'Banahost', s: 'ok', domain: '4bellu.com', client: '4Bellú', stack: 'WordPress', status: 'Arriba', statusNote: '0,9 s', uptime: '99,98 %', down: [], slow: [], ssl: '58 días', sslT: 'ok', dom: '02/08/2027', domT: 'ok', domNote: '.com · automático', sup: true, copy: 'copia 01/10 · hace 6 d', copyT: 'ok', wpUrl: 'https://4bellu.com/wp-login.php', cpUrl: 'https://servidor-banahost.ejemplo:2083', warn: '' },
+      { id: 'clinica', host: 'Banahost', s: 'ok', domain: 'clinicadental-ejemplo.com', client: 'Clínica dental (ejemplo)', stack: 'WordPress', status: 'Arriba', statusNote: '1,1 s', uptime: '100 %', down: [], slow: [], ssl: '77 días', sslT: 'ok', dom: '09/05/2027', domT: 'ok', domNote: '.com · automático', sup: true, copy: 'copia 01/10 · hace 6 d', copyT: 'ok', wpUrl: 'https://clinicadental-ejemplo.com/wp-login.php', cpUrl: 'https://servidor-cliente.ejemplo:2083', warn: '' },
+      { id: 'hotel', host: 'Banahost', s: 'ok', domain: 'hotel-ejemplo.com', client: 'Hotel boutique (ejemplo)', stack: 'WordPress', status: 'Arriba', statusNote: '1,3 s', uptime: '99,97 %', down: [], slow: [11], ssl: '43 días', sslT: 'ok', dom: '30/11/2026', domT: 'warn', domNote: 'vence en 54 días', sup: true, copy: 'copia 01/10 · hace 6 d', copyT: 'ok', wpUrl: 'https://hotel-ejemplo.com/wp-login.php', cpUrl: 'https://servidor-banahost.ejemplo:2083', warn: '' },
+      { id: 'resto', host: 'Hostinger del cliente', s: 'ok', domain: 'restaurante-ejemplo.co', client: 'Restaurante (ejemplo)', stack: 'WordPress', status: 'Arriba', statusNote: '1,0 s', uptime: '100 %', down: [], slow: [], ssl: '70 días', sslT: 'ok', dom: 'sin fecha', domT: 'warn', domNote: '.co · escribir a mano', sup: false, copy: 'sin copias de la agencia', copyT: 'none', wpUrl: 'https://restaurante-ejemplo.co/wp-login.php', cpUrl: 'https://servidor-cliente.ejemplo:2083', warn: '' },
+      { id: 'ferre', host: 'Banahost', s: 'ok', domain: 'ferreteria-ejemplo.co', client: 'Ferretería (ejemplo)', stack: 'WordPress', status: 'Arriba', statusNote: '1,2 s', uptime: '99,99 %', down: [], slow: [], ssl: '88 días', sslT: 'ok', dom: '12/06/2027', domT: 'ok', domNote: 'fecha escrita a mano', sup: false, copy: 'sin copias de la agencia', copyT: 'none', wpUrl: 'https://ferreteria-ejemplo.co/wp-login.php', cpUrl: 'https://servidor-banahost.ejemplo:2083', warn: '' },
+      { id: 'dk', host: 'Cloudflare', s: 'ok', domain: 'dkoding.net', client: 'DKODING', stack: 'Astro', status: 'Arriba', statusNote: '0,4 s', uptime: '100 %', down: [], slow: [], ssl: 'Cloudflare', sslT: 'ok', dom: '19/02/2027', domT: 'ok', domNote: '.net · automático', sup: null, copy: 'código y contenido en Git', copyT: 'none', wpUrl: '', cpUrl: '', warn: '' }
     ];
     var f = st.filter;
-    var counts = { all: 38, crit: 1, warn: 2, ok: 35 };
+    var counts = { all: 57, crit: 1, warn: 2, ok: 54 };
     var chips = [{ id: 'all', label: 'Todos' }, { id: 'crit', label: 'Caído' }, { id: 'warn', label: 'Atención' }, { id: 'ok', label: 'Correcto' }].map(function (c) {
       var on = f === c.id;
       return { label: c.label, count: counts[c.id], on: on, shape: SH[c.id], color: CO[c.id],
@@ -275,7 +279,7 @@ class Component extends DCLogic {
     function openModal(site, kind) { return function () { self.setState({ modal: { id: site.id, kind: kind }, shown: false }); }; }
     var rows = sites.filter(function (d) { return (f === 'all' || d.s === f) && (!st.onlySupport || d.sup === true); }).map(function (d) {
       return {
-        domain: d.domain, client: d.client, stack: d.stack, status: d.status, statusNote: d.statusNote, uptime: d.uptime,
+        domain: d.domain, client: d.client, stack: d.stack, host: d.host, status: d.status, statusNote: d.statusNote, uptime: d.uptime,
         ssl: d.ssl, dom: d.dom, domNote: d.domNote, copy: d.copy,
         sup: d.sup === null ? 'Sitio propio' : d.sup ? 'Soporte activo' : 'Sin soporte',
         shape: SH[d.s], color: CO[d.s], stateLabel: LB[d.s], bars: bars(d.down, d.slow),
@@ -292,15 +296,17 @@ class Component extends DCLogic {
     if (st.modal) {
       var site = sites.filter(function (x) { return x.id === st.modal.id; })[0];
       var wp = st.modal.kind === 'wp';
+      var whm = !wp && site.host === 'Banahost';
       m = {
-        kindLabel: (wp ? 'Acceder a WordPress' : 'Acceder a cPanel') + ' · ' + site.client,
+        whm: whm, pass: !whm,
+        kindLabel: (wp ? 'Acceder a WordPress' : 'Acceder a cPanel') + ' · ' + site.client + ' · ' + site.host,
         title: site.domain,
         needsCode: !st.verified, opened: !!st.verified,
-        openedText: wp ? 'Se abrió el inicio de sesión de WordPress en una pestaña nueva y se enviaron tus datos.' : 'Se abrió cPanel en una pestaña nueva y se enviaron tus datos.',
-        url: wp ? site.wpUrl : site.cpUrl,
+        openedText: wp ? 'Se abrió el inicio de sesión de WordPress en una pestaña nueva y se enviaron tus datos.' : whm ? 'Se abrió cPanel con un enlace de un solo uso del WHM de la agencia. No se envió ninguna contraseña.' : 'Se abrió cPanel en una pestaña nueva y se enviaron tus datos: este sitio no está en Banahost.',
+        url: wp ? site.wpUrl : whm ? 'Sesión única por WHM · caduca a los 15 min sin uso' : site.cpUrl,
         secret: st.shown ? 'Ej3mplo-no-real-26 · se oculta en 30 s' : '••••••••••••',
         revealLabel: st.shown ? 'Ocultar' : 'Ver contraseña',
-        hasWarn: !!site.warn && (wp || site.id !== 'luzma'), warn: site.warn
+        hasWarn: !!site.warn && wp, warn: site.warn
       };
     }
     var tabs = [{ id: 'sitios', label: 'Sitios', badge: '1 caído', t: 'crit' }, { id: 'copias', label: 'Copias', badge: '1 atrasada', t: 'warn' }].map(function (t) {

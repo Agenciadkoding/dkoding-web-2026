@@ -90,46 +90,55 @@ select option{background:#151518;color:#F4F2F8}
           <sc-if value="{{isStep1}}" hint-placeholder-val="{{false}}">
             <div style="display: flex; flex-direction: column; gap: 16px">
               <h2 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">1 · Sube el Excel</h2>
-              <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 32px 16px; border: 2px dashed rgba(199,85,239,0.45); border-radius: 10px; background: #0F0F11; text-align: center">
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 26px 16px; border: 2px dashed rgba(199,85,239,0.45); border-radius: 10px; background: #0F0F11; text-align: center">
                 <span aria-hidden="true" style="width: 48px; height: 48px; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; background: #1A0B2B; color: #D98BFF"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4"></path><path d="M7 9l5-5 5 5"></path><path d="M4 20h16"></path></svg></span>
                 <span style="font-weight: 600; font-size: 16px">Arrastra aquí el archivo .xlsx</span>
                 <span style="color: #B3B0BC">o</span>
                 <button type="button" onClick="{{loadFile}}" style="min-height: 40px; padding: 0 16px; background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.28); border-radius: 4px; font-weight: 600; cursor: pointer">Elegir archivo</button>
-                <span style="font-size: 12px; color: #8E8A9B">Solo .xlsx · hasta 5 MB · una hoja a la vez</span>
+                <span style="font-size: 12px; color: #8E8A9B">Solo .xlsx · hasta 5 MB · se leen todas sus hojas</span>
               </div>
               <div style="display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; background: #1A0B2B; border: 1px solid rgba(199,85,239,0.4); border-radius: 8px">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D98BFF" stroke-width="2" aria-hidden="true" style="flex: none; margin-top: 2px"><rect x="4" y="10" width="16" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg>
                 <span>El archivo se lee en memoria y no se guarda. Cada contraseña se cifra al leerla. Lo que no confirmes se borra solo en 30 minutos.</span>
               </div>
               <sc-if value="{{fileLoaded}}" hint-placeholder-val="{{true}}">
-                <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; padding: 14px 16px; background: #0F0F11; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px">
-                  <span style="display: flex; gap: 12px; align-items: center; min-width: 0">
-                    <span aria-hidden="true" style="flex: none; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border-radius: 6px; background: rgba(91,228,155,0.1); color: #5BE49B"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"></path><path d="M9 11h7M9 15h7M12 11v8"></path></svg></span>
-                    <span style="display: flex; flex-direction: column; min-width: 0"><span style="font-weight: 600; overflow-wrap: anywhere">accesos-clientes-2026.xlsx · 3 hojas · 212 filas</span><span style="font-size: 12px; color: #B3B0BC">Leído en memoria a las 10:31 · el archivo no se guardó</span></span>
-                  </span>
-                  <span style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center">
-                    <label for="sheet" style="font-size: 13px; color: #B3B0BC">Hoja</label>
-                    <select id="sheet" value="{{sheet}}" onChange="{{setSheet}}" style="min-height: 40px; padding: 0 10px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; max-width: 100%"><option value="Accesos">Accesos · 212 filas</option><option value="Resumen">Resumen · tabla dinámica</option><option value="Hoja3">Hoja3 · vacía</option></select>
-                    <button type="button" onClick="{{removeFile}}" style="min-height: 40px; padding: 0 12px; background: transparent; color: #D8D4E2; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; font-weight: 600; cursor: pointer">Quitar</button>
-                  </span>
+                <div role="alert" style="display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: rgba(255,107,107,0.08); border: 1px solid rgba(255,107,107,0.45); border-radius: 8px">
+                  <svg width="14" height="14" viewBox="0 0 16 16" role="img" aria-label="Crítico" style="flex: none; margin-top: 4px"><path d="M8 1L15 8L8 15L1 8z" fill="#FF6B6B"></path></svg>
+                  <span style="display: flex; flex-direction: column; gap: 2px"><strong style="font-weight: 600">Este archivo tiene códigos de respaldo de doble verificación: después de importar, bórralo y deja de compartirlo por enlace.</strong><span style="font-size: 13px; color: #D8D4E2">Con esos códigos se puede entrar a una cuenta aunque tenga 2FA. En el admin quedan cifrados como «secreto adicional».</span></span>
                 </div>
-                <sc-if value="{{badSheet}}" hint-placeholder-val="{{false}}"><span role="alert" style="display: flex; gap: 8px; align-items: center; color: #E8C27A"><svg width="12" height="12" viewBox="0 0 16 16" role="img" aria-label="Atención"><path d="M8 1.5L15 14H1z" fill="#E0A93B"></path></svg>Esa hoja no tiene filas de accesos. Elige «Accesos» para seguir.</span></sc-if>
-                <label style="display: flex; gap: 10px; align-items: center; min-height: 36px; cursor: pointer"><input type="checkbox" checked="{{headerRow}}" onChange="{{toggleHeader}}" style="width: 18px; height: 18px; accent-color: #6D00C2">La fila 1 tiene los encabezados</label>
+                <div style="display: flex; flex-direction: column; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; background: #0F0F11">
+                  <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; padding: 14px 16px">
+                    <span style="display: flex; gap: 12px; align-items: center; min-width: 0">
+                      <span aria-hidden="true" style="flex: none; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border-radius: 6px; background: rgba(91,228,155,0.1); color: #5BE49B"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"></path><path d="M9 11h7M9 15h7M12 11v8"></path></svg></span>
+                      <span style="display: flex; flex-direction: column; min-width: 0"><span style="font-weight: 600; overflow-wrap: anywhere">Contraseñas.xlsx · 2 hojas · 196 filas</span><span style="font-size: 12px; color: #B3B0BC">Leído en memoria a las 10:31 · el archivo no se guardó · se importan las dos hojas en la misma pasada</span></span>
+                    </span>
+                    <button type="button" onClick="{{removeFile}}" style="min-height: 40px; padding: 0 12px; background: transparent; color: #D8D4E2; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; font-weight: 600; cursor: pointer">Quitar</button>
+                  </div>
+                  <sc-for list="{{sheetCards}}" as="h" hint-placeholder-count="2">
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; padding: 12px 16px; border-top: 1px solid rgba(255,255,255,0.08)">
+                      <label style="display: flex; gap: 10px; align-items: center; min-height: 40px; flex: 1 1 240px; cursor: pointer"><input type="checkbox" checked="{{h.on}}" onChange="{{h.toggle}}" style="flex: none; width: 18px; height: 18px; accent-color: #6D00C2"><span style="display: flex; flex-direction: column"><span style="font-weight: 600">Hoja «{{h.name}}»</span><span style="font-size: 12px; color: #B3B0BC">{{h.rows}} filas</span></span></label>
+                      <span style="display: flex; flex-direction: column; flex: 1 1 220px"><span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px"><svg width="10" height="10" viewBox="0 0 16 16" role="img" aria-label="Correcto"><path d="M8 2a6 6 0 1 1 0 12A6 6 0 0 1 8 2z" fill="#5BE49B"></path></svg>{{h.headText}}</span><span style="font-size: 12px; color: #B3B0BC">{{h.headNote}}</span></span>
+                      <span style="display: flex; flex-direction: column; flex: 1 1 220px"><span style="font-size: 13px">Ámbito: <strong style="font-weight: 600">{{h.scope}}</strong></span><span style="font-size: 12px; color: #B3B0BC">{{h.scopeNote}}</span></span>
+                    </div>
+                  </sc-for>
+                </div>
+                <sc-if value="{{noSheets}}" hint-placeholder-val="{{false}}"><span role="alert" style="display: flex; gap: 8px; align-items: center; color: #E8C27A"><svg width="12" height="12" viewBox="0 0 16 16" role="img" aria-label="Atención"><path d="M8 1.5L15 14H1z" fill="#E0A93B"></path></svg>Marca al menos una hoja para seguir.</span></sc-if>
               </sc-if>
             </div>
           </sc-if>
 
           <sc-if value="{{isStep2}}" hint-placeholder-val="{{false}}">
             <div style="display: flex; flex-direction: column; gap: 16px">
-              <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: baseline"><h2 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">2 · ¿Qué es cada columna?</h2><span style="font-size: 13px; color: #B3B0BC">Propuesto según el encabezado. Revisa y corrige si hace falta.</span></div>
+              <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: baseline"><h2 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">2 · ¿Qué es cada columna?</h2><span style="font-size: 13px; color: #B3B0BC">Propuesto según el encabezado de cada hoja. Revisa y corrige si hace falta.</span></div>
+              <div role="group" aria-label="Hoja" style="display: flex; flex-wrap: wrap; align-self: flex-start; border: 1px solid rgba(255,255,255,0.18); border-radius: 6px; overflow: hidden"><sc-for list="{{mapTabs}}" as="t" hint-placeholder-count="2"><button type="button" onClick="{{t.pick}}" aria-pressed="{{t.on}}" style="{{t.style}}">{{t.label}}</button></sc-for></div>
               <div style="display: flex; flex-wrap: wrap; gap: 8px"><sc-for list="{{required}}" as="q" hint-placeholder-count="3"><span style="{{q.style}}"><svg width="10" height="10" viewBox="0 0 16 16" role="img" aria-label="{{q.ic.label}}"><path d="{{q.ic.d}}" fill="{{q.ic.fill}}"></path></svg>{{q.text}}</span></sc-for></div>
               <div style="border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow-x: auto">
-                <table style="width: 100%; min-width: 720px; border-collapse: collapse">
-                  <thead><tr style="color: #B3B0BC; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; text-align: left; background: #101013"><th scope="col" style="padding: 10px 8px 10px 14px; font-weight: 600">Columna del Excel</th><th scope="col" style="padding: 10px 8px; font-weight: 600">Ejemplo (fila 2)</th><th scope="col" style="padding: 10px 8px; font-weight: 600">Campo del admin</th><th scope="col" style="padding: 10px 14px 10px 8px; font-weight: 600; text-align: center">Ignorar</th></tr></thead>
+                <table style="width: 100%; min-width: 760px; border-collapse: collapse">
+                  <thead><tr style="color: #B3B0BC; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; text-align: left; background: #101013"><th scope="col" style="padding: 10px 8px 10px 14px; font-weight: 600">{{headCol}}</th><th scope="col" style="padding: 10px 8px; font-weight: 600">Ejemplo</th><th scope="col" style="padding: 10px 8px; font-weight: 600">Campo del admin</th><th scope="col" style="padding: 10px 14px 10px 8px; font-weight: 600; text-align: center">Ignorar</th></tr></thead>
                   <tbody>
-                    <sc-for list="{{cols}}" as="c" hint-placeholder-count="8">
+                    <sc-for list="{{cols}}" as="c" hint-placeholder-count="7">
                       <tr style="{{c.rowStyle}}">
-                        <td style="padding: 8px 8px 8px 14px"><span style="display: flex; align-items: center; gap: 10px"><span style="display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 4px; background: #1D1B24; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #B3B0BC">{{c.letter}}</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500">{{c.head}}</span></span></td>
+                        <td style="padding: 8px 8px 8px 14px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500">{{c.head}}</span></td>
                         <td style="padding: 8px; font-size: 13px; color: #D8D4E2"><span style="{{c.exStyle}}">{{c.example}}</span></td>
                         <td style="padding: 8px"><span style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap"><label for="{{c.selId}}" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Campo para la columna {{c.head}}</label><select id="{{c.selId}}" value="{{c.field}}" onChange="{{c.setField}}" disabled="{{c.ignored}}" style="{{c.selStyle}}"><sc-for list="{{fieldOpts}}" as="o" hint-placeholder-count="9"><option value="{{o.v}}">{{o.l}}</option></sc-for></select><sc-if value="{{c.suggested}}" hint-placeholder-val="{{false}}"><span style="padding: 1px 8px; border-radius: 999px; background: rgba(199,85,239,0.14); color: #D98BFF; font-size: 12px; font-weight: 600">Sugerido</span></sc-if></span></td>
                         <td style="padding: 8px 14px 8px 8px; text-align: center"><label style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; cursor: pointer"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Ignorar la columna {{c.head}}</span><input type="checkbox" checked="{{c.ignored}}" onChange="{{c.toggleIgnore}}" style="width: 18px; height: 18px; accent-color: #6D00C2"></label></td>
@@ -138,71 +147,122 @@ select option{background:#151518;color:#F4F2F8}
                   </tbody>
                 </table>
               </div>
-              <span style="font-size: 13px; color: #B3B0BC">El nombre de cada acceso se arma solo con tipo y dominio (ej.: «cPanel · 4bellu.com»). Lo puedes cambiar después.</span>
+              <span style="font-size: 13px; color: #B3B0BC">{{mapNote}}</span>
               <div style="display: flex; flex-direction: column; gap: 8px">
-                <h3 style="margin: 0; font-size: 15px; font-weight: 600">Vista previa · 3 filas</h3>
+                <h3 style="margin: 0; font-size: 15px; font-weight: 600">Vista previa · 3 filas de ejemplo</h3>
                 <div style="border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow-x: auto">
                   <table style="width: 100%; min-width: 820px; border-collapse: collapse; font-size: 13px">
                     <thead><tr style="color: #B3B0BC; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; text-align: left; background: #101013"><sc-for list="{{pvHead}}" as="h" hint-placeholder-count="7"><th scope="col" style="padding: 8px 10px; font-weight: 600; white-space: nowrap">{{h}}</th></sc-for></tr></thead>
                     <tbody><sc-for list="{{pvRows}}" as="r" hint-placeholder-count="3"><tr style="border-top: 1px solid rgba(255,255,255,0.06)"><sc-for list="{{r.cells}}" as="v" hint-placeholder-count="7"><td style="{{v.style}}">{{v.text}}</td></sc-for></tr></sc-for></tbody>
                   </table>
                 </div>
-                <span style="font-size: 12px; color: #8E8A9B">La contraseña nunca se muestra en el asistente: solo su largo, para que notes si Excel la cortó.</span>
+                <span style="font-size: 12px; color: #8E8A9B">Valores tal como vienen en el Excel. Contraseñas y códigos nunca se muestran en el asistente.</span>
               </div>
             </div>
           </sc-if>
 
           <sc-if value="{{isStep3}}" hint-placeholder-val="{{true}}">
             <div style="display: flex; flex-direction: column; gap: 16px">
-              <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: baseline"><h2 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">3 · Revisa lo que necesita atención</h2><span style="font-size: 13px; color: #B3B0BC">Una decisión por grupo. Nada se guarda todavía.</span></div>
-              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr)); gap: 12px">
-                <div style="display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; background: #0F0F11; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px"><span style="font-size: 13px; color: #B3B0BC">Filas leídas</span><span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 30px; line-height: 1; font-variant-numeric: tabular-nums">212</span><span style="font-size: 12px; color: #B3B0BC">hoja «Accesos»</span></div>
-                <div style="display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; background: #0F0F11; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px"><span style="display: flex; justify-content: space-between; font-size: 13px; color: #B3B0BC">Listas para importar<svg width="12" height="12" viewBox="0 0 16 16" role="img" aria-label="Correcto" style="margin-top: 4px"><path d="M8 2a6 6 0 1 1 0 12A6 6 0 0 1 8 2z" fill="#5BE49B"></path></svg></span><span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 30px; line-height: 1; font-variant-numeric: tabular-nums">181</span><span style="font-size: 12px; color: #B3B0BC">sin observaciones</span></div>
-                <div style="display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; background: #0F0F11; border: 1px solid rgba(224,169,59,0.35); border-radius: 8px"><span style="display: flex; justify-content: space-between; font-size: 13px; color: #B3B0BC">Necesitan atención<svg width="12" height="12" viewBox="0 0 16 16" role="img" aria-label="Atención" style="margin-top: 4px"><path d="M8 1.5L15 14H1z" fill="#E0A93B"></path></svg></span><span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 30px; line-height: 1; font-variant-numeric: tabular-nums">31</span><span style="font-size: 12px; color: #B3B0BC">en 6 grupos</span></div>
-                <div style="display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; background: #1A0B2B; border: 1px solid rgba(199,85,239,0.45); border-radius: 8px"><span style="font-size: 13px; color: #D98BFF">Con tus decisiones</span><span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 30px; line-height: 1; font-variant-numeric: tabular-nums">{{imported}}</span><span style="font-size: 12px; color: #D8D4E2">se importan · {{omitted}} se omiten</span></div>
+              <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: baseline"><h2 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">3 · Revisa lo que necesita atención</h2><span style="font-size: 13px; color: #B3B0BC">{{decisionsText}} · nada se guarda todavía</span></div>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(170px, 100%), 1fr)); gap: 12px">
+                <sc-for list="{{tiles}}" as="t" hint-placeholder-count="4">
+                  <div style="{{t.style}}"><span style="font-size: 13px; color: #B3B0BC">{{t.label}}</span><span style="font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 30px; line-height: 1; font-variant-numeric: tabular-nums">{{t.value}}</span><span style="font-size: 12px; color: #D8D4E2">{{t.note}}</span></div>
+                </sc-for>
               </div>
-              <div role="img" aria-label="De 212 filas: 181 listas y 31 que necesitan atención" style="display: flex; height: 10px; border-radius: 999px; overflow: hidden; background: #0F0F11"><span style="width: 85.4%; background: #5BE49B"></span><span style="width: 14.6%; background: #E0A93B"></span></div>
 
-              <sc-for list="{{groups}}" as="g" hint-placeholder-count="6">
-                <section aria-labelledby="{{g.hid}}" style="display: flex; flex-direction: column; gap: 12px; padding: 16px; background: #0F0F11; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px">
-                  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 16px; align-items: flex-start">
-                    <div style="display: flex; gap: 12px; align-items: flex-start; flex: 1 1 340px; min-width: 0">
-                      <span style="flex: none; display: inline-flex; align-items: center; justify-content: center; min-width: 40px; height: 32px; padding: 0 8px; box-sizing: border-box; border-radius: 6px; background: #1D1B24; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 18px; font-variant-numeric: tabular-nums">{{g.count}}</span>
-                      <span style="display: flex; flex-direction: column; gap: 2px; min-width: 0">
-                        <span style="display: flex; gap: 8px; align-items: center"><svg width="12" height="12" viewBox="0 0 16 16" role="img" aria-label="{{g.ic.label}}" style="flex: none"><path d="{{g.ic.d}}" fill="{{g.ic.fill}}"></path></svg><h3 id="{{g.hid}}" style="margin: 0; font-size: 16px; font-weight: 600">{{g.title}}</h3></span>
-                        <span style="color: #D8D4E2; font-size: 13px">{{g.sub}}</span>
-                      </span>
-                    </div>
-                    <sc-if value="{{g.hasActions}}" hint-placeholder-val="{{true}}">
-                      <div role="group" aria-label="Decisión para: {{g.title}}" style="display: flex; flex-wrap: wrap; border: 1px solid rgba(255,255,255,0.18); border-radius: 6px; overflow: hidden"><sc-for list="{{g.actions}}" as="a" hint-placeholder-count="2"><button type="button" onClick="{{a.pick}}" aria-pressed="{{a.on}}" style="{{a.style}}">{{a.label}}</button></sc-for></div>
-                    </sc-if>
-                    <sc-if value="{{g.noActions}}" hint-placeholder-val="{{false}}"><span style="padding: 4px 10px; border-radius: 999px; background: rgba(255,255,255,0.06); color: #D8D4E2; font-size: 12px; font-weight: 600">{{g.fixedLabel}}</span></sc-if>
+              <sc-for list="{{sheets3}}" as="sh" hint-placeholder-count="2">
+                <section aria-labelledby="{{sh.hid}}" style="display: flex; flex-direction: column; gap: 12px; padding-top: 8px">
+                  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 12px; align-items: baseline; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.1)">
+                    <h3 id="{{sh.hid}}" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 19px">Hoja «{{sh.name}}»</h3>
+                    <span style="font-size: 13px; color: #B3B0BC">{{sh.meta}}</span>
                   </div>
-                  <div style="display: flex; flex-direction: column">
-                    <sc-for list="{{g.rows}}" as="r" hint-placeholder-count="3">
-                      <div style="display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; padding: 8px 0; border-top: 1px solid rgba(255,255,255,0.06); font-size: 13px">
-                        <span style="flex: none; width: 64px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #B3B0BC">{{r.row}}</span>
-                        <span style="flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column"><span style="{{r.mainStyle}}">{{r.main}}</span><span style="font-size: 12px; color: #B3B0BC">{{r.note}}</span></span>
-                        <sc-if value="{{r.hasSelect}}" hint-placeholder-val="{{false}}"><span style="display: flex; align-items: center; gap: 8px; flex: 0 1 300px; min-width: 0"><label for="{{r.inId}}" style="font-size: 12px; color: #B3B0BC; white-space: nowrap">Emparejar con</label><select id="{{r.inId}}" value="{{r.val}}" onChange="{{r.set}}" style="flex: 1; min-width: 0; min-height: 36px; padding: 0 8px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px"><sc-for list="{{clientOpts}}" as="o" hint-placeholder-count="6"><option value="{{o.v}}">{{o.l}}</option></sc-for></select></span></sc-if>
-                        <sc-if value="{{r.hasInput}}" hint-placeholder-val="{{false}}"><span style="display: flex; flex-direction: column; gap: 2px; flex: 0 1 300px; min-width: 0"><label for="{{r.inId}}" style="font-size: 12px; color: #B3B0BC">{{r.inLabel}}</label><input id="{{r.inId}}" type="{{r.inType}}" value="{{r.val}}" onChange="{{r.set}}" placeholder="{{r.ph}}" style="{{r.inStyle}}"></span></sc-if>
-                        <sc-if value="{{r.hasBadge}}" hint-placeholder-val="{{false}}"><span style="{{r.badgeStyle}}">{{r.badge}}</span></sc-if>
+
+                  <sc-for list="{{sh.cards}}" as="g" hint-placeholder-count="2">
+                    <section aria-labelledby="{{g.hid}}" style="{{g.boxStyle}}">
+                      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 16px; align-items: flex-start">
+                        <div style="display: flex; gap: 12px; align-items: flex-start; flex: 1 1 340px; min-width: 0">
+                          <span style="flex: none; display: inline-flex; align-items: center; justify-content: center; min-width: 40px; height: 32px; padding: 0 8px; box-sizing: border-box; border-radius: 6px; background: #1D1B24; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 18px; font-variant-numeric: tabular-nums">{{g.count}}</span>
+                          <span style="display: flex; flex-direction: column; gap: 2px; min-width: 0">
+                            <span style="display: flex; gap: 8px; align-items: center"><svg width="12" height="12" viewBox="0 0 16 16" role="img" aria-label="{{g.ic.label}}" style="flex: none"><path d="{{g.ic.d}}" fill="{{g.ic.fill}}"></path></svg><h4 id="{{g.hid}}" style="margin: 0; font-size: 16px; font-weight: 600">{{g.title}}</h4></span>
+                            <span style="color: #D8D4E2; font-size: 13px">{{g.sub}}</span>
+                          </span>
+                        </div>
+                        <sc-if value="{{g.hasActions}}" hint-placeholder-val="{{true}}">
+                          <div role="group" aria-label="Decisión: {{g.title}}" style="display: flex; flex-wrap: wrap; border: 1px solid rgba(255,255,255,0.18); border-radius: 6px; overflow: hidden"><sc-for list="{{g.actions}}" as="a" hint-placeholder-count="2"><button type="button" onClick="{{a.pick}}" aria-pressed="{{a.on}}" style="{{a.style}}">{{a.label}}</button></sc-for></div>
+                        </sc-if>
+                        <sc-if value="{{g.noActions}}" hint-placeholder-val="{{false}}"><span style="padding: 4px 10px; border-radius: 999px; background: rgba(255,255,255,0.06); color: #D8D4E2; font-size: 12px; font-weight: 600">{{g.fixedLabel}}</span></sc-if>
+                      </div>
+                      <div style="display: flex; flex-direction: column">
+                        <sc-for list="{{g.rows}}" as="r" hint-placeholder-count="3">
+                          <div style="display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; padding: 8px 0; border-top: 1px solid rgba(255,255,255,0.06); font-size: 13px">
+                            <span style="flex: none; width: 76px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #B3B0BC">{{r.row}}</span>
+                            <span style="flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column"><span style="{{r.mainStyle}}">{{r.main}}</span><span style="font-size: 12px; color: #B3B0BC">{{r.note}}</span></span>
+                            <sc-if value="{{r.hasSelect}}" hint-placeholder-val="{{false}}"><span style="display: flex; align-items: center; gap: 8px; flex: 0 1 300px; min-width: 0"><label for="{{r.inId}}" style="font-size: 12px; color: #B3B0BC; white-space: nowrap">{{r.selLabel}}</label><select id="{{r.inId}}" value="{{r.val}}" onChange="{{r.set}}" style="flex: 1; min-width: 0; min-height: 36px; padding: 0 8px; background: #0C0C0C; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px"><sc-for list="{{r.opts}}" as="o" hint-placeholder-count="5"><option value="{{o.v}}">{{o.l}}</option></sc-for></select></span></sc-if>
+                            <sc-if value="{{r.hasBadge}}" hint-placeholder-val="{{false}}"><span style="{{r.badgeStyle}}">{{r.badge}}</span></sc-if>
+                          </div>
+                        </sc-for>
+                        <sc-if value="{{g.hasMore}}" hint-placeholder-val="{{false}}"><span style="padding: 8px 0 0; border-top: 1px solid rgba(255,255,255,0.06); font-size: 13px; color: #B3B0BC">{{g.more}}</span></sc-if>
+                      </div>
+                      <span style="{{g.resultStyle}}"><span aria-hidden="true">→</span> {{g.result}}</span>
+                    </section>
+                  </sc-for>
+
+                  <div style="display: flex; flex-direction: column; padding: 4px 16px; background: #0F0F11; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px">
+                    <h4 style="margin: 0; padding: 10px 0 6px; font-size: 14px; font-weight: 600; color: #D8D4E2">Se corrigen solos · informativos</h4>
+                    <sc-for list="{{sh.auto}}" as="it" hint-placeholder-count="5">
+                      <div style="display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.06)">
+                        <span style="flex: none; display: inline-flex; align-items: center; justify-content: center; min-width: 40px; height: 26px; padding: 0 6px; box-sizing: border-box; border-radius: 4px; background: #1D1B24; font-weight: 700; font-size: 13px; font-variant-numeric: tabular-nums">{{it.count}}</span>
+                        <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px">
+                          <span style="display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: center"><svg width="11" height="11" viewBox="0 0 16 16" role="img" aria-label="{{it.ic.label}}" style="flex: none"><path d="{{it.ic.d}}" fill="{{it.ic.fill}}"></path></svg><span style="font-weight: 600">{{it.title}}</span><span style="{{it.tagStyle}}">{{it.tag}}</span></span>
+                          <span style="font-size: 13px; color: #B3B0BC">{{it.note}}</span>
+                          <sc-if value="{{it.hasChips}}" hint-placeholder-val="{{false}}"><span style="display: flex; flex-wrap: wrap; gap: 6px; padding-top: 2px"><sc-for list="{{it.chips}}" as="ch" hint-placeholder-count="5"><span style="display: inline-flex; flex-wrap: wrap; gap: 6px; align-items: center; padding: 3px 10px; border-radius: 999px; background: #151518; border: 1px solid rgba(255,255,255,0.1); font-size: 12px"><span style="color: #D8D4E2">{{ch.from}}</span><span aria-hidden="true" style="color: #8E8A9B">→</span><span style="font-weight: 600">{{ch.to}}</span></span></sc-for></span></sc-if>
+                        </span>
                       </div>
                     </sc-for>
-                    <sc-if value="{{g.hasMore}}" hint-placeholder-val="{{false}}"><span style="padding: 8px 0 0; border-top: 1px solid rgba(255,255,255,0.06); font-size: 13px; color: #B3B0BC">{{g.more}}</span></sc-if>
                   </div>
-                  <span style="{{g.resultStyle}}"><span aria-hidden="true">→</span> {{g.result}}</span>
+
                 </section>
               </sc-for>
+              <div style="display: flex; flex-direction: column; padding: 4px 16px 10px; border: 1px dashed rgba(255,255,255,0.18); border-radius: 10px">
+                <h3 style="margin: 0; padding: 10px 0 6px; font-family: 'Blinker', sans-serif; font-size: 19px; font-weight: 700">Comprobaciones de contraseña · las dos hojas</h3>
+                <sc-for list="{{pending}}" as="pn" hint-placeholder-count="3">
+                  <div style="display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: center; padding: 8px 0; border-top: 1px solid rgba(255,255,255,0.06); font-size: 13px">
+                    <svg width="11" height="11" viewBox="0 0 16 16" role="img" aria-label="Sin datos" style="flex: none"><path d="M3 3h10v10H3z" fill="none" stroke="#8E8A9B" stroke-width="1.5" stroke-dasharray="2 2"></path></svg>
+                    <span style="font-weight: 600">{{pn.title}}</span><span style="color: #B3B0BC; flex: 1 1 240px">{{pn.note}}</span>
+                    <span style="padding: 1px 8px; border-radius: 999px; border: 1px dashed rgba(255,255,255,0.22); color: #B3B0BC; font-size: 12px; white-space: nowrap">se revisa al leer la columna Contraseña</span>
+                  </div>
+                </sc-for>
+              </div>
             </div>
           </sc-if>
 
           <sc-if value="{{isStep4}}" hint-placeholder-val="{{false}}">
-            <div style="display: flex; flex-direction: column; gap: 16px; max-width: 760px">
+            <div style="display: flex; flex-direction: column; gap: 16px; max-width: 860px">
               <h2 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px">4 · Confirma e importa</h2>
-              <dl style="margin: 0; display: grid; grid-template-columns: minmax(150px, 0.9fr) minmax(0, 2fr); gap: 0; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden; font-size: 14px">
-                <sc-for list="{{summary}}" as="m" hint-placeholder-count="6"><dt style="padding: 12px 14px; color: #B3B0BC; background: #101013; border-top: 1px solid rgba(255,255,255,0.06)">{{m.k}}</dt><dd style="margin: 0; padding: 12px 14px; border-top: 1px solid rgba(255,255,255,0.06)"><span style="{{m.vStyle}}">{{m.v}}</span><span style="display: block; font-size: 12px; color: #B3B0BC">{{m.note}}</span></dd></sc-for>
+              <div style="border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow-x: auto">
+                <table style="width: 100%; min-width: 640px; border-collapse: collapse">
+                  <thead><tr style="color: #B3B0BC; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; text-align: left; background: #101013"><th scope="col" style="padding: 10px 8px 10px 14px; font-weight: 600">Hoja</th><th scope="col" style="padding: 10px 8px; font-weight: 600; text-align: right">Filas</th><th scope="col" style="padding: 10px 8px; font-weight: 600; text-align: right">Se importan</th><th scope="col" style="padding: 10px 8px; font-weight: 600; text-align: right">Se omiten</th><th scope="col" style="padding: 10px 14px 10px 8px; font-weight: 600">Dónde quedan</th></tr></thead>
+                  <tbody>
+                    <sc-for list="{{totals}}" as="t" hint-placeholder-count="2">
+                      <tr style="border-top: 1px solid rgba(255,255,255,0.06)">
+                        <td style="padding: 12px 8px 12px 14px"><span style="font-weight: 600">{{t.name}}</span></td>
+                        <td style="padding: 12px 8px; text-align: right; font-variant-numeric: tabular-nums; color: #D8D4E2">{{t.rows}}</td>
+                        <td style="padding: 12px 8px; text-align: right; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px; font-variant-numeric: tabular-nums">{{t.imp}}</td>
+                        <td style="padding: 12px 8px; text-align: right"><span style="display: flex; flex-direction: column; align-items: flex-end"><span style="font-weight: 600; font-variant-numeric: tabular-nums">{{t.omit}}</span><span style="font-size: 12px; color: #B3B0BC">{{t.omitNote}}</span></span></td>
+                        <td style="padding: 12px 14px 12px 8px; font-size: 13px; color: #D8D4E2">{{t.where}}</td>
+                      </tr>
+                    </sc-for>
+                    <tr style="border-top: 1px solid rgba(255,255,255,0.14); background: #101013"><td style="padding: 12px 8px 12px 14px; font-weight: 600">Total</td><td style="padding: 12px 8px; text-align: right; font-variant-numeric: tabular-nums">{{totalRows}}</td><td style="padding: 12px 8px; text-align: right; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 22px; font-variant-numeric: tabular-nums">{{imported}}</td><td style="padding: 12px 8px; text-align: right; font-weight: 600; font-variant-numeric: tabular-nums">{{omitted}}</td><td style="padding: 12px 14px 12px 8px; font-size: 13px; color: #B3B0BC">las omitidas quedan solo en tu Excel</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <dl style="margin: 0; display: grid; grid-template-columns: minmax(150px, 0.8fr) minmax(0, 2fr); gap: 8px 14px; font-size: 14px">
+                <dt style="color: #B3B0BC">Origen</dt><dd style="margin: 0"><strong style="font-weight: 600">Excel · sin rotar</strong> en todas las importadas · las contraseñas no cambian</dd>
+                <dt style="color: #B3B0BC">Secreto adicional</dt><dd style="margin: 0">{{secretText}}</dd>
+                <dt style="color: #B3B0BC">Contraseñas</dt><dd style="margin: 0">Espacios, celdas convertidas y repetidas se revisan al leer la columna. Si aparece algo, el asistente te lo muestra antes de guardar.</dd>
+                <dt style="color: #B3B0BC">Auditoría</dt><dd style="margin: 0">1 registro: quién, cuándo y cuántas filas por hoja · sin valores</dd>
               </dl>
-              <div style="display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; background: #0F0F11; border-radius: 8px; color: #D8D4E2; font-size: 13px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D98BFF" stroke-width="2" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"></path></svg><span>Todo entra en una sola transacción: si algo falla, no se guarda nada y puedes reintentar. El registro de auditoría guarda quién importó, cuándo y cuántas filas, nunca los valores.</span></div>
+              <div style="display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; background: #0F0F11; border-radius: 8px; color: #D8D4E2; font-size: 13px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D98BFF" stroke-width="2" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"></path></svg><span>Las dos hojas entran en una sola transacción: si algo falla, no se guarda nada y puedes reintentar.</span></div>
               <label style="display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; border: 1px solid rgba(199,85,239,0.45); border-radius: 8px; background: #1A0B2B; cursor: pointer"><input type="checkbox" checked="{{ack}}" onChange="{{toggleAck}}" style="flex: none; width: 20px; height: 20px; margin: 1px 0 0; accent-color: #6D00C2"><span>Entiendo que las contraseñas se importan sin cambios y quedan marcadas «Excel · sin rotar».</span></label>
               <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center">
                 <button type="button" onClick="{{runImport}}" disabled="{{cantImport}}" style="{{importStyle}}">Importar {{imported}} accesos</button>
@@ -212,21 +272,26 @@ select option{background:#151518;color:#F4F2F8}
           </sc-if>
 
           <sc-if value="{{isDone}}" hint-placeholder-val="{{false}}">
-            <div style="display: flex; flex-direction: column; gap: 18px; max-width: 760px">
+            <div style="display: flex; flex-direction: column; gap: 18px; max-width: 800px">
               <div style="display: flex; gap: 14px; align-items: center">
                 <span aria-hidden="true" style="flex: none; width: 48px; height: 48px; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; background: rgba(91,228,155,0.12); color: #5BE49B"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg></span>
-                <div style="display: flex; flex-direction: column"><h2 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 24px">Importación terminada</h2><span style="font-size: 16px; font-variant-numeric: tabular-nums">{{imported}} importados · {{omitted}} omitidos · 1 registro en la auditoría (sin valores)</span></div>
+                <div style="display: flex; flex-direction: column"><h2 style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 24px">Importación terminada</h2><span style="font-size: 16px; font-variant-numeric: tabular-nums">{{imported}} importados · {{omitted}} omitidos · 1 registro en la auditoría (sin valores)</span><span style="font-size: 13px; color: #B3B0BC">{{doneDetail}}</span></div>
+              </div>
+              <div role="alert" style="display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; background: rgba(255,107,107,0.08); border: 1px solid rgba(255,107,107,0.45); border-radius: 8px">
+                <svg width="14" height="14" viewBox="0 0 16 16" role="img" aria-label="Crítico" style="flex: none; margin-top: 4px"><path d="M8 1L15 8L8 15L1 8z" fill="#FF6B6B"></path></svg>
+                <span><strong style="font-weight: 600">Este archivo tiene códigos de respaldo de doble verificación.</strong> Bórralo y deja de compartirlo por enlace: ya están cifrados en el admin.</span>
               </div>
               <div style="display: flex; flex-direction: column; gap: 8px; padding: 16px; background: #0F0F11; border: 1px solid rgba(224,169,59,0.35); border-radius: 10px">
                 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: baseline"><h3 style="margin: 0; font-size: 16px; font-weight: 600">Ahora borra el Excel de:</h3><span style="font-size: 13px; color: #B3B0BC; font-variant-numeric: tabular-nums">{{cleanCount}} de 4</span></div>
-                <sc-for list="{{cleanup}}" as="c" hint-placeholder-count="4"><label style="display: flex; gap: 12px; align-items: center; min-height: 40px; padding: 0 4px; border-top: 1px solid rgba(255,255,255,0.06); cursor: pointer"><input type="checkbox" checked="{{c.on}}" onChange="{{c.toggle}}" style="flex: none; width: 18px; height: 18px; accent-color: #6D00C2"><span style="{{c.style}}">{{c.label}}</span><span style="font-size: 12px; color: #B3B0BC">{{c.note}}</span></label></sc-for>
+                <sc-for list="{{cleanup}}" as="c" hint-placeholder-count="4"><label style="display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: center; min-height: 40px; padding: 0 4px; border-top: 1px solid rgba(255,255,255,0.06); cursor: pointer"><input type="checkbox" checked="{{c.on}}" onChange="{{c.toggle}}" style="flex: none; width: 18px; height: 18px; accent-color: #6D00C2"><span style="{{c.style}}">{{c.label}}</span><span style="font-size: 12px; color: #B3B0BC">{{c.note}}</span></label></sc-for>
                 <sc-if value="{{allClean}}" hint-placeholder-val="{{false}}"><span role="status" style="display: flex; gap: 8px; align-items: center; color: #5BE49B; font-weight: 600"><svg width="12" height="12" viewBox="0 0 16 16" role="img" aria-label="Correcto"><path d="M8 2a6 6 0 1 1 0 12A6 6 0 0 1 8 2z" fill="#5BE49B"></path></svg>Listo. El Excel ya no circula.</span></sc-if>
                 <span style="font-size: 13px; color: #E8C27A">{{omitNote}}</span>
               </div>
               <div style="display: flex; flex-wrap: wrap; gap: 8px">
                 <a href="Boveda.dc.html" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; background: #6D00C2; color: #FFFFFF; border-radius: 4px; font-weight: 600">Ir a Accesos</a>
-                <a href="Boveda.dc.html" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600">Ver los 2 repetidos</a>
-                <button type="button" onClick="{{restart}}" style="min-height: 40px; padding: 0 14px; background: transparent; color: #D98BFF; border: 0; font-weight: 600; cursor: pointer">Importar otra hoja</button>
+                <a href="Boveda.dc.html" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600">Ver los 2 con secreto adicional</a>
+                <a href="Sitios.dc.html" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); border-radius: 4px; font-weight: 600">Fechas de los 13 dominios .co</a>
+                <button type="button" onClick="{{restart}}" style="min-height: 40px; padding: 0 14px; background: transparent; color: #D98BFF; border: 0; font-weight: 600; cursor: pointer">Importar otro archivo</button>
               </div>
             </div>
           </sc-if>
@@ -242,21 +307,22 @@ select option{background:#151518;color:#F4F2F8}
         </sc-if>
       </section>
 
-      <p style="margin: 0; font-size: 12px; color: #8E8A9B">Datos de ejemplo. Nombres de fila, usuarios y conteos son ilustrativos; el asistente nunca muestra contraseñas, solo su largo.</p>
+      <p style="margin: 0; font-size: 12px; color: #8E8A9B">Estructura y conteos del Excel real de DKODING. Las filas de ejemplo, nombres de clientes, usuarios y links son ficticios; el asistente nunca muestra contraseñas ni códigos.</p>
     </main>
   </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2460}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3637}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { step: 3, done: false, fileLoaded: true, sheet: 'Accesos', headerRow: true,
-      map: { A: 'cliente', B: 'url', C: 'usuario', D: 'pass', E: 'tipo', F: 'notas', G: 'mfa', H: '' },
-      ignore: { H: true },
-      cliMode: 'match', cliPick: { r14: 'LuzMa · uniformes', r37: 'Colorado Hardwood Design', r52: 'new' },
-      dupMode: 'omit', invMode: 'fix', invVals: { r63: 'https://4bellu.com/wp-admin', r77: 'https://servidor.ejemplo.com:2083', r101: 'admin_ejemplo' },
-      convMode: 'omit', convVals: { r30: '', r55: '', r140: '' },
+    this.state = { step: 3, done: false, fileLoaded: true, inc: { D: true, C: true }, mapSheet: 'D',
+      map: { D: { d1: 'nombre', d2: 'forma', d3: 'usuario', d4: 'pass', d5: 'url', d6: 'secreto', d7: 'ultimo' }, C: { c1: 'cliente', c2: 'sitio', c3: 'tipo', c4: 'usuario', c5: 'pass', c6: 'url' } },
+      ignore: { D: {}, C: {} },
+      perMode: 'move', perOwner: 'Laura',
+      sinCliMode: 'omit', sinCliPick: { a: '', b: '', c: '' },
+      sinTipoMode: 'manual', sinTipoPick: { a: '', b: '' },
+      linkMode: 'propose', dupMode: 'omit',
       ack: false, clean: { pc: false, drive: false, mail: false, wa: false } };
   }
   renderVals() {
@@ -266,50 +332,81 @@ class Component extends DCLogic {
     var LB = { ok: 'Correcto', warn: 'Atención', crit: 'Crítico' };
     function ic(k) { return { d: SH[k], fill: CO[k], label: LB[k] }; }
     function set(patch) { self.setState(patch); }
+    var incD = st.fileLoaded && st.inc.D, incC = st.fileLoaded && st.inc.C;
 
-    // ---- Paso 2: columnas
-    var FIELDS = [{ v: '', l: 'Elige un campo…' }, { v: 'cliente', l: 'Cliente' }, { v: 'url', l: 'URL de inicio de sesión' }, { v: 'usuario', l: 'Usuario' }, { v: 'pass', l: 'Contraseña' }, { v: 'tipo', l: 'Tipo' }, { v: 'notas', l: 'Notas' }, { v: 'mfa', l: '2FA' }, { v: 'sitio', l: 'Sitio' }];
-    var FL = {}; FIELDS.forEach(function (f) { FL[f.v] = f.l; });
-    var SUG = { A: 'cliente', B: 'url', C: 'usuario', D: 'pass', E: 'tipo', F: 'notas', G: 'mfa', H: '' };
-    var HEAD = { A: 'CLIENTE', B: 'SITIO / URL', C: 'USUARIO', D: 'CLAVE', E: 'TIPO', F: 'OBS', G: '2FA', H: 'ACTUALIZADO' };
-    var SAMPLE = [
-      { A: '4Bellú', B: 'https://4bellu.com:2083', C: 'admin_ejemplo', D: 18, E: 'cPanel', F: 'la del hosting', G: 'no', H: '12/03/2024' },
-      { A: '4Bellú', B: '4bellu.com/wp-admin', C: 'dk_soporte_ejemplo', D: 18, E: 'WordPress', F: '', G: 'sí (app)', H: '05/06/2025' },
-      { A: 'LUZMA UNIFORMES SAS', B: 'https://servidor.ejemplo.com:2083', C: 'luzma_ejemplo', D: 18, E: 'cPanel', F: 'misma de 4bellu?', G: 'no', H: '' }
-    ];
-    function mask(n) { var s = ''; for (var i = 0; i < Math.min(n, 12); i++) s += '•'; return s + '  ' + n + ' caracteres'; }
-    var letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
-    var active = letters.filter(function (L) { return !st.ignore[L] && st.map[L]; });
-    var cols = letters.map(function (L) {
-      var ign = !!st.ignore[L], fld = st.map[L];
-      var isPass = fld === 'pass';
-      return { letter: L, head: HEAD[L], example: isPass || L === 'D' ? mask(SAMPLE[0].D) : String(SAMPLE[0][L]), exStyle: L === 'D' ? "font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #B3B0BC;" : '',
-        field: fld, ignored: ign, suggested: !ign && fld && fld === SUG[L], selId: 'map-' + L,
+    // ---------- Paso 2: columnas reales de cada hoja
+    var FIELDS = [{ v: '', l: 'Elige un campo…' }, { v: 'nombre', l: 'Nombre del acceso' }, { v: 'cliente', l: 'Cliente' }, { v: 'sitio', l: 'Sitio' }, { v: 'tipo', l: 'Tipo' }, { v: 'forma', l: 'Forma de acceso (Directo, Google, WP)' }, { v: 'usuario', l: 'Usuario' }, { v: 'pass', l: 'Contraseña' }, { v: 'url', l: 'URL de inicio de sesión' }, { v: 'secreto', l: 'Secreto adicional (códigos o llave)' }, { v: 'ultimo', l: 'Último cambio' }, { v: 'notas', l: 'Notas' }];
+    var FL = {}; FIELDS.forEach(function (f) { FL[f.v] = f.l; }); FL.forma = 'Forma de acceso'; FL.secreto = 'Secreto adicional';
+    var SHEETS = {
+      D: { name: 'Contraseñas Dkoding', headerRow: 3, cols: [
+        { k: 'd1', head: 'Nombre', sug: 'nombre', ex: 'Banahost · WHM' },
+        { k: 'd2', head: 'Tipo acceso', sug: 'forma', ex: 'Directo' },
+        { k: 'd3', head: 'Correo/Usuario', sug: 'usuario', ex: 'admin_ejemplo' },
+        { k: 'd4', head: 'Contraseña', sug: 'pass', ex: '•••••••• se cifra al leerla', secret: true },
+        { k: 'd5', head: 'Link de acceso', sug: 'url', ex: 'servidor.ejemplo.com:2087/cpsess0000000000/' },
+        { k: 'd6', head: 'Codigos de Respaldo/Llave de acceso', sug: 'secreto', ex: 'vacío en esta fila · 2 filas lo tienen', muted: true },
+        { k: 'd7', head: 'Ultimo cambio', sug: 'ultimo', ex: 'vacío en las 41 filas', muted: true }
+      ], req: [['nombre', 'Nombre del acceso'], ['usuario', 'Usuario'], ['pass', 'Contraseña']],
+        note: 'Encabezados en la fila 3, desde la columna B. «Tipo acceso» dice cómo se entra: Directo (usuario y contraseña), Google (inicia con Google, sin contraseña propia) o WP.',
+        sample: [
+          { d1: 'Banahost · WHM', d2: 'Directo', d3: 'admin_ejemplo', d4: 's', d5: 'servidor.ejemplo.com:2087/cpsess0000000000/', d6: '', d7: '' },
+          { d1: 'Semrush', d2: 'Google', d3: 'agencia@ejemplo.com', d4: '', d5: 'https://www.semrush.com/login', d6: '', d7: '' },
+          { d1: 'Correo Corporativo', d2: 'Directo', d3: 'ventas@ejemplo.com', d4: 's', d5: 'correo.ejemplo.com', d6: 's', d7: '' }
+        ] },
+      C: { name: 'Contraseñas Clientes', headerRow: 1, cols: [
+        { k: 'c1', head: 'Nombre', sug: 'cliente', ex: 'Panadería La Espiga (ejemplo)' },
+        { k: 'c2', head: 'Sitio web', sug: 'sitio', ex: 'panaderia-ejemplo.com' },
+        { k: 'c3', head: 'Tipo', sug: 'tipo', ex: 'WordPress' },
+        { k: 'c4', head: 'Usuario', sug: 'usuario', ex: 'admin_ejemplo' },
+        { k: 'c5', head: 'Contraseña', sug: 'pass', ex: '•••••••• se cifra al leerla', secret: true },
+        { k: 'c6', head: 'Link de acceso', sug: 'url', ex: 'panaderia-ejemplo.com/wp-admin' }
+      ], req: [['cliente', 'Cliente'], ['usuario', 'Usuario'], ['pass', 'Contraseña']],
+        note: 'Encabezados en la fila 1, desde la columna B. El nombre de cada acceso se arma solo con tipo y sitio (ej.: «cPanel · clinica-ejemplo.com.co»).',
+        sample: [
+          { c1: 'Panadería La Espiga (ejemplo)', c2: 'panaderia-ejemplo.com', c3: 'WordPress', c4: 'admin_ejemplo', c5: 's', c6: 'panaderia-ejemplo.com/wp-admin' },
+          { c1: 'Clínica dental (ejemplo)', c2: 'clinica-ejemplo.com.co ', c3: 'Cpanel', c4: 'clinica_ejemplo', c5: 's', c6: '' },
+          { c1: '', c2: '', c3: 'Gmail', c4: 'contacto@ejemplo.com', c5: 's', c6: '' }
+        ] }
+    };
+    var ms = SHEETS[st.mapSheet], mmap = st.map[st.mapSheet], mign = st.ignore[st.mapSheet];
+    var activeCols = ms.cols.filter(function (c) { return !mign[c.k] && mmap[c.k]; });
+    var cols = ms.cols.map(function (c) {
+      var ign = !!mign[c.k], fld = mmap[c.k];
+      return { head: c.head, example: c.ex, exStyle: c.secret ? "font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #B3B0BC;" : c.muted ? 'color: #8E8A9B;' : '',
+        field: fld, ignored: ign, suggested: !ign && fld && fld === c.sug, selId: 'map-' + c.k,
         rowStyle: 'border-top: 1px solid rgba(255,255,255,0.06);' + (ign ? ' opacity: 0.6;' : ''),
-        selStyle: 'min-height: 38px; min-width: 220px; padding: 0 10px; background: #0C0C0C; color: #F4F2F8; border: 1px solid ' + (!ign && !fld ? 'rgba(224,169,59,0.6)' : 'rgba(255,255,255,0.22)') + '; border-radius: 4px;',
-        setField: function (ev) { var m = Object.assign({}, st.map); m[L] = ev.target.value; set({ map: m }); },
-        toggleIgnore: function () { var g = Object.assign({}, st.ignore); g[L] = !ign; set({ ignore: g }); } };
+        selStyle: 'min-height: 38px; min-width: 240px; padding: 0 10px; background: #0C0C0C; color: #F4F2F8; border: 1px solid ' + (!ign && !fld ? 'rgba(224,169,59,0.6)' : 'rgba(255,255,255,0.22)') + '; border-radius: 4px;',
+        setField: function (ev) { var all = Object.assign({}, st.map); all[st.mapSheet] = Object.assign({}, mmap); all[st.mapSheet][c.k] = ev.target.value; set({ map: all }); },
+        toggleIgnore: function () { var all = Object.assign({}, st.ignore); all[st.mapSheet] = Object.assign({}, mign); all[st.mapSheet][c.k] = !ign; set({ ignore: all }); } };
     });
-    var reqOk = true;
-    var required = [['cliente', 'Cliente'], ['usuario', 'Usuario'], ['pass', 'Contraseña']].map(function (q) {
-      var n = active.filter(function (L) { return st.map[L] === q[0]; }).length;
+    function reqOkFor(id) {
+      var sh = SHEETS[id], mp = st.map[id], ig = st.ignore[id];
+      return sh.req.every(function (q) { return sh.cols.filter(function (c) { return !ig[c.k] && mp[c.k] === q[0]; }).length === 1; });
+    }
+    var required = ms.req.map(function (q) {
+      var n = activeCols.filter(function (c) { return mmap[c.k] === q[0]; }).length;
       var k = n === 1 ? 'ok' : n === 0 ? 'warn' : 'crit';
-      if (n !== 1) reqOk = false;
       return { ic: ic(k), text: q[1] + (n === 1 ? ': asignado' : n === 0 ? ': falta asignarlo' : ': está en ' + n + ' columnas'),
         style: 'display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; ' + (k === 'ok' ? 'background: rgba(91,228,155,0.08); color: #5BE49B;' : k === 'warn' ? 'background: rgba(224,169,59,0.1); color: #E8C27A;' : 'background: rgba(255,107,107,0.1); color: #FF8F9B;') };
     });
-    var pvHead = active.map(function (L) { return FL[st.map[L]]; });
-    var pvRows = SAMPLE.map(function (r) {
-      return { cells: active.map(function (L) {
-        var f = st.map[L];
-        if (f === 'pass') return { text: mask(r.D), style: "padding: 8px 10px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #B3B0BC; white-space: nowrap;" };
-        var v = String(r[L] || '—');
-        var mono = f === 'url' || f === 'usuario';
-        return { text: v, style: 'padding: 8px 10px; ' + (mono ? "font-family: 'JetBrains Mono', monospace; font-size: 12px;" : '') + (v === '—' ? ' color: #8E8A9B;' : '') };
+    var pvHead = activeCols.map(function (c) { return FL[mmap[c.k]]; });
+    var pvRows = ms.sample.map(function (r) {
+      return { cells: activeCols.map(function (c) {
+        var f = mmap[c.k], v = r[c.k];
+        if (f === 'pass') return { text: v ? '•••••••• cifrada' : 'sin contraseña', style: "padding: 8px 10px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #B3B0BC; white-space: nowrap;" };
+        if (f === 'secreto') return { text: v ? '•••• cifrado' : '—', style: "padding: 8px 10px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: " + (v ? '#E8C27A' : '#8E8A9B') + ';' };
+        var shown = v === '' ? 'vacío' : String(v).replace(/ $/, '␣');
+        var mono = f === 'url' || f === 'usuario' || f === 'sitio';
+        return { text: shown, style: 'padding: 8px 10px; ' + (mono ? "font-family: 'JetBrains Mono', monospace; font-size: 12px;" : '') + (v === '' ? ' color: #8E8A9B; font-style: italic;' : '') };
       }) };
     });
+    var mapTabs = ['D', 'C'].map(function (id) {
+      var on = st.mapSheet === id, ok = reqOkFor(id);
+      return { label: SHEETS[id].name + (ok ? '' : ' · falta un campo'), on: on, pick: function () { set({ mapSheet: id }); },
+        style: 'min-height: 40px; padding: 0 14px; border: 0; cursor: pointer; font-weight: 600; ' + (on ? 'background: #1A0B2B; color: #F4F2F8;' : 'background: transparent; color: #B3B0BC;') };
+    });
 
-    // ---- Paso 3: grupos
+    // ---------- Paso 3: decisiones con los conteos reales
     function seg(opts, cur, key) {
       return opts.map(function (o) {
         var on = cur === o[0];
@@ -317,148 +414,148 @@ class Component extends DCLogic {
           style: 'min-height: 38px; padding: 0 14px; border: 0; cursor: pointer; font-weight: 600; ' + (on ? 'background: #6D00C2; color: #FFFFFF;' : 'background: transparent; color: #D8D4E2;') };
       });
     }
-    function urlOk(v) { return /^(https?|ftp):\/\/\S+\.\S+/.test(String(v || '').trim()); }
-    var clientOpts = [{ v: 'new', l: 'Crear cliente nuevo' }, { v: '4Bellú · Body shapers', l: '4Bellú · Body shapers' }, { v: 'LuzMa · uniformes', l: 'LuzMa · uniformes' }, { v: 'Colorado Hardwood Design', l: 'Colorado Hardwood Design' }, { v: 'Jhoana Pérez · psicóloga', l: 'Jhoana Pérez · psicóloga' }, { v: 'Clínica dental (ejemplo)', l: 'Clínica dental (ejemplo)' }];
-    var picks = st.cliPick;
-    var newShown = ['r14', 'r37', 'r52'].filter(function (k) { return picks[k] === 'new'; }).length;
-    var newClients = st.cliMode === 'create' ? 9 : 6 + newShown;
-    var matched = 9 - newClients;
-
-    var invRows = [
-      { id: 'r63', row: 'Fila 63', main: 'WordPress · 4Bellú · URL «4bellu.com/wp-admin»', note: 'le faltaba https://', label: 'URL corregida', kind: 'url' },
-      { id: 'r77', row: 'Fila 77', main: 'cPanel · LuzMa · URL «servidor.ejemplo.com:2083»', note: 'le faltaba https://', label: 'URL corregida', kind: 'url' },
-      { id: 'r101', row: 'Fila 101', main: 'Google Ads · Jhoana Pérez · usuario vacío', note: 'en OBS dice «user: admin_ejemplo»', label: 'Usuario', kind: 'user' }
-    ];
-    var invBad = invRows.filter(function (r) { var v = st.invVals[r.id]; return r.kind === 'url' ? !urlOk(v) : !String(v || '').trim(); }).length;
-    var invOmit = st.invMode === 'omit' ? 5 : invBad;
-    var dupOmit = st.dupMode === 'both' ? 0 : 4;
-    var convFilled = ['r30', 'r55', 'r140'].filter(function (k) { return String(st.convVals[k] || '').length > 0; }).length;
-    var convOmit = st.convMode === 'omit' ? 3 : 3 - convFilled;
-    var omitted = dupOmit + invOmit + convOmit;
-    var imported = 212 - omitted;
-    var badgeOk = 'display: inline-flex; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; background: rgba(91,228,155,0.1); color: #5BE49B; white-space: nowrap;';
-    var badgeWarn = 'display: inline-flex; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; background: rgba(224,169,59,0.12); color: #E8C27A; white-space: nowrap;';
-    var badgeCrit = 'display: inline-flex; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; background: rgba(255,107,107,0.12); color: #FF8F9B; white-space: nowrap;';
-    var badgeMute = 'display: inline-flex; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; background: rgba(255,255,255,0.06); color: #D8D4E2; white-space: nowrap;';
-    function row(o) { return Object.assign({ row: '', main: '', note: '', mainStyle: 'font-weight: 600;', hasSelect: false, hasInput: false, hasBadge: false, badge: '', badgeStyle: badgeMute, inId: '', inLabel: '', inType: 'text', val: '', ph: '', inStyle: '', set: null }, o); }
-    function inStyle(bad) { return 'min-height: 36px; padding: 0 10px; background: #0C0C0C; color: #F4F2F8; border: 1px solid ' + (bad ? 'rgba(255,107,107,0.6)' : 'rgba(255,255,255,0.22)') + "; border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 12px; min-width: 0;"; }
+    var B = 'display: inline-flex; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap; ';
+    var badgeOk = B + 'background: rgba(91,228,155,0.1); color: #5BE49B;', badgeWarn = B + 'background: rgba(224,169,59,0.12); color: #E8C27A;', badgeMute = B + 'background: rgba(255,255,255,0.06); color: #D8D4E2;';
+    function row(o) { return Object.assign({ row: '', main: '', note: '', mainStyle: 'font-weight: 600;', hasSelect: false, selLabel: '', opts: [], inId: '', val: '', set: null, hasBadge: false, badge: '', badgeStyle: badgeMute }, o); }
     function resStyle(k) { return 'font-size: 13px; font-weight: 600; color: ' + (k === 'omit' ? '#E8C27A' : '#5BE49B') + ';'; }
+    function card(g) {
+      return { hid: 'g-' + g.id, count: g.count, ic: ic(g.k), title: g.title, sub: g.sub, hasActions: !!g.actions, noActions: !g.actions, fixedLabel: g.fixedLabel || '',
+        actions: g.actions || [], rows: g.rows || [], hasMore: !!g.more, more: g.more || '', result: g.result, resultStyle: resStyle(g.rk),
+        boxStyle: 'display: flex; flex-direction: column; gap: 12px; padding: 16px; background: #0F0F11; border: 1px solid ' + (g.k === 'crit' ? 'rgba(255,107,107,0.4)' : 'rgba(255,255,255,0.08)') + '; border-radius: 10px;' };
+    }
+    function auto(o) { return Object.assign({ hasChips: false, chips: [], tag: '', tagStyle: badgeMute }, o, { ic: ic(o.k || 'ok') }); }
 
-    var gCli = {
-      id: 'cli', count: '9', k: 'warn', title: 'Clientes que no existen en el CRM', sub: 'Se crean como clientes nuevos o se emparejan con uno que ya existe. Se compara el nombre sin mayúsculas, tildes ni «S.A.S.».',
-      actions: seg([['match', 'Emparejar con…'], ['create', 'Crear los 9']], st.cliMode, 'cliMode'),
-      rows: st.cliMode === 'match' ? [
-        row({ row: 'Fila 14', main: '«Luz Ma Unif.»', note: 'parecido 91 % con LuzMa · uniformes', hasSelect: true, inId: 'cli-r14', val: picks.r14, set: function (ev) { set({ cliPick: Object.assign({}, picks, { r14: ev.target.value }) }); } }),
-        row({ row: 'Fila 37', main: '«Colorado Hardwood»', note: 'parecido 88 % con Colorado Hardwood Design', hasSelect: true, inId: 'cli-r37', val: picks.r37, set: function (ev) { set({ cliPick: Object.assign({}, picks, { r37: ev.target.value }) }); } }),
-        row({ row: 'Fila 52', main: '«Panadería La Espiga (ejemplo)»', note: 'sin parecido en el CRM', hasSelect: true, inId: 'cli-r52', val: picks.r52, set: function (ev) { set({ cliPick: Object.assign({}, picks, { r52: ev.target.value }) }); } })
-      ] : [
-        row({ row: '9 filas', main: 'Se crean 9 clientes con el nombre tal como está en el Excel', note: 'Si alguno ya existía con otro nombre, los unes después desde CRM » Clientes.', mainStyle: 'font-weight: 500;' })
-      ],
-      more: st.cliMode === 'match' ? 'y 6 filas más sin parecido: se crean como clientes nuevos' : '',
-      result: st.cliMode === 'match' ? 'Se importan las 9 · ' + matched + ' emparejadas · ' + newClients + ' clientes nuevos' : 'Se importan las 9 · 9 clientes nuevos', rk: 'ok'
-    };
-    var dupText = { omit: 'Se importa la primera de cada par; la otra se omite.', update: 'Se importa la más reciente de cada par (la de más abajo en el Excel).', both: 'Se importan las 8 filas: quedan dos accesos iguales.' };
-    var gDup = {
-      id: 'dup', count: '8', k: 'warn', title: 'Duplicados', sub: '4 accesos aparecen dos veces con el mismo cliente, URL y usuario. ' + dupText[st.dupMode],
-      actions: seg([['omit', 'Omitir'], ['update', 'Actualizar'], ['both', 'Conservar ambos']], st.dupMode, 'dupMode'),
-      rows: [
-        row({ row: '21 y 88', main: 'cPanel · 4bellu.com · admin_ejemplo', note: 'contraseñas iguales', hasBadge: true, badge: 'idénticas', badgeStyle: badgeMute }),
-        row({ row: '40 y 41', main: 'WordPress · Colorado Hardwood · admin_ejemplo', note: 'contraseñas distintas: la de la fila 41 es más reciente', hasBadge: true, badge: 'distintas', badgeStyle: badgeWarn })
-      ],
-      more: 'y 2 pares más con contraseñas iguales',
-      result: st.dupMode === 'both' ? 'Se importan las 8' : 'Se importan 4 · se omiten 4', rk: st.dupMode === 'both' ? 'ok' : 'omit'
-    };
-    var gInv = {
-      id: 'inv', count: '5', k: 'crit', title: 'Sin usuario o con URL inválida', sub: st.invMode === 'fix' ? 'Te proponemos la corrección. Revísala; lo que siga inválido se omite.' : 'Se omiten las 5. Quedan solo en tu Excel.',
-      actions: seg([['fix', 'Corregir'], ['omit', 'Omitir']], st.invMode, 'invMode'),
-      rows: invRows.map(function (r) {
-        var v = st.invVals[r.id];
-        var bad = r.kind === 'url' ? !urlOk(v) : !String(v || '').trim();
-        if (st.invMode === 'omit') return row({ row: r.row, main: r.main, note: 'se omite', hasBadge: true, badge: 'se omite', badgeStyle: badgeWarn });
-        return row({ row: r.row, main: r.main, note: r.note, hasInput: true, inId: 'inv-' + r.id, inLabel: r.label, val: v, ph: r.kind === 'url' ? 'https://…' : 'usuario', inStyle: inStyle(bad),
-          set: function (ev) { var o = {}; o[r.id] = ev.target.value; set({ invVals: Object.assign({}, st.invVals, o) }); },
-          hasBadge: true, badge: bad ? 'inválida: se omite' : 'corregida', badgeStyle: bad ? badgeCrit : badgeOk });
-      }),
-      more: st.invMode === 'fix' ? 'y 2 filas más con la misma corrección (https:// agregado)' : 'y 2 filas más',
-      result: invOmit === 0 ? 'Se importan las 5 corregidas' : invOmit === 5 ? 'Se omiten 5' : 'Se importan ' + (5 - invOmit) + ' · se omiten ' + invOmit, rk: invOmit ? 'omit' : 'ok'
-    };
-    var gSp = {
-      id: 'sp', count: '4', k: 'ok', title: 'Contraseñas con espacios al inicio o al final', sub: 'Se conservan tal cual, no se recortan. Si alguien la copiaba sin el espacio, por eso fallaba.',
-      noActions: true, fixedLabel: 'Sin acción · se conservan',
-      rows: [
-        row({ row: 'Fila 9', main: 'Correo · Jhoana Pérez', note: '␣•••••••••••• · 13 caracteres, 1 espacio al inicio', mainStyle: 'font-weight: 600;' }),
-        row({ row: 'Fila 118', main: 'FTP · Clínica dental (ejemplo)', note: '••••••••••␣␣ · 12 caracteres, 2 espacios al final' })
-      ],
-      more: 'y 2 filas más',
-      result: 'Se importan las 4, con sus espacios', rk: 'ok'
-    };
-    var convRows = [
-      { id: 'r30', row: 'Fila 30', main: 'cPanel · Clínica dental (ejemplo)', note: 'Excel la leyó como número de 7 cifras: pudo perder un 0 al inicio' },
-      { id: 'r55', row: 'Fila 55', main: 'Dominio · LuzMa', note: 'Excel la leyó como fecha (12/03/2024)' },
-      { id: 'r140', row: 'Fila 140', main: 'WordPress · Panadería La Espiga (ejemplo)', note: 'Excel la mostró en notación científica (4,5E+11)' }
+    // Hoja Dkoding
+    var team = [{ v: 'Laura', l: 'Laura' }, { v: 'Andrés', l: 'Andrés' }, { v: 'Tú', l: 'Tú' }];
+    var dCards = [
+      card({ id: 'per', count: '2', k: 'warn', title: 'Cuentas personales de una persona del equipo', sub: 'Un Gmail y un Facebook. Se proponen como Personales: solo su dueño las verá, ni un administrador.',
+        actions: seg([['move', 'Mover a Personales'], ['stay', 'Dejar en Agencia']], st.perMode, 'perMode'),
+        rows: [
+          row({ row: 'Fila 30', main: 'Gmail personal (ejemplo) · persona@ejemplo.com', note: 'Tipo acceso: Directo', hasBadge: true, badge: st.perMode === 'move' ? 'Personal' : 'Agencia', badgeStyle: st.perMode === 'move' ? badgeOk : badgeMute }),
+          row({ row: 'Fila 31', main: 'Facebook personal (ejemplo) · persona@ejemplo.com', note: 'Tipo acceso: Directo', hasBadge: true, badge: st.perMode === 'move' ? 'Personal' : 'Agencia', badgeStyle: st.perMode === 'move' ? badgeOk : badgeMute })
+        ].concat(st.perMode === 'move' ? [row({ row: 'Dueño', main: 'Quién las verá', note: 'Solo esa persona, en su pestaña Personales', hasSelect: true, selLabel: 'Dueño', opts: team, inId: 'per-owner', val: st.perOwner, set: function (ev) { set({ perOwner: ev.target.value }); } })] : []),
+        result: st.perMode === 'move' ? 'Se importan las 2 como Personales de ' + st.perOwner : 'Se importan las 2 en Agencia', rk: 'ok' }),
+      card({ id: 'sec', count: '2', k: 'crit', title: 'Filas con códigos de respaldo de doble verificación', sub: 'Se guardan cifrados como «secreto adicional», con la misma verificación que una contraseña para verlos. Después de importar, borra el archivo.',
+        fixedLabel: 'Secreto adicional cifrado',
+        rows: [row({ row: 'Fila 12', main: 'Google · cuenta de la agencia (ejemplo)', note: 'Codigos de Respaldo/Llave de acceso: •••• cifrado', hasBadge: true, badge: 'secreto adicional', badgeStyle: badgeWarn }), row({ row: 'Fila 19', main: 'GoDaddy · dominios de la agencia', note: 'Codigos de Respaldo/Llave de acceso: •••• cifrado', hasBadge: true, badge: 'secreto adicional', badgeStyle: badgeWarn })],
+        result: 'Se importan las 2 con su secreto adicional', rk: 'ok' })
     ];
-    var gConv = {
-      id: 'conv', count: '3', k: 'warn', title: 'Celdas que Excel convirtió en número o fecha', sub: 'Pudo perder ceros a la izquierda: confírmalas a mano. ' + (st.convMode === 'omit' ? 'Si las omites, las agregas luego en Accesos.' : 'Escribe la contraseña real; la que no escribas se omite.'),
-      actions: seg([['omit', 'Omitir por ahora'], ['confirm', 'Confirmar a mano']], st.convMode, 'convMode'),
-      rows: convRows.map(function (r) {
-        var v = st.convVals[r.id] || '';
-        if (st.convMode === 'omit') return row({ row: r.row, main: r.main, note: r.note, hasBadge: true, badge: 'se omite', badgeStyle: badgeWarn });
-        return row({ row: r.row, main: r.main, note: r.note, hasInput: true, inId: 'conv-' + r.id, inLabel: 'Contraseña real', inType: 'password', val: v, ph: 'escríbela tal cual', inStyle: inStyle(false),
-          set: function (ev) { var o = {}; o[r.id] = ev.target.value; set({ convVals: Object.assign({}, st.convVals, o) }); },
-          hasBadge: true, badge: v ? 'confirmada' : 'sin confirmar', badgeStyle: v ? badgeOk : badgeWarn });
-      }),
-      more: '',
-      result: convOmit === 3 ? 'Se omiten 3' : convOmit === 0 ? 'Se importan las 3 confirmadas' : 'Se importan ' + (3 - convOmit) + ' · se omiten ' + convOmit, rk: convOmit ? 'omit' : 'ok'
-    };
-    var gRep = {
-      id: 'rep', count: '2', k: 'warn', title: 'Contraseñas repetidas en varios clientes', sub: 'Se importan y se marcan para rotar más adelante. Cambiarlas no es obligatorio hoy.',
-      noActions: true, fixedLabel: 'Se marcan «rotar»',
-      rows: [
-        row({ row: 'Fila 4', main: 'cPanel · LuzMa usa la misma que cPanel · 4bellu.com (fila 2)', note: 'clientes distintos', hasBadge: true, badge: 'rotar', badgeStyle: badgeWarn }),
-        row({ row: 'Fila 160', main: 'FTP · Clínica dental usa la misma que WordPress · Colorado Hardwood (fila 96)', note: 'clientes distintos', hasBadge: true, badge: 'rotar', badgeStyle: badgeWarn })
-      ],
-      more: '',
-      result: 'Se importan las 2 · quedan marcadas para rotar', rk: 'ok'
-    };
-    var groups = [gCli, gDup, gInv, gSp, gConv, gRep].map(function (g) {
-      return { hid: 'g-' + g.id, count: g.count, ic: ic(g.k), title: g.title, sub: g.sub, hasActions: !g.noActions, noActions: !!g.noActions, fixedLabel: g.fixedLabel || '',
-        actions: g.actions || [], rows: g.rows, hasMore: !!g.more, more: g.more, result: g.result, resultStyle: resStyle(g.rk) };
-    });
+    var dAuto = [
+      auto({ count: '41', title: '«Tipo acceso» se traduce', note: 'Las de Google no tienen contraseña propia: se enlazan a la cuenta de Google de la agencia.', tag: 'se corrige solo', hasChips: true,
+        chips: [{ from: 'Directo 25', to: 'usuario y contraseña' }, { from: 'Google 6', to: 'Inicia con Google' }, { from: 'WP 5', to: 'WordPress' }, { from: 'vacío 5', to: 'Directo' }] }),
+      auto({ count: '4', title: 'Filas que se llaman igual: «Correo Corporativo»', note: 'Se distinguen por el usuario: «Correo Corporativo · ventas@…».', tag: 'se renombran' }),
+      auto({ count: '1', title: 'Link con una sesión vieja de WHM', note: '…:2087/cpsess…/ → …:2087/ · se limpia la parte de sesión.', tag: 'se limpia' }),
+      auto({ count: '41', title: '«Ultimo cambio» vacío en todas', note: 'Queda como «desconocido». Se llena solo cuando alguien registre un cambio de contraseña.', tag: 'informativo', k: 'warn' }),
+      auto({ count: 'A1', title: 'Celda con un «4.0» suelto', note: 'Está fuera de la tabla: se ignora.', tag: 'se ignora' })
+    ];
 
-    // ---- Paso 4
+    // Hoja Clientes
+    var cliOpts = [{ v: '', l: 'Elige un cliente…' }, { v: 'Panadería La Espiga (ejemplo)', l: 'Panadería La Espiga (ejemplo)' }, { v: 'Clínica dental (ejemplo)', l: 'Clínica dental (ejemplo)' }, { v: 'Ferretería del centro (ejemplo)', l: 'Ferretería del centro (ejemplo)' }];
+    var sinPicks = st.sinCliPick;
+    var assigned = ['a', 'b', 'c'].filter(function (k) { return !!sinPicks[k]; }).length;
+    var omitSinCli = st.sinCliMode === 'omit' ? 13 : 13 - assigned;
+    var omitDup = st.dupMode === 'both' ? 0 : 1;
+    var omitC = omitSinCli + omitDup;
+    var tipoOpts = [{ v: '', l: 'Elige un tipo…' }, { v: 'cPanel', l: 'cPanel' }, { v: 'WordPress', l: 'WordPress' }, { v: 'Correo', l: 'Correo' }, { v: 'Google', l: 'Google' }, { v: 'Redes', l: 'Redes' }, { v: 'Hosting o dominio', l: 'Hosting o dominio' }, { v: 'Herramienta', l: 'Herramienta' }, { v: 'Otro', l: 'Otro' }];
+    var tipoChosen = ['a', 'b'].filter(function (k) { return !!st.sinTipoPick[k]; }).length;
+    var sinCliRows = [
+      { k: 'a', row: 'Fila 41', main: 'Sin nombre ni sitio · cPanel · admin_ejemplo', note: 'link vacío' },
+      { k: 'b', row: 'Fila 77', main: 'Sin nombre ni sitio · WordPress · editor_ejemplo', note: 'link: login.ejemplo.com/acceso' },
+      { k: 'c', row: 'Fila 120', main: 'Sin nombre ni sitio · Gmail · contacto@ejemplo.com', note: 'link vacío' }
+    ];
+    var cCards = [
+      card({ id: 'sincli', count: '13', k: 'crit', title: 'Filas sin cliente', sub: 'No tienen nombre ni sitio. Asígnalas a mano o se omiten.',
+        actions: seg([['omit', 'Omitir'], ['assign', 'Asignar a mano']], st.sinCliMode, 'sinCliMode'),
+        rows: sinCliRows.map(function (r) {
+          if (st.sinCliMode === 'omit') return row({ row: r.row, main: r.main, note: r.note, hasBadge: true, badge: 'se omite', badgeStyle: badgeWarn });
+          return row({ row: r.row, main: r.main, note: r.note, hasSelect: true, selLabel: 'Cliente', opts: cliOpts, inId: 'sincli-' + r.k, val: sinPicks[r.k],
+            set: function (ev) { var o = {}; o[r.k] = ev.target.value; set({ sinCliPick: Object.assign({}, sinPicks, o) }); } });
+        }),
+        more: st.sinCliMode === 'omit' ? 'y 10 filas más sin cliente' : 'y 10 filas más: las que no asignes se omiten',
+        result: omitSinCli === 13 ? 'Se omiten 13' : 'Se importan ' + (13 - omitSinCli) + ' asignadas · se omiten ' + omitSinCli, rk: 'omit' }),
+      card({ id: 'sintipo', count: '16', k: 'warn', title: 'Filas sin tipo', sub: '3 se deducen del link. Las otras 13 las eliges tú; las que no elijas quedan como «Otro».',
+        actions: seg([['manual', 'Elegir a mano'], ['otro', 'Dejar como «Otro»']], st.sinTipoMode, 'sinTipoMode'),
+        rows: [row({ row: 'Fila 23', main: 'Ferretería del centro (ejemplo) · link …/wp-admin', note: 'deducido del link', hasBadge: true, badge: 'WordPress', badgeStyle: badgeOk })].concat(
+          st.sinTipoMode === 'manual' ? [
+            row({ row: 'Fila 58', main: 'Clínica dental (ejemplo) · usuario clinica_ejemplo', note: 'link vacío', hasSelect: true, selLabel: 'Tipo', opts: tipoOpts, inId: 'tipo-a', val: st.sinTipoPick.a, set: function (ev) { set({ sinTipoPick: Object.assign({}, st.sinTipoPick, { a: ev.target.value }) }); } }),
+            row({ row: 'Fila 101', main: 'Panadería La Espiga (ejemplo) · usuario pedidos@ejemplo.com', note: 'link vacío', hasSelect: true, selLabel: 'Tipo', opts: tipoOpts, inId: 'tipo-b', val: st.sinTipoPick.b, set: function (ev) { set({ sinTipoPick: Object.assign({}, st.sinTipoPick, { b: ev.target.value }) }); } })
+          ] : [
+            row({ row: 'Fila 58', main: 'Clínica dental (ejemplo) · usuario clinica_ejemplo', note: 'link vacío', hasBadge: true, badge: 'Otro', badgeStyle: badgeMute }),
+            row({ row: 'Fila 101', main: 'Panadería La Espiga (ejemplo) · usuario pedidos@ejemplo.com', note: 'link vacío', hasBadge: true, badge: 'Otro', badgeStyle: badgeMute })
+          ]),
+        more: 'y 2 deducidas más (:2083 → cPanel, webmail → Correo) · 11 por elegir',
+        result: 'Se importan las 16 · 3 con tipo deducido · ' + (st.sinTipoMode === 'manual' ? tipoChosen + ' elegidas · ' + (13 - tipoChosen) + ' como «Otro»' : '13 como «Otro»'), rk: 'ok' }),
+      card({ id: 'links', count: '47', k: 'warn', title: 'Filas sin link de acceso', sub: 'En cPanel y WordPress se propone la dirección a partir del sitio. En los demás tipos queda vacío.',
+        actions: seg([['propose', 'Proponer desde el sitio'], ['empty', 'Dejar vacíos']], st.linkMode, 'linkMode'),
+        rows: [
+          row({ row: 'Fila 15', main: 'cPanel · clinica-ejemplo.com.co', note: st.linkMode === 'propose' ? 'https://clinica-ejemplo.com.co/cpanel' : 'queda sin link', mainStyle: 'font-weight: 600;', hasBadge: true, badge: st.linkMode === 'propose' ? 'propuesto' : 'vacío', badgeStyle: st.linkMode === 'propose' ? badgeOk : badgeMute }),
+          row({ row: 'Fila 16', main: 'WordPress · panaderia-ejemplo.com', note: st.linkMode === 'propose' ? 'https://panaderia-ejemplo.com/wp-admin' : 'queda sin link', hasBadge: true, badge: st.linkMode === 'propose' ? 'propuesto' : 'vacío', badgeStyle: st.linkMode === 'propose' ? badgeOk : badgeMute }),
+          row({ row: 'Fila 90', main: 'Correo · Ferretería del centro (ejemplo)', note: 'no es cPanel ni WordPress: queda sin link', hasBadge: true, badge: 'vacío', badgeStyle: badgeMute })
+        ],
+        more: 'y 44 filas más',
+        result: st.linkMode === 'propose' ? 'Se importan las 47 · con link propuesto en cPanel y WordPress' : 'Se importan las 47 sin link', rk: 'ok' }),
+      card({ id: 'dup', count: '1', k: 'warn', title: 'Duplicado exacto', sub: 'Mismo cliente, tipo y usuario en dos filas. ' + (st.dupMode === 'omit' ? 'Se importa la primera; la otra se omite.' : st.dupMode === 'update' ? 'Se importa la de más abajo (la más reciente).' : 'Se importan las dos.'),
+        actions: seg([['omit', 'Omitir'], ['update', 'Actualizar'], ['both', 'Conservar ambos']], st.dupMode, 'dupMode'),
+        rows: [row({ row: '63 y 64', main: 'Clínica dental (ejemplo) · cPanel · clinica_ejemplo', note: 'mismo cliente, tipo y usuario', hasBadge: true, badge: 'duplicado', badgeStyle: badgeWarn })],
+        result: st.dupMode === 'both' ? 'Se importan las 2' : 'Se importa 1 · se omite 1', rk: st.dupMode === 'both' ? 'ok' : 'omit' })
+    ];
+    var cAuto = [
+      auto({ count: '84', title: 'Clientes nuevos en el CRM, con 57 sitios', note: 'El CRM está vacío: se crean todos. Los servicios los cargas después desde la ficha de cada cliente.', tag: 'se crean' }),
+      auto({ count: '139', title: 'Tipos escritos a mano se normalizan', note: 'Quedan en los tipos del admin.', tag: 'se corrige solo', hasChips: true,
+        chips: [{ from: 'WordPress 61', to: 'WordPress' }, { from: 'Cpanel 51', to: 'cPanel' }, { from: 'WebMail 9 + 1 variante', to: 'Correo' }, { from: 'Gmail 7', to: 'Google' }, { from: 'Instagram 2', to: 'Redes' }, { from: 'Hostinger 2 · NameCheap 1 · GoDaddy 1', to: 'Hosting o dominio' }, { from: 'Boxplay 3 · Brevo 1', to: 'Herramienta' }] }),
+      auto({ count: '59', title: 'Links sin https://', note: 'Se completan: «clinica-ejemplo.com.co/cpanel» → «https://clinica-ejemplo.com.co/cpanel».', tag: 'se corrige solo' }),
+      auto({ count: '4', title: 'Links con ruta propia de inicio de sesión', note: 'Login escondido (no es /wp-admin): se respetan tal cual.', tag: 'se respetan' }),
+      auto({ count: '14', title: 'Sitios con espacios al final', note: 'Se recortan solo en el sitio y la URL, nunca en la contraseña.', tag: 'se corrige solo' }),
+      auto({ count: '11', title: 'Usuarios repetidos en 2 o más clientes', note: 'Usuarios genéricos como «admin». Informativo: no impide importar.', tag: 'informativo', k: 'warn' }),
+      auto({ count: '13', title: 'Dominios .co, .com.co y .edu.co', note: 'Su vencimiento no se consulta solo: lo escribes a mano en Salud.', tag: 'informativo', k: 'warn' })
+    ];
+    var pending = [
+      { title: 'Contraseñas con espacios al inicio o al final', note: 'se conservan tal cual, no se recortan' },
+      { title: 'Celdas que Excel convirtió en número o fecha', note: 'pudo perder ceros a la izquierda: se confirman a mano' },
+      { title: 'Contraseñas repetidas en varios accesos', note: 'se importan y se marcan para rotar más adelante' }
+    ];
+
+    var impD = incD ? 41 : 0, impC = incC ? 155 - omitC : 0;
+    var imported = impD + impC, omitted = incC ? omitC : 0, totalRows = (incD ? 41 : 0) + (incC ? 155 : 0);
+    var sheets3 = [];
+    if (incD) sheets3.push({ hid: 'sh-d', name: 'Contraseñas Dkoding', meta: 'ámbito Agencia · 41 filas · encabezados en la fila 3', cards: dCards, auto: dAuto });
+    if (incC) sheets3.push({ hid: 'sh-c', name: 'Contraseñas Clientes', meta: 'ámbito Clientes · 155 filas · 84 clientes · 57 sitios · encabezados en la fila 1', cards: cCards, auto: cAuto });
+    var nDecisions = (incD ? 1 : 0) + (incC ? 4 : 0);
+    var tileBase = 'display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; border-radius: 8px; ';
+    var tiles = [
+      { label: 'Filas leídas', value: String(totalRows), note: (incD && incC ? '2 hojas' : '1 hoja') + ' de Contraseñas.xlsx', style: tileBase + 'background: #0F0F11; border: 1px solid rgba(255,255,255,0.08);' },
+      { label: 'Agencia · «Contraseñas Dkoding»', value: incD ? '41 → 41' : '—', note: incD ? (st.perMode === 'move' ? '39 en Agencia · 2 en Personales' : '41 en Agencia') : 'hoja no incluida', style: tileBase + 'background: #0F0F11; border: 1px solid rgba(255,255,255,0.08);' },
+      { label: 'Clientes · «Contraseñas Clientes»', value: incC ? '155 → ' + impC : '—', note: incC ? omitC + ' se omiten · 84 clientes nuevos' : 'hoja no incluida', style: tileBase + 'background: #0F0F11; border: 1px solid rgba(224,169,59,0.35);' },
+      { label: 'Con tus decisiones', value: String(imported), note: 'se importan · ' + omitted + ' se omiten', style: tileBase + 'background: #1A0B2B; border: 1px solid rgba(199,85,239,0.45);' }
+    ];
+
+    // ---------- Paso 4
     var omitParts = [];
-    if (dupOmit) omitParts.push(dupOmit + ' duplicados');
-    if (invOmit) omitParts.push(invOmit + ' sin usuario o con URL inválida');
-    if (convOmit) omitParts.push(convOmit + ' celdas sin confirmar');
-    var summary = [
-      { k: 'Se importan', v: imported + ' accesos', note: '181 sin observaciones + ' + (imported - 181) + ' revisados en el paso 3', vStyle: "font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 20px; font-variant-numeric: tabular-nums;" },
-      { k: 'Se omiten', v: String(omitted), note: omitParts.length ? omitParts.join(' · ') + '. Quedan solo en tu Excel.' : 'ninguna fila', vStyle: 'font-weight: 600; font-variant-numeric: tabular-nums;' },
-      { k: 'Clientes nuevos en el CRM', v: String(newClients), note: matched ? matched + ' filas se emparejaron con clientes existentes' : 'ninguna fila se emparejó', vStyle: 'font-weight: 600;' },
-      { k: 'Marcadas para rotar', v: '2', note: 'repetidas en varios clientes', vStyle: 'font-weight: 600;' },
-      { k: 'Origen', v: 'Excel · sin rotar', note: 'en todas las importadas · las contraseñas no cambian', vStyle: 'font-weight: 600;' },
-      { k: 'Auditoría', v: '1 registro', note: 'quién, cuándo y cuántas filas · sin valores', vStyle: 'font-weight: 600;' }
-    ];
+    if (omitSinCli) omitParts.push(omitSinCli + ' sin cliente');
+    if (omitDup) omitParts.push(omitDup + ' duplicado');
+    var totals = [];
+    if (incD) totals.push({ name: 'Contraseñas Dkoding', rows: '41', imp: '41', omit: '0', omitNote: '', where: (st.perMode === 'move' ? '39 en Agencia · 2 en Personales de ' + st.perOwner : '41 en Agencia') + ' · 6 inician con Google' });
+    if (incC) totals.push({ name: 'Contraseñas Clientes', rows: '155', imp: String(impC), omit: String(omitC), omitNote: omitParts.join(' · '), where: 'Clientes · 84 clientes y 57 sitios nuevos en el CRM' });
 
-    // ---- Pasos
-    var subs = {
-      1: st.fileLoaded ? 'accesos-clientes-2026.xlsx' : 'sin archivo',
-      2: active.length + ' de 8 columnas asignadas',
-      3: '31 filas por revisar',
-      4: st.done ? 'terminado' : imported + ' accesos'
-    };
+    // ---------- Pasos
     var labels = { 1: 'Subir', 2: 'Columnas', 3: 'Revisar', 4: 'Importar' };
+    var subs = { 1: st.fileLoaded ? 'Contraseñas.xlsx · ' + ((incD ? 1 : 0) + (incC ? 1 : 0)) + ' hojas' : 'sin archivo', 2: '7 + 6 columnas', 3: nDecisions + ' decisiones · ' + totalRows + ' filas', 4: st.done ? 'terminado' : imported + ' accesos' };
     var steps = [1, 2, 3, 4].map(function (n) {
       var cur = !st.done && st.step === n, done = st.done || st.step > n;
       return { label: labels[n], sub: subs[n], current: cur ? 'step' : 'false', dot: done ? '✓' : String(n),
         pick: function () { if (!st.done) set({ step: n }); },
         style: 'display: flex; align-items: center; gap: 12px; width: 100%; min-height: 56px; padding: 8px 12px; border-radius: 8px; cursor: ' + (st.done ? 'default' : 'pointer') + '; text-align: left; color: #F4F2F8; ' + (cur ? 'background: #1A0B2B; border: 1px solid rgba(199,85,239,0.55);' : 'background: transparent; border: 1px solid transparent;'),
-        dotStyle: 'flex: none; width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; font-weight: 700; font-variant-numeric: tabular-nums; ' + (cur ? 'background: #6D00C2; color: #FFFFFF;' : done ? 'background: rgba(91,228,155,0.12); color: #5BE49B; border: 1px solid rgba(91,228,155,0.45); box-sizing: border-box;' : 'background: transparent; color: #B3B0BC; border: 1px solid rgba(255,255,255,0.22); box-sizing: border-box;'),
+        dotStyle: 'flex: none; width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; font-weight: 700; font-variant-numeric: tabular-nums; box-sizing: border-box; ' + (cur ? 'background: #6D00C2; color: #FFFFFF;' : done ? 'background: rgba(91,228,155,0.12); color: #5BE49B; border: 1px solid rgba(91,228,155,0.45);' : 'background: transparent; color: #B3B0BC; border: 1px solid rgba(255,255,255,0.22);'),
         labelStyle: 'font-weight: 600; color: ' + (cur ? '#F4F2F8' : done ? '#D8D4E2' : '#B3B0BC') + ';' };
     });
-    var badSheet = st.fileLoaded && st.sheet !== 'Accesos';
-    var canNext = st.step === 1 ? (st.fileLoaded && !badSheet) : st.step === 2 ? reqOk : true;
+    var noSheets = st.fileLoaded && !st.inc.D && !st.inc.C;
+    var canNext = st.step === 1 ? (st.fileLoaded && !noSheets) : st.step === 2 ? ((!incD || reqOkFor('D')) && (!incC || reqOkFor('C'))) : true;
     var nextLabels = { 1: 'Siguiente: columnas', 2: 'Siguiente: revisar', 3: 'Siguiente: confirmar' };
-    var cleanDefs = [['pc', 'Tu computador', 'Descargas, escritorio y la papelera'], ['drive', 'Google Drive', 'el archivo y su papelera'], ['mail', 'El correo', 'adjuntos enviados y recibidos'], ['wa', 'WhatsApp', 'chats donde se compartió']];
+    var sheetCards = [
+      { id: 'D', name: 'Contraseñas Dkoding', rows: 41, headerRow: 3, headNote: 'La celda A1 tiene un «4.0» suelto: se ignora.', scope: 'Agencia', scopeNote: '2 cuentas personales se proponen como Personales' },
+      { id: 'C', name: 'Contraseñas Clientes', rows: 155, headerRow: 1, headNote: '84 clientes distintos · 57 sitios', scope: 'Clientes', scopeNote: 'el CRM está vacío: se crean los clientes' }
+    ].map(function (h) { var on = !!st.inc[h.id]; return Object.assign(h, { on: on, headText: 'Encabezados en la fila ' + h.headerRow + ' · desde la columna B', toggle: function () { var o = {}; o[h.id] = !on; set({ inc: Object.assign({}, st.inc, o) }); } }); });
+    var cleanDefs = [['pc', 'Tu computador', 'Descargas, escritorio y la papelera'], ['drive', 'Google Drive', 'el archivo, su papelera y el enlace compartido'], ['mail', 'El correo', 'adjuntos enviados y recibidos'], ['wa', 'WhatsApp', 'chats donde se compartió']];
     var cleanCount = cleanDefs.filter(function (c) { return st.clean[c[0]]; }).length;
     var cleanup = cleanDefs.map(function (c) {
       var on = !!st.clean[c[0]];
@@ -471,18 +568,21 @@ class Component extends DCLogic {
       isStep1: !st.done && st.step === 1, isStep2: !st.done && st.step === 2, isStep3: !st.done && st.step === 3, isStep4: !st.done && st.step === 4, isDone: st.done,
       showTimer: !st.done && st.fileLoaded, showFooter: !st.done,
       cancelAll: function () { set({ step: 1, fileLoaded: false, ack: false }); },
-      fileLoaded: st.fileLoaded, loadFile: function () { set({ fileLoaded: true, sheet: 'Accesos' }); }, removeFile: function () { set({ fileLoaded: false }); },
-      sheet: st.sheet, setSheet: function (ev) { set({ sheet: ev.target.value }); }, badSheet: badSheet,
-      headerRow: st.headerRow, toggleHeader: function () { set({ headerRow: !st.headerRow }); },
-      cols: cols, fieldOpts: FIELDS, required: required, pvHead: pvHead, pvRows: pvRows,
-      groups: groups, clientOpts: clientOpts, imported: imported, omitted: omitted,
-      summary: summary, ack: st.ack, toggleAck: function () { set({ ack: !st.ack }); },
-      cantImport: !st.ack,
+      fileLoaded: st.fileLoaded, loadFile: function () { set({ fileLoaded: true, inc: { D: true, C: true } }); }, removeFile: function () { set({ fileLoaded: false }); },
+      sheetCards: sheetCards, noSheets: noSheets,
+      mapTabs: mapTabs, cols: cols, fieldOpts: FIELDS, required: required, pvHead: pvHead, pvRows: pvRows, mapNote: ms.note,
+      headCol: 'Encabezado (fila ' + ms.headerRow + ')',
+      decisionsText: nDecisions + ' decisiones · una por grupo',
+      tiles: tiles, sheets3: sheets3, pending: pending, imported: imported, omitted: omitted, totalRows: totalRows,
+      totals: totals,
+      secretText: incD ? '2 con códigos de respaldo o llave, cifrados aparte · se ven con la misma verificación' : 'ninguno',
+      ack: st.ack, toggleAck: function () { set({ ack: !st.ack }); }, cantImport: !st.ack || imported === 0,
       importStyle: 'min-height: 44px; padding: 0 20px; border-radius: 4px; font-weight: 600; font-size: 15px; ' + (st.ack ? 'background: #6D00C2; color: #FFFFFF; border: 0; cursor: pointer;' : 'background: #2A2733; color: #8E8A9B; border: 0; cursor: not-allowed;'),
       importHint: st.ack ? 'Tarda unos segundos. No cierres la pestaña.' : 'Marca la casilla para continuar.',
-      runImport: function () { if (st.ack) set({ done: true }); },
+      runImport: function () { if (st.ack && imported) set({ done: true }); },
+      doneDetail: totals.map(function (t) { return t.name + ': ' + t.imp + ' de ' + t.rows; }).join(' · '),
       cleanup: cleanup, cleanCount: cleanCount, allClean: cleanCount === 4,
-      omitNote: omitted ? 'Antes de borrarlo: los ' + omitted + ' omitidos quedan solo en tu Excel. Agrégalos a mano en Accesos o vuelve a importar solo esas filas.' : 'No quedó ninguna fila omitida.',
+      omitNote: omitted ? 'Antes de borrarlo: las ' + omitted + ' filas omitidas quedan solo en tu Excel. Agrégalas a mano en Accesos o vuelve a importarlas.' : 'No quedó ninguna fila omitida.',
       restart: function () { set({ done: false, step: 1, ack: false, clean: { pc: false, drive: false, mail: false, wa: false } }); },
       back: function () { if (st.step > 1) set({ step: st.step - 1 }); }, cantBack: st.step === 1,
       backStyle: 'min-height: 40px; min-width: 96px; padding: 0 14px; border-radius: 4px; font-weight: 600; ' + (st.step > 1 ? 'background: transparent; color: #F4F2F8; border: 1px solid rgba(255,255,255,0.22); cursor: pointer;' : 'background: transparent; color: #8E8A9B; border: 1px solid rgba(255,255,255,0.1); cursor: not-allowed;'),

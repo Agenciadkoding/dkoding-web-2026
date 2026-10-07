@@ -77,7 +77,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
         <div role="status" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 10px 14px; background: rgba(91,228,155,0.07); border: 1px solid rgba(91,228,155,0.35); border-radius: 8px">
           <svg width="14" height="14" viewBox="0 0 16 16" role="img" aria-label="Correcto"><path d="M8 2a6 6 0 1 1 0 12A6 6 0 0 1 8 2z" fill="#5BE49B"></path></svg>
           <span style="font-weight: 600">Sincronización terminada</span>
-          <span style="color: #D8D4E2; flex: 1 1 280px">18 URLs leídas del sitemap · 0 cambios de estado · Search Console con datos hasta el 06/10 · revisión SEO repetida en las 18</span>
+          <span style="color: #D8D4E2; flex: 1 1 280px">19 URLs leídas del sitemap · 0 cambios de estado · Search Console con datos hasta el 06/10 · revisión SEO repetida en las 19</span>
           <button type="button" onClick="{{closeSync}}" aria-label="Cerrar aviso" style="width: 36px; height: 36px; background: transparent; color: #B3B0BC; border: 0; border-radius: 4px; cursor: pointer; font-size: 18px; line-height: 1">×</button>
         </div>
       </sc-if>
@@ -123,7 +123,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
                     <tr class="dk-row" style="{{r.rowStyle}}">
                       <td style="padding: 6px 8px 6px 16px; max-width: 320px"><button type="button" class="dk-open" onClick="{{r.open}}" style="display: flex; flex-direction: column; align-items: flex-start; gap: 0; width: 100%; min-height: 44px; justify-content: center; padding: 0; background: transparent; border: 0; color: #F4F2F8; text-align: left; cursor: pointer"><span class="dk-t" style="font-weight: 600">{{r.title}}</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #B3B0BC; overflow-wrap: anywhere">{{r.url}}</span></button></td>
                       <td style="padding: 6px 8px; color: #D8D4E2">{{r.type}}</td>
-                      <td style="padding: 6px 8px"><span style="display: flex; flex-direction: column; align-items: flex-start; gap: 2px"><span style="{{r.st.pill}}"><svg width="12" height="12" viewBox="0 0 16 16" role="img" aria-label="{{r.st.label}}"><path d="{{r.st.i.f}}" fill="{{r.st.i.c}}"></path><path d="{{r.st.i.s}}" fill="none" stroke="{{r.st.i.c}}" stroke-width="1.5" stroke-dasharray="{{r.st.i.dash}}"></path></svg>{{r.st.label}}</span><span style="font-size: 12px; color: #B3B0BC">{{r.stNote}}</span></span></td>
+                      <td style="padding: 6px 8px"><span style="display: flex; flex-direction: column; align-items: flex-start; gap: 2px"><span style="{{r.st.pill}}"><svg width="12" height="12" viewBox="0 0 16 16" role="img" aria-label="{{r.st.label}}"><path d="{{r.st.i.f}}" fill="{{r.st.i.c}}"></path><path d="{{r.st.i.s}}" fill="none" stroke="{{r.st.i.c}}" stroke-width="1.5" stroke-dasharray="{{r.st.i.dash}}"></path></svg>{{r.st.label}}</span><span style="font-size: 12px; color: #B3B0BC; max-width: 190px">{{r.stNote}}</span></span></td>
                       <td style="padding: 6px 8px"><span style="{{r.kwStyle}}">{{r.kw}}</span></td>
                       <td style="padding: 6px 8px; text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-variant-numeric: tabular-nums">{{r.clicks}}</td>
                       <td style="padding: 6px 8px; text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-variant-numeric: tabular-nums">{{r.pos}}</td>
@@ -196,7 +196,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
                   <sc-for list="{{rRows}}" as="r" hint-placeholder-count="15">
                     <tr class="dk-row" style="border-top: 1px solid rgba(255,255,255,0.06); height: 54px">
                       <td style="padding: 6px 8px 6px 16px; max-width: 300px"><span style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; overflow-wrap: anywhere">{{r.from}}</span><span style="{{r.newStyle}}">nueva</span></span></td>
-                      <td style="padding: 6px 8px"><span style="{{r.codeStyle}}">{{r.code}}</span></td>
+                      <td style="padding: 6px 8px"><span style="{{r.codeStyle}}"><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true" style="{{r.ciStyle}}"><path d="{{r.ci.f}}" fill="{{r.ci.c}}"></path><path d="{{r.ci.s}}" fill="none" stroke="{{r.ci.c}}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="{{r.ci.dash}}"></path></svg>{{r.codeLabel}}</span></td>
                       <td style="padding: 6px 8px; max-width: 300px"><span style="display: flex; flex-direction: column"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; overflow-wrap: anywhere; color: #D8D4E2">{{r.to}}</span><span style="font-size: 12px; color: #8E8A9B">{{r.why}}</span></span></td>
                       <td style="padding: 6px 8px"><span style="display: flex; flex-direction: column"><span style="{{r.vStyle}}"><svg width="12" height="12" viewBox="0 0 16 16" role="img" aria-label="{{r.vState}}" style="flex: none"><path d="{{r.v.f}}" fill="{{r.v.c}}"></path><path d="{{r.v.s}}" fill="none" stroke="{{r.v.c}}" stroke-width="1.5" stroke-dasharray="{{r.v.dash}}"></path></svg>{{r.verif}}</span><span style="font-size: 12px; color: #8E8A9B">{{r.vNote}}</span></span></td>
                       <td style="padding: 6px 8px; text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-variant-numeric: tabular-nums"><span style="{{r.visStyle}}">{{r.visits}}</span></td>
@@ -217,16 +217,16 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
               </nav>
             </div>
           </div>
-          <p style="margin: 0; font-size: 12px; color: #8E8A9B">«Un salto»: la URL vieja llega con un solo 301 a una página que responde 200. «Por confirmar»: la regla está activa desde el lanzamiento con el destino por defecto del CSV; si se decide otro, se cambia en la misma regla, nunca como un salto nuevo.</p>
+          <p style="margin: 0; font-size: 12px; color: #8E8A9B">«Un salto»: la URL vieja llega con una sola redirección a una página que responde 200. 302 · temporal: para URLs que tendrán su propia página; cuando exista, la regla pasa a 301 o se borra, sin cadenas. «Por confirmar»: la regla está activa desde el lanzamiento con el destino por defecto del CSV; si se decide otro, se cambia en la misma regla, nunca como un salto nuevo.</p>
         </section>
       </sc-if>
 
       <!-- ===================== PESTAÑA PALABRAS CLAVE ===================== -->
       <sc-if value="{{isKeywords}}" hint-placeholder-val="{{false}}">
         <section aria-labelledby="h-kw" style="display: flex; flex-direction: column; gap: 14px">
-          <div role="note" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 12px 16px; background: rgba(224,169,59,0.07); border: 1px solid rgba(224,169,59,0.35); border-radius: 10px">
-            <svg width="14" height="14" viewBox="0 0 16 16" role="img" aria-label="Atención"><path d="M8 1.5L15 14H1z" fill="#E0A93B"></path></svg>
-            <span style="flex: 1 1 420px">Los volúmenes de la hoja de palabras clave no están validados: 21 % tienen exactamente 720 búsquedas y no hay ninguna con Cali.</span>
+          <div role="note" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 12px 16px; background: #101013; border: 1px solid rgba(255,255,255,0.12); border-radius: 10px">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B3B0BC" stroke-width="2" stroke-linecap="round" role="img" aria-label="Información"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v6"></path><path d="M12 7.5v.5"></path></svg>
+            <span style="flex: 1 1 420px; display: flex; flex-direction: column; gap: 2px"><span>Volúmenes de referencia de hace unos años: la cuenta de Google Ads no mostraba cifras exactas. Sirven para comparar relevancia entre palabras; se actualizan con cifras reales.</span><span style="font-size: 13px; color: #B3B0BC">Dato útil: la hoja no tiene ninguna búsqueda con «Cali».</span></span>
             <button type="button" onClick="{{openStudy}}" style="min-height: 36px; padding: 0 12px; background: transparent; color: #D98BFF; border: 1px solid rgba(217,139,255,0.35); border-radius: 4px; font-weight: 600; cursor: pointer">Ver estudio</button>
           </div>
 
@@ -242,7 +242,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
                 <thead><tr style="color: #B3B0BC; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; text-align: left">
                   <th scope="col" style="padding: 10px 8px 10px 16px; font-weight: 600">Página</th>
                   <th scope="col" style="padding: 10px 8px; font-weight: 600">Palabra objetivo</th>
-                  <th scope="col" style="padding: 10px 8px; font-weight: 600; text-align: right">Volumen de la hoja</th>
+                  <th scope="col" style="padding: 10px 8px; font-weight: 600; text-align: right">Volumen de referencia</th>
                   <th scope="col" style="padding: 10px 8px; font-weight: 600">Consulta real con más clics</th>
                   <th scope="col" style="padding: 10px 8px; font-weight: 600; text-align: right">Clics</th>
                   <th scope="col" style="padding: 10px 8px; font-weight: 600; text-align: right">Posición</th>
@@ -253,7 +253,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
                     <tr class="dk-row" style="border-top: 1px solid rgba(255,255,255,0.06); height: 56px">
                       <td style="padding: 6px 8px 6px 16px; max-width: 280px"><button type="button" class="dk-open" onClick="{{r.open}}" style="display: flex; flex-direction: column; align-items: flex-start; min-height: 44px; justify-content: center; padding: 0; background: transparent; border: 0; color: #F4F2F8; text-align: left; cursor: pointer"><span class="dk-t" style="font-weight: 600">{{r.title}}</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #B3B0BC; overflow-wrap: anywhere">{{r.url}}</span></button></td>
                       <td style="padding: 6px 8px">{{r.kw}}</td>
-                      <td style="padding: 6px 8px; text-align: right"><span style="display: flex; flex-direction: column; align-items: flex-end"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-variant-numeric: tabular-nums">{{r.vol}}</span><span style="font-size: 11px; color: #E0A93B">{{r.volNote}}</span></span></td>
+                      <td style="padding: 6px 8px; text-align: right"><span style="display: flex; flex-direction: column; align-items: flex-end"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-variant-numeric: tabular-nums">{{r.vol}}</span><span style="font-size: 11px; color: #B3B0BC">{{r.volNote}}</span></span></td>
                       <td style="padding: 6px 8px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #D8D4E2">{{r.query}}</span></td>
                       <td style="padding: 6px 8px; text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-variant-numeric: tabular-nums">{{r.clicks}}</td>
                       <td style="padding: 6px 8px; text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-variant-numeric: tabular-nums">{{r.pos}}</td>
@@ -263,7 +263,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
                 </tbody>
               </table>
             </div>
-            <div style="padding: 10px 16px; border-top: 1px solid rgba(255,255,255,0.08); color: #B3B0BC; font-size: 13px">Volumen: búsquedas mensuales según la hoja de palabras clave, sin fuente, país ni fecha. Sirve para ordenar, no para prometer tráfico.</div>
+            <div style="padding: 10px 16px; border-top: 1px solid rgba(255,255,255,0.08); color: #B3B0BC; font-size: 13px">Volumen de referencia: cifra de la hoja de palabras clave, de hace unos años. Sirve para comparar relevancia entre palabras, no para prometer tráfico.</div>
           </div>
 
           <section aria-labelledby="h-orph" style="background: #151518; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden">
@@ -321,10 +321,11 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
 
         <div style="display: flex; flex-direction: column; gap: 8px">
           <h3 style="margin: 0; font-size: 13px; font-weight: 600; color: #B3B0BC; text-transform: uppercase; letter-spacing: 0.06em">Palabra objetivo</h3>
-          <span style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px"><span style="font-family: 'Blinker', sans-serif; font-weight: 600; font-size: 20px">{{p.kw}}</span><span style="font-size: 12px; color: #E0A93B">{{p.kwVol}}</span></span>
+          <span style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px"><span style="font-family: 'Blinker', sans-serif; font-weight: 600; font-size: 20px">{{p.kw}}</span><span style="font-size: 12px; color: #B3B0BC">{{p.kwVol}}</span></span>
           <sc-if value="{{p.hasSec}}" hint-placeholder-val="{{true}}">
             <span style="font-size: 12px; color: #B3B0BC">Secundarias</span>
-            <div style="display: flex; flex-wrap: wrap; gap: 6px"><sc-for list="{{p.sec}}" as="s" hint-placeholder-count="5"><span style="padding: 3px 10px; border-radius: 999px; background: #1D1B24; border: 1px solid rgba(255,255,255,0.08); font-size: 13px; color: #D8D4E2">{{s}}</span></sc-for></div>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px"><sc-for list="{{p.sec}}" as="s" hint-placeholder-count="5"><span style="display: inline-flex; align-items: baseline; gap: 6px; padding: 3px 10px; border-radius: 999px; background: #1D1B24; border: 1px solid rgba(255,255,255,0.08); font-size: 13px; color: #D8D4E2">{{s.t}}<span style="{{s.vStyle}}">{{s.v}}</span></span></sc-for></div>
+            <span style="font-size: 12px; color: #8E8A9B">Cifras de referencia de la hoja: sirven para comparar relevancia entre palabras.</span>
           </sc-if>
           <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 4px">
             <div style="display: flex; flex-direction: column; padding: 10px 12px; background: #0F0F11; border-radius: 6px"><span style="font-size: 12px; color: #B3B0BC">Tema</span><span style="font-weight: 600">{{p.theme}}</span></div>
@@ -365,12 +366,12 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
             <sc-for list="{{p.redirs}}" as="r" hint-placeholder-count="2">
               <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 10px; padding: 8px 12px; background: #0F0F11; border-radius: 6px">
                 <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; overflow-wrap: anywhere; min-width: 0">{{r.from}}</span>
-                <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: #B3B0BC; white-space: nowrap"><svg width="10" height="10" viewBox="0 0 16 16" role="img" aria-label="{{r.vState}}"><path d="{{r.v.f}}" fill="{{r.v.c}}"></path><path d="{{r.v.s}}" fill="none" stroke="{{r.v.c}}" stroke-width="1.5" stroke-dasharray="{{r.v.dash}}"></path></svg>301 · {{r.verif}} · {{r.visits}} visitas</span>
+                <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: #B3B0BC; white-space: nowrap"><svg width="10" height="10" viewBox="0 0 16 16" role="img" aria-label="{{r.vState}}"><path d="{{r.v.f}}" fill="{{r.v.c}}"></path><path d="{{r.v.s}}" fill="none" stroke="{{r.v.c}}" stroke-width="1.5" stroke-dasharray="{{r.v.dash}}"></path></svg>{{r.code}} · {{r.verif}} · {{r.visits}} visitas</span>
               </div>
             </sc-for>
             <sc-if value="{{p.moreRedirs}}" hint-placeholder-val="{{false}}"><button type="button" onClick="{{p.seeRedirs}}" style="align-self: flex-start; min-height: 36px; padding: 0; background: transparent; color: #D98BFF; border: 0; font-weight: 600; cursor: pointer">{{p.moreLabel}}</button></sc-if>
           </sc-if>
-          <sc-if value="{{p.noRedirs}}" hint-placeholder-val="{{false}}"><p style="margin: 0; font-size: 13px; color: #B3B0BC">Ninguna URL vieja apunta a esta página.</p></sc-if>
+          <sc-if value="{{p.noRedirs}}" hint-placeholder-val="{{false}}"><p style="margin: 0; font-size: 13px; color: #B3B0BC">{{p.redirNote}}</p></sc-if>
         </div>
 
         <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 4px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08)">
@@ -409,11 +410,11 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
     <div style="position: fixed; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box; background: rgba(0,0,0,0.6)">
       <div role="dialog" aria-modal="true" aria-labelledby="h-study" style="width: 620px; max-width: 100%; max-height: 100%; overflow-y: auto; box-sizing: border-box; background: #151518; border: 1px solid rgba(255,255,255,0.14); border-radius: 10px; padding: 22px; display: flex; flex-direction: column; gap: 14px">
         <div style="display: flex; flex-direction: column; gap: 4px"><h2 id="h-study" style="margin: 0; font-family: 'Blinker', sans-serif; font-weight: 700; font-size: 22px">Estudio de palabras clave</h2><span style="font-size: 13px; color: #B3B0BC">702 filas en 6 grupos · 660 palabras únicas · semilla: seo/palabras-clave-clasificadas.csv</span></div>
-        <table style="width: 100%; border-collapse: collapse; font-size: 13px">
-          <thead><tr style="color: #B3B0BC; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; text-align: left"><th scope="col" style="padding: 4px 12px 4px 0; font-weight: 600">Problema</th><th scope="col" style="padding: 4px 0; font-weight: 600">Dato</th></tr></thead>
-          <tbody><sc-for list="{{study}}" as="s" hint-placeholder-count="6"><tr style="border-top: 1px solid rgba(255,255,255,0.06)"><td style="padding: 8px 12px 8px 0; font-weight: 600; vertical-align: top">{{s.k}}</td><td style="padding: 8px 0; color: #D8D4E2">{{s.v}}</td></tr></sc-for></tbody>
-        </table>
-        <p style="margin: 0; font-size: 13px; color: #D8D4E2">Para validarlo: Planificador de palabras clave de Google Ads con ubicación Colombia y luego Cali, con las ~60 palabras de las landings y sus variantes con «Cali». Después del lanzamiento manda Search Console.</p>
+        <div style="display: flex; flex-direction: column; border-top: 1px solid rgba(255,255,255,0.08)">
+          <sc-for list="{{study}}" as="s" hint-placeholder-count="4">
+            <div style="display: flex; flex-direction: column; gap: 2px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.06)"><h3 style="margin: 0; font-size: 14px; font-weight: 600">{{s.k}}</h3><p style="margin: 0; font-size: 13px; color: #D8D4E2">{{s.v}}</p></div>
+          </sc-for>
+        </div>
         <div style="display: flex; justify-content: flex-end"><button type="button" onClick="{{closeModal}}" style="min-height: 40px; padding: 0 16px; background: #6D00C2; color: #FFFFFF; border: 0; border-radius: 4px; font-weight: 600; cursor: pointer">Entendido</button></div>
       </div>
     </div>
@@ -436,7 +437,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
   </sc-if>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2037},"panel":{"editor":"boolean","default":false,"section":"Estado inicial"}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2203},"panel":{"editor":"boolean","default":false,"section":"Estado inicial"}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -465,9 +466,11 @@ class Component extends DCLogic {
     var STATUS = { pub: 'Publicada', des: 'En diseño', plan: 'Planificada', red: 'Redirigida', ret: 'Retirada' };
 
     // ---------- Redirecciones: datos reales de seo/redirecciones-301.csv ----------
-    var RD = [["/",200,"/","página","Se conserva: home = desarrollo web","",null],["/nosotros/",200,"/nosotros/","página","Se conserva la URL","",null],["/nuestro-equipo/",200,"/nuestro-equipo/","página","Se conserva la URL","",null],["/casos-de-exito/",200,"/casos-de-exito/","página","Se conserva la URL","",null],["/contacto/",200,"/contacto/","página","Se conserva la URL","",null],["/politica-de-privacidad/",200,"/politica-de-privacidad/","página","Se conserva la URL","",null],["/blog/",200,"/blog/","página","Se conserva la URL","",null],["/servicios/",200,"/servicios/","página","Se conserva como índice ligero de los 6 servicios","¿índice de servicios o 301 a /?",null],["/home-dani/",301,"/","página","Copia de trabajo de la home (94 % igual)","",3],["/desarrollo-web/",301,"/","página","Página «Próximamente»; la home es desarrollo web","",8],["/mapa-del-sitio/",301,"/","página","El sitemap XML lo genera Astro","",1],["/plan-hotelero/",301,"/","página","Vertical hotelero sin página propia en el sitio nuevo","¿se usa en campañas o QR?",6],["/trifecta-hotelera/",301,"/","página","Vertical hotelero sin página propia en el sitio nuevo","¿se usa en campañas o QR?",2],["/dkard/",301,"https://dkard.co/","página","Demo de Dkard: el producto tiene su propio dominio","",14],["/dkarta/",404,"","página","Demo de carta digital con precios de un tercero","¿se enlaza desde algún cliente?",4],["/datos-hoteles/",404,"","página","Formulario interno de onboarding; pasa al admin o a un enlace privado","",2],["/soporte/",301,"/contacto/","página","Ticket de soporte; en el sitio nuevo va a contacto o al portal del cliente","¿los clientes con soporte usan esta URL?",9],["/mi-cuenta/",404,"","woocommerce","El sitio nuevo no tiene carrito ni cuentas","",6],["/carrito/",404,"","woocommerce","El sitio nuevo no tiene carrito","",11],["/finalizar-compra/",404,"","woocommerce","El sitio nuevo no tiene carrito","",3],["/servicios/pagina-personal/",301,"/","producto","Plan de sitio web → home (desarrollo web)","",7],["/servicios/pagina-comercial/",301,"/","producto","Plan de sitio web → home (desarrollo web)","",5],["/servicios/pagina-empresas/",301,"/","producto","Plan de sitio web → home (desarrollo web)","",4],["/servicios/pagina-corporativa/",301,"/","producto","Plan de sitio web → home (desarrollo web)","",22],["/servicios/pagina-web-hotelero/",301,"/","producto","Plan hotelero → home (desarrollo web)","",6],["/servicios/catalogo-virtual/",301,"/","producto","Tiendas y catálogos → home hasta que exista /tiendas-virtuales/","¿landing de tiendas en fase 2?",12],["/servicios/tienda-virtual/",301,"/","producto","Tiendas y catálogos → home hasta que exista /tiendas-virtuales/","¿landing de tiendas en fase 2?",19],["/servicios/tienda-avanzada/",301,"/","producto","Tiendas y catálogos → home hasta que exista /tiendas-virtuales/","¿landing de tiendas en fase 2?",7],["/servicios/posicionamiento-en-google-seo/",301,"/seo-y-geo/","producto","Mismo servicio","",44],["/servicios/anuncios-en-google-ads/",301,"/marketing-digital/","producto","Pauta en Google = marketing digital","",13],["/servicios/anuncios-en-meta-ads/",301,"/marketing-digital/","producto","Pauta en Meta = marketing digital","¿o va a /redes-sociales/?",5],["/servicios/administracion-de-rrss/",301,"/redes-sociales/","producto","Mismo servicio","",9],["/servicios/marca/",301,"/diseno-de-marca/","producto","Mismo servicio","",11],["/servicios/manual-de-identidad/",301,"/diseno-de-marca/","producto","Parte de diseño de marca","",4],["/servicios/logo-sencillo/",301,"/diseno-de-marca/","producto","Parte de diseño de marca","",6],["/servicios/logo-profesional/",301,"/diseno-de-marca/","producto","Parte de diseño de marca","",17],["/servicios/publicidad-papeleria/",301,"/diseno-de-marca/","producto","Papelería y piezas = diseño de marca","",3],["/tienda/",301,"/","redirección vieja","Hoy redirige a /servicios/tienda-avanzada/: se apunta directo al destino final para no encadenar","",8],["/tienda/catalogo-virtual/",301,"/","redirección vieja","Hoy redirige a /servicios/catalogo-virtual/: destino final directo","",1],["/tienda/logo-profesional/",301,"/diseno-de-marca/","redirección vieja","Hoy redirige a /servicios/logo-profesional/: destino final directo","",2],["/categoria/servicios-web/",301,"/","categoría de producto","Categoría web → home","",2],["/categoria/tiendas-y-catalogos/",301,"/","categoría de producto","Categoría tiendas → home","",3],["/categoria/desarrollo-y-ux-ui/",301,"/","categoría de producto","Categoría desarrollo → home","",1],["/categoria/logos-y-marcas/",301,"/diseno-de-marca/","categoría de producto","Mismo tema","",2],["/categoria/diseno-publicitario/",301,"/diseno-de-marca/","categoría de producto","Mismo tema","",1],["/categoria/marketing/",301,"/marketing-digital/","categoría de producto","Mismo tema","",2],["/categoria/consultoria/",301,"/servicios/","categoría de producto","Sin equivalente directo","",0],["/categoria/sin-categorizar/",404,"","categoría de producto","Categoría vacía","",0],["/category/sin-categoria/",301,"/blog/","categoría del blog","Categoría por defecto de WordPress","",1],["/author/admindkoding/",301,"/nosotros/","autor","Archivo de autor genérico","",1],["/importancia-de-un-buen-logo-profesional-para-tu-negocio/",301,"/blog/importancia-de-un-buen-logo-profesional-para-tu-negocio/","entrada","Se migra y actualiza (1.251 palabras)","",58],["/muestra-tu-portafolio-digital-24-7/",301,"/blog/muestra-tu-portafolio-digital-24-7/","entrada","Se migra y actualiza (995 palabras)","",23],["/impulsa-tu-negocio-con-seo-en-google/",301,"/blog/impulsa-tu-negocio-con-seo-en-google/","entrada","Se migra y actualiza (1.216 palabras)","",64],["/crear-mi-tienda-online/",301,"/blog/crear-mi-tienda-online/","entrada","Se migra y actualiza (902 palabras)","",47],["/estrategias-para-incrementar-las-ventas-por-internet/",301,"/blog/estrategias-para-incrementar-las-ventas-por-internet/","entrada","Se migra y actualiza (859 palabras)","",29]];
+    var RD = [["/",200,"/","página","Se conserva: home = desarrollo web","",null],["/nosotros/",200,"/nosotros/","página","Se conserva la URL","",null],["/nuestro-equipo/",200,"/nuestro-equipo/","página","Se conserva la URL","",null],["/casos-de-exito/",200,"/casos-de-exito/","página","Se conserva la URL","",null],["/contacto/",200,"/contacto/","página","Se conserva la URL","",null],["/politica-de-privacidad/",200,"/politica-de-privacidad/","página","Se conserva la URL","",null],["/blog/",200,"/blog/","página","Se conserva la URL","",null],["/servicios/",200,"/servicios/","página","Se conserva como índice ligero de los 6 servicios","¿índice de servicios o 301 a /?",null],["/home-dani/",301,"/","página","Copia de trabajo de la home (94 % igual)","",3],["/desarrollo-web/",301,"/","página","Página «Próximamente»; la home es desarrollo web","",8],["/mapa-del-sitio/",301,"/","página","El sitemap XML lo genera Astro","",1],["/plan-hotelero/",302,"/","página","302 temporal a la home; cuando exista /trifecta-hotelera/ pasa a 301 hacia ella (misma regla, sin cadena)","",6],["/trifecta-hotelera/",302,"/","página","Landing hotelera que se construirá con esta URL; 302 temporal a la home mientras tanto","",2],["/dkard/",301,"https://dkard.co/","página","Demo de Dkard: el producto tiene su propio dominio","",14],["/dkarta/",404,"","página","Demo de carta digital con precios de un tercero","¿se enlaza desde algún cliente?",4],["/datos-hoteles/",404,"","página","Formulario interno de onboarding; pasa al admin o a un enlace privado","",2],["/soporte/",200,"/soporte/","página","Se conserva: página de soporte con tickets (UX de referencia pendiente)","",null],["/mi-cuenta/",404,"","woocommerce","El sitio nuevo no tiene carrito ni cuentas","",6],["/carrito/",404,"","woocommerce","El sitio nuevo no tiene carrito","",11],["/finalizar-compra/",404,"","woocommerce","El sitio nuevo no tiene carrito","",3],["/servicios/pagina-personal/",301,"/","producto","Plan de sitio web → home (desarrollo web)","",7],["/servicios/pagina-comercial/",301,"/","producto","Plan de sitio web → home (desarrollo web)","",5],["/servicios/pagina-empresas/",301,"/","producto","Plan de sitio web → home (desarrollo web)","",4],["/servicios/pagina-corporativa/",301,"/","producto","Plan de sitio web → home (desarrollo web)","",22],["/servicios/pagina-web-hotelero/",301,"/","producto","Plan hotelero → home (desarrollo web)","",6],["/servicios/catalogo-virtual/",301,"/","producto","Tiendas y catálogos → home hasta que exista /tiendas-virtuales/","¿landing de tiendas en fase 2?",12],["/servicios/tienda-virtual/",301,"/","producto","Tiendas y catálogos → home hasta que exista /tiendas-virtuales/","¿landing de tiendas en fase 2?",19],["/servicios/tienda-avanzada/",301,"/","producto","Tiendas y catálogos → home hasta que exista /tiendas-virtuales/","¿landing de tiendas en fase 2?",7],["/servicios/posicionamiento-en-google-seo/",301,"/seo-y-geo/","producto","Mismo servicio","",44],["/servicios/anuncios-en-google-ads/",301,"/marketing-digital/","producto","Pauta en Google = marketing digital","",13],["/servicios/anuncios-en-meta-ads/",301,"/marketing-digital/","producto","Pauta en Meta = marketing digital","¿o va a /redes-sociales/?",5],["/servicios/administracion-de-rrss/",301,"/redes-sociales/","producto","Mismo servicio","",9],["/servicios/marca/",301,"/diseno-de-marca/","producto","Mismo servicio","",11],["/servicios/manual-de-identidad/",301,"/diseno-de-marca/","producto","Parte de diseño de marca","",4],["/servicios/logo-sencillo/",301,"/diseno-de-marca/","producto","Parte de diseño de marca","",6],["/servicios/logo-profesional/",301,"/diseno-de-marca/","producto","Parte de diseño de marca","",17],["/servicios/publicidad-papeleria/",301,"/diseno-de-marca/","producto","Papelería y piezas = diseño de marca","",3],["/tienda/",301,"/","redirección vieja","Hoy redirige a /servicios/tienda-avanzada/: se apunta directo al destino final para no encadenar","",8],["/tienda/catalogo-virtual/",301,"/","redirección vieja","Hoy redirige a /servicios/catalogo-virtual/: destino final directo","",1],["/tienda/logo-profesional/",301,"/diseno-de-marca/","redirección vieja","Hoy redirige a /servicios/logo-profesional/: destino final directo","",2],["/categoria/servicios-web/",301,"/","categoría de producto","Categoría web → home","",2],["/categoria/tiendas-y-catalogos/",301,"/","categoría de producto","Categoría tiendas → home","",3],["/categoria/desarrollo-y-ux-ui/",301,"/","categoría de producto","Categoría desarrollo → home","",1],["/categoria/logos-y-marcas/",301,"/diseno-de-marca/","categoría de producto","Mismo tema","",2],["/categoria/diseno-publicitario/",301,"/diseno-de-marca/","categoría de producto","Mismo tema","",1],["/categoria/marketing/",301,"/marketing-digital/","categoría de producto","Mismo tema","",2],["/categoria/consultoria/",301,"/servicios/","categoría de producto","Sin equivalente directo","",0],["/categoria/sin-categorizar/",404,"","categoría de producto","Categoría vacía","",0],["/category/sin-categoria/",301,"/blog/","categoría del blog","Categoría por defecto de WordPress","",1],["/author/admindkoding/",301,"/nosotros/","autor","Archivo de autor genérico","",1],["/importancia-de-un-buen-logo-profesional-para-tu-negocio/",301,"/blog/importancia-de-un-buen-logo-profesional-para-tu-negocio/","entrada","Se migra y actualiza (1.251 palabras)","",58],["/muestra-tu-portafolio-digital-24-7/",301,"/blog/muestra-tu-portafolio-digital-24-7/","entrada","Se migra y actualiza (995 palabras)","",23],["/impulsa-tu-negocio-con-seo-en-google/",301,"/blog/impulsa-tu-negocio-con-seo-en-google/","entrada","Se migra y actualiza (1.216 palabras)","",64],["/crear-mi-tienda-online/",301,"/blog/crear-mi-tienda-online/","entrada","Se migra y actualiza (902 palabras)","",47],["/estrategias-para-incrementar-las-ventas-por-internet/",301,"/blog/estrategias-para-incrementar-las-ventas-por-internet/","entrada","Se migra y actualiza (859 palabras)","",29]];
+    var KV = {"desarrollo de apps móviles":2400,"desarrollo de aplicaciones web":1300,"empresa de desarrollo de apps":880,"crear página web":12100,"creación de páginas web":6600,"diseño de páginas web":5400,"tienda online":5400,"diseño web profesional":2400,"sitio web profesional":2400,"desarrollo de páginas web":1900,"agencia de diseño web":1600,"páginas web económicas":1600,"diseño web wordpress":1600,"abrir tienda online":1300,"crear tienda virtual":1000,"diseño de páginas web económicas":1000,"diseño de portafolio online":720,"crear sitio web para portafolio":720,"páginas web para médicos":590,"creación de sitios web para médicos":590,"crear sitio web para hotel":480,"diseño de logotipos":2400,"diseño de tarjetas de presentación":2400,"diseño de identidad corporativa":1000,"diseño de imagen corporativa":1000,"diseño de marca":880,"agencia de branding":590,"agencia de marketing digital":6600,"email marketing":4400,"publicidad en internet":3600,"campañas en google ads":2900,"servicios de marketing digital":2400,"vender por internet":1900,"agencia de publicidad digital":1600,"estrategias de venta online":1000,"estrategia de ventas online":1000,"agencia de redes sociales":2900,"marketing en redes sociales":2900,"anuncios en instagram":2400,"diseño para redes sociales":1600,"estrategia de social media":1000,"auditoría seo":5800,"seo local":5400,"seo técnico":3600,"posicionamiento web":2900,"agencia seo":2400,"seo en google my business":2000,"schema markup":1700,"agencia de posicionamiento en google":1300,"seo para hoteles":720,"seo para clínicas":590,"desarrollo de software a medida":1300,"software a la medida":880}; // volúmenes de referencia de seo/palabras-clave-clasificadas.csv
     var redirects = RD.map(function (r) {
       var v = r[1] === 200 ? { k: 'ok', t: 'se conserva · 200 ✓', n: r[5] ? 'activa · puede cambiar' : 'misma URL' } : r[1] === 404 ? { k: 'ok', t: '404 ✓', n: 'a propósito' } :
+        r[1] === 302 ? { k: 'ok', t: 'un salto ✓', n: r[4].indexOf('pasa a 301') > -1 ? 'pasa a 301 cuando exista la landing' : 'se borra cuando exista la landing' } :
         { k: 'ok', t: 'un salto ✓', n: r[5] ? 'destino por defecto · puede cambiar' : r[2].indexOf('http') === 0 ? 'destino externo · 200' : 'destino responde 200' };
       return { from: r[0], code: r[1], to: r[2], kind: r[3], why: r[4], question: r[5], visits: r[6], isNew: false, v: v };
     });
@@ -476,6 +479,7 @@ class Component extends DCLogic {
     if (st.created) redirects.push({ from: DET.from, code: 301, to: '/', kind: 'detectada', why: 'Creada desde Search Console · tiendas → home', question: '', visits: DET.visits, isNew: true,
       v: { k: 'ok', t: 'un salto ✓', n: 'creada hoy · se exporta al CSV' } });
     var nNew = st.created ? 1 : 0;
+    function cnt(c) { return redirects.filter(function (r) { return r.code === c; }).length; }
 
     // ---------- Páginas ----------
     var DUP = 'DKODING es una agencia digital de Cali que diseña páginas web, marcas y campañas para pymes de Colombia. Conoce a nuestro equipo y nuestro trabajo.';
@@ -504,6 +508,10 @@ class Component extends DCLogic {
         sec: ['desarrollo de aplicaciones web', 'desarrollo de software a medida', 'empresa de desarrollo de apps', 'software a la medida'],
         t: 'Desarrollo de apps móviles y web a medida | DKODING', d: 'Desarrollamos aplicaciones móviles, aplicaciones web y software a la medida para automatizar procesos y vender más. Desde el prototipo hasta la tienda.', schema: 'Service', faq: 'ok',
         queries: [['desarrollo de aplicaciones cali', 7, 19.2], ['empresa de desarrollo de apps', 5, 24.8], ['crear una app para mi negocio', 4, 22.1]], match: 'var', hint: 'variante: «aplicaciones» por «apps móviles»' },
+      { url: '/trifecta-hotelera/', title: 'Trifecta hotelera', type: 'Landing', s: 'plan', kw: 'crear sitio web para hotel', vol: '480', theme: 'Desarrollo web', niche: 'Hoteles y turismo', created: '07/10',
+        stNote: '302 temporal a / hasta publicarla · absorberá /plan-hotelero/', sec: ['seo para hoteles', 'páginas web para hoteles'],
+        dates: [{ k: 'Creada', v: '07/10 · confirmada por el dueño' }, { k: 'Hoy responde', v: '302 temporal a /' }, { k: 'Al publicarla', v: 'se borra su 302' }],
+        redirNote: 'Ninguna todavía: /plan-hotelero/ va con 302 a /. Cuando esta landing exista, esa misma regla pasa a 301 hacia /trifecta-hotelera/, sin cadena.' },
       { url: '/servicios/', title: 'Servicios', type: 'Institucional', s: 'pub', kw: '', clicks: 21, pos: 10.3, gsc: 'ok', theme: 'Todos', niche: 'General', pubd: '01/09', stNote: '¿índice o 301 a /? por confirmar',
         t: 'Servicios de DKODING: web, marketing, SEO, marca y apps', d: 'Seis servicios para que tu negocio se vea bien, aparezca en Google y venda en línea: desarrollo web, marketing, SEO y GEO, redes, marca y apps.', schema: 'ItemList', faq: null,
         queries: [['servicios dkoding', 8, 1.4], ['agencia web cali servicios', 5, 11.8]] },
@@ -513,6 +521,9 @@ class Component extends DCLogic {
         t: 'Nosotros: la agencia detrás de DKODING en Cali', d: DUP, schema: 'Organization', faq: null, queries: [['dkoding cali', 5, 1.8], ['dkoding agencia', 3, 1.2]] },
       { url: '/contacto/', title: 'Contacto', type: 'Institucional', s: 'pub', kw: '', clicks: 12, pos: 2.6, gsc: 'ok', theme: 'Todos', niche: 'General', pubd: '01/09',
         t: 'Contacto: cotiza tu proyecto con DKODING en Cali', d: 'Escríbenos por WhatsApp, correo o el formulario y te respondemos el mismo día hábil. También puedes cotizar tu página web en línea en pocos minutos.', schema: 'ContactPage', faq: null, queries: [['dkoding contacto', 7, 1.3], ['dkoding telefono', 4, 1.6]] },
+      { url: '/soporte/', title: 'Soporte', type: 'Institucional', s: 'pub', kw: '', clicks: 4, pos: 2.1, gsc: 'ok', theme: 'Todos', niche: 'Clientes con soporte', pubd: '01/09', stNote: 'tickets · la UX llega pronto',
+        t: 'Soporte para clientes: abre un ticket | DKODING', d: 'Si tienes soporte con DKODING, abre un ticket para cambios, errores o dudas de tu sitio y sigue su estado. Respondemos el mismo día hábil.', schema: 'WebPage', faq: null,
+        queries: [['dkoding soporte', 3, 1.5], ['dkoding ticket', 1, 1.2]] },
       { url: '/blog/', title: 'Blog', type: 'Blog', s: 'pub', kw: '', clicks: 7, pos: 6.0, gsc: 'ok', theme: 'Todos', niche: 'Todos', pubd: '01/09', stNote: 'portada',
         t: 'Blog de DKODING: web, SEO, marketing y marca para pymes', d: 'Guías prácticas sobre páginas web, SEO, marketing digital, redes sociales y diseño de marca, escritas por el equipo de DKODING para pymes de Colombia.', schema: 'Blog', faq: null, queries: [['blog dkoding', 4, 1.5]] },
       { url: '/politica-de-privacidad/', title: 'Política de privacidad', type: 'Legal', s: 'pub', kw: '', clicks: 1, pos: 5.5, gsc: 'ok', theme: '—', niche: '—', pubd: '01/09',
@@ -617,26 +628,27 @@ class Component extends DCLogic {
     var panel = null;
     if (sp) {
       var dates;
-      if (sp.s === 'plan') dates = [{ k: 'Creada', v: sp.created + ' · equipo' }, { k: 'Enlaza a', v: sp.link || '—' }];
+      if (sp.dates) dates = sp.dates;
+      else if (sp.s === 'plan') dates = [{ k: 'Creada', v: sp.created + ' · equipo' }, { k: 'Enlaza a', v: sp.link || '—' }];
       else if (sp.s === 'red') dates = [{ k: 'Redirigida', v: '01/09 · 301 a /' }, { k: 'Verificada', v: 'un salto ✓ · hoy 06:00' }];
       else if (sp.s === 'ret') dates = [{ k: 'Retirada', v: '01/09 · fuera del sitemap' }, { k: 'Responde', v: '404 · a propósito' }];
       else dates = [{ k: 'En línea desde', v: sp.pubd }, { k: 'Leída del sitemap', v: 'hoy 06:00' }, { k: 'Revisión SEO', v: 'hoy 06:10' }];
-      var inc = redirects.filter(function (r) { return r.code === 301 && r.to === sp.url; }).sort(function (a, b) { return (b.visits || 0) - (a.visits || 0); });
-      var redirs = inc.slice(0, 3).map(function (r) { return { from: r.from, verif: r.v.t, visits: r.visits, v: IC[r.v.k], vState: r.v.k === 'ok' ? 'Correcto' : 'Atención' }; });
+      var inc = redirects.filter(function (r) { return (r.code === 301 || r.code === 302) && r.to === sp.url; }).sort(function (a, b) { return (b.visits || 0) - (a.visits || 0); });
+      var redirs = inc.slice(0, 3).map(function (r) { return { from: r.from, code: r.code === 302 ? '302 temporal' : '301', verif: r.v.t, visits: r.visits, v: IC[r.v.k], vState: r.v.k === 'ok' ? 'Correcto' : 'Atención' }; });
       var noChecksText = sp.s === 'plan' ? 'Se revisa sola cuando la página esté publicada y en el sitemap.' : sp.s === 'red' ? 'No aplica: la URL redirige a / en un solo salto.' : 'No aplica: la URL responde 404 a propósito.';
       var qs = (sp.queries || []).map(function (x) { return { q: x[0], c: fmtN(x[1]), p: fmtD(x[2]) }; });
       var qSum = (sp.queries || []).reduce(function (a, x) { return a + x[1]; }, 0);
       panel = {
         title: sp.title, url: sp.url, type: sp.type, st: sp.st, stNote: sp.stNote || '', dates: dates,
-        kw: sp.kw || 'sin palabra objetivo', kwVol: sp.kw ? (sp.vol ? sp.vol + ' búsquedas según la hoja · sin validar' : 'no está en la hoja') + (sp.volNote ? ' · ' + sp.volNote : '') : 'institucional: no compite por una búsqueda',
-        sec: sp.sec || [], hasSec: !!(sp.sec && sp.sec.length), theme: sp.theme, niche: sp.niche,
+        kw: sp.kw || 'sin palabra objetivo', kwVol: sp.kw ? (sp.vol ? sp.vol + ' según la hoja · referencia' : 'no está en la hoja') + (sp.volNote ? ' · ' + sp.volNote : '') : 'institucional: no compite por una búsqueda',
+        sec: (sp.sec || []).map(function (t) { return { t: t, v: KV[t] ? fmtN(KV[t]) : 'no está en la hoja', vStyle: KV[t] ? 'font-family: JetBrains Mono, monospace; font-size: 11px; color: #B3B0BC;' : 'font-size: 11px; color: #8E8A9B;' }; }), hasSec: !!(sp.sec && sp.sec.length), theme: sp.theme, niche: sp.niche,
         sv: sp.sv, checks: sp.checks.map(function (c) { return { label: c.label, detail: c.detail, i: IC[c.k], state: SVL[c.k] === 'Listo' ? 'Correcto' : c.k === 'warn' ? 'Mejorable' : 'Bloqueado',
           detailStyle: c.detail ? 'font-size: 12px; color: #B3B0BC; word-break: break-word;' : 'display: none;' }; }),
         hasChecks: sp.checks.length > 0, noChecks: sp.checks.length === 0, noChecksText: noChecksText,
         queries: qs, hasQueries: qs.length > 0, noQueries: qs.length === 0,
         queriesNote: sp.live ? 'Estas ' + qs.length + ' consultas suman ' + qSum + ' de los ' + fmtN(sp.clicks) + ' clics de la página.' : '',
         noQueriesText: sp.s === 'plan' ? 'Sin datos: la URL todavía no existe.' : sp.live ? 'Sin clics en 28 días: ' + (sp.gsc === 'disc' ? 'Google aún no la indexa.' : 'no está indexada; ver la revisión SEO.') : 'No aplica.',
-        redirs: redirs, hasRedirs: redirs.length > 0, noRedirs: redirs.length === 0,
+        redirs: redirs, hasRedirs: redirs.length > 0, noRedirs: redirs.length === 0, redirNote: sp.redirNote || 'Ninguna URL vieja apunta a esta página.',
         moreRedirs: inc.length > 3, moreLabel: 'Ver las ' + inc.length + ' en Redirecciones »',
         seeRedirs: function () { set({ tab: 'redirects', rdest: sp.url, rf: 'all', rpage: 1, rq: '', sel: null }); },
         isLive: sp.live, liveUrl: 'https://dkoding.net' + sp.url
@@ -653,9 +665,9 @@ class Component extends DCLogic {
 
     // ---------- Redirecciones: tabla ----------
     var rq = (st.rq || '').toLowerCase();
-    function rMatch(r, f) { return f === 'all' || (f === '301' && r.code === 301) || (f === '404' && r.code === 404) || (f === 'conf' && !!r.question); }
+    function rMatch(r, f) { return f === 'all' || (f === '301' && r.code === 301) || (f === '302' && r.code === 302) || (f === '404' && r.code === 404) || (f === 'conf' && !!r.question); }
     var rBase = redirects.filter(function (r) { return (!st.rdest || r.to === st.rdest) && (!rq || (r.from + ' ' + r.to).toLowerCase().indexOf(rq) > -1); });
-    var rChips = [{ id: 'all', label: 'Todas' }, { id: '301', label: '301' }, { id: '404', label: '404' }, { id: 'conf', label: 'Por confirmar' }].map(function (c) {
+    var rChips = [{ id: 'all', label: 'Todas' }, { id: '301', label: '301' }, { id: '302', label: '302' }, { id: '404', label: '404' }, { id: 'conf', label: 'Por confirmar' }].map(function (c) {
       var on = st.rf === c.id;
       return { label: c.label, on: on, count: rBase.filter(function (r) { return rMatch(r, c.id); }).length, pick: function () { set({ rf: c.id, rpage: 1 }); }, style: chip(on) };
     });
@@ -670,7 +682,10 @@ class Component extends DCLogic {
         vStyle: 'display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; white-space: nowrap; color: ' + TXT[vk] + ';',
         visits: r.visits === null ? '—' : fmtN(r.visits),
         visStyle: 'color: #F4F2F8;', newStyle: r.isNew ? 'display: inline-block; padding: 0 8px; border-radius: 999px; background: rgba(199,85,239,0.16); color: #D98BFF; font-size: 12px; font-weight: 600; font-family: Barlow, sans-serif;' : 'display: none;',
-        codeStyle: 'display: inline-block; padding: 1px 8px; border-radius: 4px; font-family: JetBrains Mono, monospace; font-size: 12px; font-weight: 500; ' + (r.code === 301 ? 'background: rgba(199,85,239,0.14); color: #D98BFF;' : r.code === 404 ? 'background: rgba(255,255,255,0.08); color: #D8D4E2;' : 'background: rgba(91,228,155,0.1); color: #5BE49B;'),
+        codeLabel: r.code === 302 ? '302 · temporal' : String(r.code),
+        ci: r.code === 301 ? { f: 'M1.5 6.5h7.5V3l5.5 5-5.5 5V9.5H1.5z', s: NIL, c: '#D98BFF', dash: 'none' } : r.code === 302 ? { f: NIL, s: 'M2 8h10.5M9 4.5L12.5 8 9 11.5', c: '#D8D4E2', dash: '2.2 1.8' } : { f: NIL, s: NIL, c: '#B3B0BC', dash: 'none' },
+        ciStyle: r.code === 301 || r.code === 302 ? 'flex: none' : 'display: none',
+        codeStyle: 'display: inline-flex; align-items: center; gap: 5px; padding: 1px 8px; border-radius: 4px; white-space: nowrap; font-family: JetBrains Mono, monospace; font-size: 12px; font-weight: 500; ' + (r.code === 301 ? 'background: rgba(199,85,239,0.14); color: #D98BFF; border: 1px solid transparent;' : r.code === 302 ? 'background: transparent; color: #D8D4E2; border: 1px dashed rgba(255,255,255,0.4);' : r.code === 404 ? 'background: rgba(255,255,255,0.08); color: #D8D4E2; border: 1px solid transparent;' : 'background: rgba(91,228,155,0.1); color: #5BE49B; border: 1px solid transparent;'),
         confLabel: r.question ? 'Por confirmar' : '—', question: r.question || '',
         confStyle: r.question ? 'display: inline-block; padding: 1px 8px; border-radius: 999px; background: rgba(224,169,59,0.12); color: #E0A93B; font-size: 12px; font-weight: 600; white-space: nowrap;' : 'color: #8E8A9B;',
         test: function () { var n = Object.assign({}, st.tested); n[r.from] = true; set({ tested: n }); } };
@@ -678,10 +693,11 @@ class Component extends DCLogic {
     function pgBtn(on, dis) { return 'min-width: 36px; height: 36px; padding: 0 8px; border-radius: 4px; font-weight: 600; font-variant-numeric: tabular-nums; cursor: ' + (dis ? 'default' : 'pointer') + '; ' + (on ? 'background: #1A0B2B; color: #F4F2F8; border: 1px solid rgba(199,85,239,0.55);' : 'background: transparent; color: ' + (dis ? '#5E5A6A' : '#D8D4E2') + '; border: 1px solid rgba(255,255,255,0.14);'); }
     var rPages = []; for (var i = 1; i <= nPages; i++) (function (n) { rPages.push({ n: n, cur: n === cur ? 'page' : 'false', pick: function () { set({ rpage: n }); }, style: pgBtn(n === cur, false) }); })(i);
     var rSummary = [
-      { label: 'Se conservan', value: '8', note: 'misma URL · responden 200', i: IC.ok, state: 'Correcto' },
-      { label: 'Con 301', value: String(41 + nNew), note: 'verificadas en un salto' + (nNew ? ' · 1 nueva' : ''), i: IC.ok, state: 'Correcto' },
-      { label: 'En 404', value: '6', note: 'a propósito: no tienen equivalente', i: IC.ok, state: 'Correcto' },
-      { label: 'Por confirmar', value: '9', note: 'activas con su destino por defecto', i: IC.warn, state: 'Atención: falta decidir el destino' }
+      { label: 'Se conservan', value: String(cnt(200)), note: 'misma URL · responden 200', i: IC.ok, state: 'Correcto' },
+      { label: 'Con 301', value: String(cnt(301)), note: 'verificadas en un salto' + (nNew ? ' · 1 nueva' : ''), i: IC.ok, state: 'Correcto' },
+      { label: '302 temporales', value: String(cnt(302)), note: 'hasta que exista la landing hotelera', i: IC.ok, state: 'Correcto' },
+      { label: 'En 404', value: String(cnt(404)), note: 'a propósito: no tienen equivalente', i: IC.ok, state: 'Correcto' },
+      { label: 'Por confirmar', value: String(redirects.filter(function (r) { return !!r.question; }).length), note: 'activas con su destino por defecto', i: IC.warn, state: 'Atención: falta decidir el destino' }
     ];
 
     // ---------- Palabras clave ----------
@@ -694,7 +710,7 @@ class Component extends DCLogic {
     });
     var kRows = kwPages.filter(function (p) { return kOk(p, st.kf); }).map(function (p) {
       var m = MT[p.match], top = p.queries[0];
-      return { title: p.title, url: p.url, kw: p.kw, vol: p.vol || '—', volNote: p.vol ? 'sin validar' : 'no está en la hoja',
+      return { title: p.title, url: p.url, kw: p.kw, vol: p.vol || '—', volNote: p.vol ? 'referencia' : 'no está en la hoja',
         query: top[0], clicks: fmtN(top[1]), pos: fmtD(top[2]), m: IC[m.k], mLabel: m.l, hint: p.hint || 'contiene la palabra objetivo',
         mStyle: 'display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: ' + TXT[m.k] + ';', open: openFn(p.url) };
     });
@@ -717,12 +733,10 @@ class Component extends DCLogic {
       return { label: r.label, on: on, pick: function () { set({ asgRole: r.id }); }, style: chip(on) };
     });
     var study = [
-      { k: 'Volúmenes sin fuente', v: 'No dice si son de Colombia, de todo el español ni de qué herramienta' },
-      { k: 'Valores repetidos', v: '136 de 660 palabras (21 %) tienen exactamente 720 búsquedas y 115 tienen 590' },
-      { k: 'Contradicciones', v: '27 palabras aparecen con volúmenes distintos, p. ej. «desarrollo de apps móviles» con 1.300 y 2.400' },
-      { k: 'Ninguna con «Cali»', v: 'Hay 18 con Medellín o Bogotá y ninguna de tu ciudad' },
-      { k: 'Descartadas', v: '72: búsqueda de empleo (37), fuera de la oferta (15), hazlo tú mismo (5) y otras; siguen en el CSV con su motivo' },
-      { k: 'Sin GEO', v: 'No hay búsquedas sobre aparecer en ChatGPT o en respuestas de IA' }
+      { k: 'Qué son esas cifras', v: 'Relevancia relativa de hace unos años. Se sacaron cuando la cuenta de Google Ads no mostraba volúmenes exactos: sirven para comparar palabras entre sí, no como búsquedas reales al mes.' },
+      { k: 'Qué falta', v: 'Búsquedas con «Cali» (la hoja no tiene ninguna), búsquedas de GEO (aparecer en ChatGPT o en respuestas de IA) y «manejo de redes sociales», hoy la palabra objetivo de /redes-sociales/.' },
+      { k: 'Qué se descartó y por qué', v: '72 palabras: búsqueda de empleo o freelancers (31), fuera de la oferta (22), otras ciudades (16) y hazlo tú mismo (5); algunas tienen dos motivos. Siguen en el CSV con su motivo.' },
+      { k: 'Cómo se actualizará', v: 'Con el Planificador de palabras clave de Google Ads ya con cifras exactas, en Colombia y luego en Cali, para las ~60 palabras de las landings. Después del lanzamiento manda Search Console: el admin compara la palabra objetivo con las consultas reales.' }
     ];
 
     // ---------- Formulario nueva página ----------
@@ -748,7 +762,7 @@ class Component extends DCLogic {
       rFooter: rList.length ? 'Mostrando ' + ((cur - 1) * PER + 1) + ' a ' + Math.min(cur * PER, rList.length) + ' de ' + rList.length : 'Mostrando 0 de 0',
       rPages: rPages, rPrev: function () { if (cur > 1) set({ rpage: cur - 1 }); }, rNext: function () { if (cur < nPages) set({ rpage: cur + 1 }); },
       rPrevDis: cur <= 1, rNextDis: cur >= nPages, rPrevStyle: pgBtn(false, cur <= 1), rNextStyle: pgBtn(false, cur >= nPages),
-      verifyAll: function () { set({ verified: true }); }, verifyLabel: st.verified ? 'Verificadas hace un momento' : 'Verificar las ' + (47 + nNew) + ' ahora', rTotal: 55 + nNew,
+      verifyAll: function () { set({ verified: true }); }, verifyLabel: st.verified ? 'Verificadas hace un momento' : 'Verificar las ' + (cnt(301) + cnt(302) + cnt(404)) + ' ahora', rTotal: 55 + nNew,
       detOpen: !st.created, detDone: !!st.created, det: DET,
       createRedirect: function () { set({ created: true, rf: 'all', rpage: 1, rq: '', rdest: '' }); }, undoRedirect: function () { set({ created: false }); },
       kChips: kChips, kRows: kRows, orphans: orphans, openStudy: function () { set({ modal: 'study' }); }, study: study,
