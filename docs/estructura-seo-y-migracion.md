@@ -276,9 +276,10 @@ para cada búsqueda. Lo que sigue es cómo están construidos.
    decisión tuya, solo te dejo el dato.
 5. **Apps y diseño de marca** son donde más rápido se puede posicionar: 1.500–2.500 palabras,
    portafolio y casos.
-6. **GEO:** la diferencia no es tener la landing, sino demostrarlo: `llms.txt`, un robots.txt
-   que permita los bots de IA y un informe de citas en ChatGPT, Perplexity y AI Overviews con
-   un caso real.
+6. **GEO:** la diferencia no es tener la landing, sino demostrarlo: un robots.txt (y la
+   configuración de Cloudflare) que deje entrar a los bots de IA, y un informe de presencia en
+   ChatGPT, Perplexity y AI Overviews con un caso real. `llms.txt` queda opcional: Google lo
+   ignora (guía de mayo de 2026). Detalle y acciones en `seo-geo-notas-2026.md`.
 7. **Páginas por otra ciudad** (`/seo-y-geo/bogota/`) solo cuando haya casos reales allí, con
    contenido propio. Nada de copias con la ciudad cambiada.
 8. **Blog:** una entrada por semana es realista. Sectores del Valle del Cauca primero: salud,

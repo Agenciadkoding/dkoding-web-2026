@@ -72,7 +72,7 @@ Fuentes:
 | 6 | **dkard y dkarta visibles** como productos propios | Dimark usa sus herramientas como prueba de capacidad | Bajo | Después de la base: decidiste no sumar las apps a la landing todavía |
 | 7 | **Casos con cifras** de los 4 clientes actuales | Paxzu y Digital Active venden con nombres; tú puedes vender con resultados | Medio: hay que pedir datos | Antes del lanzamiento |
 | 8 | **Email marketing y WhatsApp** como servicio | "email marketing" y "marketing por WhatsApp" están entre las búsquedas relevantes de tu estudio | Medio | Fase 2 |
-| 9 | **GEO con prueba:** informe de citas en ChatGPT, Perplexity y AI Overviews | 7 competidores ya tienen landing de GEO; ninguno lo demuestra con datos | Medio | Con la landing de SEO y GEO |
+| 9 | **GEO con prueba:** informe mensual de presencia por prompt en ChatGPT, Perplexity, Gemini y AI Overviews, y leads con origen «IA» | 7 competidores ya tienen landing de GEO; ninguno lo demuestra con datos. Es la base del módulo SEO pago (`seo-geo-notas-2026.md` §5) | Medio | Con la landing de SEO y GEO |
 | 10 | **Plazos y tiempos de respuesta por escrito:** entrega del sitio, respuesta del soporte y aviso si el sitio se cae | Da confianza y el admin lo puede medir. El Centro de ayuda ya los muestra al crear un ticket | Bajo | Con el plan de soporte |
 | 11 | **Certificaciones** de Google y Meta | Webcreativa la usa como argumento | Alto: depende de la inversión en pauta | Más adelante |
 | 12 | **Bono por resultado** opcional en pauta | Convertia y E-core venden resultados | Alto: requiere medición fina | Más adelante |

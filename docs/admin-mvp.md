@@ -418,3 +418,16 @@ formulario desde otro sitio al login de cPanel o de WordPress?
 | Términos y datos personales | Redactar unos actuales para revisión del abogado | Borrador en un documento compartible (enlace en §9) |
 | Casos de éxito | Llevarlos al sitio nuevo con el efecto al pasar el cursor | `recursos/casos-de-exito/` y tablero `Casos.dc.html` |
 | Redirecciones abiertas | Meta Ads a marketing digital; `/servicios/` al cotizador; tiendas a la home | Mapa cerrado: 0 por confirmar |
+
+## 11. Decisiones del 8 de octubre: producto para clientes
+
+| Tema | Decisión | Qué implica |
+|---|---|---|
+| CRM y Web para clientes | Antes de lo previsto. Primero todo para DKODING, pero replicable para cada cliente que pague | Construir con varios clientes desde el inicio aunque solo exista DKODING |
+| Marca blanca | Un solo software; cada cliente lo ve con su logo y sus colores | Colores por tokens semánticos (`arquitectura-diseno-admin.md`), logo y colores por cliente |
+| Asistente de desarrollo | Incluido para que el cliente pida ajustes | Alcance y aprobación por definir |
+| Módulo SEO | Pago | Funciones en `seo-geo-notas-2026.md` §5 |
+| IA | Se paga con créditos | Registro de consumo por cliente y por función |
+
+Lo pendiente está en las preguntas del 8 de octubre. Los wireframes del producto para clientes
+esperan esas respuestas.
