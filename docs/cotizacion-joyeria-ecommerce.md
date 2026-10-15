@@ -8,103 +8,93 @@
 
 ## En una línea
 
-Marca completa + tienda virtual con pasarela de pago, desarrollada en **app
-propia** (no plantilla), con **SEO y CRM con IA integrados** — más lanzamiento
-en SEO, redes y pauta, y soporte mensual que mantiene todo funcionando.
+Marca completa + tienda virtual con pasarela de pago sobre la plataforma
+DKODING (con panel propio para el cliente), con SEO y CRM integrado, más el
+lanzamiento en SEO, redes y pauta, y un soporte mensual que mantiene todo
+encendido y creciendo.
 
-| | |
-|---|---:|
-| **Implementación (4 fases)** | **$35.500.000** |
-| **Soporte mensual** (desde el go-live) | **desde $1.900.000 / mes** |
-| **Duración** | **13 semanas** |
+## ¿Cuánto cuesta?
 
-> **Base de costeo:** se toma como piso la lista pública de DKODING
-> (Tienda Avanzada = $6.000.000). Este proyecto es desarrollo a medida con CRM
-> con IA, por eso el módulo de comercio se cotiza por encima de ese producto
-> empaquetado.
+| Concepto | Cuándo se paga | Valor |
+|---|---|---:|
+| **Implementación** (marca + tienda + lanzamiento) | Una sola vez, por hitos | **$10.700.000** |
+| **CRM integrado** | Una vez al año | **$1.500.000 / año** |
+| **Soporte, hosting y SEO** | Cada mes, desde el lanzamiento | **$1.000.000 / mes** |
+
+**Descuento por contratar las tres fases juntas antes del 14/11/2026: −$800.000 → $9.900.000.**
+**Primer año completo con el descuento: $23.400.000** (implementación + CRM + 12 meses de soporte).
+**Duración de la implementación: 8 semanas.**
 
 ---
 
-## FASE 0 · Marca y estrategia
-**Semanas 1–3**
+## FASE 0 · Marca y estrategia — $3.000.000
+**Semanas 1–2**
 
 | Ítem | Valor |
 |---|---:|
-| Inmersión + estudio de categoría (joyería, competencia, cliente ideal) | $800.000 |
-| Identidad visual: logo, sistema gráfico y manual de marca (80+ formatos) | $1.800.000 |
-| Dirección de arte e-commerce: paleta, tipografía, plantillas, tono visual | $1.000.000 |
-| Arquitectura de contenido y copy de venta (home + 6 páginas) | $700.000 |
-| **Subtotal Fase 0** | **$4.300.000** |
+| Inmersión y estudio de categoría (joyería, competencia, cliente ideal) | $500.000 |
+| Identidad visual: logo, sistema gráfico y manual de marca (80+ formatos) | $1.400.000 |
+| Dirección de arte de la tienda: paleta, tipografía, estilo de fotos | $600.000 |
+| Copy de venta (home + 6 páginas) | $500.000 |
+| **Subtotal** | **$3.000.000** |
 
 **Opcional muy recomendado**
 
 | Ítem | Valor |
 |---|---:|
-| Guía + sesión de fotografía de producto (hasta 40 piezas, fondo y lifestyle) | $1.900.000 |
+| Guía + sesión de fotografía de producto (hasta 40 piezas) | $1.200.000 |
 
-> En joyería la foto *es* el producto. Sin foto propia, la conversión cae y el
-> catálogo compite de frente con stock genérico.
-
----
-
-## FASE 1 · Tienda virtual (app propia)
-**Semanas 3–10**
-
-| Ítem | Valor |
-|---|---:|
-| Diseño UI/UX mobile-first (hasta 12 pantallas, prototipo navegable) | $2.400.000 |
-| Desarrollo frontend: catálogo, ficha, carrito, checkout | $4.200.000 |
-| Backend + panel de administración: productos, variantes, inventario, pedidos | $3.600.000 |
-| Pasarela de pagos (Wompi / Bold / Mercado Pago): tarjetas, PSE, Nequi | $900.000 |
-| Envíos: transportadoras, tarifas por zona, generación de guías | $700.000 |
-| SEO técnico de base: schema Product, sitemap, canónicas, Core Web Vitals | $1.100.000 |
-| Analítica y píxeles: GA4, Search Console, Meta, Google Ads, eventos de compra | $500.000 |
-| Carga inicial de catálogo (hasta 80 referencias con variantes) | $800.000 |
-| QA, pruebas de pago reales y puesta en producción | $700.000 |
-| **Subtotal Fase 1** | **$14.900.000** |
-
-**Opcionales**
-
-| Ítem | Valor |
-|---|---:|
-| Facturación electrónica DIAN (Alegra / Siigo) | $1.200.000 |
-| Configurador de grabado y personalización de pieza | $1.500.000 |
-| Multimoneda + envíos internacionales | $900.000 |
-
-**Variantes soportadas:** talla, material, quilataje, acabado, piedra, largo de
-cadena — con precio e inventario independientes por combinación.
+> En joyería la foto *es* el producto. Sin foto propia la tienda compite de
+> frente con imágenes genéricas y la conversión cae.
 
 ---
 
-## FASE 2 · CRM con IA
-**Semanas 8–12**
+## FASE 1 · Tienda virtual — $4.500.000
+**Semanas 2–6 · Sobre la plataforma DKODING, con panel propio para el cliente**
 
 | Ítem | Valor |
 |---|---:|
-| CRM base: contactos, pipeline, historial de compra, segmentación | $2.800.000 |
-| WhatsApp Business API: número verificado, plantillas, bandeja unificada | $1.200.000 |
-| Agente de IA de atención y venta: catálogo, tallas, materiales, stock, envíos | $3.200.000 |
-| Automatizaciones: carrito abandonado, post-venta, recompra, cumpleaños | $1.400.000 |
-| Email marketing: base de datos, plantillas y flujos | $900.000 |
-| **Subtotal Fase 2** | **$9.500.000** |
+| Diseño de la tienda, pensado primero para celular | $900.000 |
+| Montaje: catálogo, fichas de producto, carrito y checkout | $1.500.000 |
+| Panel del cliente: productos, variantes, inventario y pedidos | $700.000 |
+| Pasarela de pagos: tarjetas, PSE y Nequi | $500.000 |
+| Envíos: transportadoras y tarifas por zona | $300.000 |
+| SEO técnico, analítica y píxeles (Google y Meta) | $400.000 |
+| Carga inicial del catálogo (hasta 80 referencias) | $200.000 |
+| **Subtotal** | **$4.500.000** |
 
-> El CRM con IA queda **dentro de la app**, no es una herramienta de terceros
-> alquilada. Su operación y mejora continua van en el soporte mensual.
+**Variantes soportadas:** talla, material, quilataje, acabado, piedra y largo
+de cadena, cada una con precio e inventario propios.
 
 ---
 
-## FASE 3 · Lanzamiento y adquisición
-**Semanas 10–13**
+## FASE 2 · CRM integrado — $1.500.000 / año
+**Se activa en la semana 6 · Se paga una vez al año**
+
+Qué hace:
+
+- **Captura todo lo que pasa en la tienda:** visitas, productos vistos,
+  carritos, compras y formularios.
+- **Almacena** cada contacto con su historial completo.
+- **Analiza:** paneles de clientes, ventas y productos más vistos.
+- **Se integra con WhatsApp:** cada conversación queda ligada al cliente.
+
+Qué incluye el valor anual: el uso de la app del CRM y su soporte durante
+los 12 meses. Primer pago al activar; renueva cada año.
+
+---
+
+## FASE 3 · Lanzamiento — $3.200.000
+**Semanas 5–8**
 
 | Ítem | Valor |
 |---|---:|
-| SEO de lanzamiento: keyword research, 8 páginas optimizadas, Google Business | $1.800.000 |
-| Setup de redes (Instagram / Facebook / TikTok): perfiles, bio, destacados, plantillas | $900.000 |
-| Catálogo en Meta Shopping + TikTok Shop | $700.000 |
-| Setup Google Ads: Search + Shopping + Performance Max | $1.100.000 |
-| Setup Meta Ads: campañas, públicos, remarketing dinámico | $900.000 |
-| Kit de lanzamiento: 20 piezas gráficas + 4 reels | $1.400.000 |
-| **Subtotal Fase 3** | **$6.800.000** |
+| SEO de lanzamiento: palabras clave, páginas optimizadas, Google Business | $800.000 |
+| Setup de redes (Instagram / Facebook / TikTok): perfiles, bio, destacados, plantillas | $800.000 |
+| Setup Google Ads: campañas de búsqueda y Shopping | $400.000 |
+| Setup Meta Ads: campañas, públicos y remarketing | $400.000 |
+| Kit de lanzamiento: 20 piezas gráficas + 4 reels | $800.000 |
+| **Subtotal** | **$3.200.000** |
 
 ---
 
@@ -112,52 +102,54 @@ cadena — con precio e inventario independientes por combinación.
 
 | Fase | Valor |
 |---|---:|
-| Fase 0 · Marca y estrategia | $4.300.000 |
-| Fase 1 · Tienda virtual (app propia) | $14.900.000 |
-| Fase 2 · CRM con IA | $9.500.000 |
-| Fase 3 · Lanzamiento y adquisición | $6.800.000 |
-| **Total implementación** | **$35.500.000** |
-| Opcionales (foto + DIAN + configurador + multimoneda) | +$5.500.000 |
-| **Total con todos los opcionales** | **$41.000.000** |
+| Fase 0 · Marca y estrategia | $3.000.000 |
+| Fase 1 · Tienda virtual | $4.500.000 |
+| Fase 3 · Lanzamiento | $3.200.000 |
+| **Total implementación (una sola vez)** | **$10.700.000** |
+| + Fotografía de producto (opcional) | +$1.200.000 |
 
-**Descuento por contrato único de las 4 fases: −8% → $32.660.000.**
-Aplica solo si se firman las 4 fases antes del 14/11/2026. No es un descuento
-permanente.
+**Contratando las tres fases juntas antes del 14/11/2026: −$800.000 → $9.900.000.**
+Es un descuento con fecha, no un precio tachado permanente.
 
-### Arranque por etapas (si se prefiere empezar más liviano)
+### Si se prefiere empezar más liviano
 
-| Escenario | Alcance | Valor |
+| Escenario | Alcance | Una sola vez |
 |---|---|---:|
-| **Mínimo para vender** | Fase 0 + Fase 1 | $19.200.000 |
-| **Recomendado** | Fase 0 + 1 + 2 + foto | $30.600.000 |
-| **Completo** | Las 4 fases | $35.500.000 |
+| **Mínimo para vender** | Marca + Tienda | $7.500.000 |
+| **Recomendado** | Marca + Tienda + Lanzamiento | $10.700.000 |
+| **Completo** | Lo anterior + fotografía | $11.900.000 |
 
-Las fases 2 y 3 pueden contratarse después del lanzamiento sin retrabajo: la
-app se entrega preparada para recibirlas.
+El CRM y el soporte mensual aplican en todos los escenarios.
 
 ---
 
-## FASE 4 · Soporte mensual
-**Desde la semana 14, recurrente**
+## FASE 4 · Soporte, hosting y SEO — $1.000.000 / mes
+**Desde el mes del lanzamiento**
 
-| | **Base** | **Crecimiento** ★ | **Escala** |
-|---|---:|---:|---:|
-| **Valor mensual** | **$1.900.000** | **$3.400.000** | **$5.200.000** |
-| Hosting, SSL, backups, monitoreo, actualizaciones | ✓ | ✓ | ✓ |
-| Horas de cambios y soporte técnico | 6 h/mes | 10 h/mes | 20 h/mes |
-| CRM con IA: conversaciones incluidas | 2.000/mes | 6.000/mes | 15.000/mes |
-| Mejora continua del agente de IA | — | ✓ | ✓ |
-| SEO mensual | — | 2 artículos + optimización | 4 artículos + CRO + A/B |
-| Redes sociales | — | 12 piezas + 4 reels | 20 piezas + 8 reels + sesión mensual |
-| Gestión de pauta (inversión aparte) | — | hasta $4.000.000 | hasta $12.000.000 |
-| Email marketing | — | — | ✓ |
-| Reporte de resultados | Mensual | Mensual | Quincenal + reunión |
+### ¿Qué es el soporte, en palabras simples?
 
-★ **Crecimiento** es el plan que corresponde al alcance de este proyecto: sin
-SEO ni contenido mensual, la tienda no gana tráfico propio y toda la venta
-queda colgando de la pauta.
+Es lo que mantiene la tienda **encendida, segura y creciendo** cada mes.
+Tener una tienda virtual es como tener un local: hay que pagar el arriendo
+(hosting), mantenerla en orden (soporte) y traer gente (SEO).
 
-**Permanencia:** 6 meses mínimo. A 12 meses: **−10%** sobre el plan.
+| Incluye | Qué significa para ti |
+|---|---|
+| **Hosting y seguridad** | La tienda está en línea 24/7, con certificado SSL, copias de seguridad diarias y actualizaciones. |
+| **Soporte técnico** | Hasta 4 horas al mes de ajustes: textos, imágenes, precios, banners, dudas del panel y cualquier falla. Respuesta en menos de 24 h hábiles por WhatsApp o ticket. |
+| **SEO mensual** | Optimización continua + 1 artículo al mes para que Google traiga clientes sin pagar pauta. |
+| **Reporte mensual** | Un resumen claro: visitas, ventas, de dónde llegan los clientes. |
+
+**No incluye:** funciones nuevas (se cotizan aparte a $120.000 / hora),
+contenido para redes ni gestión de pauta. Esos se pueden sumar:
+
+| Servicio mensual opcional | Valor |
+|---|---:|
+| Redes sociales: 12 piezas + 4 reels + community management | $900.000 / mes |
+| Gestión de pauta en Google y Meta (la inversión va aparte) | $400.000 / mes |
+
+**Cómo se paga:** mes anticipado, dentro de los primeros 5 días. Empieza el
+mes del lanzamiento. Permanencia mínima: 6 meses. Las horas no usadas no se
+acumulan.
 
 ---
 
@@ -165,47 +157,53 @@ queda colgando de la pauta.
 
 | Concepto | Costo estimado |
 |---|---|
-| Dominio `.com` | ~$80.000 / año |
-| Inversión en pauta (Google + Meta) | desde $1.500.000 / mes |
-| Comisión de pasarela por transacción | ~2,99% + $900 + IVA |
-| WhatsApp Business API (conversaciones) | ~USD 0,005–0,09 c/u según tipo |
-| Facturación electrónica (Alegra / Siigo) | desde $60.000 / mes |
+| Dominio `.com` (incluye 30% de gestión DKODING) | ~$104.000 / año |
+| Inversión en pauta (Google + Meta) | sugerido desde $1.000.000 / mes |
+| Comisión de la pasarela por cada venta | ~2,99% + $900 + IVA |
+| WhatsApp Business API (por conversación) | ~USD 0,005–0,09 según tipo |
 | Fotografía adicional, modelos, locación | según alcance |
-
-El consumo de IA está **incluido** hasta el cupo de conversaciones del plan.
 
 ---
 
-## Forma de pago
+## Formas de pago
 
-- **50% al inicio de cada fase · 50% contra entrega de esa fase.**
-- El primer mes de soporte se factura en el go-live.
-- Pagos por transferencia. Factura electrónica con cada hito.
+Cada fase se paga **50% al iniciar y 50% al entregar**. En la práctica son
+**4 pagos** durante las 8 semanas:
+
+| Momento | Qué se paga | Valor |
+|---|---|---:|
+| **1 · Al firmar** | 50% marca | $1.500.000 |
+| **2 · Semana 2** | 50% marca + 50% tienda | $3.750.000 |
+| **3 · Semana 6** | 50% tienda + 50% lanzamiento + CRM año 1 | $5.350.000 |
+| **4 · Lanzamiento (semana 8)** | 50% lanzamiento + soporte mes 1 − descuento de $800.000 | $1.800.000 |
+| **Total hasta el lanzamiento** | | **$12.400.000** |
+
+Desde el mes 2: $1.000.000 / mes de soporte. Pagos por transferencia bancaria.
 
 ## Cronograma
 
-| Semana | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Fase 0 | ■ | ■ | ■ | | | | | | | | | | |
-| Fase 1 | | | ■ | ■ | ■ | ■ | ■ | ■ | ■ | ■ | | | |
-| Fase 2 | | | | | | | | ■ | ■ | ■ | ■ | ■ | |
-| Fase 3 | | | | | | | | | | ■ | ■ | ■ | ■ |
-| Go-live | | | | | | | | | | | | | ★ |
+| Semana | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+|---|---|---|---|---|---|---|---|---|
+| Fase 0 · Marca | ■ | ■ | | | | | | |
+| Fase 1 · Tienda | | ■ | ■ | ■ | ■ | ■ | | |
+| Fase 2 · CRM | | | | | | ■ | | |
+| Fase 3 · Lanzamiento | | | | | ■ | ■ | ■ | ■ |
+| Go-live | | | | | | | | ★ |
 
 ---
 
 ## Qué necesitamos del cliente
 
-1. Catálogo con fotos, precios, pesos y medidas (o contratar la Fase 0 opcional).
-2. Razón social, NIT y RUT para pasarela y facturación.
+1. Catálogo con fotos, precios, pesos y medidas (o contratar la fotografía).
+2. Razón social, NIT y RUT para la pasarela de pagos.
 3. Un decisor único con disponibilidad para aprobar en cada hito.
 4. Accesos: dominio, redes existentes, cuenta bancaria para la pasarela.
 
 ## Qué no incluye
 
 Inversión publicitaria · contenido redactado por el cliente · traducciones ·
-integración con ERP existente · app móvil nativa · desarrollo fuera del alcance
-descrito (se cotiza aparte a $120.000/hora).
+integración con sistemas contables o ERP · app móvil nativa · desarrollo
+fuera del alcance descrito (se cotiza aparte a $120.000 / hora).
 
 ---
 

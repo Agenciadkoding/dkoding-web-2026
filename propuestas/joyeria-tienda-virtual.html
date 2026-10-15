@@ -1,0 +1,805 @@
+<title>Cotización Joyería Tienda Virtual</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one narrow reading column (max 720px), mobile-first. Hero figures up top,
+   a sticky "tu selección" bar at the bottom on phones, phases as expandable cards.
+   Chart hues follow the phase (entity), validated for light and dark surfaces. */
+:root {
+  --bg: #f3f5f3;
+  --surface: #ffffff;
+  --surface-2: #e9ede9;
+  --ink: #141916;
+  --ink-2: #4e5852;
+  --ink-3: #7d867f;
+  --line: #d9dfda;
+  --line-2: #c2c9c3;
+  --accent: #1f6f4c;
+  --accent-ink: #ffffff;
+  --accent-soft: #e2f0e8;
+  --gold: #8a6a1c;
+  --gold-soft: #f3ead3;
+  --ph0: #2a5fd0;
+  --ph1: #c98500;
+  --ph2: #8a5cd6;
+  --ph3: #1f8a5b;
+  --ph4: #9aa39d;
+  --shadow: 0 1px 2px rgba(20,25,22,.06), 0 8px 24px -12px rgba(20,25,22,.18);
+  --display: "Cormorant Garamond", "Times New Roman", Georgia, serif;
+  --sans: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --r: 14px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111513; --surface: #1b1f1c; --surface-2: #242a26;
+    --ink: #eef1ee; --ink-2: #b9c1bb; --ink-3: #848d87;
+    --line: #2c332e; --line-2: #3a423c;
+    --accent: #5fc08f; --accent-ink: #0d1a12; --accent-soft: #1d3327;
+    --gold: #e1b85c; --gold-soft: #3a3120;
+    --ph0: #4f84e8; --ph1: #c98500; --ph2: #a07ce6; --ph3: #2fa36f; --ph4: #6d756f;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111513; --surface: #1b1f1c; --surface-2: #242a26;
+  --ink: #eef1ee; --ink-2: #b9c1bb; --ink-3: #848d87;
+  --line: #2c332e; --line-2: #3a423c;
+  --accent: #5fc08f; --accent-ink: #0d1a12; --accent-soft: #1d3327;
+  --gold: #e1b85c; --gold-soft: #3a3120;
+  --ph0: #4f84e8; --ph1: #c98500; --ph2: #a07ce6; --ph3: #2fa36f; --ph4: #6d756f;
+  --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--sans); font-size: 16px; line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 112px;
+}
+.wrap { max-width: 720px; margin: 0 auto; }
+h1, h2, h3 { margin: 0; text-wrap: balance; line-height: 1.15; }
+h1 { font-family: var(--display); font-weight: 500; font-size: clamp(38px, 8vw, 56px); letter-spacing: -.01em; }
+h2 { font-family: var(--display); font-weight: 600; font-size: clamp(28px, 5vw, 34px); }
+h3 { font-size: 17px; font-weight: 600; }
+p { margin: 0; }
+.muted { color: var(--ink-2); }
+.small { font-size: 14px; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
+.num { font-variant-numeric: tabular-nums; }
+a { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+/* ---------- header ---------- */
+.top {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  padding-block: 18px 0;
+}
+.brand { font-weight: 700; letter-spacing: .14em; font-size: 14px; }
+.brand span { color: var(--accent); }
+.meta-pill {
+  font-size: 12px; color: var(--ink-2); background: var(--surface-2);
+  padding: 6px 10px; border-radius: 999px; white-space: nowrap;
+}
+.hero { padding-block: 36px 28px; display: grid; gap: 14px; }
+.hero .lead { font-size: 18px; color: var(--ink-2); max-width: 36em; }
+.hero .meta { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 14px; color: var(--ink-2); }
+.hero .meta b { color: var(--ink); font-weight: 600; }
+
+/* ---------- KPI tiles ---------- */
+.kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.kpi {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r);
+  padding: 14px 14px 12px; display: grid; gap: 4px; min-width: 0;
+}
+.kpi .label { font-size: 13px; color: var(--ink-2); }
+.kpi .value { font-size: clamp(20px, 5.2vw, 30px); font-weight: 700; letter-spacing: -.02em; line-height: 1.1; }
+.kpi .when { font-size: 12px; color: var(--ink-3); }
+.kpi.lead { border-color: var(--accent); background: var(--accent-soft); }
+@media (max-width: 460px) {
+  .kpis { grid-template-columns: 1fr 1fr; }
+  .kpi.lead { grid-column: 1 / -1; }
+}
+
+/* ---------- sections ---------- */
+section { padding-block: 34px; border-top: 1px solid var(--line); }
+.sec-head { display: grid; gap: 6px; margin-bottom: 18px; }
+.sec-head p { color: var(--ink-2); max-width: 40em; }
+
+/* ---------- stacked bar ---------- */
+.bar { display: flex; gap: 2px; height: 22px; border-radius: 4px; overflow: hidden; background: var(--surface-2); }
+.bar > i { display: block; height: 100%; min-width: 2px; transition: flex-basis .35s ease; }
+.bar > i:last-child { border-radius: 0 4px 4px 0; }
+.bar > i.off { display: none; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 12px; font-size: 14px; }
+.legend li { list-style: none; display: flex; align-items: center; gap: 8px; color: var(--ink-2); }
+.legend ul, ul.legend { padding: 0; margin: 0; }
+.sw { width: 12px; height: 12px; border-radius: 3px; flex: none; }
+.legend b { color: var(--ink); font-weight: 600; }
+.legend li.off { opacity: .4; text-decoration: line-through; }
+.c0 { background: var(--ph0); } .c1 { background: var(--ph1); } .c2 { background: var(--ph2); } .c3 { background: var(--ph3); } .c4 { background: var(--ph4); }
+
+/* ---------- phase cards ---------- */
+.phases { display: grid; gap: 12px; }
+.phase {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r);
+  box-shadow: var(--shadow); overflow: hidden;
+}
+.phase.off { box-shadow: none; }
+.phase.off .ph-body, .phase.off .ph-foot { opacity: .5; }
+.ph-head { display: grid; grid-template-columns: 6px 1fr auto; gap: 14px; align-items: stretch; }
+.ph-stripe { background: var(--ph-color); }
+.ph-title { padding: 16px 0 14px; display: grid; gap: 4px; min-width: 0; }
+.ph-title .eyebrow { color: var(--ink-3); }
+.ph-title h3 { font-size: 19px; }
+.ph-title .when { font-size: 13px; color: var(--ink-2); }
+.ph-price { padding: 16px 16px 14px 0; text-align: right; display: grid; gap: 4px; align-content: start; }
+.ph-price .amt { font-size: 22px; font-weight: 700; letter-spacing: -.02em; white-space: nowrap; }
+.ph-price .per { font-size: 12px; color: var(--ink-3); white-space: nowrap; }
+.ph-body { padding: 0 16px 0 20px; }
+.ph-body p.what { color: var(--ink-2); font-size: 15px; padding-bottom: 14px; }
+details.items { border-top: 1px solid var(--line); }
+details.items summary {
+  list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 0; font-size: 14px; font-weight: 600; color: var(--accent); min-height: 44px;
+}
+details.items summary::-webkit-details-marker { display: none; }
+details.items summary .chev { transition: transform .2s; display: inline-block; }
+details.items[open] summary .chev { transform: rotate(180deg); }
+table.items { width: 100%; border-collapse: collapse; font-size: 14.5px; margin-bottom: 8px; }
+table.items td { padding: 9px 0; border-top: 1px solid var(--line); vertical-align: top; }
+table.items td:last-child { text-align: right; white-space: nowrap; padding-left: 12px; font-weight: 500; }
+table.items tr.sum td { font-weight: 700; border-top: 2px solid var(--line-2); }
+.ph-foot { border-top: 1px solid var(--line); padding: 12px 16px 12px 20px; display: grid; gap: 10px; background: var(--surface); }
+.ph-foot .note { font-size: 13.5px; color: var(--ink-2); }
+ul.plain { margin: 0; padding: 0 0 14px 0; list-style: none; display: grid; gap: 8px; font-size: 15px; color: var(--ink-2); }
+ul.plain li { display: grid; grid-template-columns: 18px 1fr; gap: 10px; }
+ul.plain li::before { content: "✓"; color: var(--accent); font-weight: 700; }
+ul.plain li b { color: var(--ink); font-weight: 600; }
+
+/* toggles */
+.opt {
+  display: flex; align-items: center; gap: 12px; padding: 10px 12px; border: 1px solid var(--line);
+  border-radius: 10px; background: var(--bg); cursor: pointer; min-height: 48px; font-size: 14.5px;
+}
+.opt input { width: 20px; height: 20px; accent-color: var(--accent); margin: 0; flex: none; cursor: pointer; }
+.opt .t { flex: 1; min-width: 0; }
+.opt .t small { display: block; color: var(--ink-2); font-size: 12.5px; }
+.opt .p { font-weight: 600; white-space: nowrap; }
+.opt.locked { cursor: default; color: var(--ink-2); }
+.opt.locked input { accent-color: var(--ink-3); }
+.tag { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 3px 7px; border-radius: 6px; background: var(--gold-soft); color: var(--gold); }
+
+/* ---------- scenario chips ---------- */
+.chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+.chip {
+  font: inherit; font-size: 14px; font-weight: 600; padding: 10px 14px; border-radius: 999px;
+  border: 1px solid var(--line-2); background: var(--surface); color: var(--ink); cursor: pointer; min-height: 44px;
+}
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+/* ---------- gantt ---------- */
+.gantt { display: grid; grid-template-columns: 92px 1fr; gap: 8px 10px; align-items: center; font-size: 14px; }
+.gantt .lbl { color: var(--ink-2); font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.gantt .track { display: grid; grid-template-columns: repeat(8, 1fr); gap: 2px; height: 22px; }
+.gantt .track i { background: var(--surface-2); border-radius: 3px; }
+.gantt .track i.on { background: var(--ph-color); }
+.gantt .track i.go { background: var(--gold); position: relative; }
+.gantt .weeks { display: grid; grid-template-columns: repeat(8, 1fr); gap: 2px; font-size: 12px; color: var(--ink-3); text-align: center; }
+.gantt .off .track i.on { background: var(--line-2); }
+.gantt .off .lbl { text-decoration: line-through; opacity: .5; }
+
+/* ---------- payments ---------- */
+.pays { display: grid; gap: 10px; }
+.pay { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; }
+.pay .n { width: 34px; height: 34px; border-radius: 50%; background: var(--ink); color: var(--bg); font-weight: 700; display: grid; place-items: center; font-size: 14px; }
+.pay .body { display: grid; gap: 4px; min-width: 0; }
+.pay .row { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+.pay .row b { font-size: 17px; }
+.pay .row .amt { font-weight: 700; font-size: 18px; white-space: nowrap; }
+.pay .desc { font-size: 14px; color: var(--ink-2); }
+.pay .meter { height: 8px; border-radius: 4px; background: var(--surface-2); overflow: hidden; margin-top: 4px; }
+.pay .meter i { display: block; height: 100%; background: var(--accent); border-radius: 0 4px 4px 0; transition: width .35s ease; }
+.pay.after .n { background: var(--surface-2); color: var(--ink-2); }
+.total-line { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-top: 2px solid var(--ink); margin-top: 8px; padding-top: 12px; font-weight: 700; font-size: 17px; }
+
+/* ---------- support explainer ---------- */
+.explain { display: grid; gap: 10px; }
+.ex { display: grid; grid-template-columns: 44px 1fr; gap: 12px; padding: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); }
+.ex .ic { width: 44px; height: 44px; border-radius: 10px; background: var(--accent-soft); display: grid; place-items: center; }
+.ex .ic svg { width: 22px; height: 22px; stroke: var(--accent); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.ex b { display: block; font-size: 15.5px; }
+.ex p { font-size: 14.5px; color: var(--ink-2); }
+.callout { background: var(--gold-soft); border-radius: var(--r); padding: 14px 16px; font-size: 15px; color: var(--ink); display: grid; gap: 6px; }
+.callout b { color: var(--gold); }
+.twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 520px) { .twocol { grid-template-columns: 1fr; } }
+.box { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px; display: grid; gap: 8px; }
+.box h3 { font-size: 15px; }
+.box ul { margin: 0; padding-left: 18px; font-size: 14.5px; color: var(--ink-2); display: grid; gap: 4px; }
+
+/* ---------- simple table ---------- */
+.tbl { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+.tbl th { text-align: left; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); padding: 0 0 8px; font-weight: 600; }
+.tbl td { padding: 10px 0; border-top: 1px solid var(--line); vertical-align: top; }
+.tbl td:last-child, .tbl th:last-child { text-align: right; white-space: nowrap; padding-left: 12px; }
+
+/* ---------- glossary ---------- */
+.gloss { display: grid; gap: 6px; }
+.gloss details { border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.gloss summary { cursor: pointer; padding: 12px 14px; font-weight: 600; font-size: 15px; list-style: none; display: flex; justify-content: space-between; min-height: 44px; align-items: center; }
+.gloss summary::-webkit-details-marker { display: none; }
+.gloss summary::after { content: "+"; color: var(--ink-3); font-weight: 400; font-size: 20px; }
+.gloss details[open] summary::after { content: "–"; }
+.gloss .d { padding: 0 14px 12px; font-size: 14.5px; color: var(--ink-2); }
+
+/* ---------- approve ---------- */
+.approve { background: var(--ink); color: var(--bg); border-radius: 18px; padding: 24px 20px; display: grid; gap: 14px; }
+.approve h2 { color: var(--bg); }
+.approve p { color: color-mix(in srgb, var(--bg) 78%, transparent); }
+.approve .sum { background: color-mix(in srgb, var(--bg) 10%, transparent); border: 1px solid color-mix(in srgb, var(--bg) 20%, transparent); border-radius: 12px; padding: 12px 14px; font-size: 14px; white-space: pre-wrap; font-family: var(--sans); line-height: 1.55; }
+.btn {
+  font: inherit; font-weight: 700; font-size: 15px; border: 0; border-radius: 12px; padding: 14px 18px;
+  cursor: pointer; min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+}
+.btn.primary { background: var(--accent); color: var(--accent-ink); }
+.btn.ghost { background: transparent; color: var(--bg); border: 1px solid color-mix(in srgb, var(--bg) 35%, transparent); }
+.approve .btns { display: flex; gap: 10px; flex-wrap: wrap; }
+.contact { display: grid; gap: 4px; font-size: 14px; }
+.contact b { color: var(--bg); font-weight: 600; user-select: all; }
+
+/* ---------- sticky bar ---------- */
+.sticky {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 10;
+  background: var(--surface); border-top: 1px solid var(--line);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-top: 10px; padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+  box-shadow: 0 -8px 24px -12px rgba(0,0,0,.25);
+}
+.sticky .in { max-width: 720px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.sticky .lbl { font-size: 12px; color: var(--ink-3); }
+.sticky .v { font-size: 18px; font-weight: 700; letter-spacing: -.01em; }
+.sticky .v small { font-size: 12px; font-weight: 500; color: var(--ink-2); }
+.sticky a.btn { text-decoration: none; padding: 10px 14px; min-height: 42px; font-size: 14px; }
+
+.foot { padding-block: 24px 10px; font-size: 13px; color: var(--ink-3); display: grid; gap: 4px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">DKODING<span>.</span></div>
+    <div class="meta-pill" id="validez">Vigente hasta 14 nov 2026</div>
+  </header>
+
+  <div class="hero">
+    <p class="eyebrow" id="client-eyebrow">Propuesta para [Nombre del cliente]</p>
+    <h1 id="title">Tu joyería, vendiendo en línea en 8 semanas</h1>
+    <p class="lead" id="lead">Marca, tienda virtual con pagos, CRM integrado y lanzamiento en Google y redes. Todo por fases, con precios claros y sin sorpresas.</p>
+    <div class="meta">
+      <span>Fecha <b>15 oct 2026</b></span>
+      <span>Duración <b>8 semanas</b></span>
+      <span>Moneda <b>COP, sin IVA</b></span>
+    </div>
+  </div>
+
+  <div class="kpis" aria-label="Resumen de costos">
+    <div class="kpi lead">
+      <div class="label">Pagas una sola vez</div>
+      <div class="value num-prop" id="k-once">$10.700.000</div>
+      <div class="when">Marca + tienda + lanzamiento, en 4 pagos</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Cada año</div>
+      <div class="value" id="k-year">$1.500.000</div>
+      <div class="when">CRM integrado</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Cada mes</div>
+      <div class="value" id="k-month">$1.000.000</div>
+      <div class="when">Soporte, hosting y SEO</div>
+    </div>
+  </div>
+
+  <!-- ===================== LO QUE INCLUYE ===================== -->
+  <section id="fases">
+    <div class="sec-head">
+      <p class="eyebrow">Paso a paso</p>
+      <h2>Qué incluye y cuánto cuesta cada parte</h2>
+      <p>Elige el alcance que quieres. Los totales se actualizan solos.</p>
+    </div>
+
+    <div class="chips" role="group" aria-label="Escenarios">
+      <button class="chip" data-scn="min" aria-pressed="false">Mínimo para vender</button>
+      <button class="chip" data-scn="rec" aria-pressed="true">Recomendado</button>
+      <button class="chip" data-scn="full" aria-pressed="false">Completo</button>
+    </div>
+
+    <div class="bar" id="bar-impl" aria-hidden="true"></div>
+    <ul class="legend" id="leg-impl"></ul>
+
+    <div class="phases" id="phases" style="margin-top:18px"></div>
+  </section>
+
+  <!-- ===================== SOPORTE ===================== -->
+  <section id="soporte">
+    <div class="sec-head">
+      <p class="eyebrow">Después del lanzamiento</p>
+      <h2>Qué es el soporte mensual, en palabras simples</h2>
+      <p>Tener una tienda virtual es como tener un local: hay que pagar el arriendo, mantenerlo en orden y traer gente. Eso es lo que cubre el soporte de <b>$1.000.000 al mes</b>.</p>
+    </div>
+    <div class="explain">
+      <div class="ex">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h14V9.5"/><path d="M10 20v-6h4v6"/></svg></div>
+        <div><b>Hosting y seguridad · el arriendo</b><p>La tienda está en línea 24/7 con certificado de seguridad, copias de respaldo diarias y actualizaciones. Si algo falla, lo arreglamos.</p></div>
+      </div>
+      <div class="ex">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0 5 5L17 14l-7 7-3-3 7-7 2.7-2.7z"/><path d="M3 21l3-3"/></svg></div>
+        <div><b>Soporte técnico · el mantenimiento</b><p>Hasta <b>4 horas al mes</b> de ajustes: cambiar textos, fotos, precios o banners, resolver dudas del panel y cualquier error. Respondemos en menos de 24 horas hábiles por WhatsApp o ticket.</p></div>
+      </div>
+      <div class="ex">
+        <div class="ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div>
+        <div><b>SEO mensual · traer gente</b><p>Optimización continua y <b>1 artículo al mes</b> para que Google muestre tu joyería a quien la busca, sin pagar anuncios.</p></div>
+      </div>
+      <div class="ex">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 15l4-5 3 3 5-7"/></svg></div>
+        <div><b>Reporte mensual · saber cómo va</b><p>Un resumen claro cada mes: visitas, ventas y de dónde llegan tus clientes.</p></div>
+      </div>
+    </div>
+
+    <div class="twocol" style="margin-top:12px">
+      <div class="box">
+        <h3>Cómo se paga</h3>
+        <ul>
+          <li>Mes anticipado, dentro de los primeros 5 días.</li>
+          <li>Empieza el mes del lanzamiento.</li>
+          <li>Permanencia mínima: 6 meses.</li>
+          <li>Las horas no usadas no se acumulan.</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Qué no cubre</h3>
+        <ul>
+          <li>Funciones nuevas: se cotizan aparte a $120.000 / hora.</li>
+          <li>Contenido para redes sociales.</li>
+          <li>Gestión de anuncios pagos.</li>
+        </ul>
+        <p class="small muted">Las dos últimas se pueden sumar abajo.</p>
+      </div>
+    </div>
+
+    <div class="phases" id="monthly-opts" style="margin-top:12px"></div>
+  </section>
+
+  <!-- ===================== PAGOS ===================== -->
+  <section id="pagos">
+    <div class="sec-head">
+      <p class="eyebrow">Formas de pago</p>
+      <h2>Cuándo pagas y cuánto</h2>
+      <p>Cada fase se paga <b>50% al iniciar y 50% al entregar</b>. En la práctica son 4 pagos durante las 8 semanas, por transferencia bancaria.</p>
+    </div>
+    <div class="pays" id="pays"></div>
+    <div class="total-line"><span>Total hasta el lanzamiento</span><span class="num" id="pay-total">$13.200.000</span></div>
+    <p class="small muted" style="margin-top:10px" id="pay-after">Desde el mes 2: $1.000.000 al mes de soporte.</p>
+  </section>
+
+  <!-- ===================== CRONOGRAMA ===================== -->
+  <section id="cronograma">
+    <div class="sec-head">
+      <p class="eyebrow">Cronograma</p>
+      <h2>Ocho semanas, cuatro fases</h2>
+    </div>
+    <div class="gantt" id="gantt"></div>
+  </section>
+
+  <!-- ===================== PRIMER AÑO ===================== -->
+  <section id="anio">
+    <div class="sec-head">
+      <p class="eyebrow">Visión completa</p>
+      <h2>Cuánto suma el primer año</h2>
+      <p>Implementación + CRM + 12 meses de soporte. Así no hay sorpresas.</p>
+    </div>
+    <div class="kpi lead" style="margin-bottom:14px">
+      <div class="label">Primer año, todo incluido</div>
+      <div class="value" id="k-year1">$24.200.000</div>
+      <div class="when" id="k-year1-when">Equivale a $2.016.667 al mes</div>
+    </div>
+    <div class="bar" id="bar-year" aria-hidden="true"></div>
+    <ul class="legend" id="leg-year"></ul>
+  </section>
+
+  <!-- ===================== TERCEROS ===================== -->
+  <section id="terceros">
+    <div class="sec-head">
+      <p class="eyebrow">Para tener en cuenta</p>
+      <h2>Costos de terceros</h2>
+      <p>Los paga el cliente directamente. No están en esta cotización, pero conviene conocerlos desde ya.</p>
+    </div>
+    <table class="tbl">
+      <thead><tr><th>Concepto</th><th>Costo estimado</th></tr></thead>
+      <tbody id="terceros-rows"></tbody>
+    </table>
+  </section>
+
+  <!-- ===================== NECESITAMOS / NO INCLUYE ===================== -->
+  <section>
+    <div class="twocol">
+      <div class="box">
+        <h3>Qué necesitamos de ti</h3>
+        <ul>
+          <li>Catálogo con fotos, precios, pesos y medidas (o contratar la fotografía).</li>
+          <li>Razón social, NIT y RUT para la pasarela de pagos.</li>
+          <li>Una persona que apruebe en cada hito.</li>
+          <li>Accesos: dominio, redes existentes, cuenta bancaria.</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Qué no incluye</h3>
+        <ul>
+          <li>Inversión en anuncios.</li>
+          <li>Contenido redactado por el cliente ni traducciones.</li>
+          <li>Integración con sistemas contables o ERP.</li>
+          <li>App móvil nativa.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GLOSARIO ===================== -->
+  <section id="glosario">
+    <div class="sec-head">
+      <p class="eyebrow">Si alguna palabra no te suena</p>
+      <h2>Glosario rápido</h2>
+    </div>
+    <div class="gloss" id="gloss"></div>
+  </section>
+
+  <!-- ===================== APROBAR ===================== -->
+  <section id="aprobar">
+    <div class="approve">
+      <h2>¿Arrancamos?</h2>
+      <p>Copia tu selección y envíanosla por WhatsApp o correo. Con eso preparamos el contrato y agendamos la primera reunión.</p>
+      <pre class="sum" id="summary"></pre>
+      <div class="btns">
+        <button class="btn primary" id="copy">Copiar mi selección</button>
+        <a class="btn ghost" id="wa-link" href="#" target="_blank" rel="noopener">Abrir WhatsApp</a>
+      </div>
+      <div class="contact">
+        <span>WhatsApp <b>+57 300 286 7104</b></span>
+        <span>Correo <b>info@dkoding.net</b></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="foot">
+    <span>DKODING · Empresa de desarrollo web · Sitios que venden.</span>
+    <span>Precios en pesos colombianos, sin IVA (19%). Vigencia: 30 días desde la fecha de emisión.</span>
+  </div>
+</div>
+
+<div class="sticky" id="sticky">
+  <div class="in">
+    <div>
+      <div class="lbl" id="sticky-lbl">Tu selección · una sola vez</div>
+      <div class="v"><span id="sticky-once">$10.700.000</span> <small id="sticky-rec">+ $1.000.000/mes</small></div>
+    </div>
+    <a class="btn primary" href="#aprobar">Aprobar</a>
+  </div>
+</div>
+
+<script>
+/* =====================================================================
+   PLANTILLA DKODING — edita solo este bloque para una nueva cotización.
+   Todo lo demás se dibuja a partir de estos datos.
+   ===================================================================== */
+const PROPUESTA = {
+  cliente: "[Nombre del cliente]",
+  titulo: "Tu joyería, vendiendo en línea en 8 semanas",
+  semanas: 8,
+  descuento: { valor: 800000, texto: "Contratando marca, tienda y lanzamiento juntos antes del 14 nov 2026" },
+  // Fases de implementación (se pagan una sola vez). color: 0–3 = hue por fase.
+  fases: [
+    {
+      id: "f0", color: 0, etiqueta: "Fase 0", nombre: "Marca y estrategia", semanas: [1, 2],
+      precio: 3000000, locked: false, enEscenario: ["min", "rec", "full"],
+      que: "Definimos cómo se ve, cómo habla y a quién le vende tu joyería antes de construir nada.",
+      items: [
+        ["Inmersión y estudio de categoría (joyería, competencia, cliente ideal)", 500000],
+        ["Identidad visual: logo, sistema gráfico y manual de marca (80+ formatos)", 1400000],
+        ["Dirección de arte de la tienda: paleta, tipografía, estilo de fotos", 600000],
+        ["Copy de venta (home + 6 páginas)", 500000],
+      ],
+      opcionales: [
+        { id: "foto", nombre: "Fotografía de producto", detalle: "Guía + sesión, hasta 40 piezas", precio: 1200000, enEscenario: ["full"], tag: "Muy recomendado" },
+      ],
+      nota: "En joyería la foto es el producto. Sin foto propia, la tienda compite con imágenes genéricas y vende menos.",
+    },
+    {
+      id: "f1", color: 1, etiqueta: "Fase 1", nombre: "Tienda virtual", semanas: [2, 6],
+      precio: 4500000, locked: true, enEscenario: ["min", "rec", "full"],
+      que: "Tu tienda sobre la plataforma DKODING, con un panel propio donde administras productos, inventario y pedidos.",
+      items: [
+        ["Diseño de la tienda, pensado primero para celular", 900000],
+        ["Montaje: catálogo, fichas de producto, carrito y checkout", 1500000],
+        ["Panel del cliente: productos, variantes, inventario y pedidos", 700000],
+        ["Pasarela de pagos: tarjetas, PSE y Nequi", 500000],
+        ["Envíos: transportadoras y tarifas por zona", 300000],
+        ["SEO técnico, analítica y píxeles (Google y Meta)", 400000],
+        ["Carga inicial del catálogo (hasta 80 referencias)", 200000],
+      ],
+      bullets: [
+        ["Variantes de joyería", "talla, material, quilataje, acabado, piedra y largo de cadena, cada una con su precio e inventario."],
+      ],
+    },
+    {
+      id: "f3", color: 3, etiqueta: "Fase 3", nombre: "Lanzamiento", semanas: [5, 8],
+      precio: 3200000, locked: false, enEscenario: ["rec", "full"],
+      que: "Dejamos la tienda lista para que la encuentren: Google, redes sociales y anuncios configurados desde el día uno.",
+      items: [
+        ["SEO de lanzamiento: palabras clave, páginas optimizadas, Google Business", 800000],
+        ["Setup de redes (Instagram / Facebook / TikTok): perfiles, bio, destacados, plantillas", 800000],
+        ["Setup Google Ads: campañas de búsqueda y Shopping", 400000],
+        ["Setup Meta Ads: campañas, públicos y remarketing", 400000],
+        ["Kit de lanzamiento: 20 piezas gráficas + 4 reels", 800000],
+      ],
+    },
+  ],
+  // Recurrente anual
+  crm: {
+    id: "f2", color: 2, etiqueta: "Fase 2", nombre: "CRM integrado", semanas: [6, 6], precio: 1500000, per: "al año",
+    que: "Un solo lugar que guarda y entiende a tus clientes. Se activa en la semana 6 y se paga una vez al año.",
+    bullets: [
+      ["Captura todo lo que pasa en la tienda", "visitas, productos vistos, carritos, compras y formularios."],
+      ["Almacena cada contacto", "con su historial completo de compras y conversaciones."],
+      ["Analiza", "paneles de clientes, ventas y productos más vistos."],
+      ["Se integra con WhatsApp", "cada conversación queda ligada al cliente."],
+    ],
+    nota: "El valor anual cubre el uso de la app del CRM y su soporte durante 12 meses. Primer pago al activar; renueva cada año.",
+  },
+  // Recurrente mensual
+  soporte: { nombre: "Soporte, hosting y SEO", precio: 1000000 },
+  mensualesOpcionales: [
+    { id: "redes", nombre: "Redes sociales", detalle: "12 piezas + 4 reels al mes + community management", precio: 900000 },
+    { id: "pauta", nombre: "Gestión de anuncios", detalle: "Google y Meta. La inversión en anuncios va aparte.", precio: 400000 },
+  ],
+  terceros: [
+    ["Dominio .com (incluye 30% de gestión DKODING)", "~$104.000 / año"],
+    ["Inversión en anuncios (Google + Meta)", "sugerido desde $1.000.000 / mes"],
+    ["Comisión de la pasarela por cada venta", "~2,99% + $900 + IVA"],
+    ["WhatsApp Business API (por conversación)", "~USD 0,005–0,09 según tipo"],
+    ["Fotografía adicional, modelos, locación", "según alcance"],
+  ],
+  glosario: [
+    ["Pasarela de pagos", "El sistema que permite cobrar con tarjeta, PSE o Nequi dentro de la tienda. Cobra una pequeña comisión por cada venta."],
+    ["Hosting", "El \"arriendo\" del espacio en internet donde vive tu tienda. Sin hosting, la tienda no está en línea."],
+    ["SEO", "Trabajar para que Google muestre tu tienda cuando alguien busca, por ejemplo, \"anillos de compromiso en Bogotá\". Es tráfico que no se paga por clic."],
+    ["CRM", "Una base de datos inteligente de tus clientes: quién compró qué, qué miró, qué preguntó por WhatsApp. Sirve para venderles de nuevo."],
+    ["Píxeles y analítica", "Pequeños códigos que miden qué hace la gente en la tienda. Sin ellos, los anuncios no aprenden y no sabes qué funciona."],
+    ["Checkout", "La pantalla final donde el cliente pone sus datos y paga."],
+    ["Remarketing", "Mostrar anuncios a personas que ya visitaron la tienda pero no compraron."],
+  ],
+  whatsapp: "573002867104",
+};
+
+/* ===================== motor de la plantilla ===================== */
+const fmt = n => "$" + Math.round(n).toLocaleString("es-CO");
+const $ = (s, r = document) => r.querySelector(s);
+const state = { sel: new Set(), scn: "rec" };
+
+function allToggleIds() {
+  const ids = [];
+  PROPUESTA.fases.forEach(f => { ids.push(f.id); (f.opcionales || []).forEach(o => ids.push(o.id)); });
+  ids.push(PROPUESTA.crm.id);
+  PROPUESTA.mensualesOpcionales.forEach(m => ids.push(m.id));
+  return ids;
+}
+function applyScenario(scn) {
+  state.scn = scn; state.sel.clear();
+  PROPUESTA.fases.forEach(f => {
+    if (f.locked || f.enEscenario.includes(scn)) state.sel.add(f.id);
+    (f.opcionales || []).forEach(o => { if (o.enEscenario.includes(scn)) state.sel.add(o.id); });
+  });
+  state.sel.add(PROPUESTA.crm.id);
+  document.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", String(c.dataset.scn === scn)));
+}
+function compute() {
+  const impl = []; let once = 0, year = 0, month = PROPUESTA.soporte.precio;
+  PROPUESTA.fases.forEach(f => {
+    const on = state.sel.has(f.id);
+    let v = on ? f.precio : 0;
+    (f.opcionales || []).forEach(o => { if (on && state.sel.has(o.id)) v += o.precio; });
+    impl.push({ f, on, v }); once += v;
+  });
+  const crmOn = state.sel.has(PROPUESTA.crm.id);
+  if (crmOn) year += PROPUESTA.crm.precio;
+  PROPUESTA.mensualesOpcionales.forEach(m => { if (state.sel.has(m.id)) month += m.precio; });
+  const allImpl = PROPUESTA.fases.every(f => state.sel.has(f.id));
+  const disc = allImpl ? PROPUESTA.descuento.valor : 0;
+  return { impl, once, year, month, crmOn, disc, onceNet: once - disc };
+}
+
+function renderPhases() {
+  const host = $("#phases"); host.innerHTML = "";
+  const list = [...PROPUESTA.fases];
+  list.splice(2, 0, { ...PROPUESTA.crm, isCrm: true });
+  list.forEach(f => {
+    const on = state.sel.has(f.id);
+    const card = document.createElement("article");
+    card.className = "phase" + (on ? "" : " off");
+    card.style.setProperty("--ph-color", `var(--ph${f.color})`);
+    const items = f.items ? `
+      <details class="items">
+        <summary><span>Ver el detalle de precios</span><span class="chev">⌄</span></summary>
+        <table class="items">${f.items.map(([n, p]) => `<tr><td>${n}</td><td class="num">${fmt(p)}</td></tr>`).join("")}
+        <tr class="sum"><td>Subtotal</td><td class="num">${fmt(f.precio)}</td></tr></table>
+      </details>` : "";
+    const bullets = f.bullets ? `<ul class="plain">${f.bullets.map(([b, t]) => `<li><span><b>${b}</b> ${t}</span></li>`).join("")}</ul>` : "";
+    const opts = (f.opcionales || []).map(o => `
+      <label class="opt"><input type="checkbox" id="opt-${o.id}" data-id="${o.id}" ${state.sel.has(o.id) ? "checked" : ""} ${on ? "" : "disabled"}>
+        <span class="t">${o.nombre} ${o.tag ? `<span class="tag">${o.tag}</span>` : ""}<small>${o.detalle}</small></span>
+        <span class="p num">+ ${fmt(o.precio)}</span></label>`).join("");
+    const toggle = f.isCrm
+      ? `<label class="opt"><input type="checkbox" id="ph-${f.id}" data-id="${f.id}" ${on ? "checked" : ""}><span class="t">Incluir el CRM integrado<small>Recomendado desde el primer día para no perder datos de clientes.</small></span><span class="p num">${fmt(f.precio)} / año</span></label>`
+      : f.locked
+        ? `<label class="opt locked"><input type="checkbox" id="ph-${f.id}" checked disabled><span class="t">La tienda es la base de todo<small>No se puede quitar de la propuesta.</small></span></label>`
+        : `<label class="opt"><input type="checkbox" id="ph-${f.id}" data-id="${f.id}" ${on ? "checked" : ""}><span class="t">Incluir esta fase<small>${f.enEscenario.includes("min") ? "Parte del escenario mínimo." : "Se puede contratar después del lanzamiento sin retrabajo."}</small></span><span class="p num">${fmt(f.precio)}</span></label>`;
+    card.innerHTML = `
+      <div class="ph-head">
+        <div class="ph-stripe"></div>
+        <div class="ph-title">
+          <span class="eyebrow">${f.etiqueta} · Semana${f.semanas[0] === f.semanas[1] ? " " + f.semanas[0] : "s " + f.semanas[0] + "–" + f.semanas[1]}</span>
+          <h3>${f.nombre}</h3>
+        </div>
+        <div class="ph-price"><span class="amt">${fmt(f.precio)}</span><span class="per">${f.per || "una sola vez"}</span></div>
+      </div>
+      <div class="ph-body">
+        <p class="what">${f.que}</p>
+        ${bullets}${items}
+      </div>
+      <div class="ph-foot">
+        ${toggle}${opts}
+        ${f.nota ? `<p class="note">${f.nota}</p>` : ""}
+      </div>`;
+    host.appendChild(card);
+  });
+
+  const mh = $("#monthly-opts"); mh.innerHTML = "";
+  const mcard = document.createElement("article");
+  mcard.className = "phase"; mcard.style.setProperty("--ph-color", "var(--ph4)");
+  mcard.innerHTML = `
+    <div class="ph-head"><div class="ph-stripe"></div>
+      <div class="ph-title"><span class="eyebrow">Fase 4 · Desde el mes del lanzamiento</span><h3>${PROPUESTA.soporte.nombre}</h3></div>
+      <div class="ph-price"><span class="amt">${fmt(PROPUESTA.soporte.precio)}</span><span class="per">al mes</span></div></div>
+    <div class="ph-foot">
+      <label class="opt locked"><input type="checkbox" checked disabled><span class="t">Soporte, hosting y SEO<small>Incluido en todos los escenarios.</small></span><span class="p num">${fmt(PROPUESTA.soporte.precio)} / mes</span></label>
+      ${PROPUESTA.mensualesOpcionales.map(m => `<label class="opt"><input type="checkbox" id="opt-${m.id}" data-id="${m.id}" ${state.sel.has(m.id) ? "checked" : ""}><span class="t">${m.nombre}<small>${m.detalle}</small></span><span class="p num">+ ${fmt(m.precio)} / mes</span></label>`).join("")}
+    </div>`;
+  mh.appendChild(mcard);
+
+  document.querySelectorAll("input[data-id]").forEach(i => i.addEventListener("change", e => {
+    const id = e.target.dataset.id;
+    e.target.checked ? state.sel.add(id) : state.sel.delete(id);
+    // apagar una fase apaga sus opcionales
+    const f = PROPUESTA.fases.find(x => x.id === id);
+    if (f && !e.target.checked) (f.opcionales || []).forEach(o => state.sel.delete(o.id));
+    document.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", "false"));
+    renderPhases(); update();
+  }));
+}
+
+function stackedBar(barEl, legEl, segs) {
+  const total = segs.reduce((a, s) => a + (s.on ? s.v : 0), 0) || 1;
+  barEl.innerHTML = segs.map(s => `<i class="c${s.color}${s.on && s.v > 0 ? "" : " off"}" style="flex:0 0 calc(${(100 * s.v / total).toFixed(2)}% - 2px)" title="${s.name}: ${fmt(s.v)}"></i>`).join("");
+  legEl.innerHTML = segs.map(s => `<li class="${s.on ? "" : "off"}"><span class="sw c${s.color}"></span><span>${s.name} <b class="num">${fmt(s.v)}</b>${s.suffix || ""}</span></li>`).join("");
+}
+
+function renderPays(c) {
+  const half = x => x / 2;
+  const f0 = c.impl.find(x => x.f.id === "f0"), f1 = c.impl.find(x => x.f.id === "f1"), f3 = c.impl.find(x => x.f.id === "f3");
+  const crm = c.crmOn ? PROPUESTA.crm.precio : 0;
+  const disc = c.disc;
+  const pays = [
+    { t: "Al firmar", d: [], v: 0 },
+    { t: "Semana 2", d: [], v: 0 },
+    { t: "Semana 6", d: [], v: 0 },
+    { t: "Lanzamiento · semana 8", d: [], v: 0 },
+  ];
+  if (f0.on) { pays[0].d.push("50% marca"); pays[0].v += half(f0.v); pays[1].d.push("50% marca"); pays[1].v += half(f0.v); }
+  else { pays[0].d.push("50% tienda"); pays[0].v += half(f1.v); }
+  if (f0.on) { pays[1].d.push("50% tienda"); pays[1].v += half(f1.v); }
+  pays[2].d.push("50% tienda"); pays[2].v += half(f1.v);
+  if (f3.on) { pays[2].d.push("50% lanzamiento"); pays[2].v += half(f3.v); pays[3].d.push("50% lanzamiento"); pays[3].v += half(f3.v); }
+  if (crm) { pays[2].d.push("CRM año 1"); pays[2].v += crm; }
+  pays[3].d.push("soporte mes 1"); pays[3].v += c.month;
+  if (disc) { pays[3].d.push("descuento"); pays[3].v -= disc; }
+  const shown = pays.filter(p => p.v > 0);
+  const max = Math.max(...shown.map(p => p.v));
+  $("#pays").innerHTML = shown.map((p, i) => `
+    <div class="pay">
+      <div class="n">${i + 1}</div>
+      <div class="body">
+        <div class="row"><b>${p.t}</b><span class="amt num">${fmt(p.v)}</span></div>
+        <div class="desc">${p.d.join(" + ")}</div>
+        <div class="meter"><i style="width:${(100 * p.v / max).toFixed(1)}%"></i></div>
+      </div>
+    </div>`).join("");
+  const total = pays.reduce((a, p) => a + p.v, 0);
+  $("#pay-total").textContent = fmt(total);
+  $("#pay-after").textContent = `Desde el mes 2: ${fmt(c.month)} al mes de soporte${c.month > PROPUESTA.soporte.precio ? " y servicios mensuales" : ""}. ${c.crmOn ? "El CRM se renueva cada 12 meses por " + fmt(PROPUESTA.crm.precio) + "." : ""}`;
+}
+
+function renderGantt(c) {
+  const rows = [...PROPUESTA.fases.slice(0, 2), PROPUESTA.crm, PROPUESTA.fases[2]];
+  const W = PROPUESTA.semanas;
+  let html = `<div></div><div class="weeks">${Array.from({ length: W }, (_, i) => `<span>${i + 1}</span>`).join("")}</div>`;
+  rows.forEach(f => {
+    const on = state.sel.has(f.id);
+    html += `<div class="${on ? "" : "off"}" style="display:contents">
+      <div class="lbl">${f.nombre}</div>
+      <div class="track" style="--ph-color:var(--ph${f.color})">${Array.from({ length: W }, (_, i) => `<i class="${i + 1 >= f.semanas[0] && i + 1 <= f.semanas[1] ? "on" : ""}"></i>`).join("")}</div></div>`;
+  });
+  html += `<div class="lbl" style="color:var(--gold);font-weight:600">Lanzamiento</div><div class="track">${Array.from({ length: W }, (_, i) => `<i class="${i + 1 === W ? "go" : ""}"></i>`).join("")}</div>`;
+  $("#gantt").innerHTML = html;
+}
+
+function renderSummary(c) {
+  const lines = [`Propuesta DKODING · ${PROPUESTA.cliente}`, ``];
+  c.impl.forEach(x => {
+    if (!x.on) return;
+    lines.push(`✓ ${x.f.etiqueta} ${x.f.nombre} · ${fmt(x.f.precio)}`);
+    (x.f.opcionales || []).forEach(o => { if (state.sel.has(o.id)) lines.push(`   + ${o.nombre} · ${fmt(o.precio)}`); });
+  });
+  if (c.disc) lines.push(`− Descuento por contratar todo junto · ${fmt(c.disc)}`);
+  lines.push(`= Una sola vez: ${fmt(c.onceNet)}`);
+  lines.push(``);
+  if (c.crmOn) lines.push(`✓ CRM integrado · ${fmt(PROPUESTA.crm.precio)} al año`);
+  lines.push(`✓ Soporte, hosting y SEO · ${fmt(PROPUESTA.soporte.precio)} al mes`);
+  PROPUESTA.mensualesOpcionales.forEach(m => { if (state.sel.has(m.id)) lines.push(`   + ${m.nombre} · ${fmt(m.precio)} al mes`); });
+  lines.push(``, `Primer año: ${fmt(c.onceNet + c.year + c.month * 12)}`);
+  const txt = lines.join("\n");
+  $("#summary").textContent = txt;
+  $("#wa-link").href = `https://wa.me/${PROPUESTA.whatsapp}?text=${encodeURIComponent("Hola DKODING, apruebo esta selección:\n\n" + txt)}`;
+}
+
+function update() {
+  const c = compute();
+  $("#k-once").textContent = fmt(c.onceNet);
+  $("#k-year").textContent = c.crmOn ? fmt(c.year) : "—";
+  $("#k-month").textContent = fmt(c.month);
+  const segs = c.impl.map(x => ({ name: x.f.nombre, v: x.v, on: x.on, color: x.f.color }));
+  stackedBar($("#bar-impl"), $("#leg-impl"), segs);
+  const leg = $("#leg-impl");
+  if (c.disc) leg.insertAdjacentHTML("beforeend", `<li><span class="sw" style="background:var(--gold)"></span><span>Descuento por contratar todo junto <b class="num">− ${fmt(c.disc)}</b></span></li>`);
+  leg.insertAdjacentHTML("beforeend", `<li><span class="sw" style="background:var(--ink)"></span><span>Total una sola vez <b class="num">${fmt(c.onceNet)}</b></span></li>`);
+  const y1 = c.onceNet + c.year + c.month * 12;
+  $("#k-year1").textContent = fmt(y1);
+  $("#k-year1-when").textContent = `Equivale a ${fmt(y1 / 12)} al mes durante el primer año`;
+  stackedBar($("#bar-year"), $("#leg-year"), [
+    ...c.impl.map(x => ({ name: x.f.nombre, v: x.v, on: x.on, color: x.f.color })),
+    { name: "CRM integrado", v: c.year, on: c.crmOn, color: 2, suffix: " / año" },
+    { name: "Soporte y servicios mensuales", v: c.month * 12, on: true, color: 4, suffix: " / 12 meses" },
+  ]);
+  renderPays(c); renderGantt(c); renderSummary(c);
+  $("#sticky-once").textContent = fmt(c.onceNet);
+  $("#sticky-rec").textContent = `+ ${fmt(c.month)}/mes`;
+}
+
+document.querySelectorAll(".chip").forEach(b => b.addEventListener("click", () => { applyScenario(b.dataset.scn); renderPhases(); update(); }));
+$("#copy").addEventListener("click", async () => {
+  const btn = $("#copy"), txt = $("#summary").textContent;
+  try { await navigator.clipboard.writeText(txt); btn.textContent = "Copiado ✓"; }
+  catch { const r = document.createRange(); r.selectNodeContents($("#summary")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = "Selecciona y copia el texto"; }
+  setTimeout(() => btn.textContent = "Copiar mi selección", 2200);
+});
+$("#terceros-rows").innerHTML = PROPUESTA.terceros.map(([a, b]) => `<tr><td>${a}</td><td>${b}</td></tr>`).join("");
+$("#gloss").innerHTML = PROPUESTA.glosario.map(([t, d]) => `<details><summary>${t}</summary><div class="d">${d}</div></details>`).join("");
+$("#client-eyebrow").textContent = `Propuesta para ${PROPUESTA.cliente}`;
+$("#title").textContent = PROPUESTA.titulo;
+applyScenario("rec"); renderPhases(); update();
+</script>
