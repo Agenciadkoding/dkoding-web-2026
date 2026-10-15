@@ -1,0 +1,50 @@
+---
+/** Proceso de trabajo en 5 pasos sobre banda violeta animada. */
+const pasos = [
+  { t: 'Descubrimiento y auditoría', d: 'Entendemos objetivos, medimos el estado actual (SEO, velocidad, UX) y priorizamos mejoras rápidas.', c: '#6D00C2' },
+  { t: 'Arquitectura y diseño UX/UI', d: 'Estructura orientada a intención de búsqueda y conversión. Prototipos navegables.', c: '#7A10CF' },
+  { t: 'Desarrollo e integraciones', d: 'Código limpio, accesibilidad, seguridad y conectores (CRM, pagos, reservas, WhatsApp).', c: '#8A1EDF' },
+  { t: 'SEO y rendimiento', d: 'Implementamos on-page, schema, Core Web Vitals, pruebas de carga y lista de verificación técnica.', c: '#A93FEA' },
+  { t: 'Despliegue, analítica y seguimiento', d: 'GA4, GTM y tableros, pruebas A/B y hoja de ruta de mejoras continuas.', c: '#C755EF', oscuro: true },
+];
+---
+<section class="proceso" id="proceso" aria-labelledby="h-proceso">
+  <div class="aurora" aria-hidden="true"></div>
+  <img class="deco deco-a" src="/img/deco/dkoding-deco-04.svg" alt="" aria-hidden="true" width="626" height="917" loading="lazy" decoding="async">
+  <img class="deco deco-b" src="/img/deco/dkoding-deco-03.svg" alt="" aria-hidden="true" width="361" height="534" loading="lazy" decoding="async">
+  <div class="container proceso-in">
+    <div class="cabecera reveal">
+      <p class="eyebrow eyebrow-claro">Proceso de trabajo</p>
+      <h2 id="h-proceso"><strong>Un proceso claro</strong>, sin sorpresas</h2>
+    </div>
+    <ol class="grid grid-5 pasos">
+      {pasos.map((p, i) => (
+        <li class="paso reveal">
+          <span class:list={['num', { 'num-oscuro': p.oscuro }]} style={`background:${p.c}`} aria-hidden="true">{i + 1}</span>
+          <h3><span class="visually-hidden">Paso {i + 1}: </span>{p.t}</h3>
+          <p>{p.d}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .proceso { position: relative; overflow: hidden; color: #fff; isolation: isolate; }
+  .aurora { position: absolute; inset: 0; z-index: 0; background: linear-gradient(120deg, #3D0A6E 0%, #6D00C2 35%, #8A1EDF 55%, #3D0A6E 100%); background-size: 220% 220%; animation: aurora 14s ease-in-out infinite; }
+  .deco { position: absolute; pointer-events: none; z-index: 0; }
+  .deco-a { right: -6%; top: -30%; width: 40%; opacity: 0.35; filter: brightness(2.2); animation: flota 16s ease-in-out infinite; }
+  .deco-b { left: -2%; bottom: -26%; width: 14%; opacity: 0.5; filter: brightness(1.8); animation: flota2 12s ease-in-out infinite; }
+  .proceso-in { position: relative; z-index: 1; padding-block: clamp(56px, 6vw, 72px); display: flex; flex-direction: column; gap: 48px; }
+  .cabecera { display: flex; flex-direction: column; gap: 14px; max-width: 760px; margin-inline: auto; text-align: center; align-items: center; }
+  .eyebrow-claro { color: #EADFF7; }
+  .pasos { list-style: none; }
+  .paso { display: flex; flex-direction: column; gap: 12px; padding: 26px 22px; background: rgba(12,12,12,0.55); border: 1px solid rgba(255,255,255,0.2); border-radius: var(--r-card); backdrop-filter: blur(8px); }
+  .num { display: inline-flex; width: 36px; height: 36px; align-items: center; justify-content: center; color: #fff; border-radius: 4px; font-family: var(--font-title); font-weight: 700; font-size: 18px; box-shadow: 0 0 0 2px rgba(255,255,255,0.4); }
+  .num-oscuro { color: var(--dk-bg); box-shadow: none; }
+  .paso h3 { font-size: 20px; }
+  .paso p { color: var(--dk-muted); font-size: 14px; }
+  @keyframes aurora { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+  @keyframes flota { 0%, 100% { transform: translate3d(0,0,0) rotate(0); } 50% { transform: translate3d(0,-28px,0) rotate(3deg); } }
+  @keyframes flota2 { 0%, 100% { transform: translate3d(0,0,0) rotate(0); } 50% { transform: translate3d(18px,22px,0) rotate(-4deg); } }
+</style>

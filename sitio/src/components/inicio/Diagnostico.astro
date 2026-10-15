@@ -1,0 +1,213 @@
+---
+/**
+ * Diagnóstico gratuito: formulario con vista previa del mensaje, envío por el PHP (tipo "diagnostico")
+ * y alternativas por WhatsApp y correo con el mensaje ya armado.
+ */
+import { SITIO } from '../../data/sitio';
+const intereses = ['Sitio web', 'Tienda online', 'SEO / aparecer en Google', 'Web hotelera', 'Logo y marca', 'Anuncios (Google / Meta)'];
+const canales = ['Google', 'ChatGPT u otra IA', 'Redes sociales', 'Recomendación', 'Otro'];
+const ondas = [
+  { top: 4, h: 46, dur: 38, rev: false, col: 'rgba(199,85,239,0.28)', w: 1.2, a: 120 },
+  { top: 14, h: 50, dur: 46, rev: true, col: 'rgba(109,0,194,0.5)', w: 1, a: 110 },
+  { top: 26, h: 54, dur: 30, rev: false, col: 'rgba(217,139,255,0.22)', w: 1, a: 140 },
+  { top: 40, h: 52, dur: 26, rev: true, col: 'rgba(199,85,239,0.32)', w: 1.4, a: 130 },
+  { top: 52, h: 50, dur: 54, rev: false, col: 'rgba(109,0,194,0.6)', w: 1, a: 150 },
+  { top: 64, h: 48, dur: 34, rev: true, col: 'rgba(217,139,255,0.18)', w: 1.2, a: 120 },
+  { top: 76, h: 44, dur: 42, rev: false, col: 'rgba(199,85,239,0.26)', w: 1, a: 140 },
+];
+const onda = (a: number) => `M0 200 C 240 ${a}, 480 ${a}, 720 200 C 960 ${400 - a}, 1200 ${400 - a}, 1440 200 C 1680 ${a}, 1920 ${a}, 2160 200 C 2400 ${400 - a}, 2640 ${400 - a}, 2880 200`;
+---
+<section class="diag" id="diagnostico" aria-labelledby="h-diag">
+  <div class="halo" aria-hidden="true"></div>
+  {ondas.map((o) => (
+    <svg aria-hidden="true" viewBox="0 0 2880 400" preserveAspectRatio="none" class:list={['onda', { 'onda-rev': o.rev }]} style={`top:${o.top}%;height:${o.h}%;animation-duration:${o.dur}s`}>
+      <path d={onda(o.a)} fill="none" stroke={o.col} stroke-width={o.w} vector-effect="non-scaling-stroke"/>
+    </svg>
+  ))}
+
+  <div class="container diag-in">
+    <div class="diag-copy">
+      <p class="eyebrow">Diagnóstico gratuito</p>
+      <h2 id="h-diag">Tu web puede <strong>vender más</strong> en 30 días</h2>
+      <p class="lead">Auditamos velocidad, SEO y conversión de tu sitio actual y te damos un plan claro de mejoras. Sin compromiso.</p>
+      <p class="cupo">Máximo 4 diagnósticos al mes</p>
+      <ol class="pasos">
+        <li><span class="n" aria-hidden="true">1</span>Llenas el formulario: 1 minuto.</li>
+        <li><span class="n" aria-hidden="true">2</span>Lo recibimos por WhatsApp o correo, ya organizado, y confirmamos el mismo día hábil.</li>
+        <li><span class="n" aria-hidden="true">3</span>En 48 horas tienes el diagnóstico con el plan de mejoras.</li>
+      </ol>
+      <div class="previa">
+        <span class="previa-k">Vista previa del mensaje</span>
+        <pre data-previa>Hola DKODING, solicito un diagnóstico gratuito de mi sitio web.</pre>
+      </div>
+    </div>
+
+    <form class="form" data-form-diag novalidate>
+      <div class="form-cab"><h3>Cuéntanos de tu negocio</h3><span class="muted form-hint" data-hint aria-live="polite">Falta: nombre y teléfono o correo</span></div>
+      <div class="grid grid-2 campos">
+        <div class="field"><label for="d-nombre">Nombre *</label><input class="input" id="d-nombre" type="text" name="nombre" autocomplete="name" required placeholder="Tu nombre"></div>
+        <div class="field"><label for="d-empresa">Empresa</label><input class="input" id="d-empresa" type="text" name="empresa" autocomplete="organization" placeholder="Nombre de tu negocio"></div>
+        <div class="field"><label for="d-telefono">Teléfono / WhatsApp *</label><input class="input" id="d-telefono" type="tel" name="telefono" autocomplete="tel" inputmode="tel" placeholder="+57 300 000 0000"></div>
+        <div class="field"><label for="d-correo">Correo</label><input class="input" id="d-correo" type="email" name="correo" autocomplete="email" placeholder="nombre@empresa.com"></div>
+        <div class="field"><label for="d-sitio">Sitio web actual (si tienes)</label><input class="input" id="d-sitio" type="url" name="sitio" autocomplete="url" inputmode="url" placeholder="https://"></div>
+        <div class="field">
+          <label for="d-canal">¿Cómo nos conociste?</label>
+          <select class="input" id="d-canal" name="como_nos_conocio">
+            <option value="">Elige una opción</option>
+            {canales.map((c) => <option value={c}>{c}</option>)}
+          </select>
+        </div>
+      </div>
+      <fieldset class="chips-set">
+        <legend>¿Qué te interesa? (puedes marcar varias)</legend>
+        <div class="chips">
+          {intereses.map((it) => (
+            <label class="chip-check"><input type="checkbox" name="interes" value={it}><span class="chip">{it}</span></label>
+          ))}
+        </div>
+      </fieldset>
+      <div class="field"><label for="d-mensaje">Cuéntanos brevemente qué necesitas</label><textarea class="input" id="d-mensaje" name="mensaje" rows="3" placeholder="Ej.: quiero vender por WhatsApp desde la web y aparecer en Google en Cali"></textarea></div>
+      <div class="hp" aria-hidden="true"><label>No llenar este campo<input type="text" name="sitio_web2" tabindex="-1" autocomplete="off"></label></div>
+
+      <p class="error-msg" data-error hidden></p>
+      <div class="acciones">
+        <button type="submit" class="btn btn-primary btn-lg" data-enviar>Pedir mi diagnóstico</button>
+        <a href="#" class="btn btn-wa btn-lg" data-wa aria-disabled="true" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>
+          Enviar por WhatsApp
+        </a>
+        <a href="#" class="btn btn-light btn-lg" data-mail aria-disabled="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          Enviar por correo
+        </a>
+      </div>
+      <div class="estado" data-estado role="status" aria-live="polite" hidden></div>
+      <p class="nota muted">Puedes enviarlo desde aquí o abrirlo en tu WhatsApp o tu correo con todos los datos ya organizados. No compartimos tus datos con terceros.</p>
+    </form>
+  </div>
+</section>
+
+<script>
+  import { enviarFormulario, marcarTiempo } from '../../scripts/formulario';
+  import { SITIO, waLink } from '../../data/sitio';
+
+  const form = document.querySelector<HTMLFormElement>('[data-form-diag]');
+  if (form) {
+    marcarTiempo(form);
+    const previa = document.querySelector<HTMLElement>('[data-previa]')!;
+    const hint = form.querySelector<HTMLElement>('[data-hint]')!;
+    const wa = form.querySelector<HTMLAnchorElement>('[data-wa]')!;
+    const mail = form.querySelector<HTMLAnchorElement>('[data-mail]')!;
+    const enviar = form.querySelector<HTMLButtonElement>('[data-enviar]')!;
+    const error = form.querySelector<HTMLElement>('[data-error]')!;
+    const estado = form.querySelector<HTMLElement>('[data-estado]')!;
+    const v = (n: string) => (form.elements.namedItem(n) as HTMLInputElement | null)?.value.trim() ?? '';
+    const marcados = () => Array.from(form.querySelectorAll<HTMLInputElement>('input[name="interes"]:checked')).map((i) => i.value);
+
+    function texto(): string {
+      const sel = marcados();
+      return [
+        'Hola DKODING, solicito un diagnóstico gratuito de mi sitio web.',
+        '',
+        `Nombre: ${v('nombre') || '-'}`,
+        `Empresa: ${v('empresa') || '-'}`,
+        `Teléfono / WhatsApp: ${v('telefono') || '-'}`,
+        `Correo: ${v('correo') || '-'}`,
+        `Sitio actual: ${v('sitio') || 'aún no tengo'}`,
+        `Me interesa: ${sel.length ? sel.join(', ') : 'por definir'}`,
+        `Necesito: ${v('mensaje') || '-'}`,
+        `Nos conoció por: ${v('como_nos_conocio') || '-'}`,
+        '',
+        'Enviado desde dkoding.net',
+      ].join('\n');
+    }
+    function faltantes(): string[] {
+      const f: string[] = [];
+      if (v('nombre').length < 2) f.push('nombre');
+      if (v('telefono').replace(/\D/g, '').length < 7 && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v('correo'))) f.push('teléfono o correo');
+      return f;
+    }
+    function actualizar() {
+      const t = texto();
+      previa.textContent = t;
+      const f = faltantes();
+      const listo = f.length === 0;
+      hint.textContent = listo ? 'Listo para enviar' : `Falta: ${f.join(' y ')}`;
+      wa.href = waLink(t);
+      mail.href = `mailto:${SITIO.correo}?subject=${encodeURIComponent(`Diagnóstico gratuito · ${v('empresa') || v('nombre') || 'nuevo contacto'}`)}&body=${encodeURIComponent(t)}`;
+      wa.setAttribute('aria-disabled', String(!listo));
+      mail.setAttribute('aria-disabled', String(!listo));
+    }
+    form.addEventListener('input', actualizar);
+    form.addEventListener('change', actualizar);
+    actualizar();
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const f = faltantes();
+      error.hidden = f.length === 0;
+      if (f.length) { error.textContent = `Falta: ${f.join(' y ')}.`; (form.querySelector<HTMLInputElement>(f[0] === 'nombre' ? '#d-nombre' : '#d-telefono'))?.focus(); return; }
+      enviar.disabled = true;
+      enviar.textContent = 'Enviando…';
+      const r = await enviarFormulario(form, {
+        tipo: 'diagnostico',
+        detalle: { intereses: marcados(), sitio: v('sitio') },
+        comoNosConocio: v('como_nos_conocio'),
+      });
+      estado.hidden = false;
+      if (r.ok) {
+        estado.className = 'estado estado-ok';
+        estado.innerHTML = `<strong>Recibido.</strong> Tu solicitud${r.numero ? ` es la <strong>#${r.numero}</strong>` : ''} y te confirmamos el mismo día hábil. Si prefieres, también la puedes adelantar por WhatsApp.`;
+        enviar.textContent = 'Enviado';
+      } else {
+        estado.className = 'estado estado-error';
+        estado.innerHTML = `<strong>No pudimos enviar el mensaje.</strong> ${r.error || ''} <a href="${wa.href}" class="btn btn-wa btn-sm" rel="noopener">Escribir por WhatsApp</a>`;
+        enviar.disabled = false;
+        enviar.textContent = 'Reintentar';
+      }
+    });
+  }
+</script>
+
+<style>
+  .diag { position: relative; overflow: hidden; background: var(--dk-bg); isolation: isolate; }
+  .halo { position: absolute; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 60% 50% at 50% 110%, rgba(109,0,194,0.22), transparent 65%); }
+  .onda { position: absolute; left: 0; width: 200%; z-index: 0; pointer-events: none; animation: ola linear infinite; }
+  .onda-rev { animation-name: ola-rev; }
+  .diag-in { position: relative; z-index: 1; padding-block: clamp(56px, 6vw, 72px) clamp(64px, 7vw, 88px); display: grid; grid-template-columns: 5fr 7fr; gap: 40px; align-items: start; }
+  .diag-copy { min-width: 0; display: flex; flex-direction: column; gap: 20px; }
+  .diag h2 { font-size: clamp(34px, 3.8vw, 56px); }
+  .cupo { color: var(--dk-lila-link); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 13px; font-family: var(--font-title); }
+  .pasos { list-style: none; display: flex; flex-direction: column; gap: 12px; color: var(--dk-soft); font-size: 15px; margin-top: 8px; }
+  .pasos li { display: flex; gap: 12px; align-items: flex-start; }
+  .n { flex: none; display: inline-flex; width: 26px; height: 26px; align-items: center; justify-content: center; border-radius: 50%; background: var(--dk-violet); color: #fff; font-family: var(--font-title); font-weight: 700; font-size: 13px; }
+  .previa { margin-top: 12px; padding: 18px 20px; background: rgba(21,21,24,0.85); border: 1px solid var(--dk-line-2); border-radius: var(--r-card); backdrop-filter: blur(8px); display: flex; flex-direction: column; gap: 8px; }
+  .previa-k { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dk-muted); }
+  .previa pre { margin: 0; font: inherit; font-size: 14px; line-height: 1.5; color: var(--dk-soft); white-space: pre-wrap; word-break: break-word; }
+  .form { min-width: 0; display: flex; flex-direction: column; gap: 16px; padding: clamp(20px, 2.5vw, 32px); background: rgba(15,15,17,0.92); border: 1px solid var(--dk-line-2); border-radius: 12px; backdrop-filter: blur(12px); box-shadow: 0 40px 90px rgba(0,0,0,0.5); }
+  .form-cab { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .form-cab h3 { font-size: 24px; }
+  .form-hint { font-size: 13px; }
+  .campos { gap: 14px; }
+  .form .input { background: var(--dk-surface); }
+  select.input { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23B3B0BC' stroke-width='3'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+  .chips-set { margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 10px; }
+  .chips-set legend { padding: 0; margin-bottom: 10px; font-size: 14px; font-weight: 600; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip-check { position: relative; display: inline-flex; }
+  .chip-check input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
+  .chip-check .chip { cursor: pointer; transition: background-color 0.15s ease, border-color 0.15s ease; }
+  .chip-check input:checked + .chip { background: var(--dk-violet); border-color: var(--dk-violet); color: #fff; }
+  .chip-check input:focus-visible + .chip { outline: 2px solid var(--dk-lila-link); outline-offset: 3px; }
+  .hp { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+  .acciones { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; padding-top: 8px; }
+  .acciones [data-enviar] { grid-column: 1 / -1; }
+  .estado { padding: 14px 16px; border-radius: 6px; font-size: 15px; line-height: 1.5; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+  .estado-ok { background: rgba(91,228,155,0.12); border: 1px solid rgba(91,228,155,0.4); }
+  .estado-error { background: rgba(255,107,107,0.1); border: 1px solid rgba(255,107,107,0.4); }
+  .nota { font-size: 12px; text-align: center; }
+  @keyframes ola { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes ola-rev { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+  @media (max-width: 1024px) { .diag-in { grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 640px) { .acciones { grid-template-columns: minmax(0, 1fr); } .acciones .btn { width: 100%; } }
+</style>

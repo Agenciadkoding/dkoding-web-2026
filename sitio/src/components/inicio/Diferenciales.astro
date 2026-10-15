@@ -1,0 +1,71 @@
+---
+/** Diferenciales (4, con las caras reales del equipo) y banda de 3 garantías. */
+const equipo = [
+  { f: 'dk-equipo-CEO', alt: 'Director de DKODING' },
+  { f: 'dk-equipo-COO', alt: 'Directora de operaciones de DKODING' },
+  { f: 'dk-equipo-comercial-01', alt: 'Integrante del equipo comercial de DKODING' },
+  { f: 'dk-equipo-comercial-02', alt: 'Integrante del equipo comercial de DKODING' },
+];
+---
+<section class="dif" id="garantias" aria-labelledby="h-garantias">
+  <div class="container dif-in">
+    <div class="cabecera reveal">
+      <p class="eyebrow">Diferenciales y garantías</p>
+      <h2 id="h-garantias">¿Por qué <strong>elegirnos</strong>?</h2>
+    </div>
+    <ul class="grid grid-4 lista">
+      <li class="item reveal">
+        <ul class="caras" aria-label="Parte del equipo de DKODING">
+          {equipo.map((p) => <li><img src={`/img/equipo/${p.f}.webp`} alt={p.alt} width="80" height="80" loading="lazy" decoding="async"></li>)}
+        </ul>
+        <h3>Senior de verdad</h3>
+        <p>Arquitectura, SEO y rendimiento pensados desde el día 1, por un equipo real en Cali.</p>
+      </li>
+      <li class="item reveal">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+        <h3>Transparencia total</h3>
+        <p>Backlog, entregables y métricas visibles en tu panel.</p>
+      </li>
+      <li class="item reveal">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <h3>Propiedad de tu proyecto</h3>
+        <p>Código, dominio y accesos a tu nombre.</p>
+      </li>
+      <li class="item reveal">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>
+        <h3>Velocidad como ventaja competitiva</h3>
+        <p>Priorizamos Core Web Vitals y una experiencia que convierte.</p>
+      </li>
+    </ul>
+
+    <div class="garantias">
+      <h3 class="garantias-titulo"><span>Garantías <strong>razonables</strong></span></h3>
+      <div class="garantia g1 reveal"><span class="g-cifra">5 días</span><span class="g-txt">Kickoff en 5 días hábiles tras aprobación y entrega de insumos.</span></div>
+      <div class="garantia g2 reveal"><span class="g-cifra">Checklist</span><span class="g-txt">Core Web Vitals y SEO firmado con entregables y antes/después.</span></div>
+      <div class="garantia g3 reveal"><span class="g-cifra">30 días</span><span class="g-txt">Soporte post-lanzamiento para ajustes menores y estabilización.</span></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .dif-in { padding-block: clamp(56px, 6vw, 72px); display: flex; flex-direction: column; gap: 32px; }
+  .cabecera { display: flex; flex-direction: column; gap: 14px; max-width: 760px; margin-inline: auto; text-align: center; align-items: center; }
+  .lista { list-style: none; }
+  .item { display: flex; flex-direction: column; gap: 14px; padding: 26px 24px; background: var(--dk-surface); border: 1px solid var(--dk-line); border-radius: var(--r-card); color: var(--dk-lila-link); }
+  .item h3 { font-size: 20px; color: var(--dk-text); }
+  .item p { color: var(--dk-muted); font-size: 14px; }
+  .caras { list-style: none; display: flex; align-items: center; }
+  .caras li + li { margin-left: -12px; }
+  .caras img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid var(--dk-surface); }
+  .garantias { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
+  .garantias-titulo { display: flex; align-items: center; font-weight: 300; font-size: 34px; line-height: 1.05; }
+  .garantias-titulo strong { font-weight: 700; }
+  .garantia { padding: 24px; border-radius: var(--r-card); display: flex; flex-direction: column; gap: 6px; color: #fff; }
+  .g1 { background: linear-gradient(135deg, var(--dk-violet), var(--dk-violet-dark)); }
+  .g2 { background: linear-gradient(135deg, #5A0AA6, #2A0A50); }
+  .g3 { background: linear-gradient(135deg, var(--dk-violet-dark), var(--dk-deep)); border: 1px solid rgba(199,85,239,0.3); }
+  .g-cifra { font-family: var(--font-title); font-weight: 700; font-size: 30px; line-height: 1; }
+  .g-txt { font-size: 14px; color: #EADFF7; }
+  @media (max-width: 1024px) { .garantias { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 640px) { .garantias { grid-template-columns: minmax(0, 1fr); } }
+</style>

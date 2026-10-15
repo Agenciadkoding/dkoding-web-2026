@@ -1,0 +1,306 @@
+---
+/**
+ * Hero de la home: fondo de chevrones que reaccionan al puntero (canvas decorativo)
+ * y slider de 3 diapositivas con autoplay de 7 s, pausa al pasar el cursor, flechas y barras de progreso.
+ * Todo el texto de las 3 diapositivas está en el HTML; solo la activa es visible.
+ */
+import { WA_GENERAL } from '../../data/sitio';
+
+const slides = [
+  {
+    eyebrow: 'Web + SEO',
+    t1: 'Diseño de páginas web en Cali que', t2: 'convierten y rankean',
+    sub: 'Desarrollamos páginas web rápidas, seguras y optimizadas para SEO que traen más tráfico, más leads y mejores ventas. Trabajo senior, resultados medibles.',
+    chips: ['Core Web Vitals en verde', 'SEO técnico y on-page desde el día 1', 'Analítica para medir cada conversión'],
+    cta2: 'Ver casos de éxito', href: '/casos-de-exito/',
+    img: '/img/casos/gentia-co.webp', imgH: 1497, imgAlt: 'Sitio web de Gentia, desarrollado por DKODING, en un teléfono',
+    piece: '/img/galeria/galeria-08.jpg', pieceW: 665, pieceH: 938,
+    toastA: 'Nuevo lead desde Google', toastB: '«Vi su web, quiero una cotización»',
+  },
+  {
+    eyebrow: 'Tiendas online y catálogos',
+    t1: 'Tu catálogo vendiendo por WhatsApp', t2: 'las 24 horas',
+    sub: 'Catálogo virtual con pedidos directos, tienda con pasarela de pagos o tienda avanzada con filtros y vitrinas inteligentes. Todo rastreado hasta la venta.',
+    chips: ['Pedidos por WhatsApp', 'Pasarela de pagos y envíos', 'Inventario y promociones'],
+    cta2: 'Ver tiendas construidas', href: '/casos-de-exito/',
+    img: '/img/casos/finecraftsbyandrea.webp', imgH: 1141, imgAlt: 'Tienda online de Fine Crafts by Andrea, desarrollada por DKODING, en un teléfono',
+    piece: '/img/destacados/experiencia-luzma.jpg', pieceW: 1100, pieceH: 1100,
+    toastA: 'Nuevo pedido por WhatsApp', toastB: '«Hola, quiero el catálogo completo»',
+  },
+  {
+    eyebrow: 'Web hotelera',
+    t1: 'Más reservas directas,', t2: 'menos comisiones',
+    sub: 'Páginas web para hoteles con motor de reservas, contenido de impacto y campañas que llevan al huésped a reservar contigo y no con la OTA.',
+    chips: ['Motor de reservas integrado', 'Contenido y fotografía de impacto', 'Campañas en Google y Meta'],
+    cta2: 'Conocer la Trifecta Hotelera', href: '/cotizador/',
+    img: '/img/casos/hotelvillareal-co.webp', imgH: 2260, imgAlt: 'Sitio web del Hotel Villa Real, desarrollado por DKODING, en un teléfono',
+    piece: '/img/destacados/experiencia-colorado.jpg', pieceW: 1100, pieceH: 1100,
+    toastA: 'Nueva reserva directa', toastB: 'Suite · 3 noches · sin comisión',
+  },
+];
+---
+<section class="hero" data-hero aria-label="Presentación">
+  <canvas class="hero-canvas" data-canvas aria-hidden="true"></canvas>
+  <img class="deco deco-a" src="/img/deco/dkoding-deco-04.svg" alt="" aria-hidden="true" width="626" height="917" loading="eager" decoding="async">
+  <img class="deco deco-b" src="/img/deco/dkoding-deco-03.svg" alt="" aria-hidden="true" width="361" height="534" loading="lazy" decoding="async">
+  <img class="deco deco-c" src="/img/deco/dkoding-deco-07.svg" alt="" aria-hidden="true" width="1073" height="1572" loading="lazy" decoding="async">
+  <div class="hero-veil" aria-hidden="true"></div>
+
+  <div class="container hero-in">
+    <div class="hero-slides" data-slides aria-live="off">
+      {slides.map((s, i) => (
+        <article class="slide" data-slide id={`diapositiva-${i + 1}`} role="tabpanel" aria-labelledby={`diapositiva-tab-${i + 1}`} hidden={i !== 0}>
+          <div class="slide-copy">
+            <p class="eyebrow">{s.eyebrow}</p>
+            {i === 0
+              ? <h1 class="hero-title">{s.t1} <strong>{s.t2}</strong></h1>
+              : <p class="hero-title">{s.t1} <strong>{s.t2}</strong></p>}
+            <p class="hero-sub">{s.sub}</p>
+            <ul class="hero-chips">
+              {s.chips.map((c) => <li>{c}</li>)}
+            </ul>
+            <div class="hero-ctas">
+              <a href={WA_GENERAL} class="btn btn-light btn-lg" rel="noopener">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>
+                Quiero una cotización senior
+              </a>
+              <a href={s.href} class="btn btn-secondary btn-lg hero-cta2">{s.cta2}</a>
+            </div>
+          </div>
+          <div class="slide-visual">
+            <figure class="phone">
+              <img src={s.img} alt={s.imgAlt} width="550" height={s.imgH} loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : undefined} decoding="async">
+            </figure>
+            <figure class="piece">
+              <img src={s.piece} alt="Pieza gráfica creada por DKODING" width={s.pieceW} height={s.pieceH} loading={i === 0 ? 'eager' : 'lazy'} decoding="async">
+            </figure>
+            <div class="toast">
+              <span class="toast-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0C0C0C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg></span>
+              <span class="toast-txt"><span class="toast-a">{s.toastA}</span><span class="toast-b">{s.toastB}</span></span>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="hero-controls">
+      <div class="tabs" role="tablist" aria-label="Diapositivas">
+        {slides.map((s, i) => (
+          <button type="button" class="tab" role="tab" id={`diapositiva-tab-${i + 1}`} aria-controls={`diapositiva-${i + 1}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1} data-tab={i}>
+            <span class="barra" aria-hidden="true"><span class="barra-fill" data-barra></span></span>
+            <span class="visually-hidden">Ir a: {s.eyebrow}</span>
+          </button>
+        ))}
+      </div>
+      <div class="arrows">
+        <button type="button" class="arrow" data-prev aria-label="Diapositiva anterior"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button type="button" class="arrow" data-next aria-label="Diapositiva siguiente"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const hero = document.querySelector<HTMLElement>('[data-hero]');
+  if (hero) {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const estatico = reduce || window.matchMedia('(hover: none)').matches || window.innerWidth < 1024;
+    const slides = Array.from(hero.querySelectorAll<HTMLElement>('[data-slide]'));
+    const tabs = Array.from(hero.querySelectorAll<HTMLButtonElement>('[data-tab]'));
+    const barras = Array.from(hero.querySelectorAll<HTMLElement>('[data-barra]'));
+    const vivo = hero.querySelector<HTMLElement>('[data-slides]');
+    const AUTO = 7000;
+    const N = slides.length;
+    let idx = 0;
+    let transcurrido = 0;
+    let pausado = false;
+    let visible = true;
+    let ultimo = performance.now();
+
+    /* ---------- slider ---------- */
+    function ir(i: number, manual = false) {
+      idx = (i + N) % N;
+      slides.forEach((s, k) => {
+        const on = k === idx;
+        s.hidden = !on;
+        s.classList.toggle('is-in', on);
+      });
+      tabs.forEach((t, k) => {
+        t.setAttribute('aria-selected', k === idx ? 'true' : 'false');
+        t.tabIndex = k === idx ? 0 : -1;
+      });
+      transcurrido = 0;
+      if (manual && vivo) vivo.setAttribute('aria-live', 'polite');
+      pintarBarras();
+    }
+    function pintarBarras() {
+      const p = reduce ? 1 : Math.min(1, transcurrido / AUTO);
+      barras.forEach((b, k) => { b.style.width = k === idx ? `${Math.round(p * 100)}%` : '0%'; });
+    }
+    tabs.forEach((t, k) => {
+      t.addEventListener('click', () => ir(k, true));
+      t.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+          e.preventDefault();
+          ir(idx + (e.key === 'ArrowRight' ? 1 : -1), true);
+          tabs[idx].focus();
+        }
+      });
+    });
+    hero.querySelector('[data-prev]')?.addEventListener('click', () => ir(idx - 1, true));
+    hero.querySelector('[data-next]')?.addEventListener('click', () => ir(idx + 1, true));
+    hero.addEventListener('mouseenter', () => { pausado = true; });
+    hero.addEventListener('mouseleave', () => { pausado = false; });
+    hero.addEventListener('focusin', () => { pausado = true; });
+    hero.addEventListener('focusout', () => { pausado = false; });
+    document.addEventListener('visibilitychange', () => { visible = !document.hidden; ultimo = performance.now(); });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver((en) => { visible = en[0].isIntersecting && !document.hidden; ultimo = performance.now(); }, { threshold: 0.05 }).observe(hero);
+    }
+    pintarBarras();
+
+    /* ---------- chevrones ---------- */
+    const canvas = hero.querySelector<HTMLCanvasElement>('[data-canvas]');
+    const ctx = canvas?.getContext('2d');
+    const W = 1440, H = 820, COLS = 16, ROWS = 9, ALCANCE = 380;
+    const SX = W / COLS, SY = H / ROWS;
+    const puntos: { x: number; y: number }[] = [];
+    for (let r = 0; r < ROWS; r++) for (let c = 0; c < COLS; c++) {
+      const i = r * COLS + c;
+      const jx = (((i * 7919) % 23) / 23 - 0.5) * SX * 0.5;
+      const jy = (((i * 104729) % 19) / 19 - 0.5) * SY * 0.5;
+      puntos.push({ x: SX * (c + 0.5) + jx + (r % 2 ? SX * 0.35 : 0), y: SY * (r + 0.5) + jy });
+    }
+    const A = [0x3d, 0x0a, 0x6e], B = [0xc7, 0x55, 0xef];
+    let escala = 1, offX = 0, offY = 0, rw = 0, rh = 0, dpr = 1;
+    let mx = -2000, my = -2000, tx = -2000, ty = -2000, hayPuntero = false;
+    let t = estatico ? 10 : 0;
+
+    function medir() {
+      if (!canvas) return;
+      const r = hero!.getBoundingClientRect();
+      rw = r.width; rh = r.height;
+      dpr = Math.min(2, window.devicePixelRatio || 1);
+      canvas.width = Math.round(rw * dpr); canvas.height = Math.round(rh * dpr);
+      escala = Math.max(rw / W, rh / H);
+      offX = (rw - W * escala) / 2; offY = (rh - H * escala) / 2;
+    }
+    function dibujar() {
+      if (!ctx || !canvas) return;
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.setTransform(dpr * escala, 0, 0, dpr * escala, dpr * offX, dpr * offY);
+      if (hayPuntero) {
+        const g = ctx.createRadialGradient(mx, my, 0, mx, my, 300);
+        g.addColorStop(0, 'rgba(109,0,194,0.55)'); g.addColorStop(0.6, 'rgba(109,0,194,0.12)'); g.addColorStop(1, 'rgba(109,0,194,0)');
+        ctx.fillStyle = g; ctx.beginPath(); ctx.arc(mx, my, 300, 0, Math.PI * 2); ctx.fill();
+      }
+      ctx.lineCap = 'square'; ctx.lineJoin = 'miter';
+      for (const p of puntos) {
+        const dx = mx - p.x, dy = my - p.y;
+        let k = hayPuntero ? Math.max(0, 1 - Math.hypot(dx, dy) / ALCANCE) : 0;
+        k *= k;
+        const idle = 0.5 + 0.5 * Math.sin(t + p.x * 0.006 + p.y * 0.004 + idx * 1.7);
+        const ang = hayPuntero ? Math.atan2(dy, dx) * k : 0;
+        const s = 0.8 + 0.2 * idle + 0.9 * k;
+        const op = 0.16 + 0.18 * idle + 0.66 * k;
+        const m = Math.min(1, 0.4 + k);
+        ctx.save();
+        ctx.translate(p.x, p.y); ctx.rotate(ang); ctx.scale(s, s);
+        ctx.globalAlpha = op;
+        ctx.strokeStyle = `rgb(${Math.round(A[0] + (B[0] - A[0]) * m)},${Math.round(A[1] + (B[1] - A[1]) * m)},${Math.round(A[2] + (B[2] - A[2]) * m)})`;
+        ctx.lineWidth = 1.5 + 0.9 * k;
+        ctx.beginPath(); ctx.moveTo(-5.5, -8); ctx.lineTo(2.5, 0); ctx.lineTo(-5.5, 8); ctx.stroke();
+        ctx.restore();
+      }
+    }
+    if (!estatico) {
+      hero.addEventListener('mousemove', (e) => {
+        const r = hero!.getBoundingClientRect();
+        tx = (e.clientX - r.left - offX) / escala; ty = (e.clientY - r.top - offY) / escala;
+        if (!hayPuntero) { mx = tx; my = ty; }
+        hayPuntero = true;
+      });
+      hero.addEventListener('mouseleave', () => { hayPuntero = false; });
+    }
+    medir(); dibujar();
+    window.addEventListener('resize', () => { medir(); dibujar(); });
+
+    /* ---------- bucle ---------- */
+    function cuadro(ahora: number) {
+      const dt = Math.min(100, ahora - ultimo);
+      ultimo = ahora;
+      if (visible) {
+        if (!reduce && !pausado) {
+          transcurrido += dt;
+          if (transcurrido >= AUTO) { ir(idx + 1); if (vivo) vivo.setAttribute('aria-live', 'off'); }
+          pintarBarras();
+        }
+        if (!estatico) {
+          t += dt * 0.000643;
+          mx += (tx - mx) * 0.18; my += (ty - my) * 0.18;
+          dibujar();
+        }
+      }
+      requestAnimationFrame(cuadro);
+    }
+    if (!reduce) requestAnimationFrame(cuadro);
+  }
+</script>
+
+<style>
+  .hero { position: relative; overflow: hidden; background: var(--dk-bg); isolation: isolate; }
+  .hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+  .deco { position: absolute; pointer-events: none; z-index: 0; }
+  .deco-a { right: 2%; top: -18%; width: 34%; opacity: 0.6; animation: flota 14s ease-in-out infinite; }
+  .deco-b { right: 30%; bottom: -22%; width: 16%; opacity: 0.4; animation: flota2 11s ease-in-out infinite; }
+  .deco-c { left: -6%; bottom: -30%; width: 22%; opacity: 0.5; animation: flota 17s ease-in-out infinite reverse; }
+  .hero-veil { position: absolute; inset: 0; z-index: 0; pointer-events: none; background: linear-gradient(90deg, rgba(12,12,12,0.88) 0%, rgba(12,12,12,0.58) 45%, rgba(12,12,12,0.05) 75%); }
+  .hero-in { position: relative; z-index: 1; padding-block: clamp(36px, 5vw, 64px) 28px; }
+  .hero-slides { min-height: 560px; display: grid; }
+  .slide { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px; align-items: center; }
+  .slide[hidden] { display: none; }
+  .slide.is-in { animation: entra 0.6s ease both; }
+  .slide-copy { grid-column: span 7; min-width: 0; display: flex; flex-direction: column; gap: 22px; }
+  .hero-title { margin: 0; font-family: var(--font-title); font-weight: 300; font-size: clamp(42px, 5.2vw, 78px); line-height: 1.02; letter-spacing: -0.01em; text-wrap: balance; }
+  .hero-title strong { font-weight: 700; color: #fff; }
+  .hero-sub { max-width: 580px; font-size: clamp(17px, 1.3vw, 19px); color: #C9C5D2; }
+  .hero-chips { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+  .hero-chips li { padding: 10px 14px; border: 1px solid var(--dk-line-2); border-radius: 6px; background: rgba(21,21,24,0.7); font-size: 14px; font-weight: 500; backdrop-filter: blur(6px); }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; padding-top: 6px; }
+  .hero-cta2 { background: rgba(12,12,12,0.5); backdrop-filter: blur(6px); }
+  .slide-visual { grid-column: span 5; min-width: 0; position: relative; aspect-ratio: 20 / 21; }
+  .phone { position: absolute; right: 4%; top: 0; width: 56%; aspect-ratio: 550 / 1000; border-radius: 28px; overflow: hidden; border: 6px solid #1E1E22; background: #1E1E22; box-shadow: 0 40px 90px rgba(0,0,0,0.65); z-index: 2; }
+  .phone img, .piece img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .piece { position: absolute; left: 0; top: 14%; width: 42%; aspect-ratio: 665 / 938; border-radius: 12px; overflow: hidden; border: 1px solid var(--dk-line-2); box-shadow: 0 30px 60px rgba(0,0,0,0.55); transform: rotate(-6deg); z-index: 1; background: #1E1E22; }
+  .toast { position: absolute; left: 6%; bottom: 4%; z-index: 3; display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: rgba(21,21,24,0.92); border: 1px solid var(--dk-line-2); border-radius: 6px; backdrop-filter: blur(8px); max-width: 88%; }
+  .toast-ico { display: inline-flex; width: 36px; height: 36px; border-radius: 50%; background: var(--dk-wa); align-items: center; justify-content: center; flex: none; }
+  .toast-txt { display: flex; flex-direction: column; min-width: 0; }
+  .toast-a { font-size: 12px; color: var(--dk-muted); }
+  .toast-b { font-weight: 600; font-size: 14px; }
+  .hero-controls { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; padding-top: 16px; }
+  .tabs { display: flex; gap: 10px; align-items: center; }
+  .tab { display: block; width: 28px; height: 44px; padding: 20px 0; border: 0; background: transparent; transition: width 0.3s ease; }
+  .tab[aria-selected="true"] { width: 72px; }
+  .barra { display: block; height: 3px; border-radius: 2px; background: rgba(255,255,255,0.22); overflow: hidden; }
+  .barra-fill { display: block; height: 100%; width: 0; background: var(--dk-lila); }
+  .arrows { display: flex; gap: 8px; }
+  .arrow { width: 44px; height: 44px; border-radius: 4px; border: 1px solid var(--dk-line-3); background: rgba(12,12,12,0.5); color: var(--dk-text); display: inline-flex; align-items: center; justify-content: center; }
+  .arrow:hover { border-color: var(--dk-text); }
+  @keyframes entra { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  @keyframes flota { 0%, 100% { transform: translate3d(0,0,0) rotate(0); } 50% { transform: translate3d(0,-28px,0) rotate(3deg); } }
+  @keyframes flota2 { 0%, 100% { transform: translate3d(0,0,0) rotate(0); } 50% { transform: translate3d(18px,22px,0) rotate(-4deg); } }
+  @media (max-width: 1024px) {
+    .hero-veil { background: linear-gradient(180deg, rgba(12,12,12,0.86) 0%, rgba(12,12,12,0.6) 60%, rgba(12,12,12,0.2) 100%); }
+    .hero-slides { min-height: 0; }
+    .slide { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+    .slide-copy, .slide-visual { grid-column: auto; }
+    .slide-visual { max-width: 520px; width: 100%; }
+  }
+  @media (max-width: 640px) {
+    .hero-ctas .btn { width: 100%; }
+    .hero-sub { font-size: 17px; }
+    .deco-a { width: 70%; right: -20%; top: -8%; }
+    .deco-c { width: 50%; }
+  }
+</style>

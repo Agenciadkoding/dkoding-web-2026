@@ -1,0 +1,134 @@
+---
+/**
+ * Bloque de prueba social: estrellas que se encienden, contadores que suben al entrar en pantalla
+ * y doble marquee CSS con los logos de clientes.
+ */
+const fila1 = [
+  { n: '01', alt: 'Dimark' },
+  { n: '02', alt: 'Colorado Hardwood Design' },
+  { n: '03', alt: 'Jhoana Pérez, psicóloga' },
+  { n: '04', alt: 'OkVet' },
+  { n: '05', alt: 'Shaddai, instituto técnico' },
+];
+const fila2 = [
+  { n: '06', alt: 'Abab, marcas y patentes' },
+  { n: '07', alt: 'Hosroom' },
+  { n: '08', alt: 'SeguriServer' },
+  { n: '09', alt: 'Alternativas Verticales' },
+  { n: '10', alt: 'Uniformes y Bordados' },
+];
+const estrella = 'M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z';
+---
+<section class="prueba" id="prueba" aria-labelledby="h-prueba" data-prueba>
+  <img class="deco deco-a" src="/img/deco/dkoding-deco-04.svg" alt="" aria-hidden="true" width="626" height="917" loading="lazy" decoding="async">
+  <img class="deco deco-b" src="/img/deco/dkoding-deco-05.svg" alt="" aria-hidden="true" width="1157" height="855" loading="lazy" decoding="async">
+  <img class="deco deco-c" src="/img/deco/dkoding-deco-03.svg" alt="" aria-hidden="true" width="361" height="534" loading="lazy" decoding="async">
+
+  <div class="container prueba-in">
+    <div class="prueba-grid">
+      <div class="prueba-copy">
+        <!-- pendiente de fuente: reseñas -->
+        <div class="estrellas-fila">
+          <span class="estrellas" aria-hidden="true">
+            {[0, 1, 2, 3, 4].map((i) => <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" style={`--i:${i}`}><path d={estrella}/></svg>)}
+          </span>
+          <span class="satis"><span data-cuenta="5" data-dec="1">5</span>/5 en satisfacción</span>
+        </div>
+        <!-- pendiente de fuente: reseñas -->
+        <h2 id="h-prueba"><strong class="degradado">+<span data-cuenta="30">30</span> proyectos auditados</strong> y optimizados en Colombia</h2>
+        <p class="lead">Propiedad total del código. Soporte local. Resultados medibles desde el primer mes.</p>
+      </div>
+      <dl class="cifras">
+        <div class="cifra-box"><dt><span data-cuenta="12">12</span></dt><dd>años construyendo sitios que venden</dd></div>
+        <div class="cifra-box"><dt><span data-cuenta="100">100</span> %</dt><dd>propiedad del código y los accesos</dd></div>
+        <div class="cifra-box"><dt>&lt; <span data-cuenta="1.8" data-dec="1">1,8</span> s</dt><dd>carga garantizada en móvil (LCP)</dd></div>
+        <div class="cifra-box cifra-violeta"><dt><span data-cuenta="30">30</span> días</dt><dd>de soporte post-lanzamiento incluido</dd></div>
+      </dl>
+    </div>
+
+    <div class="marquees">
+      <div class="marquee">
+        <div class="marquee-track">
+          {fila1.map((l) => <span class="logo-box"><img src={`/img/clientes/logo-clientes-${l.n}.svg`} alt={l.alt} width="123" height="40" decoding="async"></span>)}
+          {fila1.map((l) => <span class="logo-box" aria-hidden="true"><img src={`/img/clientes/logo-clientes-${l.n}.svg`} alt="" width="123" height="40" decoding="async"></span>)}
+        </div>
+      </div>
+      <div class="marquee">
+        <div class="marquee-track marquee-rev">
+          {fila2.map((l) => <span class="logo-box"><img src={`/img/clientes/logo-clientes-${l.n}.svg`} alt={l.alt} width="123" height="40" decoding="async"></span>)}
+          {fila2.map((l) => <span class="logo-box" aria-hidden="true"><img src={`/img/clientes/logo-clientes-${l.n}.svg`} alt="" width="123" height="40" decoding="async"></span>)}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const sec = document.querySelector<HTMLElement>('[data-prueba]');
+  if (sec) {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const nums = Array.from(sec.querySelectorAll<HTMLElement>('[data-cuenta]'));
+    const fmt = (v: number, dec: number) => (dec ? v.toFixed(dec) : String(Math.round(v))).replace('.', ',');
+    if (!reduce) nums.forEach((n) => { n.textContent = fmt(0, Number(n.dataset.dec || 0)); });
+    const final = () => nums.forEach((n) => { n.textContent = fmt(Number(n.dataset.cuenta), Number(n.dataset.dec || 0)).replace(/,0$/, ''); });
+    function contar() {
+      sec!.classList.add('is-on');
+      if (reduce) { final(); return; }
+      const inicio = performance.now();
+      const dur = 2600;
+      function paso(ahora: number) {
+        const p = Math.min(1, (ahora - inicio) / dur);
+        const e = 1 - Math.pow(1 - p, 3);
+        nums.forEach((n) => { n.textContent = fmt(Number(n.dataset.cuenta) * e, Number(n.dataset.dec || 0)); });
+        if (p < 1) requestAnimationFrame(paso); else final();
+      }
+      requestAnimationFrame(paso);
+    }
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((en) => { if (en[0].isIntersecting) { contar(); io.disconnect(); } }, { threshold: 0.25 });
+      io.observe(sec);
+    } else contar();
+  }
+</script>
+
+<style>
+  .prueba { position: relative; overflow: hidden; background: #0F0F11; border-top: 1px solid var(--dk-line); border-bottom: 1px solid var(--dk-line); isolation: isolate; }
+  .deco { position: absolute; pointer-events: none; z-index: 0; }
+  .deco-a { right: -4%; top: -20%; width: 30%; opacity: 0.5; animation: pulsa 6s ease-in-out infinite; }
+  .deco-b { left: -10%; top: -10%; width: 34%; opacity: 0.5; }
+  .deco-c { left: 38%; bottom: -30%; width: 10%; opacity: 0.3; animation: pulsa 8s ease-in-out infinite; }
+  .prueba-in { position: relative; z-index: 1; padding-block: clamp(56px, 6vw, 72px) clamp(48px, 5vw, 64px); display: flex; flex-direction: column; gap: 40px; }
+  .prueba-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px; align-items: end; }
+  .prueba-copy { grid-column: span 7; min-width: 0; display: flex; flex-direction: column; gap: 14px; }
+  .estrellas-fila { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .estrellas { display: inline-flex; gap: 4px; color: #FFB224; }
+  .estrellas svg { opacity: 0.15; transition: opacity 0.6s ease; transition-delay: calc(var(--i) * 0.25s); }
+  .is-on .estrellas svg { opacity: 1; }
+  .satis { color: #FFB224; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 14px; font-family: var(--font-title); font-variant-numeric: tabular-nums; }
+  .prueba h2 { font-size: clamp(38px, 4.6vw, 68px); line-height: 1; }
+  .degradado { background: linear-gradient(90deg, #fff, var(--dk-lila-link)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .cifras { grid-column: span 5; min-width: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .cifra-box { padding: 20px; background: rgba(21,21,24,0.85); border: 1px solid var(--dk-line-2); border-radius: var(--r-card); display: flex; flex-direction: column; gap: 4px; backdrop-filter: blur(6px); }
+  .cifra-box dt { font-family: var(--font-title); font-weight: 700; font-size: 40px; line-height: 1; color: #fff; font-variant-numeric: tabular-nums; }
+  .cifra-box dd { margin: 0; font-size: 13px; color: var(--dk-muted); }
+  .cifra-violeta { background: linear-gradient(135deg, var(--dk-violet), var(--dk-violet-dark)); border-color: rgba(255,255,255,0.12); }
+  .cifra-violeta dd { color: #EADFF7; }
+  .marquees { display: flex; flex-direction: column; gap: 14px; }
+  .marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+  .marquee-track { display: flex; width: max-content; align-items: center; animation: desfila 34s linear infinite; }
+  .marquee-rev { animation: desfila-rev 40s linear infinite; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  .logo-box { display: inline-flex; align-items: center; height: 76px; padding: 0 28px; margin-right: 20px; background: rgba(21,21,24,0.9); border: 1px solid var(--dk-line-2); border-radius: var(--r-card); }
+  .logo-box img { height: 40px; width: auto; }
+  @keyframes desfila { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes desfila-rev { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+  @keyframes pulsa { 0%, 100% { transform: scale(1); opacity: 0.6; } 50% { transform: scale(1.08); opacity: 1; } }
+  @media (max-width: 1024px) {
+    .prueba-grid { grid-template-columns: minmax(0, 1fr); }
+    .prueba-copy, .cifras { grid-column: auto; }
+  }
+  @media (max-width: 480px) {
+    .cifras { grid-template-columns: minmax(0, 1fr); }
+    .cifra-box dt { font-size: 34px; }
+  }
+</style>

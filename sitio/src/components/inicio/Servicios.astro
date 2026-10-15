@@ -1,0 +1,75 @@
+---
+/** Servicios incluidos en todo proyecto web (8, sin precios) y fila de 6 enlaces a las landings de servicio. */
+import { SERVICIOS } from '../../data/sitio';
+const incluidos = [
+  { t: 'Desarrollo web profesional', d: 'WordPress avanzado o headless (Astro / Next.js) según el proyecto.' },
+  { t: 'SEO on-page y técnico', d: 'Estructura, metadatos, schema, enlazado interno, indexación.' },
+  { t: 'Optimización de rendimiento', d: 'Core Web Vitals, carga diferida, compresión, WebP y AVIF.' },
+  { t: 'Analítica y medición', d: 'GA4, GTM, conversiones, eventos, CRM o Zapier si aplica.' },
+  { t: 'Seguridad y mantenimiento', d: 'HTTPS, copias de seguridad, endurecimiento, actualizaciones.', lila: true },
+  { t: 'Contenido y copy SEO', d: 'Páginas clave, landings de campaña, blog base.', lila: true },
+  { t: 'Integraciones', d: 'Pasarelas, chat, WhatsApp, reservas, leads a CRM.', lila: true },
+  { t: 'Monitoreo y soporte', d: 'Disponibilidad, velocidad y copias de seguridad vigiladas desde nuestro panel.', destacado: true },
+];
+---
+<section class="servicios" id="servicios" aria-labelledby="h-servicios">
+  <div class="aurora" aria-hidden="true"></div>
+  <img class="deco" src="/img/deco/dkoding-deco-02.svg" alt="" aria-hidden="true" width="1246" height="920" loading="lazy" decoding="async">
+  <div class="container servicios-in">
+    <div class="cabecera reveal">
+      <p class="eyebrow">Servicios incluidos</p>
+      <h2 id="h-servicios">Todo lo que tu web necesita para <strong>rendir al máximo</strong></h2>
+    </div>
+    <ul class="grid grid-4 lista">
+      {incluidos.map((s) => (
+        <li class:list={['item reveal', { 'item-lila': s.lila, 'item-destacado': s.destacado }]}>
+          <h3>{s.t}</h3>
+          <p>{s.d}</p>
+        </li>
+      ))}
+    </ul>
+
+    <div class="mas">
+      <h3 class="mas-titulo">¿Necesitas más que la web? <span class="muted">Así te acompañamos.</span></h3>
+      <ul class="grid grid-3 landings">
+        {SERVICIOS.map((s) => (
+          <li>
+            <a href={s.url} class="landing reveal" aria-current={s.url === '/' ? 'page' : undefined}>
+              <span class="landing-corto">{s.corto}</span>
+              <span class="landing-nombre">{s.nombre}</span>
+              <span class="landing-desc">{s.desc}</span>
+              <span class="landing-ir" aria-hidden="true">»</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .servicios { position: relative; overflow: hidden; isolation: isolate; }
+  .aurora { position: absolute; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 50% 60% at 20% 30%, rgba(109,0,194,0.45), transparent 60%), radial-gradient(ellipse 40% 50% at 80% 70%, rgba(199,85,239,0.28), transparent 60%), radial-gradient(ellipse 30% 40% at 60% 10%, rgba(61,10,110,0.6), transparent 60%); background-size: 200% 200%; animation: aurora 18s ease-in-out infinite; }
+  .deco { position: absolute; right: -12%; top: -10%; width: 36%; opacity: 0.6; pointer-events: none; z-index: 0; animation: flota 15s ease-in-out infinite; }
+  .servicios-in { position: relative; z-index: 1; padding-block: clamp(56px, 6vw, 72px); display: flex; flex-direction: column; gap: 40px; }
+  .cabecera { display: flex; flex-direction: column; gap: 14px; max-width: 760px; margin-inline: auto; text-align: center; align-items: center; }
+  .lista { list-style: none; }
+  .item { display: flex; flex-direction: column; gap: 10px; padding: 26px 24px; background: var(--dk-surface); border: 1px solid var(--dk-line); border-top: 3px solid var(--dk-violet); border-radius: var(--r-card); }
+  .item h3 { font-size: 22px; }
+  .item p { color: var(--dk-muted); font-size: 14px; }
+  .item-lila { border-top-color: #A93FEA; }
+  .item-destacado { background: linear-gradient(135deg, var(--dk-violet), var(--dk-violet-dark)); border-color: rgba(255,255,255,0.12); border-top-color: var(--dk-lila); }
+  .item-destacado p { color: #EADFF7; }
+  .mas { display: flex; flex-direction: column; gap: 18px; padding-top: 8px; }
+  .mas-titulo { font-size: 24px; font-weight: 700; }
+  .mas-titulo .muted { font-weight: 300; }
+  .landings { list-style: none; }
+  .landing { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: 'corto ir' 'nombre ir' 'desc ir'; gap: 4px 12px; align-items: center; height: 100%; padding: 20px 22px; background: rgba(21,21,24,0.7); border: 1px solid var(--dk-line); border-radius: var(--r-card); color: var(--dk-text); transition: border-color 0.2s ease, transform 0.2s ease; }
+  .landing:hover { border-color: var(--dk-lila); color: var(--dk-text); transform: translateY(-2px); }
+  .landing-corto { grid-area: corto; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dk-lila-link); }
+  .landing-nombre { grid-area: nombre; font-family: var(--font-title); font-weight: 700; font-size: 22px; line-height: 1.1; }
+  .landing-desc { grid-area: desc; font-size: 14px; color: var(--dk-muted); }
+  .landing-ir { grid-area: ir; font-family: var(--font-title); font-weight: 700; font-size: 28px; color: var(--dk-lila-link); }
+  @keyframes aurora { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+  @keyframes flota { 0%, 100% { transform: translate3d(0,0,0) rotate(0); } 50% { transform: translate3d(0,-28px,0) rotate(3deg); } }
+</style>

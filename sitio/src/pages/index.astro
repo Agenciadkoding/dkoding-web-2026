@@ -1,6 +1,46 @@
 ---
+/** Home: diseño de páginas web en Cali. Porta el tablero diseno/admin/Landing.dc.html. */
 import Base from '../layouts/Base.astro';
+import { servicioSchema, faqSchema } from '../data/schema';
+import { FAQS } from '../components/inicio/faq';
+import Hero from '../components/inicio/Hero.astro';
+import PruebaSocial from '../components/inicio/PruebaSocial.astro';
+import Beneficios from '../components/inicio/Beneficios.astro';
+import Servicios from '../components/inicio/Servicios.astro';
+import Casos from '../components/inicio/Casos.astro';
+import Proceso from '../components/inicio/Proceso.astro';
+import Diferenciales from '../components/inicio/Diferenciales.astro';
+import Seguimiento from '../components/inicio/Seguimiento.astro';
+import Faq from '../components/inicio/Faq.astro';
+import Diagnostico from '../components/inicio/Diagnostico.astro';
+
+const titulo = 'Diseño de páginas web en Cali';
+const descripcion = 'Diseño de páginas web en Cali con diseño web profesional: sitios rápidos, seguros y optimizados para SEO que convierten. 12 años de experiencia. Cotiza por WhatsApp.';
+const schema = [
+  servicioSchema({
+    nombre: 'Diseño y desarrollo de páginas web en Cali',
+    tipo: 'Desarrollo web',
+    descripcion: 'Diseño web profesional en Cali: landings, sitios corporativos, catálogos virtuales y tiendas online rápidos, seguros y optimizados para SEO.',
+    url: '/',
+    ofertas: [
+      { nombre: 'Landing page' },
+      { nombre: 'Sitio web corporativo' },
+      { nombre: 'Catálogo virtual con pedidos por WhatsApp' },
+      { nombre: 'Tienda online' },
+    ],
+  }),
+  faqSchema(FAQS.map((f) => ({ q: f.q, a: f.a }))),
+];
 ---
-<Base titulo="Diseño de páginas web en Cali" descripcion="Base provisional.">
-  <section class="section container"><h1>Base <strong>lista</strong></h1></section>
+<Base titulo={titulo} descripcion={descripcion} ruta="/" schema={schema}>
+  <Hero />
+  <PruebaSocial />
+  <Beneficios />
+  <Servicios />
+  <Casos />
+  <Proceso />
+  <Diferenciales />
+  <Seguimiento />
+  <Faq />
+  <Diagnostico />
 </Base>

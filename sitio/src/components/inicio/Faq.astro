@@ -1,0 +1,107 @@
+---
+/** FAQ (7): botones a la izquierda, respuesta a la derecha. Todas las respuestas van en el HTML; solo una es visible. */
+import { FAQS } from './faq';
+import { waLink } from '../../data/sitio';
+const wa = waLink('Hola, tengo una pregunta sobre sus servicios');
+const num = (i: number) => String(i + 1).padStart(2, '0');
+---
+<section class="faq" id="faq" aria-labelledby="h-faq" data-faq>
+  <img class="deco" src="/img/deco/dkoding-deco-07.svg" alt="" aria-hidden="true" width="1073" height="1572" loading="lazy" decoding="async">
+  <div class="container faq-in">
+    <div class="faq-izq">
+      <p class="eyebrow eyebrow-oscuro">FAQ</p>
+      <h2 id="h-faq">Lo que todos preguntan <strong>antes de contratar</strong></h2>
+      <p class="faq-intro">Elige una pregunta. Si la tuya no está, escríbenos por WhatsApp y te respondemos en horario laboral.</p>
+      <div class="tabs" role="tablist" aria-label="Preguntas frecuentes" aria-orientation="vertical">
+        {FAQS.map((f, i) => (
+          <button type="button" class="tab" role="tab" id={`faq-tab-${i + 1}`} aria-controls={`faq-panel-${i + 1}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1} data-tab={i}>
+            <span class="tab-n" aria-hidden="true">{num(i)}</span>
+            <span class="tab-q">{f.q}</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <div class="faq-der">
+      <div class="aurora" aria-hidden="true"></div>
+      {FAQS.map((f, i) => (
+        <div class="panel" role="tabpanel" id={`faq-panel-${i + 1}`} aria-labelledby={`faq-tab-${i + 1}`} tabindex="0" hidden={i !== 0} data-panel>
+          <span class="gran-n" aria-hidden="true">{num(i)}</span>
+          <div class="panel-txt">
+            <span class="panel-k">Pregunta {num(i)} de {num(FAQS.length - 1)}</span>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </div>
+        </div>
+      ))}
+      <div class="panel-pie">
+        <span class="muted">¿No era tu pregunta?</span>
+        <a href={wa} class="btn btn-primary btn-sm" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>
+          Preguntar por WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const faq = document.querySelector<HTMLElement>('[data-faq]');
+  if (faq) {
+    const tabs = Array.from(faq.querySelectorAll<HTMLButtonElement>('[data-tab]'));
+    const panels = Array.from(faq.querySelectorAll<HTMLElement>('[data-panel]'));
+    let idx = 0;
+    function ir(i: number, enfocar = false) {
+      idx = (i + tabs.length) % tabs.length;
+      tabs.forEach((t, k) => { t.setAttribute('aria-selected', k === idx ? 'true' : 'false'); t.tabIndex = k === idx ? 0 : -1; });
+      panels.forEach((p, k) => { p.hidden = k !== idx; p.classList.toggle('is-in', k === idx); });
+      if (enfocar) tabs[idx].focus();
+    }
+    tabs.forEach((t, k) => {
+      t.addEventListener('click', () => ir(k));
+      t.addEventListener('keydown', (e) => {
+        const m: Record<string, number> = { ArrowDown: idx + 1, ArrowRight: idx + 1, ArrowUp: idx - 1, ArrowLeft: idx - 1, Home: 0, End: tabs.length - 1 };
+        if (e.key in m) { e.preventDefault(); ir(m[e.key], true); }
+      });
+    });
+  }
+</script>
+
+<style>
+  .faq { position: relative; overflow: hidden; background: #F4F2F8; color: var(--dk-bg); isolation: isolate; }
+  .deco { position: absolute; right: -8%; top: -20%; width: 30%; opacity: 0.45; pointer-events: none; z-index: 0; animation: flota 15s ease-in-out infinite; }
+  .faq-in { position: relative; z-index: 1; padding-block: clamp(56px, 6vw, 72px); display: grid; grid-template-columns: 5fr 7fr; gap: 32px; align-items: stretch; }
+  .faq-izq { min-width: 0; display: flex; flex-direction: column; gap: 20px; }
+  .eyebrow-oscuro { color: var(--dk-violet); }
+  .faq h2 strong { color: var(--dk-violet); }
+  .faq-intro { color: #5C5968; }
+  .tabs { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+  .tab { display: flex; align-items: center; gap: 14px; width: 100%; min-height: 56px; padding: 12px 16px; border-radius: 6px; text-align: left; background: #fff; color: var(--dk-bg); border: 1px solid rgba(12,12,12,0.1); transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease; }
+  .tab:hover { border-color: var(--dk-violet); }
+  .tab[aria-selected="true"] { background: var(--dk-violet); color: #fff; border-color: var(--dk-violet); box-shadow: 0 12px 30px rgba(109,0,194,0.3); }
+  .tab:focus-visible { outline-color: var(--dk-violet); }
+  .tab-n { font-family: var(--font-title); font-weight: 700; font-size: 14px; letter-spacing: 0.06em; opacity: 0.7; min-width: 26px; }
+  .tab-q { flex: 1; font-weight: 600; font-size: 16px; }
+  .faq-der { position: relative; min-width: 0; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; padding: 40px 48px; min-height: 500px; background: var(--dk-bg); color: var(--dk-text); border-radius: 14px; box-shadow: 0 40px 90px rgba(61,10,110,0.25); }
+  .aurora { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 60% 60% at 80% 20%, rgba(109,0,194,0.55), transparent 60%), radial-gradient(ellipse 40% 50% at 10% 90%, rgba(199,85,239,0.25), transparent 60%); background-size: 200% 200%; animation: aurora 12s ease-in-out infinite; }
+  .panel { position: relative; flex: 1; }
+  .panel[hidden] { display: none; }
+  .panel.is-in .panel-txt { animation: entra 0.45s ease both; }
+  .gran-n { position: absolute; right: -16px; top: -32px; font-family: var(--font-title); font-weight: 300; font-size: 150px; line-height: 1; color: rgba(199,85,239,0.22); user-select: none; }
+  .panel-txt { position: relative; display: flex; flex-direction: column; gap: 18px; max-width: 560px; margin-top: 128px; }
+  .panel-k { color: var(--dk-lila-link); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 13px; font-family: var(--font-title); }
+  .panel h3 { font-size: clamp(28px, 2.6vw, 38px); }
+  .panel p { font-size: 19px; color: #C9C5D2; line-height: 1.6; }
+  .panel-pie { position: relative; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.12); font-size: 14px; }
+  @keyframes entra { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  @keyframes aurora { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+  @keyframes flota { 0%, 100% { transform: translate3d(0,0,0) rotate(0); } 50% { transform: translate3d(0,-28px,0) rotate(3deg); } }
+  @media (max-width: 1024px) {
+    .faq-in { grid-template-columns: minmax(0, 1fr); }
+    .faq-der { min-height: 0; padding: 28px 24px; }
+    .gran-n { font-size: 110px; top: -20px; right: -8px; }
+    .panel-txt { margin-top: 72px; }
+    .panel p { font-size: 17px; }
+  }
+</style>

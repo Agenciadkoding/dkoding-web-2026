@@ -1,0 +1,89 @@
+---
+/** Casos de éxito destacados (4, sin cifras inventadas) y fila de 8 capturas de sitios construidos. */
+import { WA_GENERAL } from '../../data/sitio';
+const destacados = [
+  { img: '/img/destacados/experiencia-luzma.jpg', w: 1100, h: 1100, alt: 'Tienda virtual y marca de LuzMa Uniformes en tableta y tarjetas', metrica: '[métrica: pedidos / ventas]', t: 'LuzMa, uniformes y dotaciones', d: 'Diseño de marca y tienda virtual' },
+  { img: '/img/destacados/casos-destacado-4bellu-min-3.jpg', w: 1090, h: 1091, alt: '4Bellú en la primera página de Google y su sitio web', metrica: '[métrica: tráfico orgánico]', t: '4Bellú, body shapers', d: 'Posicionamiento orgánico y sitio web comercial', arriba: true },
+  { img: '/img/destacados/experiencia-colorado.jpg', w: 1100, h: 1100, alt: 'Sitio web y manual de identidad de Colorado Hardwood Design en tableta', metrica: '[métrica: cotizaciones]', t: 'Colorado Hardwood Design', d: 'Manual de identidad y sitio web comercial' },
+  { img: '/img/destacados/experiencia-jhoana.jpg', w: 1100, h: 1100, alt: 'Portafolio personal de Jhoana Pérez en tableta y tarjetas', metrica: '[métrica: consultas agendadas]', t: 'Jhoana Pérez, psicóloga', d: 'Diseño de marca y portafolio personal' },
+];
+const sitios = [
+  { f: 'gentia-co', h: 1497, n: 'Gentia' },
+  { f: 'finecraftsbyandrea', h: 1141, n: 'Fine Crafts by Andrea' },
+  { f: 'hotelvillareal-co', h: 2260, n: 'Hotel Villa Real' },
+  { f: 'jhoanaperez', h: 2179, n: 'Jhoana Pérez' },
+  { f: 'soleira-edu-co', h: 1664, n: 'Colegio Soleira' },
+  { f: 'elitte-co', h: 1975, n: 'Elitte' },
+  { f: 'aseytrans', h: 1864, n: 'Aseytrans' },
+  { f: 'channelbeds', h: 1884, n: 'Channel Beds' },
+];
+---
+<section class="casos" id="casos" aria-labelledby="h-casos">
+  <div class="container casos-in">
+    <div class="cabecera reveal">
+      <p class="eyebrow">Casos de éxito</p>
+      <h2 id="h-casos">Casos reales, <strong>mejoras reales</strong></h2>
+    </div>
+    <div class="grid grid-4">
+      {destacados.map((c) => (
+        <article class="caso reveal">
+          <figure class="caso-img"><img src={c.img} alt={c.alt} width={c.w} height={c.h} loading="lazy" decoding="async" class:list={{ arriba: c.arriba }}></figure>
+          <div class="caso-txt">
+            <span class="caso-cifra">[+__ %]</span>
+            <span class="caso-metrica">{c.metrica}</span>
+            <h3>{c.t}</h3>
+            <p>{c.d}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="mas-cab">
+      <h3>Más sitios que hemos construido</h3>
+      <span class="muted">Cada uno con su marca, su estructura y su objetivo de venta.</span>
+    </div>
+    <ul class="sitios">
+      {sitios.map((s) => (
+        <li>
+          <a href="/casos-de-exito/" class="sitio" aria-label={`Sitio web de ${s.n}: ver casos de éxito`}>
+            <img src={`/img/casos/${s.f}.webp`} alt="" width="550" height={s.h} loading="lazy" decoding="async">
+            <span class="sitio-nombre" aria-hidden="true">{s.n}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+    <div class="centro">
+      <a href="/casos-de-exito/" class="btn btn-secondary">Ver los 24 casos de éxito</a>
+      <a href={WA_GENERAL} class="btn btn-primary" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>
+        Quiero una cotización senior
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .casos { background: #0F0F11; border-top: 1px solid var(--dk-line); border-bottom: 1px solid var(--dk-line); }
+  .casos-in { padding-block: clamp(56px, 6vw, 72px); display: flex; flex-direction: column; gap: 32px; }
+  .cabecera { display: flex; flex-direction: column; gap: 14px; max-width: 760px; margin-inline: auto; text-align: center; align-items: center; margin-bottom: 8px; }
+  .caso { display: flex; flex-direction: column; background: var(--dk-surface); border: 1px solid var(--dk-line); border-radius: var(--r-card); overflow: hidden; }
+  .caso-img { aspect-ratio: 4 / 3; overflow: hidden; background: #F4F2F8; }
+  .caso-img img { width: 100%; height: 100%; object-fit: cover; }
+  .caso-img img.arriba { object-position: top; }
+  .caso-txt { padding: 22px; display: flex; flex-direction: column; gap: 8px; }
+  .caso-cifra { font-family: var(--font-title); font-weight: 700; font-size: 34px; line-height: 1; color: var(--dk-lila-link); }
+  .caso-metrica { font-size: 13px; color: var(--dk-muted); }
+  .caso h3 { margin-top: 6px; font-size: 22px; }
+  .caso p { color: var(--dk-muted); font-size: 14px; }
+  .mas-cab { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 8px 24px; padding-top: 8px; }
+  .mas-cab h3 { font-size: 24px; }
+  .mas-cab .muted { font-size: 14px; }
+  .sitios { list-style: none; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 12px; }
+  .sitio { position: relative; display: block; aspect-ratio: 3 / 4; border-radius: var(--r-card); overflow: hidden; border: 1px solid var(--dk-line-2); background: #1E1E22; }
+  .sitio img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: object-position 4s ease-in-out; }
+  .sitio:hover img, .sitio:focus-visible img { object-position: bottom; }
+  .sitio-nombre { position: absolute; left: 0; right: 0; bottom: 0; padding: 20px 10px 8px; font-size: 12px; font-weight: 600; color: #fff; background: linear-gradient(180deg, transparent, rgba(12,12,12,0.85)); }
+  .centro { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; padding-top: 8px; }
+  @media (max-width: 1024px) { .sitios { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  @media (max-width: 640px) { .sitios { grid-template-columns: repeat(2, minmax(0, 1fr)); } .centro .btn { width: 100%; } }
+</style>
