@@ -1,0 +1,246 @@
+{
+  "fuente": "https://dkoding.net/casos-de-exito/",
+  "extraido": "2026-10-07",
+  "efecto": "Cada captura de página completa ocupa un marco de 420 px de alto (250 px en celular) con background-size: cover. Al pasar el cursor, background-position pasa de arriba a abajo en 4 s (ease-in-out) y regresa al salir.",
+  "sitios": [
+    {
+      "nombre": "Karteler",
+      "sector": "Tecnología y software",
+      "pais": "Colombia",
+      "url": "https://karteler.com/",
+      "captura": "sitios/karteler.webp",
+      "nota": "verificar: no respondió el 07/10/2026"
+    },
+    {
+      "nombre": "KingTails",
+      "sector": "Servicios",
+      "pais": "Reino Unido",
+      "url": "https://kingtails.com/",
+      "captura": "sitios/kingtails-scaled.webp"
+    },
+    {
+      "nombre": "Laboratorio DIA",
+      "sector": "Industria",
+      "pais": "Colombia",
+      "url": "https://laboratoriodia.com/",
+      "captura": "sitios/laboratoriodia.webp"
+    },
+    {
+      "nombre": "Max Pirotecnia",
+      "sector": "Comercio",
+      "pais": "Colombia",
+      "url": "https://maxpirotecnia.com/",
+      "captura": "sitios/maxpirotecnia-scaled.webp"
+    },
+    {
+      "nombre": "Nexupro",
+      "sector": "Tecnología y software",
+      "pais": "Colombia",
+      "url": "https://nexupro.com/",
+      "captura": "sitios/nexupro.webp"
+    },
+    {
+      "nombre": "Psicolatinos",
+      "sector": "Salud y bienestar",
+      "pais": "",
+      "url": "https://psicolatinos.com/",
+      "captura": "sitios/psicolatinos-scaled.webp"
+    },
+    {
+      "nombre": "Rabbitt",
+      "sector": "Tecnología y software",
+      "pais": "Colombia",
+      "url": "https://rabbitt.co/",
+      "captura": "sitios/rabbitt-co-scaled.webp"
+    },
+    {
+      "nombre": "Sabropan",
+      "sector": "Alimentos",
+      "pais": "Colombia",
+      "url": "https://sabropan.co/",
+      "captura": "sitios/sabropan-co-scaled.webp"
+    },
+    {
+      "nombre": "SeguriServer",
+      "sector": "Tecnología y software",
+      "pais": "Colombia",
+      "url": "https://seguriserver.com/",
+      "captura": "sitios/seguriserver-scaled.webp"
+    },
+    {
+      "nombre": "Colegio Soleira",
+      "sector": "Educación",
+      "pais": "Colombia",
+      "url": "https://soleira.edu.co/",
+      "captura": "sitios/soleira-edu-co.webp"
+    },
+    {
+      "nombre": "Hotel Villa Mónaco",
+      "sector": "Hoteles y turismo",
+      "pais": "Colombia",
+      "url": "https://villamonacohotel.com/",
+      "captura": "sitios/villamonacohotel.webp"
+    },
+    {
+      "nombre": "Channel Beds",
+      "sector": "Hoteles y turismo",
+      "pais": "",
+      "url": "https://channelbeds.com/",
+      "captura": "sitios/channelbeds.webp"
+    },
+    {
+      "nombre": "CM Cleaning",
+      "sector": "Servicios",
+      "pais": "Estados Unidos",
+      "url": "https://cmcleaning.us/",
+      "captura": "sitios/cmcleaning-us.webp",
+      "nota": "verificar: no respondió el 07/10/2026"
+    },
+    {
+      "nombre": "Elitte",
+      "sector": "Industria",
+      "pais": "Colombia",
+      "url": "https://elitte.com.co/",
+      "captura": "sitios/elitte-co.webp"
+    },
+    {
+      "nombre": "Enerxia",
+      "sector": "Industria",
+      "pais": "Colombia",
+      "url": "https://www.enerxia.co/",
+      "captura": "sitios/enerxia-co-scaled.webp"
+    },
+    {
+      "nombre": "Enlace Accidentes",
+      "sector": "Servicios legales",
+      "pais": "Estados Unidos",
+      "url": "https://enlaceaccidentes.com/",
+      "captura": "sitios/enlaceaccidentes.webp"
+    },
+    {
+      "nombre": "Fast Services",
+      "sector": "Servicios",
+      "pais": "Colombia",
+      "url": "https://fastservices.com.co/servicio-tecnico/",
+      "captura": "sitios/fastservices-co.webp"
+    },
+    {
+      "nombre": "Fine Crafts by Andrea",
+      "sector": "Comercio",
+      "pais": "Estados Unidos",
+      "url": "https://finecraftsbyandrea.com/",
+      "captura": "sitios/finecraftsbyandrea.webp"
+    },
+    {
+      "nombre": "Gentia",
+      "sector": "Salud y bienestar",
+      "pais": "Colombia",
+      "url": "https://gentia.co/",
+      "captura": "sitios/gentia-co.webp"
+    },
+    {
+      "nombre": "Glamour Travel",
+      "sector": "Hoteles y turismo",
+      "pais": "Colombia",
+      "url": "https://glamourtravel.co/",
+      "captura": "sitios/glamourtravel-co.webp"
+    },
+    {
+      "nombre": "Hotel Villa Real",
+      "sector": "Hoteles y turismo",
+      "pais": "Colombia",
+      "url": "https://hotelvillareal.co/",
+      "captura": "sitios/hotelvillareal-co.webp"
+    },
+    {
+      "nombre": "Jhoana Pérez · Psicóloga",
+      "sector": "Salud y bienestar",
+      "pais": "Colombia",
+      "url": "https://jhoanaperez.com/",
+      "captura": "sitios/jhoanaperez.webp"
+    },
+    {
+      "nombre": "Alumundocol",
+      "sector": "Industria",
+      "pais": "Colombia",
+      "url": "https://alumundocol.com/",
+      "captura": "sitios/alumundocol-scaled.webp"
+    },
+    {
+      "nombre": "Aseytrans",
+      "sector": "Industria",
+      "pais": "Colombia",
+      "url": "https://www.aseytrans.com/",
+      "captura": "sitios/aseytrans.webp"
+    }
+  ],
+  "destacados": [
+    {
+      "nombre": "4Bellú · Body Shapers",
+      "servicios": "Posicionamiento orgánico y sitio web comercial",
+      "url": "https://4bellu.com/",
+      "texto": "4bellu es una compañía ubicada en Londres, dedicada a ofrecerle a las mujeres una forma rápida y eficaz de conseguir una figura esbelta y definida. Su visión siempre fue amplia y alcanzar el mayor número de mujeres a nivel mundial siempre fue su objetivo. Por lo tanto, trabajar de forma intensa, profesional y con las mejores estrategias de marketing fue indispensable. Al día de hoy esta hermosa compañía goza de gran reconocimiento en el mercado y figura exitosamente en los primeros lugares de Google."
+    },
+    {
+      "nombre": "Colorado Hardwood Design",
+      "servicios": "Manual de identidad y sitio web comercial",
+      "url": "https://coloradohardwooddesing.com/",
+      "texto": "Colorado Hardwood Design, es un portafolio comercial de una empresa con mucha experiencia en el sector que requería una imagen profesional que mostrara la solidez de su servicio de alta calidad. Es un sitio complejo orientado al SEO y con múltiples secciones de contacto e informativas.",
+      "nota": "verificar el dominio: el sitio actual enlaza a coloradohardwooddesing.com (posible error de escritura)"
+    },
+    {
+      "nombre": "Jhoana Pérez · Psicóloga",
+      "servicios": "Diseño de marca y portafolio personal",
+      "url": "https://jhoanaperez.com/",
+      "texto": "“Eres un creador de sueños”. Jhoana Pérez – Psicóloga, es un portafolio personal profesional que se diseñó para mostrar de forma clara la experiencia de una profesional que se lanzó a aportarle al mundo. Contiene un formulario y múltiples opciones de contacto."
+    },
+    {
+      "nombre": "LuzMa · Uniformes y dotaciones",
+      "servicios": "Diseño de marca y tienda virtual",
+      "url": "https://luzmauniformesydotaciones.com/",
+      "texto": "El desarrollo de una marca pensada para facilitar la exhibición del catálogo de productos que ofrece LuzMa – Uniformes y Dotaciones, contiene la visualización de productos, carrito de compras y pedidos a través de WhatsApp, con opciones de contacto claramente definidas."
+    }
+  ],
+  "galeria": [
+    {
+      "archivo": "galeria/galeria-11.jpg",
+      "proyecto": "OkPet · marca y app"
+    },
+    {
+      "archivo": "galeria/galeria-17.jpg",
+      "proyecto": "Dimark · marca y web"
+    },
+    {
+      "archivo": "galeria/galeria-04.jpg",
+      "proyecto": "Proyecto web (logotipo manuscrito)"
+    },
+    {
+      "archivo": "galeria/galeria-07.jpg",
+      "proyecto": "ALO Asistencia Legal Online · marca y web"
+    },
+    {
+      "archivo": "galeria/galeria-08.jpg",
+      "proyecto": "SeguriServer · web"
+    },
+    {
+      "archivo": "galeria/galeria-06.jpg",
+      "proyecto": "goambient · web"
+    },
+    {
+      "archivo": "galeria/galeria-12.jpg",
+      "proyecto": "Rabbitt · marca y web"
+    },
+    {
+      "archivo": "galeria/galeria-03.jpg",
+      "proyecto": "OkVet · marca y web"
+    },
+    {
+      "archivo": "galeria/galeria-02.jpg",
+      "proyecto": "Abab Marcas y Patentes · web y marca"
+    },
+    {
+      "archivo": "galeria/galeria-05.jpg",
+      "proyecto": "Mom's Cake · marca y portafolio"
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+# Generado desde seo/redirecciones-301.csv. No editar a mano: regenerar con sitio/scripts/htaccess.py.
+
+Options -Indexes
+AddDefaultCharset UTF-8
+
+# Astro genera carpetas con index.html; forzar HTTPS y barra final
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTP_HOST} ^www\.dkoding\.net$ [NC]
+RewriteRule ^ https://dkoding.net%{REQUEST_URI} [L,R=301]
+
+# Redirecciones de la migración (301 permanentes, 302 temporales)
+RewriteRule ^servicios/?$ /cotizador/ [R=301,L,NC]
+RewriteRule ^home-dani/?$ / [R=301,L,NC]
+RewriteRule ^desarrollo-web/?$ / [R=301,L,NC]
+RewriteRule ^mapa-del-sitio/?$ / [R=301,L,NC]
+RewriteRule ^plan-hotelero/?$ / [R=302,L,NC]
+RewriteRule ^trifecta-hotelera/?$ / [R=302,L,NC]
+RewriteRule ^dkard/?$ https://dkard.co/ [R=301,L,NC]
+RewriteRule ^dkarta/?$ / [R=302,L,NC]
+RewriteRule ^servicios/pagina-personal/?$ / [R=301,L,NC]
+RewriteRule ^servicios/pagina-comercial/?$ / [R=301,L,NC]
+RewriteRule ^servicios/pagina-empresas/?$ / [R=301,L,NC]
+RewriteRule ^servicios/pagina-corporativa/?$ / [R=301,L,NC]
+RewriteRule ^servicios/pagina-web-hotelero/?$ / [R=301,L,NC]
+RewriteRule ^servicios/catalogo-virtual/?$ / [R=301,L,NC]
+RewriteRule ^servicios/tienda-virtual/?$ / [R=301,L,NC]
+RewriteRule ^servicios/tienda-avanzada/?$ / [R=301,L,NC]
+RewriteRule ^servicios/posicionamiento-en-google-seo/?$ /seo-y-geo/ [R=301,L,NC]
+RewriteRule ^servicios/anuncios-en-google-ads/?$ /marketing-digital/ [R=301,L,NC]
+RewriteRule ^servicios/anuncios-en-meta-ads/?$ /marketing-digital/ [R=301,L,NC]
+RewriteRule ^servicios/administracion-de-rrss/?$ /redes-sociales/ [R=301,L,NC]
+RewriteRule ^servicios/marca/?$ /diseno-de-marca/ [R=301,L,NC]
+RewriteRule ^servicios/manual-de-identidad/?$ /diseno-de-marca/ [R=301,L,NC]
+RewriteRule ^servicios/logo-sencillo/?$ /diseno-de-marca/ [R=301,L,NC]
+RewriteRule ^servicios/logo-profesional/?$ /diseno-de-marca/ [R=301,L,NC]
+RewriteRule ^servicios/publicidad-papeleria/?$ /diseno-de-marca/ [R=301,L,NC]
+RewriteRule ^tienda/?$ / [R=301,L,NC]
+RewriteRule ^tienda/catalogo-virtual/?$ / [R=301,L,NC]
+RewriteRule ^tienda/logo-profesional/?$ /diseno-de-marca/ [R=301,L,NC]
+RewriteRule ^categoria/servicios-web/?$ / [R=301,L,NC]
+RewriteRule ^categoria/tiendas-y-catalogos/?$ / [R=301,L,NC]
+RewriteRule ^categoria/desarrollo-y-ux-ui/?$ / [R=301,L,NC]
+RewriteRule ^categoria/logos-y-marcas/?$ /diseno-de-marca/ [R=301,L,NC]
+RewriteRule ^categoria/diseno-publicitario/?$ /diseno-de-marca/ [R=301,L,NC]
+RewriteRule ^categoria/marketing/?$ /marketing-digital/ [R=301,L,NC]
+RewriteRule ^categoria/consultoria/?$ /cotizador/ [R=301,L,NC]
+RewriteRule ^category/sin-categoria/?$ /blog/ [R=301,L,NC]
+RewriteRule ^author/admindkoding/?$ /nosotros/ [R=301,L,NC]
+RewriteRule ^importancia-de-un-buen-logo-profesional-para-tu-negocio/?$ /blog/importancia-de-un-buen-logo-profesional-para-tu-negocio/ [R=301,L,NC]
+RewriteRule ^muestra-tu-portafolio-digital-24-7/?$ /blog/muestra-tu-portafolio-digital-24-7/ [R=301,L,NC]
+RewriteRule ^impulsa-tu-negocio-con-seo-en-google/?$ /blog/impulsa-tu-negocio-con-seo-en-google/ [R=301,L,NC]
+RewriteRule ^crear-mi-tienda-online/?$ /blog/crear-mi-tienda-online/ [R=301,L,NC]
+RewriteRule ^estrategias-para-incrementar-las-ventas-por-internet/?$ /blog/estrategias-para-incrementar-las-ventas-por-internet/ [R=301,L,NC]
+
+# Páginas retiradas: 410 para que Google las saque del índice
+RewriteRule ^datos-hoteles/?$ - [G,L,NC]
+RewriteRule ^mi-cuenta/?$ - [G,L,NC]
+RewriteRule ^carrito/?$ - [G,L,NC]
+RewriteRule ^finalizar-compra/?$ - [G,L,NC]
+RewriteRule ^categoria/sin-categorizar/?$ - [G,L,NC]
+
+# URL sin barra final -> con barra (solo para rutas sin extensión)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !/$
+RewriteCond %{REQUEST_URI} !\.[a-zA-Z0-9]{2,5}$
+RewriteRule ^(.*)$ /$1/ [R=301,L]
+
+ErrorDocument 404 /404.html
+
+# Caché: estáticos con hash un año; HTML sin caché larga
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/avif "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  <FilesMatch "\.(woff2|css|js|webp|avif|svg|png|jpg)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>

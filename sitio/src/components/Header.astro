@@ -1,0 +1,110 @@
+---
+/** Barra superior + navegación fija con menú de servicios y CTA al cotizador. */
+import { SITIO, SERVICIOS, NAV } from '../data/sitio';
+const ruta = Astro.url.pathname;
+const activo = (url: string) => (url === '/' ? ruta === '/' : ruta.startsWith(url));
+const enServicio = SERVICIOS.some((s) => s.url !== '/' && activo(s.url));
+---
+<div class="topbar">
+  <div class="container topbar-in">
+    <span class="topbar-left"><span class="dot" aria-hidden="true"></span>Agencia de desarrollo web · Cali, Colombia · {SITIO.anios} años</span>
+    <span class="topbar-right">
+      <a href="/soporte/">Ticket de soporte</a>
+      <a href={`mailto:${SITIO.correo}`}>{SITIO.correo}</a>
+      <a href={SITIO.telefonoHref}>{SITIO.telefono}</a>
+    </span>
+  </div>
+</div>
+
+<header class="nav" data-nav>
+  <div class="container nav-in">
+    <a href="/" class="brand" aria-label="DKODING, inicio">
+      <img src="/img/marca/logo-menu.svg" alt="DKODING" width="132" height="24" fetchpriority="high">
+    </a>
+
+    <button class="burger" type="button" aria-expanded="false" aria-controls="menu-principal" data-burger>
+      <span class="visually-hidden">Abrir menú</span>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path class="l1" d="M4 7h16"/><path class="l2" d="M4 12h16"/><path class="l3" d="M4 17h16"/></svg>
+    </button>
+
+    <nav id="menu-principal" class="menu" aria-label="Principal">
+      <details class="menu-serv" data-serv>
+        <summary aria-current={enServicio ? 'page' : undefined}>Servicios <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <ul class="serv-list">
+          {SERVICIOS.map((s) => (
+            <li><a href={s.url} aria-current={activo(s.url) && s.url !== '/' ? 'page' : undefined}><strong>{s.nombre}</strong><span>{s.corto}</span></a></li>
+          ))}
+        </ul>
+      </details>
+      {NAV.map((n) => <a href={n.url} aria-current={activo(n.url) ? 'page' : undefined}>{n.nombre}</a>)}
+      <a href="/cotizador/" class="btn btn-primary btn-sm nav-cta">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M8 7h8M8 11h8M8 15h5"/><rect x="4" y="3" width="16" height="18" rx="2"/></svg>
+        Cotizar en 2 minutos
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const nav = document.querySelector('[data-nav]');
+  const burger = document.querySelector('[data-burger]');
+  const serv = document.querySelector('[data-serv]') as HTMLDetailsElement | null;
+  burger?.addEventListener('click', () => {
+    const open = nav?.classList.toggle('is-open');
+    burger.setAttribute('aria-expanded', String(!!open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  // En escritorio el menú de servicios se abre al pasar el cursor y se cierra al salir o con Esc.
+  const mq = window.matchMedia('(min-width: 1025px)');
+  if (serv) {
+    serv.addEventListener('mouseenter', () => { if (mq.matches) serv.open = true; });
+    serv.addEventListener('mouseleave', () => { if (mq.matches) serv.open = false; });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') serv.open = false; });
+    document.addEventListener('click', (e) => { if (!serv.contains(e.target as Node)) serv.open = false; });
+  }
+</script>
+
+<style>
+  .topbar { background: var(--dk-deep); font-size: 13px; color: var(--dk-soft); }
+  .topbar-in { display: flex; justify-content: space-between; gap: 12px 24px; min-height: 36px; align-items: center; flex-wrap: wrap; padding-block: 4px; }
+  .topbar-left { display: inline-flex; align-items: center; gap: 8px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--dk-ok); box-shadow: 0 0 0 3px rgba(91, 228, 155, 0.18); }
+  .topbar-right { display: flex; gap: 20px; flex-wrap: wrap; }
+  .topbar-right a { color: var(--dk-soft); min-height: 28px; display: inline-flex; align-items: center; }
+  .topbar-right a:hover { color: #fff; }
+  @media (max-width: 640px) { .topbar-right a:not(:last-child) { display: none; } }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: rgba(12, 12, 12, 0.88); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--dk-line); }
+  .nav-in { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 68px; }
+  .brand { display: inline-flex; align-items: center; min-height: 44px; }
+  .brand img { height: 24px; width: auto; }
+  .menu { display: flex; align-items: center; gap: 4px 26px; font-weight: 500; font-size: 15px; }
+  .menu > a { color: var(--dk-text); min-height: 44px; display: inline-flex; align-items: center; position: relative; }
+  .menu > a:hover, .menu summary:hover { color: var(--dk-lila-link); }
+  .menu > a[aria-current="page"]::after, .menu summary[aria-current="page"]::after { content: ''; position: absolute; left: 0; right: 0; bottom: 6px; height: 2px; background: var(--dk-lila); border-radius: 2px; }
+  .nav-cta { margin-left: 8px; }
+  .menu-serv { position: relative; }
+  .menu-serv summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; min-height: 44px; position: relative; }
+  .menu-serv summary::-webkit-details-marker { display: none; }
+  .serv-list { position: absolute; top: 100%; left: -16px; min-width: 320px; margin-top: 4px; padding: 10px; list-style: none; background: var(--dk-surface); border: 1px solid var(--dk-line-2); border-radius: 10px; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5); display: grid; gap: 2px; }
+  .serv-list a { display: flex; flex-direction: column; gap: 2px; padding: 10px 12px; border-radius: 6px; color: var(--dk-text); }
+  .serv-list a span { font-size: 13px; color: var(--dk-muted); font-weight: 400; }
+  .serv-list a:hover, .serv-list a[aria-current="page"] { background: var(--dk-deep); }
+  .burger { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; background: transparent; border: 1px solid var(--dk-line-2); border-radius: 6px; color: var(--dk-text); }
+
+  @media (max-width: 1024px) {
+    .burger { display: inline-flex; }
+    .menu { display: none; position: fixed; inset: 0; top: 0; padding: 92px 24px 32px; flex-direction: column; align-items: stretch; gap: 6px; background: var(--dk-bg); overflow-y: auto; z-index: 40; font-size: 18px; }
+    .nav.is-open .menu { display: flex; }
+    .nav.is-open .burger { position: relative; z-index: 41; }
+    .nav.is-open .burger .l1 { transform: translateY(5px) rotate(45deg); transform-origin: center; }
+    .nav.is-open .burger .l2 { opacity: 0; }
+    .nav.is-open .burger .l3 { transform: translateY(-5px) rotate(-45deg); transform-origin: center; }
+    .nav.is-open .brand { position: relative; z-index: 41; }
+    .menu > a, .menu summary { min-height: 52px; border-bottom: 1px solid var(--dk-line); }
+    .menu > a[aria-current="page"]::after { display: none; }
+    .serv-list { position: static; min-width: 0; margin: 4px 0 8px; box-shadow: none; border-color: var(--dk-line); }
+    .menu-serv[open] summary svg { transform: rotate(180deg); }
+    .nav-cta { margin: 16px 0 0; min-height: 52px; }
+  }
+</style>

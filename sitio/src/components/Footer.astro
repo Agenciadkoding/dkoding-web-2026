@@ -1,0 +1,81 @@
+---
+import { SITIO, SERVICIOS, WA_GENERAL } from '../data/sitio';
+const anio = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="col-marca">
+      <img src="/img/marca/logo-horizontal.svg" alt="DKODING, un paso hacia delante" width="266" height="72" loading="lazy">
+      <p class="muted">Empresa de desarrollo web en Cali, Colombia. Sitios de alto rendimiento que convierten y rankean, desde hace {SITIO.anios} años.</p>
+      <p class="legal-lines muted">
+        {SITIO.razonSocial} · NIT {SITIO.nit}<br>
+        {SITIO.direccion}, {SITIO.ciudad}, {SITIO.region}<br>
+        <a href={SITIO.telefonoHref}>{SITIO.telefono}</a><br>
+        <a href={`mailto:${SITIO.correo}`}>{SITIO.correo}</a>
+      </p>
+      <a href={WA_GENERAL} class="btn btn-primary" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>
+        Quiero una cotización senior
+      </a>
+    </div>
+
+    <nav class="col-links" aria-label="Servicios">
+      <h3>Servicios</h3>
+      {SERVICIOS.map((s) => <a href={s.url}>{s.nombre}</a>)}
+      <a href="/cotizador/">Cotizador</a>
+    </nav>
+
+    <nav class="col-links" aria-label="Navegar sitio">
+      <h3>DKODING</h3>
+      <a href="/casos-de-exito/">Casos de éxito</a>
+      <a href="/nosotros/">Nosotros</a>
+      <a href="/nuestro-equipo/">Equipo</a>
+      <a href="/blog/">Blog</a>
+      <a href="/contacto/">Contacto</a>
+      <a href="/soporte/">Centro de ayuda</a>
+    </nav>
+
+    <div class="col-redes">
+      <h3>Síguenos</h3>
+      <div class="redes">
+        <a href={SITIO.redes.instagram} rel="noopener" target="_blank" aria-label="Instagram"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        <a href={SITIO.redes.facebook} rel="noopener" target="_blank" aria-label="Facebook"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+        <a href={SITIO.redes.linkedin} rel="noopener" target="_blank" aria-label="LinkedIn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="9" width="4" height="12"/><circle cx="5" cy="5" r="2"/><path d="M11 21v-7a3 3 0 0 1 6 0v7M11 9v12"/></svg></a>
+      </div>
+      <p class="muted small">Horario de atención: {SITIO.horario}.</p>
+      <p class="muted small">Productos propios: <a href="https://dkard.co/" rel="noopener">dkard</a> · dkarta</p>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© {anio} DKODING · Red LATAM · Todos los derechos reservados</span>
+    <nav aria-label="Legal" class="legal">
+      <a href="/politica-de-privacidad/">Política de privacidad</a>
+      <a href="/terminos/">Términos y condiciones</a>
+      <a href="/cookies/">Cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<style>
+  .footer { border-top: 1px solid var(--dk-line); background: #0F0F11; margin-top: 0; }
+  .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px 32px; padding-block: 56px 32px; }
+  .col-marca { display: flex; flex-direction: column; gap: 18px; align-items: flex-start; }
+  .col-marca img { height: 72px; width: auto; }
+  .col-marca p { font-size: 15px; max-width: 42ch; }
+  .legal-lines { line-height: 1.7; }
+  .legal-lines a { color: var(--dk-text); }
+  .col-links, .col-redes { display: flex; flex-direction: column; gap: 10px; font-size: 15px; }
+  .footer h3 { font-family: var(--font-body); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dk-muted); margin-bottom: 6px; }
+  .col-links a { color: var(--dk-text); min-height: 32px; display: inline-flex; align-items: center; }
+  .col-links a:hover { color: var(--dk-lila-link); }
+  .redes { display: flex; gap: 8px; }
+  .redes a { width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--dk-line-2); border-radius: 8px; color: var(--dk-text); }
+  .redes a:hover { border-color: var(--dk-lila); color: var(--dk-lila-link); }
+  .small { font-size: 14px; }
+  .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; padding-block: 18px 24px; border-top: 1px solid var(--dk-line); font-size: 14px; color: var(--dk-muted); }
+  .legal { display: flex; flex-wrap: wrap; gap: 6px 20px; }
+  .legal a { color: var(--dk-muted); min-height: 32px; display: inline-flex; align-items: center; }
+  .legal a:hover { color: var(--dk-text); }
+  @media (max-width: 1024px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) { .footer-grid { grid-template-columns: 1fr; gap: 32px; } }
+</style>

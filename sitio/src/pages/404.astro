@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base titulo="Página no encontrada" descripcion="La página que buscas no existe o cambió de dirección." noindex>
+  <section class="section container center">
+    <img src="/img/marca/logo-vertical.svg" alt="" width="220" height="256" style="height: 200px; width: auto; margin-inline: auto">
+    <p class="eyebrow">Error 404</p>
+    <h1>Esta página <strong>no existe</strong></h1>
+    <p class="lead" style="margin-inline: auto">Puede que la dirección haya cambiado con el sitio nuevo. Estas son las salidas más útiles.</p>
+    <div class="acciones">
+      <a href="/" class="btn btn-light">Ir al inicio</a>
+      <a href="/cotizador/" class="btn btn-primary">Cotizar en 2 minutos</a>
+      <a href="/soporte/" class="btn btn-secondary">Centro de ayuda</a>
+    </div>
+  </section>
+</Base>
+<style>
+  .center { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 20px; min-height: 60vh; justify-content: center; }
+  .acciones { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+</style>
