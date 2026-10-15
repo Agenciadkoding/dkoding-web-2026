@@ -155,8 +155,9 @@ textarea.input { min-height: 120px; resize: vertical; }
 .divider { border: 0; border-top: 1px solid var(--dk-line); margin: 0; }
 
 /* ===== Movimiento ===== */
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
-.reveal.is-in { opacity: 1; transform: none; }
+/* Solo se oculta cuando hay JavaScript (html.js); sin JS todo se ve */
+html.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+html.js .reveal.is-in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
