@@ -35,7 +35,8 @@ const {
 
 const canonical = new URL(ruta ?? Astro.url.pathname, SITIO.dominio).href;
 const og = new URL(ogImage, SITIO.dominio).href;
-const tituloCompleto = titulo.includes('DKODING') ? titulo : `${titulo} | DKODING`;
+// La marca solo se añade si cabe: Google corta el título alrededor de 60 caracteres.
+const tituloCompleto = titulo.includes('DKODING') || titulo.length > 50 ? titulo : `${titulo} | DKODING`;
 const jsonld = [organizacionSchema(), ...schema];
 ---
 <!doctype html>

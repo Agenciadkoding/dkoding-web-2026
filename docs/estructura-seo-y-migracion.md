@@ -28,9 +28,9 @@ Archivos de datos:
    migran y actualizan; tienen entre 859 y 1.251 palabras.
 5. Tu estudio de palabras clave sirve para repartir temas. Sus cifras son de referencia, de
    hace unos años: se usan como relevancia relativa hasta tener cifras reales. **No tiene
-   ninguna búsqueda con "Cali"**, y conviene sumarlas al actualizarlo (§5).
-6. De 22 competidores revisados en vivo, **ninguno es de Cali**, pero varios de fuera ya tienen
-   landings con "Cali". **Ninguno tiene cotizador interactivo.** Apps y diseño de marca son las
+   ninguna búsqueda con "Medellín"**, y conviene sumarlas al actualizarlo (§5).
+6. De 22 competidores revisados en vivo, **ninguno es de Medellín**, pero varios de fuera ya tienen
+   landings con "Medellín". **Ninguno tiene cotizador interactivo.** Apps y diseño de marca son las
    landings con menos competencia (§6).
 
 ---
@@ -61,18 +61,24 @@ con el CSV. El admin lo hará solo cuando esté conectado a Search Console.
 
 ---
 
+> **Corrección del 15/10/2026.** Este documento decía Cali. DKODING es de **Medellín**; el dato
+> venía de una línea equivocada de la investigación inicial y el sitio actual no nombra ninguna
+> ciudad. Cambia el objetivo de SEO local, la lectura de la competencia (§6) y, para bien, ahora
+> hay 11 palabras clave de Medellín con cifras reales en tu propio estudio (§5), en vez de un
+> "en Cali" inventado sobre palabras genéricas.
+
 ## 2. Estructura nueva
 
 | Página | URL | Palabra principal (a validar) | Secundarias de tu estudio | Nota |
 |---|---|---|---|---|
-| Home · Desarrollo web | `/` | diseño de páginas web (5.400) + "en Cali" | creación de páginas web (6.600), desarrollo de páginas web (1.900), diseño web profesional (2.400), sitio web profesional (2.400), agencia de diseño web (1.600), diseño web wordpress (1.600), diseño de landing page (1.000), mantenimiento de páginas web (720) | "crear página web" (12.100) mezcla gente que quiere hacerla sola: va mejor en un artículo de costos |
+| Home · Desarrollo web | `/` | diseño de páginas web (5.400) + "en Medellín" | creación de páginas web (6.600), desarrollo de páginas web (1.900), diseño web profesional (2.400), sitio web profesional (2.400), agencia de diseño web (1.600), diseño web wordpress (1.600), diseño de landing page (1.000), mantenimiento de páginas web (720) | "crear página web" (12.100) mezcla gente que quiere hacerla sola: va mejor en un artículo de costos |
 | Marketing digital | `/marketing-digital/` | agencia de marketing digital (6.600) | servicios de marketing digital (2.400), campañas en google ads (2.900), publicidad en internet (3.600), email marketing (4.400), agencia de publicidad digital (1.600), marketing digital para empresas (1.600), marketing por whatsapp (1.000) | La pauta en Google y Meta vive aquí |
 | SEO y GEO | `/seo-y-geo/` | posicionamiento web (2.900) · agencia SEO (2.400) | auditoría seo (5.800), seo local (5.400), seo técnico (3.600), agencia de posicionamiento en google (1.300), seo en google my business (2.000), schema markup (1.700) | Tu estudio **no tiene búsquedas de GEO** (aparecer en ChatGPT o en respuestas de IA). Hay que investigarlas aparte |
 | Optimización de redes sociales | `/redes-sociales/` | manejo de redes sociales (validar) · agencia de redes sociales (2.900) | anuncios en instagram (2.400), anuncios en redes sociales (1.900), diseño para redes sociales (1.600), publicidad pagada en redes sociales (1.300), estrategia de social media (1.000) | "Optimización de redes sociales" no aparece como búsqueda. Validar "manejo de redes sociales" y "community manager" |
 | Diseño de marca | `/diseno-de-marca/` | diseño de logotipos (2.400) · diseño de marca (880) | diseño de identidad corporativa (1.000), diseño de imagen corporativa (1.000), diseño de packaging (1.000), diseño de tarjetas de presentación (2.400), agencia de branding (590), diseño de papelería empresarial (720) | "diseño gráfico" (12.100) es demasiado amplia: la buscan estudiantes y gente que busca empleo |
 | Desarrollo de apps | `/desarrollo-de-apps/` | desarrollo de apps móviles (2.400) | desarrollo de aplicaciones web (1.300), desarrollo de software a medida (1.300), empresa de desarrollo de apps (880), software a la medida (880), crear app móvil personalizada (720), desarrollo de crm personalizado (590) | "desarrollo de software" (4.400) da para una sexta landing más adelante |
-| Cotizador | `/cotizador/` | cotizar página web (a validar) | precio página web Cali, páginas web económicas (1.600) | Versión indexable del cotizador del botón flotante. Recibe `/servicios/` con 301 y **debe salir con el lanzamiento**. Apunta a cotizar; el artículo de costos del blog apunta a informarse y lo enlaza, para que no compitan |
-| Trifecta hotelera | `/trifecta-hotelera/` | crear sitio web para hotel (480) + "en Cali" | seo para hoteles (720), páginas web para hoteles, sistema de reservas | Landing por sector que se construirá más adelante. Absorbe `/plan-hotelero/` |
+| Cotizador | `/cotizador/` | cotizar página web (a validar) | precio página web Medellín, páginas web económicas (1.600) | Versión indexable del cotizador del botón flotante. Recibe `/servicios/` con 301 y **debe salir con el lanzamiento**. Apunta a cotizar; el artículo de costos del blog apunta a informarse y lo enlaza, para que no compitan |
+| Trifecta hotelera | `/trifecta-hotelera/` | crear sitio web para hotel (480) + "en Medellín" | seo para hoteles (720), páginas web para hoteles, sistema de reservas | Landing por sector que se construirá más adelante. Absorbe `/plan-hotelero/` |
 | Soporte | `/soporte/` | — | — | Se conserva: Centro de ayuda con tickets (diseño en el lienzo del admin) |
 | dkarta | `/dkarta/` | — | — | Software propio; su landing está pendiente de diseño |
 | Casos de éxito, Nosotros, Equipo, Contacto, Privacidad | igual que hoy | — | — | Se conservan las URLs. Casos de éxito trae los 24 sitios en vivo de `recursos/casos-de-exito/` |
@@ -126,7 +132,7 @@ Salud y hoteles conectan con clientes y productos que ya tienes: la psicóloga d
 |---|---|---|---|
 | 1 | Cuánto cuesta una página web en Colombia en 2026 | páginas web económicas, crear página web | `/` |
 | 2 | Auditoría SEO: qué revisa y cómo leer el informe | auditoría seo, seo técnico | `/seo-y-geo/` |
-| 3 | SEO local en Cali: guía de Google Business Profile | seo local, seo en google my business | `/seo-y-geo/` |
+| 3 | SEO local en Medellín: guía de Google Business Profile | seo local, seo en google my business | `/seo-y-geo/` |
 | 4 | Cómo aparecer en ChatGPT y en las respuestas de IA | (sin datos en tu estudio: hueco a validar) | `/seo-y-geo/` |
 | 5 | Tienda online, tienda virtual o catálogo: qué necesita tu negocio | tienda online, catálogo online | `/` |
 | 6 | Email marketing para pymes y tiendas online | email marketing, email marketing para ecommerce | `/marketing-digital/` |
@@ -204,7 +210,7 @@ informativa o mixta) y tiene suficientes palabras de nicho para planear un año 
 
 | Hueco | Por qué importa |
 |---|---|
-| Búsquedas con "Cali" | Hay 16 con Medellín o Bogotá y ninguna de tu ciudad, que es tu ventaja frente a la competencia |
+| Búsquedas con "Medellín" | Hay 16 con Medellín o Bogotá y ninguna de tu ciudad, que es tu ventaja frente a la competencia |
 | GEO y visibilidad en IA | Ya tiene landing en 7 competidores |
 | "manejo de redes sociales" y "community manager" | Es el término que usa la competencia para lo que tú llamas optimización de redes sociales |
 | Búsquedas de hoteles | Para la landing de Trifecta hotelera |
@@ -221,8 +227,8 @@ informativa o mixta) y tiene suficientes palabras de nicho para planear un año 
 Algunas palabras caen en dos motivos, por eso la suma pasa de 72.
 
 **Cómo actualizar las cifras:** en el Planificador de palabras clave de Google Ads, ya con
-cifras exactas, ubicación **Colombia** y luego **Cali**, pegar las ~60 palabras de la tabla del
-§2 más sus variantes con "Cali". Con eso se confirma la palabra principal de cada landing.
+cifras exactas, ubicación **Colombia** y luego **Medellín**, pegar las ~60 palabras de la tabla del
+§2 más sus variantes con "Medellín". Con eso se confirma la palabra principal de cada landing.
 Después del lanzamiento, la fuente de verdad es Search Console: el admin guarda la palabra
 objetivo de cada página y la compara con las consultas reales que traen clics.
 
@@ -248,29 +254,35 @@ para cada búsqueda. Lo que sigue es cómo están construidos.
 
 | Hallazgo | Dato |
 |---|---|
-| Ninguna agencia de tu lista está comprobadamente en Cali | Más Creativos y SM Digital, que la matriz pone en Cali, se presentan como de Medellín. Lemon Digital podría serlo, pero no pude comprobarlo |
-| Pero agencias de fuera ya atacan "Cali" | Símbolo tiene 11 landings con Cali, Los Creativos 2 y Triario 2; Seology, iaLab y Branch 1 cada una. Fórmula típica: "Agencia SEO en Cali \| Posicionamiento web" |
+| **Medellín es el mercado de agencias más competido del país** | Más Creativos, SM Digital y Los Creativos se presentan como de Medellín: son competencia local directa, no de fuera. Aquí no se puede vender "somos los únicos que estamos aquí" |
+| Y encima llegan agencias de otras ciudades | Símbolo tiene 11 landings de ciudad, Los Creativos 2 y Triario 2; Seology, iaLab y Branch 1 cada una. Fórmula típica: "Agencia SEO en Medellín \| Posicionamiento web" |
+| **Hay datos reales de búsqueda para Medellín** | 11 palabras aprovechables en tu propio estudio (§5): "agencia de publicidad medellín" 1.900, "marketing digital medellín" 1.600, "diseñador gráfico medellín" 1.300 y competencia **baja**, "diseño web medellín" 1.000 y competencia **baja** |
 | Patrón de URLs | Landings de primer nivel (`/redes-sociales/`, `/branding/`, `/agencia-geo/`). La ciudad va en una página hija o solo en el título |
 | Longitud | Los que trabajan SEO en serio tienen landings de 1.500 a 5.000 palabras. Por debajo de 900 están los más flojos |
 | Precios publicados | 7 de los 19 muestran un "desde" o una página de precios (Dimark "desde 800.000 al mes", Los Creativos, Seology `/precio-seo/`) |
 | CTA | WhatsApp en 12 de 19, luego "diagnóstico gratis". **Ninguno tiene cotizador interactivo ni agenda embebida** |
-| GEO | Ya no es un hueco: 7 tienen landing de GEO o visibilidad en IA, y 8 publican `/llms.txt`. Solo Símbolo tiene GEO para Cali |
-| Apps y marca | Las landings con menos competencia: la única de apps es de 2023 y tiene 465 palabras, y nadie tiene "diseño de marca en Cali" |
+| GEO | Ya no es un hueco: 7 tienen landing de GEO o visibilidad en IA, y 8 publican `/llms.txt`. Solo Símbolo tiene GEO para Medellín |
+| Apps y marca | Las landings con menos competencia: la única de apps es de 2023 y tiene 465 palabras, y nadie tiene "diseño de marca en Medellín" |
 | Redes sociales | El término que usan todos es **"manejo de redes sociales"**, no "optimización" |
 | Blogs | 8 publican cada semana (Branch casi a diario). 6 están parados desde hace meses. Varios tienen glosarios de 145–180 términos e índices por sector |
-| Schema | Ninguno junta en una landing LocalBusiness con dirección en Cali, Service, Offer, FAQ y BreadcrumbList |
+| Schema | Ninguno junta en una landing LocalBusiness con dirección en Medellín, Service, Offer, FAQ y BreadcrumbList |
 
 ### 6.3 Qué cambia para dkoding.net
 
 1. **La estructura del §2 se mantiene,** con la ciudad en el título, el H1 y la descripción de
-   cada landing: "Diseño de páginas web en Cali", "Agencia de marketing digital en Cali", etc.
-   Tú sí estás en Cali y ellos no: eso se demuestra con LocalBusiness, la dirección real, el
-   mapa y casos locales.
-2. **Redes sociales:** H1 y título con "manejo de redes sociales en Cali". "Optimización" queda
+   cada landing: "Diseño de páginas web en Medellín", "Agencia de marketing digital en Medellín", etc.
+   Pero el argumento **no** puede ser "estamos aquí y ellos no", porque en Medellín sí están. Lo
+   que diferencia a DKODING y se puede comprobar: 12 años, software propio (dkard y dkarta),
+   el cotizador con precio a la vista, todo a nombre del cliente y un equipo pequeño donde quien
+   cotiza es quien acompaña. Eso es lo que lleva la página de Nosotros.
+   **Por dónde empezar:** "diseño web medellín" (1.000) y "diseñador gráfico medellín" (1.300)
+   tienen competencia baja en tu estudio; "marketing digital medellín" (1.600) y
+   "agencia de posicionamiento web en medellín" (590) la tienen alta y toman más tiempo.
+2. **Redes sociales:** H1 y título con "manejo de redes sociales en Medellín". "Optimización" queda
    como ángulo del texto. La URL `/redes-sociales/` sirve para los dos.
 3. **El cotizador es el diferenciador más claro.** Nadie lo tiene. Conviene que, además del botón
    flotante, tenga una URL propia indexable (`/cotizador/`) para captar "cuánto cuesta una página
-   web en Cali".
+   web en Medellín".
 4. **Precios:** decidiste que la landing no muestre precios. Siete competidores sí los
    muestran. El cotizador puede cubrir esa intención sin poner cifras fijas en la página; es una
    decisión tuya, solo te dejo el dato.
@@ -282,7 +294,7 @@ para cada búsqueda. Lo que sigue es cómo están construidos.
    ignora (guía de mayo de 2026). Detalle y acciones en `seo-geo-notas-2026.md`.
 7. **Páginas por otra ciudad** (`/seo-y-geo/bogota/`) solo cuando haya casos reales allí, con
    contenido propio. Nada de copias con la ciudad cambiada.
-8. **Blog:** una entrada por semana es realista. Sectores del Valle del Cauca primero: salud,
+8. **Blog:** una entrada por semana es realista. Sectores del Antioquia primero: salud,
    clínicas estéticas, hoteles y turismo, moda y agroindustria. Un glosario corto de GEO e IA
    (50–80 términos) en `/blog/glosario/`.
 

@@ -1,5 +1,5 @@
 ---
-titulo: "Muestra tu portafolio digital 24/7: por qué tu negocio necesita una página web"
+titulo: "Portafolio digital 24/7: por qué necesitas una página web"
 descripcion: "Qué hace una página web por un emprendedor que ya vende por Instagram y WhatsApp, qué secciones no pueden faltar y cómo saber si la tuya está trabajando o solo existe."
 publicado: 2024-07-05
 modificado: 2026-10-15
@@ -12,7 +12,7 @@ tldr:
   - "La página existe para convertir, no para estar bonita. Mide llamadas, mensajes y formularios, no visitas."
 faq:
   - q: "Ya vendo por Instagram y WhatsApp. ¿Para qué necesito una página web?"
-    a: "Porque Instagram no aparece cuando alguien busca «fotógrafo de bodas en Cali» en Google ni cuando se lo pregunta a ChatGPT, y porque la cuenta no es tuya: un bloqueo o un cambio de algoritmo te deja sin vitrina. La página web es el único canal que controlas y el que los buscadores y la IA leen."
+    a: "Porque Instagram no aparece cuando alguien busca «fotógrafo de bodas en Medellín» en Google ni cuando se lo pregunta a ChatGPT, y porque la cuenta no es tuya: un bloqueo o un cambio de algoritmo te deja sin vitrina. La página web es el único canal que controlas y el que los buscadores y la IA leen."
   - q: "¿Cuánto cuesta una página web para un emprendedor?"
     a: "Una landing page profesional con diseño propio, formulario, WhatsApp y SEO básico está, como referencia, entre 2,8 y 3,6 millones de pesos antes de IVA. Lo explicamos con detalle en nuestra guía de cuánto cuesta una página web en Colombia, y el cotizador te da tu rango sin dejar datos."
   - q: "¿Qué secciones debe tener la página de un emprendedor?"
@@ -79,4 +79,4 @@ Una página web no se mide en visitas. Se mide en contactos. Antes de lanzarla, 
 
 Una landing page profesional, con diseño propio, formulario, WhatsApp, legales y SEO básico, está como referencia entre 2,8 y 3,6 millones de pesos antes de IVA. El sitio completo con portafolio y varios servicios sube a un rango de 5,9 a 7,6 millones. Los detalles están en nuestra guía de [cuánto cuesta una página web en Colombia](/blog/cuanto-cuesta-una-pagina-web-en-colombia/), y tu rango exacto lo puedes ver en el [cotizador](/cotizador/) sin dejar datos.
 
-Nuestra recomendación para un emprendedor que empieza: una landing que convierta, con el portafolio como protagonista, y crecer por fases cuando el negocio lo pida. Si quieres que lo hagamos contigo, mira cómo trabajamos el [desarrollo web en Cali](/) o escríbenos por WhatsApp.
+Nuestra recomendación para un emprendedor que empieza: una landing que convierta, con el portafolio como protagonista, y crecer por fases cuando el negocio lo pida. Si quieres que lo hagamos contigo, mira cómo trabajamos el [desarrollo web en Medellín](/) o escríbenos por WhatsApp.

@@ -15,7 +15,7 @@ const equipo = [
   { src: '/img/equipo/dk-equipo-comercial-01.webp', alt: 'Retrato de [Nombre], asesor comercial de DKODING', cargo: 'Asesor comercial' },
 ];
 const hitos = [
-  { fecha: `${new Date().getFullYear() - SITIO.anios}`, titulo: 'Nace DKODING en Cali', texto: 'Empezamos como un taller de desarrollo web para negocios de la ciudad. [Un párrafo sobre quién fundó la agencia y por qué.]' },
+  { fecha: `${new Date().getFullYear() - SITIO.anios}`, titulo: 'Nace DKODING en Medellín', texto: 'Empezamos como un taller de desarrollo web para negocios de la ciudad. [Un párrafo sobre quién fundó la agencia y por qué.]' },
   { fecha: '[Año]', titulo: 'Primeros clientes fuera de Colombia', texto: 'Sitios para empresas en Estados Unidos y Reino Unido, como KingTails y CM Cleaning. [Completar con el primer proyecto internacional.]' },
   { fecha: '[Año]', titulo: 'Diseño de marca y marketing', texto: 'Sumamos identidad, redes y pauta para que la web no se quedara sola. [Completar con el primer proyecto de marca.]' },
   { fecha: '[Año]', titulo: 'dkard y dkarta', texto: 'Lanzamos nuestra tarjeta digital y empezamos a construir la carta digital para restaurantes. [Fecha de lanzamiento de dkard.co.]' },
@@ -27,7 +27,7 @@ const valores = [
   { titulo: 'Medimos lo que hacemos', texto: 'Velocidad, disponibilidad, posiciones, contactos. Cada cliente tiene un panel con sus números, no un informe en PDF que nadie abre.' },
   { titulo: 'Plazos por escrito', texto: 'Fecha de entrega, tiempo de respuesta del soporte y aviso si el sitio se cae. Lo escribimos y lo cumplimos, y cuando no, lo reconocemos.' },
   { titulo: 'Español claro', texto: 'Sin jerga para impresionar. Si no entiendes algo de tu propuesta o de tu informe, el error es nuestro y lo corregimos.' },
-  { titulo: 'Cali primero', texto: 'Trabajamos con clientes de varios países, pero esta ciudad es nuestra casa y donde más podemos ayudar en persona.' },
+  { titulo: 'Cerca de verdad', texto: 'Trabajamos con clientes de varios países, pero Medellín es nuestra casa: aquí atendemos en persona y en horario local.' },
 ];
 const pasos = [
   { t: 'Diagnóstico', d: 'Entendemos el negocio y medimos dónde está hoy: web, SEO, redes, presencia en la IA.' },
@@ -37,14 +37,14 @@ const pasos = [
   { t: 'Mejora mensual', d: 'Soporte, monitoreo y cambios con datos. Lo que se lanza se cuida.' },
 ];
 ---
-<Base titulo="Nosotros: agencia web en Cali desde hace 12 años" descripcion="DKODING es una agencia de desarrollo web, SEO y marketing digital en Cali con 12 años, equipo propio y productos propios. Conócenos y cotiza tu proyecto." ruta={ruta} schema={schema}>
+<Base titulo="Nosotros: agencia web en Medellín desde hace 12 años" descripcion="DKODING es una agencia de desarrollo web, SEO y marketing digital en Medellín con 12 años, equipo propio y productos propios. Conócenos y cotiza tu proyecto." ruta={ruta} schema={schema}>
   <section class="hero">
     <div class="container hero-in">
       <div class="hero-txt">
         <nav class="migas" aria-label="Ruta de navegación"><a href="/">Inicio</a><span aria-hidden="true">»</span><span aria-current="page">Nosotros</span></nav>
         <p class="eyebrow">Quiénes somos</p>
-        <h1>Agencia de desarrollo web en Cali <strong>desde hace {SITIO.anios} años</strong></h1>
-        <p class="lead">DKODING es un equipo real en Cali que diseña y construye sitios web, marcas, campañas y software para negocios de Colombia y de fuera. Llevamos {SITIO.anios} años, tenemos 24 sitios en vivo en nuestros casos y dos productos propios. Trabajamos con un método de 5 pasos y todo queda a nombre del cliente.</p>
+        <h1>Agencia de desarrollo web en Medellín <strong>desde hace {SITIO.anios} años</strong></h1>
+        <p class="lead">DKODING es un equipo real en Medellín que diseña y construye sitios web, marcas, campañas y software para negocios de Colombia y de fuera. Llevamos {SITIO.anios} años, tenemos 24 sitios en vivo en nuestros casos y dos productos propios. Trabajamos con un método de 5 pasos y todo queda a nombre del cliente.</p>
         <div class="cta-row">
           <a href="/cotizador/" class="btn btn-primary btn-lg">Cotizar en 2 minutos</a>
           <a href={wa} class="btn btn-wa btn-lg" rel="noopener">Escribir por WhatsApp</a>
@@ -65,7 +65,7 @@ const pasos = [
   <section class="section-tight cifras-sec">
     <div class="container">
       <ul class="cifras">
-        <li><span class="cifra">{SITIO.anios}</span><span class="muted">años construyendo sitios en Cali</span></li>
+        <li><span class="cifra">{SITIO.anios}</span><span class="muted">años construyendo sitios en Medellín</span></li>
         <li><span class="cifra">24</span><span class="muted">sitios en vivo en nuestros casos</span></li>
         <li><span class="cifra">84</span><span class="muted">clientes atendidos</span></li>
         <li><span class="cifra">2</span><span class="muted">productos propios: dkard y dkarta</span></li>
@@ -79,7 +79,7 @@ const pasos = [
         <p class="eyebrow">Lo que hacemos</p>
         <h2>Construimos lo que un negocio necesita para <strong>que lo encuentren y le compren</strong></h2>
         <p class="lead">Empezamos con páginas web y seguimos ahí: es el centro de todo. Con los años sumamos lo que los clientes pedían después de tener la web: que apareciera en Google, que las redes se vieran igual de bien, que la marca estuviera a la altura y, cuando el negocio crecía, un software propio para ordenar la operación.</p>
-        <p class="lead">Hoy somos un equipo pequeño y completo: dirección, desarrollo, diseño y un área comercial que atiende en persona en Cali. No subcontratamos lo esencial y no competimos por tamaño. Competimos por cercanía, por tecnología propia y por decir la verdad sobre lo que se puede lograr.</p>
+        <p class="lead">Hoy somos un equipo pequeño y completo: dirección, desarrollo, diseño y un área comercial que atiende en persona en Medellín. No subcontratamos lo esencial y no competimos por tamaño. Competimos por cercanía, por tecnología propia y por decir la verdad sobre lo que se puede lograr.</p>
       </div>
       <ul class="serv-list">
         {SERVICIOS.map((s) => (
@@ -138,19 +138,20 @@ const pasos = [
   </section>
 
   <section class="section">
-    <div class="container cali">
-      <div class="cali-txt">
-        <p class="eyebrow">Por qué Cali</p>
-        <h2>Una agencia que <strong>sí está en Cali</strong></h2>
-        <p class="lead">Muchas agencias que ofrecen "diseño web en Cali" están en Bogotá, Medellín o fuera del país. Nosotros tenemos oficina aquí, atendemos en persona y conocemos cómo compran los negocios de la ciudad: por WhatsApp, por recomendación y con alguien que responda rápido.</p>
+    <div class="container ciudad">
+      <div class="ciudad-txt">
+        <p class="eyebrow">Por qué nosotros</p>
+        <h2>En Medellín hay muchas agencias. <strong>Estas son las diferencias</strong></h2>
+        <p class="lead">No vamos a decirte que somos los únicos aquí, porque no es cierto: Medellín es la ciudad con más agencias digitales del país. Lo que sí podemos decir es en qué trabajamos distinto, y cada punto se puede comprobar antes de contratarnos.</p>
         <ul class="chev-list">
-          <li>Reuniones presenciales en Cali y atención en horario local: {SITIO.horario}.</li>
-          <li>Dirección y datos legales en el pie de cada página y en nuestra ficha de Google Business Profile.</li>
-          <li>Casos locales: hoteles, clínicas, colegios y empresas del Valle del Cauca, además de clientes en Estados Unidos y Reino Unido.</li>
-          <li>Sectores que conocemos de cerca: salud, hoteles y turismo, educación, industria y comercio.</li>
+          <li><span><strong>12 años y clientes que siguen.</strong> Casos en vivo que puedes abrir ahora mismo, con sitios de Colombia, Estados Unidos y Reino Unido.</span></li>
+          <li><span><strong>Construimos software propio</strong>, no solo páginas: dkard y dkarta son productos nuestros. Eso cambia lo que podemos resolver cuando un proyecto se sale del molde.</span></li>
+          <li><span><strong>El precio se ve antes de hablar.</strong> Nuestro cotizador muestra el rango por horas y módulos, sin reunión previa ni cifras escondidas.</span></li>
+          <li><span><strong>Todo queda a tu nombre</strong> desde el primer día: código, dominio, hosting y accesos. Si mañana cambias de equipo, te llevas todo.</span></li>
+          <li><span><strong>Equipo pequeño:</strong> quien te cotiza es quien te acompaña. Atención en horario local, {SITIO.horario}</span></li>
         </ul>
       </div>
-      <aside class="card card-hl cali-datos">
+      <aside class="card card-hl ciudad-datos">
         <p class="eyebrow">Datos de contacto</p>
         <p><strong>{SITIO.razonSocial}</strong><br>NIT {SITIO.nit}</p>
         <p>{SITIO.direccion}<br>{SITIO.ciudad}, {SITIO.region}, {SITIO.pais}</p>
@@ -226,10 +227,10 @@ const pasos = [
   .paso h3 { font-size: 20px; }
   .paso p { font-size: 15.5px; }
 
-  .cali { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.8fr); gap: clamp(28px, 4vw, 64px); align-items: start; }
-  .cali-txt { display: flex; flex-direction: column; gap: 18px; }
-  .cali-datos { display: flex; flex-direction: column; gap: 14px; }
-  .cali-datos .btn { align-self: flex-start; margin-top: 6px; }
+  .ciudad { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.8fr); gap: clamp(28px, 4vw, 64px); align-items: start; }
+  .ciudad-txt { display: flex; flex-direction: column; gap: 18px; }
+  .ciudad-datos { display: flex; flex-direction: column; gap: 14px; }
+  .ciudad-datos .btn { align-self: flex-start; margin-top: 6px; }
   .small { font-size: 14px; }
 
   .cta-final { position: relative; overflow: hidden; border-radius: var(--r-card); padding: clamp(32px, 5vw, 64px); display: grid; grid-template-columns: minmax(0, 1.2fr) auto; gap: 32px; align-items: center; color: #fff; }

@@ -12,7 +12,7 @@ const [primero, ...resto] = posts;
 const temasConArticulos = TEMAS.map((t) => ({ ...t, n: posts.filter((p) => p.data.tema === t.slug).length })).filter((t) => t.n > 0);
 
 const titulo = 'Blog: guías de desarrollo web, SEO y marketing digital';
-const descripcion = 'Guías prácticas desde Cali sobre páginas web, costos, SEO local, visibilidad en la IA, marketing digital y marca. Escritas por el equipo de DKODING con casos reales.';
+const descripcion = 'Guías prácticas desde Medellín sobre páginas web, costos, SEO local, visibilidad en la IA, marketing digital y marca. Escritas por el equipo de DKODING con casos reales.';
 const schema = [migasSchema([{ nombre: 'Inicio', url: '/' }, { nombre: 'Blog', url: '/blog/' }])];
 ---
 <Base titulo={titulo} descripcion={descripcion} ruta="/blog/" schema={schema}>
@@ -22,7 +22,7 @@ const schema = [migasSchema([{ nombre: 'Inicio', url: '/' }, { nombre: 'Blog', u
         <ol><li><a href="/">Inicio</a></li><li aria-current="page">Blog</li></ol>
       </nav>
       <p class="eyebrow">Blog de DKODING</p>
-      <h1>Guías de <strong>desarrollo web, SEO y marketing digital</strong> desde Cali</h1>
+      <h1>Guías de <strong>desarrollo web, SEO y marketing digital</strong> desde Medellín</h1>
       <p class="lead">Lo que aprendemos en los proyectos, explicado sin humo: cuánto cuesta una página web, cómo salir en Google y en la IA, y qué sí mueve ventas. Cada guía enlaza al servicio que la respalda.</p>
 
       <nav class="filtros" aria-label="Filtrar por tema">

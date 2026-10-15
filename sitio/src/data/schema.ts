@@ -12,7 +12,7 @@ export function organizacionSchema(): Record<string, unknown> {
     logo: `${SITIO.dominio}/img/marca/logo-vertical.svg`,
     image: `${SITIO.dominio}/img/og/dkoding.png`,
     slogan: SITIO.lema,
-    description: 'Agencia de desarrollo web, SEO y marketing digital en Cali, Colombia. Sitios web que venden, posicionamiento en Google y en la IA, redes sociales, diseño de marca y apps.',
+    description: 'Agencia de desarrollo web, SEO y marketing digital en Medellín, Colombia. Sitios web que venden, posicionamiento en Google y en la IA, redes sociales, diseño de marca y apps.',
     telephone: SITIO.telefono,
     email: SITIO.correo,
     foundingDate: String(new Date().getFullYear() - SITIO.anios),
@@ -23,7 +23,7 @@ export function organizacionSchema(): Record<string, unknown> {
       addressRegion: SITIO.region,
       addressCountry: 'CO',
     },
-    areaServed: [{ '@type': 'City', name: 'Cali' }, { '@type': 'Country', name: 'Colombia' }],
+    areaServed: [{ '@type': 'City', name: 'Medellín' }, { '@type': 'Country', name: 'Colombia' }],
     priceRange: '$$',
     sameAs: Object.values(SITIO.redes),
     contactPoint: {
@@ -47,7 +47,7 @@ export function servicioSchema(opts: {
     description: opts.descripcion,
     url: `${SITIO.dominio}${opts.url}`,
     provider: { '@id': `${SITIO.dominio}/#organizacion` },
-    areaServed: [{ '@type': 'City', name: 'Cali' }, { '@type': 'Country', name: 'Colombia' }],
+    areaServed: [{ '@type': 'City', name: 'Medellín' }, { '@type': 'Country', name: 'Colombia' }],
     ...(opts.ofertas?.length
       ? {
           hasOfferCatalog: {

@@ -1,5 +1,5 @@
 ---
-titulo: "Impulsa tu negocio con SEO en Google: guía práctica para empezar"
+titulo: "SEO en Google: guía práctica para empezar desde cero"
 descripcion: "Para qué sirve el posicionamiento orgánico, las acciones que mueven un sitio en Google en 2026 y cómo convertir ese tráfico en ventas. Actualizado con la IA."
 publicado: 2024-07-05
 modificado: 2026-10-15
@@ -13,7 +13,7 @@ faq:
   - q: "¿Qué es el posicionamiento orgánico?"
     a: "Es aparecer en los resultados de Google que no son anuncios, por mérito de la página y no por pago. Se consigue con contenido que responde lo que la gente busca, un sitio técnicamente sano y señales de confianza como enlaces y reseñas. A diferencia de la pauta, el tráfico no se apaga cuando dejas de pagar."
   - q: "¿Cuánto tarda el SEO en dar resultados?"
-    a: "Los cambios técnicos y en títulos se notan en semanas. Posicionar un servicio competido en una ciudad como Cali toma, en nuestra experiencia, [X meses] de trabajo constante. Es una inversión que acumula, y por eso la comparamos con la pauta a doce meses, no a uno."
+    a: "Los cambios técnicos y en títulos se notan en semanas. Posicionar un servicio competido en una ciudad como Medellín toma, en nuestra experiencia, [X meses] de trabajo constante. Es una inversión que acumula, y por eso la comparamos con la pauta a doce meses, no a uno."
   - q: "¿SEO o Google Ads?"
     a: "Los dos, con roles distintos. La pauta trae clientes desde la primera semana y sirve para validar qué búsquedas convierten. El SEO toma más tiempo pero baja el costo por cliente con los meses. Lo habitual es empezar con pauta y usar lo aprendido para decidir qué páginas posicionar."
   - q: "¿Las redes sociales ayudan al SEO?"
@@ -22,13 +22,13 @@ faq:
     a: "Auditoría técnica y de visibilidad en IA, optimización inicial de las páginas (títulos, descripciones, datos estructurados, enlazado y velocidad), SEO local con la ficha de Google, y un plan de contenidos mensual con medición de posiciones, Core Web Vitals, presencia en IA y contactos generados."
 ---
 
-Cuando una persona en Cali escribe «contador para pymes» o «clínica veterinaria 24 horas» en Google, está a un clic de convertirse en cliente de alguien. El posicionamiento orgánico decide de quién. Esta guía, escrita por el equipo de [SEO y GEO](/seo-y-geo/) de DKODING, explica para qué sirve el SEO, qué acciones lo mueven de verdad en 2026 y cómo convertir las visitas en ventas. La publicamos en 2024 y la hemos actualizado con lo que cambió desde que la inteligencia artificial entró a los resultados.
+Cuando una persona en Medellín escribe «contador para pymes» o «clínica veterinaria 24 horas» en Google, está a un clic de convertirse en cliente de alguien. El posicionamiento orgánico decide de quién. Esta guía, escrita por el equipo de [SEO y GEO](/seo-y-geo/) de DKODING, explica para qué sirve el SEO, qué acciones lo mueven de verdad en 2026 y cómo convertir las visitas en ventas. La publicamos en 2024 y la hemos actualizado con lo que cambió desde que la inteligencia artificial entró a los resultados.
 
 ## Para qué sirve el posicionamiento orgánico
 
 Posicionar es aparecer en los resultados de Google que no son anuncios. Sirve para tres cosas:
 
-1. **Visibilidad donde hay intención.** Quien busca «precio de ortodoncia en Cali» no está mirando videos: está decidiendo. Estar ahí vale más que cualquier impresión en redes.
+1. **Visibilidad donde hay intención.** Quien busca «precio de ortodoncia en Medellín» no está mirando videos: está decidiendo. Estar ahí vale más que cualquier impresión en redes.
 2. **Tráfico que no se apaga.** La pauta trae clientes mientras pagas. Una página bien posicionada trae clientes durante meses sin costo por clic.
 3. **Credibilidad.** Las personas asocian las primeras posiciones con los negocios serios. Y en 2026 hay una razón más: los asistentes de IA (ChatGPT, Perplexity, los AI Overviews de Google) construyen sus respuestas con las páginas que ya posicionan. Lo explicamos en la guía sobre [cómo aparecer en las respuestas de IA](/blog/como-aparecer-en-chatgpt-y-respuestas-de-ia/).
 
@@ -36,7 +36,7 @@ Posicionar es aparecer en los resultados de Google que no son anuncios. Sirve pa
 
 ### 1. Palabras clave con intención
 
-El SEO empieza por entender qué escribe tu cliente. Herramientas como el Planificador de palabras clave de Google Ads, Search Console (si ya tienes sitio) y las sugerencias del propio buscador bastan para empezar. Lo importante no es el volumen, sino la intención: «qué es un implante dental» informa y «implantes dentales Cali precio» compra. Las dos sirven, pero van en páginas distintas.
+El SEO empieza por entender qué escribe tu cliente. Herramientas como el Planificador de palabras clave de Google Ads, Search Console (si ya tienes sitio) y las sugerencias del propio buscador bastan para empezar. Lo importante no es el volumen, sino la intención: «qué es un implante dental» informa y «implantes dentales Medellín precio» compra. Las dos sirven, pero van en páginas distintas.
 
 Haz una lista de 20 a 40 búsquedas, agrúpalas por intención y asigna cada grupo a una página. Una página por servicio principal, con la ciudad, es la estructura que mejor funciona para un negocio local.
 
@@ -55,7 +55,7 @@ El contenido genérico, el que podría estar en cualquier sitio del sector, ya n
 
 Es lo que más rápido se corrige y lo que más se descuida:
 
-- **Título y descripción** únicos por página, con la búsqueda principal y la ciudad: «Ortodoncia en Cali: precios y tratamientos | Clínica X».
+- **Título y descripción** únicos por página, con la búsqueda principal y la ciudad: «Ortodoncia en Medellín: precios y tratamientos | Clínica X».
 - **Un solo encabezado principal** (H1) por página, y subtítulos (H2, H3) que se lean como una tabla de contenido.
 - **URLs cortas y estables**, con palabras, sin fechas ni parámetros.
 - **Imágenes** comprimidas, con dimensiones declaradas y texto alternativo que describa lo que se ve.
@@ -72,7 +72,7 @@ Los enlaces desde otros sitios siguen siendo una señal de confianza, pero impor
 
 ### 6. SEO local
 
-Para un negocio en Cali, la ficha de Google Business Profile pesa tanto como el sitio. Categoría correcta, horarios reales, fotos propias, servicios declarados y reseñas respondidas. Lo explicamos paso a paso en la guía de [SEO local en Cali](/blog/seo-local-en-cali-google-business-profile/).
+Para un negocio en Medellín, la ficha de Google Business Profile pesa tanto como el sitio. Categoría correcta, horarios reales, fotos propias, servicios declarados y reseñas respondidas. Lo explicamos paso a paso en la guía de [SEO local en Medellín](/blog/seo-local-en-medellin-google-business-profile/).
 
 <div class="table-box">
 

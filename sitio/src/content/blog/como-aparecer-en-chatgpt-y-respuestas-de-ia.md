@@ -24,7 +24,7 @@ faq:
     a: "No, y desconfía de quien lo garantice. Las respuestas cambian por persona, por día y por versión del modelo. Lo que sí hacemos es dejar el sitio técnicamente listo, construir contenido con experiencia propia y medir la presencia mes a mes para corregir el rumbo."
 ---
 
-Cada vez más personas preguntan a un asistente de inteligencia artificial en lugar de buscar en Google: «¿qué agencia de páginas web me recomiendas en Cali?», «¿cuánto cuesta una tienda online en Colombia?». La respuesta llega redactada, con dos o tres fuentes citadas. Aparecer entre esas fuentes es lo que se llama GEO, optimización para motores generativos. Esta guía explica qué hay detrás, qué hacer de verdad y qué mitos ignorar, con las fuentes que se pueden verificar.
+Cada vez más personas preguntan a un asistente de inteligencia artificial en lugar de buscar en Google: «¿qué agencia de páginas web me recomiendas en Medellín?», «¿cuánto cuesta una tienda online en Colombia?». La respuesta llega redactada, con dos o tres fuentes citadas. Aparecer entre esas fuentes es lo que se llama GEO, optimización para motores generativos. Esta guía explica qué hay detrás, qué hacer de verdad y qué mitos ignorar, con las fuentes que se pueden verificar.
 
 ## Qué está cambiando, con los datos que sí se sostienen
 
@@ -34,7 +34,7 @@ Hay muchas cifras circulando, casi todas publicadas por agencias que venden GEO.
 - **Efecto de los AI Overviews.** Ahrefs midió que, cuando aparece un resumen de IA en Google, el primer resultado pierde entre un 34,5 % y un 58 % de sus clics, según la actualización del estudio.
 - **Comportamiento de las personas.** Pew Research encontró que quien ve un resumen de IA hace clic en un resultado en el 8 % de las visitas, frente al 15 % de quien no lo ve.
 
-Para un negocio local en Cali, la búsqueda clásica en Google y el mapa siguen trayendo la mayoría de los clientes. Pero cada vez más decisiones se forman en una conversación con una IA, y ahí la marca aparece o no aparece.
+Para un negocio local en Medellín, la búsqueda clásica en Google y el mapa siguen trayendo la mayoría de los clientes. Pero cada vez más decisiones se forman en una conversación con una IA, y ahí la marca aparece o no aparece.
 
 ## Cómo elige la IA a quién citar
 

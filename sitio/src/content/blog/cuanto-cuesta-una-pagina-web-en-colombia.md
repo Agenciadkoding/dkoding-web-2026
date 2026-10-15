@@ -27,7 +27,7 @@ faq:
 
 Si estás pidiendo cotizaciones para tu página web y te llegan números que van desde unos pocos cientos de miles hasta decenas de millones de pesos, no estás comparando lo mismo. Esta guía explica de dónde sale el precio de una página web en Colombia en 2026, con los rangos que usamos en DKODING como referencia, qué lo sube, qué lo baja y en qué fijarte cuando pongas tres cotizaciones una al lado de la otra.
 
-Hablamos desde la experiencia: llevamos 12 años haciendo sitios en Cali, con más de 30 proyectos entregados y 24 sitios que puedes ver en vivo en nuestros [casos de éxito](/casos-de-exito/). Los rangos de este artículo salen de la tabla de horas con la que cotizamos de verdad, la misma que mueve nuestro [cotizador en línea](/cotizador/).
+Hablamos desde la experiencia: llevamos 12 años haciendo sitios en Medellín, con más de 30 proyectos entregados y 24 sitios que puedes ver en vivo en nuestros [casos de éxito](/casos-de-exito/). Los rangos de este artículo salen de la tabla de horas con la que cotizamos de verdad, la misma que mueve nuestro [cotizador en línea](/cotizador/).
 
 ## De dónde sale el precio de una página web
 
@@ -112,7 +112,7 @@ Después de ver cientos de cotizaciones ajenas que nuestros clientes nos compart
 
 ## Un ejemplo con números
 
-Una clínica estética en Cali nos pide un sitio con inicio, nosotros, seis servicios, casos antes y después, blog y agenda en línea. Con nuestros textos y diseño sobre el sistema visual:
+Una clínica estética en Medellín nos pide un sitio con inicio, nosotros, seis servicios, casos antes y después, blog y agenda en línea. Con nuestros textos y diseño sobre el sistema visual:
 
 - Base de sitio corporativo: 110 horas.
 - Blog con categorías: 18 + 4 horas.

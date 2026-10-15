@@ -1,23 +1,23 @@
 ---
-titulo: "SEO local en Cali: guía de Google Business Profile"
-descripcion: "Cómo salir en el mapa y en los tres resultados locales de Google cuando buscan tu servicio en Cali. Ficha, categorías, reseñas, fotos y los errores que te sacan del mapa."
+titulo: "SEO local en Medellín: guía de Google Business Profile"
+descripcion: "Cómo salir en el mapa y en los tres resultados locales de Google cuando buscan tu servicio en Medellín. Ficha, categorías, reseñas y los errores que te sacan del mapa."
 publicado: 2026-10-15
 modificado: 2026-10-15
 tema: seo-y-geo
 nicho: pymes
 landing: /seo-y-geo/
 tldr:
-  - "El SEO local decide quién sale en el mapa y en los tres resultados con dirección cuando alguien busca «odontólogo en Cali» o «ferretería cerca de mí». Google lo ordena por relevancia, distancia y prominencia."
+  - "El SEO local decide quién sale en el mapa y en los tres resultados con dirección cuando alguien busca «odontólogo en Medellín» o «ferretería cerca de mí». Google lo ordena por relevancia, distancia y prominencia."
   - "La ficha de Google Business Profile es la base. Completa, con la categoría correcta, horarios reales, fotos propias y reseñas respondidas, ya te pone por delante de la mayoría de negocios de la ciudad."
   - "Lo que no se ve en la ficha también cuenta: que tu sitio diga lo mismo (nombre, dirección y teléfono), que tenga una página por servicio y que las menciones en directorios sean coherentes."
 faq:
   - q: "¿Qué es el SEO local y en qué se diferencia del SEO normal?"
-    a: "El SEO local busca aparecer en los resultados con mapa y en el paquete de tres negocios que Google muestra cuando una búsqueda tiene intención local, como «abogado en Cali» o «panadería cerca». Se apoya sobre todo en la ficha de Google Business Profile, las reseñas y la coherencia de tus datos en internet. El SEO tradicional trabaja el resto de los resultados y depende más del contenido y de los enlaces."
-  - q: "¿Necesito una dirección física en Cali para tener ficha de Google?"
+    a: "El SEO local busca aparecer en los resultados con mapa y en el paquete de tres negocios que Google muestra cuando una búsqueda tiene intención local, como «abogado en Medellín» o «panadería cerca». Se apoya sobre todo en la ficha de Google Business Profile, las reseñas y la coherencia de tus datos en internet. El SEO tradicional trabaja el resto de los resultados y depende más del contenido y de los enlaces."
+  - q: "¿Necesito una dirección física en Medellín para tener ficha de Google?"
     a: "No necesariamente. Si atiendes en tu local, pones la dirección. Si vas a donde el cliente (plomería, fotografía, consultoría a domicilio), puedes crear una ficha de área de servicio con la dirección oculta y marcar las zonas que cubres. Lo que Google no permite es una dirección falsa o una oficina virtual que no atiende público."
   - q: "¿Cuánto tarda en notarse el SEO local?"
     a: "Los cambios en la ficha se ven en días. Subir en el mapa frente a competidores que llevan años con reseñas toma semanas o meses, según la categoría. En nuestros proyectos, las primeras mejoras medibles en llamadas y rutas desde la ficha llegan en [X semanas], y el trabajo de reseñas y contenido sigue dando resultado durante todo el año."
-  - q: "¿Puedo poner «Cali» o mi servicio en el nombre de la ficha?"
+  - q: "¿Puedo poner «Medellín» o mi servicio en el nombre de la ficha?"
     a: "Solo si así se llama tu negocio en el aviso y en los documentos. Agregar palabras clave al nombre va contra las normas de Google y la ficha puede quedar suspendida. Si un competidor lo hace, puedes sugerir la corrección desde la propia ficha."
   - q: "¿Las reseñas negativas me perjudican?"
     a: "Una reseña negativa bien respondida no te saca del mapa. Lo que perjudica es no responder, acumular reseñas sin respuesta o intentar comprar reseñas positivas, que Google detecta y penaliza. Responde siempre, con calma y con una solución, porque la respuesta la lee el siguiente cliente."
@@ -25,7 +25,7 @@ faq:
     a: "La puesta a punto completa de la ficha (categorías, servicios, fotos, atributos, horarios), la coherencia de nombre, dirección y teléfono entre el sitio y los directorios, el esquema LocalBusiness en tu página y un plan de reseñas. En nuestro catálogo son unas 12 horas por sede, y se puede sumar al mantenimiento mensual para seguir publicando y respondiendo."
 ---
 
-Cuando alguien en Cali busca «dermatólogo cerca de mí» o «taller de motos en el sur», Google no muestra primero las páginas web. Muestra un mapa con tres negocios, su calificación, sus horarios y un botón para llamar. Ese bloque se llama paquete local, y quien está ahí recibe la llamada. Esta guía explica cómo entrar y cómo mantenerse, con lo que hemos aprendido optimizando fichas de clientes en Cali y el Valle.
+Cuando alguien en Medellín busca «dermatólogo cerca de mí» o «taller de motos en el sur», Google no muestra primero las páginas web. Muestra un mapa con tres negocios, su calificación, sus horarios y un botón para llamar. Ese bloque se llama paquete local, y quien está ahí recibe la llamada. Esta guía explica cómo entrar y cómo mantenerse, con lo que hemos aprendido optimizando fichas de clientes en Medellín y el Valle.
 
 ## Cómo decide Google quién sale en el mapa
 
@@ -41,15 +41,15 @@ La consecuencia práctica: una ficha completa y activa (relevancia y prominencia
 
 Busca tu negocio en Google Maps. Si ya existe una ficha (muchas se crean solas con datos de directorios), reclámala en lugar de crear otra: dos fichas del mismo negocio compiten entre sí y Google puede suspender una.
 
-Verifica por el método que Google te ofrezca. Hoy lo más común es un video corto en el que muestras el aviso, el interior del local y algo que pruebe que operas ahí, como equipos o inventario. Graba de día, con el aviso legible y sin cortes. Si tu negocio atiende a domicilio, elige el tipo de ficha de área de servicio y marca las zonas, por ejemplo Cali, Jamundí y Yumbo, sin mostrar la dirección.
+Verifica por el método que Google te ofrezca. Hoy lo más común es un video corto en el que muestras el aviso, el interior del local y algo que pruebe que operas ahí, como equipos o inventario. Graba de día, con el aviso legible y sin cortes. Si tu negocio atiende a domicilio, elige el tipo de ficha de área de servicio y marca las zonas, por ejemplo Medellín, Jamundí y Yumbo, sin mostrar la dirección.
 
 ## Paso 2: nombre, categoría y datos exactos
 
-El nombre de la ficha es el nombre real del negocio, el mismo del aviso y de la cámara de comercio. Nada de «Odontología Sonrisa Cali Implantes». Es la causa número uno de suspensiones que vemos.
+El nombre de la ficha es el nombre real del negocio, el mismo del aviso y de la cámara de comercio. Nada de «Odontología Sonrisa Medellín Implantes». Es la causa número uno de suspensiones que vemos.
 
 La **categoría principal** es la decisión más importante de toda la ficha. Elige la más específica que describa tu actividad principal: «Clínica dental» en lugar de «Centro médico», «Ferretería» en lugar de «Tienda». Agrega categorías secundarias para lo demás, sin inflar: cada categoría que no sea cierta diluye la relevancia.
 
-Los datos de contacto deben ser idénticos en todas partes: el mismo nombre, la misma forma de escribir la dirección y el mismo teléfono en la ficha, en tu sitio, en Instagram y en los directorios. En Cali esto se complica con direcciones tipo «Cra. 66 # 11-50, Local 203, Centro Comercial Holguines»: define una sola forma de escribirla y úsala siempre.
+Los datos de contacto deben ser idénticos en todas partes: el mismo nombre, la misma forma de escribir la dirección y el mismo teléfono en la ficha, en tu sitio, en Instagram y en los directorios. En Medellín esto se complica con direcciones tipo «Cra. 66 # 11-50, Local 203, Centro Comercial Holguines»: define una sola forma de escribirla y úsala siempre.
 
 ## Paso 3: completa todo lo que Google te deje completar
 
@@ -59,7 +59,7 @@ Una ficha con todos los campos llenos tiene más oportunidades de coincidir con 
 
 | Campo | Qué poner | Error frecuente |
 |---|---|---|
-| Horarios | Los reales, incluidos sábados y festivos colombianos. Actualiza los especiales (Semana Santa, Feria de Cali, fin de año) | Dejar «abierto 24 horas» o no marcar los festivos. Un cliente que llega y encuentra cerrado deja reseña |
+| Horarios | Los reales, incluidos sábados y festivos colombianos. Actualiza los especiales (Semana Santa, Feria de Medellín, fin de año) | Dejar «abierto 24 horas» o no marcar los festivos. Un cliente que llega y encuentra cerrado deja reseña |
 | Descripción | Qué haces, para quién y en qué zona. Hasta 750 caracteres, sin promociones ni enlaces | Copiar el eslogan. Google quiere texto descriptivo |
 | Servicios | Uno por cada servicio real, con descripción corta y, si aplica, precio | Dejarlo vacío. Es donde se gana relevancia por «implantes dentales» o «cambio de aceite» |
 | Productos | Para comercios: tus productos principales con foto y precio | Subir el catálogo completo sin fotos propias |
@@ -71,7 +71,7 @@ Una ficha con todos los campos llenos tiene más oportunidades de coincidir con 
 
 </div>
 
-## Paso 4: reseñas, el factor que más pesa en Cali
+## Paso 4: reseñas, el factor que más pesa en Medellín
 
 En casi todas las categorías que trabajamos en la ciudad, el negocio con más reseñas recientes y respondidas está arriba. No hace falta tener 500. Hace falta tenerlas constantes, con texto y con respuesta.
 
@@ -100,7 +100,7 @@ La ficha compite mejor cuando tu sitio y el resto de internet la respaldan.
 
 ### Tu sitio web
 
-- Una página por servicio principal, con la ciudad en el título y en el encabezado: «Ortodoncia en Cali», no «Nuestros servicios».
+- Una página por servicio principal, con la ciudad en el título y en el encabezado: «Ortodoncia en Medellín», no «Nuestros servicios».
 - La dirección, el teléfono y el horario escritos en texto en el pie, exactamente igual que en la ficha. Un mapa embebido ayuda a la persona, no al algoritmo.
 - Datos estructurados LocalBusiness con dirección, teléfono, horario y enlace a la ficha. Es parte de lo que hacemos en cada sitio que construimos.
 - Si tienes varias sedes, una página por sede, cada una con su ficha.
@@ -119,10 +119,10 @@ Revisa que tu negocio aparezca con los mismos datos en los directorios que impor
 5. Reseñas compradas, intercambiadas o pedidas solo a los clientes felices.
 6. Teléfono que no contesta o que cambia cada seis meses.
 7. Categoría principal genérica.
-8. Un sitio web que no menciona Cali ni el servicio en ninguna parte.
+8. Un sitio web que no menciona Medellín ni el servicio en ninguna parte.
 
 ## Cómo medir si funciona
 
-La ficha trae sus propias estadísticas: cuántas veces apareció en búsquedas y en Maps, con qué palabras, y cuántas llamadas, mensajes, rutas y clics al sitio generó. Guarda una captura al empezar y compara cada mes. En el sitio, Search Console te muestra las búsquedas con «Cali» que ya te traen clics, y una pregunta en tus formularios, «¿Cómo nos conociste?», te dice cuántos clientes llegaron por el mapa.
+La ficha trae sus propias estadísticas: cuántas veces apareció en búsquedas y en Maps, con qué palabras, y cuántas llamadas, mensajes, rutas y clics al sitio generó. Guarda una captura al empezar y compara cada mes. En el sitio, Search Console te muestra las búsquedas con «Medellín» que ya te traen clics, y una pregunta en tus formularios, «¿Cómo nos conociste?», te dice cuántos clientes llegaron por el mapa.
 
 En DKODING llevamos esa medición junto con el resto del SEO, y la ficha es la primera pieza que ponemos a punto en cualquier proyecto de [SEO y GEO](/seo-y-geo/). Si quieres saber en qué estado está la tuya, escríbenos y la revisamos contigo, o [cotiza el servicio](/cotizador/) en minutos.

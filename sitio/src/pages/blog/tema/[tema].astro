@@ -19,7 +19,7 @@ const temasConArticulos = TEMAS.map((t) => ({ ...t, n: todos.filter((p) => p.dat
 const ruta = `/blog/tema/${tema.slug}/`;
 
 const titulo = `Artículos de ${enFrase(tema.nombre)}`;
-const descripcion = `Guías de ${enFrase(tema.nombre)} del blog de DKODING, agencia en Cali: ${tema.desc} Lee y, si quieres, cotiza el servicio.`;
+const descripcion = `Guías de ${enFrase(tema.nombre)} del blog de DKODING, agencia en Medellín: ${tema.desc} Lee y, si quieres, cotiza el servicio.`;
 const schema = [migasSchema([{ nombre: 'Inicio', url: '/' }, { nombre: 'Blog', url: '/blog/' }, { nombre: tema.nombre, url: ruta }])];
 const wa = waLink(`Hola DKODING, me interesa el servicio de ${enFrase(tema.nombre)}. ¿Me orientan?`);
 ---
@@ -57,7 +57,7 @@ const wa = waLink(`Hola DKODING, me interesa el servicio de ${enFrase(tema.nombr
         <div>
           <p class="eyebrow">{tema.corto}</p>
           <h2>¿Necesitas <strong>{enFrase(tema.nombre)}</strong> para tu negocio?</h2>
-          <p class="muted cta-p">Conoce el servicio, cotízalo en minutos o escríbenos. Respondemos en horario hábil desde Cali.</p>
+          <p class="muted cta-p">Conoce el servicio, cotízalo en minutos o escríbenos. Respondemos en horario hábil desde Medellín.</p>
         </div>
         <div class="cta-btns">
           <a class="btn btn-secondary btn-lg" href={tema.url}>Ver el servicio</a>

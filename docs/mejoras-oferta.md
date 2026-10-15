@@ -45,7 +45,7 @@ Fuentes:
 | Prueba social con marcas grandes | Paxzu (Aeroméxico, Juan Valdez), Digital Active (KIA) | Tus 4 casos, pero con cifras: clics, leads y velocidad antes y después |
 | Certificaciones | Webcreativa (Google Partner) | Google Partner y Meta Business Partner cuando la inversión en pauta lo permita |
 | IA aplicada | Seology, IA Lab, Convertia; Mailchimp y MailerLite en sus productos | GEO con prueba medible e IA en la producción de contenido |
-| Tamaño del equipo | Símbolo: "más de 70 expertos" | No compitas por tamaño: compite por cercanía en Cali y por tecnología propia |
+| Tamaño del equipo | Símbolo: "más de 70 expertos" | No compitas por tamaño: compite por cercanía en Medellín y por tecnología propia |
 | Email marketing | MailerLite y Mailchimp (plataformas) | "email marketing" es de las palabras más buscadas de tu estudio. Puede ser un servicio, con Brevo, que ya usa un cliente |
 
 ## 2. Lo que DKODING ya tiene y no está vendiendo
@@ -58,7 +58,7 @@ Fuentes:
 | Capacitación grabada, 3 meses de soporte, copia entregada, antivirus, antispam y reCAPTCHA | Lista de "incluye" del paquete | Agruparlos como "entregamos y te enseñamos", con garantía de plazos |
 | Monitoreo y copias del admin | Herramienta interna | Es el corazón del plan de soporte (acción 1) |
 | Cotizador por horas | En diseño | La diferencia más clara: nadie lo tiene |
-| Estar en Cali | El sitio no lo aprovecha | Ninguna agencia de la lista está comprobadamente en Cali |
+| Estar en Medellín | El sitio no lo aprovecha | Ninguna agencia de la lista está comprobadamente en Medellín |
 
 ## 3. Acciones de mejora, en orden
 
@@ -67,7 +67,7 @@ Fuentes:
 | 1 | **Plan de soporte en 3 niveles.** Esencial: monitoreo, copias cada 15 días y actualizaciones. Pro: más horas de cambios e informe mensual. Crecimiento: mejora mensual con datos, SEO y GEO | Nadie lo vende con monitoreo y copias explícitos; el admin lo automatiza | Bajo: ya está en el admin | Con la etapa 2 del admin |
 | 2 | **Método DKODING en 5 pasos** (por ejemplo: diagnóstico, plan, construcción, lanzamiento, mejora mensual), visible en la home y en cada landing | Knowbi y Los Creativos venden su método | Bajo: es contenido | Con el lanzamiento del sitio |
 | 3 | **Diagnóstico gratis** de web, SEO y GEO como segundo CTA, junto al cotizador y WhatsApp. Después, un informe automático desde la revisión SEO del admin | Lemon (embudos), Seology e Ignacio Cuello (auditorías) | Medio | Lanzamiento, luego automático |
-| 4 | **Trifecta hotelera:** sitio con reservas o WhatsApp, dkarta para el restaurante, dkard para el personal, Google Business Profile y SEO local | Tu estudio tiene búsquedas de hoteles ("seo para hoteles", "crear sitio web para hotel", "sistema de reservas"); ya tienes el vertical y nadie lo ataca desde Cali | Medio | Cuando se construya su landing |
+| 4 | **Trifecta hotelera:** sitio con reservas o WhatsApp, dkarta para el restaurante, dkard para el personal, Google Business Profile y SEO local | Tu estudio tiene búsquedas de hoteles ("seo para hoteles", "crear sitio web para hotel", "sistema de reservas"); ya tienes el vertical y nadie lo ataca desde Medellín | Medio | Cuando se construya su landing |
 | 5 | **Paquete salud** para psicólogos, médicos y clínicas | 22 búsquedas de salud en tu estudio; Cocuna demuestra el nicho; caso real de una psicóloga | Medio | Después de Trifecta |
 | 6 | **dkard y dkarta visibles** como productos propios | Dimark usa sus herramientas como prueba de capacidad | Bajo | Después de la base: decidiste no sumar las apps a la landing todavía |
 | 7 | **Casos con cifras** de los 4 clientes actuales | Paxzu y Digital Active venden con nombres; tú puedes vender con resultados | Medio: hay que pedir datos | Antes del lanzamiento |
@@ -102,5 +102,5 @@ Para que sirva a la oferta, conviene agregar estas columnas:
 | Prueba social con cifras | Sí o no |
 
 Y separar en hojas: agencias que compiten directamente, referentes que no compiten (SaaS y
-consultoras) y agencias de Cali. Hay comentarios informales en tres celdas; conviene quitarlos
+consultoras) y agencias de Medellín. Hay comentarios informales en tres celdas; conviene quitarlos
 antes de compartir el archivo fuera del equipo.

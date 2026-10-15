@@ -1,5 +1,5 @@
 ---
-titulo: "Crear mi tienda online: beneficios y decisiones antes de empezar"
+titulo: "Crear mi tienda online: qué decidir antes de empezar"
 descripcion: "Qué gana tu negocio con una tienda online, qué decidir antes de construirla (plataforma, pagos, envíos, factura) y cuánto cuesta como referencia en Colombia en 2026."
 publicado: 2024-07-05
 modificado: 2026-10-15
@@ -27,7 +27,7 @@ Una tienda online es como tener un local abierto las 24 horas, en toda Colombia,
 
 ## Lo que una tienda online hace por tu negocio
 
-1. **Vende a cualquier hora y en cualquier ciudad.** Tus clientes compran a las once de la noche y desde Pasto, sin que tú estés. Para un negocio con local en Cali, es la forma más barata de salir de la ciudad.
+1. **Vende a cualquier hora y en cualquier ciudad.** Tus clientes compran a las once de la noche y desde Pasto, sin que tú estés. Para un negocio con local en Medellín, es la forma más barata de salir de la ciudad.
 2. **Baja los costos fijos.** No reemplaza el local si lo necesitas, pero cada venta en línea cuesta menos en arriendo, servicios y personal que una en mostrador.
 3. **Te da datos.** Qué productos se ven y no se compran, desde dónde llegan los clientes, qué pasa en el carrito. Con eso se decide qué promocionar y qué sacar del catálogo.
 4. **Automatiza lo repetitivo.** Confirmaciones de pedido, cobros, estados de envío y recordatorios salen solos. Tu tiempo va a atender y a vender, no a confirmar transferencias.
@@ -40,7 +40,7 @@ Una tienda online es como tener un local abierto las 24 horas, en toda Colombia,
 
 | Decisión | Preguntas que debes responder | Por qué cambia el proyecto |
 |---|---|---|
-| Qué vendes y a quién | Cuántos productos, con qué variantes (talla, color), a consumidor final o a empresas, en Cali, en Colombia o fuera | Define si necesitas catálogo simple, variantes, precios por cliente o varias monedas |
+| Qué vendes y a quién | Cuántos productos, con qué variantes (talla, color), a consumidor final o a empresas, en Medellín, en Colombia o fuera | Define si necesitas catálogo simple, variantes, precios por cliente o varias monedas |
 | Cómo cobras | Tarjeta, PSE, Nequi, efectivo contra entrega, transferencia confirmada por WhatsApp | Define la pasarela, la comisión y si hace falta carrito o basta un pedido por chat |
 | Cómo entregas | Transportadora, mensajería propia, recogida en tienda, zonas y tarifas | Define el módulo de envíos y las reglas por zona o por peso |
 | Cómo facturas | Factura electrónica obligatoria o no, software contable actual | Define la integración contable, que suma unas 20 horas |
@@ -83,4 +83,4 @@ Shopify, WooCommerce y las soluciones a medida siguen siendo las opciones princi
 
 La tienda no vende sola. Necesita tráfico (SEO para que te encuentren por producto y ciudad, pauta para arrancar, redes para mantener la marca presente) y atención rápida en el canal que elijas. Lo explicamos en [estrategias para incrementar las ventas por internet](/blog/estrategias-para-incrementar-las-ventas-por-internet/).
 
-Si quieres que te acompañemos a decidir entre catálogo y tienda, y a construirla, mira cómo trabajamos el [desarrollo web en Cali](/) o escríbenos por WhatsApp.
+Si quieres que te acompañemos a decidir entre catálogo y tienda, y a construirla, mira cómo trabajamos el [desarrollo web en Medellín](/) o escríbenos por WhatsApp.

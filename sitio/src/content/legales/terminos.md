@@ -1,6 +1,6 @@
 ---
 titulo: Términos y condiciones
-descripcion: Condiciones de uso del sitio dkoding.net y de contratación de los servicios de DKODING, agencia de desarrollo web y marketing digital en Cali, Colombia.
+descripcion: Condiciones de uso del sitio dkoding.net y de contratación de los servicios de DKODING, agencia de desarrollo web y marketing digital en Medellín, Colombia.
 actualizado: 2026-10-15
 version: "[1.0]"
 ---
@@ -9,7 +9,7 @@ version: "[1.0]"
 
 ## Quiénes somos
 
-Este sitio y los servicios que se ofrecen en él son de **[RAZÓN SOCIAL]** (en adelante, «DKODING»), identificada con NIT **[NIT]**, con domicilio en Cali, Colombia.
+Este sitio y los servicios que se ofrecen en él son de **[RAZÓN SOCIAL]** (en adelante, «DKODING»), identificada con NIT **[NIT]**, con domicilio en Medellín, Colombia.
 
 - Dirección física y de notificación judicial: [DIRECCIÓN]
 - Correo de notificaciones: [CORREO DE NOTIFICACIONES]

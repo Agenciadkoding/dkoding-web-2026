@@ -9,7 +9,7 @@ version: "[1.0]"
 
 ## Responsable
 
-**[RAZÓN SOCIAL]** (DKODING), NIT **[NIT]**, domicilio en Cali, Colombia, dirección [DIRECCIÓN], teléfono +57 300 286 7104.
+**[RAZÓN SOCIAL]** (DKODING), NIT **[NIT]**, domicilio en Medellín, Colombia, dirección [DIRECCIÓN], teléfono +57 300 286 7104.
 
 Correo para ejercer tus derechos sobre tus datos (habeas data): **[CORREO DE HABEAS DATA, por ejemplo datos@dkoding.net]**.
 
@@ -110,7 +110,7 @@ Si la cambiamos de forma sustancial, te avisamos antes de aplicar el cambio. Si 
 
 Este es el texto corto que acompaña a cada formulario del sitio y al pie de página. Tiene el contenido mínimo que exige la ley: quién es el responsable, para qué se usan los datos, los derechos del titular y dónde está la política completa.
 
-> **Aviso de privacidad.** [RAZÓN SOCIAL] (DKODING), NIT [NIT], con domicilio en Cali (teléfono +57 300 286 7104, correo [CORREO DE HABEAS DATA]), tratará los datos que nos des en este formulario para responder tu solicitud y, si contratas, prestar el servicio y facturarlo. Puedes conocer, actualizar, rectificar y suprimir tus datos y revocar tu autorización escribiendo a [CORREO DE HABEAS DATA]. Consulta la Política de tratamiento de datos personales y sus cambios en [dkoding.net/politica-de-privacidad](/politica-de-privacidad/).
+> **Aviso de privacidad.** [RAZÓN SOCIAL] (DKODING), NIT [NIT], con domicilio en Medellín (teléfono +57 300 286 7104, correo [CORREO DE HABEAS DATA]), tratará los datos que nos des en este formulario para responder tu solicitud y, si contratas, prestar el servicio y facturarlo. Puedes conocer, actualizar, rectificar y suprimir tus datos y revocar tu autorización escribiendo a [CORREO DE HABEAS DATA]. Consulta la Política de tratamiento de datos personales y sus cambios en [dkoding.net/politica-de-privacidad](/politica-de-privacidad/).
 
 Versión para WhatsApp, enviada como respuesta automática al primer mensaje:
 

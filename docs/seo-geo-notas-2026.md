@@ -38,7 +38,7 @@ primarias; están al final.
 | # | Idea | Qué tan sólido es | Para DKODING |
 |---|---|---|---|
 | 1 | Portada: playbook de SEO, GEO y AEO | — | — |
-| 2 | Fin de los enlaces azules: −60 % de tráfico orgánico, 40 % de consultas sin clic, 11–18 % del descubrimiento B2B SaaS llega desde IA | La tendencia es real; las cifras no tienen fuente. El 11–18 % es de SaaS B2B y lo publica GTM 80/20, que vende GEO | Usar las cifras de SparkToro, Ahrefs y Pew si hace falta citar. Para servicios locales en Cali la búsqueda en Google sigue mandando |
+| 2 | Fin de los enlaces azules: −60 % de tráfico orgánico, 40 % de consultas sin clic, 11–18 % del descubrimiento B2B SaaS llega desde IA | La tendencia es real; las cifras no tienen fuente. El 11–18 % es de SaaS B2B y lo publica GTM 80/20, que vende GEO | Usar las cifras de SparkToro, Ahrefs y Pew si hace falta citar. Para servicios locales en Medellín la búsqueda en Google sigue mandando |
 | 3 | Evolución, no ruptura: Hummingbird (2013), RankBrain (2015), BERT (2018), MUM (2021), AI Overviews y LLM (2026) | Correcto en lo esencial. BERT llegó a la búsqueda en 2019, y el «Information Gain» es una patente de Google, no parte de BERT | Sirve como artículo del blog y para explicar el servicio sin alarmismo |
 | 4 | Matriz SEO, GEO y AEO: qué se mide, cómo se estructura el contenido y cómo se gana autoridad | Útil como marco de medición. La «puntuación E-E-A-T» no existe como número | Base de los indicadores del módulo SEO (§5) |
 | 5 | *Reversal inbound*: primero las páginas que venden y después el contenido informativo que las alimenta | Sólido. Es el enfoque de BIGSEO, ya revisado en `benchmark-bigseo-seo-geo-diseno-2026.md` | **Ya es nuestro plan:** 5 landings y el cotizador al lanzar, y cada artículo del blog enlaza a su landing (`estructura-seo-y-migracion.md` §2 y §3) |
@@ -47,7 +47,7 @@ primarias; están al final.
 | 8 | *Information Gain*: lo que la IA no puede inventar (datos propios, encuestas, casos reales, errores y matices) | Sólido. Coincide con Google: el contenido que no es genérico es el factor más influyente | Casos con cifras, datos del cotizador y experiencia del equipo (acciones 5 y 6 de §2) |
 | 9 | Impacto medible: Cobee +195 %, GTM 80/20 ×5, LoopStudio +867 % | Son casos publicados por las mismas agencias y no se pueden verificar. Lo útil es qué miden: presencia en las respuestas de IA y leads | No citarlos. Copiar la forma de medir |
 | 10 | Auditar al proveedor: señales de alarma y de excelencia | Útil como lista de chequeo | Argumento de venta y lista de funciones del módulo SEO: presencia por prompt, mapa de prompts, reputación y atribución de la mención al lead |
-| 11 | Mapa de agencias en España y LATAM: BIGSEO, Ranker Studio, GTM 80/20, Eskimoz, iSocialWeb y Rodanet | Visión de mercado de la fuente, sin datos | Ninguna está en Cali. DKODING puede ocupar «SEO completo, local y con producto propio» |
+| 11 | Mapa de agencias en España y LATAM: BIGSEO, Ranker Studio, GTM 80/20, Eskimoz, iSocialWeb y Rodanet | Visión de mercado de la fuente, sin datos | Ninguna está en Medellín. DKODING puede ocupar «SEO completo, local y con producto propio» |
 | 12 | Glosario: entidades, HTML desde el servidor, presupuesto de rastreo, resultados enriquecidos | Correcto | Entra al glosario del blog (`estructura-seo-y-migracion.md` §6.3, punto 8) |
 | 13 | Infraestructura estática + páginas que venden primero + Information Gain = autoridad | Buena síntesis | Falta la cuarta pieza: **medir**. Está en §3 |
 
@@ -59,7 +59,7 @@ primarias; están al final.
 |---|---|---|---|
 | 1 | **Dejar entrar a los rastreadores de IA** | Revisar en Cloudflare el control de rastreadores de IA y el robots.txt administrado antes de mover el DNS. Permitir los de búsqueda y respuesta: Googlebot, Bingbot, OAI-SearchBot, ChatGPT-User, PerplexityBot, ClaudeBot, Claude-SearchBot y Applebot. Recomiendo permitir también los de entrenamiento (GPTBot, Google-Extended, CCBot), porque a DKODING le conviene que la IA conozca la marca. Es tu decisión | `robots.txt` en el repositorio del sitio y la configuración de Cloudflare |
 | 2 | **Todo el texto en el HTML** | Astro ya entrega HTML estático. Cuidado con lo interactivo: el texto de las diapositivas del hero, las pestañas de servicios y el FAQ debe estar en el HTML aunque se muestre con JavaScript. `/cotizador/` lleva texto explicativo indexable además del cotizador | Componentes de Astro |
-| 3 | **Schema por plantilla** (ya planificado) | Organization o ProfessionalService con `sameAs` (redes, Google Business Profile, dkard.co); LocalBusiness con la dirección de Cali; Service y Offer; FAQPage; BreadcrumbList; Article con Person como autor. Las reseñas propias no sirven para estrellas: solo se marcan las de terceros | `diseno-landing-2026.md` §5 |
+| 3 | **Schema por plantilla** (ya planificado) | Organization o ProfessionalService con `sameAs` (redes, Google Business Profile, dkard.co); LocalBusiness con la dirección de Medellín; Service y Offer; FAQPage; BreadcrumbList; Article con Person como autor. Las reseñas propias no sirven para estrellas: solo se marcan las de terceros | `diseno-landing-2026.md` §5 |
 | 4 | **Respuesta directa arriba** | Cada landing abre con un párrafo de 40–60 palabras que responde qué es, cuánto cuesta (o «desde») y cuánto tarda, y cierra con preguntas frecuentes reales. Solo esa entrada; el resto del texto se escribe para personas | Textos de las 5 landings |
 | 5 | **Information Gain en cada landing** | Un caso con cifras reales, fotos del equipo real, el Método DKODING en 5 pasos y rangos que salen del cotizador. Es lo que la IA no puede copiar | `mejoras-oferta.md`, acciones 2 y 7 |
 | 6 | **Autores reales** | Página del equipo y ficha de autor con Person; cada artículo firmado por quien tiene la experiencia | Plantilla de blog |
@@ -73,11 +73,11 @@ primarias; están al final.
 
 | # | Acción | Detalle |
 |---|---|---|
-| 1 | **Mapa de prompts** | 30–50 preguntas reales de clientes en Cali, sacadas de `seo/palabras-clave-clasificadas.csv`. Por ejemplo: «¿qué agencia de páginas web recomiendas en Cali?» o «¿cuánto cuesta una página web en Colombia?». Una vez al mes se mide en ChatGPT, Perplexity, Gemini, AI Overviews y Copilot si DKODING aparece, si la citan con enlace y qué competidores salen. Empieza manual, en una hoja, y después pasa al módulo SEO |
+| 1 | **Mapa de prompts** | 30–50 preguntas reales de clientes en Medellín, sacadas de `seo/palabras-clave-clasificadas.csv`. Por ejemplo: «¿qué agencia de páginas web recomiendas en Medellín?» o «¿cuánto cuesta una página web en Colombia?». Una vez al mes se mide en ChatGPT, Perplexity, Gemini, AI Overviews y Copilot si DKODING aparece, si la citan con enlace y qué competidores salen. Empieza manual, en una hoja, y después pasa al módulo SEO |
 | 2 | **Atribución de la mención al lead** | Origen «IA» del lead en el CRM, cruzado con el canal de GA4 |
-| 3 | **Datos propios que la IA cite** | Un informe anual con datos del cotizador, por ejemplo «Cuánto cuesta una página web en Cali en 2027», y una encuesta corta a clientes. Es el contenido con más posibilidades de ser citado |
+| 3 | **Datos propios que la IA cite** | Un informe anual con datos del cotizador, por ejemplo «Cuánto cuesta una página web en Medellín en 2027», y una encuesta corta a clientes. Es el contenido con más posibilidades de ser citado |
 | 4 | **Clústeres del blog hacia las landings** | Ya planificado en `estructura-seo-y-migracion.md` §3. Cada artículo aporta algo propio: un caso, un dato o un error real |
-| 5 | **Reputación fuera del sitio** | Reseñas en Google con respuesta, apariciones en medios y gremios de Cali, charlas, y participación en comunidades firmada como DKODING |
+| 5 | **Reputación fuera del sitio** | Reseñas en Google con respuesta, apariciones en medios y gremios de Medellín, charlas, y participación en comunidades firmada como DKODING |
 | 6 | **Imágenes y video** | Casos en video corto con transcripción. Imágenes propias con texto alternativo |
 | 7 | **Clientes en WordPress** | Plan de optimización (tema ligero, caché y CDN) o migración a Astro, como servicio |
 | 8 | **Revisión trimestral** | La guía de Google, las políticas de rastreadores de cada motor y la configuración de Cloudflare cambian varias veces al año |
