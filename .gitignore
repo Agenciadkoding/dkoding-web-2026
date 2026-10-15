@@ -1,0 +1,3 @@
+
+# Paquete para subir por FTP (se regenera con: cd sitio && npm run build)
+dkoding-sitio.zip
