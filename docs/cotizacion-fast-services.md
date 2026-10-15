@@ -71,11 +71,11 @@ Valor de lista $6.000.000. Precio especial de cliente activo, vigente hasta el 1
 | Pago | Momento | Qué se ve | Valor |
 |---|---|---|---:|
 | 1 | Al firmar | Arranca el diseño y la importación del catálogo | $700.000 |
-| 2 | Semana 3 | Tienda navegable con catálogo cargado para revisar | $700.000 |
-| 3 | Semana 6 · entrega | Pagos probados, envíos configurados, tienda en línea | $600.000 |
+| 2 | Semana 2 | Tienda navegable con catálogo cargado para revisar | $700.000 |
+| 3 | Semana 4 · entrega | Pagos probados, envíos configurados, tienda en línea | $600.000 |
 | | | **Total** | **$2.000.000** |
 
-**Cronograma:** diseño y catálogo (semanas 1–3) · pagos y envíos (3–5) · pruebas y entrega (5–6).
+**Cronograma (4 semanas):** diseño y catálogo (semanas 1–2) · pagos y envíos (2–3) · pruebas y entrega (3–4).
 
 ## Qué pagas en los próximos tres meses
 

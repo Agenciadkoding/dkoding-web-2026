@@ -142,10 +142,10 @@ ul.plain li b { color: var(--ink); font-weight: 600; }
 .box ul { margin: 0; padding-left: 18px; font-size: 14.5px; color: var(--ink-2); display: grid; gap: 4px; }
 .gantt { display: grid; grid-template-columns: 110px 1fr; gap: 8px 10px; align-items: center; font-size: 14px; }
 .gantt .lbl { color: var(--ink-2); font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.gantt .track { display: grid; grid-template-columns: repeat(6, 1fr); gap: 2px; height: 22px; }
+.gantt .track { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; height: 22px; }
 .gantt .track i { background: var(--surface-2); border-radius: 3px; }
 .gantt .track i.on { background: var(--s2); } .gantt .track i.go { background: var(--gold); }
-.gantt .weeks { display: grid; grid-template-columns: repeat(6, 1fr); gap: 2px; font-size: 12px; color: var(--ink-3); text-align: center; }
+.gantt .weeks { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; font-size: 12px; color: var(--ink-3); text-align: center; }
 
 .approve { background: var(--ink); color: var(--bg); border-radius: 18px; padding: 24px 20px; display: grid; gap: 14px; }
 .approve h2 { color: var(--bg); } .approve p { color: color-mix(in srgb, var(--bg) 78%, transparent); }
@@ -281,7 +281,7 @@ ul.plain li b { color: var(--ink); font-weight: 600; }
   <section id="aprobar">
     <div class="approve">
       <h2>¿Arrancamos?</h2>
-      <p>Copia tu selección y envíanosla por WhatsApp o correo. Con eso agendamos el arranque de la tienda.</p>
+      <p>Copia tu selección y envíanosla por WhatsApp. Con eso agendamos el arranque de la tienda.</p>
       <pre class="sum" id="summary"></pre>
       <div class="btns">
         <button class="btn primary" id="copy">Copiar mi selección</button>
@@ -289,7 +289,6 @@ ul.plain li b { color: var(--ink); font-weight: 600; }
       </div>
       <div class="contact">
         <span>WhatsApp <b>+57 333 2790547</b></span>
-        <span>Correo <b>info@dkoding.net</b></span>
       </div>
     </div>
   </section>
@@ -356,10 +355,10 @@ const PROPUESTA = {
       toggle: { label: "Incluir la tienda virtual", small: "Precio especial de cliente activo, vigente hasta el 14 nov 2026." },
       cuotas: [
         { t: "Al firmar", d: "Arranca el diseño y la importación del catálogo", v: 700000, semana: 1 },
-        { t: "Semana 3", d: "Tienda navegable con catálogo cargado para revisar", v: 700000, semana: 3 },
-        { t: "Semana 6 · entrega", d: "Pagos probados, envíos configurados, tienda en línea", v: 600000, semana: 6 },
+        { t: "Semana 2", d: "Tienda navegable con catálogo cargado para revisar", v: 700000, semana: 2 },
+        { t: "Semana 4 · entrega", d: "Pagos probados, envíos configurados, tienda en línea", v: 600000, semana: 4 },
       ],
-      semanas: 6,
+      semanas: 4,
     },
   ],
   whatsapp: "573332790547",
@@ -420,7 +419,7 @@ function update() {
   if (tOn) {
     const W = tienda().semanas;
     const weeks = `<div></div><div class="weeks">${Array.from({ length: W }, (_, i) => `<span>${i + 1}</span>`).join("")}</div>`;
-    const fases = [["Diseño y catálogo", 1, 3], ["Pagos y envíos", 3, 5], ["Pruebas y entrega", 5, 6]];
+    const fases = [["Diseño y catálogo", 1, 2], ["Pagos y envíos", 2, 3], ["Pruebas y entrega", 3, 4]];
     const rows = fases.map(([n, a, b]) => `<div class="lbl">${n}</div><div class="track">${Array.from({ length: W }, (_, i) => `<i class="${i + 1 >= a && i + 1 <= b ? "on" : ""}"></i>`).join("")}</div>`).join("");
     const pagos = `<div class="lbl" style="color:var(--gold);font-weight:600">Pagos</div><div class="track">${Array.from({ length: W }, (_, i) => `<i class="${cuotas.some(c => c.semana === i + 1) ? "go" : ""}"></i>`).join("")}</div>`;
     $("#gantt").innerHTML = weeks + rows + pagos;
