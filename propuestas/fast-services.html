@@ -271,7 +271,6 @@ ul.plain li b { color: var(--ink); font-weight: 600; }
       <ul>
         <li>Lista de referencias Kärcher que venden, con precio y stock inicial.</li>
         <li>Razón social, NIT y RUT para la pasarela de pagos.</li>
-        <li>Política de envíos: zonas, tarifas, tiempos.</li>
         <li>Una persona que apruebe en cada pago.</li>
       </ul>
     </div>
@@ -346,7 +345,6 @@ const PROPUESTA = {
       incluye: [
         ["Catálogo con inventario", "cada referencia con stock, precio, fotos y ficha técnica"],
         ["Carrito y pasarela de pagos", "tarjetas, PSE y Nequi"],
-        ["Envíos", "Medellín y nacional, con tarifas por zona"],
         ["Admin DKODING", "productos, inventario y pedidos desde el mismo panel"],
         ["Medición de ventas para Google Ads", "los anuncios ven qué vende y optimizan hacia eso"],
         ["SEO técnico de base", "fichas de producto listas para Google"],
@@ -356,7 +354,7 @@ const PROPUESTA = {
       cuotas: [
         { t: "Al firmar", d: "Arranca el diseño y la importación del catálogo", v: 700000, semana: 1 },
         { t: "Semana 2", d: "Tienda navegable con catálogo cargado para revisar", v: 700000, semana: 2 },
-        { t: "Semana 4 · entrega", d: "Pagos probados, envíos configurados, tienda en línea", v: 600000, semana: 4 },
+        { t: "Semana 4 · entrega", d: "Pagos probados, tienda en línea", v: 600000, semana: 4 },
       ],
       semanas: 4,
     },
@@ -419,7 +417,7 @@ function update() {
   if (tOn) {
     const W = tienda().semanas;
     const weeks = `<div></div><div class="weeks">${Array.from({ length: W }, (_, i) => `<span>${i + 1}</span>`).join("")}</div>`;
-    const fases = [["Diseño y catálogo", 1, 2], ["Pagos y envíos", 2, 3], ["Pruebas y entrega", 3, 4]];
+    const fases = [["Diseño y catálogo", 1, 2], ["Pasarela de pagos", 2, 3], ["Pruebas y entrega", 3, 4]];
     const rows = fases.map(([n, a, b]) => `<div class="lbl">${n}</div><div class="track">${Array.from({ length: W }, (_, i) => `<i class="${i + 1 >= a && i + 1 <= b ? "on" : ""}"></i>`).join("")}</div>`).join("");
     const pagos = `<div class="lbl" style="color:var(--gold);font-weight:600">Pagos</div><div class="track">${Array.from({ length: W }, (_, i) => `<i class="${cuotas.some(c => c.semana === i + 1) ? "go" : ""}"></i>`).join("")}</div>`;
     $("#gantt").innerHTML = weeks + rows + pagos;

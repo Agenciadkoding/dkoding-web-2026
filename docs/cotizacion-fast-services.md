@@ -55,7 +55,6 @@ Valor de lista $6.000.000. Precio especial de cliente activo, vigente hasta el 1
 
 - **Catálogo con inventario:** cada referencia con stock, precio, fotos y ficha técnica.
 - **Carrito y pasarela de pagos:** tarjetas, PSE y Nequi.
-- **Envíos:** Medellín y nacional, con tarifas por zona.
 - **Admin DKODING:** productos, inventario y pedidos desde el mismo panel.
 - **Medición de ventas para Google Ads:** los anuncios ven qué vende y optimizan hacia eso.
 - **SEO técnico de base:** fichas de producto listas para Google.
@@ -72,10 +71,10 @@ Valor de lista $6.000.000. Precio especial de cliente activo, vigente hasta el 1
 |---|---|---|---:|
 | 1 | Al firmar | Arranca el diseño y la importación del catálogo | $700.000 |
 | 2 | Semana 2 | Tienda navegable con catálogo cargado para revisar | $700.000 |
-| 3 | Semana 4 · entrega | Pagos probados, envíos configurados, tienda en línea | $600.000 |
+| 3 | Semana 4 · entrega | Pagos probados, tienda en línea | $600.000 |
 | | | **Total** | **$2.000.000** |
 
-**Cronograma (4 semanas):** diseño y catálogo (semanas 1–2) · pagos y envíos (2–3) · pruebas y entrega (3–4).
+**Cronograma (4 semanas):** diseño y catálogo (semanas 1–2) · pasarela de pagos (2–3) · pruebas y entrega (3–4).
 
 ## Qué pagas en los próximos tres meses
 
@@ -105,8 +104,7 @@ integración con software contable o facturación.
 
 1. Lista de referencias Kärcher que venden, con precio y stock inicial.
 2. Razón social, NIT y RUT para la pasarela de pagos.
-3. Política de envíos: zonas, tarifas, tiempos.
-4. Una persona que apruebe en cada pago.
+3. Una persona que apruebe en cada pago.
 
 ---
 
