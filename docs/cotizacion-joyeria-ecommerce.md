@@ -144,8 +144,9 @@ contenido para redes ni gestión de pauta. Esos se pueden sumar:
 
 | Servicio mensual opcional | Valor |
 |---|---:|
-| Redes sociales: 12 piezas + 4 reels + community management | $900.000 / mes |
-| Gestión de pauta en Google y Meta (la inversión va aparte) | $400.000 / mes |
+| Redes sociales: 12 piezas + 4 reels | $600.000 / mes |
+| Gestión de anuncios en Google (la inversión va aparte) | $500.000 / mes |
+| Gestión de anuncios en Meta (la inversión va aparte) | $500.000 / mes |
 
 **Cómo se paga:** mes anticipado, dentro de los primeros 5 días. Empieza el
 mes del lanzamiento. Permanencia mínima: 6 meses. Las horas no usadas no se
