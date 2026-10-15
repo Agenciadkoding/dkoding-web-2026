@@ -1,0 +1,42 @@
+# dkoding.net · Dejamos entrar a los buscadores y a los asistentes de IA.
+# Ver docs/seo-geo-notas-2026.md §2.
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Rastreadores de búsqueda y respuesta con IA (permitidos explícitamente)
+User-agent: Googlebot
+Allow: /
+User-agent: Bingbot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: Applebot
+Allow: /
+User-agent: DuckAssistBot
+Allow: /
+
+# Rastreadores de entrenamiento (decisión de DKODING: permitidos, para que la IA conozca la marca)
+User-agent: GPTBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: CCBot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://dkoding.net/sitemap-index.xml

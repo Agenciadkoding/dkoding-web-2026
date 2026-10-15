@@ -42,7 +42,7 @@ const anio = new Date().getFullYear();
         <a href={SITIO.redes.facebook} rel="noopener" target="_blank" aria-label="Facebook"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
         <a href={SITIO.redes.linkedin} rel="noopener" target="_blank" aria-label="LinkedIn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="9" width="4" height="12"/><circle cx="5" cy="5" r="2"/><path d="M11 21v-7a3 3 0 0 1 6 0v7M11 9v12"/></svg></a>
       </div>
-      <p class="muted small">Horario de atención: {SITIO.horario}.</p>
+      <p class="muted small">Horario de atención: {SITIO.horario}</p>
       <p class="muted small">Productos propios: <a href="https://dkard.co/" rel="noopener">dkard</a> · dkarta</p>
     </div>
   </div>
@@ -72,10 +72,10 @@ const anio = new Date().getFullYear();
   .redes a { width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--dk-line-2); border-radius: 8px; color: var(--dk-text); }
   .redes a:hover { border-color: var(--dk-lila); color: var(--dk-lila-link); }
   .small { font-size: 14px; }
-  .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; padding-block: 18px 24px; border-top: 1px solid var(--dk-line); font-size: 14px; color: var(--dk-muted); }
+  .footer-bottom { padding-right: 180px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; padding-block: 18px 24px; border-top: 1px solid var(--dk-line); font-size: 14px; color: var(--dk-muted); }
   .legal { display: flex; flex-wrap: wrap; gap: 6px 20px; }
   .legal a { color: var(--dk-muted); min-height: 32px; display: inline-flex; align-items: center; }
   .legal a:hover { color: var(--dk-text); }
   @media (max-width: 1024px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 640px) { .footer-grid { grid-template-columns: 1fr; gap: 32px; } }
+  @media (max-width: 640px) { .footer-grid { grid-template-columns: 1fr; gap: 32px; } .footer-bottom { padding-right: 24px; padding-bottom: 88px; } }
 </style>

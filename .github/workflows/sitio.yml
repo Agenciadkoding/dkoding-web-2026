@@ -1,0 +1,65 @@
+# Construye el sitio Astro y lo sube por FTP a Banahost.
+#
+# Secretos que DKODING crea en GitHub (Settings → Secrets and variables → Actions):
+#   SITIO_FTP_HOST   servidor FTP de la cuenta de cPanel (p. ej. ftp.dkoding.net)
+#   SITIO_FTP_USER   cuenta FTP limitada a la carpeta del sitio (nunca la cuenta principal)
+#   SITIO_FTP_PASS   su contraseña
+#   SITIO_FTP_RUTA   carpeta remota, con barra final (p. ej. /public_html/)
+#
+# Se ejecuta al cambiar sitio/ en main, o a mano desde la pestaña Actions.
+name: Sitio dkoding.net
+
+on:
+  push:
+    branches: [main]
+    paths: ['sitio/**', 'seo/redirecciones-301.csv', '.github/workflows/sitio.yml']
+  workflow_dispatch:
+
+concurrency:
+  group: sitio-deploy
+  cancel-in-progress: false
+
+jobs:
+  construir-y-publicar:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: sitio
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: sitio/package-lock.json
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Regenerar .htaccess desde el CSV de redirecciones
+        run: python3 scripts/htaccess.py
+
+      - name: Construir
+        run: npm run build
+
+      - name: Comprobar que las páginas clave existen
+        run: |
+          for p in index.html cotizador/index.html soporte/index.html casos-de-exito/index.html 404.html .htaccess sitemap-index.xml robots.txt api/formulario.php; do
+            test -f "dist/$p" || { echo "Falta dist/$p"; exit 1; }
+          done
+
+      - name: Publicar por FTP
+        if: ${{ github.event_name != 'pull_request' }}
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.SITIO_FTP_HOST }}
+          username: ${{ secrets.SITIO_FTP_USER }}
+          password: ${{ secrets.SITIO_FTP_PASS }}
+          protocol: ftps
+          local-dir: sitio/dist/
+          server-dir: ${{ secrets.SITIO_FTP_RUTA }}
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/.git*/**

@@ -1,0 +1,23 @@
+# DKODING
+
+> Agencia de desarrollo web, SEO y marketing digital en Cali, Colombia, con 12 años de trabajo. Sitios web que venden, posicionamiento en Google y en los asistentes de IA, manejo de redes sociales, diseño de marca y desarrollo de apps.
+
+Google ignora este archivo; lo publicamos porque otros asistentes sí lo leen y no hace daño.
+
+## Páginas principales
+
+- [Diseño de páginas web en Cali](https://dkoding.net/): servicio principal.
+- [Cotizador](https://dkoding.net/cotizador/): rango de precio en 2 minutos, por módulos y horas.
+- [Marketing digital](https://dkoding.net/marketing-digital/)
+- [SEO y GEO](https://dkoding.net/seo-y-geo/)
+- [Redes sociales](https://dkoding.net/redes-sociales/)
+- [Diseño de marca](https://dkoding.net/diseno-de-marca/)
+- [Desarrollo de apps](https://dkoding.net/desarrollo-de-apps/)
+- [Casos de éxito](https://dkoding.net/casos-de-exito/)
+- [Blog](https://dkoding.net/blog/)
+- [Centro de ayuda](https://dkoding.net/soporte/)
+
+## Contacto
+
+- WhatsApp: +57 300 286 7104
+- Correo: info@dkoding.net
