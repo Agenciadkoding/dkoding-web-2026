@@ -1,0 +1,27 @@
+---
+/**
+ * Casilla de autorización de datos personales (Ley 1581 de 2012) para formularios.
+ * Props: `id` (único por página), `nombre` (name del input), `requerido`.
+ * El script de cada formulario valida `input:checked` y pinta `.error-msg` si falta.
+ */
+interface Props { id?: string; nombre?: string; requerido?: boolean }
+const { id = 'acepta-datos', nombre = 'acepta_datos', requerido = true } = Astro.props;
+---
+<div class="consent field">
+  <div class="consent-row">
+    <input type="checkbox" id={id} name={nombre} value="si" required={requerido} aria-describedby={`${id}-err`}>
+    <label for={id}>
+      Autorizo el <a href="/politica-de-privacidad/">tratamiento de mis datos personales</a> según la Ley 1581 de 2012, solo para responder esta solicitud.
+      {requerido && <span class="req" aria-hidden="true">*</span>}
+    </label>
+  </div>
+  <span id={`${id}-err`} class="error-msg" hidden>Debes autorizar el tratamiento de datos para enviar.</span>
+</div>
+
+<style>
+  .consent-row { display: flex; align-items: flex-start; gap: 10px; }
+  .consent-row input { flex: none; width: 20px; height: 20px; margin: 3px 0 0; accent-color: var(--dk-violet); cursor: pointer; }
+  .consent-row label { font-size: 14px; font-weight: 400; line-height: 1.45; color: var(--dk-soft); cursor: pointer; }
+  .consent-row label a { text-decoration: underline; text-underline-offset: 2px; }
+  .req { color: var(--dk-lila); }
+</style>

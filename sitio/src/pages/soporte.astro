@@ -1,0 +1,623 @@
+---
+/**
+ * /soporte/ · Centro de ayuda: WhatsApp, solicitud de llamada y ticket en 3 pasos.
+ * Tres vistas en una sola página (portada, ticket, confirmación) alternadas con `hidden`;
+ * todo el texto está en el HTML desde el inicio. Portado de diseno/admin/Soporte.dc.html.
+ */
+import Base from '../layouts/Base.astro';
+import Consentimiento from '../components/Consentimiento.astro';
+import { SITIO, waLink } from '../data/sitio';
+import { migasSchema } from '../data/schema';
+
+const TIPOS = [
+  { id: 'cliente', nombre: 'Servicio al cliente', desc: 'Dudas, capacitación, cambios en tu sitio.', nota: '', sla: '1 día hábil',
+    icono: 'M4 13v-1a8 8 0 0 1 16 0v1 M4 13a2 2 0 0 1 2-2h1v6H6a2 2 0 0 1-2-2z M20 13a2 2 0 0 0-2-2h-1v6h1a2 2 0 0 0 2-2z M17 17v1a3 3 0 0 1-3 3h-2' },
+  { id: 'comercial', nombre: 'Asesoría comercial', desc: 'Cotizaciones, nuevos servicios, facturación.', nota: 'Te atiende el equipo comercial', sla: 'el mismo día hábil',
+    icono: 'M3 8h18v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z M8 8V5a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v3 M3 13h18' },
+  { id: 'tecnico', nombre: 'Soporte técnico', desc: 'Fallas, sitio caído, correo, hosting.', nota: '', sla: '4 horas hábiles',
+    icono: 'M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z' },
+];
+
+const SERVICIOS_TK = [
+  { id: 'web', nombre: 'Sitio web o tienda virtual', icono: 'M5 4h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z M3 9h18 M6.5 6.5h.01 M9 6.5h.01' },
+  { id: 'hosting', nombre: 'Hosting y dominio', icono: 'M4 4h16a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z M4 13h16a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-5a1 1 0 0 1 1-1z M7 7.5h.01 M7 16.5h.01 M11 7.5h6 M11 16.5h6' },
+  { id: 'correo', nombre: 'Correo corporativo', icono: 'M5 5h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z M3 7l9 6 9-6' },
+  { id: 'marca', nombre: 'Diseño de marca', icono: 'M12 19l7-7 3 3-7 7z M18 13l-1.5-7.5L2 2l3.5 14.5L13 18z M2 2l7.6 7.6 M13 11a2 2 0 1 1-4 0a2 2 0 0 1 4 0z' },
+  { id: 'marketing', nombre: 'Marketing digital y pauta', icono: 'M3 10v4a1 1 0 0 0 1 1h3l6 4V5L7 9H4a1 1 0 0 0-1 1z M16.5 8.5a5 5 0 0 1 0 7 M19 6a8.5 8.5 0 0 1 0 12' },
+  { id: 'seo', nombre: 'SEO y GEO', icono: 'M17 10.5a6.5 6.5 0 1 1-13 0a6.5 6.5 0 0 1 13 0z M20 20l-4.8-4.8 M7.5 12l2-2 1.5 1.5 2.5-3' },
+  { id: 'redes', nombre: 'Manejo de redes sociales', icono: 'M21 5a3 3 0 1 1-6 0a3 3 0 0 1 6 0z M9 12a3 3 0 1 1-6 0a3 3 0 0 1 6 0z M21 19a3 3 0 1 1-6 0a3 3 0 0 1 6 0z M8.6 13.5l6.8 4 M15.4 6.5l-6.8 4' },
+  { id: 'apps', nombre: 'Desarrollo de apps', icono: 'M9 2h6a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z M11 18h2' },
+  { id: 'dkard', nombre: 'dkard.co (tarjeta digital)', icono: 'M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z M10.5 12a2.5 2.5 0 1 1-5 0a2.5 2.5 0 0 1 5 0z M13 10h5 M13 14h3' },
+  { id: 'otro', nombre: 'Otro', icono: 'M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0z M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7 M12 17h.01' },
+];
+
+const FRANJAS = ['Mañana (8:00 a. m. a 12:00 m.)', 'Tarde (2:00 p. m. a 6:00 p. m.)', 'Cualquier hora hábil'];
+
+const WA_AYUDA = waLink('Hola, necesito ayuda de DKODING.');
+const WA_LLAMADA = waLink('Hola DKODING, quiero que me llamen. Mi nombre es ');
+const ICONO_WA = 'M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z';
+const ICONO_TEL = 'M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z';
+
+const schema = [migasSchema([{ nombre: 'Inicio', url: '/' }, { nombre: 'Centro de ayuda', url: '/soporte/' }])];
+---
+<Base
+  titulo="Centro de ayuda y soporte técnico"
+  descripcion="Centro de ayuda de DKODING: escríbenos por WhatsApp, pide una llamada o abre un ticket de soporte técnico, servicio al cliente o asesoría comercial. Primera respuesta en horario hábil."
+  ruta="/soporte/"
+  schema={schema}
+>
+  <!-- ===== 1 · PORTADA ===== -->
+  <div class="vista" data-vista="portada">
+    <div class="glow" aria-hidden="true"></div>
+    <div class="container portada">
+      <header class="hero">
+        <p class="eyebrow">Soporte DKODING</p>
+        <h1 tabindex="-1">Centro de <strong>ayuda</strong> y soporte técnico</h1>
+        <p class="lead">Escríbenos por WhatsApp, pide que te llamemos o abre un ticket. Es el centro de ayuda de DKODING para clientes con sitio web, hosting, correo, marca, pauta o SEO en Cali y fuera. Cada solicitud queda registrada con un número y te respondemos en horario hábil, con un tiempo de primera respuesta por escrito.</p>
+      </header>
+
+      <div class="tres">
+        <!-- WhatsApp -->
+        <section class="tarjeta" aria-labelledby="h-wa">
+          <div class="tarjeta-h">
+            <span class="ic ic-wa" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d={ICONO_WA}/><path d="M9 9.5c.3 1.6 1.9 3.4 3.6 4.1l1.2-1.1 1.7.8-.3 1.3c-2.9.3-6.2-2.8-6.4-5.6l1.3-.4.8 1.7z"/></svg></span>
+            <h2 id="h-wa">Escríbenos por WhatsApp</h2>
+          </div>
+          <div class="field">
+            <label for="wa-msg">Escribe tu mensaje</label>
+            <textarea id="wa-msg" class="input" rows="3" placeholder="Hola, necesito ayuda con…" data-wa-texto></textarea>
+          </div>
+          <p class="small muted">Número público: <a class="tel" href={SITIO.telefonoHref}>{SITIO.telefono}</a></p>
+          <a class="btn btn-wa abajo" href={WA_AYUDA} data-wa-btn target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={ICONO_WA}/></svg>Enviar por WhatsApp</a>
+        </section>
+
+        <!-- Solicita una llamada -->
+        <section class="tarjeta" aria-labelledby="h-llamada">
+          <div class="tarjeta-h">
+            <span class="ic ic-lila" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d={ICONO_TEL}/></svg></span>
+            <h2 id="h-llamada">Solicita una llamada</h2>
+          </div>
+          <form class="form-llamada" novalidate data-form-llamada>
+            <div class="field">
+              <label for="ll-nombre">Nombre completo <span class="req" aria-hidden="true">*</span></label>
+              <input id="ll-nombre" class="input" name="nombre" type="text" autocomplete="name" required aria-describedby="ll-nombre-err">
+              <span id="ll-nombre-err" class="error-msg" hidden>Escribe tu nombre completo.</span>
+            </div>
+            <div class="field">
+              <label for="ll-tel">Celular <span class="req" aria-hidden="true">*</span></label>
+              <input id="ll-tel" class="input" name="telefono" type="tel" inputmode="tel" autocomplete="tel" placeholder="300 000 0000" required aria-describedby="ll-tel-err">
+              <span id="ll-tel-err" class="error-msg" hidden>Escribe un celular válido (10 dígitos en Colombia).</span>
+            </div>
+            <div class="field">
+              <label for="ll-franja">Franja horaria</label>
+              <select id="ll-franja" class="input" name="franja">
+                {FRANJAS.map((f) => <option value={f}>{f}</option>)}
+              </select>
+            </div>
+            <div class="hp" aria-hidden="true"><label for="ll-hp">No llenar</label><input id="ll-hp" type="text" name="sitio_web2" tabindex="-1" autocomplete="off"></div>
+            <div class="form-estado" role="alert" hidden data-estado>
+              <p data-estado-txt></p>
+              <a class="btn btn-wa btn-sm" href={WA_LLAMADA} data-estado-wa target="_blank" rel="noopener">Escribir por WhatsApp</a>
+            </div>
+            <button type="submit" class="btn btn-secondary abajo" data-enviar>Solicitar llamada</button>
+          </form>
+          <div class="ok-box" role="status" hidden data-llamada-ok>
+            <p class="ok-titulo"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="var(--dk-ok)"/></svg>Te llamamos en horario hábil</p>
+            <p class="soft" data-llamada-txt></p>
+            <p class="small muted">Tu solicitud ya está en nuestra lista de llamadas por devolver. Si es urgente, escríbenos por WhatsApp.</p>
+            <button type="button" class="btn-link sin-chev" data-llamada-otra>Pedir otra llamada</button>
+          </div>
+        </section>
+
+        <!-- Crear ticket -->
+        <section class="tarjeta tarjeta-deep" aria-labelledby="h-tk">
+          <div class="tarjeta-h">
+            <span class="ic ic-lila" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3a2 2 0 0 0 0-4z"/><path d="M14 5v2M14 11v2M14 17v2"/></svg></span>
+            <h2 id="h-tk">Crear ticket</h2>
+          </div>
+          <p class="soft">Para servicio al cliente, asesoría comercial o soporte técnico.</p>
+          <ul class="chev-list small soft">
+            <li>Recibes un número para seguirlo</li>
+            <li>Tiempo de primera respuesta por escrito</li>
+            <li>Si tienes capturas, las envías por WhatsApp citando tu número</li>
+          </ul>
+          <button type="button" class="btn btn-primary abajo" data-ir="ticket">Crear ticket<span class="chev" aria-hidden="true">»</span></button>
+        </section>
+      </div>
+
+      <!-- Ver mis tickets: pronto -->
+      <section class="tarjeta mis-tickets" aria-labelledby="h-mis">
+        <div class="mis-col">
+          <div class="mis-titulo"><h2 id="h-mis">Ver mis tickets</h2><span class="pill pill-lila">Pronto</span></div>
+          <p class="muted">Sin registro ni contraseña: escribirás el correo con el que abriste tus tickets y te enviaremos un enlace de acceso para ver su estado.</p>
+        </div>
+        <div class="mis-col">
+          <p class="soft">Mientras tanto, responde al correo de confirmación de tu ticket o escríbenos por WhatsApp citando tu número.</p>
+          <ol class="pasos-mini">
+            <li><span class="badge" aria-hidden="true">1</span>Escribes tu correo</li>
+            <li><span class="badge" aria-hidden="true">2</span>Abres el enlace que te llega</li>
+            <li><span class="badge" aria-hidden="true">3</span>Ves tus tickets y su estado</li>
+          </ol>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ===== 2 · CREAR TICKET EN 3 PASOS ===== -->
+  <div class="vista" data-vista="ticket" hidden>
+    <div class="container-wide ticket">
+      <aside class="lateral" aria-label="Otros canales">
+        <div class="tarjeta compacta">
+          <h2 class="h-min">¿Prefieres escribir?</h2>
+          <div class="field">
+            <label for="wa-msg-2">Escribe tu mensaje</label>
+            <input id="wa-msg-2" class="input" type="text" placeholder="Hola, necesito ayuda con…" data-wa-texto>
+          </div>
+          <p class="small muted">{SITIO.telefono}</p>
+          <a class="btn btn-wa" href={WA_AYUDA} data-wa-btn target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={ICONO_WA}/></svg>Enviar por WhatsApp</a>
+        </div>
+        <div class="tarjeta compacta">
+          <h2 class="h-min">Primera respuesta por escrito</h2>
+          <ul class="sla-lista">
+            {TIPOS.map((t) => <li><span class="soft">{t.nombre}</span><strong>{t.sla}</strong></li>)}
+          </ul>
+          <p class="small muted">Horario hábil: {SITIO.horario}</p>
+        </div>
+        <button type="button" class="btn btn-secondary" data-ir="portada" data-foco="h-llamada">Solicita una llamada</button>
+      </aside>
+
+      <div class="pasos-col">
+        <div class="pasos-cab">
+          <button type="button" class="volver" data-ir="portada"><span aria-hidden="true">‹</span>Volver al centro de ayuda</button>
+          <h2 class="titulo-vista" tabindex="-1">Crear <strong>ticket</strong></h2>
+        </div>
+
+        <nav aria-label="Pasos del ticket">
+          <ol class="pasos-nav">
+            <li><button type="button" class="paso-btn is-cur" data-paso="1" aria-current="step"><span class="badge" aria-hidden="true" data-badge>1</span><span class="paso-txt"><strong>1. Tipo de ayuda</strong><span class="paso-val" data-val="tipo">sin elegir</span></span></button></li>
+            <li><button type="button" class="paso-btn" data-paso="2"><span class="badge" aria-hidden="true" data-badge>2</span><span class="paso-txt"><strong>2. Servicio</strong><span class="paso-val" data-val="servicio">sin elegir</span></span></button></li>
+            <li><button type="button" class="paso-btn" data-paso="3"><span class="badge" aria-hidden="true" data-badge>3</span><span class="paso-txt"><strong>3. Tu ticket</strong><span class="paso-val">datos y mensaje</span></span></button></li>
+          </ol>
+        </nav>
+
+        <div class="paneles">
+          <!-- Paso 1 -->
+          <section class="panel is-cur" data-panel="1" aria-labelledby="h-s1">
+            <div class="panel-h"><h3 id="h-s1">1. Tipo de ayuda</h3><span class="small muted">Según tu necesidad, elige una opción</span></div>
+            <div class="opciones" role="group" aria-label="Tipo de ayuda">
+              {TIPOS.map((t) => (
+                <button type="button" class="opcion" data-tipo={t.id} data-nombre={t.nombre} data-sla={t.sla} aria-pressed="false" aria-describedby={`tipo-${t.id}-desc`}>
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={t.icono}/></svg>
+                  <span class="opcion-txt">
+                    <strong>{t.nombre}</strong>
+                    <span id={`tipo-${t.id}-desc`} class="opcion-desc"><span class="small muted">{t.desc}</span>{t.nota && <span class="pill pill-lila">{t.nota}</span>}</span>
+                  </span>
+                  <span class="radio" aria-hidden="true"></span>
+                </button>
+              ))}
+            </div>
+          </section>
+
+          <!-- Paso 2 -->
+          <section class="panel" data-panel="2" aria-labelledby="h-s2">
+            <div class="panel-h"><h3 id="h-s2">2. ¿Sobre qué servicio?</h3><span class="small muted">Elige el servicio con el que necesitas ayuda</span></div>
+            <div class="servicios" role="group" aria-label="Servicio">
+              {SERVICIOS_TK.map((s) => (
+                <button type="button" class="opcion opcion-sv" data-servicio={s.id} data-nombre={s.nombre} aria-pressed="false">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={s.icono}/></svg>
+                  <span class="opcion-sv-txt">{s.nombre}</span>
+                </button>
+              ))}
+            </div>
+          </section>
+
+          <!-- Paso 3 -->
+          <section class="panel" data-panel="3" aria-labelledby="h-s3">
+            <div class="panel-h"><h3 id="h-s3">3. Tu ticket</h3><span class="small muted">Completa el formulario para terminar</span></div>
+            <div class="resumen" aria-label="Resumen de lo elegido">
+              <div class="resumen-fila"><span class="resumen-k">Tipo de ayuda<strong data-out="tipo" class="muted">Sin elegir</strong></span><button type="button" class="btn-link sin-chev" data-paso="1">Cambiar</button></div>
+              <div class="resumen-fila"><span class="resumen-k">Servicio<strong data-out="servicio" class="muted">Sin elegir</strong></span><button type="button" class="btn-link sin-chev" data-paso="2">Cambiar</button></div>
+              <p class="resumen-sla small" data-out="sla-texto">El tiempo de primera respuesta depende del tipo de ayuda</p>
+            </div>
+
+            <form class="form-ticket" novalidate data-form-ticket>
+              <div class="alerta" role="alert" hidden data-alerta>
+                <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1L15 8L8 15L1 8z" fill="var(--dk-crit)"/></svg>
+                <span data-alerta-txt>Faltan datos para enviar el ticket. Están marcados en cada campo.</span>
+              </div>
+              <div class="field">
+                <label for="tk-nombre">Nombre completo <span class="req" aria-hidden="true">*</span></label>
+                <input id="tk-nombre" class="input" name="nombre" type="text" autocomplete="name" required aria-describedby="tk-nombre-err">
+                <span id="tk-nombre-err" class="error-msg" hidden>Escribe tu nombre completo.</span>
+              </div>
+              <div class="field">
+                <label for="tk-correo">Correo electrónico <span class="req" aria-hidden="true">*</span></label>
+                <input id="tk-correo" class="input" name="correo" type="email" autocomplete="email" inputmode="email" placeholder="tu@empresa.com" required aria-describedby="tk-correo-err">
+                <span id="tk-correo-err" class="error-msg" hidden>Revisa el correo: falta algo.</span>
+              </div>
+              <div class="field">
+                <label for="tk-tel">Celular o WhatsApp <span class="req" aria-hidden="true">*</span></label>
+                <input id="tk-tel" class="input" name="telefono" type="tel" autocomplete="tel" inputmode="tel" placeholder="300 000 0000" required aria-describedby="tk-tel-err">
+                <span id="tk-tel-err" class="error-msg" hidden>Escribe un celular válido (10 dígitos en Colombia).</span>
+              </div>
+              <div class="field">
+                <label for="tk-sitio">Sitio web <span class="opcional">opcional</span></label>
+                <input id="tk-sitio" class="input" name="sitio" type="text" autocomplete="url" inputmode="url" placeholder="tusitio.com">
+              </div>
+              <div class="field">
+                <label for="tk-asunto">Asunto <span class="req" aria-hidden="true">*</span></label>
+                <input id="tk-asunto" class="input" name="asunto" type="text" maxlength="120" placeholder="Ej.: el formulario de contacto no envía" required aria-describedby="tk-asunto-err">
+                <span id="tk-asunto-err" class="error-msg" hidden>Escribe un asunto corto.</span>
+              </div>
+              <div class="field">
+                <label for="tk-desc">Descripción <span class="req" aria-hidden="true">*</span></label>
+                <textarea id="tk-desc" class="input" name="mensaje" rows="5" placeholder="Cuéntanos qué pasa, desde cuándo y en qué página" required aria-describedby="tk-desc-err"></textarea>
+                <span id="tk-desc-err" class="error-msg" hidden>Cuéntanos qué pasa.</span>
+                <span class="hint">Si tienes capturas, envíalas por WhatsApp citando tu número de ticket.</span>
+              </div>
+              <Consentimiento id="tk-datos" />
+              <div class="hp" aria-hidden="true"><label for="tk-hp">No llenar</label><input id="tk-hp" type="text" name="sitio_web2" tabindex="-1" autocomplete="off"></div>
+              <div class="form-estado" role="alert" hidden data-estado>
+                <p data-estado-txt></p>
+                <a class="btn btn-wa btn-sm" href={WA_AYUDA} data-estado-wa target="_blank" rel="noopener">Escribir por WhatsApp</a>
+              </div>
+              <div class="acciones">
+                <button type="submit" class="btn btn-primary btn-lg" data-enviar>Enviar ticket<span class="chev" aria-hidden="true">»</span></button>
+                <a class="btn btn-wa" href={WA_AYUDA} data-wa-ticket target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={ICONO_WA}/></svg>Mejor por WhatsApp</a>
+              </div>
+              <p class="small muted">Los campos con <span class="req" aria-hidden="true">*</span> son obligatorios.</p>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 3 · CONFIRMACIÓN ===== -->
+  <div class="vista" data-vista="listo" hidden>
+    <div class="glow" aria-hidden="true"></div>
+    <div class="container listo">
+      <header class="hero">
+        <svg width="44" height="44" viewBox="0 0 16 16" role="img" aria-label="Ticket creado"><circle cx="8" cy="8" r="6" fill="var(--dk-ok)"/><path d="M5.5 8.2l1.7 1.7 3.4-3.6" fill="none" stroke="#0C0C0C" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <p class="eyebrow">Ticket creado</p>
+        <h2 class="titulo-vista" tabindex="-1">Tu ticket es el <strong class="nowrap" data-out="numero">—</strong></h2>
+        <p class="lead centrado">Te enviamos una copia a tu correo para que lo tengas a mano: <strong data-out="correo"></strong></p>
+      </header>
+      <div class="sla-box">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--dk-lila)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <span class="sla-main"><span class="small soft">Primera respuesta · compromiso por escrito</span><strong class="sla-valor" data-out="sla">—</strong></span>
+        <span class="small soft">Soporte técnico: 4 horas hábiles. Servicio al cliente: 1 día hábil. Asesoría comercial: el mismo día hábil.</span>
+      </div>
+      <section class="tarjeta" aria-labelledby="h-resumen">
+        <h2 id="h-resumen" class="h-min">Resumen</h2>
+        <dl class="resumen-dl">
+          <div><dt>Tipo de ayuda</dt><dd data-out="r-tipo"></dd></div>
+          <div><dt>Servicio</dt><dd data-out="r-servicio"></dd></div>
+          <div><dt>Nombre</dt><dd data-out="r-nombre"></dd></div>
+          <div><dt>Correo</dt><dd data-out="r-correo"></dd></div>
+          <div><dt>Celular</dt><dd data-out="r-tel"></dd></div>
+          <div><dt>Sitio web</dt><dd data-out="r-sitio"></dd></div>
+          <div><dt>Asunto</dt><dd data-out="r-asunto"></dd></div>
+          <div><dt>Descripción</dt><dd data-out="r-desc"></dd></div>
+        </dl>
+        <p class="small muted">Si tienes capturas, envíalas por WhatsApp citando tu número de ticket.</p>
+      </section>
+      <div class="acciones centradas">
+        <button type="button" class="btn btn-primary" data-ir="portada" data-reiniciar>Volver al inicio</button>
+        <a class="btn btn-wa" href={WA_AYUDA} data-wa-listo target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={ICONO_WA}/></svg>Es urgente: escribir por WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</Base>
+
+<style>
+  [hidden] { display: none !important; }
+  .vista { position: relative; }
+  h1, .titulo-vista, .panel h3 { scroll-margin-top: 96px; }
+  .glow { position: absolute; inset: 0 0 auto 0; height: 420px; background: radial-gradient(60% 70% at 50% 0%, rgba(109, 0, 194, 0.28), rgba(109, 0, 194, 0) 70%); pointer-events: none; }
+  .portada, .listo { position: relative; display: flex; flex-direction: column; gap: 32px; padding-block: clamp(40px, 5vw, 64px); }
+  .listo { max-width: 800px; gap: 24px; }
+  .hero { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; }
+  .hero h1 { font-size: clamp(38px, 4.6vw, 62px); }
+  .hero .lead { text-align: center; }
+  .small { font-size: 14px; }
+  .nowrap { white-space: nowrap; }
+  .centrado { text-align: center; }
+  .req { color: var(--dk-lila); }
+  .opcional { margin-left: 6px; font-size: 12px; font-weight: 400; color: var(--dk-muted); }
+  .chev { font-family: var(--font-title); font-weight: 700; font-size: 18px; }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .abajo { margin-top: auto; }
+  .tel { color: var(--dk-text); font-weight: 600; }
+
+  /* Tarjetas */
+  .tres { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 20px; align-items: stretch; }
+  .tarjeta { display: flex; flex-direction: column; gap: 14px; padding: 24px; background: var(--dk-surface); border: 1px solid var(--dk-line); border-radius: var(--r-card); }
+  .tarjeta-deep { background: var(--dk-deep); border-color: rgba(199, 85, 239, 0.55); }
+  .tarjeta.compacta { gap: 12px; padding: 18px; }
+  .tarjeta-h { display: flex; align-items: center; gap: 12px; }
+  .tarjeta-h h2, .h-min { font-weight: 700; font-size: 24px; line-height: 1.1; }
+  .h-min { font-size: 20px; }
+  .ic { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 40px; height: 40px; border-radius: var(--r-card); }
+  .ic-wa { background: rgba(37, 211, 102, 0.12); color: var(--dk-wa); }
+  .ic-lila { background: rgba(199, 85, 239, 0.14); color: var(--dk-lila); }
+  .tarjeta .chev-list { gap: 8px; }
+  .form-llamada { display: flex; flex-direction: column; gap: 14px; flex: 1; }
+  .form-llamada select.input, select.input { appearance: auto; }
+
+  /* Estados de formulario */
+  .form-estado { display: flex; flex-direction: column; gap: 10px; padding: 12px 14px; background: rgba(255, 107, 107, 0.08); border: 1px solid rgba(255, 107, 107, 0.4); border-radius: var(--r-card); font-size: 14px; }
+  .form-estado .btn { align-self: flex-start; }
+  .ok-box { display: flex; flex-direction: column; gap: 10px; padding: 16px; background: rgba(91, 228, 155, 0.07); border: 1px solid rgba(91, 228, 155, 0.35); border-radius: var(--r-card); }
+  .ok-titulo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; }
+  .btn-link.sin-chev::after { content: none; }
+  .btn-link { padding: 0; background: transparent; border: 0; }
+
+  /* Ver mis tickets */
+  .mis-tickets { flex-direction: row; flex-wrap: wrap; gap: 24px 40px; padding: 28px; }
+  .mis-col { flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 14px; }
+  .mis-titulo { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+  .mis-titulo h2 { font-weight: 700; font-size: 28px; line-height: 1.1; }
+  .pasos-mini { list-style: none; display: flex; flex-direction: column; gap: 10px; color: var(--dk-muted); }
+  .pasos-mini li { display: flex; align-items: center; gap: 12px; }
+  .badge { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--dk-line-3); font-weight: 700; font-size: 14px; color: var(--dk-muted); }
+
+  /* Vista ticket */
+  .ticket { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; padding-block: 28px 56px; }
+  .lateral { flex: 1 1 260px; max-width: 100%; min-width: 0; display: flex; flex-direction: column; gap: 16px; padding-top: 4px; }
+  .sla-lista { list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 15px; }
+  .sla-lista li { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--dk-line); }
+  .pasos-col { flex: 999 1 680px; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
+  .pasos-cab { display: flex; flex-direction: column; gap: 6px; }
+  .volver { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0; background: transparent; color: var(--dk-lila-link); border: 0; font-weight: 600; }
+  .titulo-vista { font-weight: 300; font-size: clamp(34px, 3.6vw, 48px); line-height: 1.05; }
+  .listo .titulo-vista { font-size: clamp(36px, 4.6vw, 58px); }
+  .pasos-nav { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 8px; }
+  .pasos-nav li { display: flex; }
+  .paso-btn { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 56px; padding: 8px 14px; border-radius: var(--r-card); color: var(--dk-text); background: var(--dk-surface); border: 1px solid var(--dk-line); text-align: left; }
+  .paso-btn.is-cur { background: var(--dk-deep); border-color: var(--dk-lila); }
+  .paso-btn.is-cur .badge { background: var(--dk-violet); color: #fff; border-color: transparent; }
+  .paso-btn.is-done .badge { background: rgba(91, 228, 155, 0.14); color: var(--dk-ok); border-color: transparent; }
+  .paso-txt { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; }
+  .paso-val { font-size: 13px; color: var(--dk-muted); }
+  .paso-btn.is-done .paso-val { color: var(--dk-soft); }
+
+  .paneles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 20px; align-items: start; }
+  .panel { display: flex; flex-direction: column; gap: 14px; min-width: 0; padding: 20px; border-radius: var(--r-card); background: var(--dk-surface); border: 1px solid var(--dk-line); }
+  .panel.is-cur { border-color: var(--dk-lila); }
+  .panel-h { display: flex; flex-direction: column; gap: 2px; padding-bottom: 14px; border-bottom: 1px solid var(--dk-line); }
+  .panel-h h3 { font-size: 24px; }
+  @media (max-width: 900px) { .panel:not(.is-cur) { display: none; } }
+
+  .opciones { display: flex; flex-direction: column; gap: 10px; }
+  .opcion { display: flex; gap: 12px; align-items: flex-start; width: 100%; min-height: 76px; padding: 14px; border-radius: var(--r-card); color: var(--dk-text); background: #0F0F11; border: 1px solid rgba(255, 255, 255, 0.1); text-align: left; transition: border-color 0.15s ease, background-color 0.15s ease; }
+  .opcion:hover { border-color: rgba(199, 85, 239, 0.6); }
+  .opcion[aria-pressed="true"] { background: var(--dk-deep); border-color: var(--dk-lila); }
+  .opcion svg { flex: none; color: var(--dk-lila); margin-top: 2px; }
+  .opcion-txt { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+  .opcion-txt strong { font-size: 17px; }
+  .opcion-desc { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+  .radio { flex: none; width: 18px; height: 18px; margin-top: 4px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, 0.3); }
+  .opcion[aria-pressed="true"] .radio { border: 5px solid var(--dk-lila); background: var(--dk-bg); }
+  .servicios { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .opcion-sv { flex-direction: column; gap: 8px; min-height: 92px; padding: 12px; }
+  .opcion-sv svg { margin: 0; }
+  .opcion-sv-txt { font-weight: 600; font-size: 14px; line-height: 1.3; }
+
+  .resumen { display: flex; flex-direction: column; gap: 6px; padding: 12px 14px; background: #0F0F11; border: 1px solid var(--dk-line); border-radius: var(--r-card); font-size: 14px; }
+  .resumen-fila { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .resumen-k { display: flex; flex-direction: column; min-width: 0; font-size: 12px; color: var(--dk-muted); }
+  .resumen-k strong { font-size: 14px; color: var(--dk-text); }
+  .resumen-k strong.muted { color: var(--dk-muted); font-weight: 400; }
+  .resumen-k strong.falta { color: #FF8F9B; }
+  .resumen-fila .btn-link { min-height: 36px; font-size: 14px; }
+  .resumen-sla { padding-top: 6px; border-top: 1px solid rgba(255, 255, 255, 0.06); color: var(--dk-muted); }
+  .resumen-sla.listo { color: var(--dk-lila-link); }
+  .form-ticket { display: flex; flex-direction: column; gap: 14px; }
+  .alerta { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; background: rgba(255, 107, 107, 0.08); border: 1px solid rgba(255, 107, 107, 0.4); border-radius: var(--r-card); font-size: 14px; }
+  .alerta svg { flex: none; margin-top: 4px; }
+  .acciones { display: flex; flex-wrap: wrap; gap: 12px; }
+  .acciones.centradas { justify-content: center; }
+  .btn[aria-busy="true"] { opacity: 0.7; pointer-events: none; }
+
+  /* Confirmación */
+  .sla-box { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; padding: 20px 22px; background: var(--dk-deep); border: 1px solid rgba(199, 85, 239, 0.55); border-radius: var(--r-card); }
+  .sla-main { flex: 1 1 260px; display: flex; flex-direction: column; }
+  .sla-box > .small { flex: 1 1 220px; }
+  .sla-valor { font-family: var(--font-title); font-weight: 700; font-size: 28px; line-height: 1.15; }
+  .resumen-dl { display: flex; flex-direction: column; }
+  .resumen-dl > div { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 16px; padding: 9px 0; border-top: 1px solid rgba(255, 255, 255, 0.06); }
+  .resumen-dl dt { color: var(--dk-muted); font-size: 15px; }
+  .resumen-dl dd { margin: 0; font-weight: 600; text-align: right; overflow-wrap: anywhere; max-width: 100%; }
+  @media (max-width: 640px) { .resumen-dl dd { text-align: left; } .listo .titulo-vista { font-size: 34px; } }
+</style>
+
+<script>
+  import { enviarFormulario, marcarTiempo } from '../scripts/formulario';
+
+  const $ = <T extends HTMLElement>(sel: string, raiz: ParentNode = document) => raiz.querySelector<T>(sel);
+  const $$ = <T extends HTMLElement>(sel: string, raiz: ParentNode = document) => Array.from(raiz.querySelectorAll<T>(sel));
+  const WA = (texto: string) => `https://api.whatsapp.com/send/?phone=573002867104&text=${encodeURIComponent(texto)}`;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const digitos = (s: string) => s.replace(/\D/g, '');
+  const correoOk = (s: string) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s.trim());
+
+  // ---------- Vistas ----------
+  const vistas = $$('[data-vista]');
+  function irVista(nombre: string, foco?: string) {
+    vistas.forEach((v) => { v.hidden = v.dataset.vista !== nombre; });
+    history.replaceState(null, '', nombre === 'ticket' ? '#crear-ticket' : location.pathname);
+    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+    const vista = vistas.find((v) => v.dataset.vista === nombre);
+    const h = foco ? document.getElementById(foco) : vista && $<HTMLElement>('h1, .titulo-vista', vista);
+    if (h) { if (!h.hasAttribute('tabindex')) h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: !foco }); if (foco) h.scrollIntoView({ block: 'center', behavior: reduce ? 'auto' : 'smooth' }); }
+  }
+  $$('[data-ir]').forEach((b) => b.addEventListener('click', () => {
+    if (b.hasAttribute('data-reiniciar')) reiniciarTicket();
+    irVista(b.dataset.ir!, b.dataset.foco);
+  }));
+  if (location.hash === '#crear-ticket') irVista('ticket');
+
+  // ---------- WhatsApp con mensaje ----------
+  const waBtns = $$<HTMLAnchorElement>('[data-wa-btn]');
+  $$<HTMLInputElement | HTMLTextAreaElement>('[data-wa-texto]').forEach((campo) => campo.addEventListener('input', () => {
+    const t = campo.value.trim() || 'Hola, necesito ayuda de DKODING.';
+    $$<HTMLInputElement | HTMLTextAreaElement>('[data-wa-texto]').forEach((o) => { if (o !== campo) o.value = campo.value; });
+    waBtns.forEach((a) => { a.href = WA(t); });
+  }));
+
+  // ---------- Validación de campos ----------
+  function marcar(campo: HTMLInputElement | HTMLTextAreaElement, malo: boolean) {
+    campo.setAttribute('aria-invalid', String(malo));
+    const err = document.getElementById(campo.id + '-err');
+    if (err) err.hidden = !malo;
+    return !malo;
+  }
+  function limpiarAlEscribir(form: HTMLFormElement) {
+    form.addEventListener('input', (e) => {
+      const c = e.target as HTMLInputElement;
+      if (c.getAttribute('aria-invalid') === 'true') marcar(c, false);
+    });
+  }
+  function estado(form: HTMLFormElement, texto: string | null, wa?: string) {
+    const caja = $<HTMLElement>('[data-estado]', form)!;
+    caja.hidden = !texto;
+    $<HTMLElement>('[data-estado-txt]', caja)!.textContent = texto ?? '';
+    if (wa) $<HTMLAnchorElement>('[data-estado-wa]', caja)!.href = WA(wa);
+  }
+  function ocupado(form: HTMLFormElement, si: boolean) {
+    const b = $<HTMLButtonElement>('[data-enviar]', form)!;
+    b.setAttribute('aria-busy', String(si));
+    if (si) { b.dataset.html = b.innerHTML; b.textContent = 'Enviando…'; }
+    else if (b.dataset.html) b.innerHTML = b.dataset.html;
+  }
+
+  // ---------- Solicitar llamada ----------
+  const fLlamada = $<HTMLFormElement>('[data-form-llamada]');
+  if (fLlamada) {
+    marcarTiempo(fLlamada);
+    limpiarAlEscribir(fLlamada);
+    const okBox = $<HTMLElement>('[data-llamada-ok]')!;
+    fLlamada.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const nombre = $<HTMLInputElement>('#ll-nombre', fLlamada)!, tel = $<HTMLInputElement>('#ll-tel', fLlamada)!, franja = $<HTMLSelectElement>('#ll-franja', fLlamada)!;
+      const ok = [marcar(nombre, !nombre.value.trim()), marcar(tel, digitos(tel.value).length < 7)].every(Boolean);
+      if (!ok) { (nombre.getAttribute('aria-invalid') === 'true' ? nombre : tel).focus(); return; }
+      estado(fLlamada, null);
+      ocupado(fLlamada, true);
+      const r = await enviarFormulario(fLlamada, { tipo: 'llamada', detalle: { 'Franja horaria': franja.value } });
+      ocupado(fLlamada, false);
+      if (!r.ok) { estado(fLlamada, r.error ?? 'No pudimos registrar la llamada.', `Hola DKODING, quiero que me llamen al ${tel.value.trim()}. Soy ${nombre.value.trim()}.`); return; }
+      const primer = nombre.value.trim().split(' ')[0];
+      $<HTMLElement>('[data-llamada-txt]')!.textContent = `${primer}, te llamaremos al ${tel.value.trim()} en la franja «${franja.value}».${r.numero ? ` Solicitud ${r.numero}.` : ''}`;
+      fLlamada.hidden = true; okBox.hidden = false;
+    });
+    $<HTMLButtonElement>('[data-llamada-otra]')!.addEventListener('click', () => {
+      fLlamada.reset(); marcarTiempo(fLlamada); okBox.hidden = true; fLlamada.hidden = false; $<HTMLInputElement>('#ll-nombre', fLlamada)!.focus();
+    });
+  }
+
+  // ---------- Ticket en 3 pasos ----------
+  const fTicket = $<HTMLFormElement>('[data-form-ticket]');
+  const est = { tipo: null as HTMLButtonElement | null, servicio: null as HTMLButtonElement | null, paso: 1 };
+  const outs = (k: string) => $$<HTMLElement>(`[data-out="${k}"]`);
+  const pasoBtns = $$<HTMLButtonElement>('.paso-btn');
+  const paneles = $$<HTMLElement>('[data-panel]');
+
+  function pintar() {
+    const tipo = est.tipo?.dataset.nombre, svc = est.servicio?.dataset.nombre, sla = est.tipo?.dataset.sla;
+    pasoBtns.forEach((b) => {
+      const n = Number(b.dataset.paso), cur = n === est.paso, done = (n === 1 && !!tipo) || (n === 2 && !!svc);
+      b.classList.toggle('is-cur', cur); b.classList.toggle('is-done', done);
+      if (cur) b.setAttribute('aria-current', 'step'); else b.removeAttribute('aria-current');
+      $<HTMLElement>('[data-badge]', b)!.textContent = done ? '✓' : String(n);
+    });
+    $<HTMLElement>('[data-val="tipo"]')!.textContent = tipo ?? 'sin elegir';
+    $<HTMLElement>('[data-val="servicio"]')!.textContent = svc ?? 'sin elegir';
+    paneles.forEach((p) => p.classList.toggle('is-cur', Number(p.dataset.panel) === est.paso));
+    outs('tipo').forEach((o) => { o.textContent = tipo ?? 'Sin elegir'; o.classList.toggle('muted', !tipo); });
+    outs('servicio').forEach((o) => { o.textContent = svc ?? 'Sin elegir'; o.classList.toggle('muted', !svc); });
+    const slaTxt = $<HTMLElement>('[data-out="sla-texto"]')!;
+    slaTxt.textContent = sla ? `Primera respuesta: ${sla} · compromiso por escrito` : 'El tiempo de primera respuesta depende del tipo de ayuda';
+    slaTxt.classList.toggle('listo', !!sla);
+    actualizarWaTicket();
+  }
+  function irPaso(n: number, foco = true) {
+    est.paso = n; pintar();
+    if (foco) { const p = paneles.find((x) => Number(x.dataset.panel) === n); const h = p && $<HTMLElement>('h3', p); if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); p.scrollIntoView({ block: 'nearest', behavior: reduce ? 'auto' : 'smooth' }); } }
+  }
+  function elegir(grupo: 'tipo' | 'servicio', btn: HTMLButtonElement) {
+    const sel = grupo === 'tipo' ? '[data-tipo]' : '[data-servicio]';
+    $$<HTMLButtonElement>(sel).forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+    est[grupo] = btn;
+    if (grupo === 'tipo') { outs('tipo').forEach((o) => o.classList.remove('falta')); irPaso(est.servicio ? 3 : 2); }
+    else { outs('servicio').forEach((o) => o.classList.remove('falta')); irPaso(3); }
+  }
+  $$<HTMLButtonElement>('[data-tipo]').forEach((b) => b.addEventListener('click', () => elegir('tipo', b)));
+  $$<HTMLButtonElement>('[data-servicio]').forEach((b) => b.addEventListener('click', () => elegir('servicio', b)));
+  $$<HTMLButtonElement>('[data-paso]').forEach((b) => b.addEventListener('click', () => irPaso(Number(b.dataset.paso))));
+
+  function actualizarWaTicket() {
+    if (!fTicket) return;
+    const tipo = est.tipo?.dataset.nombre ?? 'soporte', svc = est.servicio?.dataset.nombre ?? '', asunto = $<HTMLInputElement>('#tk-asunto', fTicket)!.value.trim(), sitio = $<HTMLInputElement>('#tk-sitio', fTicket)!.value.trim();
+    const partes = [`Hola DKODING, quiero abrir un ticket de ${tipo.toLowerCase()}`, svc && `sobre ${svc.toLowerCase()}`, sitio && `(${sitio})`].filter(Boolean).join(' ');
+    $<HTMLAnchorElement>('[data-wa-ticket]')!.href = WA(`${partes}.${asunto ? ` Asunto: ${asunto}.` : ''}`);
+  }
+  function reiniciarTicket() {
+    if (!fTicket) return;
+    fTicket.reset(); marcarTiempo(fTicket); estado(fTicket, null);
+    $$<HTMLElement>('[aria-invalid="true"]', fTicket).forEach((c) => marcar(c as HTMLInputElement, false));
+    $<HTMLElement>('[data-alerta]', fTicket)!.hidden = true;
+    $$<HTMLButtonElement>('[data-tipo], [data-servicio]').forEach((b) => b.setAttribute('aria-pressed', 'false'));
+    est.tipo = null; est.servicio = null; irPaso(1, false);
+  }
+
+  if (fTicket) {
+    marcarTiempo(fTicket);
+    limpiarAlEscribir(fTicket);
+    fTicket.addEventListener('input', actualizarWaTicket);
+    const alerta = $<HTMLElement>('[data-alerta]', fTicket)!;
+    fTicket.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      // Pasos 1 y 2 antes del formulario.
+      if (!est.tipo || !est.servicio) {
+        const k = !est.tipo ? 'tipo' : 'servicio';
+        outs(k).forEach((o) => { o.textContent = !est.tipo ? 'Elige el tipo de ayuda (paso 1)' : 'Elige el servicio (paso 2)'; o.classList.add('falta'); o.classList.remove('muted'); });
+        irPaso(!est.tipo ? 1 : 2);
+        return;
+      }
+      const nombre = $<HTMLInputElement>('#tk-nombre', fTicket)!, correo = $<HTMLInputElement>('#tk-correo', fTicket)!, tel = $<HTMLInputElement>('#tk-tel', fTicket)!;
+      const sitio = $<HTMLInputElement>('#tk-sitio', fTicket)!, asunto = $<HTMLInputElement>('#tk-asunto', fTicket)!, desc = $<HTMLTextAreaElement>('#tk-desc', fTicket)!, datos = $<HTMLInputElement>('#tk-datos', fTicket)!;
+      const checks = [
+        marcar(nombre, !nombre.value.trim()), marcar(correo, !correoOk(correo.value)), marcar(tel, digitos(tel.value).length < 7),
+        marcar(asunto, !asunto.value.trim()), marcar(desc, !desc.value.trim()), marcar(datos, !datos.checked),
+      ];
+      const faltan = checks.filter((c) => !c).length;
+      alerta.hidden = faltan === 0;
+      if (faltan) {
+        $<HTMLElement>('[data-alerta-txt]', alerta)!.textContent = faltan === 1 ? 'Falta 1 dato para enviar el ticket. Está marcado abajo.' : `Faltan ${faltan} datos para enviar el ticket. Están marcados en cada campo.`;
+        $<HTMLElement>('[aria-invalid="true"]', fTicket)?.focus();
+        return;
+      }
+      estado(fTicket, null);
+      ocupado(fTicket, true);
+      const r = await enviarFormulario(fTicket, {
+        tipo: 'ticket',
+        detalle: { 'Tipo de ayuda': est.tipo.dataset.nombre, Servicio: est.servicio.dataset.nombre, 'Sitio web': sitio.value.trim() || 'no indicado', Asunto: asunto.value.trim(), 'Primera respuesta': est.tipo.dataset.sla },
+      });
+      ocupado(fTicket, false);
+      if (!r.ok) { estado(fTicket, r.error ?? 'No pudimos enviar el ticket.', `Hola DKODING, intenté abrir un ticket de ${est.tipo.dataset.nombre!.toLowerCase()} y no se envió. Asunto: ${asunto.value.trim()}.`); return; }
+      // Confirmación
+      const numero = r.numero ?? 'registrado';
+      const salida: Record<string, string> = {
+        numero, correo: correo.value.trim(), sla: est.tipo.dataset.sla!,
+        'r-tipo': est.tipo.dataset.nombre!, 'r-servicio': est.servicio.dataset.nombre!, 'r-nombre': nombre.value.trim(), 'r-correo': correo.value.trim(),
+        'r-tel': tel.value.trim(), 'r-sitio': sitio.value.trim() || 'no indicado', 'r-asunto': asunto.value.trim(), 'r-desc': desc.value.trim(),
+      };
+      for (const [k, v] of Object.entries(salida)) outs(k).forEach((o) => { o.textContent = v; });
+      $<HTMLAnchorElement>('[data-wa-listo]')!.href = WA(`Hola DKODING, escribo por el ticket ${numero}.`);
+      irVista('listo');
+    });
+    pintar();
+  }
+</script>
