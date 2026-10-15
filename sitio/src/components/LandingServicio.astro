@@ -1,0 +1,389 @@
+---
+/**
+ * Plantilla de landing de servicio: hero con respuesta directa, qué incluye, método en 5 pasos,
+ * para quién, casos, qué nos diferencia, FAQ, enlaces relacionados y CTA final.
+ * Cada página pasa sus datos; el `<slot />` entra después de "Qué incluye" para secciones propias.
+ */
+import Base from '../layouts/Base.astro';
+import { SITIO, SERVICIOS, waLink } from '../data/sitio';
+import { servicioSchema, faqSchema, migasSchema } from '../data/schema';
+
+export interface Caso { nombre: string; sector: string; captura: string; alt?: string; ancho?: number; alto?: number }
+export interface Props {
+  slug: string;
+  titulo: string;
+  descripcion: string;
+  ruta: string;
+  eyebrow: string;
+  /** Primera parte del h1 (ligera) y parte fuerte (negrita). */
+  h1: string;
+  h1Fuerte: string;
+  /** Respuesta directa de 40–60 palabras. */
+  respuesta: string;
+  /** Mensaje precargado de WhatsApp. */
+  waTexto: string;
+  hero: { tipo: 'imagen'; src: string; alt: string; width: number; height: number } | { tipo: 'capturas'; items: Caso[] };
+  incluyeIntro: string;
+  incluye: { titulo: string; texto: string; nota?: string }[];
+  /** Texto de cada uno de los 5 pasos del Método DKODING, adaptado al servicio. */
+  metodo: [string, string, string, string, string];
+  paraQuienIntro: string;
+  paraQuien: { nicho: string; texto: string }[];
+  casosIntro: string;
+  casos: Caso[];
+  diferencia: { titulo: string; texto: string }[];
+  noHacemos: string[];
+  faq: { q: string; a: string }[];
+  /** Slugs de SERVICIOS relacionados. */
+  relacionadas: string[];
+  blog?: { titulo: string; url: string; texto: string };
+  ofertas: { nombre: string; desde?: number }[];
+  tipoServicio?: string;
+  cta: { titulo: string; texto: string };
+}
+
+const p = Astro.props;
+const servicio = SERVICIOS.find((s) => s.slug === p.slug);
+const nombre = servicio?.nombre ?? p.h1;
+const wa = waLink(p.waTexto);
+const waDiag = waLink(`Hola DKODING, quiero el diagnóstico gratis de mi presencia digital. Me interesa ${nombre.toLowerCase()}.`);
+const relacionadas = SERVICIOS.filter((s) => p.relacionadas.includes(s.slug));
+const srcCaso = (c: Caso) => (c.captura.startsWith('/') ? c.captura : `/img/casos/${c.captura}`);
+const pasos = [
+  { n: '01', t: 'Diagnóstico' },
+  { n: '02', t: 'Plan' },
+  { n: '03', t: 'Construcción' },
+  { n: '04', t: 'Lanzamiento' },
+  { n: '05', t: 'Mejora mensual' },
+];
+const schema = [
+  servicioSchema({ nombre: `${p.h1} ${p.h1Fuerte}`, descripcion: p.descripcion, url: p.ruta, tipo: p.tipoServicio, ofertas: p.ofertas }),
+  faqSchema(p.faq),
+  migasSchema([{ nombre: 'Inicio', url: '/' }, { nombre, url: p.ruta }]),
+];
+---
+<Base titulo={p.titulo} descripcion={p.descripcion} ruta={p.ruta} schema={schema}>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-in">
+      <div class="hero-txt">
+        <nav class="migas" aria-label="Ruta de navegación">
+          <a href="/">Inicio</a><span aria-hidden="true">»</span><span aria-current="page">{nombre}</span>
+        </nav>
+        <p class="eyebrow">{p.eyebrow}</p>
+        <h1>{p.h1} <strong>{p.h1Fuerte}</strong></h1>
+        <p class="lead respuesta">{p.respuesta}</p>
+        <div class="cta-row">
+          <a href="/cotizador/" class="btn btn-primary btn-lg">Cotizar en 2 minutos</a>
+          <a href={wa} class="btn btn-wa btn-lg" rel="noopener">Escribir por WhatsApp</a>
+        </div>
+        <p class="hero-nota muted">O empieza con un <a href={waDiag} rel="noopener">diagnóstico gratis</a> de tu web, SEO y presencia en la IA. Sin compromiso.</p>
+      </div>
+
+      <div class="hero-vis" aria-hidden={p.hero.tipo === 'capturas' ? 'false' : undefined}>
+        <img class="deco" src="/img/deco/dkoding-deco-03.svg" alt="" width="361" height="534" loading="eager">
+        {p.hero.tipo === 'imagen' ? (
+          <img class="hero-img" src={p.hero.src} alt={p.hero.alt} width={p.hero.width} height={p.hero.height} fetchpriority="high">
+        ) : (
+          <div class="hero-caps">
+            {p.hero.items.slice(0, 2).map((c, i) => (
+              <figure class={`cap cap-${i + 1}`}>
+                <img src={srcCaso(c)} alt={c.alt ?? `Captura del sitio web de ${c.nombre}`} width={c.ancho ?? 550} height={c.alto ?? 1800} loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : undefined}>
+                <figcaption><strong>{c.nombre}</strong><span>{c.sector}</span></figcaption>
+              </figure>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <!-- Qué incluye -->
+  <section class="section" id="incluye">
+    <div class="container">
+      <div class="ls-head">
+        <p class="eyebrow">Qué incluye</p>
+        <h2>Lo que entregamos en <strong>{nombre.toLowerCase()}</strong></h2>
+        <p class="lead">{p.incluyeIntro}</p>
+      </div>
+      <div class="grid grid-3 cards-incluye">
+        {p.incluye.map((it, i) => (
+          <article class="card reveal">
+            <span class="num">{String(i + 1).padStart(2, '0')}</span>
+            <h3>{it.titulo}</h3>
+            <p class="muted">{it.texto}</p>
+            {it.nota && <p class="nota"><span class="pill pill-lila">{it.nota}</span></p>}
+          </article>
+        ))}
+      </div>
+      <p class="ls-foot muted">Todo se cotiza por horas de proyecto en el <a href="/cotizador/">cotizador</a>: eliges lo que necesitas y ves el rango al instante, con IVA aparte y sin sorpresas.</p>
+    </div>
+  </section>
+
+  <slot />
+
+  <!-- Método -->
+  <section class="section ls-band" id="metodo">
+    <div class="container">
+      <div class="ls-head">
+        <p class="eyebrow">Cómo trabajamos</p>
+        <h2>El <strong>Método DKODING</strong> en 5 pasos</h2>
+        <p class="lead">El mismo proceso para todos los servicios: primero entendemos, después construimos y al final medimos cada mes. Así sabes qué pasa, cuándo y por qué.</p>
+      </div>
+      <ol class="pasos">
+        {pasos.map((paso, i) => (
+          <li class="paso reveal">
+            <span class="paso-n">{paso.n}</span>
+            <h3>{paso.t}</h3>
+            <p class="muted">{p.metodo[i]}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- Para quién -->
+  <section class="section" id="para-quien">
+    <div class="container">
+      <div class="ls-head">
+        <p class="eyebrow">Para quién</p>
+        <h2>Negocios de Cali y Colombia con los que <strong>funciona mejor</strong></h2>
+        <p class="lead">{p.paraQuienIntro}</p>
+      </div>
+      <div class="grid grid-5 nichos">
+        {p.paraQuien.map((n) => (
+          <article class="nicho reveal">
+            <h3>{n.nicho}</h3>
+            <p class="muted">{n.texto}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Casos -->
+  <section class="section ls-band" id="casos">
+    <div class="container">
+      <div class="ls-head ls-head-row">
+        <div>
+          <p class="eyebrow">Casos</p>
+          <h2>Sitios y marcas que <strong>ya están en vivo</strong></h2>
+          <p class="lead">{p.casosIntro}</p>
+        </div>
+        <a href="/casos-de-exito/" class="btn btn-secondary">Ver los 24 casos</a>
+      </div>
+      <div class="grid grid-3 casos">
+        {p.casos.slice(0, 3).map((c) => (
+          <a href="/casos-de-exito/" class="caso reveal">
+            <span class="caso-marco">
+              <img src={srcCaso(c)} alt={c.alt ?? `Captura de página completa del sitio web de ${c.nombre}`} width={c.ancho ?? 550} height={c.alto ?? 1800} loading="lazy">
+            </span>
+            <span class="caso-pie"><strong>{c.nombre}</strong><span class="muted">{c.sector}</span></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Diferencia -->
+  <section class="section" id="diferencia">
+    <div class="container dif">
+      <div class="dif-col">
+        <p class="eyebrow">Qué nos diferencia</p>
+        <h2>Lo que sí <strong>hacemos distinto</strong></h2>
+        <ul class="dif-list">
+          {p.diferencia.map((d) => (
+            <li class="reveal"><h3>{d.titulo}</h3><p class="muted">{d.texto}</p></li>
+          ))}
+        </ul>
+      </div>
+      <aside class="card card-hl dif-no">
+        <p class="eyebrow">Lo que no hacemos</p>
+        <ul class="chev-list">
+          {p.noHacemos.map((t) => <li>{t}</li>)}
+        </ul>
+        <p class="muted small">Si una agencia te promete alguna de estas cosas, pregunta cómo la mide. Nosotros te lo mostramos en tu panel.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section ls-band" id="faq">
+    <div class="container faq-wrap">
+      <div class="ls-head">
+        <p class="eyebrow">Preguntas frecuentes</p>
+        <h2>Lo que nos preguntan antes de <strong>contratar</strong></h2>
+      </div>
+      <div class="faq">
+        {p.faq.map((f, i) => (
+          <details class="faq-item" name="faq">
+            <summary><span class="faq-n">{String(i + 1).padStart(2, '0')}</span><span>{f.q}</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+      <p class="muted">¿Tu pregunta no está? <a href={wa} rel="noopener">Escríbenos por WhatsApp</a> y te respondemos en horario laboral.</p>
+    </div>
+  </section>
+
+  <!-- Relacionados -->
+  <section class="section" id="relacionados">
+    <div class="container">
+      <div class="ls-head">
+        <p class="eyebrow">También te puede servir</p>
+        <h2>Servicios que <strong>se combinan</strong> con este</h2>
+      </div>
+      <div class="grid grid-3 rel">
+        {relacionadas.map((s) => (
+          <a href={s.url} class="card rel-card reveal">
+            <span class="eyebrow">{s.corto}</span>
+            <h3>{s.nombre}</h3>
+            <p class="muted">{s.desc}</p>
+            <span class="btn-link">Ver servicio</span>
+          </a>
+        ))}
+        {p.blog && (
+          <a href={p.blog.url} class="card card-hl rel-card reveal">
+            <span class="eyebrow">Del blog</span>
+            <h3>{p.blog.titulo}</h3>
+            <p class="muted">{p.blog.texto}</p>
+            <span class="btn-link">Leer el artículo</span>
+          </a>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <section class="section-tight">
+    <div class="container">
+      <div class="cta-final band-violet">
+        <img class="cta-deco" src="/img/deco/dkoding-deco-07.svg" alt="" width="1073" height="1572" loading="lazy">
+        <div class="cta-txt">
+          <p class="eyebrow eyebrow-light">Siguiente paso</p>
+          <h2>{p.cta.titulo}</h2>
+          <p>{p.cta.texto}</p>
+        </div>
+        <div class="cta-btns">
+          <a href="/cotizador/" class="btn btn-light btn-lg">Cotizar en 2 minutos</a>
+          <a href={wa} class="btn btn-wa btn-lg" rel="noopener">Escribir por WhatsApp</a>
+          <a href={SITIO.telefonoHref} class="cta-tel">{SITIO.telefono}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style is:global>
+  /* Clases compartidas entre la plantilla de servicio y las secciones propias de cada landing. */
+  .ls-head { max-width: 760px; margin-bottom: clamp(28px, 4vw, 48px); display: flex; flex-direction: column; gap: 14px; }
+  .ls-head-row { max-width: none; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 20px; }
+  .ls-head-row > div { display: flex; flex-direction: column; gap: 14px; max-width: 760px; }
+  .ls-band { background: var(--dk-deep); }
+  @media (max-width: 640px) { .ls-head-row { grid-template-columns: minmax(0, 1fr); align-items: start; } }
+</style>
+
+<style>
+  .hero { position: relative; overflow: hidden; padding-block: clamp(32px, 5vw, 72px) clamp(48px, 6vw, 88px); background: radial-gradient(80% 60% at 70% 20%, rgba(109, 0, 194, 0.22), transparent 70%); }
+  .hero-in { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+  .migas { display: flex; gap: 10px; align-items: center; font-size: 14px; color: var(--dk-muted); margin-bottom: 18px; flex-wrap: wrap; }
+  .migas a { color: var(--dk-soft); min-height: 24px; display: inline-flex; align-items: center; }
+  .migas span[aria-hidden] { color: var(--dk-lila); font-family: var(--font-title); font-weight: 700; }
+  .hero h1 { margin-top: 14px; font-size: clamp(38px, 4.5vw, 64px); }
+  .respuesta { margin-top: 22px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
+  .hero-nota { margin-top: 18px; font-size: 15px; max-width: 54ch; }
+  .hero-nota a { text-decoration: underline; text-underline-offset: 3px; }
+
+  .hero-vis { position: relative; min-height: 360px; display: grid; place-items: center; }
+  .deco { position: absolute; right: -8%; top: 50%; width: 46%; max-width: 300px; transform: translateY(-50%); opacity: 0.8; pointer-events: none; }
+  .hero-img { position: relative; width: min(100%, 520px); border-radius: var(--r-card); box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55); }
+  .hero-caps { position: relative; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 10px 0; }
+  .cap { margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .cap-2 { margin-top: 56px; }
+  .cap img { aspect-ratio: 4 / 5; width: 100%; height: auto; object-fit: cover; object-position: top; border-radius: var(--r-card); border: 1px solid var(--dk-line-2); box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5); background: var(--dk-surface); }
+  .cap figcaption { display: flex; flex-direction: column; font-size: 14px; }
+  .cap figcaption span { color: var(--dk-muted); font-size: 13px; }
+
+  .ls-foot { margin-top: 28px; max-width: 72ch; }
+  .ls-foot a { text-decoration: underline; text-underline-offset: 3px; }
+
+  .cards-incluye .card { display: flex; flex-direction: column; gap: 12px; }
+  .num { font-family: var(--font-title); font-weight: 700; font-size: 14px; color: var(--dk-lila); letter-spacing: 0.1em; }
+  .nota { margin-top: auto; padding-top: 6px; }
+
+  .pasos { list-style: none; counter-reset: paso; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+  .paso { position: relative; padding: 24px 20px 24px; border-top: 2px solid rgba(199, 85, 239, 0.35); display: flex; flex-direction: column; gap: 10px; }
+  .paso::before { content: ''; position: absolute; top: -2px; left: 0; width: 44px; height: 2px; background: var(--dk-lila); }
+  .paso-n { font-family: var(--font-title); font-weight: 700; font-size: 32px; color: var(--dk-lila); line-height: 1; }
+  .paso h3 { font-size: 20px; }
+  .paso p { font-size: 15.5px; }
+
+  .nichos { gap: 14px; }
+  .nicho { padding: 22px 20px; border: 1px solid var(--dk-line); border-radius: var(--r-card); background: var(--dk-surface); display: flex; flex-direction: column; gap: 10px; }
+  .nicho h3 { font-size: 19px; }
+  .nicho p { font-size: 15px; }
+
+  .casos { gap: 20px; }
+  .caso { display: flex; flex-direction: column; gap: 12px; color: var(--dk-text); }
+  .caso-marco { display: block; height: 380px; overflow: hidden; border-radius: var(--r-card); border: 1px solid var(--dk-line-2); background: var(--dk-surface); }
+  .caso-marco img { width: 100%; height: auto; object-fit: cover; transition: transform 4s ease-in-out; }
+  .caso:hover .caso-marco img, .caso:focus-visible .caso-marco img { transform: translateY(calc(-100% + 380px)); }
+  .caso-pie { display: flex; flex-direction: column; }
+  .caso-pie .muted { font-size: 14px; }
+
+  .dif { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.9fr); gap: clamp(28px, 4vw, 64px); align-items: start; }
+  .dif-col { display: flex; flex-direction: column; gap: 14px; }
+  .dif-list { list-style: none; display: flex; flex-direction: column; margin-top: 16px; }
+  .dif-list li { padding: 20px 0; border-top: 1px solid var(--dk-line); display: flex; flex-direction: column; gap: 8px; }
+  .dif-list h3 { font-size: 21px; }
+  .dif-no { position: sticky; top: 96px; display: flex; flex-direction: column; gap: 16px; }
+  .small { font-size: 14px; }
+
+  .faq-wrap { max-width: 860px; }
+  .faq { display: flex; flex-direction: column; border-top: 1px solid var(--dk-line-2); margin-bottom: 24px; }
+  .faq-item { border-bottom: 1px solid var(--dk-line-2); }
+  .faq-item summary { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 16px; align-items: center; min-height: 64px; padding: 14px 4px; cursor: pointer; list-style: none; font-family: var(--font-title); font-weight: 700; font-size: 19px; line-height: 1.2; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary:hover { color: var(--dk-lila-link); }
+  .faq-n { font-size: 13px; color: var(--dk-lila); letter-spacing: 0.1em; }
+  .faq-item svg { transition: transform 0.25s ease; }
+  .faq-item[open] svg { transform: rotate(180deg); }
+  .faq-item p { padding: 0 4px 22px 46px; color: var(--dk-soft); max-width: 70ch; line-height: 1.6; }
+
+  .rel-card { display: flex; flex-direction: column; gap: 10px; color: var(--dk-text); }
+  .rel-card:hover { border-color: var(--dk-line-3); color: var(--dk-text); }
+  .rel-card .btn-link { margin-top: auto; }
+
+  .cta-final { position: relative; overflow: hidden; border-radius: var(--r-card); padding: clamp(32px, 5vw, 64px); display: grid; grid-template-columns: minmax(0, 1.2fr) auto; gap: 32px; align-items: center; color: #fff; }
+  .cta-deco { position: absolute; right: -10%; top: -40%; width: 44%; min-width: 260px; opacity: 0.9; pointer-events: none; }
+  .cta-txt { position: relative; display: flex; flex-direction: column; gap: 12px; max-width: 60ch; }
+  .cta-txt h2 { font-size: clamp(30px, 3.2vw, 44px); }
+  .cta-txt p { color: rgba(255, 255, 255, 0.85); }
+  .eyebrow-light { color: #E9C8FF; }
+  .cta-btns { position: relative; display: flex; flex-direction: column; gap: 12px; align-items: stretch; }
+  .cta-tel { color: #fff; text-align: center; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; font-weight: 600; }
+
+  @media (max-width: 1024px) {
+    .hero-in { grid-template-columns: minmax(0, 1fr); }
+    .hero-vis { min-height: 0; margin-top: 8px; }
+    .hero-caps { max-width: 560px; margin-inline: auto; }
+    .pasos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .dif { grid-template-columns: minmax(0, 1fr); }
+    .dif-no { position: static; }
+    .cta-final { grid-template-columns: minmax(0, 1fr); }
+    .cta-btns { flex-direction: row; flex-wrap: wrap; }
+  }
+  @media (max-width: 640px) {
+    .hero-caps { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .cap-2 { margin-top: 36px; }
+    .deco { width: 40%; right: -14%; }
+    .pasos { grid-template-columns: minmax(0, 1fr); }
+    .caso-marco { height: 300px; }
+    .caso:hover .caso-marco img, .caso:focus-visible .caso-marco img { transform: translateY(calc(-100% + 300px)); }
+    .faq-item summary { font-size: 17px; gap: 12px; }
+    .faq-item p { padding-left: 0; }
+    .cta-btns { flex-direction: column; }
+    .cta-row .btn { flex: 1 1 100%; }
+  }
+</style>

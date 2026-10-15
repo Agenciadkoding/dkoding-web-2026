@@ -1,0 +1,125 @@
+---
+import LandingServicio from '../components/LandingServicio.astro';
+
+const datos = {
+  slug: 'marketing-digital',
+  titulo: 'Agencia de marketing digital en Cali | DKODING',
+  descripcion: 'Agencia de marketing digital en Cali: Google Ads, Meta Ads, email y WhatsApp marketing medidos en GA4. Cotiza en 2 minutos o escríbenos por WhatsApp.',
+  ruta: '/marketing-digital/',
+  eyebrow: 'Marketing digital',
+  h1: 'Agencia de marketing digital',
+  h1Fuerte: 'en Cali',
+  respuesta: 'Somos una agencia de marketing digital en Cali que lleva clientes a tu negocio con campañas en Google Ads y Meta Ads, email marketing y WhatsApp marketing, todo medido en GA4. Es para pymes, clínicas, hoteles y tiendas online de Colombia. Incluye configuración, creatividades, gestión mensual e informe. Se cotiza por horas en el cotizador, sin permanencia.',
+  waTexto: 'Hola DKODING, quiero cotizar marketing digital (Google Ads, Meta Ads, email o WhatsApp) para mi negocio.',
+  hero: {
+    tipo: 'capturas' as const,
+    items: [
+      { nombre: 'Hotel Villa Real', sector: 'Hoteles y turismo', captura: 'hotelvillareal-co.webp' },
+      { nombre: 'Gentia', sector: 'Salud y bienestar', captura: 'gentia-co.webp' },
+    ],
+  },
+  incluyeIntro: 'No vendemos "likes" ni visitas sueltas. Montamos el canal, lo conectamos a tu página y a tu WhatsApp, y revisamos cada mes qué trajo clientes y qué no.',
+  incluye: [
+    { titulo: 'Google Ads', texto: 'Campañas de búsqueda para la gente que ya está buscando lo que vendes en Cali o en Colombia. Palabras clave con intención, anuncios por servicio, extensiones y negativas para no pagar clics inútiles.', nota: 'Setup + gestión mensual' },
+    { titulo: 'Meta Ads', texto: 'Anuncios en Instagram y Facebook con públicos por interés, por zona y por remarketing. Sirven para dar a conocer una marca nueva o para traer de vuelta a quien ya entró a tu web.', nota: 'Setup + gestión mensual' },
+    { titulo: 'Email marketing', texto: 'Configuración de la plataforma, dominio autenticado, plantillas con tu marca y segmentos. Flujos automáticos de bienvenida, carrito abandonado y poscompra, y un boletín mensual si lo necesitas.', nota: 'Setup + flujos' },
+    { titulo: 'WhatsApp marketing', texto: 'Catálogo, respuestas rápidas y mensajes con tu marca en WhatsApp Business. Enlaces con mensaje precargado desde cada anuncio y cada página, para que el cliente escriba sin llenar formularios.' },
+    { titulo: 'Landing de campaña', texto: 'Una página rápida, con un solo objetivo, que carga en menos de 2 segundos en celular y mide cada clic. La pauta rinde mucho más cuando no cae en la portada general de tu sitio.' },
+    { titulo: 'Medición en GA4', texto: 'GA4 y Google Tag Manager con conversiones reales: llamadas, WhatsApp, formularios y compras. Píxel de Meta y etiquetas de Google Ads bien instaladas. Sin esto, nadie sabe qué funciona.' },
+  ],
+  metodo: [
+    'Revisamos tu web, tus cuentas publicitarias y tu GA4, si existen. Te decimos qué canal tiene sentido para tu negocio y cuál no, antes de que gastes un peso en pauta.',
+    'Definimos objetivo, presupuesto mensual de pauta, públicos y mensajes. Te entregamos el plan por escrito con lo que haremos cada semana y cómo lo vamos a medir.',
+    'Configuramos cuentas, píxeles y conversiones, diseñamos las creatividades y montamos la landing si hace falta. Todo queda a tu nombre, en tus cuentas.',
+    'Activamos las campañas con presupuesto controlado. Las primeras dos semanas sirven para aprender: qué anuncios, públicos y palabras traen contactos de verdad.',
+    'Cada mes recibes un informe en lenguaje llano: cuánto invertiste, cuántos contactos llegaron y qué cambiamos. Apagamos lo que no funciona y subimos lo que sí.',
+  ] as [string, string, string, string, string],
+  paraQuienIntro: 'La pauta funciona cuando el negocio puede atender rápido lo que llega. Estos son los sectores donde más la hemos montado.',
+  paraQuien: [
+    { nicho: 'Salud', texto: 'Consultorios, clínicas y psicólogos que necesitan citas: campañas de búsqueda por especialidad y remarketing a quien visitó la página.' },
+    { nicho: 'Hoteles', texto: 'Reservas directas sin pagar comisión a las OTA: Google Ads por destino y Meta Ads en temporada, con WhatsApp como canal de reserva.' },
+    { nicho: 'Ecommerce', texto: 'Tiendas online con catálogo en Google Shopping y Meta, flujos de carrito abandonado por correo y campañas por producto.' },
+    { nicho: 'Profesionales', texto: 'Abogados, contadores, arquitectos y asesores: pocas palabras clave muy precisas y una landing que invita a escribir.' },
+    { nicho: 'Pymes', texto: 'Negocios de servicios en Cali que quieren llenar la agenda del mes: una campaña local, un presupuesto fijo y un informe claro.' },
+  ],
+  casosIntro: 'Estas son páginas que construimos. Son el tipo de sitio al que llevamos el tráfico de las campañas: rápido, claro y con WhatsApp a un clic.',
+  casos: [
+    { nombre: 'Glamour Travel', sector: 'Hoteles y turismo', captura: 'glamourtravel-co.webp' },
+    { nombre: 'Fine Crafts by Andrea', sector: 'Comercio', captura: 'finecraftsbyandrea.webp' },
+    { nombre: 'Sabropan', sector: 'Alimentos', captura: 'sabropan-co-scaled.webp' },
+  ],
+  diferencia: [
+    { titulo: 'Las cuentas son tuyas', texto: 'Google Ads, Meta, GA4 y la plataforma de correo quedan creadas a tu nombre y con tus accesos. Si un día te vas, te llevas todo el historial.' },
+    { titulo: 'La web y la pauta las hace el mismo equipo', texto: 'Llevamos 12 años construyendo sitios. Cuando una campaña no convierte, muchas veces el problema está en la página, y lo podemos arreglar nosotros mismos.' },
+    { titulo: 'Informe mensual que se entiende', texto: 'Inversión, contactos, costo por contacto y qué cambiamos. Lo ves en tu panel y lo hablamos por WhatsApp o en una llamada corta.' },
+    { titulo: 'Estamos en Cali', texto: 'Conocemos la ciudad, sus barrios y su calendario comercial. Podemos reunirnos en persona y responder en horario local.' },
+  ],
+  noHacemos: [
+    'No prometemos ventas ni cantidad de clientes: prometemos medición y decisiones con datos.',
+    'No cobramos un porcentaje escondido en la pauta: el presupuesto de anuncios lo pagas tú directo a Google o a Meta.',
+    'No compramos seguidores, listas de correos ni bases de datos de terceros.',
+    'No atamos con contratos de permanencia: el servicio mensual se renueva si funciona.',
+  ],
+  faq: [
+    { q: '¿Cuánto cuesta el marketing digital con DKODING?', a: 'Depende de qué canales necesites y de cuántas horas de gestión al mes. El cotizador separa la inversión inicial (configuración, creatividades, landing) del costo mensual (gestión e informe). El presupuesto de pauta va aparte y lo pagas directamente a Google o a Meta. Te damos un rango en 2 minutos, con IVA discriminado.' },
+    { q: '¿Cuánto presupuesto de pauta necesito para empezar?', a: 'Lo definimos en el diagnóstico según tu sector y tu ciudad. En Cali, una campaña local de búsqueda puede empezar con un presupuesto modesto y crecer cuando ya sabemos qué palabras traen contactos. Preferimos empezar pequeño y medir que gastar mucho a ciegas.' },
+    { q: '¿Google Ads o Meta Ads? ¿Cuál me conviene?', a: 'Google Ads cuando la gente ya busca tu servicio (por ejemplo, "odontólogo en Cali"). Meta Ads cuando necesitas dar a conocer algo que todavía no se busca, o volver a mostrarte a quien ya visitó tu web. Muchos negocios usan los dos, pero no hace falta empezar con ambos.' },
+    { q: '¿Cuánto tarda en dar resultados?', a: 'Las campañas de pauta traen tráfico desde el primer día, pero las primeras dos a cuatro semanas son de aprendizaje: ajustamos públicos, anuncios y palabras con datos reales. El email marketing y el WhatsApp dependen de tu base de contactos y crecen con el tiempo.' },
+    { q: '¿Necesito una página web nueva para hacer pauta?', a: 'No siempre. Si tu web actual carga rápido y tiene WhatsApp y formulario visibles, podemos empezar con ella. Si es lenta o confusa, te recomendamos una landing de campaña: es una sola página, se construye rápido y mejora mucho el costo por contacto.' },
+    { q: '¿Cómo sé que los contactos vienen de la campaña?', a: 'Con GA4 y Tag Manager medimos cada llamada, clic a WhatsApp, formulario y compra, y los cruzamos con la campaña que los trajo. Además, en el cotizador y en los formularios preguntamos "¿cómo nos conociste?". Todo queda en tu panel.' },
+  ],
+  relacionadas: ['seo-y-geo', 'redes-sociales'],
+  blog: { titulo: 'SEO local en Cali: guía de Google Business Profile', url: '/blog/seo-local-en-cali-google-business-profile/', texto: 'Antes de pagar pauta, tu ficha de Google debe estar completa. Esta guía explica cómo dejarla lista.' },
+  ofertas: [
+    { nombre: 'Campañas en Google Ads' },
+    { nombre: 'Campañas en Meta Ads (Instagram y Facebook)' },
+    { nombre: 'Email marketing y automatización' },
+    { nombre: 'WhatsApp marketing' },
+    { nombre: 'Landing de campaña' },
+    { nombre: 'Medición con GA4 y Tag Manager' },
+  ],
+  tipoServicio: 'Marketing digital',
+  cta: { titulo: 'Cotiza tu campaña hoy y empieza con un plan por escrito', texto: 'Elige canales y horas de gestión en el cotizador, o cuéntanos tu caso por WhatsApp. Te respondemos el mismo día hábil con una propuesta clara.' },
+};
+---
+<LandingServicio {...datos}>
+  <section class="section-tight" id="inversion">
+    <div class="container">
+      <div class="ls-head">
+        <p class="eyebrow">Cómo se cotiza</p>
+        <h2>Una inversión inicial y un <strong>costo mensual</strong>, por separado</h2>
+        <p class="lead">El marketing digital mezcla cosas que se hacen una sola vez con cosas que se hacen todos los meses. El cotizador las muestra en dos columnas para que no haya confusión.</p>
+      </div>
+      <div class="grid grid-2 inv">
+        <article class="card">
+          <p class="eyebrow">Se hace una vez</p>
+          <h3>Inversión inicial</h3>
+          <ul class="chev-list">
+            <li>Configuración de cada plataforma: cuenta, píxel, conversiones, públicos y estructura de campañas.</li>
+            <li>Instalación de GA4 y Tag Manager con los eventos que importan para tu negocio.</li>
+            <li>Landing de campaña, si tu web actual no sirve para convertir.</li>
+            <li>Setup de email marketing: plataforma, dominio autenticado, plantillas y segmentos.</li>
+            <li>Flujos automáticos de correo (bienvenida, carrito abandonado, poscompra), cada uno con su propio alcance.</li>
+          </ul>
+        </article>
+        <article class="card card-hl">
+          <p class="eyebrow">Se hace cada mes</p>
+          <h3>Costo mensual</h3>
+          <ul class="chev-list">
+            <li>Gestión de campañas por plataforma: pujas, públicos, anuncios nuevos, negativas y pruebas.</li>
+            <li>Creatividades por pieza, en paquetes de 6, 12 o 20 según el ritmo de la campaña.</li>
+            <li>Boletín mensual de correo, si lo eliges.</li>
+            <li>Informe mensual en tu panel: inversión, contactos, costo por contacto y qué cambiamos.</li>
+            <li>El presupuesto de pauta va aparte: lo pagas directo a Google o a Meta, con tu tarjeta.</li>
+          </ul>
+        </article>
+      </div>
+      <p class="muted inv-nota">Si contratas dos o más servicios mensuales (por ejemplo, pauta y redes sociales), el cotizador aplica un descuento sobre el mensual y lo muestra como una línea visible, nunca escondido en el precio.</p>
+    </div>
+  </section>
+</LandingServicio>
+
+<style>
+  .inv .card { display: flex; flex-direction: column; gap: 14px; }
+  .inv-nota { margin-top: 20px; max-width: 72ch; }
+</style>

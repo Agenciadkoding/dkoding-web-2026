@@ -1,0 +1,125 @@
+---
+import LandingServicio from '../components/LandingServicio.astro';
+
+const datos = {
+  slug: 'diseno-de-marca',
+  titulo: 'Diseño de logotipos y marca en Cali | DKODING',
+  descripcion: 'Diseño de logotipos y marca en Cali: logo, manual de identidad, papelería, kit de redes, rebranding y naming. Cotiza tu logo en 2 minutos.',
+  ruta: '/diseno-de-marca/',
+  eyebrow: 'Diseño de marca',
+  h1: 'Diseño de logotipos y marca',
+  h1Fuerte: 'en Cali',
+  respuesta: 'Diseñamos logotipos y marcas en Cali para negocios que empiezan o que necesitan verse como lo que ya son. Desde un logo sencillo hasta el desarrollo de marca completo: investigación, propuestas, manual de identidad, papelería y kit de redes. También rebranding y naming. Cada producto tiene horas definidas y se cotiza en el cotizador.',
+  waTexto: 'Hola DKODING, quiero cotizar el diseño de logotipo y marca para mi negocio.',
+  hero: {
+    tipo: 'imagen' as const,
+    src: '/img/destacados/experiencia-luzma.jpg',
+    alt: 'Marca LuzMa Uniformes y Dotaciones aplicada en tarjetas, folleto y sitio web en tableta',
+    width: 1100,
+    height: 1100,
+  },
+  incluyeIntro: 'Cada producto de marca tiene un alcance claro: cuántas propuestas, cuántas rondas de cambios y qué archivos recibes. Así sabes qué estás comprando antes de empezar.',
+  incluye: [
+    { titulo: 'Logo sencillo', texto: 'Una propuesta, dos rondas de ajustes y los archivos finales en vectores y para web. Para quien empieza y necesita verse serio sin una inversión grande.', nota: '1 propuesta · 2 rondas' },
+    { titulo: 'Logo profesional', texto: 'Investigación de tu sector y competencia, tres propuestas distintas, tres rondas de ajustes y versiones horizontal, vertical, isotipo y negativo, en más de 80 formatos listos para imprenta, web y redes.', nota: '3 propuestas · 3 rondas' },
+    { titulo: 'Manual de identidad', texto: 'Cómo usar el logo y cómo no, paleta de color, tipografías, tono de voz y aplicaciones básicas, en un PDF que cualquier diseñador o imprenta puede seguir. Opcional: fotografía, iconografía y movimiento.' },
+    { titulo: 'Desarrollo de marca completo', texto: 'Logo profesional, manual de identidad, papelería y kit de redes en un solo proyecto coherente. Opcional: estrategia de marca con propósito, arquetipo y mensajes clave.', nota: 'Paquete' },
+    { titulo: 'Papelería y kit de redes', texto: 'Tarjetas, hoja membretada, firma de correo y carpeta. Avatares, portadas y seis plantillas editables de publicación e historia para que tus redes se vean como tu marca desde el primer día.' },
+    { titulo: 'Rebranding y naming', texto: 'Auditoría de tu marca actual, nuevo logo profesional, manual y migración de todas tus piezas. Naming: veinte opciones de nombre con verificación de dominio y de registro, y tres finalistas.' },
+  ],
+  metodo: [
+    'Un brief corto contigo: qué vendes, a quién, qué marcas admiras y cuáles no, y dónde va a vivir la marca (letrero, uniforme, web, redes). Revisamos tu competencia en Cali para no parecernos a nadie.',
+    'Te presentamos el concepto: referencias visuales, direcciones posibles y el alcance exacto (propuestas, rondas, entregables y fechas) por escrito, antes de dibujar.',
+    'Diseñamos las propuestas y las presentamos aplicadas en piezas reales, no flotando en blanco. Ajustamos en las rondas acordadas hasta que la marca esté lista.',
+    'Entregamos los archivos finales organizados, el manual si lo contrataste, y la marca aplicada en tus primeras piezas: tarjeta digital, firma de correo y perfiles de redes.',
+    'Si tienes web o redes con nosotros, la marca se mantiene coherente en cada pieza nueva. Y si necesitas una aplicación más adelante, ya conocemos tu identidad.',
+  ] as [string, string, string, string, string],
+  paraQuienIntro: 'Una buena marca hace que el precio se discuta menos. Estos son los sectores donde más logotipos e identidades hemos diseñado.',
+  paraQuien: [
+    { nicho: 'Salud', texto: 'Consultorios, psicólogos y clínicas que necesitan transmitir confianza y calma desde el logo, con una paleta que funcione en el consultorio y en Instagram.' },
+    { nicho: 'Hoteles', texto: 'Hoteles y hostales con una identidad que se vea igual en el letrero, la ropa de cama, la carta del restaurante y la página de reservas.' },
+    { nicho: 'Ecommerce', texto: 'Tiendas que compiten en un feed lleno de productos: logo legible en pequeño, empaque y plantillas de redes que se reconocen al primer vistazo.' },
+    { nicho: 'Profesionales', texto: 'Marca personal para psicólogos, abogados, arquitectos y asesores: un nombre, un logo sobrio y una papelería que acompañe cada propuesta.' },
+    { nicho: 'Pymes', texto: 'Negocios de Cali que crecieron con un logo hecho a las carreras y hoy necesitan uno que esté a la altura: rebranding con migración de todas las piezas.' },
+  ],
+  casosIntro: 'Tres marcas que diseñamos y después aplicamos en su sitio web, su papelería y sus redes. Una identidad vale cuando se ve bien en todas partes.',
+  casos: [
+    { nombre: 'LuzMa · Uniformes y dotaciones', sector: 'Diseño de marca y tienda virtual', captura: '/img/destacados/experiencia-luzma.jpg', alt: 'Marca LuzMa aplicada en tarjetas, folleto y sitio web', ancho: 1100, alto: 1100 },
+    { nombre: 'Jhoana Pérez · Psicóloga', sector: 'Diseño de marca y portafolio personal', captura: '/img/destacados/experiencia-jhoana.jpg', alt: 'Marca de la psicóloga Jhoana Pérez aplicada en papelería y sitio web', ancho: 1100, alto: 1100 },
+    { nombre: 'Colorado Hardwood Design', sector: 'Manual de identidad y sitio web', captura: '/img/destacados/experiencia-colorado.jpg', alt: 'Manual de identidad y sitio web de Colorado Hardwood Design', ancho: 1100, alto: 1100 },
+  ],
+  diferencia: [
+    { titulo: 'Alcance por escrito antes de empezar', texto: 'Sabes cuántas propuestas, cuántas rondas y qué archivos recibes. Si quieres una propuesta o una ronda extra, tiene un costo claro y lo decides tú.' },
+    { titulo: 'La marca se diseña para usarse', texto: 'Presentamos cada propuesta aplicada: tarjeta, letrero, perfil de Instagram y página web. Un logo que solo se ve bien en grande y sobre blanco no sirve.' },
+    { titulo: 'Marca, web y redes en el mismo equipo', texto: 'Si después construimos tu sitio o manejamos tus redes, no hay que explicarle la marca a nadie. Y si contratas web y marca juntas, el cotizador aplica un descuento en marca.' },
+    { titulo: 'Archivos tuyos, en todos los formatos', texto: 'Vectores editables, PNG con fondo transparente, versiones para imprenta y para pantalla, y el manual en PDF. Nada se queda en nuestro computador.' },
+  ],
+  noHacemos: [
+    'No usamos generadores de logos ni plantillas compradas con el nombre cambiado.',
+    'No entregamos "propuestas ilimitadas": eso termina en una marca hecha por comité.',
+    'No registramos la marca ante la SIC, pero te orientamos y verificamos que el nombre esté disponible.',
+    'No copiamos a la competencia ni a marcas grandes "para que se vea parecido".',
+  ],
+  faq: [
+    { q: '¿Cuánto cuesta diseñar un logo en Cali con DKODING?', a: 'Depende del producto: el logo sencillo tiene muchas menos horas que el logo profesional o el desarrollo de marca completo. El cotizador muestra el rango de cada uno en 2 minutos, con IVA aparte. Si lo contratas junto con tu sitio web, aplica un descuento en la parte de marca.' },
+    { q: '¿Cuánto tarda el diseño de un logotipo?', a: 'Un logo sencillo suele estar listo en [X semanas]; un logo profesional con manual en [X semanas], contando tus tiempos de revisión. En el plan te damos fechas por escrito y cumplimos si los insumos y las aprobaciones llegan a tiempo.' },
+    { q: '¿Qué diferencia hay entre logo y manual de identidad?', a: 'El logo es el símbolo. El manual explica cómo usarlo: tamaños mínimos, colores exactos, tipografías, qué no hacer y cómo aplicarlo en piezas. Sin manual, cada imprenta y cada diseñador lo interpreta a su manera, y la marca se deforma con el tiempo.' },
+    { q: '¿Qué necesito tener listo para empezar?', a: 'El nombre del negocio (o cotizar naming si no lo tienes), una idea de a quién le vendes y ejemplos de marcas que te gustan y que no. Con eso hacemos el brief. No necesitas saber de diseño.' },
+    { q: '¿Me entregan los archivos editables?', a: 'Sí. Recibes los vectores (AI, SVG, PDF), los PNG con fondo transparente y las versiones en color, blanco y negro. La marca es tuya y puedes trabajarla con quien quieras.' },
+    { q: '¿Pueden rediseñar mi logo actual sin perder lo que ya conocen mis clientes?', a: 'Sí, eso es el rebranding. Auditamos lo que funciona de tu marca actual (un color, una forma, un nombre) y lo conservamos, mientras corregimos lo que no. Incluye migrar todas tus piezas y, si lo necesitas, un plan de lanzamiento.' },
+  ],
+  relacionadas: ['redes-sociales', 'marketing-digital'],
+  blog: { titulo: 'Cuánto cuesta una página web en Colombia', url: '/blog/cuanto-cuesta-una-pagina-web-en-colombia/', texto: 'Si vas a lanzar marca y web al tiempo, aquí explicamos de qué depende el costo de la página.' },
+  ofertas: [
+    { nombre: 'Logo sencillo' },
+    { nombre: 'Logo profesional' },
+    { nombre: 'Manual de identidad' },
+    { nombre: 'Desarrollo de marca completo' },
+    { nombre: 'Papelería' },
+    { nombre: 'Kit de redes' },
+    { nombre: 'Rebranding' },
+    { nombre: 'Naming' },
+  ],
+  tipoServicio: 'Diseño de logotipos e identidad de marca',
+  cta: { titulo: 'Cotiza tu logo o tu marca completa', texto: 'Elige el producto en el cotizador y ve el rango al instante, o mándanos por WhatsApp el nombre de tu negocio y lo que vendes. Te respondemos el mismo día hábil.' },
+};
+---
+<LandingServicio {...datos}>
+  <section class="section-tight" id="entregables">
+    <div class="container">
+      <div class="ls-head">
+        <p class="eyebrow">Qué recibes</p>
+        <h2>Los entregables, <strong>producto por producto</strong></h2>
+        <p class="lead">Para que compares con claridad. Las horas de cada producto están en el cotizador; aquí está lo que llega a tu carpeta.</p>
+      </div>
+      <div class="table-box">
+        <table class="tabla">
+          <thead>
+            <tr><th scope="col">Producto</th><th scope="col">Incluye</th><th scope="col">Añadibles</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Logo sencillo</th><td>1 propuesta, 2 rondas de ajustes, archivos finales (vector, PNG, versiones de color)</td><td>Propuesta extra, ronda extra</td></tr>
+            <tr><th scope="row">Logo profesional</th><td>Investigación, 3 propuestas, 3 rondas, versiones horizontal, vertical, isotipo y negativo, 80+ formatos</td><td>Animación del logo, naming</td></tr>
+            <tr><th scope="row">Manual de identidad</th><td>Uso del logo, paleta, tipografía, tono, aplicaciones básicas, PDF</td><td>Manual extendido: fotografía, iconografía, movimiento</td></tr>
+            <tr><th scope="row">Desarrollo de marca completo</th><td>Logo profesional, manual, papelería y kit de redes</td><td>Estrategia de marca: propósito, arquetipo, mensajes</td></tr>
+            <tr><th scope="row">Papelería</th><td>Tarjetas, hoja membretada, firma de correo, carpeta</td><td>Pieza extra</td></tr>
+            <tr><th scope="row">Kit de redes</th><td>Avatares, portadas, 6 plantillas de publicación e historia</td><td>Plantilla extra</td></tr>
+            <tr><th scope="row">Rebranding</th><td>Auditoría de marca actual, logo profesional, manual, migración de piezas</td><td>Plan de lanzamiento</td></tr>
+            <tr><th scope="row">Naming</th><td>20 opciones, verificación de dominio y registro, 3 finalistas</td><td>Consulta marcaria ante la SIC (externa)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted tabla-nota">Con cada sitio web que construimos incluimos tu tarjeta digital en <a href="https://dkard.co/" rel="noopener">dkard</a>, con tu marca ya aplicada.</p>
+    </div>
+  </section>
+</LandingServicio>
+
+<style>
+  .tabla { width: 100%; border-collapse: collapse; font-size: 15.5px; min-width: 640px; }
+  .tabla th, .tabla td { text-align: left; padding: 14px 12px; border-bottom: 1px solid var(--dk-line-2); vertical-align: top; }
+  .tabla thead th { color: var(--dk-muted); font-weight: 600; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .tabla tbody th { font-family: var(--font-title); font-weight: 700; font-size: 17px; white-space: nowrap; }
+  .tabla td { color: var(--dk-soft); }
+  .tabla-nota { margin-top: 20px; max-width: 72ch; }
+  .tabla-nota a { text-decoration: underline; text-underline-offset: 3px; }
+</style>

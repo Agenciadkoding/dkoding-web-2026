@@ -1,0 +1,121 @@
+---
+import LandingServicio from '../components/LandingServicio.astro';
+
+const datos = {
+  slug: 'seo-y-geo',
+  titulo: 'Posicionamiento web y agencia SEO en Cali | DKODING',
+  descripcion: 'Agencia SEO en Cali: auditoría, SEO técnico y local, contenidos y GEO para aparecer en Google y en ChatGPT. Cotiza tu posicionamiento web en 2 minutos.',
+  ruta: '/seo-y-geo/',
+  eyebrow: 'SEO y GEO',
+  h1: 'Posicionamiento web y SEO',
+  h1Fuerte: 'en Cali',
+  respuesta: 'Hacemos posicionamiento web en Cali para que tu negocio aparezca en Google y también en ChatGPT, Perplexity y los resúmenes de IA (GEO). Es para empresas que ya tienen sitio web o van a lanzarlo. Incluye auditoría, SEO técnico, SEO local, contenidos e informe mensual de presencia. Se cotiza por horas: proyecto inicial más plan mensual.',
+  waTexto: 'Hola DKODING, quiero cotizar SEO y GEO para mi sitio web. Quiero aparecer en Google y en la IA.',
+  hero: {
+    tipo: 'capturas' as const,
+    items: [
+      { nombre: 'Jhoana Pérez · Psicóloga', sector: 'Salud y bienestar', captura: 'jhoanaperez.webp' },
+      { nombre: 'Hotel Villa Mónaco', sector: 'Hoteles y turismo', captura: 'villamonacohotel.webp' },
+    ],
+  },
+  incluyeIntro: 'El SEO de 2026 son cuatro cosas: una web técnicamente sana, una ficha local completa, contenido con experiencia propia y una medición honesta. El GEO se construye encima de eso, no en lugar de eso.',
+  incluye: [
+    { titulo: 'Auditoría SEO y visibilidad en IA', texto: 'Revisamos tu sitio página por página: títulos, encabezados, velocidad, indexación, schema, enlaces rotos y si los rastreadores de Google y de la IA pueden leerlo.', nota: 'Proyecto inicial' },
+    { titulo: 'SEO técnico y on-page', texto: 'Corregimos lo que la auditoría encontró: estructura de URLs, títulos y descripciones, Core Web Vitals, datos estructurados, sitemap, robots.txt y enlazado interno. Si tu sitio está en WordPress y pesa demasiado, lo aligeramos o lo migramos.', nota: 'Proyecto inicial' },
+    { titulo: 'SEO local en Cali', texto: 'Google Business Profile completo y verificado, con el mismo nombre, dirección y teléfono que tu web. Categorías, servicios, fotos, reseñas con respuesta y publicaciones. Es lo que te hace aparecer en el mapa cuando alguien busca cerca.', nota: 'Proyecto + seguimiento' },
+    { titulo: 'GEO: aparecer en la IA', texto: 'Optimización para motores generativos: respuestas directas en cada página, preguntas frecuentes reales, entidad de marca clara, rastreadores de IA permitidos y menciones legítimas fuera de tu sitio. Lo medimos con un mapa de prompts.', nota: 'Requiere SEO on-page' },
+    { titulo: 'Plan de contenidos', texto: 'Artículos que responden lo que tus clientes preguntan, firmados por quien sabe del tema, con un dato o un caso propio en cada uno. Planes de 2, 4 u 8 artículos al mes, enlazados a tus páginas de servicio.', nota: 'Plan mensual' },
+    { titulo: 'Informe mensual', texto: 'Posiciones y clics en Search Console, velocidad real, presencia en respuestas de IA y contactos que llegaron desde buscadores o asistentes. En tu panel, en lenguaje llano, cada mes.', nota: 'Incluido en el plan mensual' },
+  ],
+  metodo: [
+    'Auditoría del sitio, de la ficha de Google y de cómo apareces hoy en Google y en la IA para 30 a 50 preguntas reales de tus clientes.',
+    'Elegimos las palabras y preguntas por las que vale la pena competir en Cali y en Colombia, página por página. Te entregamos el plan: qué se corrige, qué se escribe y en qué orden.',
+    'Arreglamos lo técnico, reescribimos títulos y respuestas directas, completamos la ficha local, añadimos los datos estructurados y producimos el primer bloque de contenido.',
+    'Enviamos el sitemap, pedimos la indexación, conectamos Search Console, Bing y GA4 con el canal de asistentes de IA, y dejamos lista la medición desde el día uno.',
+    'Cada mes: nuevos contenidos, ajustes según lo que Search Console muestra, respuesta a reseñas y un informe de tendencia de presencia en la IA. El SEO es acumulativo, por eso es mensual.',
+  ] as [string, string, string, string, string],
+  paraQuienIntro: 'El posicionamiento rinde más donde la gente busca antes de comprar y compara varias opciones. En estos sectores ya tenemos sitios en vivo.',
+  paraQuien: [
+    { nicho: 'Salud', texto: 'Psicólogos, odontólogos y clínicas: búsquedas por especialidad y barrio, ficha de Google impecable y artículos que responden dudas reales de pacientes.' },
+    { nicho: 'Hoteles', texto: 'Hoteles y hostales que quieren reservas directas: SEO por destino, ficha con fotos y reseñas respondidas, y presencia cuando alguien le pregunta a la IA dónde quedarse.' },
+    { nicho: 'Ecommerce', texto: 'Tiendas online con categorías y productos bien estructurados, datos de producto en schema y contenido que acompaña la decisión de compra.' },
+    { nicho: 'Profesionales', texto: 'Abogados, contadores y arquitectos: pocas páginas muy claras, autoridad real del profesional y preguntas frecuentes que la IA pueda citar.' },
+    { nicho: 'Pymes', texto: 'Empresas de servicios en Cali que compiten contra agencias de fuera: SEO local serio y una web que demuestre que están aquí.' },
+  ],
+  casosIntro: 'Sitios que construimos con estructura SEO desde el diseño: títulos, encabezados, velocidad y datos estructurados listos antes de publicar.',
+  casos: [
+    { nombre: 'Jhoana Pérez · Psicóloga', sector: 'Salud y bienestar', captura: 'jhoanaperez.webp' },
+    { nombre: 'Psicolatinos', sector: 'Salud y bienestar', captura: 'psicolatinos-scaled.webp' },
+    { nombre: 'Colegio Soleira', sector: 'Educación', captura: 'soleira-edu-co.webp' },
+  ],
+  diferencia: [
+    { titulo: 'GEO con medición, no con promesas', texto: 'Medimos cada mes si tu marca aparece en ChatGPT, Perplexity, Gemini y AI Overviews para un mapa de preguntas reales. Como las respuestas cambian por usuario y por día, lo reportamos como tendencia, no como una posición exacta.' },
+    { titulo: 'Construimos el sitio y hacemos el SEO', texto: 'Cuando la auditoría dice que hay que cambiar la estructura o la velocidad, no te mandamos a buscar un desarrollador: lo hacemos nosotros, con 12 años construyendo sitios.' },
+    { titulo: 'Contenido con experiencia propia', texto: 'Cada artículo lo firma una persona real del equipo y aporta algo que la IA no puede inventar: un caso, un dato del cotizador o un error que ya vimos. Es lo que Google llama contenido no genérico.' },
+    { titulo: 'Todo en tu panel', texto: 'Search Console, velocidad, presencia en IA y contactos por origen, en un solo lugar y con tu marca. Sin hojas de cálculo que nadie abre.' },
+  ],
+  noHacemos: [
+    'No prometemos "primer lugar en Google" ni "posición en ChatGPT": nadie puede garantizarlo.',
+    'No creamos páginas por ciudad vacías ni una página por cada variación de una búsqueda.',
+    'No sembramos menciones falsas en Reddit, Quora o reseñas: Google lo penaliza y no funciona.',
+    'No vendemos llms.txt como diferencial: Google lo ignora.',
+  ],
+  faq: [
+    { q: '¿Cuánto cuesta el SEO en Cali con DKODING?', a: 'Se cotiza por horas. La auditoría y el SEO on-page inicial son un proyecto con rango claro; el plan de contenidos, el seguimiento local y el informe son un mensual. Si contratas el SEO on-page junto con una web nueva, el cotizador aplica un descuento porque se hace durante el desarrollo.' },
+    { q: '¿Cuánto tarda el SEO en dar resultados?', a: 'Lo técnico y lo local se notan en semanas: la ficha de Google empieza a mostrarse y los errores de indexación desaparecen. El posicionamiento por palabras competidas suele tomar de 3 a 6 meses, y depende de tu sector y de cuánto contenido publiquemos. Te mostramos el avance mes a mes.' },
+    { q: '¿Qué es GEO y en qué se diferencia del SEO?', a: 'SEO es aparecer en los resultados de Google y Bing. GEO (Generative Engine Optimization) es aparecer citado o mencionado en las respuestas de ChatGPT, Perplexity, Gemini y los AI Overviews de Google. Comparten la base: un sitio rápido, con todo el texto en el HTML, respuestas directas y una marca clara. El GEO añade la medición por prompt y la reputación fuera del sitio.' },
+    { q: '¿Pueden garantizar que aparezca en ChatGPT?', a: 'No, y desconfía de quien lo garantice. Las respuestas de la IA cambian por usuario y por día. Lo que sí hacemos es preparar el sitio para que la IA pueda leerlo y citarlo, y medir cada mes la tendencia de presencia para un conjunto de preguntas reales.' },
+    { q: '¿Mi sitio en WordPress sirve para el SEO?', a: 'Sí, si carga rápido y está bien estructurado. Si pesa demasiado por plugins y temas, proponemos aligerarlo (tema liviano, caché y CDN) o migrarlo a un sitio estático. Lo decidimos con los datos de la auditoría.' },
+    { q: '¿Qué necesito de mi parte?', a: 'Acceso a tu dominio, al hosting, a Search Console y a tu ficha de Google Business Profile. Y un rato al mes para contarnos qué preguntan tus clientes.' },
+  ],
+  relacionadas: ['marketing-digital', 'redes-sociales'],
+  blog: { titulo: 'Cómo aparecer en ChatGPT y en las respuestas de IA', url: '/blog/como-aparecer-en-chatgpt-y-respuestas-de-ia/', texto: 'Qué cambió en Google con los resúmenes de IA, qué mitos descartar y qué sí funciona para que la IA cite tu negocio.' },
+  ofertas: [
+    { nombre: 'Auditoría SEO y visibilidad en IA' },
+    { nombre: 'SEO técnico y on-page' },
+    { nombre: 'SEO local (Google Business Profile)' },
+    { nombre: 'GEO: optimización para motores generativos' },
+    { nombre: 'Plan de contenidos SEO' },
+    { nombre: 'Monitoreo e informe mensual' },
+  ],
+  tipoServicio: 'Posicionamiento web (SEO y GEO)',
+  cta: { titulo: 'Empieza por saber dónde estás hoy', texto: 'Pide el diagnóstico gratis o cotiza la auditoría completa. En ambos casos recibes un informe con prioridades, no una lista de errores sin orden.' },
+};
+---
+<LandingServicio {...datos}>
+  <section class="section-tight" id="geo">
+    <div class="container geo">
+      <div class="ls-head">
+        <p class="eyebrow">GEO en la práctica</p>
+        <h2>Cómo hacemos que la IA <strong>pueda citarte</strong></h2>
+        <p class="lead">Los asistentes de IA no leen JavaScript y no adivinan: citan lo que está claro, completo y disponible. Estas son las cuatro cosas que revisamos y la forma en que lo medimos.</p>
+      </div>
+      <div class="grid grid-2 geo-grid">
+        <ol class="geo-pasos">
+          <li><strong>Rastreadores permitidos.</strong> Revisamos tu robots.txt y la configuración de tu CDN para que Googlebot, OAI-SearchBot, PerplexityBot y ClaudeBot puedan entrar. Cloudflare los bloquea por defecto en dominios nuevos y casi nadie lo revisa.</li>
+          <li><strong>Todo el texto en el HTML.</strong> Lo que se muestra con pestañas, acordeones o diapositivas tiene que existir en el código desde el inicio. Si tu sitio lo arma con JavaScript, la IA ve una página vacía.</li>
+          <li><strong>Respuesta directa y preguntas reales.</strong> Cada página de servicio abre con un párrafo de 40 a 60 palabras que dice qué es, para quién y cómo se cotiza, y cierra con las preguntas que de verdad hacen los clientes.</li>
+          <li><strong>Marca verificable fuera del sitio.</strong> Ficha de Google completa, dos o tres directorios con reseñas reales y presencia consistente en redes. Es la "validación cruzada" legítima: la que no se compra.</li>
+        </ol>
+        <aside class="card card-hl geo-informe">
+          <p class="eyebrow">Informe mensual de presencia</p>
+          <h3>Mapa de prompts</h3>
+          <p class="muted">Armamos entre 30 y 50 preguntas reales de tus clientes, como "¿qué psicólogo recomiendas en Cali?" o "¿cuánto cuesta una página web en Colombia?". Una vez al mes consultamos ChatGPT, Perplexity, Gemini, AI Overviews y Copilot y anotamos si apareces, si te citan con enlace y qué competidores salen.</p>
+          <ul class="chev-list">
+            <li>Se reporta como tendencia, no como posición exacta: las respuestas cambian por usuario y por día.</li>
+            <li>Se cruza con el canal "AI Assistant" de GA4 y con los contactos que dicen "los conocí por ChatGPT".</li>
+                      </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+</LandingServicio>
+
+<style>
+  .geo-grid { align-items: start; gap: 24px; }
+  .geo-pasos { list-style: none; counter-reset: g; display: flex; flex-direction: column; gap: 18px; }
+  .geo-pasos li { counter-increment: g; position: relative; padding-left: 48px; color: var(--dk-soft); line-height: 1.55; }
+  .geo-pasos li strong { color: var(--dk-text); display: block; font-family: var(--font-title); font-size: 20px; margin-bottom: 4px; }
+  .geo-pasos li::before { content: counter(g, decimal-leading-zero); position: absolute; left: 0; top: 2px; font-family: var(--font-title); font-weight: 700; color: var(--dk-lila); font-size: 18px; }
+  .geo-informe { display: flex; flex-direction: column; gap: 14px; }
+</style>

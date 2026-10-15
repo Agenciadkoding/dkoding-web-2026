@@ -1,0 +1,128 @@
+---
+import LandingServicio from '../components/LandingServicio.astro';
+
+const datos = {
+  slug: 'desarrollo-de-apps',
+  titulo: 'Desarrollo de apps móviles y software en Cali | DKODING',
+  descripcion: 'Desarrollo de apps móviles y software a medida en Cali: discovery, prototipo, app web o móvil y CRM propio. Creadores de dkard. Cotiza en 2 minutos.',
+  ruta: '/desarrollo-de-apps/',
+  eyebrow: 'Desarrollo de apps',
+  h1: 'Desarrollo de apps móviles y software a medida',
+  h1Fuerte: 'en Cali',
+  respuesta: 'Desarrollamos apps móviles, aplicaciones web y software a medida en Cali para empresas que necesitan una herramienta propia: un CRM, un panel de clientes, una app de pedidos o reservas. Empieza con un discovery pagado y un prototipo navegable; después se cotiza la construcción por pantallas y horas. Creamos dkard y dkarta, nuestros propios productos.',
+  waTexto: 'Hola DKODING, quiero cotizar el desarrollo de una app o un software a medida para mi empresa.',
+  hero: {
+    tipo: 'capturas' as const,
+    items: [
+      { nombre: 'Rabbitt', sector: 'Tecnología y software', captura: 'rabbitt-co-scaled.webp' },
+      { nombre: 'Karteler', sector: 'Tecnología y software', captura: 'karteler.webp' },
+    ],
+  },
+  incluyeIntro: 'El software a medida se cotiza mal cuando se cotiza a ciegas. Por eso el servicio empieza con un discovery corto y pagado que define el alcance, y solo después se construye.',
+  incluye: [
+    { titulo: 'Discovery', texto: 'Entrevistas con quienes van a usar la herramienta, mapa de procesos, lista de funciones por prioridad y arquitectura técnica. Terminas con un documento de alcance y un rango de inversión que sí se puede sostener.', nota: 'Primero, siempre' },
+    { titulo: 'Diseño UX/UI', texto: 'Pantallas diseñadas con tu marca, pensadas para la gente que las va a usar todos los días: menos clics, menos errores, menos capacitación. Se cotiza por pantalla, simple o compleja.' },
+    { titulo: 'Prototipo navegable', texto: 'Una versión clicable de la app antes de programar una sola línea. Sirve para validar con tu equipo o con inversionistas y para corregir barato lo que después sería caro.' },
+    { titulo: 'Aplicación web', texto: 'Plataformas que funcionan en el navegador, con usuarios, roles, paneles y reportes. Es la opción más rápida de lanzar y de mantener para la mayoría de empresas.' },
+    { titulo: 'App móvil', texto: 'Apps para Android e iOS cuando el uso es en la calle, sin señal o con cámara y notificaciones. Publicación en las tiendas y actualizaciones incluidas en el plan de soporte.' },
+    { titulo: 'CRM y paneles a medida', texto: 'Seguimiento de clientes, cotizaciones, tickets o pedidos, con tu flujo real y no el de un software genérico. Integrado con WhatsApp, correo y tu sitio web.' },
+  ],
+  metodo: [
+    'Una reunión para entender el problema, no la solución que ya imaginaste. Te decimos con franqueza si lo que necesitas es software a medida o si una herramienta existente te sirve mejor y más barato.',
+    'Discovery pagado: entrevistas, procesos, funciones por prioridad, arquitectura y un alcance por escrito con rango de inversión y tiempos. Es tuyo aunque no sigas con nosotros.',
+    'Diseño de pantallas, prototipo navegable y construcción por entregas de dos semanas. Cada entrega se prueba contigo y con usuarios reales de tu equipo.',
+    'Pruebas, carga de datos, capacitación grabada para tu equipo y publicación en servidores o en las tiendas de apps. Todo el código y los accesos quedan a tu nombre.',
+    'Plan de soporte mensual: monitoreo, copias de seguridad, actualizaciones y horas de cambios. Las mejoras salen de lo que el uso real muestra, no de suposiciones.',
+  ] as [string, string, string, string, string],
+  paraQuienIntro: 'El software a medida tiene sentido cuando un proceso se repite mucho y las herramientas genéricas no encajan. Estos son los casos donde más se justifica.',
+  paraQuien: [
+    { nicho: 'Salud', texto: 'Agendas, historias de pacientes y recordatorios por WhatsApp para consultorios y clínicas que crecieron más que su hoja de cálculo.' },
+    { nicho: 'Hoteles', texto: 'Reservas directas, control de habitaciones y carta digital del restaurante con dkarta, todo conectado al sitio web del hotel.' },
+    { nicho: 'Ecommerce', texto: 'Paneles de pedidos, inventario e integraciones con pasarelas y transportadoras cuando la tienda ya no cabe en una plantilla.' },
+    { nicho: 'Profesionales', texto: 'Portales de clientes para abogados, contadores y consultores: documentos, estados de caso y comunicación en un solo lugar.' },
+    { nicho: 'Pymes', texto: 'CRM, cotizadores en línea y apps internas para empresas de servicios en Cali que necesitan ordenar ventas y operación.' },
+  ],
+  casosIntro: 'Plataformas y sitios con panel propio que construimos. La prueba más clara de lo que hacemos son nuestros propios productos: dkard y dkarta.',
+  casos: [
+    { nombre: 'Rabbitt', sector: 'Tecnología y software', captura: 'rabbitt-co-scaled.webp' },
+    { nombre: 'Nexupro', sector: 'Tecnología y software', captura: 'nexupro.webp' },
+    { nombre: 'SeguriServer', sector: 'Tecnología y software', captura: 'seguriserver-scaled.webp' },
+  ],
+  diferencia: [
+    { titulo: 'Usamos lo que vendemos', texto: 'dkard y dkarta son productos nuestros, con usuarios reales. Nuestro propio panel de agencia, con monitoreo, tickets y cotizador, también lo construimos nosotros. Sabemos qué pasa después del lanzamiento porque lo vivimos.' },
+    { titulo: 'Discovery antes de cotizar', texto: 'No damos un precio cerrado para algo que nadie ha definido. El discovery es corto, tiene costo propio y te entrega un alcance que puedes llevar a cualquier proveedor.' },
+    { titulo: 'Código y accesos a tu nombre', texto: 'Repositorio, servidores, cuentas de las tiendas y dominios son tuyos desde el primer día. No dependes de nosotros para seguir operando.' },
+    { titulo: 'Entregas cada dos semanas', texto: 'Ves avances reales y funcionando, no informes. Si algo cambia en tu negocio a mitad de camino, se ajusta el plan con la misma transparencia.' },
+  ],
+  noHacemos: [
+    'No cotizamos una app "al ojo" por WhatsApp: cualquier cifra sin discovery es una adivinanza.',
+    'No desarrollamos a medida lo que una herramienta existente ya resuelve bien y barato; te lo decimos.',
+    'No retenemos el código, las cuentas ni los accesos como forma de atarte.',
+    'No prometemos fechas sin un alcance por escrito que las respalde.',
+  ],
+  faq: [
+    { q: '¿Cuánto cuesta desarrollar una app en Colombia con DKODING?', a: 'Depende del alcance, y el alcance se define en el discovery. En el cotizador, el diseño se cotiza por pantallas y la construcción muestra un "desde" para el mínimo razonable de una app; a partir de ahí, el botón te lleva a agendar una sesión de alcance. Todo lo que supere cierto tamaño se cotiza con el documento del discovery en la mano, nunca a ciegas.' },
+    { q: '¿Qué es el discovery y por qué se paga?', a: 'Es la fase en la que entendemos tu proceso, entrevistamos a quienes usarán la herramienta y definimos funciones, prioridades y arquitectura. Se paga porque es trabajo real y porque el documento que recibes es tuyo: puedes usarlo para cotizar con quien quieras.' },
+    { q: '¿App móvil o aplicación web?', a: 'Aplicación web cuando el uso es en oficina o desde cualquier dispositivo con navegador: es más rápida de lanzar y de mantener. App móvil cuando se necesita cámara, GPS, notificaciones o trabajo sin señal. Muchas empresas empiezan con la web y suman la app después.' },
+    { q: '¿Cuánto tarda un desarrollo a medida?', a: 'El discovery toma [X semanas]. Después, construimos por entregas de dos semanas; un primer producto usable suele estar listo en [X meses] según el alcance. Las fechas se escriben en el plan y se revisan en cada entrega.' },
+    { q: '¿Qué pasa después del lanzamiento?', a: 'Entra el plan de soporte mensual: monitoreo, copias de seguridad, actualizaciones de seguridad y horas de cambios. Las apps móviles además necesitan actualizaciones periódicas para seguir en las tiendas. Lo cotizamos desde el inicio para que no haya sorpresas.' },
+    { q: '¿Pueden integrar la app con mi sitio web, WhatsApp o mi contabilidad?', a: 'Sí. Integramos con WhatsApp Business, pasarelas de pago, correo, Google y la mayoría de sistemas con API. Las integraciones con ERP o software contable se definen en el discovery, porque cada sistema es distinto.' },
+  ],
+  relacionadas: ['marketing-digital', 'seo-y-geo'],
+  blog: { titulo: 'Cuánto cuesta una página web en Colombia', url: '/blog/cuanto-cuesta-una-pagina-web-en-colombia/', texto: 'Antes de pensar en una app, revisa si lo que necesitas es un sitio web con panel. Aquí explicamos los costos.' },
+  ofertas: [
+    { nombre: 'Discovery de producto' },
+    { nombre: 'Diseño UX/UI de app o plataforma' },
+    { nombre: 'Prototipo navegable' },
+    { nombre: 'Aplicación web' },
+    { nombre: 'App móvil (Android e iOS)' },
+    { nombre: 'CRM y paneles a medida' },
+    { nombre: 'Soporte y mantenimiento mensual' },
+  ],
+  tipoServicio: 'Desarrollo de apps móviles y software a medida',
+  cta: { titulo: 'Agenda una sesión de alcance', texto: 'Cuéntanos qué proceso quieres resolver. En la primera reunión te decimos si tiene sentido construirlo a medida, y si lo tiene, cómo sería el discovery.' },
+};
+---
+<LandingServicio {...datos}>
+  <section class="section-tight" id="productos">
+    <div class="container">
+      <div class="ls-head">
+        <p class="eyebrow">Productos propios</p>
+        <h2>Lo que construimos para <strong>nosotros mismos</strong></h2>
+        <p class="lead">La mejor prueba de que sabemos hacer software es el que usamos y vendemos. Dos productos nacidos en Cali.</p>
+      </div>
+      <div class="grid grid-2 prods">
+        <article class="card card-hl prod">
+          <p class="eyebrow">dkard · tarjeta digital</p>
+          <h3>Tu tarjeta de presentación en un enlace</h3>
+          <p class="muted">Una página con tus datos, tus redes y un botón de WhatsApp, que se comparte con un enlace o un código QR y se actualiza cuando cambias de número. La incluimos con cada sitio web que construimos, con la marca del cliente ya aplicada.</p>
+          <ul class="chev-list">
+            <li>Perfil con marca, enlaces y botón de guardar contacto</li>
+            <li>QR para imprimir en tarjetas, letreros y uniformes</li>
+            <li>Ideal para equipos comerciales y personal de hoteles</li>
+          </ul>
+          <a href="https://dkard.co/" rel="noopener" class="btn-link">Ver dkard.co</a>
+        </article>
+        <article class="card prod">
+          <p class="eyebrow">dkarta · carta digital</p>
+          <h3>La carta de tu restaurante, sin PDF</h3>
+          <p class="muted">Una carta digital para restaurantes, cafés y hoteles que se abre desde un QR en la mesa, se edita desde el celular y muestra fotos, precios y disponibilidad al día. Está en desarrollo y forma parte de nuestro paquete para hoteles.</p>
+          <ul class="chev-list">
+            <li>Edición de platos y precios sin diseñador</li>
+            <li>Categorías, alérgenos y platos del día</li>
+            <li>Pedido por WhatsApp desde la carta</li>
+          </ul>
+          <span class="pill pill-warn">En desarrollo · landing pendiente</span>
+        </article>
+      </div>
+      <p class="muted prods-nota">Nuestro propio panel de agencia (monitoreo de sitios, tickets de soporte y cotizador por horas) también es software hecho en casa. Lo usas tú cada vez que abres un ticket en <a href="/soporte/">soporte</a> o cotizas en el <a href="/cotizador/">cotizador</a>.</p>
+    </div>
+  </section>
+</LandingServicio>
+
+<style>
+  .prod { display: flex; flex-direction: column; gap: 14px; }
+  .prod .btn-link, .prod .pill { margin-top: auto; align-self: flex-start; }
+  .prods-nota { margin-top: 20px; max-width: 72ch; }
+  .prods-nota a { text-decoration: underline; text-underline-offset: 3px; }
+</style>

@@ -1,0 +1,131 @@
+---
+import LandingServicio from '../components/LandingServicio.astro';
+
+const datos = {
+  slug: 'redes-sociales',
+  titulo: 'Manejo de redes sociales en Cali | DKODING',
+  descripcion: 'Manejo de redes sociales en Cali: contenido, diseño, community management y pauta en Instagram, Facebook y TikTok. Dos planes. Cotiza en 2 minutos.',
+  ruta: '/redes-sociales/',
+  eyebrow: 'Redes sociales',
+  h1: 'Manejo de redes sociales',
+  h1Fuerte: 'en Cali',
+  respuesta: 'Hacemos el manejo de redes sociales de tu negocio en Cali: calendario, diseño, textos, programación, respuesta a comentarios y mensajes, y pauta si la necesitas. Es para pymes, clínicas, hoteles, tiendas y profesionales que no tienen tiempo de publicar bien. Dos planes mensuales, básico y crecimiento, cotizados por horas en el cotizador.',
+  waTexto: 'Hola DKODING, quiero cotizar el manejo de redes sociales de mi negocio.',
+  hero: {
+    tipo: 'capturas' as const,
+    items: [
+      { nombre: 'Fine Crafts by Andrea', sector: 'Comercio', captura: 'finecraftsbyandrea.webp' },
+      { nombre: 'Glamour Travel', sector: 'Hoteles y turismo', captura: 'glamourtravel-co.webp' },
+    ],
+  },
+  incluyeIntro: 'Manejar redes no es publicar por publicar. Es optimizar cada perfil para que venda, publicar con un plan y responder a tiempo. Esto es lo que entra en el servicio.',
+  incluye: [
+    { titulo: 'Optimización de perfiles', texto: 'Biografía con lo que haces y dónde, enlace a WhatsApp o a tu web, destacadas ordenadas, catálogo en Instagram y Facebook, y datos consistentes con tu ficha de Google. Es lo primero que hacemos y lo que más se descuida.' },
+    { titulo: 'Calendario de contenidos', texto: 'Un plan mensual con temas, formatos y fechas, aprobado por ti antes de producir. Mezcla contenido que vende, que educa y que muestra a las personas detrás del negocio.' },
+    { titulo: 'Diseño y copy', texto: 'Piezas con tu marca (nada de plantillas genéricas), textos en español natural con llamada a la acción, y reels editados en el plan de crecimiento. Todo queda en tu carpeta compartida.' },
+    { titulo: 'Programación y publicación', texto: 'Publicamos en los horarios en que tu público está conectado, con las etiquetas, ubicación y enlaces correctos. Tú apruebas desde el celular.' },
+    { titulo: 'Community management', texto: 'Respondemos comentarios y mensajes directos con tu tono y con respuestas acordadas, y te pasamos los contactos calientes por WhatsApp el mismo día. Tres veces por semana en el plan de crecimiento.' },
+    { titulo: 'Pauta en redes', texto: 'Anuncios en Instagram, Facebook y TikTok con público por zona e interés, para que el contenido llegue más allá de tus seguidores. Se cotiza aparte, dentro de marketing digital.', nota: 'Opcional' },
+  ],
+  metodo: [
+    'Revisamos tus perfiles actuales, tu competencia en Cali y qué publicaciones te funcionaron. Te decimos en qué red vale la pena estar y en cuál no, según tu negocio.',
+    'Definimos objetivo (contactos, ventas, reputación), tono de voz, pilares de contenido y el plan que te conviene. Te entregamos el primer calendario para aprobar.',
+    'Optimizamos los perfiles, producimos el primer mes de piezas con tu marca y dejamos listas las respuestas frecuentes para los mensajes.',
+    'Arrancan las publicaciones programadas y la atención de comentarios y mensajes. Si hay pauta, se activa con presupuesto controlado.',
+    'Cada mes revisamos qué formatos y temas trajeron más contactos y ajustamos el calendario siguiente. Recibes un informe corto y claro en tu panel.',
+  ] as [string, string, string, string, string],
+  paraQuienIntro: 'Las redes funcionan cuando el negocio tiene algo que mostrar cada semana y alguien que responda. Estos son los sectores donde el servicio rinde más.',
+  paraQuien: [
+    { nicho: 'Salud', texto: 'Consultorios, clínicas y psicólogos: contenido educativo que genera confianza y respuesta discreta a quien pregunta por mensaje directo.' },
+    { nicho: 'Hoteles', texto: 'Fotos del lugar, experiencias y temporadas, con reservas por WhatsApp a un toque y respuesta rápida a viajeros que preguntan.' },
+    { nicho: 'Ecommerce', texto: 'Catálogo sincronizado en Instagram y Facebook, piezas por producto y reels que muestran el uso real de lo que vendes.' },
+    { nicho: 'Profesionales', texto: 'Abogados, contadores, arquitectos y coaches: marca personal con contenido que demuestra criterio, sin exponer de más.' },
+    { nicho: 'Pymes', texto: 'Restaurantes, tiendas y servicios de barrio en Cali que necesitan presencia constante sin contratar a alguien de planta.' },
+  ],
+  casosIntro: 'Marcas a las que construimos su sitio y su identidad. Las redes se hacen con la misma marca, el mismo tono y las mismas fotos.',
+  casos: [
+    { nombre: 'Sabropan', sector: 'Alimentos', captura: 'sabropan-co-scaled.webp' },
+    { nombre: 'Max Pirotecnia', sector: 'Comercio', captura: 'maxpirotecnia-scaled.webp' },
+    { nombre: 'Hotel Villa Real', sector: 'Hoteles y turismo', captura: 'hotelvillareal-co.webp' },
+  ],
+  diferencia: [
+    { titulo: 'Las redes llevan a algún lado', texto: 'Cada publicación tiene un destino: tu WhatsApp, tu web o tu ficha de Google. Como también construimos sitios, revisamos que lo que llega desde redes aterrice en una página que convierte.' },
+    { titulo: 'Diseño con tu marca', texto: 'Si tienes manual de identidad, lo respetamos. Si no lo tienes, podemos crearlo. Las piezas no salen de plantillas que usan otros diez negocios de Cali.' },
+    { titulo: 'Tú apruebas antes de publicar', texto: 'El calendario y las piezas se aprueban en una carpeta compartida. Nada sale sin tu visto bueno, y si pasa algo urgente, lo cambiamos el mismo día.' },
+    { titulo: 'Informe que mira contactos, no solo seguidores', texto: 'Contamos mensajes, clics a WhatsApp y a la web, y de dónde vinieron. Los seguidores importan, pero los contactos pagan la nómina.' },
+  ],
+  noHacemos: [
+    'No compramos seguidores ni interacciones: dañan el alcance y se notan.',
+    'No prometemos "viralidad" ni cantidad de seguidores al mes.',
+    'No publicamos sin tu aprobación ni usamos fotos de banco como si fueran de tu negocio.',
+    'No respondemos mensajes fuera del tono y los límites que acordamos contigo.',
+  ],
+  faq: [
+    { q: '¿Cuánto cuesta el manejo de redes sociales?', a: 'Depende del plan (básico o crecimiento), de cuántas redes manejamos y de si hay pauta. El cotizador te da un rango mensual en 2 minutos, con IVA aparte. Si combinas redes con otro servicio mensual, aplica un descuento visible sobre el mensual.' },
+    { q: '¿En qué redes conviene estar?', a: 'En las que está tu cliente, no en todas. Para la mayoría de negocios en Cali, Instagram y Facebook son la base; TikTok sirve para marcas con producto visual o público joven; LinkedIn para servicios entre empresas. Lo definimos en el diagnóstico.' },
+    { q: '¿Ustedes hacen las fotos y los videos?', a: 'Producimos las piezas con el material que tengas y con diseño propio. Si necesitas una sesión de fotos o video, la coordinamos con un fotógrafo aliado y la dirigimos nosotros; se cotiza como añadible.' },
+    { q: '¿Quién responde los mensajes y los comentarios?', a: 'Nuestro equipo, con tu tono y con respuestas acordadas, en horario laboral. Los contactos que quieren comprar te los pasamos por WhatsApp el mismo día. Lo que requiera una respuesta tuya (precios especiales, quejas) lo escalamos de inmediato.' },
+    { q: '¿Qué pasa si quiero cancelar?', a: 'El plan es mensual y se renueva si estás contento. No hay permanencia. Las cuentas y las piezas son tuyas desde el primer día, así que si te vas, te llevas todo.' },
+    { q: '¿Cuándo empiezo a ver resultados?', a: 'La optimización de perfiles se nota la primera semana: más gente encuentra cómo contactarte. El crecimiento de alcance y contactos es gradual y se acelera con pauta. En el informe del primer mes ya ves qué formatos funcionan para tu negocio.' },
+  ],
+  relacionadas: ['marketing-digital', 'diseno-de-marca'],
+  blog: { titulo: 'SEO local en Cali: guía de Google Business Profile', url: '/blog/seo-local-en-cali-google-business-profile/', texto: 'Tus redes y tu ficha de Google deben decir lo mismo. Esta guía explica cómo dejar la ficha lista.' },
+  ofertas: [
+    { nombre: 'Plan básico de redes sociales' },
+    { nombre: 'Plan crecimiento de redes sociales' },
+    { nombre: 'Optimización de perfiles' },
+    { nombre: 'Community management' },
+    { nombre: 'Pauta en Instagram, Facebook y TikTok' },
+  ],
+  tipoServicio: 'Manejo de redes sociales',
+  cta: { titulo: 'Cotiza tu plan de redes y recibe el primer calendario', texto: 'Elige el plan en el cotizador o cuéntanos por WhatsApp qué redes tienes hoy. Te respondemos el mismo día hábil con una propuesta y una fecha de arranque.' },
+};
+---
+<LandingServicio {...datos}>
+  <section class="section-tight" id="planes">
+    <div class="container">
+      <div class="ls-head">
+        <p class="eyebrow">Planes mensuales</p>
+        <h2>Dos planes, <strong>sin letra pequeña</strong></h2>
+        <p class="lead">Los dos incluyen calendario, diseño, textos y programación. La diferencia está en la cantidad de piezas, los reels y la atención de comentarios y mensajes. El precio lo ves en el cotizador.</p>
+      </div>
+      <div class="grid grid-2 planes">
+        <article class="card plan">
+          <p class="eyebrow">Plan básico</p>
+          <h3>Presencia constante</h3>
+          <p class="muted">Para negocios que necesitan publicar bien y con regularidad, sin atención diaria de mensajes.</p>
+          <ul class="chev-list">
+            <li>8 publicaciones al mes</li>
+            <li>8 historias al mes</li>
+            <li>Calendario mensual aprobado por ti</li>
+            <li>Diseño con tu marca y textos con llamada a la acción</li>
+            <li>Programación en Instagram y Facebook</li>
+            <li>Optimización inicial de perfiles</li>
+          </ul>
+          <a href="/cotizador/" class="btn btn-secondary">Cotizar plan básico</a>
+        </article>
+        <article class="card card-hl plan">
+          <p class="eyebrow">Plan crecimiento</p>
+          <h3>Contenido y conversación</h3>
+          <p class="muted">Para negocios que quieren crecer en alcance y que alguien atienda a quien escribe.</p>
+          <ul class="chev-list">
+            <li>12 publicaciones al mes</li>
+            <li>16 historias al mes</li>
+            <li>4 reels editados al mes</li>
+            <li>Community management 3 veces por semana</li>
+            <li>Todo lo del plan básico</li>
+            <li>Informe mensual de contactos y alcance</li>
+          </ul>
+          <a href="/cotizador/" class="btn btn-primary">Cotizar plan crecimiento</a>
+        </article>
+      </div>
+      <p class="muted planes-nota">Añadibles: red adicional, sesión de fotos o video con dirección nuestra, guion de reels y pauta. Si necesitas más volumen o atención diaria, armamos un plan a tu medida.</p>
+    </div>
+  </section>
+</LandingServicio>
+
+<style>
+  .plan { display: flex; flex-direction: column; gap: 14px; }
+  .plan .btn { margin-top: auto; align-self: flex-start; }
+  .planes-nota { margin-top: 20px; max-width: 72ch; }
+</style>

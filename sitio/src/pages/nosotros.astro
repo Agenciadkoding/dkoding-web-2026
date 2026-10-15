@@ -1,0 +1,256 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITIO, SERVICIOS, waLink } from '../data/sitio';
+import { migasSchema } from '../data/schema';
+
+const ruta = '/nosotros/';
+const wa = waLink('Hola DKODING, quiero conocerlos y contarles mi proyecto.');
+const schema = [
+  { '@context': 'https://schema.org', '@type': 'AboutPage', name: 'Nosotros · DKODING', url: `${SITIO.dominio}${ruta}`, about: { '@id': `${SITIO.dominio}/#organizacion` } },
+  migasSchema([{ nombre: 'Inicio', url: '/' }, { nombre: 'Nosotros', url: ruta }]),
+];
+const equipo = [
+  { src: '/img/equipo/dk-equipo-CEO.webp', alt: 'Retrato de [Nombre], director general de DKODING', cargo: 'Director general (CEO)' },
+  { src: '/img/equipo/dk-equipo-COO.webp', alt: 'Retrato de [Nombre], director de operaciones de DKODING', cargo: 'Director de operaciones (COO)' },
+  { src: '/img/equipo/dk-equipo-comercial-01.webp', alt: 'Retrato de [Nombre], asesor comercial de DKODING', cargo: 'Asesor comercial' },
+];
+const hitos = [
+  { fecha: `${new Date().getFullYear() - SITIO.anios}`, titulo: 'Nace DKODING en Cali', texto: 'Empezamos como un taller de desarrollo web para negocios de la ciudad. [Un párrafo sobre quién fundó la agencia y por qué.]' },
+  { fecha: '[Año]', titulo: 'Primeros clientes fuera de Colombia', texto: 'Sitios para empresas en Estados Unidos y Reino Unido, como KingTails y CM Cleaning. [Completar con el primer proyecto internacional.]' },
+  { fecha: '[Año]', titulo: 'Diseño de marca y marketing', texto: 'Sumamos identidad, redes y pauta para que la web no se quedara sola. [Completar con el primer proyecto de marca.]' },
+  { fecha: '[Año]', titulo: 'dkard y dkarta', texto: 'Lanzamos nuestra tarjeta digital y empezamos a construir la carta digital para restaurantes. [Fecha de lanzamiento de dkard.co.]' },
+  { fecha: '2026', titulo: 'Panel de agencia y cotizador', texto: 'Cada sitio que entregamos queda conectado a nuestro panel: monitoreo, copias, tickets y un cotizador por horas que nadie más tiene en Colombia.' },
+];
+const valores = [
+  { titulo: 'Decimos lo que sí y lo que no', texto: 'Si algo no se puede garantizar (una posición en Google, una cifra de ventas), lo decimos antes de cobrar. Preferimos perder una venta que un cliente.' },
+  { titulo: 'Todo a tu nombre', texto: 'Dominio, hosting, código, cuentas de pauta y redes. Si un día te vas, te llevas todo. Es la única forma honesta de trabajar.' },
+  { titulo: 'Medimos lo que hacemos', texto: 'Velocidad, disponibilidad, posiciones, contactos. Cada cliente tiene un panel con sus números, no un informe en PDF que nadie abre.' },
+  { titulo: 'Plazos por escrito', texto: 'Fecha de entrega, tiempo de respuesta del soporte y aviso si el sitio se cae. Lo escribimos y lo cumplimos, y cuando no, lo reconocemos.' },
+  { titulo: 'Español claro', texto: 'Sin jerga para impresionar. Si no entiendes algo de tu propuesta o de tu informe, el error es nuestro y lo corregimos.' },
+  { titulo: 'Cali primero', texto: 'Trabajamos con clientes de varios países, pero esta ciudad es nuestra casa y donde más podemos ayudar en persona.' },
+];
+const pasos = [
+  { t: 'Diagnóstico', d: 'Entendemos el negocio y medimos dónde está hoy: web, SEO, redes, presencia en la IA.' },
+  { t: 'Plan', d: 'Alcance, fechas y rango de inversión por escrito. Sin esto no empezamos.' },
+  { t: 'Construcción', d: 'Entregas cortas que puedes ver y probar. Nada se acumula para el final.' },
+  { t: 'Lanzamiento', d: 'Publicación, medición conectada y capacitación grabada para tu equipo.' },
+  { t: 'Mejora mensual', d: 'Soporte, monitoreo y cambios con datos. Lo que se lanza se cuida.' },
+];
+---
+<Base titulo="Nosotros: agencia web en Cali desde hace 12 años" descripcion="DKODING es una agencia de desarrollo web, SEO y marketing digital en Cali con 12 años, equipo propio y productos propios. Conócenos y cotiza tu proyecto." ruta={ruta} schema={schema}>
+  <section class="hero">
+    <div class="container hero-in">
+      <div class="hero-txt">
+        <nav class="migas" aria-label="Ruta de navegación"><a href="/">Inicio</a><span aria-hidden="true">»</span><span aria-current="page">Nosotros</span></nav>
+        <p class="eyebrow">Quiénes somos</p>
+        <h1>Agencia de desarrollo web en Cali <strong>desde hace {SITIO.anios} años</strong></h1>
+        <p class="lead">DKODING es un equipo real en Cali que diseña y construye sitios web, marcas, campañas y software para negocios de Colombia y de fuera. Llevamos {SITIO.anios} años, tenemos 24 sitios en vivo en nuestros casos y dos productos propios. Trabajamos con un método de 5 pasos y todo queda a nombre del cliente.</p>
+        <div class="cta-row">
+          <a href="/cotizador/" class="btn btn-primary btn-lg">Cotizar en 2 minutos</a>
+          <a href={wa} class="btn btn-wa btn-lg" rel="noopener">Escribir por WhatsApp</a>
+        </div>
+      </div>
+      <div class="hero-vis">
+        <img class="deco" src="/img/deco/dkoding-deco-04.svg" alt="" width="626" height="917">
+        <ul class="caras">
+          {equipo.map((e) => (
+            <li><img src={e.src} alt={e.alt} width="768" height="768" loading="eager"><span>{e.cargo}</span></li>
+          ))}
+        </ul>
+        <a href="/nuestro-equipo/" class="btn-link caras-link">Conoce al equipo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight cifras-sec">
+    <div class="container">
+      <ul class="cifras">
+        <li><span class="cifra">{SITIO.anios}</span><span class="muted">años construyendo sitios en Cali</span></li>
+        <li><span class="cifra">24</span><span class="muted">sitios en vivo en nuestros casos</span></li>
+        <li><span class="cifra">84</span><span class="muted">clientes atendidos</span></li>
+        <li><span class="cifra">2</span><span class="muted">productos propios: dkard y dkarta</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container quienes">
+      <div class="quienes-txt">
+        <p class="eyebrow">Lo que hacemos</p>
+        <h2>Construimos lo que un negocio necesita para <strong>que lo encuentren y le compren</strong></h2>
+        <p class="lead">Empezamos con páginas web y seguimos ahí: es el centro de todo. Con los años sumamos lo que los clientes pedían después de tener la web: que apareciera en Google, que las redes se vieran igual de bien, que la marca estuviera a la altura y, cuando el negocio crecía, un software propio para ordenar la operación.</p>
+        <p class="lead">Hoy somos un equipo pequeño y completo: dirección, desarrollo, diseño y un área comercial que atiende en persona en Cali. No subcontratamos lo esencial y no competimos por tamaño. Competimos por cercanía, por tecnología propia y por decir la verdad sobre lo que se puede lograr.</p>
+      </div>
+      <ul class="serv-list">
+        {SERVICIOS.map((s) => (
+          <li><a href={s.url}><strong>{s.nombre}</strong><span class="muted">{s.corto}</span></a></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="container">
+      <div class="sec-head">
+        <p class="eyebrow">Historia breve</p>
+        <h2>{SITIO.anios} años, <strong>en cinco momentos</strong></h2>
+        <p class="lead">Lo contamos corto. Lo que está entre corchetes lo completamos con fechas exactas.</p>
+      </div>
+      <ol class="linea">
+        {hitos.map((h) => (
+          <li class="reveal">
+            <span class="linea-fecha">{h.fecha}</span>
+            <h3>{h.titulo}</h3>
+            <p class="muted">{h.texto}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="sec-head">
+        <p class="eyebrow">Valores</p>
+        <h2>Cómo trabajamos, <strong>dicho en llano</strong></h2>
+      </div>
+      <div class="grid grid-3">
+        {valores.map((v) => (
+          <article class="card reveal val"><h3>{v.titulo}</h3><p class="muted">{v.texto}</p></article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="container">
+      <div class="sec-head">
+        <p class="eyebrow">El método</p>
+        <h2>El <strong>Método DKODING</strong> en 5 pasos</h2>
+        <p class="lead">Es el mismo para una web, una marca, una campaña o una app. Cambia el contenido de cada paso, no el orden.</p>
+      </div>
+      <ol class="pasos">
+        {pasos.map((p, i) => (
+          <li class="paso reveal"><span class="paso-n">{String(i + 1).padStart(2, '0')}</span><h3>{p.t}</h3><p class="muted">{p.d}</p></li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container cali">
+      <div class="cali-txt">
+        <p class="eyebrow">Por qué Cali</p>
+        <h2>Una agencia que <strong>sí está en Cali</strong></h2>
+        <p class="lead">Muchas agencias que ofrecen "diseño web en Cali" están en Bogotá, Medellín o fuera del país. Nosotros tenemos oficina aquí, atendemos en persona y conocemos cómo compran los negocios de la ciudad: por WhatsApp, por recomendación y con alguien que responda rápido.</p>
+        <ul class="chev-list">
+          <li>Reuniones presenciales en Cali y atención en horario local: {SITIO.horario}.</li>
+          <li>Dirección y datos legales en el pie de cada página y en nuestra ficha de Google Business Profile.</li>
+          <li>Casos locales: hoteles, clínicas, colegios y empresas del Valle del Cauca, además de clientes en Estados Unidos y Reino Unido.</li>
+          <li>Sectores que conocemos de cerca: salud, hoteles y turismo, educación, industria y comercio.</li>
+        </ul>
+      </div>
+      <aside class="card card-hl cali-datos">
+        <p class="eyebrow">Datos de contacto</p>
+        <p><strong>{SITIO.razonSocial}</strong><br>NIT {SITIO.nit}</p>
+        <p>{SITIO.direccion}<br>{SITIO.ciudad}, {SITIO.region}, {SITIO.pais}</p>
+        <p><a href={SITIO.telefonoHref}>{SITIO.telefono}</a><br><a href={`mailto:${SITIO.correo}`}>{SITIO.correo}</a></p>
+        <p class="muted small">{SITIO.horario}</p>
+        <a href="/contacto/" class="btn btn-secondary">Ir a contacto</a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="cta-final band-violet">
+        <div class="cta-txt">
+          <p class="eyebrow eyebrow-light">Siguiente paso</p>
+          <h2>Cuéntanos tu proyecto y te decimos por dónde empezar</h2>
+          <p>Cotiza en 2 minutos, escríbenos por WhatsApp o pide el diagnóstico gratis de tu web, SEO y presencia en la IA.</p>
+        </div>
+        <div class="cta-btns">
+          <a href="/cotizador/" class="btn btn-light btn-lg">Cotizar en 2 minutos</a>
+          <a href={wa} class="btn btn-wa btn-lg" rel="noopener">Escribir por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .sec-head { max-width: 760px; margin-bottom: clamp(28px, 4vw, 48px); display: flex; flex-direction: column; gap: 14px; }
+  .band { background: var(--dk-deep); }
+  .hero { position: relative; overflow: hidden; padding-block: clamp(32px, 5vw, 72px) clamp(48px, 6vw, 88px); background: radial-gradient(80% 60% at 70% 20%, rgba(109, 0, 194, 0.22), transparent 70%); }
+  .hero-in { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+  .migas { display: flex; gap: 10px; align-items: center; font-size: 14px; color: var(--dk-muted); margin-bottom: 18px; }
+  .migas a { color: var(--dk-soft); min-height: 24px; display: inline-flex; align-items: center; }
+  .migas span[aria-hidden] { color: var(--dk-lila); font-family: var(--font-title); font-weight: 700; }
+  .hero h1 { margin-top: 14px; font-size: clamp(38px, 4.5vw, 64px); }
+  .hero .lead { margin-top: 22px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
+  .hero-vis { position: relative; display: flex; flex-direction: column; align-items: center; gap: 18px; }
+  .deco { position: absolute; left: 50%; top: 50%; width: 70%; transform: translate(-50%, -50%); opacity: 0.5; pointer-events: none; }
+  .caras { position: relative; list-style: none; display: flex; justify-content: center; }
+  .caras li { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 33%; font-size: 13px; color: var(--dk-muted); text-align: center; }
+  .caras li:nth-child(2) { margin-top: 36px; }
+  .caras img { width: 100%; max-width: 160px; border-radius: 50%; border: 3px solid var(--dk-deep); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5); }
+  .caras-link { position: relative; }
+
+  .cifras-sec { border-block: 1px solid var(--dk-line); }
+  .cifras { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+  .cifras li { display: flex; flex-direction: column; gap: 6px; }
+  .cifras .cifra { color: var(--dk-lila-link); }
+  .cifras .muted { font-size: 15px; }
+
+  .quienes { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.8fr); gap: clamp(28px, 4vw, 64px); align-items: start; }
+  .quienes-txt { display: flex; flex-direction: column; gap: 16px; }
+  .serv-list { list-style: none; display: flex; flex-direction: column; border-top: 1px solid var(--dk-line); }
+  .serv-list a { display: flex; flex-direction: column; gap: 2px; padding: 14px 4px; min-height: 60px; border-bottom: 1px solid var(--dk-line); color: var(--dk-text); }
+  .serv-list a:hover { color: var(--dk-lila-link); }
+  .serv-list .muted { font-size: 14px; }
+
+  .linea { list-style: none; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+  .linea li { position: relative; padding: 24px 16px 0 0; border-top: 2px solid rgba(199, 85, 239, 0.35); display: flex; flex-direction: column; gap: 8px; }
+  .linea li::before { content: ''; position: absolute; top: -2px; left: 0; width: 44px; height: 2px; background: var(--dk-lila); }
+  .linea-fecha { font-family: var(--font-title); font-weight: 700; font-size: 26px; color: var(--dk-lila); line-height: 1; }
+  .linea h3 { font-size: 19px; }
+  .linea p { font-size: 15px; }
+
+  .val { display: flex; flex-direction: column; gap: 10px; }
+
+  .pasos { list-style: none; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+  .paso { position: relative; padding: 24px 20px; border-top: 2px solid rgba(199, 85, 239, 0.35); display: flex; flex-direction: column; gap: 10px; }
+  .paso::before { content: ''; position: absolute; top: -2px; left: 0; width: 44px; height: 2px; background: var(--dk-lila); }
+  .paso-n { font-family: var(--font-title); font-weight: 700; font-size: 32px; color: var(--dk-lila); line-height: 1; }
+  .paso h3 { font-size: 20px; }
+  .paso p { font-size: 15.5px; }
+
+  .cali { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.8fr); gap: clamp(28px, 4vw, 64px); align-items: start; }
+  .cali-txt { display: flex; flex-direction: column; gap: 18px; }
+  .cali-datos { display: flex; flex-direction: column; gap: 14px; }
+  .cali-datos .btn { align-self: flex-start; margin-top: 6px; }
+  .small { font-size: 14px; }
+
+  .cta-final { position: relative; overflow: hidden; border-radius: var(--r-card); padding: clamp(32px, 5vw, 64px); display: grid; grid-template-columns: minmax(0, 1.2fr) auto; gap: 32px; align-items: center; color: #fff; }
+  .cta-txt { display: flex; flex-direction: column; gap: 12px; max-width: 60ch; }
+  .cta-txt h2 { font-size: clamp(30px, 3.2vw, 44px); }
+  .cta-txt p { color: rgba(255, 255, 255, 0.85); }
+  .eyebrow-light { color: #E9C8FF; }
+  .cta-btns { display: flex; flex-direction: column; gap: 12px; }
+
+  @media (max-width: 1024px) {
+    .hero-in, .quienes, .cali, .cta-final { grid-template-columns: minmax(0, 1fr); }
+    .linea, .pasos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cifras { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cta-btns { flex-direction: row; flex-wrap: wrap; }
+  }
+  @media (max-width: 640px) {
+    .linea, .pasos { grid-template-columns: minmax(0, 1fr); }
+    .caras img { max-width: 110px; }
+    .deco { display: none; }
+    .caras li { font-size: 12px; }
+    .cta-btns { flex-direction: column; }
+    .cta-row .btn { flex: 1 1 100%; }
+  }
+</style>
