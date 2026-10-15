@@ -1,0 +1,889 @@
+---
+/**
+ * /cotizador/ · Cotizador modular por horas. Portado de diseno/admin/Cotizador.dc.html y
+ * Tiquete.dc.html. Datos en src/data/cotizador.ts, cálculo puro en src/scripts/cotizador.ts.
+ * Todo el catálogo se renderiza aquí (servidor); el script solo alterna clases y atributos.
+ */
+import Base from '../layouts/Base.astro';
+import { SITIO } from '../data/sitio';
+import { faqSchema, migasSchema } from '../data/schema';
+import {
+  W, TIPOS, GRUPOS, FAMILIAS, F, OTRAS_FAMILIAS, NIVELES, CONTENIDOS, URGENCIAS, horasBaseTipo,
+  INCLUIDO_H, SETUP_H, MIN_PROY, VERSION_TARIFAS, IVA_PCT, ANTICIPO_PCT, VIGENCIA_DIAS, CAPACIDAD_SEMANAL,
+} from '../data/cotizador';
+import { calcular, estadoInicial, fmt, fmtM } from '../scripts/cotizador';
+
+const ini = calcular(estadoInicial());
+const desdePorTipo = Object.fromEntries(TIPOS.map((t) => { const s = estadoInicial(); s.tipo = t.id; const r = calcular(s); return [t.id, r]; }));
+const minProy = fmt(MIN_PROY).slice(2);
+
+const faqs = [
+  {
+    q: '¿Cuánto cuesta una página web en Colombia?',
+    a: `Depende de los módulos, el nivel de diseño y el plazo. En DKODING cotizamos por horas de proyecto: con las tarifas actuales, una landing page parte de ${fmtM(desdePorTipo.landing.minV)}, un sitio corporativo de ${fmtM(desdePorTipo.corporativo.minV)} y una tienda online de ${fmtM(desdePorTipo.tienda.minV)}, todo antes de IVA. El mínimo de proyecto es de COP ${minProy}. El cotizador te da el rango exacto para tu caso en dos minutos.`,
+  },
+  {
+    q: '¿Qué incluye el precio?',
+    a: 'Todo sitio DKODING incluye diseño y desarrollo de los módulos que eliges, setup técnico (repositorio, Cloudflare, analítica y datos estructurados), dirección de proyecto, capacitación para administrarlo, tres meses de soporte, tarjeta digital dkard y lanzamiento en redes. El rango ya trae un 15 % de contingencia. No incluye IVA, hosting (extra fijo anual), fotografía ni redacción si eliges entregar tu propio contenido.',
+  },
+  {
+    q: '¿Cómo se paga?',
+    a: `Anticipo del ${ANTICIPO_PCT} % al firmar y el saldo contra entrega, o por hitos (40/30/30) en proyectos largos [por confirmar]. Medios de pago: [por confirmar]. La cotización tiene vigencia de ${VIGENCIA_DIAS} días y el IVA del ${IVA_PCT} % se discrimina en la factura.`,
+  },
+  {
+    q: '¿Cuánto tarda una página web?',
+    a: `El cotizador calcula la fecha estimada con una capacidad de ${CAPACIDAD_SEMANAL} horas de producción por semana. Un sitio corporativo estándar toma de 6 a 8 semanas. En modo prioritario baja a 4 y en exprés a 2, con un ajuste en el precio. El plazo corre desde el anticipo y la entrega del contenido.`,
+  },
+  {
+    q: '¿Qué pasa después de cotizar?',
+    a: 'Recibes el resumen por WhatsApp o correo. Agendamos una llamada de 20 minutos para revisar el alcance, resolver dudas y cerrar el precio. Si el proyecto supera 200 horas hacemos una sesión de alcance de 45 minutos. Con el anticipo arrancamos: estrategia, diseño, desarrollo, contenido y lanzamiento, con avances que revisas en cada fase.',
+  },
+];
+
+const schema = [
+  faqSchema(faqs),
+  migasSchema([{ nombre: 'Inicio', url: '/' }, { nombre: 'Cotizador', url: '/cotizador/' }]),
+];
+---
+<Base
+  titulo="Cotizador de páginas web en Cali: precio en 2 minutos | DKODING"
+  descripcion="Cotiza tu página web en Cali en 2 minutos: elige módulos, mira las horas y recibe un rango de precio con mínimo y máximo, sin compromiso. Landing, sitio corporativo, catálogo o tienda online."
+  ruta="/cotizador/"
+  schema={schema}
+  bodyClass="pag-cotizador"
+>
+  <!-- ===== Intro indexable ===== -->
+  <section class="cz-intro">
+    <img src="/img/deco/dkoding-deco-03.svg" alt="" width="361" height="534" class="cz-deco" aria-hidden="true">
+    <div class="container-wide cz-intro-in">
+      <div class="cz-intro-txt">
+        <p class="eyebrow">Cotizador por módulos · precio por hora de proyecto</p>
+        <h1>Cotiza tu <strong>página web en Cali</strong> en 2 minutos</h1>
+        <p class="lead">Elige el tipo de sitio y marca los módulos que necesitas. Cada módulo tiene horas de trabajo asignadas. El cotizador las suma, aplica el nivel de diseño y los tiempos, y te muestra un rango con mínimo y máximo antes de IVA. Sin registro ni compromiso: el detalle te llega por WhatsApp o correo cuando tú quieras.</p>
+      </div>
+      <dl class="cz-stats" aria-label="Resumen en vivo">
+        <div><dt>Módulos</dt><dd data-stat="items">{ini.nItems}</dd></div>
+        <div><dt>Horas</dt><dd data-stat="horas">{ini.totalH}</dd></div>
+        <div><dt>Entrega</dt><dd><span data-stat="semanas">{ini.semanas}</span> sem</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ===== Cotizador ===== -->
+  <div class="container-wide cz" id="cotizador">
+    <div class="cz-main">
+
+      <!-- Familias -->
+      <div class="cz-fams" role="group" aria-label="Familias de servicio">
+        {FAMILIAS.map((f) => (
+          <button type="button" class="cz-pill" data-fam={f.id} aria-pressed={f.id === 'web' ? 'true' : 'false'}>
+            {f.label}<span class="cz-count" data-fam-count={f.id} hidden>0</span>
+          </button>
+        ))}
+      </div>
+
+      <!-- ===== Familia web ===== -->
+      <section class="cz-sec" data-sec="web" aria-labelledby="h-web">
+        <header class="cz-sec-head">
+          <span class="cz-eyebrow">Sitio web · paso 1</span>
+          <h2 id="h-web">¿Qué tipo de sitio es?</h2>
+          <p class="cz-sub">Define los módulos base incluidos. Luego añades lo que quieras.</p>
+        </header>
+
+        <div class="cz-tipos" role="group" aria-label="Tipo de sitio">
+          {TIPOS.map((t) => (
+            <button type="button" class="cz-card cz-tipo" data-tipo={t.id} aria-pressed={t.id === 'corporativo' ? 'true' : 'false'}>
+              <span class="cz-card-n">{t.n}</span>
+              <span class="cz-card-d">{t.d}</span>
+              <span class="cz-card-h">{horasBaseTipo(t)} h base</span>
+            </button>
+          ))}
+        </div>
+
+        <!-- Seleccionados -->
+        <div class="cz-bloque">
+          <div class="cz-bloque-head">
+            <h3 class="cz-h3">Módulos seleccionados · <span data-n-sel>{ini.webLines.length}</span></h3>
+            <button type="button" class="cz-mini" data-act="quitar-anadidos">Quitar los añadidos</button>
+          </div>
+          <div class="cz-grid4">
+            {W.map((b) => {
+              const line = ini.webLines.find((l) => l.id === b.id);
+              return (
+                <article class="cz-msel" data-id={b.id} hidden={!line}>
+                  <div class="cz-msel-top">
+                    <span class="pill pill-lila" data-h>+{line ? Math.round(line.h) : b.h} h</span>
+                    <span class="cz-inc" data-inc hidden={!ini.incluidos[b.id]}>Incluido</span>
+                    <button type="button" class="cz-icon-btn" data-rm={b.id} aria-label={`Quitar ${b.n}`} hidden={!!ini.incluidos[b.id]}>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg>
+                    </button>
+                  </div>
+                  <span class="cz-card-n">{b.n}</span>
+                  <span class="cz-card-d">{b.d}</span>
+                  {b.opts && b.opts.length > 0 && (
+                    <div class="cz-opts" role="group" aria-label={`Añadibles de ${b.n}`}>
+                      <span class="cz-opts-t">Añadibles</span>
+                      {b.opts.map((o, i) => (
+                        <button type="button" class="cz-opt" data-opt-mod={b.id} data-opt-i={i} aria-pressed="false">
+                          <span class="cz-box" aria-hidden="true"></span>
+                          <span class="cz-opt-n">{o.n}</span>
+                          <span class="cz-opt-h">+{o.h} h</span>
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                  {b.qty && (
+                    <label class="cz-qty">Productos a cargar
+                      <input type="number" min="0" step="10" value="50" data-qty inputmode="numeric">
+                    </label>
+                  )}
+                  <span class="cz-nota" data-nota hidden={!b.ext}>{b.ext ? 'Recomendamos herramienta externa integrada. Esta es la versión propia' : ''}</span>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+
+        <!-- Disponibles -->
+        <div class="cz-bloque">
+          <div class="cz-bloque-head">
+            <h3 class="cz-h3" id="h-disp">Módulos disponibles</h3>
+            <div class="cz-tabs" role="tablist" aria-label="Grupos de módulos">
+              {GRUPOS.map((g) => (
+                <button type="button" role="tab" class="cz-pill cz-pill-sm" data-grp={g.id} aria-selected={g.id === 'presencia' ? 'true' : 'false'} aria-controls="disp-grid" id={`tab-${g.id}`}>{g.label}</button>
+              ))}
+            </div>
+          </div>
+          <div class="cz-grid4" id="disp-grid" role="tabpanel" aria-labelledby="h-disp">
+            {W.map((b) => (
+              <button type="button" class="cz-card cz-mdisp" data-id={b.id} data-g={b.g} hidden={!!ini.selected[b.id] || b.g !== 'presencia'}>
+                <span class="cz-mdisp-top"><span class="pill cz-pill-grey">+{b.h} h</span><span class="cz-plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></span>
+                <span class="cz-card-n">{b.n}</span>
+                <span class="cz-card-d">{b.d}</span>
+                <span class="cz-dep" data-dep hidden></span>
+              </button>
+            ))}
+            <p class="cz-vacio muted" data-vacio hidden>Todos los módulos de este grupo ya están en tu cotización.</p>
+          </div>
+        </div>
+
+        <!-- Nivel, contenido y tiempos -->
+        <div class="cz-ajustes">
+          <fieldset class="cz-fs"><legend>Nivel de diseño</legend>
+            {NIVELES.map((o) => <button type="button" class="cz-seg" data-seg="lvl" data-v={o.v} aria-pressed={o.v === 'sistema' ? 'true' : 'false'}><span>{o.label}</span><span class="cz-seg-f">{o.txt}</span></button>)}
+          </fieldset>
+          <fieldset class="cz-fs"><legend>Contenido</legend>
+            {CONTENIDOS.map((o) => <button type="button" class="cz-seg" data-seg="cont" data-v={o.v} aria-pressed={o.v === 'propio' ? 'true' : 'false'}><span>{o.label}</span><span class="cz-seg-f">{o.txt}</span></button>)}
+          </fieldset>
+          <fieldset class="cz-fs"><legend>Tiempos</legend>
+            {URGENCIAS.map((o) => <button type="button" class="cz-seg" data-seg="urg" data-v={o.v} aria-pressed={o.v === 'normal' ? 'true' : 'false'}><span>{o.label}</span><span class="cz-seg-f">{o.txt}</span></button>)}
+          </fieldset>
+        </div>
+      </section>
+
+      <!-- ===== Otras familias ===== -->
+      {OTRAS_FAMILIAS.map((fk) => {
+        const fa = F[fk];
+        return (
+          <section class="cz-sec" data-sec={fk} aria-labelledby={`h-${fk}`} hidden>
+            <header class="cz-sec-head">
+              <span class="cz-eyebrow">{fa.eyebrow}</span>
+              <h2 id={`h-${fk}`}>{fa.title}</h2>
+              <p class="cz-sub">{fa.sub}</p>
+            </header>
+            <div class="cz-grid4">
+              {fa.items.map((it) => (
+                <button type="button" class="cz-card cz-ocard" data-otro={it.id} aria-pressed="false">
+                  <span class="cz-mdisp-top">
+                    <span class="pill cz-pill-grey cz-obadge">{it.fijo ? `${fmt(it.fijo)} / año` : it.desde ? `desde ${it.h} h` : `${it.h} h${it.ret ? ' / mes' : ''}`}</span>
+                    <span class="cz-plus" aria-hidden="true">
+                      <svg class="cz-i-plus" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+                      <svg class="cz-i-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>
+                    </span>
+                  </span>
+                  <span class="cz-card-n">{it.n}</span>
+                  <span class="cz-card-d">{it.d}</span>
+                  {it.reco && <span class="cz-reco">Recomendado</span>}
+                  {it.desde && <span class="cz-nota">Se cotiza "desde" tras una sesión de alcance</span>}
+                </button>
+              ))}
+            </div>
+          </section>
+        );
+      })}
+
+      <!-- ===== Datos ===== -->
+      <section class="cz-sec cz-datos" id="datos" aria-labelledby="h-datos">
+        <header class="cz-sec-head">
+          <span class="cz-eyebrow">Último paso</span>
+          <h2 id="h-datos">Tus datos para recibir el detalle</h2>
+          <p class="cz-sub">El rango ya lo ves sin dejar datos. El desglose completo se envía a este contacto.</p>
+        </header>
+        <form id="form-cotizacion" class="cz-form" novalidate>
+          <div class="cz-form-grid">
+            <div class="field"><label for="f-nombre">Nombre *</label><input id="f-nombre" class="input" name="nombre" type="text" autocomplete="name" placeholder="Nombre y apellido" required minlength="2"></div>
+            <div class="field"><label for="f-empresa">Empresa</label><input id="f-empresa" class="input" name="empresa" type="text" autocomplete="organization" placeholder="Nombre del negocio"></div>
+            <div class="field"><label for="f-tel">WhatsApp *</label><input id="f-tel" class="input" name="telefono" type="tel" autocomplete="tel" placeholder="+57 300 000 0000" required minlength="7"></div>
+            <div class="field"><label for="f-correo">Correo *</label><input id="f-correo" class="input" name="correo" type="email" autocomplete="email" placeholder="nombre@empresa.com" required></div>
+            <div class="field cz-span2"><label for="f-como">¿Cómo nos conociste?</label>
+              <select id="f-como" class="input" name="como_nos_conocio">
+                <option value="">Elige una opción</option>
+                <option>Google</option>
+                <option>Redes sociales</option>
+                <option>Recomendación</option>
+                <option>ChatGPT u otra IA</option>
+                <option>Publicidad</option>
+                <option>Otro</option>
+              </select>
+            </div>
+          </div>
+          <div class="cz-hp" aria-hidden="true"><label>No llenes este campo<input type="text" name="sitio_web2" tabindex="-1" autocomplete="off"></label></div>
+          <p class="error-msg" data-form-error hidden></p>
+          <div class="cz-acciones">
+            <a class="btn btn-wa" data-wa href={`https://api.whatsapp.com/send/?phone=${SITIO.whatsapp}`} target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>Cotizar por WhatsApp
+            </a>
+            <button type="submit" class="btn btn-light" data-submit>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span data-submit-txt>Enviar al correo</span>
+            </button>
+          </div>
+          <p class="cz-estado" role="status" aria-live="polite" data-form-ok hidden></p>
+        </form>
+      </section>
+    </div>
+
+    <!-- ===== Panel lateral ===== -->
+    <aside class="cz-panel" aria-label="Cotización en vivo">
+      <div class="cz-panel-top">
+        <div class="cz-row">
+          <span class="cz-panel-h"><span data-horas>{ini.totalH}</span> horas de proyecto</span>
+          <button type="button" class="cz-icon-round" data-act="desglose" aria-expanded="false" aria-controls="desglose" aria-label="Ver desglose por fase">
+            <svg class="cz-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg>
+          </button>
+        </div>
+        <p class="cz-aviso" data-desde hidden>Proyecto de más de 200 h: el precio se cierra en una sesión de alcance.</p>
+        <p class="cz-rango" data-rango>{ini.rangoTxt}</p>
+        <p class="cz-rango-nota" data-rango-nota>{ini.rangoNota}</p>
+        <div class="cz-mensual" data-mensual hidden><span>Mensual (<span data-ret-n>0</span> servicios)</span><strong data-mensual-v>$ 0</strong></div>
+        <div class="cz-cond"><span>+ IVA {IVA_PCT} %</span><span>Anticipo {ANTICIPO_PCT} %</span><span>Vigencia {VIGENCIA_DIAS} días</span></div>
+      </div>
+      <div class="cz-panel-body">
+        <div class="cz-row cz-fecha"><span class="muted">Posible fecha de entrega</span><strong data-fecha>{ini.fechaTxt}</strong></div>
+        <div id="desglose" class="cz-desglose" hidden>
+          <ul class="cz-fases">
+            {ini.fases.map((f, i) => (
+              <li data-fase={i}>
+                <span class="cz-row"><span>{f.n}</span><span class="muted"><span data-fase-h>{f.h}</span> h · <strong data-fase-c>{f.c}</strong></span></span>
+                <span class="cz-bar"><span class="cz-bar-in" data-fase-bar style={`width:${f.pct}%;background:${f.col}`}></span></span>
+              </li>
+            ))}
+          </ul>
+          <p class="cz-micro">Mín. = horas × tarifa × 0,90 · Máx. = × 1,15 (15 % de contingencia). Incluye dirección de proyecto (12 %). Extras fijos sin ajuste.</p>
+        </div>
+        <ul class="cz-lineas" data-lineas aria-label="Desglose de la cotización">
+          {ini.lineas.map((l) => <li class={`cz-l-${l.tono}`}><span class="cz-l-txt"><span class="cz-l-n">{l.n}</span><span class="cz-l-k">{l.k}</span></span><span class="cz-l-v">{l.v}</span></li>)}
+        </ul>
+        <div class="cz-acciones">
+          <a class="btn btn-wa" data-wa href={`https://api.whatsapp.com/send/?phone=${SITIO.whatsapp}`} target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>Cotizar por WhatsApp
+          </a>
+          <button type="submit" class="btn btn-light" form="form-cotizacion">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Enviar al correo
+          </button>
+        </div>
+        <p class="cz-micro cz-center" data-hint>WhatsApp funciona ya. Para recibirlo por correo completa nombre, WhatsApp y correo.</p>
+        <div class="cz-confirm" data-confirm hidden>
+          <span>¿Vaciar toda la cotización?</span>
+          <span class="cz-confirm-btns"><button type="button" class="cz-mini cz-mini-warn" data-act="vaciar-si">Sí, vaciar</button><button type="button" class="cz-mini" data-act="vaciar-no">No</button></span>
+        </div>
+        <button type="button" class="cz-link" data-act="vaciar">Vaciar cotización</button>
+        <details class="cz-texto">
+          <summary>Texto que se enviará</summary>
+          <pre data-texto></pre>
+        </details>
+        <p class="cz-micro">Estimación orientativa calculada con la versión de tarifas {VERSION_TARIFAS}. Precio cerrado tras una llamada de 20 min. No incluye fotografía ni redacción si eliges «contenido propio».</p>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ===== Barra móvil ===== -->
+  <div class="cz-barra" data-barra>
+    <div class="cz-barra-txt">
+      <span class="cz-barra-h"><span data-horas>{ini.totalH}</span> h · antes de IVA</span>
+      <strong class="cz-barra-rango" data-rango>{ini.rangoTxt}</strong>
+    </div>
+    <button type="button" class="btn btn-light btn-sm" data-act="abrir-tiquete">Ver resumen</button>
+  </div>
+
+  <!-- ===== Tiquete (móvil) ===== -->
+  <dialog class="cz-tiquete" id="tiquete" role="dialog" aria-labelledby="tiquete-titulo" aria-modal="true">
+    <div class="cz-tq">
+      <img src="/img/deco/dkoding-deco-03.svg" alt="" width="361" height="534" class="cz-tq-deco" aria-hidden="true">
+      <div class="cz-tq-bar">
+        <button type="button" class="cz-icon-round cz-tq-close" data-act="cerrar-tiquete" aria-label="Volver al cotizador">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <img src="/img/marca/logo-menu.svg" alt="DKODING" width="110" height="20">
+        <span class="cz-tq-sp" aria-hidden="true"></span>
+      </div>
+      <p class="cz-tq-eyebrow" id="tiquete-titulo">Tu cotización</p>
+      <div class="cz-tq-paper">
+        <div class="cz-tq-white">
+          <div class="cz-tq-meta"><span>N.º <span data-tq-num>DK-000000-000</span></span><span data-tq-hoy></span></div>
+          <div class="cz-tq-title"><strong data-tq-titulo>{ini.tipo.n}</strong><span data-tq-para class="cz-tq-para">{ini.nItems} módulos</span></div>
+          <div class="cz-tq-fecha"><span>Posible fecha de entrega</span><strong data-fecha>{ini.fechaTxt}</strong></div>
+          <ul class="cz-tq-lineas" data-tq-lineas aria-label="Módulos de la cotización"></ul>
+        </div>
+        <div class="cz-tq-dent" aria-hidden="true"></div>
+      </div>
+      <div class="cz-tq-total">
+        <div class="cz-row cz-tq-total-row">
+          <div class="cz-tq-total-txt">
+            <span class="cz-tq-h"><span data-horas>{ini.totalH}</span> horas de proyecto</span>
+            <strong class="cz-tq-rango" data-rango>{ini.rangoTxt}</strong>
+            <span class="cz-micro">+ IVA {IVA_PCT} % · anticipo {ANTICIPO_PCT} % · vigencia {VIGENCIA_DIAS} días</span>
+            <span class="cz-micro" data-tq-mensual hidden></span>
+          </div>
+          <span class="pill pill-warn" data-tq-desde hidden>&gt; 200 h: sesión de alcance</span>
+        </div>
+        <div class="cz-acciones">
+          <a class="btn btn-wa" data-wa href={`https://api.whatsapp.com/send/?phone=${SITIO.whatsapp}`} target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>Cotizar por WA
+          </a>
+          <button type="button" class="btn btn-light" data-act="ir-datos">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Enviar al correo
+          </button>
+        </div>
+        <div class="cz-confirm" data-confirm hidden>
+          <span>¿Vaciar toda la cotización?</span>
+          <span class="cz-confirm-btns"><button type="button" class="cz-mini cz-mini-warn" data-act="vaciar-si">Sí, vaciar</button><button type="button" class="cz-mini" data-act="vaciar-no">No</button></span>
+        </div>
+        <button type="button" class="cz-link" data-act="vaciar">Vaciar cotización</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ===== Preguntas frecuentes ===== -->
+  <section class="section container cz-faq" aria-labelledby="h-faq">
+    <p class="eyebrow">Precios claros</p>
+    <h2 id="h-faq">Preguntas frecuentes sobre el <strong>precio de una página web</strong></h2>
+    <div class="cz-faq-list">
+      {faqs.map((f) => (
+        <details class="cz-faq-item">
+          <summary><span>{f.q}</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+    </div>
+    <p class="cz-faq-cta">¿Prefieres hablar primero? <a href={`https://api.whatsapp.com/send/?phone=${SITIO.whatsapp}&text=${encodeURIComponent('Hola DKODING, quiero cotizar mi página web.')}`} target="_blank" rel="noopener">Escríbenos por WhatsApp</a> o mira los <a href="/casos-de-exito/">casos de éxito</a>.</p>
+  </section>
+</Base>
+
+<style is:global>
+  /* ===== Intro ===== */
+  .cz-intro { position: relative; overflow: hidden; border-bottom: 1px solid var(--dk-line); padding: clamp(36px, 5vw, 64px) 0 clamp(24px, 3vw, 36px); }
+  .cz-deco { position: absolute; right: -2%; top: -30%; width: clamp(160px, 20vw, 300px); height: auto; opacity: 0.45; pointer-events: none; animation: cz-float 14s ease-in-out infinite; }
+  @keyframes cz-float { 0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); } 50% { transform: translate3d(0, -20px, 0) rotate(3deg); } }
+  .cz-intro-in { position: relative; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 20px 32px; }
+  .cz-intro-txt { display: flex; flex-direction: column; gap: 14px; max-width: 760px; }
+  .cz-intro h1 { font-size: clamp(34px, 3.8vw, 54px); }
+  .cz-stats { margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; min-width: min(300px, 100%); }
+  .cz-stats > div { padding: 12px 14px; background: rgba(21, 21, 24, 0.85); border: 1px solid var(--dk-line-2); border-radius: var(--r-card); display: flex; flex-direction: column; gap: 4px; }
+  .cz-stats dt { font-size: 11px; color: var(--dk-muted); letter-spacing: 0.06em; text-transform: uppercase; }
+  .cz-stats dd { margin: 0; font-family: var(--font-title); font-weight: 700; font-size: 26px; line-height: 1; font-variant-numeric: tabular-nums; }
+
+  /* ===== Layout ===== */
+  .cz { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; padding-top: 28px; padding-bottom: 48px; font-size: 15px; }
+  .cz-main { flex: 999 1 600px; min-width: 0; display: flex; flex-direction: column; gap: 32px; }
+  .cz-sec { display: flex; flex-direction: column; gap: 18px; }
+  .cz-sec-head { display: flex; flex-direction: column; gap: 4px; }
+  .cz-sec h2 { font-weight: 700; font-size: 24px; }
+  .cz-eyebrow { font-family: var(--font-title); font-weight: 700; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dk-lila-link); }
+  .cz-sub { font-size: 13px; color: var(--dk-muted); }
+  .cz-h3 { font-family: var(--font-body); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dk-muted); font-weight: 600; }
+  .cz-bloque { display: flex; flex-direction: column; gap: 10px; }
+  .cz-bloque-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; }
+  .cz-grid4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+  .cz-tipos { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+  .cz-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .cz-micro { font-size: 11px; color: var(--dk-muted); line-height: 1.45; }
+  .cz-center { text-align: center; }
+  .pag-cotizador [hidden] { display: none !important; }
+
+  /* ===== Pills y botones ===== */
+  .cz-pill { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; border-radius: var(--r-pill); font-size: 13px; font-weight: 600; background: transparent; color: var(--dk-text); border: 1px solid var(--dk-line-3); }
+  .cz-pill[aria-pressed="true"], .cz-pill[aria-selected="true"] { background: var(--dk-violet); color: #fff; border-color: var(--dk-violet); }
+  .cz-pill-sm { min-height: 40px; font-size: 12px; padding: 0 12px; }
+  .cz-count { padding: 1px 7px; border-radius: var(--r-pill); background: rgba(255, 255, 255, 0.18); font-size: 11px; }
+  .cz-fams { display: flex; flex-wrap: wrap; gap: 6px; }
+  .cz-tabs { display: flex; flex-wrap: wrap; gap: 6px; }
+  .cz-mini { min-height: 32px; padding: 0 10px; border-radius: var(--r-btn); border: 1px solid var(--dk-line-3); background: transparent; color: var(--dk-muted); font-size: 12px; }
+  .cz-mini:hover { color: var(--dk-text); border-color: var(--dk-text); }
+  .cz-mini-warn { background: var(--dk-warn); color: var(--dk-bg); border-color: var(--dk-warn); font-weight: 600; }
+  .cz-mini-warn:hover { color: var(--dk-bg); }
+  .cz-icon-btn { width: 32px; height: 32px; border-radius: var(--r-btn); border: 1px solid var(--dk-line-3); background: transparent; color: var(--dk-text); display: inline-flex; align-items: center; justify-content: center; margin-left: auto; }
+  .cz-icon-btn:hover { border-color: var(--dk-crit); color: var(--dk-crit); }
+  .cz-icon-round { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.4); background: transparent; color: #fff; display: inline-flex; align-items: center; justify-content: center; flex: none; }
+  .cz-chev { transition: transform 0.2s ease; }
+  [aria-expanded="true"] .cz-chev { transform: rotate(180deg); }
+  .cz-link { min-height: 32px; border: 0; background: transparent; color: var(--dk-muted); font-size: 12px; text-decoration: underline; text-underline-offset: 3px; }
+  .cz-link:hover { color: var(--dk-text); }
+  .cz-pill-grey { background: rgba(255, 255, 255, 0.08); color: var(--dk-soft); }
+
+  /* ===== Tarjetas ===== */
+  .cz-card { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; width: 100%; min-height: 150px; padding: 14px; border-radius: 10px; color: var(--dk-text); text-align: left; background: var(--dk-surface); border: 1px solid var(--dk-line-2); transition: border-color 0.15s ease, background-color 0.15s ease; }
+  .cz-card:hover { border-color: rgba(199, 85, 239, 0.5); }
+  .cz-card[aria-pressed="true"] { background: #24103A; border: 2px solid var(--dk-lila); padding: 13px; }
+  .cz-tipo { min-height: 120px; }
+  .cz-card-n { font-family: var(--font-title); font-weight: 700; font-size: 17px; line-height: 1.1; }
+  .cz-card-d { font-size: 12px; color: var(--dk-muted); }
+  .cz-card-h { margin-top: auto; font-size: 12px; color: var(--dk-lila-link); font-weight: 600; }
+  .cz-mdisp-top { display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 8px; }
+  .cz-plus { width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--dk-ok); color: var(--dk-ok); display: inline-flex; align-items: center; justify-content: center; flex: none; }
+  .cz-ocard .cz-i-check { display: none; }
+  .cz-ocard[aria-pressed="true"] .cz-plus { background: var(--dk-violet); border-color: var(--dk-violet); color: #fff; }
+  .cz-ocard[aria-pressed="true"] .cz-i-plus { display: none; }
+  .cz-ocard[aria-pressed="true"] .cz-i-check { display: block; }
+  .cz-ocard[aria-pressed="true"] .cz-obadge { background: rgba(199, 85, 239, 0.18); color: var(--dk-lila-link); }
+  .cz-dep { font-size: 11px; color: var(--dk-ok); }
+  .cz-reco { font-size: 11px; color: var(--dk-lila-link); font-weight: 600; }
+  .cz-nota { font-size: 11px; color: var(--dk-warn); }
+  .cz-vacio { grid-column: 1 / -1; font-size: 13px; padding: 14px; border: 1px dashed var(--dk-line-2); border-radius: 10px; }
+
+  .cz-msel { display: flex; flex-direction: column; gap: 8px; width: 100%; padding: 14px; border-radius: 10px; background: var(--dk-deep); border: 1px solid rgba(199, 85, 239, 0.45); }
+  .cz-msel-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; min-height: 32px; }
+  .cz-inc { font-size: 11px; color: var(--dk-ok); font-weight: 600; margin-left: auto; }
+  .cz-opts { display: flex; flex-direction: column; gap: 2px; margin-top: 4px; padding-top: 8px; border-top: 1px dashed var(--dk-line-2); }
+  .cz-opts-t { font-size: 11px; color: var(--dk-muted); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px; }
+  .cz-opt { display: flex; align-items: center; gap: 8px; width: 100%; min-height: 34px; padding: 2px 0; border: 0; background: transparent; color: var(--dk-text); font-size: 12px; text-align: left; }
+  .cz-opt-n { flex: 1; }
+  .cz-opt-h { color: var(--dk-lila-link); font-weight: 700; }
+  .cz-box { display: inline-flex; width: 14px; height: 14px; border-radius: 3px; flex: none; border: 1px solid rgba(255, 255, 255, 0.35); }
+  .cz-opt[aria-pressed="true"] .cz-box { background: var(--dk-violet); border-color: var(--dk-violet); }
+  .cz-qty { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 4px; font-size: 12px; color: var(--dk-muted); }
+  .cz-qty input { width: 80px; min-height: 40px; padding: 0 8px; border-radius: var(--r-btn); border: 1px solid var(--dk-line-2); background: #0F0F11; color: var(--dk-text); font-size: 13px; }
+
+  /* ===== Ajustes ===== */
+  .cz-ajustes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding: 18px; background: var(--dk-surface); border: 1px solid var(--dk-line-2); border-radius: 10px; }
+  .cz-fs { margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+  .cz-fs legend { padding: 0; margin-bottom: 8px; font-size: 12px; color: var(--dk-muted); letter-spacing: 0.06em; text-transform: uppercase; }
+  .cz-seg { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 44px; padding: 0 12px; border-radius: 6px; font-size: 13px; text-align: left; background: #0F0F11; color: var(--dk-text); border: 1px solid var(--dk-line-2); }
+  .cz-seg[aria-pressed="true"] { background: #24103A; border-color: var(--dk-lila); }
+  .cz-seg-f { font-size: 12px; color: var(--dk-muted); flex: none; }
+
+  /* ===== Datos ===== */
+  .cz-datos { padding: 22px; background: var(--dk-surface); border: 1px solid var(--dk-line-2); border-radius: 10px; gap: 14px; }
+  .cz-form { display: flex; flex-direction: column; gap: 14px; }
+  .cz-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .cz-span2 { grid-column: 1 / -1; }
+  .cz-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .cz-acciones { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .cz-acciones .btn { padding: 0 12px; font-size: 14px; }
+  .cz-estado { padding: 12px 14px; border-radius: 6px; background: rgba(91, 228, 155, 0.12); border: 1px solid rgba(91, 228, 155, 0.4); color: var(--dk-text); font-size: 14px; }
+
+  /* ===== Panel ===== */
+  .cz-panel { flex: 1 1 340px; max-width: 420px; min-width: 0; position: sticky; top: 84px; display: flex; flex-direction: column; border-radius: 12px; overflow: hidden; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55); border: 1px solid var(--dk-line-2); }
+  .cz-panel-top { padding: 20px 22px 16px; background: linear-gradient(160deg, var(--dk-violet), var(--dk-violet-dark)); display: flex; flex-direction: column; gap: 10px; color: #fff; }
+  .cz-panel-h { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #EADFF7; font-weight: 600; }
+  .cz-aviso { font-size: 12px; color: #FFD58A; }
+  .cz-rango { font-family: var(--font-title); font-weight: 700; font-size: 34px; line-height: 1; color: #fff; font-variant-numeric: tabular-nums; }
+  .cz-rango-nota { font-size: 12px; color: #EADFF7; }
+  .cz-mensual { display: flex; justify-content: space-between; gap: 12px; padding-top: 8px; border-top: 1px solid rgba(255, 255, 255, 0.2); font-size: 13px; color: #EADFF7; }
+  .cz-mensual strong { font-family: var(--font-title); color: #fff; }
+  .cz-cond { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; padding-top: 8px; border-top: 1px solid rgba(255, 255, 255, 0.2); font-size: 11px; color: #EADFF7; }
+  .cz-panel-body { background: var(--dk-surface); display: flex; flex-direction: column; gap: 12px; padding: 16px 22px 20px; }
+  .cz-fecha { font-size: 13px; }
+  .cz-fecha strong { color: var(--dk-lila-link); text-align: right; }
+  .cz-desglose { display: flex; flex-direction: column; gap: 10px; }
+  .cz-fases { list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 13px; }
+  .cz-fases li { display: flex; flex-direction: column; gap: 4px; }
+  .cz-fases strong { color: var(--dk-text); font-weight: 600; }
+  .cz-bar { height: 4px; border-radius: 2px; background: rgba(255, 255, 255, 0.08); overflow: hidden; display: block; }
+  .cz-bar-in { display: block; height: 100%; }
+  .cz-lineas { list-style: none; display: flex; flex-direction: column; gap: 2px; font-size: 13px; max-height: 240px; overflow: auto; }
+  .cz-lineas li { display: flex; justify-content: space-between; gap: 10px; padding: 6px 0; border-bottom: 1px solid var(--dk-line); }
+  .cz-l-txt { display: flex; flex-direction: column; min-width: 0; }
+  .cz-l-n { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .cz-l-k { font-size: 11px; color: var(--dk-muted); }
+  .cz-l-v { font-family: var(--font-title); font-weight: 700; white-space: nowrap; }
+  .cz-l-ok .cz-l-v { color: var(--dk-ok); }
+  .cz-l-lila .cz-l-v { color: var(--dk-lila-link); }
+  .cz-l-warn .cz-l-v { color: var(--dk-warn); }
+  .cz-confirm { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 10px 12px; background: rgba(224, 169, 59, 0.12); border: 1px solid rgba(224, 169, 59, 0.4); border-radius: 6px; font-size: 12px; }
+  .cz-confirm-btns { display: flex; gap: 6px; }
+  .cz-texto { border-top: 1px solid var(--dk-line); padding-top: 8px; }
+  .cz-texto summary { cursor: pointer; font-size: 12px; color: var(--dk-lila-link); font-weight: 600; min-height: 32px; display: flex; align-items: center; gap: 6px; }
+  .cz-texto summary::before { content: '»'; font-family: var(--font-title); font-weight: 700; font-size: 16px; transition: transform 0.15s ease; }
+  .cz-texto[open] summary::before { transform: rotate(90deg); }
+  .cz-texto pre { margin: 6px 0 0; font: inherit; font-size: 11px; line-height: 1.45; color: var(--dk-soft); white-space: pre-wrap; word-break: break-word; max-height: 220px; overflow: auto; }
+
+  /* ===== Barra móvil y tiquete ===== */
+  .cz-barra { display: none; }
+  .cz-tiquete { padding: 0; border: 0; background: transparent; color: var(--dk-text); width: 100%; max-width: 100%; height: 100%; max-height: 100%; }
+  .cz-tiquete::backdrop { background: rgba(12, 12, 12, 0.9); }
+  .cz-tq { position: relative; min-height: 100dvh; background: linear-gradient(180deg, var(--dk-violet-dark) 0%, var(--dk-bg) 55%); display: flex; flex-direction: column; overflow: hidden; font-size: 14px; }
+  .cz-tq-deco { position: absolute; right: -30%; top: -6%; width: 70%; height: auto; opacity: 0.3; pointer-events: none; }
+  .cz-tq-bar { position: relative; display: flex; justify-content: space-between; align-items: center; padding: 14px 16px 6px; }
+  .cz-tq-bar img { height: 20px; width: auto; }
+  .cz-tq-close { width: 44px; height: 44px; border-color: rgba(255, 255, 255, 0.3); }
+  .cz-tq-sp { width: 44px; }
+  .cz-tq-eyebrow { position: relative; margin: 6px 16px 0; text-align: center; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #EADFF7; }
+  .cz-tq-paper { position: relative; margin: 14px 20px 0; display: flex; flex-direction: column; flex: 1; min-height: 0; }
+  .cz-tq-white { background: var(--dk-text); color: var(--dk-bg); border-radius: 10px 10px 0 0; padding: 18px 18px 8px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .cz-tq-meta { display: flex; justify-content: space-between; gap: 8px; font-size: 11px; color: #5C5968; }
+  .cz-tq-title { display: flex; flex-direction: column; gap: 2px; }
+  .cz-tq-title strong { font-family: var(--font-title); font-weight: 700; font-size: 20px; line-height: 1.1; }
+  .cz-tq-para { font-size: 12px; color: #5C5968; }
+  .cz-tq-fecha { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 10px 12px; background: #fff; border: 1px solid rgba(12, 12, 12, 0.08); border-radius: 6px; font-size: 12px; color: #5C5968; }
+  .cz-tq-fecha strong { color: var(--dk-violet); text-align: right; }
+  .cz-tq-lineas { list-style: none; display: flex; flex-direction: column; font-size: 13px; max-height: 42dvh; overflow: auto; }
+  .cz-tq-lineas li { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px dashed rgba(12, 12, 12, 0.15); }
+  .cz-tq-lineas li:last-child { border-bottom: 0; }
+  .cz-tq-lineas .cz-l-txt { display: flex; flex-direction: column; }
+  .cz-tq-lineas .cz-l-n { font-weight: 600; white-space: normal; }
+  .cz-tq-lineas .cz-l-k { color: #5C5968; }
+  .cz-tq-lineas .cz-l-r { display: flex; align-items: center; gap: 10px; flex: none; }
+  .cz-tq-lineas .cz-l-v { font-family: var(--font-body); color: var(--dk-bg); }
+  .cz-tq-lineas .cz-l-ok .cz-l-v { color: #2F8F5F; }
+  .cz-tq-lineas .cz-l-warn .cz-l-v { color: #9A6A10; }
+  .cz-tq-lineas .cz-icon-btn { width: 32px; height: 32px; border-color: rgba(12, 12, 12, 0.15); color: #B3261E; margin: 0; }
+  .cz-tq-dent { height: 14px; background-image: linear-gradient(45deg, transparent 50%, var(--dk-text) 50%), linear-gradient(-45deg, transparent 50%, var(--dk-text) 50%); background-size: 14px 14px; background-repeat: repeat-x; }
+  .cz-tq-total { position: relative; padding: 16px 20px 24px; display: flex; flex-direction: column; gap: 10px; }
+  .cz-tq-total-row { align-items: flex-end; }
+  .cz-tq-total-txt { display: flex; flex-direction: column; gap: 2px; }
+  .cz-tq-h { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dk-muted); }
+  .cz-tq-rango { font-family: var(--font-title); font-weight: 700; font-size: 30px; line-height: 1; color: #fff; }
+  .cz-tq-total .cz-acciones .btn { min-height: 48px; }
+  .cz-tq-total .cz-link { align-self: center; }
+
+  /* ===== FAQ ===== */
+  .cz-faq { display: flex; flex-direction: column; gap: 20px; max-width: 880px; }
+  .cz-faq h2 { font-size: clamp(28px, 3vw, 40px); }
+  .cz-faq-list { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+  .cz-faq-item { background: var(--dk-surface); border: 1px solid var(--dk-line); border-radius: var(--r-card); padding: 0 20px; }
+  .cz-faq-item summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 56px; padding: 12px 0; font-family: var(--font-title); font-weight: 700; font-size: 18px; }
+  .cz-faq-item summary::-webkit-details-marker { display: none; }
+  .cz-faq-item summary svg { flex: none; transition: transform 0.2s ease; color: var(--dk-lila-link); }
+  .cz-faq-item[open] summary svg { transform: rotate(180deg); }
+  .cz-faq-item p { padding: 0 0 18px; color: var(--dk-soft); font-size: 16px; line-height: 1.6; }
+  .cz-faq-cta { color: var(--dk-muted); }
+  .cz-faq-cta a { text-decoration: underline; text-underline-offset: 3px; }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 1200px) { .cz-grid4 { grid-template-columns: repeat(3, minmax(0, 1fr)); } .cz-tipos { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (max-width: 900px) {
+    .cz-panel { display: none; }
+    .cz { padding-bottom: 96px; }
+    .cz-grid4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cz-tipos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cz-ajustes { grid-template-columns: minmax(0, 1fr); }
+    .cz-barra { position: fixed; left: 0; right: 0; bottom: 0; z-index: 46; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); background: rgba(12, 12, 12, 0.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid var(--dk-line-2); }
+    .cz-barra-txt { display: flex; flex-direction: column; min-width: 0; }
+    .cz-barra-h { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--dk-muted); }
+    .cz-barra-rango { font-family: var(--font-title); font-weight: 700; font-size: 22px; line-height: 1.1; white-space: nowrap; }
+    .cz-barra .btn { flex: none; min-height: 44px; }
+    body.pag-cotizador .wa-float { display: none; }
+  }
+  @media (max-width: 640px) {
+    .cz-grid4 { grid-template-columns: minmax(0, 1fr); }
+    .cz-tipos { grid-template-columns: minmax(0, 1fr); }
+    .cz-tipo { min-height: 0; }
+    .cz-form-grid { grid-template-columns: minmax(0, 1fr); }
+    .cz-acciones { grid-template-columns: minmax(0, 1fr); }
+    .cz-stats { width: 100%; }
+    .cz-faq-item summary { font-size: 16px; }
+  }
+  @media (max-width: 420px) { .cz-tq-lineas { max-height: 38dvh; } }
+  @media (prefers-reduced-motion: reduce) { .cz-deco { animation: none; } }
+</style>
+
+<script>
+  import { W, F, OTRAS_FAMILIAS, FAMILIAS, NIVELES, INCLUIDO_H, SETUP_H, type FamiliaId, type GrupoId } from '../data/cotizador';
+  import {
+    calcular, estadoInicial, normalizarEstado, textoResumen, textoDependencia, fmt, fmtM, fmtFecha,
+    type Estado, type Cliente, type Resultado,
+  } from '../scripts/cotizador';
+  import { enviarFormulario, marcarTiempo } from '../scripts/formulario';
+  import { waLink } from '../data/sitio';
+
+  const CLAVE = 'dk-cotizador-v1';
+  const root = document.getElementById('cotizador');
+  const barra = document.querySelector<HTMLElement>('[data-barra]');
+  const dialog = document.getElementById('tiquete') as HTMLDialogElement | null;
+  const form = document.getElementById('form-cotizacion') as HTMLFormElement | null;
+  if (root && form) iniciar(root, form);
+
+  function iniciar(root: HTMLElement, form: HTMLFormElement) {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let estado: Estado = estadoInicial();
+    let cli: Cliente = { nombre: '', empresa: '', tel: '', email: '' };
+    let comoNosConocio = '';
+    let ultimoFoco: HTMLElement | null = null;
+    let r: Resultado = calcular(estado);
+
+    /* ---------- persistencia ---------- */
+    try {
+      const raw = localStorage.getItem(CLAVE);
+      if (raw) {
+        const g = JSON.parse(raw) as { estado?: unknown; cli?: Partial<Cliente>; como?: string };
+        estado = normalizarEstado(g.estado);
+        if (g.cli) cli = { nombre: g.cli.nombre ?? '', empresa: g.cli.empresa ?? '', tel: g.cli.tel ?? '', email: g.cli.email ?? '' };
+        comoNosConocio = g.como ?? '';
+      }
+    } catch { /* sin almacenamiento */ }
+    let tGuardar = 0;
+    const guardar = () => {
+      window.clearTimeout(tGuardar);
+      tGuardar = window.setTimeout(() => { try { localStorage.setItem(CLAVE, JSON.stringify({ estado, cli, como: comoNosConocio })); } catch { /* nada */ } }, 150);
+    };
+
+    /* ---------- helpers DOM ---------- */
+    const q = <T extends Element = HTMLElement>(sel: string, ctx: ParentNode = document) => ctx.querySelector<T>(sel);
+    const qa = <T extends Element = HTMLElement>(sel: string, ctx: ParentNode = document) => Array.from(ctx.querySelectorAll<T>(sel));
+    const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string));
+    const setTxt = (sel: string, v: string) => { for (const el of qa(sel)) el.textContent = v; };
+    const setHidden = (el: Element | null, h: boolean) => { if (el) el.toggleAttribute('hidden', h); };
+
+    const campos = {
+      nombre: q<HTMLInputElement>('#f-nombre', form)!, empresa: q<HTMLInputElement>('#f-empresa', form)!,
+      tel: q<HTMLInputElement>('#f-tel', form)!, email: q<HTMLInputElement>('#f-correo', form)!,
+      como: q<HTMLSelectElement>('#f-como', form)!,
+    };
+    campos.nombre.value = cli.nombre; campos.empresa.value = cli.empresa; campos.tel.value = cli.tel; campos.email.value = cli.email; campos.como.value = comoNosConocio;
+    marcarTiempo(form);
+
+    const numCot = () => {
+      const hoy = new Date();
+      const h = Math.abs((cli.nombre + cli.tel).length * 7919) % 900 + 100;
+      return `DK-${hoy.getFullYear()}${String(hoy.getMonth() + 1).padStart(2, '0')}-${h}`;
+    };
+    const listo = () => cli.nombre.trim().length > 1 && cli.tel.trim().length > 6 && cli.email.indexOf('@') > 0;
+
+    /* ---------- render ---------- */
+    function render() {
+      r = calcular(estado);
+      const texto = textoResumen(estado, r, cli);
+
+      // familias y secciones
+      for (const f of FAMILIAS) {
+        const on = !!estado.fam[f.id];
+        q(`[data-fam="${f.id}"]`)?.setAttribute('aria-pressed', String(on));
+        const n = f.id === 'web' ? r.webLines.length : F[f.id as Exclude<FamiliaId, 'web'>].items.filter((it) => estado.otros[it.id]).length;
+        const c = q(`[data-fam-count="${f.id}"]`);
+        if (c) { c.textContent = String(n); setHidden(c, !(on && n > 0)); }
+        setHidden(q(`[data-sec="${f.id}"]`), !on);
+      }
+      // tipos
+      for (const b of qa('[data-tipo]')) b.setAttribute('aria-pressed', String(b.dataset.tipo === estado.tipo));
+      // módulos seleccionados
+      for (const b of W) {
+        const line = r.webLines.find((l) => l.id === b.id);
+        const card = q(`.cz-msel[data-id="${b.id}"]`);
+        if (card) {
+          setHidden(card, !line);
+          const inc = !!r.incluidos[b.id];
+          const h = q('[data-h]', card); if (h) h.textContent = `+${Math.round(line ? line.h : b.h)} h`;
+          setHidden(q('[data-inc]', card), !inc);
+          setHidden(q('[data-rm]', card), inc);
+          const mine = estado.opts[b.id] ?? {};
+          for (const ob of qa('[data-opt-i]', card)) ob.setAttribute('aria-pressed', String(!!mine[ob.dataset.optI ?? '']));
+          const qty = q<HTMLInputElement>('[data-qty]', card); if (qty && document.activeElement !== qty) qty.value = String(estado.qtyProd);
+          const nota = q('[data-nota]', card);
+          if (nota) { const t = (line && line.nota) || (b.ext ? 'Recomendamos herramienta externa integrada. Esta es la versión propia' : ''); nota.textContent = t; setHidden(nota, !t); }
+        }
+        const disp = q(`.cz-mdisp[data-id="${b.id}"]`);
+        if (disp) {
+          setHidden(disp, !!r.selected[b.id] || b.g !== estado.grp);
+          const dep = q('[data-dep]', disp); const t = textoDependencia(b, r);
+          if (dep) { dep.textContent = t; setHidden(dep, !t); }
+        }
+      }
+      setTxt('[data-n-sel]', String(r.webLines.length));
+      for (const t of qa('[data-grp]')) t.setAttribute('aria-selected', String(t.dataset.grp === estado.grp));
+      setHidden(q('[data-vacio]'), W.some((b) => !r.selected[b.id] && b.g === estado.grp));
+      // ajustes
+      for (const b of qa<HTMLElement>('[data-seg]')) {
+        const k = b.dataset.seg as 'lvl' | 'cont' | 'urg';
+        b.setAttribute('aria-pressed', String(estado[k] === b.dataset.v));
+      }
+      // otras familias
+      for (const b of qa('[data-otro]')) b.setAttribute('aria-pressed', String(!!estado.otros[b.dataset.otro ?? '']));
+
+      // panel, barra, tiquete (comparten data-*)
+      setTxt('[data-horas]', String(r.totalH));
+      setTxt('[data-rango]', r.rangoTxt);
+      setTxt('[data-rango-nota]', r.rangoNota);
+      setTxt('[data-fecha]', r.fechaTxt);
+      setTxt('[data-stat="items"]', String(r.nItems));
+      setTxt('[data-stat="horas"]', String(r.totalH));
+      setTxt('[data-stat="semanas"]', String(r.semanas));
+      setHidden(q('[data-desde]'), !r.modoDesde);
+      setHidden(q('[data-tq-desde]'), !r.modoDesde);
+      const men = q('[data-mensual]');
+      if (men) { setHidden(men, !(r.mensual > 0)); setTxt('[data-ret-n]', String(r.retN)); setTxt('[data-mensual-v]', fmtM(r.mensualNeto)); }
+      const tqm = q('[data-tq-mensual]');
+      if (tqm) { tqm.textContent = r.mensual > 0 ? `Mensual: ${fmt(r.mensualNeto)} / mes (${r.retN} servicios)` : ''; setHidden(tqm, !(r.mensual > 0)); }
+      r.fases.forEach((f, i) => {
+        const li = q(`[data-fase="${i}"]`); if (!li) return;
+        q('[data-fase-h]', li)!.textContent = String(f.h);
+        q('[data-fase-c]', li)!.textContent = f.c;
+      });
+      const ul = q('[data-lineas]');
+      if (ul) ul.innerHTML = r.lineas.map((l) => `<li class="cz-l-${l.tono}"><span class="cz-l-txt"><span class="cz-l-n">${esc(l.n)}</span><span class="cz-l-k">${esc(l.k)}</span></span><span class="cz-l-v">${esc(l.v)}</span></li>`).join('');
+      const hint = q('[data-hint]');
+      if (hint) hint.textContent = listo() ? `Te enviamos el desglose al correo con el número de cotización ${numCot()}.` : 'WhatsApp funciona ya. Para recibirlo por correo completa nombre, WhatsApp y correo.';
+      const pre = q('[data-texto]'); if (pre) pre.textContent = texto;
+      const href = waLink(texto);
+      for (const a of qa<HTMLAnchorElement>('[data-wa]')) a.href = href;
+
+      renderTiquete();
+      guardar();
+    }
+
+    function renderTiquete() {
+      if (!dialog) return;
+      const nivel = NIVELES.find((n) => n.v === estado.lvl);
+      setTxt('[data-tq-num]', numCot());
+      setTxt('[data-tq-hoy]', fmtFecha(new Date()));
+      setTxt('[data-tq-titulo]', r.famWeb ? `${r.tipo.n}${nivel && nivel.f > 1 ? ' · ' + nivel.label.toLowerCase() : ''}` : 'Servicios DKODING');
+      setTxt('[data-tq-para]', `${cli.empresa.trim() ? 'Para ' + cli.empresa.trim() + ' · ' : ''}${r.nItems} módulos`);
+      const ul = q('[data-tq-lineas]');
+      if (!ul) return;
+      const items: string[] = [];
+      const li = (n: string, k: string, v: string, tono = 'normal', rm = '') =>
+        `<li class="cz-l-${tono}"><span class="cz-l-txt"><span class="cz-l-n">${esc(n)}</span>${k ? `<span class="cz-l-k">${esc(k)}</span>` : ''}</span><span class="cz-l-r"><span class="cz-l-v">${esc(v)}</span>${rm ? `<button type="button" class="cz-icon-btn" data-rm="${esc(rm)}" aria-label="Quitar ${esc(n)}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></button>` : ''}</span></li>`;
+      if (r.famWeb) {
+        for (const l of r.webLines) items.push(li(l.n, [l.incluido ? 'Incluido' : 'Añadido', ...l.optsOn.map((o) => o.toLowerCase())].join(' · '), `${Math.round(l.h)} h`, 'normal', l.incluido ? '' : l.id));
+        items.push(li('Incluido en todo sitio DKODING', 'Capacitación · soporte 3 meses · dkard', `${INCLUIDO_H} h`, 'ok'));
+        items.push(li('Setup técnico y dirección', r.factores.total > 1 ? `+ ajuste ×${r.factores.total.toFixed(2).replace(/0$/, '').replace('.', ',')}` : 'Repo, Cloudflare, analítica, schema', `${Math.round(SETUP_H + r.webDir)} h`));
+      }
+      for (const l of r.otrosLines) items.push(li(l.n, l.k, l.v, l.ret ? 'lila' : 'normal'));
+      for (const l of r.lineas.filter((x) => (x.tono === 'ok' && x.n.startsWith('Descuentos')) || x.tono === 'warn' || x.n.startsWith('Dos o más'))) items.push(li(l.n, l.k, l.v, l.tono));
+      ul.innerHTML = items.join('') || '<li><span class="cz-l-txt"><span class="cz-l-n">Elige módulos para ver el resumen</span></span></li>';
+    }
+
+    /* ---------- acciones ---------- */
+    const toggleFam = (id: FamiliaId) => { estado.fam[id] = !estado.fam[id]; render(); };
+    const confirmar = (abrir: boolean) => { for (const c of qa('[data-confirm]')) setHidden(c, !abrir); for (const b of qa('[data-act="vaciar"]')) setHidden(b, abrir); };
+    const vaciar = () => {
+      estado = estadoInicial();
+      try { localStorage.removeItem(CLAVE); } catch { /* nada */ }
+      confirmar(false);
+      render();
+    };
+    const abrirTiquete = (origen: HTMLElement) => {
+      if (!dialog) return;
+      ultimoFoco = origen;
+      renderTiquete();
+      if (typeof dialog.showModal === 'function') dialog.showModal(); else dialog.setAttribute('open', '');
+      document.documentElement.style.overflow = 'hidden';
+      q<HTMLElement>('[data-act="cerrar-tiquete"]', dialog)?.focus();
+    };
+    const cerrarTiquete = () => {
+      if (!dialog) return;
+      if (dialog.open) dialog.close(); else dialog.removeAttribute('open');
+      document.documentElement.style.overflow = '';
+      ultimoFoco?.focus();
+    };
+    dialog?.addEventListener('close', () => { document.documentElement.style.overflow = ''; ultimoFoco?.focus(); });
+    dialog?.addEventListener('cancel', (e) => { e.preventDefault(); cerrarTiquete(); });
+
+    function onClick(e: Event) {
+      const t = (e.target as HTMLElement).closest<HTMLElement>('button, [data-act]');
+      if (!t) return;
+      const d = t.dataset;
+      if (d.fam) return toggleFam(d.fam as FamiliaId);
+      if (d.tipo) { estado.tipo = d.tipo; return render(); }
+      if (d.grp) { estado.grp = d.grp as GrupoId; return render(); }
+      if (d.rm) { delete estado.sel[d.rm]; delete estado.opts[d.rm]; return render(); }
+      if (t.classList.contains('cz-mdisp') && d.id) { estado.sel[d.id] = true; return render(); }
+      if (d.optMod !== undefined && d.optI !== undefined) {
+        const mine = estado.opts[d.optMod] ?? {}; mine[d.optI] = !mine[d.optI]; estado.opts[d.optMod] = mine; return render();
+      }
+      if (d.seg && d.v) { (estado as unknown as Record<string, string>)[d.seg] = d.v; return render(); }
+      if (d.otro) { estado.otros[d.otro] = !estado.otros[d.otro]; return render(); }
+      switch (d.act) {
+        case 'quitar-anadidos': estado.sel = {}; estado.opts = {}; return render();
+        case 'desglose': { const open = t.getAttribute('aria-expanded') === 'true'; t.setAttribute('aria-expanded', String(!open)); setHidden(q('#desglose'), open); return; }
+        case 'vaciar': return confirmar(true);
+        case 'vaciar-no': return confirmar(false);
+        case 'vaciar-si': return vaciar();
+        case 'abrir-tiquete': return abrirTiquete(t);
+        case 'cerrar-tiquete': return cerrarTiquete();
+        case 'ir-datos': {
+          cerrarTiquete();
+          document.getElementById('datos')?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+          window.setTimeout(() => campos.nombre.focus({ preventScroll: true }), reduce ? 0 : 450);
+          return;
+        }
+      }
+    }
+    root.addEventListener('click', onClick);
+    barra?.addEventListener('click', onClick);
+    dialog?.addEventListener('click', (e) => { if (e.target === dialog) cerrarTiquete(); else onClick(e); });
+
+    root.addEventListener('input', (e) => {
+      const t = e.target as HTMLInputElement | HTMLSelectElement;
+      if (t.matches('[data-qty]')) { estado.qtyProd = Math.max(0, Number(t.value) || 0); return render(); }
+      if (t === campos.nombre) cli.nombre = t.value;
+      else if (t === campos.empresa) cli.empresa = t.value;
+      else if (t === campos.tel) cli.tel = t.value;
+      else if (t === campos.email) cli.email = t.value;
+      else if (t === campos.como) comoNosConocio = t.value;
+      else return;
+      render();
+    });
+
+    /* ---------- envío por correo ---------- */
+    const errorEl = q('[data-form-error]', form)!;
+    const okEl = q('[data-form-ok]', form)!;
+    const btn = q<HTMLButtonElement>('[data-submit]', form)!;
+    const btnTxt = q('[data-submit-txt]', form)!;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      setHidden(errorEl, true); setHidden(okEl, true);
+      for (const el of [campos.nombre, campos.tel, campos.email]) el.removeAttribute('aria-invalid');
+      if (!form.checkValidity() || !listo()) {
+        const malo = [campos.nombre, campos.tel, campos.email].find((el) => !el.checkValidity() || !el.value.trim()) ?? campos.nombre;
+        malo.setAttribute('aria-invalid', 'true');
+        errorEl.textContent = 'Completa nombre, WhatsApp y correo para enviarte el detalle.';
+        setHidden(errorEl, false);
+        document.getElementById('datos')?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+        malo.focus({ preventScroll: true });
+        return;
+      }
+      if (r.totalH === 0) {
+        errorEl.textContent = 'Elige al menos un módulo o servicio antes de enviar.'; setHidden(errorEl, false); return;
+      }
+      btn.disabled = true; btnTxt.textContent = 'Enviando…';
+      const texto = textoResumen(estado, r, cli);
+      const res = await enviarFormulario(form, {
+        tipo: 'cotizacion',
+        comoNosConocio,
+        detalle: {
+          numero: numCot(),
+          resumen: texto,
+          lineas: r.lineas.map((l) => `${l.n} · ${l.k} · ${l.v}`),
+          modulos: r.webLines.map((l) => `${l.n} · ${Math.round(l.h)} h${l.optsOn.length ? ' (' + l.optsOn.join(', ') + ')' : ''}`),
+          otros: r.otrosLines.map((l) => `${l.n} · ${l.k} · ${l.v}`),
+          rango: { min: r.minV, max: r.maxV, texto: r.rangoTxt, modoDesde: r.modoDesde },
+          horas: r.totalH,
+          mensual: r.mensualNeto,
+          entrega: r.fechaTxt,
+          tipo: r.tipo.n, nivel: estado.lvl, contenido: estado.cont, tiempos: estado.urg,
+        },
+      });
+      btn.disabled = false; btnTxt.textContent = 'Enviar al correo';
+      if (res.ok) {
+        okEl.textContent = `Listo. Te enviamos la cotización${res.numero ? ' n.º ' + res.numero : ''} a ${cli.email.trim()}. Te escribimos en menos de un día hábil.`;
+        setHidden(okEl, false);
+        okEl.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'nearest' });
+      } else {
+        errorEl.innerHTML = `${esc(res.error || 'No pudimos enviar el correo.')} <a href="${waLink(texto)}" target="_blank" rel="noopener">Envíalo por WhatsApp</a>.`;
+        setHidden(errorEl, false);
+      }
+    });
+
+    render();
+  }
+</script>
