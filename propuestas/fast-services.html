@@ -1,0 +1,475 @@
+<title>Cotización Fast Services</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: plantilla DKODING. Cliente activo: primero "lo que ya tienes", luego "lo nuevo"
+   (SEO + tienda) y un cuadro de los próximos 3 meses. Hues validados claro/oscuro:
+   s0 Google Ads, s1 SEO, s2 tienda, sx inversión en Google (externa, gris). */
+:root {
+  --bg: #f3f5f3; --surface: #ffffff; --surface-2: #e9ede9;
+  --ink: #141916; --ink-2: #4e5852; --ink-3: #7d867f;
+  --line: #d9dfda; --line-2: #c2c9c3;
+  --accent: #1f6f4c; --accent-ink: #ffffff; --accent-soft: #e2f0e8;
+  --gold: #8a6a1c; --gold-soft: #f3ead3;
+  --s0: #2a5fd0; --s1: #c98500; --s2: #1f8a5b; --sx: #9aa39d;
+  --shadow: 0 1px 2px rgba(20,25,22,.06), 0 8px 24px -12px rgba(20,25,22,.18);
+  --display: "Cormorant Garamond", "Times New Roman", Georgia, serif;
+  --sans: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --r: 14px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111513; --surface: #1b1f1c; --surface-2: #242a26;
+    --ink: #eef1ee; --ink-2: #b9c1bb; --ink-3: #848d87;
+    --line: #2c332e; --line-2: #3a423c;
+    --accent: #5fc08f; --accent-ink: #0d1a12; --accent-soft: #1d3327;
+    --gold: #e1b85c; --gold-soft: #3a3120;
+    --s0: #4f84e8; --s1: #c98500; --s2: #2fa36f; --sx: #6d756f;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111513; --surface: #1b1f1c; --surface-2: #242a26;
+  --ink: #eef1ee; --ink-2: #b9c1bb; --ink-3: #848d87;
+  --line: #2c332e; --line-2: #3a423c;
+  --accent: #5fc08f; --accent-ink: #0d1a12; --accent-soft: #1d3327;
+  --gold: #e1b85c; --gold-soft: #3a3120;
+  --s0: #4f84e8; --s1: #c98500; --s2: #2fa36f; --sx: #6d756f;
+  --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 112px;
+}
+.wrap { max-width: 680px; margin: 0 auto; }
+h1, h2, h3 { margin: 0; text-wrap: balance; line-height: 1.15; }
+h1 { font-family: var(--display); font-weight: 500; font-size: clamp(38px, 8vw, 54px); letter-spacing: -.01em; }
+h2 { font-family: var(--display); font-weight: 600; font-size: clamp(28px, 5vw, 32px); }
+h3 { font-size: 17px; font-weight: 600; }
+p { margin: 0; }
+.muted { color: var(--ink-2); } .small { font-size: 14px; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
+.num { font-variant-numeric: tabular-nums; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+.top { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-block: 18px 0; }
+.brand { font-weight: 700; letter-spacing: .14em; font-size: 14px; } .brand span { color: var(--accent); }
+.meta-pill { font-size: 12px; color: var(--ink-2); background: var(--surface-2); padding: 6px 10px; border-radius: 999px; white-space: nowrap; }
+.hero { padding-block: 36px 26px; display: grid; gap: 14px; }
+.hero .lead { font-size: 18px; color: var(--ink-2); max-width: 34em; }
+.hero .meta { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 14px; color: var(--ink-2); }
+.hero .meta b { color: var(--ink); font-weight: 600; }
+
+.kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.kpi { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 14px 12px; display: grid; gap: 4px; min-width: 0; }
+.kpi .label { font-size: 13px; color: var(--ink-2); }
+.kpi .value { font-size: clamp(20px, 5.2vw, 30px); font-weight: 700; letter-spacing: -.02em; line-height: 1.1; }
+.kpi .when { font-size: 12px; color: var(--ink-3); }
+.kpi.lead { border-color: var(--accent); background: var(--accent-soft); }
+@media (max-width: 460px) { .kpis { grid-template-columns: 1fr 1fr; } .kpi.lead { grid-column: 1 / -1; } }
+
+section { padding-block: 32px; border-top: 1px solid var(--line); }
+.sec-head { display: grid; gap: 6px; margin-bottom: 18px; }
+.sec-head p { color: var(--ink-2); max-width: 40em; }
+
+.cards { display: grid; gap: 12px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); overflow: hidden; }
+.card.off { box-shadow: none; } .card.off .c-body { opacity: .5; }
+.c-head { display: grid; grid-template-columns: 6px 1fr auto; gap: 14px; }
+.c-stripe { background: var(--c); }
+.c-title { padding: 16px 0 12px; display: grid; gap: 3px; min-width: 0; }
+.c-title h3 { font-size: 19px; }
+.c-title .sub { font-size: 13.5px; color: var(--ink-2); }
+.c-price { padding: 16px 16px 12px 0; text-align: right; display: grid; gap: 2px; align-content: start; }
+.c-price .amt { font-size: 22px; font-weight: 700; letter-spacing: -.02em; white-space: nowrap; }
+.c-price .per { font-size: 12px; color: var(--ink-3); }
+.c-price .was { font-size: 13px; color: var(--ink-3); text-decoration: line-through; }
+.c-body { padding: 0 16px 14px 20px; display: grid; gap: 12px; }
+ul.plain { margin: 0; padding: 0; list-style: none; display: grid; gap: 7px; font-size: 15px; color: var(--ink-2); }
+ul.plain li { display: grid; grid-template-columns: 18px 1fr; gap: 10px; }
+ul.plain li::before { content: "✓"; color: var(--accent); font-weight: 700; }
+ul.plain li b { color: var(--ink); font-weight: 600; }
+.plus { border: 1px dashed var(--gold); background: var(--gold-soft); border-radius: 10px; padding: 12px 14px; display: grid; gap: 4px; font-size: 14.5px; }
+.plus b { color: var(--gold); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+.plus p { color: var(--ink); }
+.c-foot { border-top: 1px solid var(--line); padding: 12px 16px 12px 20px; display: grid; gap: 10px; }
+.opt { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); cursor: pointer; min-height: 48px; font-size: 14.5px; }
+.opt input { width: 20px; height: 20px; accent-color: var(--accent); margin: 0; flex: none; cursor: pointer; }
+.opt .t { flex: 1; min-width: 0; } .opt .t small { display: block; color: var(--ink-2); font-size: 12.5px; }
+.opt.locked { cursor: default; color: var(--ink-2); } .opt.locked input { accent-color: var(--ink-3); }
+.pill { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 3px 8px; border-radius: 6px; background: var(--accent-soft); color: var(--accent); }
+.pill.gold { background: var(--gold-soft); color: var(--gold); }
+.note { font-size: 13.5px; color: var(--ink-2); }
+
+/* cuotas */
+.pays { display: grid; gap: 10px; }
+.pay { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; }
+.pay .n { width: 34px; height: 34px; border-radius: 50%; background: var(--ink); color: var(--bg); font-weight: 700; display: grid; place-items: center; font-size: 14px; }
+.pay .body { display: grid; gap: 4px; min-width: 0; }
+.pay .row { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+.pay .row b { font-size: 16px; } .pay .row .amt { font-weight: 700; font-size: 18px; white-space: nowrap; }
+.pay .desc { font-size: 14px; color: var(--ink-2); }
+
+/* meses */
+.months { display: grid; gap: 12px; }
+.month { display: grid; grid-template-columns: 56px 1fr; gap: 10px; align-items: center; }
+.month .lbl { font-size: 14px; font-weight: 600; color: var(--ink-2); }
+.month .trk { display: grid; gap: 4px; min-width: 0; }
+.bar { display: flex; gap: 2px; height: 22px; border-radius: 4px; overflow: hidden; background: var(--surface-2); }
+.bar i { display: block; height: 100%; min-width: 2px; transition: flex-basis .3s ease; }
+.bar i.off { display: none; }
+.month .tot { font-size: 13px; color: var(--ink-2); display: flex; justify-content: space-between; gap: 8px; }
+.month .tot b { color: var(--ink); }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 14px 0 0; padding: 0; font-size: 14px; }
+.legend li { list-style: none; display: flex; align-items: center; gap: 8px; color: var(--ink-2); }
+.legend li.off { opacity: .4; text-decoration: line-through; }
+.sw { width: 12px; height: 12px; border-radius: 3px; flex: none; }
+.k0 { background: var(--s0); } .k1 { background: var(--s1); } .k2 { background: var(--s2); } .kx { background: var(--sx); }
+
+.callout { background: var(--gold-soft); border-radius: var(--r); padding: 14px 16px; font-size: 15px; display: grid; gap: 6px; }
+.callout b { color: var(--gold); }
+.twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 520px) { .twocol { grid-template-columns: 1fr; } }
+.box { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px; display: grid; gap: 8px; }
+.box h3 { font-size: 15px; }
+.box ul { margin: 0; padding-left: 18px; font-size: 14.5px; color: var(--ink-2); display: grid; gap: 4px; }
+.gantt { display: grid; grid-template-columns: 110px 1fr; gap: 8px 10px; align-items: center; font-size: 14px; }
+.gantt .lbl { color: var(--ink-2); font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.gantt .track { display: grid; grid-template-columns: repeat(6, 1fr); gap: 2px; height: 22px; }
+.gantt .track i { background: var(--surface-2); border-radius: 3px; }
+.gantt .track i.on { background: var(--s2); } .gantt .track i.go { background: var(--gold); }
+.gantt .weeks { display: grid; grid-template-columns: repeat(6, 1fr); gap: 2px; font-size: 12px; color: var(--ink-3); text-align: center; }
+
+.approve { background: var(--ink); color: var(--bg); border-radius: 18px; padding: 24px 20px; display: grid; gap: 14px; }
+.approve h2 { color: var(--bg); } .approve p { color: color-mix(in srgb, var(--bg) 78%, transparent); }
+.approve .sum { background: color-mix(in srgb, var(--bg) 10%, transparent); border: 1px solid color-mix(in srgb, var(--bg) 20%, transparent); border-radius: 12px; padding: 12px 14px; font-size: 14px; white-space: pre-wrap; font-family: var(--sans); line-height: 1.55; margin: 0; }
+.btn { font: inherit; font-weight: 700; font-size: 15px; border: 0; border-radius: 12px; padding: 14px 18px; cursor: pointer; min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; }
+.btn.primary { background: var(--accent); color: var(--accent-ink); }
+.btn.ghost { background: transparent; color: var(--bg); border: 1px solid color-mix(in srgb, var(--bg) 35%, transparent); }
+.approve .btns { display: flex; gap: 10px; flex-wrap: wrap; }
+.contact { display: grid; gap: 4px; font-size: 14px; } .contact b { color: var(--bg); font-weight: 600; user-select: all; }
+
+.sticky { position: fixed; left: 0; right: 0; bottom: 0; z-index: 10; background: var(--surface); border-top: 1px solid var(--line);
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-top: 10px; padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)); box-shadow: 0 -8px 24px -12px rgba(0,0,0,.25); }
+.sticky .in { max-width: 680px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.sticky .lbl { font-size: 12px; color: var(--ink-3); }
+.sticky .v { font-size: 18px; font-weight: 700; } .sticky .v small { font-size: 12px; font-weight: 500; color: var(--ink-2); }
+.sticky a.btn { padding: 10px 14px; min-height: 42px; font-size: 14px; }
+.foot { padding-block: 24px 10px; font-size: 13px; color: var(--ink-3); display: grid; gap: 4px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">DKODING<span>.</span></div>
+    <div class="meta-pill" id="validez"></div>
+  </header>
+
+  <div class="hero">
+    <p class="eyebrow" id="client-eyebrow"></p>
+    <h1 id="title"></h1>
+    <p class="lead" id="lead"></p>
+    <div class="meta">
+      <span>Fecha <b id="fecha"></b></span>
+      <span>Cliente <b>activo</b></span>
+      <span>Moneda <b>COP, sin IVA</b></span>
+    </div>
+  </div>
+
+  <div class="kpis" aria-label="Resumen de costos">
+    <div class="kpi lead">
+      <div class="label">Tienda virtual, una sola vez</div>
+      <div class="value" id="k-once">$2.000.000</div>
+      <div class="when" id="k-once-when">En 3 pagos · valor de lista $6.000.000</div>
+    </div>
+    <div class="kpi">
+      <div class="label">A DKODING cada mes</div>
+      <div class="value" id="k-fee">$800.000</div>
+      <div class="when" id="k-fee-when">Google Ads + SEO con soporte</div>
+    </div>
+    <div class="kpi">
+      <div class="label">A Google cada mes</div>
+      <div class="value" id="k-inv">$800.000</div>
+      <div class="when">Inversión en anuncios, como hoy</div>
+    </div>
+  </div>
+
+  <!-- ===================== LO QUE YA TIENES ===================== -->
+  <section id="hoy">
+    <div class="sec-head">
+      <p class="eyebrow">Sigue igual</p>
+      <h2>Lo que ya tienes con nosotros</h2>
+    </div>
+    <div class="cards" id="cards-hoy"></div>
+  </section>
+
+  <!-- ===================== LO NUEVO ===================== -->
+  <section id="nuevo">
+    <div class="sec-head">
+      <p class="eyebrow">Lo nuevo</p>
+      <h2>Que Google además de traer clientes, los deje comprando</h2>
+      <p>Hoy los anuncios llevan gente a una página donde solo puede cotizar. Con tienda, esa misma gente compra a cualquier hora, y los anuncios aprenden de las ventas reales.</p>
+    </div>
+    <div class="cards" id="cards-nuevo"></div>
+  </section>
+
+  <!-- ===================== PAGOS TIENDA ===================== -->
+  <section id="pagos">
+    <div class="sec-head">
+      <p class="eyebrow">Formas de pago</p>
+      <h2>La tienda, en tres pagos</h2>
+      <p id="pagos-lead">Sin intereses. Cada pago coincide con un avance que puedes ver.</p>
+    </div>
+    <div class="pays" id="pays"></div>
+    <div class="gantt" id="gantt" style="margin-top:22px"></div>
+  </section>
+
+  <!-- ===================== 3 MESES ===================== -->
+  <section id="meses">
+    <div class="sec-head">
+      <p class="eyebrow">Visión completa</p>
+      <h2>Qué pagas en los próximos tres meses</h2>
+      <p>Todo junto: lo de siempre, lo nuevo y la inversión en Google. Así no hay sorpresas.</p>
+    </div>
+    <div class="months" id="months"></div>
+    <ul class="legend" id="legend"></ul>
+    <p class="note" style="margin-top:12px" id="meses-after"></p>
+  </section>
+
+  <!-- ===================== CONDICIONES ===================== -->
+  <section id="condiciones">
+    <div class="twocol">
+      <div class="box">
+        <h3>Cómo se paga</h3>
+        <ul>
+          <li>Servicios mensuales: mes anticipado, dentro de los primeros 5 días, como hasta ahora.</li>
+          <li>Tienda: 3 pagos ligados a avances, por transferencia.</li>
+          <li>La inversión en anuncios la paga Fast Services directamente a Google.</li>
+          <li>El soporte va incluido mientras el SEO esté activo. Si se suspende el SEO, el soporte se cotiza aparte.</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Qué no incluye</h3>
+        <ul>
+          <li>La inversión en anuncios (va a Google).</li>
+          <li>Comisión de la pasarela por venta (~2,99% + $900 + IVA).</li>
+          <li>Fotografía propia de productos o del taller.</li>
+          <li>Integración con software contable o facturación.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="box" style="margin-top:12px">
+      <h3>Qué necesitamos de Fast Services</h3>
+      <ul>
+        <li>Lista de referencias Kärcher que venden, con precio y stock inicial.</li>
+        <li>Razón social, NIT y RUT para la pasarela de pagos.</li>
+        <li>Política de envíos: zonas, tarifas, tiempos.</li>
+        <li>Una persona que apruebe en cada pago.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== APROBAR ===================== -->
+  <section id="aprobar">
+    <div class="approve">
+      <h2>¿Arrancamos?</h2>
+      <p>Copia tu selección y envíanosla por WhatsApp o correo. Con eso agendamos el arranque de la tienda.</p>
+      <pre class="sum" id="summary"></pre>
+      <div class="btns">
+        <button class="btn primary" id="copy">Copiar mi selección</button>
+        <a class="btn ghost" id="wa-link" href="#" target="_blank" rel="noopener">Abrir WhatsApp</a>
+      </div>
+      <div class="contact">
+        <span>WhatsApp <b>+57 333 2790547</b></span>
+        <span>Correo <b>info@dkoding.net</b></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="foot">
+    <span>DKODING · Empresa de desarrollo web · Sitios que venden.</span>
+    <span>Precios en pesos colombianos, sin IVA (19%). Vigencia: 30 días desde la fecha de emisión.</span>
+  </div>
+</div>
+
+<div class="sticky">
+  <div class="in">
+    <div>
+      <div class="lbl">Tu selección</div>
+      <div class="v"><span id="sticky-once">$2.000.000</span> <small id="sticky-rec">+ $800.000/mes</small></div>
+    </div>
+    <a class="btn primary" href="#aprobar">Aprobar</a>
+  </div>
+</div>
+
+<script>
+/* =====================================================================
+   PLANTILLA DKODING · cliente activo. Edita solo este bloque.
+   ===================================================================== */
+const PROPUESTA = {
+  cliente: "Fast Services",
+  titulo: "Fast Services: de cotizar por WhatsApp a vender en línea",
+  lead: "Mantienes los anuncios que ya funcionan, sumas SEO con contenido y abres una tienda Kärcher en línea con inventario y pagos. Precio especial de cliente activo.",
+  fecha: "15 oct 2026",
+  vigencia: "Vigente hasta 14 nov 2026",
+  inversionGoogle: 800000,
+  actual: {
+    id: "ads", color: 0, nombre: "Google Ads administrado", sub: "Lo que ya está corriendo", precio: 500000, per: "al mes",
+    incluye: [
+      "Campañas de búsqueda para hidrolavadoras, aspiradoras y servicio técnico Kärcher en Medellín",
+      "Revisión y ajustes semanales; reporte mensual",
+      "Inversión actual en Google: $800.000 al mes, pagada directo a Google",
+    ],
+    nota: "Cuando la tienda esté en línea, los anuncios empiezan a medir ventas reales, no solo mensajes. Ahí conviene revisar la inversión.",
+  },
+  nuevos: [
+    {
+      id: "seo", color: 1, nombre: "SEO complementario", sub: "Aparecer en Google sin pagar cada clic, con soporte incluido", precio: 300000, per: "al mes",
+      incluye: [
+        ["2 contenidos al mes", "guías y comparativas que la gente busca: qué hidrolavadora elegir, mantenimiento, uso en casa o en empresa"],
+        ["Ficha de Google Maps optimizada", "para que el servicio técnico aparezca en el mapa con reseñas y fotos"],
+        ["Páginas y fichas de producto afinadas", "títulos, descripciones y velocidad"],
+        ["Reporte mensual", "posiciones, visitas y qué contenido trae clientes"],
+      ],
+      bonus: { t: "Soporte incluido", p: "Mientras el SEO esté activo, el soporte de la web y de la tienda va sin costo: cambios de precios, fotos, promociones, actualizaciones y cualquier falla." },
+      toggle: { label: "Incluir SEO con soporte", small: "Recomendado desde el primer mes de la tienda." },
+    },
+    {
+      id: "tienda", color: 2, nombre: "Tienda virtual Kärcher", sub: "Inventario, carrito y pagos, conectada al admin DKODING", precio: 2000000, lista: 6000000, per: "una sola vez · 3 pagos",
+      incluye: [
+        ["Catálogo con inventario", "cada referencia con stock, precio, fotos y ficha técnica"],
+        ["Carrito y pasarela de pagos", "tarjetas, PSE y Nequi"],
+        ["Envíos", "Medellín y nacional, con tarifas por zona"],
+        ["Admin DKODING", "productos, inventario y pedidos desde el mismo panel"],
+        ["Medición de ventas para Google Ads", "los anuncios ven qué vende y optimizan hacia eso"],
+        ["SEO técnico de base", "fichas de producto listas para Google"],
+      ],
+      bonus: { t: "Plus: catálogo oficial Kärcher", p: "Importamos el catálogo oficial de Kärcher, completo o solo las líneas que vendes, con fotos y descripciones. Tú defines precios y stock." },
+      toggle: { label: "Incluir la tienda virtual", small: "Precio especial de cliente activo, vigente hasta el 14 nov 2026." },
+      cuotas: [
+        { t: "Al firmar", d: "Arranca el diseño y la importación del catálogo", v: 700000, semana: 1 },
+        { t: "Semana 3", d: "Tienda navegable con catálogo cargado para revisar", v: 700000, semana: 3 },
+        { t: "Semana 6 · entrega", d: "Pagos probados, envíos configurados, tienda en línea", v: 600000, semana: 6 },
+      ],
+      semanas: 6,
+    },
+  ],
+  whatsapp: "573332790547",
+};
+
+/* ===================== motor ===================== */
+const fmt = n => "$" + Math.round(n).toLocaleString("es-CO");
+const $ = s => document.querySelector(s);
+const sel = new Set(PROPUESTA.nuevos.map(s => s.id));
+const seo = () => PROPUESTA.nuevos.find(s => s.id === "seo");
+const tienda = () => PROPUESTA.nuevos.find(s => s.id === "tienda");
+
+function card(s, opts = {}) {
+  const on = opts.on ?? true;
+  const inc = s.incluye.map(i => Array.isArray(i) ? `<li><span><b>${i[0]}:</b> ${i[1]}</span></li>` : `<li><span>${i}</span></li>`).join("");
+  return `<article class="card${on ? "" : " off"}" style="--c:var(--s${s.color})">
+    <div class="c-head"><div class="c-stripe"></div>
+      <div class="c-title"><h3>${s.nombre}</h3><span class="sub">${s.sub}</span></div>
+      <div class="c-price">${s.lista ? `<span class="was num">${fmt(s.lista)}</span>` : ""}<span class="amt">${fmt(s.precio)}</span><span class="per">${s.per}</span></div></div>
+    <div class="c-body"><ul class="plain">${inc}</ul>
+      ${s.bonus ? `<div class="plus"><b>${s.bonus.t}</b><p>${s.bonus.p}</p></div>` : ""}</div>
+    <div class="c-foot">
+      ${s.toggle
+        ? `<label class="opt"><input type="checkbox" id="sv-${s.id}" data-id="${s.id}" ${on ? "checked" : ""}><span class="t">${s.toggle.label}<small>${s.toggle.small}</small></span><span class="num">${fmt(s.precio)}${s.per.startsWith("al mes") ? " / mes" : ""}</span></label>`
+        : `<label class="opt locked"><input type="checkbox" checked disabled><span class="t">Sigue como hasta ahora<small>No cambia nada de lo que ya funciona.</small></span></label>`}
+      ${s.nota ? `<p class="note">${s.nota}</p>` : ""}
+    </div></article>`;
+}
+
+function renderCards() {
+  $("#cards-hoy").innerHTML = card(PROPUESTA.actual);
+  $("#cards-nuevo").innerHTML = PROPUESTA.nuevos.map(s => card(s, { on: sel.has(s.id) })).join("");
+  document.querySelectorAll("input[data-id]").forEach(i => i.addEventListener("change", e => {
+    e.target.checked ? sel.add(e.target.dataset.id) : sel.delete(e.target.dataset.id);
+    renderCards(); update();
+  }));
+}
+
+function update() {
+  const ads = PROPUESTA.actual.precio, inv = PROPUESTA.inversionGoogle;
+  const seoOn = sel.has("seo"), tOn = sel.has("tienda");
+  const fee = ads + (seoOn ? seo().precio : 0);
+  const once = tOn ? tienda().precio : 0;
+  const cuotas = tOn ? tienda().cuotas : [];
+
+  $("#k-once").textContent = tOn ? fmt(once) : "—";
+  $("#k-once-when").textContent = tOn ? `En 3 pagos · valor de lista ${fmt(tienda().lista)}` : "No incluida en esta selección";
+  $("#k-fee").textContent = fmt(fee);
+  $("#k-fee-when").textContent = seoOn ? "Google Ads + SEO con soporte" : "Solo Google Ads · soporte se cotiza aparte";
+  $("#k-inv").textContent = fmt(inv);
+  $("#sticky-once").textContent = tOn ? fmt(once) : fmt(0);
+  $("#sticky-rec").textContent = `+ ${fmt(fee)}/mes`;
+
+  // cuotas + cronograma
+  $("#pagos-lead").textContent = tOn ? "Sin intereses. Cada pago coincide con un avance que puedes ver." : "La tienda no está en esta selección. Márcala arriba para ver los pagos.";
+  $("#pays").innerHTML = cuotas.map((c, i) => `<div class="pay"><div class="n">${i + 1}</div><div class="body">
+      <div class="row"><b>${c.t}</b><span class="amt num">${fmt(c.v)}</span></div><div class="desc">${c.d}</div></div></div>`).join("");
+  if (tOn) {
+    const W = tienda().semanas;
+    const weeks = `<div></div><div class="weeks">${Array.from({ length: W }, (_, i) => `<span>${i + 1}</span>`).join("")}</div>`;
+    const fases = [["Diseño y catálogo", 1, 3], ["Pagos y envíos", 3, 5], ["Pruebas y entrega", 5, 6]];
+    const rows = fases.map(([n, a, b]) => `<div class="lbl">${n}</div><div class="track">${Array.from({ length: W }, (_, i) => `<i class="${i + 1 >= a && i + 1 <= b ? "on" : ""}"></i>`).join("")}</div>`).join("");
+    const pagos = `<div class="lbl" style="color:var(--gold);font-weight:600">Pagos</div><div class="track">${Array.from({ length: W }, (_, i) => `<i class="${cuotas.some(c => c.semana === i + 1) ? "go" : ""}"></i>`).join("")}</div>`;
+    $("#gantt").innerHTML = weeks + rows + pagos;
+  } else $("#gantt").innerHTML = "";
+
+  // 3 meses
+  const months = [1, 2, 3].map(m => {
+    const cuota = tOn ? (cuotas[m - 1]?.v || 0) : 0;
+    const segs = [
+      { k: "k0", n: "Google Ads", v: ads, on: true },
+      { k: "k1", n: "SEO con soporte", v: seoOn ? seo().precio : 0, on: seoOn },
+      { k: "k2", n: "Tienda (pago " + m + ")", v: cuota, on: tOn && cuota > 0 },
+      { k: "kx", n: "Inversión en Google", v: inv, on: true },
+    ];
+    const tot = segs.reduce((a, s) => a + (s.on ? s.v : 0), 0);
+    return { m, segs, tot };
+  });
+  const max = Math.max(...months.map(x => x.tot));
+  $("#months").innerHTML = months.map(x => `<div class="month"><div class="lbl">Mes ${x.m}</div><div class="trk">
+      <div class="bar" style="width:${(100 * x.tot / max).toFixed(1)}%">${x.segs.map(s => `<i class="${s.k}${s.on ? "" : " off"}" style="flex:0 0 calc(${(100 * s.v / x.tot).toFixed(2)}% - 2px)" title="${s.n}: ${fmt(s.v)}"></i>`).join("")}</div>
+      <div class="tot"><span>DKODING ${fmt(x.tot - inv)} · Google ${fmt(inv)}</span><b class="num">${fmt(x.tot)}</b></div></div></div>`).join("");
+  $("#legend").innerHTML = [
+    { k: "k0", n: "Google Ads", v: fmt(ads) + " / mes", on: true },
+    { k: "k1", n: "SEO con soporte", v: seoOn ? fmt(seo().precio) + " / mes" : "no incluido", on: seoOn },
+    { k: "k2", n: "Tienda virtual", v: tOn ? fmt(once) + " en 3 pagos" : "no incluida", on: tOn },
+    { k: "kx", n: "Inversión en Google", v: fmt(inv) + " / mes", on: true },
+  ].map(s => `<li class="${s.on ? "" : "off"}"><span class="sw ${s.k}"></span><span>${s.n} <b class="num">${s.v}</b></span></li>`).join("");
+  $("#meses-after").textContent = `Desde el mes 4: ${fmt(fee)} a DKODING y ${fmt(inv)} a Google cada mes${tOn ? ", con la tienda ya pagada" : ""}.`;
+
+  // resumen
+  const L = [`Propuesta DKODING · ${PROPUESTA.cliente}`, ``, `✓ Google Ads administrado · ${fmt(ads)} al mes (sigue igual)`];
+  if (seoOn) L.push(`✓ SEO complementario con soporte incluido · ${fmt(seo().precio)} al mes`);
+  if (tOn) L.push(`✓ Tienda virtual Kärcher · ${fmt(once)} una sola vez, en 3 pagos (${cuotas.map(c => fmt(c.v)).join(" + ")})`, `   + Plus: importación del catálogo oficial Kärcher`);
+  L.push(``, `A DKODING cada mes: ${fmt(fee)}`, `A Google cada mes: ${fmt(inv)} (inversión en anuncios)`);
+  const txt = L.join("\n");
+  $("#summary").textContent = txt;
+  $("#wa-link").href = `https://wa.me/${PROPUESTA.whatsapp}?text=${encodeURIComponent("Hola DKODING, apruebo esta selección:\n\n" + txt)}`;
+}
+
+$("#copy").addEventListener("click", async () => {
+  const btn = $("#copy"), txt = $("#summary").textContent;
+  try { await navigator.clipboard.writeText(txt); btn.textContent = "Copiado ✓"; }
+  catch { const rg = document.createRange(); rg.selectNodeContents($("#summary")); const s = getSelection(); s.removeAllRanges(); s.addRange(rg); btn.textContent = "Selecciona y copia el texto"; }
+  setTimeout(() => btn.textContent = "Copiar mi selección", 2200);
+});
+$("#client-eyebrow").textContent = `Propuesta para ${PROPUESTA.cliente}`;
+$("#title").textContent = PROPUESTA.titulo;
+$("#lead").textContent = PROPUESTA.lead;
+$("#fecha").textContent = PROPUESTA.fecha;
+$("#validez").textContent = PROPUESTA.vigencia;
+renderCards(); update();
+</script>
