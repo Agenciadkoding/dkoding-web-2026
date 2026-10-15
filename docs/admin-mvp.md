@@ -429,5 +429,16 @@ formulario desde otro sitio al login de cPanel o de WordPress?
 | Módulo SEO | Pago | Funciones en `seo-geo-notas-2026.md` §5 |
 | IA | Se paga con créditos | Registro de consumo por cliente y por función |
 
-Lo pendiente está en las preguntas del 8 de octubre. Los wireframes del producto para clientes
-esperan esas respuestas.
+### Respuestas del 15 de octubre
+
+| Pregunta | Respuesta | Qué implica |
+|---|---|---|
+| Sitios de los clientes | **Todos se migran al sistema DKODING** (Astro), con acciones manuales y del sistema | El asistente de desarrollo trabaja sobre una sola base. La migración desde WordPress es un servicio y una etapa del producto |
+| Alcance del asistente | Textos, imágenes y secciones; cada cambio con vista previa y el cliente publica; lo grande pasa a DKODING como ticket o cotización | Flujo: pedir → vista previa → publicar o escalar |
+| Créditos | Se define un valor por crédito. Los del plan se renuevan cada mes **sin acumularse**; los comprados aparte **vencen al año**. Hay que medir el consumo real antes de ponerles precio | Registro de consumo por cliente y por función desde el primer día; dos bolsas de créditos con vencimientos distintos |
+| Plan base del cliente | CRM, Web, Soporte, asistente y **bóveda de contraseñas propia**. **Sin cotizador**. SEO es un módulo pago | Accesos deja de ser solo de la agencia: cada cliente tiene su bóveda, con las mismas reglas de verificación |
+| Usuarios | DKODING entra a dar soporte. Modelo multi-rol desde el inicio, pero por ahora **un admin por cliente** | Roles en el modelo; la pantalla de usuarios puede esperar. El acceso de DKODING queda en el registro del cliente |
+| Marca blanca | Solo el aspecto: logo y colores. Se considera además **una URL propia** para entrar al admin | Dominio por cliente (`admin.cliente.com`) apuntando al mismo servidor; correos y textos siguen siendo de DKODING |
+
+**Prioridad acordada:** primero el sitio web completo y montado en el servidor, porque el
+actual es viejo. El producto para clientes y sus wireframes vienen después y esperan luz verde.
