@@ -33,6 +33,13 @@ RewriteRule ^(.*)$ /$1/ [R=301,L]
 
 ErrorDocument 404 /404.html
 
+# Pruebas: cualquier host distinto de dkoding.net (p. ej. nuevo.dkoding.net) va con
+# noindex para que Google no lo indexe. En producción esta cabecera no se envía.
+<IfModule mod_headers.c>
+  SetEnvIf Host "^(www\\.)?dkoding\\.net$" ES_PRODUCCION=1
+  Header always set X-Robots-Tag "noindex, nofollow" env=!ES_PRODUCCION
+</IfModule>
+
 # Caché: estáticos un año; HTML sin caché larga
 <IfModule mod_expires.c>
   ExpiresActive On

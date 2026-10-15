@@ -11,7 +11,8 @@ declare(strict_types=1);
 
 const DESTINO = 'info@dkoding.net';
 const REMITENTE = 'web@dkoding.net';
-const ORIGENES = ['https://dkoding.net', 'https://www.dkoding.net'];
+// Acepta dkoding.net, www y subdominios propios (p. ej. nuevo.dkoding.net para pruebas).
+const ORIGEN_PATRON = '#^https://([a-z0-9-]+\.)?dkoding\.net$#i';
 const MAX_POR_HORA = 8;
 const TIPOS = ['contacto', 'diagnostico', 'cotizacion', 'ticket', 'llamada', 'newsletter'];
 
@@ -30,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 $origen = $_SERVER['HTTP_ORIGIN'] ?? '';
 $esLocal = in_array($_SERVER['SERVER_NAME'] ?? '', ['localhost', '127.0.0.1'], true);
-if (!$esLocal && $origen !== '' && !in_array($origen, ORIGENES, true)) {
+if (!$esLocal && $origen !== '' && !preg_match(ORIGEN_PATRON, $origen)) {
     responder(403, ['ok' => false, 'error' => 'Origen no permitido']);
 }
 
