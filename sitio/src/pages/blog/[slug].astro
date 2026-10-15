@@ -1,0 +1,223 @@
+---
+/**
+ * Artículo del blog: migas, eyebrow con tema, h1, autor y fecha, TL;DR, cuerpo .prose,
+ * FAQ con FAQPage, CTA a la landing y al cotizador, y artículos relacionados.
+ */
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import TarjetaArticulo from '../../components/TarjetaArticulo.astro';
+import { tema as temaDe, fechaLarga, fechaISO, minutosLectura, relacionados, enFrase } from '../../data/blog';
+import { articuloSchema, faqSchema, migasSchema } from '../../data/schema';
+import { waLink } from '../../data/sitio';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content, headings } = await render(post);
+const d = post.data;
+const t = temaDe(d.tema);
+const ruta = `/blog/${post.id}/`;
+const todos = await getCollection('blog');
+const otros = relacionados(post, todos, 3);
+const indice = headings.filter((h) => h.depth === 2);
+const minutos = minutosLectura(post.body);
+const modificado = d.modificado ?? d.publicado;
+const actualizado = modificado.getTime() !== d.publicado.getTime();
+const landingNombre = d.landing === '/' ? 'Desarrollo web' : t.nombre;
+const wa = waLink(`Hola DKODING, leí «${d.titulo}» y quiero una cotización.`);
+
+const migas = [
+  { nombre: 'Inicio', url: '/' },
+  { nombre: 'Blog', url: '/blog/' },
+  { nombre: t.nombre, url: `/blog/tema/${t.slug}/` },
+  { nombre: d.titulo, url: ruta },
+];
+const schema = [
+  articuloSchema({ titulo: d.titulo, descripcion: d.descripcion, url: ruta, publicado: fechaISO(d.publicado), modificado: fechaISO(modificado), autor: d.autor, imagen: d.imagen }),
+  faqSchema(d.faq),
+  migasSchema(migas),
+];
+---
+<Base titulo={d.titulo} descripcion={d.descripcion} ruta={ruta} schema={schema} ogTipo="article" ogImage={d.imagen} publicado={d.publicado.toISOString()} modificado={modificado.toISOString()}>
+  <article>
+    <header class="cabecera section-tight">
+      <div class="container">
+        <nav class="migas" aria-label="Migas de pan">
+          <ol>
+            {migas.slice(0, -1).map((m) => <li><a href={m.url}>{m.nombre}</a></li>)}
+            <li aria-current="page"><span>{d.titulo}</span></li>
+          </ol>
+        </nav>
+        <a class="eyebrow" href={`/blog/tema/${t.slug}/`}>{t.nombre}</a>
+        <h1>{d.titulo}</h1>
+        <p class="lead resumen">{d.descripcion}</p>
+        <div class="meta">
+          <span class="autor">
+            <img src="/img/marca/isotipo.png" alt="" width="36" height="36">
+            {d.autor.url ? <a href={d.autor.url}>{d.autor.nombre}</a> : d.autor.nombre}
+          </span>
+          <span class="muted">Publicado el <time datetime={fechaISO(d.publicado)}>{fechaLarga(d.publicado)}</time></span>
+          {actualizado && <span class="muted">Actualizado el <time datetime={fechaISO(modificado)}>{fechaLarga(modificado)}</time></span>}
+          <span class="muted">{minutos} min de lectura</span>
+        </div>
+      </div>
+    </header>
+
+    {d.imagen && (
+      <div class="container">
+        <img class="portada" src={d.imagen} alt={d.imagenAlt ?? ''} width="1200" height="630" fetchpriority="high">
+      </div>
+    )}
+
+    <div class="container cuerpo">
+      <div class="columna">
+        <aside class="tldr card card-hl" aria-labelledby="tldr-titulo">
+          <p id="tldr-titulo" class="tldr-titulo">En resumen</p>
+          <ul class="chev-list">
+            {d.tldr.map((linea) => <li>{linea}</li>)}
+          </ul>
+        </aside>
+
+        {indice.length > 2 && (
+          <details class="indice">
+            <summary>En este artículo</summary>
+            <ol>
+              {indice.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}
+            </ol>
+          </details>
+        )}
+
+        <div class="prose">
+          <Content />
+        </div>
+
+        <section class="faq" aria-labelledby="faq-titulo">
+          <h2 id="faq-titulo">Preguntas frecuentes</h2>
+          <div class="faq-lista">
+            {d.faq.map((f) => (
+              <details class="faq-item">
+                <summary><span>{f.q}</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      </div>
+
+      <aside class="lateral">
+        <div class="card pegajosa">
+          <p class="eyebrow">{t.corto}</p>
+          <p class="lateral-titulo">¿Lo necesitas para tu negocio?</p>
+          <p class="muted lateral-p">Este artículo lo escribe el equipo que presta el servicio. Mira cómo trabajamos o cotiza en minutos.</p>
+          <div class="lateral-btns">
+            <a class="btn btn-secondary" href={d.landing}>Ver {enFrase(landingNombre)}</a>
+            <a class="btn btn-primary" href="/cotizador/">Cotizar mi proyecto</a>
+            <a class="btn btn-wa" href={wa} target="_blank" rel="noopener">Escribir por WhatsApp</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <section class="section-tight">
+      <div class="container">
+        <div class="card card-violet cta">
+          <div>
+            <p class="eyebrow eyebrow-light">Siguiente paso</p>
+            <h2>¿Hablamos de <strong>tu proyecto</strong>?</h2>
+            <p class="cta-p">Conoce el servicio de {enFrase(landingNombre)} de DKODING en Cali, o usa el cotizador y recibe un rango en minutos, sin dejar tus datos.</p>
+          </div>
+          <div class="cta-btns">
+            <a class="btn btn-light btn-lg" href={d.landing}>Ver {enFrase(landingNombre)}</a>
+            <a class="btn btn-secondary btn-lg claro" href="/cotizador/">Ir al cotizador</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {otros.length > 0 && (
+      <section class="section-tight relacionados" aria-labelledby="rel-titulo">
+        <div class="container">
+          <p class="eyebrow">Sigue leyendo</p>
+          <h2 id="rel-titulo">Artículos <strong>relacionados</strong></h2>
+          <div class="grid grid-3 lista">
+            {otros.map((p) => <TarjetaArticulo post={p} />)}
+          </div>
+        </div>
+      </section>
+    )}
+  </article>
+</Base>
+
+<style>
+  .cabecera { padding-top: clamp(28px, 4vw, 56px); padding-bottom: clamp(24px, 3vw, 40px); }
+  .migas ol { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 10px; font-size: 14px; color: var(--dk-muted); margin-bottom: 20px; }
+  .migas li + li::before { content: '›'; margin-right: 10px; color: var(--dk-muted); }
+  .migas li[aria-current] span { display: inline-block; max-width: 48ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; vertical-align: bottom; }
+  .cabecera .eyebrow { min-height: 44px; }
+  .cabecera h1 { font-size: clamp(34px, 4.4vw, 62px); max-width: 24ch; margin: 4px 0 18px; }
+  .resumen { max-width: 70ch; }
+  .meta { display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center; margin-top: 24px; font-size: 15px; }
+  .autor { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; }
+  .autor img { width: 36px; height: 36px; border-radius: 50%; background: var(--dk-surface-2); padding: 6px; }
+  .autor a { color: var(--dk-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--dk-lila); }
+  .portada { width: 100%; aspect-ratio: 1200 / 630; object-fit: cover; border-radius: var(--r-card); margin-bottom: 32px; }
+
+  .cuerpo { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 48px; align-items: start; padding-bottom: clamp(32px, 4vw, 56px); }
+  .columna { min-width: 0; }
+  @media (max-width: 1024px) { .cuerpo { grid-template-columns: minmax(0, 1fr); gap: 32px; } }
+
+  .tldr { padding: 20px 24px; margin-bottom: 28px; }
+  .tldr-titulo { font-family: var(--font-title); font-weight: 700; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dk-lila-link); margin-bottom: 12px; }
+  .tldr .chev-list li { font-size: 17px; line-height: 1.5; }
+
+  .indice { margin-bottom: 28px; border: 1px solid var(--dk-line); border-radius: var(--r-card); background: var(--dk-surface); }
+  .indice summary { cursor: pointer; min-height: 48px; display: flex; align-items: center; padding: 0 20px; font-weight: 600; list-style: none; }
+  .indice summary::-webkit-details-marker { display: none; }
+  .indice summary::before { content: '»'; color: var(--dk-lila-link); font-family: var(--font-title); font-weight: 700; margin-right: 10px; transition: transform 0.2s ease; }
+  .indice[open] summary::before { transform: rotate(90deg); }
+  .indice ol { padding: 0 20px 16px 40px; display: flex; flex-direction: column; gap: 6px; font-size: 16px; }
+
+  .prose :global(h2) { scroll-margin-top: 96px; }
+  .prose :global(h3) { scroll-margin-top: 96px; }
+  .prose :global(.table-box) { margin-bottom: 1.2em; border: 1px solid var(--dk-line); border-radius: var(--r-card); }
+  .prose :global(.table-box table) { margin-bottom: 0; min-width: 560px; }
+  .prose :global(.table-box th), .prose :global(.table-box td) { padding: 12px 14px; }
+  .prose :global(.table-box tr:last-child td) { border-bottom: 0; }
+  @media (max-width: 720px) {
+    .prose :global(.table-box)::before { content: 'Desliza para ver toda la tabla'; display: block; padding: 8px 14px 0; font-size: 12px; color: var(--dk-muted); }
+  }
+  .prose :global(strong) { color: var(--dk-text); }
+  .prose :global(hr) { border: 0; border-top: 1px solid var(--dk-line); margin: 2em 0; }
+
+  .faq { margin-top: 48px; }
+  .faq h2 { font-size: clamp(28px, 2.8vw, 40px); margin-bottom: 20px; }
+  .faq-lista { display: flex; flex-direction: column; gap: 10px; }
+  .faq-item { border: 1px solid var(--dk-line); border-radius: var(--r-card); background: var(--dk-surface); }
+  .faq-item summary { cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 56px; padding: 12px 20px; font-family: var(--font-title); font-weight: 700; font-size: 19px; line-height: 1.2; list-style: none; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary svg { flex: none; color: var(--dk-lila-link); transition: transform 0.2s ease; }
+  .faq-item[open] summary svg { transform: rotate(180deg); }
+  .faq-item p { padding: 0 20px 18px; color: var(--dk-soft); line-height: 1.6; max-width: 70ch; }
+
+  .pegajosa { position: sticky; top: 96px; }
+  .lateral-titulo { font-family: var(--font-title); font-weight: 700; font-size: 24px; line-height: 1.1; margin: 8px 0 10px; }
+  .lateral-p { font-size: 15px; margin-bottom: 18px; }
+  .lateral-btns { display: flex; flex-direction: column; gap: 10px; }
+  .lateral-btns .btn { width: 100%; }
+
+  .cta { display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; align-items: center; }
+  .cta h2 { font-size: clamp(26px, 2.8vw, 38px); margin: 8px 0 12px; }
+  .eyebrow-light { color: #F0D4FF; }
+  .cta-p { color: rgba(255, 255, 255, 0.85); max-width: 50ch; }
+  .cta-btns { display: flex; flex-direction: column; gap: 12px; }
+  .cta-btns .btn { width: 100%; }
+  .claro { color: #fff; border-color: rgba(255, 255, 255, 0.5); }
+  .claro:hover { border-color: #fff; color: #fff; }
+  @media (max-width: 860px) { .cta { grid-template-columns: 1fr; } }
+
+  .relacionados h2 { margin: 8px 0 24px; }
+  .lista { gap: 18px; }
+</style>

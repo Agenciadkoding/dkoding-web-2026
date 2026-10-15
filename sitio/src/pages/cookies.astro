@@ -1,0 +1,8 @@
+---
+/** Página legal: el texto vive en src/content/legales/cookies.md. */
+import { getEntry } from 'astro:content';
+import MarcoLegal from '../components/MarcoLegal.astro';
+const entry = await getEntry('legales', 'cookies');
+if (!entry) throw new Error('Falta src/content/legales/cookies.md');
+---
+<MarcoLegal entry={entry} ruta="/cookies/" />

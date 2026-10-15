@@ -1,0 +1,89 @@
+---
+/** Portada del blog: lista de artículos con filtros por tema (enlaces a /blog/tema/…). */
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import TarjetaArticulo from '../../components/TarjetaArticulo.astro';
+import { TEMAS, porFecha } from '../../data/blog';
+import { migasSchema } from '../../data/schema';
+import { WA_GENERAL } from '../../data/sitio';
+
+const posts = (await getCollection('blog')).sort(porFecha);
+const [primero, ...resto] = posts;
+const temasConArticulos = TEMAS.map((t) => ({ ...t, n: posts.filter((p) => p.data.tema === t.slug).length })).filter((t) => t.n > 0);
+
+const titulo = 'Blog: guías de desarrollo web, SEO y marketing digital';
+const descripcion = 'Guías prácticas desde Cali sobre páginas web, costos, SEO local, visibilidad en la IA, marketing digital y marca. Escritas por el equipo de DKODING con casos reales.';
+const schema = [migasSchema([{ nombre: 'Inicio', url: '/' }, { nombre: 'Blog', url: '/blog/' }])];
+---
+<Base titulo={titulo} descripcion={descripcion} ruta="/blog/" schema={schema}>
+  <section class="section-tight hero">
+    <div class="container">
+      <nav class="migas" aria-label="Migas de pan">
+        <ol><li><a href="/">Inicio</a></li><li aria-current="page">Blog</li></ol>
+      </nav>
+      <p class="eyebrow">Blog de DKODING</p>
+      <h1>Guías de <strong>desarrollo web, SEO y marketing digital</strong> desde Cali</h1>
+      <p class="lead">Lo que aprendemos en los proyectos, explicado sin humo: cuánto cuesta una página web, cómo salir en Google y en la IA, y qué sí mueve ventas. Cada guía enlaza al servicio que la respalda.</p>
+
+      <nav class="filtros" aria-label="Filtrar por tema">
+        <a class="chip chip-on" href="/blog/" aria-current="page">Todos <span class="n">{posts.length}</span></a>
+        {temasConArticulos.map((t) => (
+          <a class="chip" href={`/blog/tema/${t.slug}/`}>{t.nombre} <span class="n">{t.n}</span></a>
+        ))}
+      </nav>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <h2 class="visually-hidden">Artículos</h2>
+      {posts.length === 0 ? (
+        <p class="lead">Estamos preparando las primeras guías. Mientras tanto, <a href="/cotizador/">cotiza tu proyecto</a>.</p>
+      ) : (
+        <div class="grid grid-3 lista">
+          <div class="span-2"><TarjetaArticulo post={primero} destacada nivel="h3" /></div>
+          {resto.map((p) => <TarjetaArticulo post={p} />)}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="card card-violet cta">
+        <div>
+          <p class="eyebrow eyebrow-light">¿Prefieres que lo hagamos por ti?</p>
+          <h2>Lo que lees aquí es lo que <strong>hacemos cada semana</strong></h2>
+          <p class="cta-p">Cotiza tu página, tu SEO o tu campaña en minutos, o escríbenos por WhatsApp y te orientamos sin compromiso.</p>
+        </div>
+        <div class="cta-btns">
+          <a class="btn btn-light btn-lg" href="/cotizador/">Cotizar mi proyecto</a>
+          <a class="btn btn-wa btn-lg" href={WA_GENERAL} target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero { padding-top: clamp(28px, 4vw, 56px); }
+  .hero h1 { margin: 12px 0 18px; max-width: 18ch; }
+  .migas ol { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 10px; font-size: 14px; color: var(--dk-muted); margin-bottom: 20px; }
+  .migas li + li::before { content: '›'; margin-right: 10px; color: var(--dk-muted); }
+  .filtros { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .chip { color: var(--dk-text); transition: border-color 0.15s ease, background-color 0.15s ease; }
+  .chip:hover { border-color: var(--dk-lila-link); color: var(--dk-text); }
+  .chip-on { background: var(--dk-violet); border-color: var(--dk-violet); color: #fff; }
+  .chip .n { margin-left: 6px; font-size: 12px; color: var(--dk-muted); font-variant-numeric: tabular-nums; }
+  .chip-on .n { color: rgba(255, 255, 255, 0.75); }
+  .lista { gap: 18px; }
+  .span-2 { grid-column: span 2; }
+  @media (max-width: 640px) { .span-2 { grid-column: auto; } }
+  .cta { display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; align-items: center; }
+  .cta h2 { font-size: clamp(26px, 2.8vw, 38px); margin: 8px 0 12px; }
+  .eyebrow-light { color: #F0D4FF; }
+  .cta-p { color: rgba(255, 255, 255, 0.85); max-width: 50ch; }
+  .cta-btns { display: flex; flex-direction: column; gap: 12px; }
+  .cta-btns .btn { width: 100%; }
+  @media (max-width: 860px) { .cta { grid-template-columns: 1fr; } }
+</style>

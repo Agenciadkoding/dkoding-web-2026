@@ -1,0 +1,90 @@
+---
+/** Índice del blog por tema (uno de los 6 servicios). Solo se generan los temas con artículos. */
+import { getCollection } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import TarjetaArticulo from '../../../components/TarjetaArticulo.astro';
+import { TEMAS, porFecha, enFrase } from '../../../data/blog';
+import { migasSchema } from '../../../data/schema';
+import { waLink } from '../../../data/sitio';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return TEMAS.filter((t) => posts.some((p) => p.data.tema === t.slug)).map((t) => ({ params: { tema: t.slug }, props: { tema: t } }));
+}
+
+const { tema } = Astro.props;
+const todos = (await getCollection('blog')).sort(porFecha);
+const posts = todos.filter((p) => p.data.tema === tema.slug);
+const temasConArticulos = TEMAS.map((t) => ({ ...t, n: todos.filter((p) => p.data.tema === t.slug).length })).filter((t) => t.n > 0);
+const ruta = `/blog/tema/${tema.slug}/`;
+
+const titulo = `Artículos de ${enFrase(tema.nombre)}`;
+const descripcion = `Guías de ${enFrase(tema.nombre)} del blog de DKODING, agencia en Cali: ${tema.desc} Lee y, si quieres, cotiza el servicio.`;
+const schema = [migasSchema([{ nombre: 'Inicio', url: '/' }, { nombre: 'Blog', url: '/blog/' }, { nombre: tema.nombre, url: ruta }])];
+const wa = waLink(`Hola DKODING, me interesa el servicio de ${enFrase(tema.nombre)}. ¿Me orientan?`);
+---
+<Base titulo={titulo} descripcion={descripcion} ruta={ruta} schema={schema}>
+  <section class="section-tight hero">
+    <div class="container">
+      <nav class="migas" aria-label="Migas de pan">
+        <ol><li><a href="/">Inicio</a></li><li><a href="/blog/">Blog</a></li><li aria-current="page">{tema.nombre}</li></ol>
+      </nav>
+      <p class="eyebrow">Tema del blog</p>
+      <h1>Artículos de <strong>{enFrase(tema.nombre)}</strong></h1>
+      <p class="lead">{tema.desc} {posts.length === 1 ? 'Una guía' : `${posts.length} guías`} del equipo de DKODING. Si prefieres que lo hagamos por ti, mira el servicio de <a href={tema.url}>{enFrase(tema.nombre)}</a>.</p>
+
+      <nav class="filtros" aria-label="Filtrar por tema">
+        <a class="chip" href="/blog/">Todos <span class="n">{todos.length}</span></a>
+        {temasConArticulos.map((t) => (
+          <a class:list={['chip', { 'chip-on': t.slug === tema.slug }]} href={`/blog/tema/${t.slug}/`} aria-current={t.slug === tema.slug ? 'page' : undefined}>{t.nombre} <span class="n">{t.n}</span></a>
+        ))}
+      </nav>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <h2 class="visually-hidden">Artículos sobre {tema.nombre}</h2>
+      <div class="grid grid-3 lista">
+        {posts.map((p) => <TarjetaArticulo post={p} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="card card-hl cta">
+        <div>
+          <p class="eyebrow">{tema.corto}</p>
+          <h2>¿Necesitas <strong>{enFrase(tema.nombre)}</strong> para tu negocio?</h2>
+          <p class="muted cta-p">Conoce el servicio, cotízalo en minutos o escríbenos. Respondemos en horario hábil desde Cali.</p>
+        </div>
+        <div class="cta-btns">
+          <a class="btn btn-secondary btn-lg" href={tema.url}>Ver el servicio</a>
+          <a class="btn btn-primary btn-lg" href="/cotizador/">Cotizar</a>
+          <a class="btn btn-wa btn-lg" href={wa} target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero { padding-top: clamp(28px, 4vw, 56px); }
+  .hero h1 { margin: 12px 0 18px; }
+  .migas ol { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 10px; font-size: 14px; color: var(--dk-muted); margin-bottom: 20px; }
+  .migas li + li::before { content: '›'; margin-right: 10px; color: var(--dk-muted); }
+  .filtros { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .chip { color: var(--dk-text); transition: border-color 0.15s ease, background-color 0.15s ease; }
+  .chip:hover { border-color: var(--dk-lila-link); color: var(--dk-text); }
+  .chip-on { background: var(--dk-violet); border-color: var(--dk-violet); color: #fff; }
+  .chip .n { margin-left: 6px; font-size: 12px; color: var(--dk-muted); font-variant-numeric: tabular-nums; }
+  .chip-on .n { color: rgba(255, 255, 255, 0.75); }
+  .lista { gap: 18px; }
+  .cta { display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; align-items: center; }
+  .cta h2 { font-size: clamp(26px, 2.8vw, 38px); margin: 8px 0 12px; }
+  .cta-p { max-width: 50ch; }
+  .cta-btns { display: flex; flex-direction: column; gap: 12px; }
+  .cta-btns .btn { width: 100%; }
+  @media (max-width: 860px) { .cta { grid-template-columns: 1fr; } }
+</style>

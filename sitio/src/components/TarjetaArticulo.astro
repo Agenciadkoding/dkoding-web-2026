@@ -1,0 +1,40 @@
+---
+/** Tarjeta de artículo del blog para portada, índices por tema y relacionados. */
+import type { Articulo } from '../data/blog';
+import { tema, fechaCorta, minutosLectura } from '../data/blog';
+
+interface Props { post: Articulo; destacada?: boolean; nivel?: 'h2' | 'h3'; }
+const { post, destacada = false, nivel = 'h3' } = Astro.props;
+const t = tema(post.data.tema);
+const url = `/blog/${post.id}/`;
+const minutos = minutosLectura(post.body);
+const Titulo = nivel;
+---
+<article class:list={['tarjeta', 'card', { 'card-hl': destacada, destacada }]}>
+  <div class="tarjeta-top">
+    <a class="tarjeta-tema" href={`/blog/tema/${t.slug}/`}>{t.nombre}</a>
+    <span class="tarjeta-meta muted">
+      <time datetime={post.data.publicado.toISOString().slice(0, 10)}>{fechaCorta(post.data.publicado)}</time> · {minutos} min
+    </span>
+  </div>
+  <Titulo class="tarjeta-titulo"><a href={url}>{post.data.titulo}</a></Titulo>
+  <p class="tarjeta-desc muted">{post.data.descripcion}</p>
+  <a class="btn-link" href={url} aria-label={`Leer: ${post.data.titulo}`}>Leer el artículo</a>
+</article>
+
+<style>
+  .tarjeta { display: flex; flex-direction: column; gap: 12px; height: 100%; position: relative; transition: border-color 0.2s ease, transform 0.2s ease; }
+  .tarjeta:hover { border-color: var(--dk-line-3); }
+  .tarjeta-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; font-size: 13px; }
+  .tarjeta-tema { display: inline-flex; align-items: center; min-height: 28px; padding: 0 10px; border-radius: var(--r-pill); background: rgba(199, 85, 239, 0.16); color: var(--dk-lila-link); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; font-size: 12px; }
+  .tarjeta-tema:hover { background: rgba(199, 85, 239, 0.28); color: #F0D4FF; }
+  .tarjeta-meta { font-variant-numeric: tabular-nums; }
+  .tarjeta-titulo { font-size: clamp(21px, 1.7vw, 25px); line-height: 1.15; font-weight: 700; }
+  .tarjeta-titulo a { color: var(--dk-text); }
+  .tarjeta-titulo a:hover { color: #F0D4FF; }
+  .destacada .tarjeta-titulo { font-size: clamp(26px, 2.6vw, 38px); font-weight: 300; }
+  .destacada .tarjeta-titulo a strong { font-weight: 700; }
+  .tarjeta-desc { font-size: 16px; line-height: 1.5; flex: 1; text-wrap: pretty; }
+  .destacada .tarjeta-desc { font-size: 17px; max-width: 60ch; }
+  .btn-link { align-self: flex-start; }
+</style>

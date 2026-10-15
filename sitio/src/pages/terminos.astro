@@ -1,0 +1,8 @@
+---
+/** Página legal: el texto vive en src/content/legales/terminos.md. */
+import { getEntry } from 'astro:content';
+import MarcoLegal from '../components/MarcoLegal.astro';
+const entry = await getEntry('legales', 'terminos');
+if (!entry) throw new Error('Falta src/content/legales/terminos.md');
+---
+<MarcoLegal entry={entry} ruta="/terminos/" />

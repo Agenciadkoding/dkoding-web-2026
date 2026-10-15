@@ -1,0 +1,8 @@
+---
+/** Página legal: el texto vive en src/content/legales/politica-de-privacidad.md. */
+import { getEntry } from 'astro:content';
+import MarcoLegal from '../components/MarcoLegal.astro';
+const entry = await getEntry('legales', 'politica-de-privacidad');
+if (!entry) throw new Error('Falta src/content/legales/politica-de-privacidad.md');
+---
+<MarcoLegal entry={entry} ruta="/politica-de-privacidad/" />
