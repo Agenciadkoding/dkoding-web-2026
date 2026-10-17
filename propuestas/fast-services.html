@@ -104,6 +104,9 @@ ul.plain li b { color: var(--ink); font-weight: 600; }
 .opt input { width: 20px; height: 20px; accent-color: var(--accent); margin: 0; flex: none; cursor: pointer; }
 .opt .t { flex: 1; min-width: 0; } .opt .t small { display: block; color: var(--ink-2); font-size: 12.5px; }
 .opt.locked { cursor: default; color: var(--ink-2); } .opt.locked input { accent-color: var(--ink-3); }
+.chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+.chip { font: inherit; font-size: 14px; font-weight: 600; padding: 10px 14px; border-radius: 999px; border: 1px solid var(--line-2); background: var(--surface); color: var(--ink); cursor: pointer; min-height: 44px; }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 .pill { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 3px 8px; border-radius: 6px; background: var(--accent-soft); color: var(--accent); }
 .pill.gold { background: var(--gold-soft); color: var(--gold); }
 .note { font-size: 13.5px; color: var(--ink-2); }
@@ -186,9 +189,9 @@ ul.plain li b { color: var(--ink); font-weight: 600; }
 
   <div class="kpis" aria-label="Resumen de costos">
     <div class="kpi lead">
-      <div class="label">Tienda virtual, una sola vez</div>
-      <div class="value" id="k-once">$2.000.000</div>
-      <div class="when" id="k-once-when">En 3 pagos · valor de lista $6.000.000</div>
+      <div class="label">Catálogo de servicios, una sola vez</div>
+      <div class="value" id="k-once">$1.500.000</div>
+      <div class="when" id="k-once-when">En 2 o 3 pagos · valor de lista $2.400.000</div>
     </div>
     <div class="kpi">
       <div class="label">A DKODING cada mes</div>
@@ -215,8 +218,8 @@ ul.plain li b { color: var(--ink); font-weight: 600; }
   <section id="nuevo">
     <div class="sec-head">
       <p class="eyebrow">Lo nuevo</p>
-      <h2>Que Google además de traer clientes, los deje comprando</h2>
-      <p>Hoy los anuncios llevan gente a una página donde solo puede cotizar. Con tienda, esa misma gente compra a cualquier hora, y los anuncios aprenden de las ventas reales.</p>
+      <h2>Que la web convierta lo que Google trae</h2>
+      <p>Hoy los anuncios llevan a todo el mundo a la misma página. Con el catálogo de servicios, cada visitante aterriza en lo suyo: el que necesita reparación, el que compra para su empresa, el que busca para la casa. Y el blog trae visitas sin pagar por clic.</p>
     </div>
     <div class="cards" id="cards-nuevo"></div>
   </section>
@@ -225,9 +228,10 @@ ul.plain li b { color: var(--ink); font-weight: 600; }
   <section id="pagos">
     <div class="sec-head">
       <p class="eyebrow">Formas de pago</p>
-      <h2>La tienda, en tres pagos</h2>
-      <p id="pagos-lead">Sin intereses. Cada pago coincide con un avance que puedes ver.</p>
+      <h2>El catálogo, en dos o tres pagos</h2>
+      <p id="pagos-lead">Sin intereses. Elige en cuántos meses pagas el catálogo; el sitio queda en línea en la semana 4 de todas formas.</p>
     </div>
+    <div class="chips" role="group" aria-label="Número de pagos" id="chips-pagos"></div>
     <div class="pays" id="pays"></div>
     <div class="gantt" id="gantt" style="margin-top:22px"></div>
   </section>
@@ -251,7 +255,7 @@ ul.plain li b { color: var(--ink); font-weight: 600; }
         <h3>Cómo se paga</h3>
         <ul>
           <li>Servicios mensuales: mes anticipado, dentro de los primeros 5 días, como hasta ahora.</li>
-          <li>Tienda: 3 pagos ligados a avances, por transferencia.</li>
+          <li>Catálogo: 2 o 3 pagos mensuales, sin intereses, por transferencia.</li>
           <li>La inversión en anuncios la paga Fast Services directamente a Google.</li>
           <li>El soporte va incluido mientras el SEO esté activo. Si se suspende el SEO, el soporte se cotiza aparte.</li>
         </ul>
@@ -260,7 +264,7 @@ ul.plain li b { color: var(--ink); font-weight: 600; }
         <h3>Qué no incluye</h3>
         <ul>
           <li>La inversión en anuncios (va a Google).</li>
-          <li>Comisión de la pasarela por venta (~2,99% + $900 + IVA).</li>
+          <li>Carrito, pagos en línea e inventario: se pueden sumar después como tienda.</li>
           <li>Fotografía propia de productos o del taller.</li>
           <li>Integración con software contable o facturación.</li>
         </ul>
@@ -269,8 +273,8 @@ ul.plain li b { color: var(--ink); font-weight: 600; }
     <div class="box" style="margin-top:12px">
       <h3>Qué necesitamos de Fast Services</h3>
       <ul>
-        <li>Lista de referencias Kärcher que venden, con precio y stock inicial.</li>
-        <li>Razón social, NIT y RUT para la pasarela de pagos.</li>
+        <li>Lista de servicios y de líneas Kärcher que venden: industria, profesional y hogar.</li>
+        <li>Fotos del taller y del equipo técnico, si las tienen.</li>
         <li>Una persona que apruebe en cada pago.</li>
       </ul>
     </div>
@@ -280,7 +284,7 @@ ul.plain li b { color: var(--ink); font-weight: 600; }
   <section id="aprobar">
     <div class="approve">
       <h2>¿Arrancamos?</h2>
-      <p>Copia tu selección y envíanosla por WhatsApp. Con eso agendamos el arranque de la tienda.</p>
+      <p>Copia tu selección y envíanosla por WhatsApp. Con eso agendamos el arranque del catálogo.</p>
       <pre class="sum" id="summary"></pre>
       <div class="btns">
         <button class="btn primary" id="copy">Copiar mi selección</button>
@@ -302,7 +306,7 @@ ul.plain li b { color: var(--ink); font-weight: 600; }
   <div class="in">
     <div>
       <div class="lbl">Tu selección</div>
-      <div class="v"><span id="sticky-once">$2.000.000</span> <small id="sticky-rec">+ $800.000/mes</small></div>
+      <div class="v"><span id="sticky-once">$1.500.000</span> <small id="sticky-rec">+ $800.000/mes</small></div>
     </div>
     <a class="btn primary" href="#aprobar">Aprobar</a>
   </div>
@@ -314,8 +318,8 @@ ul.plain li b { color: var(--ink); font-weight: 600; }
    ===================================================================== */
 const PROPUESTA = {
   cliente: "Fast Services",
-  titulo: "Fast Services: de cotizar por WhatsApp a vender en línea",
-  lead: "Mantienes los anuncios que ya funcionan, sumas SEO con contenido y abres una tienda Kärcher en línea con inventario y pagos. Precio especial de cliente activo.",
+  titulo: "Fast Services: que te encuentren por lo que mejor haces",
+  lead: "Mantienes los anuncios que ya funcionan, sumas SEO con contenido y renuevas la web como un catálogo de servicios: servicio técnico al frente, landing para industria y profesional, y un blog que trabaja para Google. Precio especial de cliente activo.",
   fecha: "15 oct 2026",
   vigencia: "Vigente hasta 14 nov 2026",
   inversionGoogle: 800000,
@@ -326,7 +330,7 @@ const PROPUESTA = {
       "Revisión y ajustes semanales; reporte mensual",
       "Inversión actual en Google: $800.000 al mes, pagada directo a Google",
     ],
-    nota: "Cuando la tienda esté en línea, los anuncios empiezan a medir ventas reales, no solo mensajes. Ahí conviene revisar la inversión.",
+    nota: "Con el nuevo catálogo, cada anuncio aterriza en su página (servicio técnico, industria o profesional) y se mide cada cotización que llega. Ahí conviene revisar la inversión.",
   },
   nuevos: [
     {
@@ -337,25 +341,27 @@ const PROPUESTA = {
         ["Páginas y fichas de producto afinadas", "títulos, descripciones y velocidad"],
         ["Reporte mensual", "posiciones, visitas y qué contenido trae clientes"],
       ],
-      bonus: { t: "Soporte incluido", p: "Mientras el SEO esté activo, el soporte de la web y de la tienda va sin costo: cambios de precios, fotos, promociones, actualizaciones y cualquier falla." },
-      toggle: { label: "Incluir SEO con soporte", small: "Recomendado desde el primer mes de la tienda." },
+      bonus: { t: "Soporte incluido", p: "Mientras el SEO esté activo, el soporte de la web y del catálogo va sin costo: cambios de precios, fotos, promociones, actualizaciones y cualquier falla." },
+      toggle: { label: "Incluir SEO con soporte", small: "Recomendado desde el primer mes del catálogo." },
     },
     {
-      id: "tienda", color: 2, nombre: "Tienda virtual Kärcher", sub: "Inventario, carrito y pagos, conectada al admin DKODING", precio: 2000000, lista: 6000000, per: "una sola vez · 3 pagos",
+      id: "catalogo", color: 2, nombre: "Catálogo de servicios", sub: "Servicio técnico al frente, industria y profesional como landing, blog para SEO", precio: 1500000, lista: 2400000, per: "una sola vez · 2 o 3 pagos",
       incluye: [
-        ["Catálogo con inventario", "cada referencia con stock, precio, fotos y ficha técnica"],
-        ["Carrito y pasarela de pagos", "tarjetas, PSE y Nequi"],
-        ["Admin DKODING", "productos, inventario y pedidos desde el mismo panel"],
-        ["Medición de ventas para Google Ads", "los anuncios ven qué vende y optimizan hacia eso"],
-        ["SEO técnico de base", "fichas de producto listas para Google"],
+        ["Página de servicio técnico", "la puerta principal: qué reparan, tiempos, garantía y botón directo a WhatsApp"],
+        ["Landing para industria y profesional", "catálogo por tipo de empresa y necesidad, con solicitud de cotización en cada equipo"],
+        ["Línea hogar, en segundo plano", "catálogo sencillo para uso ocasional, sin quitarle protagonismo a lo industrial"],
+        ["Blog listo para SEO", "categorías y plantilla de artículo donde van los 2 contenidos mensuales"],
+        ["Admin DKODING", "servicios, equipos y artículos desde el mismo panel"],
+        ["SEO técnico y medición", "páginas rápidas, datos estructurados y seguimiento de cada cotización y llamada que llega desde Google"],
       ],
-      bonus: { t: "Plus: catálogo oficial Kärcher", p: "Importamos el catálogo oficial de Kärcher, completo o solo las líneas que vendes, con fotos y descripciones. Tú defines precios y stock." },
-      toggle: { label: "Incluir la tienda virtual", small: "Precio especial de cliente activo, vigente hasta el 14 nov 2026." },
-      cuotas: [
-        { t: "Al firmar", d: "Arranca el diseño y la importación del catálogo", v: 700000, semana: 1 },
-        { t: "Semana 2", d: "Tienda navegable con catálogo cargado para revisar", v: 700000, semana: 2 },
-        { t: "Semana 4 · entrega", d: "Pagos probados, tienda en línea", v: 600000, semana: 4 },
-      ],
+      bonus: { t: "Plus: catálogo oficial Kärcher", p: "Importamos las fichas del catálogo oficial de Kärcher, completas o solo las líneas que vendes, con fotos y descripciones. Tú defines qué se muestra." },
+      toggle: { label: "Incluir el catálogo de servicios", small: "Precio especial de cliente activo, vigente hasta el 14 nov 2026." },
+      pagos: {
+        opciones: [2, 3], inicial: 3,
+        planes: { 2: [750000, 750000], 3: [500000, 500000, 500000] },
+        etiquetas: ["Al firmar", "Mes 2", "Mes 3"],
+        detalles: ["Arranca el diseño: servicio técnico y landing industrial", "El sitio ya está en línea desde la semana 4", "Último pago, con el sitio ya trabajando"],
+      },
       semanas: 4,
     },
   ],
@@ -367,7 +373,9 @@ const fmt = n => "$" + Math.round(n).toLocaleString("es-CO");
 const $ = s => document.querySelector(s);
 const sel = new Set(PROPUESTA.nuevos.map(s => s.id));
 const seo = () => PROPUESTA.nuevos.find(s => s.id === "seo");
-const tienda = () => PROPUESTA.nuevos.find(s => s.id === "tienda");
+const catalogo = () => PROPUESTA.nuevos.find(s => s.id === "catalogo");
+let nPagos = catalogo().pagos.inicial;
+const cuotasDe = () => { const P = catalogo().pagos; return P.planes[nPagos].map((v, i) => ({ t: P.etiquetas[i], d: P.detalles[i], v })); };
 
 function card(s, opts = {}) {
   const on = opts.on ?? true;
@@ -397,13 +405,13 @@ function renderCards() {
 
 function update() {
   const ads = PROPUESTA.actual.precio, inv = PROPUESTA.inversionGoogle;
-  const seoOn = sel.has("seo"), tOn = sel.has("tienda");
+  const seoOn = sel.has("seo"), tOn = sel.has("catalogo");
   const fee = ads + (seoOn ? seo().precio : 0);
-  const once = tOn ? tienda().precio : 0;
-  const cuotas = tOn ? tienda().cuotas : [];
+  const once = tOn ? catalogo().precio : 0;
+  const cuotas = tOn ? cuotasDe() : [];
 
   $("#k-once").textContent = tOn ? fmt(once) : "—";
-  $("#k-once-when").textContent = tOn ? `En 3 pagos · valor de lista ${fmt(tienda().lista)}` : "No incluida en esta selección";
+  $("#k-once-when").textContent = tOn ? `En ${nPagos} pagos · valor de lista ${fmt(catalogo().lista)}` : "No incluido en esta selección";
   $("#k-fee").textContent = fmt(fee);
   $("#k-fee-when").textContent = seoOn ? "Google Ads + SEO con soporte" : "Solo Google Ads · soporte se cotiza aparte";
   $("#k-inv").textContent = fmt(inv);
@@ -411,16 +419,18 @@ function update() {
   $("#sticky-rec").textContent = `+ ${fmt(fee)}/mes`;
 
   // cuotas + cronograma
-  $("#pagos-lead").textContent = tOn ? "Sin intereses. Cada pago coincide con un avance que puedes ver." : "La tienda no está en esta selección. Márcala arriba para ver los pagos.";
+  $("#pagos-lead").textContent = tOn ? "Sin intereses. Elige en cuántos meses pagas el catálogo; el sitio queda en línea en la semana 4 de todas formas." : "El catálogo no está en esta selección. Márcalo arriba para ver los pagos.";
+  $("#chips-pagos").innerHTML = tOn ? catalogo().pagos.opciones.map(n => `<button class="chip" data-n="${n}" aria-pressed="${n === nPagos}">${n} pagos</button>`).join("") : "";
+  document.querySelectorAll("#chips-pagos .chip").forEach(b => b.addEventListener("click", () => { nPagos = +b.dataset.n; update(); }));
   $("#pays").innerHTML = cuotas.map((c, i) => `<div class="pay"><div class="n">${i + 1}</div><div class="body">
       <div class="row"><b>${c.t}</b><span class="amt num">${fmt(c.v)}</span></div><div class="desc">${c.d}</div></div></div>`).join("");
   if (tOn) {
-    const W = tienda().semanas;
+    const W = catalogo().semanas;
     const weeks = `<div></div><div class="weeks">${Array.from({ length: W }, (_, i) => `<span>${i + 1}</span>`).join("")}</div>`;
-    const fases = [["Diseño y catálogo", 1, 2], ["Pasarela de pagos", 2, 3], ["Pruebas y entrega", 3, 4]];
+    const fases = [["Servicio técnico", 1, 2], ["Catálogo y blog", 2, 3], ["SEO y entrega", 3, 4]];
     const rows = fases.map(([n, a, b]) => `<div class="lbl">${n}</div><div class="track">${Array.from({ length: W }, (_, i) => `<i class="${i + 1 >= a && i + 1 <= b ? "on" : ""}"></i>`).join("")}</div>`).join("");
-    const pagos = `<div class="lbl" style="color:var(--gold);font-weight:600">Pagos</div><div class="track">${Array.from({ length: W }, (_, i) => `<i class="${cuotas.some(c => c.semana === i + 1) ? "go" : ""}"></i>`).join("")}</div>`;
-    $("#gantt").innerHTML = weeks + rows + pagos;
+    const entrega = `<div class="lbl" style="color:var(--gold);font-weight:600">En línea</div><div class="track">${Array.from({ length: W }, (_, i) => `<i class="${i + 1 === W ? "go" : ""}"></i>`).join("")}</div>`;
+    $("#gantt").innerHTML = weeks + rows + entrega;
   } else $("#gantt").innerHTML = "";
 
   // 3 meses
@@ -429,7 +439,7 @@ function update() {
     const segs = [
       { k: "k0", n: "Google Ads", v: ads, on: true },
       { k: "k1", n: "SEO con soporte", v: seoOn ? seo().precio : 0, on: seoOn },
-      { k: "k2", n: "Tienda (pago " + m + ")", v: cuota, on: tOn && cuota > 0 },
+      { k: "k2", n: "Catálogo (pago " + m + ")", v: cuota, on: tOn && cuota > 0 },
       { k: "kx", n: "Inversión en Google", v: inv, on: true },
     ];
     const tot = segs.reduce((a, s) => a + (s.on ? s.v : 0), 0);
@@ -442,15 +452,15 @@ function update() {
   $("#legend").innerHTML = [
     { k: "k0", n: "Google Ads", v: fmt(ads) + " / mes", on: true },
     { k: "k1", n: "SEO con soporte", v: seoOn ? fmt(seo().precio) + " / mes" : "no incluido", on: seoOn },
-    { k: "k2", n: "Tienda virtual", v: tOn ? fmt(once) + " en 3 pagos" : "no incluida", on: tOn },
+    { k: "k2", n: "Catálogo de servicios", v: tOn ? fmt(once) + ` en ${nPagos} pagos` : "no incluido", on: tOn },
     { k: "kx", n: "Inversión en Google", v: fmt(inv) + " / mes", on: true },
   ].map(s => `<li class="${s.on ? "" : "off"}"><span class="sw ${s.k}"></span><span>${s.n} <b class="num">${s.v}</b></span></li>`).join("");
-  $("#meses-after").textContent = `Desde el mes 4: ${fmt(fee)} a DKODING y ${fmt(inv)} a Google cada mes${tOn ? ", con la tienda ya pagada" : ""}.`;
+  $("#meses-after").textContent = `Desde el mes ${tOn ? nPagos + 1 : 1}: ${fmt(fee)} a DKODING y ${fmt(inv)} a Google cada mes${tOn ? ", con el catálogo ya pagado" : ""}.`;
 
   // resumen
   const L = [`Propuesta DKODING · ${PROPUESTA.cliente}`, ``, `✓ Google Ads administrado · ${fmt(ads)} al mes (sigue igual)`];
   if (seoOn) L.push(`✓ SEO complementario con soporte incluido · ${fmt(seo().precio)} al mes`);
-  if (tOn) L.push(`✓ Tienda virtual Kärcher · ${fmt(once)} una sola vez, en 3 pagos (${cuotas.map(c => fmt(c.v)).join(" + ")})`, `   + Plus: importación del catálogo oficial Kärcher`);
+  if (tOn) L.push(`✓ Catálogo de servicios · ${fmt(once)} una sola vez, en ${nPagos} pagos (${cuotas.map(c => fmt(c.v)).join(" + ")})`, `   + Plus: importación del catálogo oficial Kärcher`);
   L.push(``, `A DKODING cada mes: ${fmt(fee)}`, `A Google cada mes: ${fmt(inv)} (inversión en anuncios)`);
   const txt = L.join("\n");
   $("#summary").textContent = txt;
